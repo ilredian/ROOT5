@@ -110,7 +110,7 @@
 											<a href="signin.go">회원가입</a>
 										</p>
 										<p>
-											<a href="#">비밀번호 찾기</a>
+											<a href="pwSearch.go">비밀번호 찾기</a>
 										</p>
 									</div>
 								</div>
@@ -126,7 +126,7 @@
 						</button>
 						<button type="submit" class="btn btn-default"
 							style="margin-right: 50px; margin-top: 10px">
-							<a href="pw_search.jsp"> <span
+							<a href="pwSearch.go"> <span
 								class="glyphicon glyphicon-log-in"></span> 비밀번호 찾기
 							</a>
 						</button>

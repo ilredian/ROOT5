@@ -11,4 +11,9 @@ public class JoinController {
 		System.out.println("회원가입 창 이동");
 		return "join.signin";
 	}
+	
+	@RequestMapping("pwSearch.go")
+	public String pwSearch(){
+		return "join.pwSearch";
+	}
 }
