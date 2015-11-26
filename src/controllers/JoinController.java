@@ -8,6 +8,7 @@ public class JoinController {
 
 	@RequestMapping("signin.go")
 	public String Singin(){
+		System.out.println("회원가입 창 이동");
 		return "join.signin";
 	}
 }

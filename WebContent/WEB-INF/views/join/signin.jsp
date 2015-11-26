@@ -16,7 +16,6 @@
 
 </head>
 <body>
-	<% pageContext.include("/include/header.jsp"); %>
 	<div class="display" style="background-image: url('include/nav.jpg');">
 	<div class="container" style="margin: auto; padding: 20px; vertical-align: middle; height: 100%; width: 100%;">
 		<div style="text-align: center; color: white;">

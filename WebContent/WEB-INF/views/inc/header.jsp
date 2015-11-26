@@ -120,7 +120,7 @@
 						<!--  -->
 						<button type="submit" class="btn btn-default"
 							style="margin-right: 50px; margin-top: 10px">
-							<a href="signin.jsp"> <span
+							<a href="signin.go"> <span
 								class="glyphicon glyphicon-log-in"></span> 회원가입
 							</a>
 						</button>
