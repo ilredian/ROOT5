@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+">
+	<!-- 빈객체 생성 및 조립 (주입) -->
+	<context:component-scan base-package="controllers" />
+
+	<!-- 게시판 관련 : DAO , controller -->
+	<!--  Mybatis 인해 필요 없어졌어요 -->
+	<!-- <bean id="noticedao" class="dao.NewNoticeDao"></bean> -->
+	<!-- 회원관련 : DAO , Controller -->
+<!-- 	<bean id="newMemberDao" class="dao.NewMemberDao"></bean> -->
+	<!-- 대문 페이지 관련 -->
+
+   <!-- Tiles START -->
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/Tiles.xml</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="urlBasedViewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles2.TilesView" />
+	</bean>
+	
+	<!-- Tiles END   -->
+</beans>
+
+
+
+
+
+
+
+
