@@ -107,7 +107,7 @@
 											<span class="glyphicon glyphicon-remove"></span> 닫기
 										</button>
 										<p>
-											<a href="signin.jsp">회원가입</a>
+											<a href="signin.go">회원가입</a>
 										</p>
 										<p>
 											<a href="#">비밀번호 찾기</a>
