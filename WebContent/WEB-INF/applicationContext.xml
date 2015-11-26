@@ -19,6 +19,16 @@ http://www.springframework.org/schema/context/spring-context.xsd
 		<property name="dataSource" ref="driverManagerDataSource" />
 	</bean>
 
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	  <property name="dataSource" ref="dataSource" />
+	  <property name="mapperLocations" value="classpath:com/blog/dao/mybatis/map/*.xml" />
+	  <property name="configLocation" value="/WEB-INF/mybatis/mybatis-config.xml" />
+	  <property name="transactionFactory">
+	    	<bean class="org.apache.ibatis.transaction.managed.ManagedTransactionFactory" />
+	  	</property>
+	</bean>
+
+
 	<!-- 공통빈 -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -31,6 +41,13 @@ http://www.springframework.org/schema/context/spring-context.xsd
 		<property name="dataSource" ref="driverManagerDataSource" />
 		<property value="classpath*:mapper/*xml" name="mapperLocations" />
 	</bean>
+
+	<!-- member dao에 설정 -->
+	
+	<bean id="newMemberDAO" class="DAO.NewMemberDAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+
 
 
 	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">

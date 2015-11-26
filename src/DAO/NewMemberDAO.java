@@ -10,10 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
-
+import org.mybatis.spring.support.SqlSessionDaoSupport;
 import DTO.MemberDTO;
-
-public class NewMemberDAO implements MemberDAO{
+import DAO.MemberDAO;
+public class NewMemberDAO extends SqlSessionDaoSupport implements MemberDAO{
 	
 	private JdbcTemplate template;
 	@Autowired
@@ -22,8 +22,10 @@ public class NewMemberDAO implements MemberDAO{
 	}
 	
 	@Override
-	public MemberDTO getMember(String EMAIL) throws ClassNotFoundException, SQLException {
-		List<MemberDTO> results = template.query(
+	public MemberDTO getMember(String Email) throws ClassNotFoundException, SQLException {
+		return (MemberDTO) getSqlSession().selectOne("MemberDAO.getMember",Email);
+		
+		/*		List<MemberDTO> results = template.query(
 				"SELECT * FROM MEMBER WHERE email=?",
 				new RowMapper<MemberDTO>() {
 					@Override
@@ -40,12 +42,12 @@ public class NewMemberDAO implements MemberDAO{
 				},
 				EMAIL);
 
-		return results.isEmpty() ? null : results.get(0);
+		return results.isEmpty() ? null : results.get(0);*/
 	}
 
 	@Override
 	public int insert(final MemberDTO member) throws ClassNotFoundException, SQLException {
-		 return	template.update(new PreparedStatementCreator() {
+/*		 return	template.update(new PreparedStatementCreator() {
 				@Override
 				public PreparedStatement createPreparedStatement(Connection con)
 						throws SQLException {
@@ -60,9 +62,10 @@ public class NewMemberDAO implements MemberDAO{
 				}
 			});
 			
-	}
+	}*/
 
-		
+		return (Integer) getSqlSession().selectOne("MemberDAO.insert",member);
+	}
 	
 	
 	
