@@ -12,7 +12,6 @@ public interface MemberDAO {
 	//회원가입
 	public int insert(MemberDTO member) throws ClassNotFoundException, SQLException;
 	
-	//
 	
 	
 }
