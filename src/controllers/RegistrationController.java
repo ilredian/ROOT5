@@ -8,6 +8,7 @@ public class RegistrationController {
 
 	@RequestMapping("registration.go")
 	public String registration(){
+		System.out.println("피해 진술 이동");
 		return "registration.registration";
 	}
 }
