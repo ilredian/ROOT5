@@ -51,7 +51,7 @@
 			<ul class="nav navbar-nav">
 				<li><a href="index.jsp">검색</a></li>
 				<li><a href="registration.go">피해등록 </a></li>
-				<li><a href="home.jsp">홈</a></li>
+				<li><a href="home.go">홈</a></li>
 			</ul>
 
 			<form class="nav navbar-nav navbar-right">

@@ -26,13 +26,11 @@ http://www.springframework.org/schema/context/spring-context.xsd
 	  	</property>
 	</bean>
 
-
 	<!-- 공통빈 -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="10485760" />
 	</bean>
-
 
 	<!-- Mybatis 설정 -->
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactoryBean">
@@ -45,8 +43,6 @@ http://www.springframework.org/schema/context/spring-context.xsd
 	<bean id="newMemberDAO" class="DAO.NewMemberDAO">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-
-
 
 	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
 		<constructor-arg ref="sqlSessionFactoryBean" index="0" />
