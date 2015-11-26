@@ -8,7 +8,7 @@
 	</select>
 
 
-<insert id="insert" parameterType="">
+<insert id="insert" parameterType="DTO.MemberDTO">
 INSERT INTO MEMBER(email, PWD, name, cPhone) values(#{email},#{pwd},#{name},#{cPhone})
 </insert>
 
