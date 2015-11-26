@@ -11,7 +11,7 @@ import DTO.BoardDTO;
 @Controller
 public class BoardController {
 
-	@Autowired
+	@Autowired(required=false)
 	private BoardDAO boardDAO;
 	
 	@RequestMapping()

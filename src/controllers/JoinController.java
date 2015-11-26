@@ -11,7 +11,7 @@ import DTO.MemberDTO;
 @Controller
 public class JoinController {
 
-	@Autowired
+	@Autowired(required=false)
 	private MemberDAO memberDAO;
 	
 	@RequestMapping(value="signin.go" , method=RequestMethod.GET)
