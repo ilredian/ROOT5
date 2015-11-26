@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="DAO;">
+<select id="getMember">
+ SELECT * FROM MEMBER WHERE email={$EMAIL}
+</select>
+
+<INSERT id="insert">
+
+</INSERT>
+
+
+</mapper>
