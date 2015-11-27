@@ -5,14 +5,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import DAO.BoardDAO;
-import DTO.BoardDTO;
+import DAO.BoardFreeDAO;
+import DAO.BoardNoticeDAO;
+import DTO.BoardFreeDTO;
 
 @Controller
 public class BoardController {
 
 	@Autowired(required=false)
-	private BoardDAO boardDAO;
+	private BoardFreeDAO boardFreeDAO;
+	
+	@Autowired(required=false)
+	private BoardNoticeDAO boardNoticeDAO;
 	
 	@RequestMapping()
 	public String freeMain(){
@@ -27,7 +31,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="" , method=RequestMethod.GET)
-	public String freeWrite(BoardDTO boardDTO){
+	public String freeWrite(BoardFreeDTO boardDTO){
 		System.out.println("자유게시판 글쓰기 이동");
 		return "";
 	}
@@ -51,7 +55,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="" , method=RequestMethod.GET)
-	public String noticeWriteView(BoardDTO boardDTO){
+	public String noticeWriteView(BoardFreeDTO boardDTO){
 		System.out.println("공지사항 글쓰기 이동");
 		return "";
 	}
