@@ -37,7 +37,7 @@
 					<div class="sec1" style="float: left; margin-left: 70px">
 						<h5>
 							<a
-								href="http://thecheat.co.kr/?m=bbs&bid=cheat&type=cheat&mod=write"><img
+								href="trade.go"><img
 								src="img/c.PNG" alt="직거래"></a>
 						</h5>
 						<div class="cont" style="margin-left: 20px;">
@@ -54,7 +54,7 @@
 								<li>보이스피싱</li>
 							</ul>
 							<a
-								href="http://thecheat.co.kr/?m=bbs&bid=cheat&type=cheat&mod=write"
+								href="trade.go"
 								class="btnGo"><img src="img/e.PNG" alt="직거래 피혜사례 등록"></a>
 						</div>
 					</div>
@@ -65,7 +65,7 @@
 					<div class="sec2" style="float: left; margin-left: 10px">
 						<h5>
 							<a
-								href="http://thecheat.co.kr/?m=bbs&bid=cheat&type=cheat&mod=write"><img
+								href="game.go"><img
 								src="img/c.PNG" alt="직거래"></a>
 						</h5>
 						<div class="cont" style="margin-left: 20px;">
@@ -81,7 +81,7 @@
 
 							</ul>
 							<a
-								href="http://thecheat.co.kr/?m=bbs&bid=cheat&type=cheat&mod=write"
+								href="game.go"
 								class="btnGo"><img src="img/game2.PNG" alt="직거래 피혜사례 등록" style="margin-top: 40px"></a>
 						</div>
 					</div>
@@ -91,7 +91,7 @@
 					<div class="sec3" style="float: left; margin-left: 10px">
 						<h5>
 							<a
-								href="http://thecheat.co.kr/?m=bbs&bid=cheat&type=cheat&mod=write"><img
+								href="manner.go"><img
 								src="img/c.PNG" alt="직거래"></a>
 						</h5>
 						<div class="cont" style="margin-left: 20px;">
@@ -107,7 +107,7 @@
 
 							</ul>
 							<a
-								href="http://thecheat.co.kr/?m=bbs&bid=cheat&type=cheat&mod=write"
+								href="manner.go"
 								class="btnGo"><img src="img/bme2.PNG" alt="비매너 피혜사례 등록" style="margin-top: 35px"></a>
 						</div>
 					</div>
@@ -117,7 +117,7 @@
 					<div class="sec4" style="float: left; margin-left: 10px">
 						<h5>
 							<a
-								href="http://thecheat.co.kr/?m=bbs&bid=cheat&type=cheat&mod=write"><img
+								href="#"><img
 								src="img/c.PNG" alt="직거래"></a>
 						</h5>
 						<div class="cont" style="margin-left: 20px;">
@@ -130,7 +130,7 @@
 
 							</ul>
 							<a
-								href="http://thecheat.co.kr/?m=bbs&bid=cheat&type=cheat&mod=write"
+								href="#"
 								class="btnGo"><img src="img/phon2.PNG" alt="대포폰 피혜사례 등록" style="margin-top: 100px"></a>
 						</div>
 					</div>
