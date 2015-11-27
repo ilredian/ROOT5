@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+
+tr, th, td{
+	 text-align: center;
+}
+
+.number, .writer, .date, .count
+{
+	width: 10%;
+	text-align: center;
+}
+
+.subject
+{
+	width:60%;
+	text-align: center;
+}
+
+.content
+{
+	text-align: left;	
+}

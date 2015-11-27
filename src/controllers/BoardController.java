@@ -14,17 +14,17 @@ public class BoardController {
 		return "home.boardFree.freeMain";
 	}
 	
-	@RequestMapping()
+	@RequestMapping("freeView.go")
 	public String freeView(){
 		return "home.boardFree.freeView";
 	}
 	
-	@RequestMapping(value="" , method=RequestMethod.GET)
+	@RequestMapping(value="freeWrite.go" , method=RequestMethod.GET)
 	public String freeWrite(BoardFreeDTO boardDTO){
 		return "home.boardFree.freeWrite";
 	}
 	
-	@RequestMapping(value="" , method=RequestMethod.POST)
+	@RequestMapping(value="freeWrite.go" , method=RequestMethod.POST)
 	public String freeWrite(){
 		return "home.boardFree.freeMain";
 	}

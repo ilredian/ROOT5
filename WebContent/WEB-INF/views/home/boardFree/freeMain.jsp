@@ -8,17 +8,17 @@
     <thead>
       <tr>
         <th class="number">번호</th>
-        <th>작성자</th>
+        <th class="writer">작성자</th>
         <th class="subject">제목</th>
-        <th>등록일</th>
-        <th>조회</th>
+        <th class="date">등록일</th>
+        <th class="count">조회</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>1</td>
         <td>aqua</td>
-        <td>test</td>
+        <td class="content"><a href="freeView.go?page=1&contentNo=1">test</a></td>
         <td>2015.11.27</td>
         <td>0</td>
       </tr>
