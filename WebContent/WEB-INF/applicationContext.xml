@@ -7,22 +7,23 @@ http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd
 ">
-	
-	<bean id="driverManagerDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+	<bean id="driverManagerDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://192.168.0.19:3306/naver"></property>
 		<property name="username" value="minion"></property>
 		<property name="password" value="1004"></property>
 	</bean>
 
-<!-- mybatis -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-	  <property name="dataSource" ref="driverManagerDataSource" />
-	  <property name="mapperLocations" value="classpath:mapper/*.xml" />
-	  <property name="configLocation" value="/WEB-INF/mybatis-config.xml" />
-	  <property name="transactionFactory">
-	    	<bean class="org.apache.ibatis.transaction.managed.ManagedTransactionFactory" />
-	  	</property>
+		<property name="dataSource" ref="driverManagerDataSource" />
+		<property name="mapperLocations" value="classpath:mapper/*.xml" />
+		<property name="configLocation" value="/WEB-INF/mybatis-config.xml" />
+		<property name="transactionFactory">
+			<bean
+				class="org.apache.ibatis.transaction.managed.ManagedTransactionFactory" />
+		</property>
 	</bean>
 
 	<!-- 공통빈 -->
@@ -37,6 +38,9 @@ http://www.springframework.org/schema/context/spring-context.xsd
 		<property value="classpath*:mapper/*xml" name="mapperLocations" />
 	</bean>
 
+	<!-- member dao에 설정 -->
+	<!-- <bean id="newMemberDAO" class="DAO.NewMemberDAO"> <property name="sqlSessionFactory" 
+		ref="sqlSessionFactory" /> </bean> -->
 	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
 		<constructor-arg ref="sqlSessionFactoryBean" index="0" />
 	</bean>

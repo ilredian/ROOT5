@@ -1,5 +1,8 @@
 package controllers;
 
+import java.sql.SQLException;
+
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,25 +13,41 @@ import DTO.MemberDTO;
 
 @Controller
 public class JoinController {
-
-	@Autowired(required=false)
-	private MemberDAO memberDAO;
+	
+	@Autowired
+	private SqlSession sqlSession;
 	
 	@RequestMapping(value="signin.go" , method=RequestMethod.GET)
 	public String Singin(){
-		System.out.println("È¸¿ø°¡ÀÔ Ã¢ ÀÌµ¿");
+		System.out.println("íšŒì›ê°€ì… í˜ì´ì§€ ìš”ì²­");
 		return "join.signin";
 	}
 	
 	@RequestMapping(value="signin.go" , method=RequestMethod.POST)
-	public String Singin(MemberDTO memberDTO){
-		System.out.println("È¸¿ø°¡ÀÔ ·ÎÁ÷");
-		return "join.signin";
+	public String Singin(MemberDTO memberDTO) throws ClassNotFoundException, SQLException{
+		System.out.println("íšŒì›ê°€ì…ì™„ë£Œ");
+		//ê°€ì…ì²˜ë¦¬ (DAO ë‹¨)
+		System.out.println(memberDTO.toString());
+		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
+		int row = memberDAO.insert(memberDTO);
+		System.out.println(row);
+
+		return "redirect:../index.htm";
 	}
 	
 	@RequestMapping("pwSearch.go")
 	public String pwSearch(){
-		System.out.println("ºñ¹Ğ¹øÈ£ Ã£±â Ã¢ ÀÌµ¿");
+		System.out.println("ï¿½ï¿½Ğ¹ï¿½È£ Ã£ï¿½ï¿½ Ã¢ ï¿½Ìµï¿½");
 		return "join.pwSearch";
 	}
+	
+	/*
+	@RequestMapping("member.go")
+	public String SingOK(MemberDTO member) throws ClassNotFoundException, SQLException{
+		System.out.println("íšŒì›ê°€ì…ì™„ë£Œ");
+		memberDAO.insert(member);
+		return "redirect:../index.htm";
+	}
+*/
+
 }
