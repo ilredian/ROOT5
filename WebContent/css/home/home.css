@@ -1,1 +1,13 @@
 @CHARSET "UTF-8";
+
+tr, th, td{
+	 text-align: center;
+}
+
+.number{
+	width: 10%;
+}
+
+.subject{
+	width:50%;
+}
