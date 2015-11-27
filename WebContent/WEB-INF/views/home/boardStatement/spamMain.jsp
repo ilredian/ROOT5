@@ -54,7 +54,7 @@
 			</div>
 		</div>
 		<div class="container">
-			<!-- <table class="table table-hover table-responsive">
+			<table class="table table-hover table-responsive">
 				<thead>
 					<tr>
 						<th>번호</th>
@@ -74,10 +74,10 @@
 						<td>111-1111-1111-1110</td>
 						<td>010-1234-5678</td>
 						<td>2015.10.10</td>
-						<td><button type="submit"><a href="#">자세히 보기</a></button></td>
+						<td><button type="submit"><a href="spamView.jsp">자세히 보기</a></button></td>
 					</tr>
 				</tbody>
-			</table> -->
+			</table>
 		</div>
 		<div style="float: left;">
 			<button id="list">

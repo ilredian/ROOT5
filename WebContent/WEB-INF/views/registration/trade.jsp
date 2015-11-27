@@ -1,23 +1,31 @@
-<!-- Á÷°Å·¡ -->
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<!-- ì§ê±°ëž˜ -->
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <style type="text/css">
 label {
 	font-size: 10px
 }
 </style>
-<h1>Á÷°Å·¡ ÇÇÇØ»ç·Ê µî·Ï</h1>
-<p>ÇÇÇØ»ç·Ê µî·ÏÀÌ ¿Ï·áµÇ¸é ÇÇÇØÀÚ¸¦ À§ÇÑ ±â´ÉÀÌ ½Ç½Ã°£ Á¦°øµË´Ï´Ù.</p>
+<h1>ì§ê±°ëž˜ í”¼í•´ì‚¬ë¡€ ë“±ë¡</h1>
+<p>í”¼í•´ì‚¬ë¡€ ë“±ë¡ì´ ì™„ë£Œë˜ë©´ í”¼í•´ìžë¥¼ ìœ„í•œ ê¸°ëŠ¥ì´ ì‹¤ì‹œê°„ ì œê³µë©ë‹ˆë‹¤.</p>
 <div class="formSection">
-	<h3>ÇÇÇØ ¹ß»ý »çÀÌÆ® Á¤º¸</h3>
+	<h3>í”¼í•´ ë°œìƒ ì‚¬ì´íŠ¸ ì •ë³´</h3>
 	<p class="infoTxtTop">
-		"<span class="bltS_A">*</span>"´Â ÇÊ¼ö ±âÀç Ç×¸ñÀÔ´Ï´Ù"
+		"<span class="bltS_A">*</span>"ëŠ” í•„ìˆ˜ ê¸°ìž¬ í•­ëª©ìž…ë‹ˆë‹¤"
 	</p>
 	<table class="formTypeA" border="1px" width="850px">
 		<colgroup>
@@ -27,63 +35,63 @@ label {
 		<tbody>
 			<!-- SITE NAME -->
 			<tr>
-				<th><label>»çÀÌÆ®¸í (URL)</label> <span class="bliS_A">*</span></th>
-				<td>ÇÇÇØ ¹ß»ý »çÀÌÆ® : <select name="cheat_site_temp"
+				<th><label>ì‚¬ì´íŠ¸ëª… (URL)</label> <span class="bliS_A">*</span></th>
+				<td>í”¼í•´ ë°œìƒ ì‚¬ì´íŠ¸ : <select name="cheat_site_temp"
 					id="cheat_site_temp"
 					onchange="javascript:if(cheat_site_temp.value == '1'){ cheat_site.readOnly = false; cheat_site.focus(); } else{ cheat_site.value = cheat_site_temp.value; cheat_site.readOnly = true; cheat_site.focus(); }"
-					title="»çÀÌÆ®¼±ÅÃ">
-						<option selected value>¼±ÅÃÇÏ¼¼¿ä</option>
+					title="ì‚¬ì´íŠ¸ì„ íƒ">
+						<option selected value>ì„ íƒí•˜ì„¸ìš”</option>
 						<option value>------------------------</option>
-						<option value="cafe.naver.com">³×ÀÌ¹ö Ä«Æä</option>
-						<option value="blog.naver.com">³×ÀÌ¹ö ºí·Î±×</option>
-						<option value="top.cafe.daum.net/">´ÙÀ½ Ä«Æä</option>
-						<option value="blog.daum.net/">´ÙÀ½ ºí·Î±×</option>
-						<option value="danawa.com/">´Ù³ª¿Í</option>
-						<option value="cetizen.com">¼¼Æ¼Áð</option>
-						<option value="slrclub.com">SLRÅ¬·´</option>
-						<option value="bunjang.co.kr">¹ø°³ÀåÅÍ</option>
-						<option value="hellomarket.com">Çï·Î¸¶ÄÏ</option>
-						<option value="kakao.com">Ä«Ä«¿ÀÅå/½ºÅä¸®</option>
-						<option value="ruliweb.daum.net">·ç¸®À¥</option>
-						<option value="auction.co.kr">¿Á¼Ç</option>
-						<option value="gmarket.co.kr">G¸¶ÄÏ</option>
-						<option value="11st.co.kr">11¹ø°¡</option>
-						<option value="interpark.com">ÀÎÅÍÆÄÅ©</option>
-						<option value="dcinside.com">µð¾¾ÀÎ»çÀÌµå</option>
-						<option value="pempi.co.kr">ÆèÇÇ(PMPÀÎ»çÀÌµå)</option>
-						<option value="cyworld.com">½ÎÀÌ¿ùµå</option>
-						<option value="nateonweb.nate.com">³×ÀÌÆ®¿Â</option>
-						<option value="syoff.com">¼îÇÁ</option>
-						<option value="musinsa.com">¹«½Å»ç</option>
-						<option value="ppomppu.co.kr">»Ë»Ñ</option>
-						<option value="i-baby.co.kr">¾ÆÀÌº£ÀÌºñ</option>
-						<option value="mule.co.kr">¹Ä(Mule)</option>
-						<option value="haeorum.com">ÇØ¿À¸§</option>
-						<option value="hiphoper.com">ÈüÇÕÆÛ</option>
-						<option value="skysamo.com">½º»ç¸ð</option>
+						<option value="cafe.naver.com">ë„¤ì´ë²„ ì¹´íŽ˜</option>
+						<option value="blog.naver.com">ë„¤ì´ë²„ ë¸”ë¡œê·¸</option>
+						<option value="top.cafe.daum.net/">ë‹¤ìŒ ì¹´íŽ˜</option>
+						<option value="blog.daum.net/">ë‹¤ìŒ ë¸”ë¡œê·¸</option>
+						<option value="danawa.com/">ë‹¤ë‚˜ì™€</option>
+						<option value="cetizen.com">ì„¸í‹°ì¦Œ</option>
+						<option value="slrclub.com">SLRí´ëŸ½</option>
+						<option value="bunjang.co.kr">ë²ˆê°œìž¥í„°</option>
+						<option value="hellomarket.com">í—¬ë¡œë§ˆì¼“</option>
+						<option value="kakao.com">ì¹´ì¹´ì˜¤í†¡/ìŠ¤í† ë¦¬</option>
+						<option value="ruliweb.daum.net">ë£¨ë¦¬ì›¹</option>
+						<option value="auction.co.kr">ì˜¥ì…˜</option>
+						<option value="gmarket.co.kr">Gë§ˆì¼“</option>
+						<option value="11st.co.kr">11ë²ˆê°€</option>
+						<option value="interpark.com">ì¸í„°íŒŒí¬</option>
+						<option value="dcinside.com">ë””ì”¨ì¸ì‚¬ì´ë“œ</option>
+						<option value="pempi.co.kr">íŽ¨í”¼(PMPì¸ì‚¬ì´ë“œ)</option>
+						<option value="cyworld.com">ì‹¸ì´ì›”ë“œ</option>
+						<option value="nateonweb.nate.com">ë„¤ì´íŠ¸ì˜¨</option>
+						<option value="syoff.com">ì‡¼í”„</option>
+						<option value="musinsa.com">ë¬´ì‹ ì‚¬</option>
+						<option value="ppomppu.co.kr">ë½ë¿Œ</option>
+						<option value="i-baby.co.kr">ì•„ì´ë² ì´ë¹„</option>
+						<option value="mule.co.kr">ë®¬(Mule)</option>
+						<option value="haeorum.com">í•´ì˜¤ë¦„</option>
+						<option value="hiphoper.com">íž™í•©í¼</option>
+						<option value="skysamo.com">ìŠ¤ì‚¬ëª¨</option>
 						<option value="cdpkorea.com">Seeko(cdpkorea)</option>
-						<option value="passo.co.kr">ÆÄ½î</option>
-						<option value="rokkorclub.net">·ÎÄ¿Å¬·´</option>
-						<option value="wassada.com">¿Í½Î´Ù´åÄÄ</option>
-						<option value="mnshome.com">¹Ìµð¾Ø»ç¿îµå</option>
-						<option value="soriaudio.com">¼Ò¸®ÀüÀÚ</option>
-						<option value="encar.com">SK¿£Ä«</option>
-						<option value="bobaedream.co.kr">º¸¹èµå¸²</option>
-						<option value="caraudiomall.co.kr">½Å±æÄ«¿Àµð¿À</option>
-						<option value="bikemart.co.kr">¹ÙÀÌÅ©¸¶Æ®</option>
-						<option value="babomall.com">¹Ùº¸¸ô</option>
-						<option value="minisum.co.kr">¹Ì´Ï¼¶</option>
-						<option value="innak.kr">ÀÎÅÍ³Ý ¹Ù´Ù³¬½Ã</option>
-						<option value="hungryboarder.com">Çë±×¸®º¸´õ</option>
-						<option value="clien.career.co.kr">Å¬¸®¾Ó</option>
-						<option value="drspark.dreamwiz.com">¹Ú¼ø¹éÄ®·³</option>
-						<option value="itembay.com">¾ÆÀÌÅÛº£ÀÌ</option>
-						<option value="itemmania.com">¾ÆÀÌÅÛ¸Å´Ï¾Æ</option>
+						<option value="passo.co.kr">íŒŒì˜</option>
+						<option value="rokkorclub.net">ë¡œì»¤í´ëŸ½</option>
+						<option value="wassada.com">ì™€ì‹¸ë‹¤ë‹·ì»´</option>
+						<option value="mnshome.com">ë¯¸ë””ì•¤ì‚¬ìš´ë“œ</option>
+						<option value="soriaudio.com">ì†Œë¦¬ì „ìž</option>
+						<option value="encar.com">SKì—”ì¹´</option>
+						<option value="bobaedream.co.kr">ë³´ë°°ë“œë¦¼</option>
+						<option value="caraudiomall.co.kr">ì‹ ê¸¸ì¹´ì˜¤ë””ì˜¤</option>
+						<option value="bikemart.co.kr">ë°”ì´í¬ë§ˆíŠ¸</option>
+						<option value="babomall.com">ë°”ë³´ëª°</option>
+						<option value="minisum.co.kr">ë¯¸ë‹ˆì„¬</option>
+						<option value="innak.kr">ì¸í„°ë„· ë°”ë‹¤ë‚šì‹œ</option>
+						<option value="hungryboarder.com">í—ê·¸ë¦¬ë³´ë”</option>
+						<option value="clien.career.co.kr">í´ë¦¬ì•™</option>
+						<option value="drspark.dreamwiz.com">ë°•ìˆœë°±ì¹¼ëŸ¼</option>
+						<option value="itembay.com">ì•„ì´í…œë² ì´</option>
+						<option value="itemmania.com">ì•„ì´í…œë§¤ë‹ˆì•„</option>
 						<option value>------------------------</option>
-						<option value="1">Á÷Á¢ ÀÔ·ÂÇÏ±â</option>
+						<option value="1">ì§ì ‘ ìž…ë ¥í•˜ê¸°</option>
 				</select> <span>http://<input type="text" name="cheat_site"
 						id="cheat_site" class="txt_input_hidden" value size="26"
-						placeholder=" URLÀÌ ÀÔ·ÂµË´Ï´Ù." readonly maxlength="30"></span> <script>
+						placeholder=" URLì´ ìž…ë ¥ë©ë‹ˆë‹¤." readonly maxlength="30"></span> <script>
                         $("#cheat_site_temp").change(
                               function() {
                                  if ($(this).val() == 1) {
@@ -101,62 +109,62 @@ label {
                      </script>
 				</td>
 			</tr>
-			<!-- °Å·¡ ¹°Ç° Á¾·ù -->
+			<!-- ê±°ëž˜ ë¬¼í’ˆ ì¢…ë¥˜ -->
 			<tr>
-				<th><label>°Å·¡ ¹°Ç° Á¾·ù</label> <span class="bliS_A">*</span></th>
+				<th><label>ê±°ëž˜ ë¬¼í’ˆ ì¢…ë¥˜</label> <span class="bliS_A">*</span></th>
 				<td>
 					<ul class="damageGoodsDealList" style="float: left;">
 						<il class="first onLine">
 						<div class="a" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods0" value="ÈÞ´ëÆù/ÁÖÆí±â±â"
+								id="s_goods0" value="íœ´ëŒ€í°/ì£¼íŽ¸ê¸°ê¸°"
 								onclick="label_rdo_click('s_goods0');"> <label
 								for="s_goods0"> <img src="images/cellphone.PNG"
-								title="ÈÞ´ëÆù/ÁÖº¯±â±â" onclick="label_rdo_click('s_goods0');">
-								<div class="sub_msg">ÈÞ´ëÆù/ÁÖº¯±â±â</div>
+								title="íœ´ëŒ€í°/ì£¼ë³€ê¸°ê¸°" onclick="label_rdo_click('s_goods0');">
+								<div class="sub_msg">íœ´ëŒ€í°/ì£¼ë³€ê¸°ê¸°</div>
 							</label>
 						</div>
 						</il>
 						<il class="onLine">
 						<div class="b" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods1" value="Æ¼ÄÏ/»óÇ°±Ç"
+								id="s_goods1" value="í‹°ì¼“/ìƒí’ˆê¶Œ"
 								onclick="label_rdo_click('s_goods1');"> <label
 								for="s_goods1"> <img src="images/ticket.PNG"
-								title="Æ¼ÄÏ/»óÇ°±Ç" onclick="label_rdo_click('s_goods1');">
-								<div class="sub_msg">Æ¼ÄÏ/»óÇ°±Ç</div>
+								title="í‹°ì¼“/ìƒí’ˆê¶Œ" onclick="label_rdo_click('s_goods1');">
+								<div class="sub_msg">í‹°ì¼“/ìƒí’ˆê¶Œ</div>
 							</label>
 						</div>
 						</il>
 						<il class="onLine">
 						<div class="c" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods2" value="ÆÐ¼Ç/ÀÇ·ù"
+								id="s_goods2" value="íŒ¨ì…˜/ì˜ë¥˜"
 								onclick="label_rdo_click('s_goods2');"> <label
 								for="s_goods2"> <img src="images/fasion.PNG"
-								title="ÆÐ¼Ç/ÀÇ·ù" onclick="label_rdo_click('s_goods2');">
-								<div class="sub_msg">ÆÐ¼Ç/ÀÇ·ù</div>
+								title="íŒ¨ì…˜/ì˜ë¥˜" onclick="label_rdo_click('s_goods2');">
+								<div class="sub_msg">íŒ¨ì…˜/ì˜ë¥˜</div>
 							</label>
 						</div>
 						</il>
 						<il class="onLine">
 						<div class="d" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods3" value="Ä«¸Þ¶ó/ÁÖº¯±â±â"
+								id="s_goods3" value="ì¹´ë©”ë¼/ì£¼ë³€ê¸°ê¸°"
 								onclick="label_rdo_click('s_goods3');"> <label
 								for="s_goods3"> <img src="images/camera.PNG"
-								title="Ä«¸Þ¶ó/ÁÖº¯±â±â" onclick="label_rdo_click('s_goods3');">
-								<div class="sub_msg">Ä«¸Þ¶ó/ÁÖº¯±â±â</div>
+								title="ì¹´ë©”ë¼/ì£¼ë³€ê¸°ê¸°" onclick="label_rdo_click('s_goods3');">
+								<div class="sub_msg">ì¹´ë©”ë¼/ì£¼ë³€ê¸°ê¸°</div>
 							</label>
 						</div>
 						</il>
 						<il class="onLine">
 						<div class="e" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods4" value="MP3/PMP/ÀüÀÚ»çÀü"
+								id="s_goods4" value="MP3/PMP/ì „ìžì‚¬ì „"
 								onclick="label_rdo_click('s_goods4');"> <label
 								for="s_goods4"> <img src="images/MP3.PNG"
-								title="MP3/PMP/ÀüÀÚ»çÀü" onclick="label_rdo_click('s_goods4');">
+								title="MP3/PMP/ì „ìžì‚¬ì „" onclick="label_rdo_click('s_goods4');">
 								<div class="sub_msg">MP3/PMP</div>
 							</label>
 						</div>
@@ -164,307 +172,307 @@ label {
 						<il class="onLine">
 						<div class="f" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods5" value="ÄÄÇ»ÅÍ/ÁÖº¯±â±â"
+								id="s_goods5" value="ì»´í“¨í„°/ì£¼ë³€ê¸°ê¸°"
 								onclick="label_rdo_click('s_goods5');"> <label
 								for="s_goods5"> <img src="images/computer.PNG"
-								title="ÄÄÇ»ÅÍ/ÁÖº¯±â±â" onclick="label_rdo_click('s_goods5');">
-								<div class="sub_msg">ÄÄÇ»ÅÍ/ÁÖº¯±â±â</div>
+								title="ì»´í“¨í„°/ì£¼ë³€ê¸°ê¸°" onclick="label_rdo_click('s_goods5');">
+								<div class="sub_msg">ì»´í“¨í„°/ì£¼ë³€ê¸°ê¸°</div>
 							</label>
 						</div>
 						</il>
 						<il class="first">
 						<div class="g" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods6" value="ÀÚµ¿Â÷/¹ÙÀÌÅ©"
+								id="s_goods6" value="ìžë™ì°¨/ë°”ì´í¬"
 								onclick="label_rdo_click('s_goods6');"> <label
 								for="s_goods6"> <img src="images/car.PNG"
-								title="ÀÚµ¿Â÷/¹ÙÀÌÅ©" onclick="label_rdo_click('s_goods6');">
-								<div class="sub_msg">ÀÚµ¿Â÷/¹ÙÀÌÅ©</div>
+								title="ìžë™ì°¨/ë°”ì´í¬" onclick="label_rdo_click('s_goods6');">
+								<div class="sub_msg">ìžë™ì°¨/ë°”ì´í¬</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="h" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods7" value="ÅÂºí¸´/³ëÆ®ºÏ"
+								id="s_goods7" value="íƒœë¸”ë¦¿/ë…¸íŠ¸ë¶"
 								onclick="label_rdo_click('s_goods7');"> <label
 								for="s_goods7"> <img src="images/notebook.PNG"
-								title="ÅÂºí¸´/³ëÆ®ºÏ" onclick="label_rdo_click('s_goods7');">
-								<div class="sub_msg">ÅÂºí¸´/³ëÆ®ºÏ</div>
+								title="íƒœë¸”ë¦¿/ë…¸íŠ¸ë¶" onclick="label_rdo_click('s_goods7');">
+								<div class="sub_msg">íƒœë¸”ë¦¿/ë…¸íŠ¸ë¶</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="i" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods8" value="½Å¹ß" onclick="label_rdo_click('s_goods8');">
+								id="s_goods8" value="ì‹ ë°œ" onclick="label_rdo_click('s_goods8');">
 							<label for="s_goods8"> <img src="images/boot.PNG"
-								title="½Å¹ß" onclick="label_rdo_click('s_goods8');">
-								<div class="sub_msg">½Å¹ß</div>
+								title="ì‹ ë°œ" onclick="label_rdo_click('s_goods8');">
+								<div class="sub_msg">ì‹ ë°œ</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="j" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods9" value="½ºÆ÷Ã÷/·¹Àú/¿îµ¿"
+								id="s_goods9" value="ìŠ¤í¬ì¸ /ë ˆì €/ìš´ë™"
 								onclick="label_rdo_click('s_goods9');"> <label
 								for="s_goods9"> <img src="images/sport.PNG"
-								title="½ºÆ÷Ã÷/·¹Àú/¿îµ¿" onclick="label_rdo_click('s_goods9');">
-								<div class="sub_msg">½ºÆ÷Ã÷/·¹Àú/¿îµ¿</div>
+								title="ìŠ¤í¬ì¸ /ë ˆì €/ìš´ë™" onclick="label_rdo_click('s_goods9');">
+								<div class="sub_msg">ìŠ¤í¬ì¸ /ë ˆì €/ìš´ë™</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="k" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods10" value="°ÔÀÓ±â/ÁÖº¯±â±â"
+								id="s_goods10" value="ê²Œìž„ê¸°/ì£¼ë³€ê¸°ê¸°"
 								onclick="label_rdo_click('s_goods10');"> <label
 								for="s_goods10"> <img src="images/game.PNG"
-								title="°ÔÀÓ±â/ÁÖº¯±â±â" onclick="label_rdo_click('s_goods10');">
-								<div class="sub_msg">°ÔÀÓ±â/ÁÖº¯±â±â</div>
+								title="ê²Œìž„ê¸°/ì£¼ë³€ê¸°ê¸°" onclick="label_rdo_click('s_goods10');">
+								<div class="sub_msg">ê²Œìž„ê¸°/ì£¼ë³€ê¸°ê¸°</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="l" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods11" value="À¯¾Æµ¿/Ãâ»ê"
+								id="s_goods11" value="ìœ ì•„ë™/ì¶œì‚°"
 								onclick="label_rdo_click('s_goods11');"> <label
 								for="s_goods11"> <img src="images/baby.PNG"
-								title="À¯¾Æµ¿/Ãâ»ê" onclick="label_rdo_click('s_goods11');">
-								<div class="sub_msg">À¯¾Æµ¿/Ãâ»ê</div>
+								title="ìœ ì•„ë™/ì¶œì‚°" onclick="label_rdo_click('s_goods11');">
+								<div class="sub_msg">ìœ ì•„ë™/ì¶œì‚°</div>
 							</label>
 						</div>
 						</il>
 						<il class="first">
 						<div class="l" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods12" value="°¡Àü/ÀüÀÚÁ¦Ç°"
+								id="s_goods12" value="ê°€ì „/ì „ìžì œí’ˆ"
 								onclick="label_rdo_click('s_goods12');"> <label
 								for="s_goods12"> <img src="images/tv.PNG"
-								title="°¡Àü/ÀüÀÚÁ¦Ç°" onclick="label_rdo_click('s_goods12');">
-								<div class="sub_msg">°¡Àü/ÀüÀÚÁ¦Ç°</div>
+								title="ê°€ì „/ì „ìžì œí’ˆ" onclick="label_rdo_click('s_goods12');">
+								<div class="sub_msg">ê°€ì „/ì „ìžì œí’ˆ</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="l" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods13" value="°¡¹æ/Áö°©/ÀâÈ­"
+								id="s_goods13" value="ê°€ë°©/ì§€ê°‘/ìž¡í™”"
 								onclick="label_rdo_click('s_goods13');"> <label
 								for="s_goods13"> <img src="images/bag.PNG"
-								title="°¡¹æ/Áö°©/ÀâÈ­" onclick="label_rdo_click('s_goods13');">
-								<div class="sub_msg">°¡¹æ/Áö°©/ÀâÈ­</div>
+								title="ê°€ë°©/ì§€ê°‘/ìž¡í™”" onclick="label_rdo_click('s_goods13');">
+								<div class="sub_msg">ê°€ë°©/ì§€ê°‘/ìž¡í™”</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="l" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods13" value="À½¾Ç/¿µÈ­/ÁÖº¯±â±â"
+								id="s_goods13" value="ìŒì•…/ì˜í™”/ì£¼ë³€ê¸°ê¸°"
 								onclick="label_rdo_click('s_goods13');"> <label
 								for="s_goods13"> <img src="images/music.PNG"
-								title="À½¾Ç/¿µÈ­/ÁÖº¯±â±â" onclick="label_rdo_click('s_goods13');">
-								<div class="sub_msg">À½¾Ç/¿µÈ­/ÁÖº¯±â±â</div>
+								title="ìŒì•…/ì˜í™”/ì£¼ë³€ê¸°ê¸°" onclick="label_rdo_click('s_goods13');">
+								<div class="sub_msg">ìŒì•…/ì˜í™”/ì£¼ë³€ê¸°ê¸°</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="l" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods13" value="µµ¼­/ÇÐ½À"
+								id="s_goods13" value="ë„ì„œ/í•™ìŠµ"
 								onclick="label_rdo_click('s_goods13');"> <label
 								for="s_goods13"> <img src="images/book.PNG"
-								title="µµ¼­/ÇÐ½À" onclick="label_rdo_click('s_goods13');">
-								<div class="sub_msg">µµ¼­/ÇÐ½À</div>
+								title="ë„ì„œ/í•™ìŠµ" onclick="label_rdo_click('s_goods13');">
+								<div class="sub_msg">ë„ì„œ/í•™ìŠµ</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="l" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods13" value="½Ã°è"
+								id="s_goods13" value="ì‹œê³„"
 								onclick="label_rdo_click('s_goods13');"> <label
-								for="s_goods13"> <img src="images/wache.PNG" title="½Ã°è"
+								for="s_goods13"> <img src="images/wache.PNG" title="ì‹œê³„"
 								onclick="label_rdo_click('s_goods13');">
-								<div class="sub_msg">½Ã°è</div>
+								<div class="sub_msg">ì‹œê³„</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="l" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods13" value="ºäÆ¼/¹Ì¿ë/È­ÀåÇ°"
+								id="s_goods13" value="ë·°í‹°/ë¯¸ìš©/í™”ìž¥í’ˆ"
 								onclick="label_rdo_click('s_goods13');"> <label
 								for="s_goods13"> <img src="images/buti.PNG"
-								title="ºäÆ¼/¹Ì¿ë/È­ÀåÇ°" onclick="label_rdo_click('s_goods13');">
-								<div class="sub_msg">ºäÆ¼/¹Ì¿ë/È­ÀåÇ°</div>
+								title="ë·°í‹°/ë¯¸ìš©/í™”ìž¥í’ˆ" onclick="label_rdo_click('s_goods13');">
+								<div class="sub_msg">ë·°í‹°/ë¯¸ìš©/í™”ìž¥í’ˆ</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="l" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods13" value="Ãë¹Ì/ÀÎÇü/ÇÇ±Ô¾î"
+								id="s_goods13" value="ì·¨ë¯¸/ì¸í˜•/í”¼ê·œì–´"
 								onclick="label_rdo_click('s_goods13');"> <label
 								for="s_goods13"> <img src="images/lego.PNG"
-								title="Ãë¹Ì/ÀÎÇü/ÇÇ±Ô¾î" onclick="label_rdo_click('s_goods13');">
-								<div class="sub_msg">Ãë¹Ì/ÀÎÇü/ÇÇ±Ô¾î</div>
+								title="ì·¨ë¯¸/ì¸í˜•/í”¼ê·œì–´" onclick="label_rdo_click('s_goods13');">
+								<div class="sub_msg">ì·¨ë¯¸/ì¸í˜•/í”¼ê·œì–´</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="l" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods13" value="½ÄÇ°/À½·á/ÀÇ¾àÇ°"
+								id="s_goods13" value="ì‹í’ˆ/ìŒë£Œ/ì˜ì•½í’ˆ"
 								onclick="label_rdo_click('s_goods13');"> <label
 								for="s_goods13"> <img src="images/juice.PNG"
-								title="½ÄÇ°/À½·á/ÀÇ¾àÇ°" onclick="label_rdo_click('s_goods13');">
-								<div class="sub_msg">½ÄÇ°/À½·á/ÀÇ¾àÇ°</div>
+								title="ì‹í’ˆ/ìŒë£Œ/ì˜ì•½í’ˆ" onclick="label_rdo_click('s_goods13');">
+								<div class="sub_msg">ì‹í’ˆ/ìŒë£Œ/ì˜ì•½í’ˆ</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="l" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods13" value="°ø±¸/ÁßÀåºñ/³ó±â±¸"
+								id="s_goods13" value="ê³µêµ¬/ì¤‘ìž¥ë¹„/ë†ê¸°êµ¬"
 								onclick="label_rdo_click('s_goods13');"> <label
 								for="s_goods13"> <img src="images/spaner.PNG"
-								title="°ø±¸/ÁßÀåºñ/³ó±â±¸" onclick="label_rdo_click('s_goods13');">
-								<div class="sub_msg">°ø±¸/ÁßÀåºñ/³ó±â±¸</div>
+								title="ê³µêµ¬/ì¤‘ìž¥ë¹„/ë†ê¸°êµ¬" onclick="label_rdo_click('s_goods13');">
+								<div class="sub_msg">ê³µêµ¬/ì¤‘ìž¥ë¹„/ë†ê¸°êµ¬</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="l" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods13" value="ÇÇ½Ì/´ëÃâ/°è¾à"
+								id="s_goods13" value="í”¼ì‹±/ëŒ€ì¶œ/ê³„ì•½"
 								onclick="label_rdo_click('s_goods13');"> <label
 								for="s_goods13"> <img src="images/givememoney.PNG"
-								title="ÇÇ½Ì/´ëÃâ/°è¾à" onclick="label_rdo_click('s_goods13');">
-								<div class="sub_msg">ÇÇ½Ì/´ëÃâ/°è¾à</div>
+								title="í”¼ì‹±/ëŒ€ì¶œ/ê³„ì•½" onclick="label_rdo_click('s_goods13');">
+								<div class="sub_msg">í”¼ì‹±/ëŒ€ì¶œ/ê³„ì•½</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="l" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods13" value="¾×¼¼¼­¸®/±Í±Ý¼Ó"
+								id="s_goods13" value="ì•¡ì„¸ì„œë¦¬/ê·€ê¸ˆì†"
 								onclick="label_rdo_click('s_goods13');"> <label
 								for="s_goods13"> <img src="images/ring.PNG"
-								title="¾×¼¼¼­¸®/±Í±Ý¼Ó" onclick="label_rdo_click('s_goods13');">
-								<div class="sub_msg">¾×¼¼¼­¸®/±Í±Ý¼Ó</div>
+								title="ì•¡ì„¸ì„œë¦¬/ê·€ê¸ˆì†" onclick="label_rdo_click('s_goods13');">
+								<div class="sub_msg">ì•¡ì„¸ì„œë¦¬/ê·€ê¸ˆì†</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="l" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods13" value="¼ºÀÎ/»çÇà¼º"
+								id="s_goods13" value="ì„±ì¸/ì‚¬í–‰ì„±"
 								onclick="label_rdo_click('s_goods13');"> <label
-								for="s_goods13"> <img src="images/19.PNG" title="¼ºÀÎ/»çÇà¼º"
+								for="s_goods13"> <img src="images/19.PNG" title="ì„±ì¸/ì‚¬í–‰ì„±"
 								onclick="label_rdo_click('s_goods13');">
-								<div class="sub_msg">¼ºÀÎ/»çÇà¼º</div>
+								<div class="sub_msg">ì„±ì¸/ì‚¬í–‰ì„±</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="l" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods13" value="¼ÒÇÁÆ®¿þ¾î"
+								id="s_goods13" value="ì†Œí”„íŠ¸ì›¨ì–´"
 								onclick="label_rdo_click('s_goods13');"> <label
 								for="s_goods13"> <img src="images/soft.PNG"
-								title="¼ÒÇÁÆ®¿þ¾î" onclick="label_rdo_click('s_goods13');">
-								<div class="sub_msg">¼ÒÇÁÆ®¿þ¾î</div>
+								title="ì†Œí”„íŠ¸ì›¨ì–´" onclick="label_rdo_click('s_goods13');">
+								<div class="sub_msg">ì†Œí”„íŠ¸ì›¨ì–´</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="l" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods13" value="µ¿¹°/»ý¹°/½Ä¹°/¿ëÇ°"
+								id="s_goods13" value="ë™ë¬¼/ìƒë¬¼/ì‹ë¬¼/ìš©í’ˆ"
 								onclick="label_rdo_click('s_goods13');"> <label
 								for="s_goods13"> <img src="images/dog.PNG"
-								title="µ¿¹°/»ý¹°/½Ä¹°/¿ëÇ°" onclick="label_rdo_click('s_goods13');">
-								<div class="sub_msg">µ¿¹°/»ý¹°/½Ä¹°/¿ëÇ°</div>
+								title="ë™ë¬¼/ìƒë¬¼/ì‹ë¬¼/ìš©í’ˆ" onclick="label_rdo_click('s_goods13');">
+								<div class="sub_msg">ë™ë¬¼/ìƒë¬¼/ì‹ë¬¼/ìš©í’ˆ</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="l" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods13" value="°¡±¸/ÀÎÅ×¸®¾î"
+								id="s_goods13" value="ê°€êµ¬/ì¸í…Œë¦¬ì–´"
 								onclick="label_rdo_click('s_goods13');"> <label
 								for="s_goods13"> <img src="images/gagu.PNG"
-								title="°¡±¸/ÀÎÅ×¸®¾î" onclick="label_rdo_click('s_goods13');">
-								<div class="sub_msg">°¡±¸/ÀÎÅ×¸®¾î</div>
+								title="ê°€êµ¬/ì¸í…Œë¦¬ì–´" onclick="label_rdo_click('s_goods13');">
+								<div class="sub_msg">ê°€êµ¬/ì¸í…Œë¦¬ì–´</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="l" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods13" value="¾È°æ/¼±±Û¶ó½º"
+								id="s_goods13" value="ì•ˆê²½/ì„ ê¸€ë¼ìŠ¤"
 								onclick="label_rdo_click('s_goods13');"> <label
-								for="s_goods13"> <img src="images/8.PNG" title="¾È°æ/¼±±Û¶ó½º"
+								for="s_goods13"> <img src="images/8.PNG" title="ì•ˆê²½/ì„ ê¸€ë¼ìŠ¤"
 								onclick="label_rdo_click('s_goods13');">
-								<div class="sub_msg">¾È°æ/¼±±Û¶ó½º</div>
+								<div class="sub_msg">ì•ˆê²½/ì„ ê¸€ë¼ìŠ¤</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="l" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods13" value="»ýÈ°/ÁÖ¹æ/¿å½Ç¿ëÇ°"
+								id="s_goods13" value="ìƒí™œ/ì£¼ë°©/ìš•ì‹¤ìš©í’ˆ"
 								onclick="label_rdo_click('s_goods13');"> <label
 								for="s_goods13"> <img src="images/life.PNG"
-								title="»ýÈ°/ÁÖ¹æ/¿å½Ç¿ëÇ°" onclick="label_rdo_click('s_goods13');">
-								<div class="sub_msg">»ýÈ°/ÁÖ¹æ/¿å½Ç¿ëÇ°</div>
+								title="ìƒí™œ/ì£¼ë°©/ìš•ì‹¤ìš©í’ˆ" onclick="label_rdo_click('s_goods13');">
+								<div class="sub_msg">ìƒí™œ/ì£¼ë°©/ìš•ì‹¤ìš©í’ˆ</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="l" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods13" value="¹®±¸/»ç¹«/¼Ò¸ðÇ°"
+								id="s_goods13" value="ë¬¸êµ¬/ì‚¬ë¬´/ì†Œëª¨í’ˆ"
 								onclick="label_rdo_click('s_goods13');"> <label
 								for="s_goods13"> <img src="images/a4.PNG"
-								title="¹®±¸/»ç¹«/¼Ò¸ðÇ°" onclick="label_rdo_click('s_goods13');">
-								<div class="sub_msg">¹®±¸/»ç¹«/¼Ò¸ðÇ°</div>
+								title="ë¬¸êµ¬/ì‚¬ë¬´/ì†Œëª¨í’ˆ" onclick="label_rdo_click('s_goods13');">
+								<div class="sub_msg">ë¬¸êµ¬/ì‚¬ë¬´/ì†Œëª¨í’ˆ</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="l" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods13" value="¹è¼Ûºñ"
+								id="s_goods13" value="ë°°ì†¡ë¹„"
 								onclick="label_rdo_click('s_goods13');"> <label
-								for="s_goods13"> <img src="images/box.PNG" title="¹è¼Ûºñ"
+								for="s_goods13"> <img src="images/box.PNG" title="ë°°ì†¡ë¹„"
 								onclick="label_rdo_click('s_goods13');">
-								<div class="sub_msg">¹è¼Ûºñ</div>
+								<div class="sub_msg">ë°°ì†¡ë¹„</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="l" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods13" value="È­Æó"
+								id="s_goods13" value="í™”í"
 								onclick="label_rdo_click('s_goods13');"> <label
-								for="s_goods13"> <img src="images/don.PNG" title="È­Æó"
+								for="s_goods13"> <img src="images/don.PNG" title="í™”í"
 								onclick="label_rdo_click('s_goods13');">
-								<div class="sub_msg">È­Æó</div>
+								<div class="sub_msg">í™”í</div>
 							</label>
 						</div>
 						</il>
 						<il>
 						<div class="l" style="float: left; text-align: center;">
 							<input type="radio" name="cheat_item_temp" class="rdo"
-								id="s_goods13" value="±âÅ¸"
+								id="s_goods13" value="ê¸°íƒ€"
 								onclick="label_rdo_click('s_goods13');"> <label
-								for="s_goods13"> <img src="images/guitar.PNG" title="±âÅ¸"
+								for="s_goods13"> <img src="images/guitar.PNG" title="ê¸°íƒ€"
 								onclick="label_rdo_click('s_goods13');">
-								<div class="sub_msg">±âÅ¸</div>
+								<div class="sub_msg">ê¸°íƒ€</div>
 							</label>
 						</div>
 						</il>
@@ -472,25 +480,25 @@ label {
 					</ul>
 				</td>
 			</tr>
-			<!-- ¹°Ç°¸í -->
+			<!-- ë¬¼í’ˆëª… -->
 			<tr>
-				<th><label for="s_id">¹°Ç°¸í</label><span class="blts_A">*</span></th>
+				<th><label for="s_id">ë¬¼í’ˆëª…</label><span class="blts_A">*</span></th>
 				<td><input type="text" class="txt" name="subject" id="s_id"
-					value placeholder="°Å·¡ÇÑ ¹°Ç°ÀÇ ¹°Ç°¸í ¶Ç´Â ¸ðµ¨¸íÀ» ÀÔ·ÂÇÏ¼¼¿ä" style="width: 580px;"
+					value placeholder="ê±°ëž˜í•œ ë¬¼í’ˆì˜ ë¬¼í’ˆëª… ë˜ëŠ” ëª¨ë¸ëª…ì„ ìž…ë ¥í•˜ì„¸ìš”" style="width: 580px;"
 					maxlength="200"></td>
 			</tr>
-			<!-- ¿ëÀÇÀÚ ¾ÆÀÌµð -->
+			<!-- ìš©ì˜ìž ì•„ì´ë”” -->
 			<tr>
-				<th><label for="s_id">¿ëÀÇÀÚ ¾ÆÀÌµð</label></th>
+				<th><label for="s_id">ìš©ì˜ìž ì•„ì´ë””</label></th>
 				<td><input type="text" class="txt" name="subject" id="s_id"
-					value placeholder="»ç±â¹üÀÇ ID ¶Ç´Â ¸Þ½ÅÁ®ÁÖ¼Ò, ÀÌ¸ÞÀÏÁÖ¼Ò µîÀ» ÀÔ·ÂÇÏ¼¼¿ä."
+					value placeholder="ì‚¬ê¸°ë²”ì˜ ID ë˜ëŠ” ë©”ì‹ ì ¸ì£¼ì†Œ, ì´ë©”ì¼ì£¼ì†Œ ë“±ì„ ìž…ë ¥í•˜ì„¸ìš”."
 					style="width: 580px;" maxlength="20"></td>
 			</tr>
-			<!-- »ç±â °Ô½Ã¹° ¸µÅ© -->
+			<!-- ì‚¬ê¸° ê²Œì‹œë¬¼ ë§í¬ -->
 			<tr>
-				<th><label for="s_link">»ç±â °Ô½Ã¹° ¸µÅ©</label></th>
+				<th><label for="s_link">ì‚¬ê¸° ê²Œì‹œë¬¼ ë§í¬</label></th>
 				<td><input type="text" class="txt" name="subject" id="s_link"
-					value placeholder="ÆÇ¸Å °Ô½Ã¹°ÀÇ URLÀ» ÀÔ·ÂÇÏ¼¼¿ä." style="width: 580px;"
+					value placeholder="íŒë§¤ ê²Œì‹œë¬¼ì˜ URLì„ ìž…ë ¥í•˜ì„¸ìš”." style="width: 580px;"
 					maxlength="400"></td>
 			</tr>
 		</tbody>
@@ -498,9 +506,9 @@ label {
 </div>
 
 <div class="formSection">
-	<h3>¿ëÀÇÀÚ(»ç±â¹ü) Á¤º¸</h3>
+	<h3>ìš©ì˜ìž(ì‚¬ê¸°ë²”) ì •ë³´</h3>
 	<p class="infoTxtTop">
-		"<span class="bltS_A">*</span>"´Â ÇÊ¼ö ±âÀç Ç×¸ñÀÔ´Ï´Ù"
+		"<span class="bltS_A">*</span>"ëŠ” í•„ìˆ˜ ê¸°ìž¬ í•­ëª©ìž…ë‹ˆë‹¤"
 	</p>
 	<table class="formTypeA" border="1px" width="850px">
 		<colgroup>
@@ -509,197 +517,197 @@ label {
 		</colgroup>
 		<tbody>
 			<tr>
-				<th><label>°èÁÂÁ¤º¸</label> <span class="bltS_A">*</span></th>
+				<th><label>ê³„ì¢Œì •ë³´</label> <span class="bltS_A">*</span></th>
 				<td><input type="checkbox" name="cheat_account_none"
 					class="chk" id="su_bankNumchk"
-					onclick="javascript:if($('#show_bank_info_1').css('display')!='none'){document.writeForm.cheat_bank.value='Á÷°Å·¡';cheat_account.value='¸ð¸§';cheat_suspect.value='¸ð¸§';cheat_price.value='0'; $('#show_bank_info_1').css({display: 'none'}); $('#show_bank_info_2').css({display: 'none'}); $('#show_bank_info_3').css({display: 'none'}); $('#show_bank_info_4').css({display: 'none'}); $('#show_bank_info_5').css({display: 'none'}); }else {$('#show_bank_info_1').css({display: ''}); $('#show_bank_info_2').css({display: ''}); $('#show_bank_info_3').css({display: ''}); $('#show_bank_info_4').css({display: ''}); $('#show_bank_info_5').css({display: ''});}">
-					<label for="su_bankNumchk">°èÁÂ¸¦ ¸ð¸£´Â °æ¿ì¿¡¸¸ Ã¼Å©ÇÏ¼¼¿ä.</label></td>
+					onclick="javascript:if($('#show_bank_info_1').css('display')!='none'){document.writeForm.cheat_bank.value='ì§ê±°ëž˜';cheat_account.value='ëª¨ë¦„';cheat_suspect.value='ëª¨ë¦„';cheat_price.value='0'; $('#show_bank_info_1').css({display: 'none'}); $('#show_bank_info_2').css({display: 'none'}); $('#show_bank_info_3').css({display: 'none'}); $('#show_bank_info_4').css({display: 'none'}); $('#show_bank_info_5').css({display: 'none'}); }else {$('#show_bank_info_1').css({display: ''}); $('#show_bank_info_2').css({display: ''}); $('#show_bank_info_3').css({display: ''}); $('#show_bank_info_4').css({display: ''}); $('#show_bank_info_5').css({display: ''});}">
+					<label for="su_bankNumchk">ê³„ì¢Œë¥¼ ëª¨ë¥´ëŠ” ê²½ìš°ì—ë§Œ ì²´í¬í•˜ì„¸ìš”.</label></td>
 			</tr>
 			<tr id="show_bank_info_1">
-				<th><label for="su_bank">ÀºÇà¸í</label> <span class="bltS_A">*</span>
+				<th><label for="su_bank">ì€í–‰ëª…</label> <span class="bltS_A">*</span>
 				</th>
-				<td><select name="cheat_bank" id="su_bank" title="ÀºÇà¼±ÅÃ"
+				<td><select name="cheat_bank" id="su_bank" title="ì€í–‰ì„ íƒ"
 					style="width: 230px;">
-						<option selected value=0>ÀºÇà¼±ÅÃ(°¡³ª´Ù ¼ø)</option>
+						<option selected value=0>ì€í–‰ì„ íƒ(ê°€ë‚˜ë‹¤ ìˆœ)</option>
 						<option value="">-----------------------
-							<option value="°æ³²ÀºÇà">°æ³²ÀºÇà
+							<option value="ê²½ë‚¨ì€í–‰">ê²½ë‚¨ì€í–‰
                   
-						<option value="±¤ÁÖÀºÇà">±¤ÁÖÀºÇà
+						<option value="ê´‘ì£¼ì€í–‰">ê´‘ì£¼ì€í–‰
                   
-						<option value="±¹¹ÎÀºÇà">±¹¹ÎÀºÇà
+						<option value="êµ­ë¯¼ì€í–‰">êµ­ë¯¼ì€í–‰
                   
-						<option value="±â¾÷ÀºÇà">±â¾÷ÀºÇà
+						<option value="ê¸°ì—…ì€í–‰">ê¸°ì—…ì€í–‰
                   
-						<option value="³óÇù">³óÇù
+						<option value="ë†í˜‘">ë†í˜‘
                   
-						<option value="´ë±¸ÀºÇà">´ë±¸ÀºÇà
+						<option value="ëŒ€êµ¬ì€í–‰">ëŒ€êµ¬ì€í–‰
                   
-						<option value="µµÀÌÄ¡ÀºÇà">µµÀÌÄ¡ÀºÇà
+						<option value="ë„ì´ì¹˜ì€í–‰">ë„ì´ì¹˜ì€í–‰
                   
-						<option value="ºÎ»êÀºÇà">ºÎ»êÀºÇà
+						<option value="ë¶€ì‚°ì€í–‰">ë¶€ì‚°ì€í–‰
                   
-						<option value="»ê¸²Á¶ÇÕÀºÇà">»ê¸²Á¶ÇÕÀºÇà
+						<option value="ì‚°ë¦¼ì¡°í•©ì€í–‰">ì‚°ë¦¼ì¡°í•©ì€í–‰
                   
-						<option value="»ê¾÷ÀºÇà">»ê¾÷ÀºÇà
+						<option value="ì‚°ì—…ì€í–‰">ì‚°ì—…ì€í–‰
                   
-						<option value="»óÈ£ÀúÃàÀºÇà">»óÈ£ÀúÃàÀºÇà
+						<option value="ìƒí˜¸ì €ì¶•ì€í–‰">ìƒí˜¸ì €ì¶•ì€í–‰
                   
-						<option value="»õ¸¶À»±Ý°í">»õ¸¶À»±Ý°í
+						<option value="ìƒˆë§ˆì„ê¸ˆê³ ">ìƒˆë§ˆì„ê¸ˆê³ 
                   
-						<option value="¼öÇù">¼öÇù
+						<option value="ìˆ˜í˜‘">ìˆ˜í˜‘
                   
-						<option value="SCÀºÇà">½ºÅÄ´ÙµåÂ÷Å¸µå(Á¦ÀÏ)ÀºÇà
+						<option value="SCì€í–‰">ìŠ¤íƒ ë‹¤ë“œì°¨íƒ€ë“œ(ì œì¼)ì€í–‰
                   
-						<option value="½Å¿ëÇùµ¿Á¶ÇÕ">½ÅÇù
+						<option value="ì‹ ìš©í˜‘ë™ì¡°í•©">ì‹ í˜‘
                   
-						<option value="½ÅÇÑÀºÇà">½ÅÇÑÀºÇà
+						<option value="ì‹ í•œì€í–‰">ì‹ í•œì€í–‰
                   
-						<option value="¾¾Æ¼ÀºÇà">¾¾Æ¼ÀºÇà
+						<option value="ì”¨í‹°ì€í–‰">ì”¨í‹°ì€í–‰
                   
-						<option value="¿ÜÈ¯ÀºÇà">¿ÜÈ¯ÀºÇà
+						<option value="ì™¸í™˜ì€í–‰">ì™¸í™˜ì€í–‰
                   
-						<option value="¿ì¸®ÀºÇà">¿ì¸®ÀºÇà
+						<option value="ìš°ë¦¬ì€í–‰">ìš°ë¦¬ì€í–‰
                   
-						<option value="¿ìÃ¼±¹¿¹±Ý">¿ìÃ¼±¹¿¹±Ý
+						<option value="ìš°ì²´êµ­ì˜ˆê¸ˆ">ìš°ì²´êµ­ì˜ˆê¸ˆ
                   
-						<option value="ÀüºÏÀºÇà">ÀüºÏÀºÇà
+						<option value="ì „ë¶ì€í–‰">ì „ë¶ì€í–‰
                   
-						<option value="Á¦ÁÖÀºÇà">Á¦ÁÖÀºÇà
+						<option value="ì œì£¼ì€í–‰">ì œì£¼ì€í–‰
                   
-						<option value="ÇÏ³ªÀºÇà">ÇÏ³ªÀºÇà
-                     <!--<option value="Á¶ÈïÀºÇà">Á¶ÈïÀºÇà-->
-                     <!--<option value="ÇÑ¹ÌÀºÇà">ÇÑ¹ÌÀºÇà-->
+						<option value="í•˜ë‚˜ì€í–‰">í•˜ë‚˜ì€í–‰
+                     <!--<option value="ì¡°í¥ì€í–‰">ì¡°í¥ì€í–‰-->
+                     <!--<option value="í•œë¯¸ì€í–‰">í•œë¯¸ì€í–‰-->
                   
 						<option value="">-----------------------
                   
-						<option value="±â¼úº¸±Ý">±â¼úº¸±Ý
+						<option value="ê¸°ìˆ ë³´ê¸ˆ">ê¸°ìˆ ë³´ê¸ˆ
                   
-						<option value="¼­¿ïº¸Áõ">¼­¿ïº¸Áõ
+						<option value="ì„œìš¸ë³´ì¦">ì„œìš¸ë³´ì¦
                   
-						<option value="¼öÃâÀÔÀºÇà">¼öÃâÀÔÀºÇà
+						<option value="ìˆ˜ì¶œìž…ì€í–‰">ìˆ˜ì¶œìž…ì€í–‰
                   
-						<option value="½Å¿ëº¸±Ý">½Å¿ëº¸±Ý
+						<option value="ì‹ ìš©ë³´ê¸ˆ">ì‹ ìš©ë³´ê¸ˆ
                   
 						<option value="BNPP">BNPP
                   
 						<option value="BOA">BOA
                   
-						<option value="HSBC">HSBC(È«Äá¼§ÇÏÀÌ)
+						<option value="HSBC">HSBC(í™ì½©ìƒ¹í•˜ì´)
                   
-						<option value="JP¸ð°£">JP¸ð°£
+						<option value="JPëª¨ê°„">JPëª¨ê°„
                   
 						<option value="MIZHO">MIZHO
                   
-						<option value="RBS">RBS(¾Ëºñ¿¡½º)
+						<option value="RBS">RBS(ì•Œë¹„ì—ìŠ¤)
                   
-						<option value="UFJ">UFJ(»ó¿ÍÀºÇà)
-                     <!--<option value="Á¶ÈïÀºÇà">Á¶ÈïÀºÇà-->
-                     <!--<option value="ÇÑ¹ÌÀºÇà">ÇÑ¹ÌÀºÇà-->
-                  
-						<option value="">-----------------------
-                  
-						<option value="HMCÅõÀÚÁõ±Ç">HMCÅõÀÚÁõ±Ç
-                  
-						<option value="LIGÅõÀÚÁõ±Ç">LIGÅõÀÚÁõ±Ç
-                  
-						<option value="NHÅõÀÚÁõ±Ç">NHÅõÀÚÁõ±Ç
-                  
-						<option value="SKÁõ±Ç">SKÁõ±Ç
-                  
-						<option value="±³º¸Áõ±Ç">±³º¸Áõ±Ç
-                  
-						<option value="´ë½ÅÁõ±Ç">´ë½ÅÁõ±Ç
-                  
-						<option value="´ë¿ìÁõ±Ç">´ë¿ìÁõ±Ç
-                  
-						<option value="µ¿ºÎÁõ±Ç">µ¿ºÎÁõ±Ç
-                  
-						<option value="¸Þ¸®Ã÷Áõ±Ç">¸Þ¸®Ã÷Áõ±Ç
-                  
-						<option value="¹Ì·¡¿¡¼Â">¹Ì·¡¿¡¼ÂÁõ±Ç
-                  
-						<option value="ºÎ±¹Áõ±Ç">ºÎ±¹Áõ±Ç
-                  
-						<option value="»ï¼ºÁõ±Ç">»ï¼ºÁõ±Ç
-                  
-						<option value="½Å¿µÁõ±Ç">½Å¿µÁõ±Ç
-                  
-						<option value="½ÅÇÑÅõÀÚÁõ±Ç">½ÅÇÑÅõÀÚÁõ±Ç
-                  
-						<option value="¾ÆÀÌ¿¥ÅõÀÚÁõ±Ç">¾ÆÀÌ¿¥ÅõÀÚÁõ±Ç
-                  
-						<option value="¿ì¸®ÅõÀÚÁõ±Ç">¿ì¸®ÅõÀÚÁõ±Ç
-                  
-						<option value="À¯¾ÈÅ¸Áõ±Ç">À¯¾ÈÅ¸(µ¿¾ç)Áõ±Ç
-                  
-						<option value="À¯ÁøÅõÀÚÁõ±Ç">À¯ÁøÅõÀÚÁõ±Ç
-                  
-						<option value="ÀÌº£½ºÆ®ÅõÀÚÁõ±Ç">ÀÌº£½ºÆ®ÅõÀÚÁõ±Ç
-                  
-						<option value="Å°¿òÁõ±Ç">Å°¿òÁõ±Ç
-                  
-						<option value="ÇÏ³ª±ÝÀ¶ÅõÀÚ">ÇÏ³ª±ÝÀ¶ÅõÀÚ
-                  
-						<option value="ÇÏÀÌÅõÀÚÁõ±Ç">ÇÏÀÌÅõÀÚÁõ±Ç
-                  
-						<option value="ÇÑ±¹ÅõÀÚÁõ±Ç">ÇÑ±¹ÅõÀÚÁõ±Ç
-                  
-						<option value="ÇÑÈ­Áõ±Ç">ÇÑÈ­Áõ±Ç
-                  
-						<option value="Çö´ëÁõ±Ç">Çö´ëÁõ±Ç
+						<option value="UFJ">UFJ(ìƒì™€ì€í–‰)
+                     <!--<option value="ì¡°í¥ì€í–‰">ì¡°í¥ì€í–‰-->
+                     <!--<option value="í•œë¯¸ì€í–‰">í•œë¯¸ì€í–‰-->
                   
 						<option value="">-----------------------
                   
-						<option value="Á÷°Å·¡">Á÷°Å·¡ÇÇÇØ
+						<option value="HMCíˆ¬ìžì¦ê¶Œ">HMCíˆ¬ìžì¦ê¶Œ
                   
-						<option value="¾ÆÀÌÅÛ¾çµµ">¾ÆÀÌÅÛ¾çµµ
+						<option value="LIGíˆ¬ìžì¦ê¶Œ">LIGíˆ¬ìžì¦ê¶Œ
+                  
+						<option value="NHíˆ¬ìžì¦ê¶Œ">NHíˆ¬ìžì¦ê¶Œ
+                  
+						<option value="SKì¦ê¶Œ">SKì¦ê¶Œ
+                  
+						<option value="êµë³´ì¦ê¶Œ">êµë³´ì¦ê¶Œ
+                  
+						<option value="ëŒ€ì‹ ì¦ê¶Œ">ëŒ€ì‹ ì¦ê¶Œ
+                  
+						<option value="ëŒ€ìš°ì¦ê¶Œ">ëŒ€ìš°ì¦ê¶Œ
+                  
+						<option value="ë™ë¶€ì¦ê¶Œ">ë™ë¶€ì¦ê¶Œ
+                  
+						<option value="ë©”ë¦¬ì¸ ì¦ê¶Œ">ë©”ë¦¬ì¸ ì¦ê¶Œ
+                  
+						<option value="ë¯¸ëž˜ì—ì…‹">ë¯¸ëž˜ì—ì…‹ì¦ê¶Œ
+                  
+						<option value="ë¶€êµ­ì¦ê¶Œ">ë¶€êµ­ì¦ê¶Œ
+                  
+						<option value="ì‚¼ì„±ì¦ê¶Œ">ì‚¼ì„±ì¦ê¶Œ
+                  
+						<option value="ì‹ ì˜ì¦ê¶Œ">ì‹ ì˜ì¦ê¶Œ
+                  
+						<option value="ì‹ í•œíˆ¬ìžì¦ê¶Œ">ì‹ í•œíˆ¬ìžì¦ê¶Œ
+                  
+						<option value="ì•„ì´ì— íˆ¬ìžì¦ê¶Œ">ì•„ì´ì— íˆ¬ìžì¦ê¶Œ
+                  
+						<option value="ìš°ë¦¬íˆ¬ìžì¦ê¶Œ">ìš°ë¦¬íˆ¬ìžì¦ê¶Œ
+                  
+						<option value="ìœ ì•ˆíƒ€ì¦ê¶Œ">ìœ ì•ˆíƒ€(ë™ì–‘)ì¦ê¶Œ
+                  
+						<option value="ìœ ì§„íˆ¬ìžì¦ê¶Œ">ìœ ì§„íˆ¬ìžì¦ê¶Œ
+                  
+						<option value="ì´ë² ìŠ¤íŠ¸íˆ¬ìžì¦ê¶Œ">ì´ë² ìŠ¤íŠ¸íˆ¬ìžì¦ê¶Œ
+                  
+						<option value="í‚¤ì›€ì¦ê¶Œ">í‚¤ì›€ì¦ê¶Œ
+                  
+						<option value="í•˜ë‚˜ê¸ˆìœµíˆ¬ìž">í•˜ë‚˜ê¸ˆìœµíˆ¬ìž
+                  
+						<option value="í•˜ì´íˆ¬ìžì¦ê¶Œ">í•˜ì´íˆ¬ìžì¦ê¶Œ
+                  
+						<option value="í•œêµ­íˆ¬ìžì¦ê¶Œ">í•œêµ­íˆ¬ìžì¦ê¶Œ
+                  
+						<option value="í•œí™”ì¦ê¶Œ">í•œí™”ì¦ê¶Œ
+                  
+						<option value="í˜„ëŒ€ì¦ê¶Œ">í˜„ëŒ€ì¦ê¶Œ
+                  
+						<option value="">-----------------------
+                  
+						<option value="ì§ê±°ëž˜">ì§ê±°ëž˜í”¼í•´
+                  
+						<option value="ì•„ì´í…œì–‘ë„">ì•„ì´í…œì–‘ë„
             
 				</select></td>
          </tr>
          <tr id="show_bank_info_2">
-            <th><label for="su_name">¸íÀÇÀÚ ¼º¸í</label> <span
+            <th><label for="su_name">ëª…ì˜ìž ì„±ëª…</label> <span
 					class="bltS_A">*</span></th>
             <td><input type="text" class="txt" name="cheat_suspect"
 					id="su_name" style="width: 230px;" maxlength="16" value=""
-					placeholder="°èÁÂ ¸íÀÇÀÚ¸íÀ» ÀÔ·ÂÇÏ¼¼¿ä."></td>
+					placeholder="ê³„ì¢Œ ëª…ì˜ìžëª…ì„ ìž…ë ¥í•˜ì„¸ìš”."></td>
          </tr>
 
          <tr id="show_bank_info_3">
-            <th><label for="su_bankNum">°èÁÂ ¹øÈ£</label> <span
+            <th><label for="su_bankNum">ê³„ì¢Œ ë²ˆí˜¸</label> <span
 					class="bltS_A">*</span></th>
             <td><input type="text" class="txt" name="cheat_account"
 					id="su_bankNum" value="" style="width: 230px;"
 					style="ime-mode:disabled;"
 					onKeyPress="return numbersonly(event, false)" maxlength="30"
-					placeholder="°èÁÂ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä."></td>
+					placeholder="ê³„ì¢Œë²ˆí˜¸ë¥¼ ìž…ë ¥í•˜ì„¸ìš”."></td>
          </tr>
 
          <tr id="show_bank_info_4">
-            <th><label for="su_sum">ÀÔ±Ý ±Ý¾×</label> <span
+            <th><label for="su_sum">ìž…ê¸ˆ ê¸ˆì•¡</label> <span
 					class="bltS_A">*</span></th>
             <td><input type="text" class="txt" name="cheat_price"
-					value="" placeholder="ÇÇÇØ±Ý¾×À» ¿ø ´ÜÀ§·Î ÀÔ·ÂÇÏ¼¼¿ä." id="su_sum"
+					value="" placeholder="í”¼í•´ê¸ˆì•¡ì„ ì› ë‹¨ìœ„ë¡œ ìž…ë ¥í•˜ì„¸ìš”." id="su_sum"
 					style="width: 230px; ime-mode: disabled;"
 					onKeyPress="return numbersonly(event, false)" maxlength="8">
-               ¿ø</td>
+               ì›</td>
          </tr>
 
          <tr id="show_bank_info_5">
-            <th><label for="su_dateY">ÀÔ±ÝÀÏ</label> <span
+            <th><label for="su_dateY">ìž…ê¸ˆì¼</label> <span
 					class="bltS_A">*</span></th>
             <td><input type="hidden" name="cheat_date" value=""
 					class="thecheat_input" /> <select name="cheat_date_temp_1"
-					id="su_dateY" title="¿¬µµ¼±ÅÃ" style="width: 80px;"
+					id="su_dateY" title="ì—°ë„ì„ íƒ" style="width: 80px;"
 					onchange="javascript:if(1){cheat_date.value = cheat_date_temp_1[cheat_date_temp_1.selectedIndex].value + cheat_date_temp_2.value + cheat_date_temp_3.value }">
-                  <option selected value=0>³âµµ ¼±ÅÃ</option>
+                  <option selected value=0>ë…„ë„ ì„ íƒ</option>
                   <option value="2015" selected>2015
                   
 						<option value="2014">2014
             
-				</select> <select name="cheat_date_temp_2" id="su_dateM" title="¿ù ¼±ÅÃ"
+				</select> <select name="cheat_date_temp_2" id="su_dateM" title="ì›” ì„ íƒ"
 					style="width: 80px;"
 					onchange="javascript:if(1){cheat_date.value = cheat_date_temp_1.value + cheat_date_temp_2[cheat_date_temp_2.selectedIndex].value + cheat_date_temp_3.value }">
-                  <option selected value=0>¿ù ¼±ÅÃ</option>
+                  <option selected value=0>ì›” ì„ íƒ</option>
                   <option value="01">01</option>
                   <option value="02">02</option>
                   <option value="03">03</option>
@@ -712,10 +720,10 @@ label {
                   <option value="10">10</option>
                   <option value="11" selected>11</option>
                   <option value="12">12</option>
-            </select> <select name="cheat_date_temp_3" id="su_dateD" title="ÀÏ ¼±ÅÃ"
+            </select> <select name="cheat_date_temp_3" id="su_dateD" title="ì¼ ì„ íƒ"
 					style="width: 80px;"
 					onchange="javascript:if(1){cheat_date.value = cheat_date_temp_1.value + cheat_date_temp_2.value + cheat_date_temp_3[cheat_date_temp_3.selectedIndex].value }">
-                  <option selected value=0>ÀÏ ¼±ÅÃ</option>
+                  <option selected value=0>ì¼ ì„ íƒ</option>
                   <option value="01">01</option>
                   <option value="02">02</option>
                   <option value="03">03</option>
@@ -751,20 +759,20 @@ label {
          </tr>
 
          <tr>
-            <th><label>¿¬¶ôÃ³ Á¤º¸</label> <span class="bltS_A">*</span></th>
+            <th><label>ì—°ë½ì²˜ ì •ë³´</label> <span class="bltS_A">*</span></th>
             <td><input type="checkbox" name="cheat_phone_none"
 					class="chk" id="su_telchk"
 					onclick="javascript:if($('#show_tel_info').css('display')!='none'){document.writeForm.cheat_phone1.value='010';cheat_phone2.value='0000';cheat_phone3.value='0000';cheat_phone.value='01000000000';$('#show_tel_info').css({display: 'none'}); }else { $('#show_tel_info').css({display: ''}); }" /><label
-					for="su_telchk">¿¬¶ôÃ³¸¦ ¸ð¸£´Â °æ¿ì¿¡¸¸ Ã¼Å©ÇÏ¼¼¿ä.</label></td>
+					for="su_telchk">ì—°ë½ì²˜ë¥¼ ëª¨ë¥´ëŠ” ê²½ìš°ì—ë§Œ ì²´í¬í•˜ì„¸ìš”.</label></td>
          </tr>
 
          <tr id="show_tel_info">
-            <th><label for="su_tel">¿¬¶ôÃ³</label> <span
+            <th><label for="su_tel">ì—°ë½ì²˜</label> <span
 					class="bltS_A">*</span></th>
             <td><select name="cheat_phone1" id="su_tel"
-					title="±¹¹ø¼±ÅÃ" style="width: 80px;"
+					title="êµ­ë²ˆì„ íƒ" style="width: 80px;"
 					onchange="javascript:if(1){cheat_phone.value = cheat_phone1[cheat_phone1.selectedIndex].value + cheat_phone2.value + cheat_phone3.value }">
-                  <option selected value=0>¼±ÅÃ</option>
+                  <option selected value=0>ì„ íƒ</option>
                   <option value="010">010
                   
 						<option value="011">011
@@ -820,28 +828,28 @@ label {
 					onchange="javascript:if(1){cheat_phone.value = cheat_phone1[cheat_phone1.selectedIndex].value + cheat_phone2.value + cheat_phone3.value }"
 					style="ime-mode: disabled;"
 					onKeyPress="return numbersonly(event, false)" style="width:70px;"
-					title="°¡¿îµ¥ ÀÚ¸® ÀÔ·Â" />-<input type="text" name="cheat_phone3"
+					title="ê°€ìš´ë° ìžë¦¬ ìž…ë ¥" />-<input type="text" name="cheat_phone3"
 					value="" class="txt" maxlength="4"
 					onchange="javascript:if(1){cheat_phone.value = cheat_phone1[cheat_phone1.selectedIndex].value + cheat_phone2.value + cheat_phone3.value }"
 					style="ime-mode: disabled;"
 					onKeyPress="return numbersonly(event, false)" style="width:70px;"
-					title="³¡ ÀÚ¸® ÀÔ·Â" />&nbsp;<input type="hidden" name="cheat_phone"
-					value="" readonly /> ¡Ø 050 ÀÓ½Ã¹øÈ£ µî·ÏÀ» ±ÝÇÕ´Ï´Ù.</td>
+					title="ë ìžë¦¬ ìž…ë ¥" />&nbsp;<input type="hidden" name="cheat_phone"
+					value="" readonly /> â€» 050 ìž„ì‹œë²ˆí˜¸ ë“±ë¡ì„ ê¸ˆí•©ë‹ˆë‹¤.</td>
          </tr>
 
          <tr>
-            <th><label>¼ºº°</label></th>
+            <th><label>ì„±ë³„</label></th>
             <td><span class="chkArea"><input type="radio"
 						name="cheat_sex" value="1" checked id="su_sexM" class="rdo"><label
-						for="su_sexM">³²ÀÚ</label></span> <span class="chkArea"><input
+						for="su_sexM">ë‚¨ìž</label></span> <span class="chkArea"><input
 						type="radio" name="cheat_sex" value="2" id="su_sexW" class="rdo"><label
-						for="su_sexW">¿©ÀÚ</label></span></td>
+						for="su_sexW">ì—¬ìž</label></span></td>
          </tr>
 
          <tr>
-            <th><label for="su_keynote">¿ëÀÇÀÚ Æ¯Â¡</label></th>
+            <th><label for="su_keynote">ìš©ì˜ìž íŠ¹ì§•</label></th>
             <td><input type="text" class="txt"
-					name="cheat_character" value="" placeholder="¿¹) °æ»óµµ »çÅõ¸® »ç¿ë"
+					name="cheat_character" value="" placeholder="ì˜ˆ) ê²½ìƒë„ ì‚¬íˆ¬ë¦¬ ì‚¬ìš©"
 					id="su_keynote" style="width: 580px;" maxlength="60"></td>
          </tr>
 
@@ -850,9 +858,9 @@ label {
 </div>
 
 <div class="formSection">
-   <h3>ÇÇÇØÀÚ(º»ÀÎ)Á¤º¸</h3>
+   <h3>í”¼í•´ìž(ë³¸ì¸)ì •ë³´</h3>
    <p class="infoTxtTop">
-      "<span class="bltS_A">*</span>"´Â ÇÊ¼ö ±âÀç Ç×¸ñÀÔ´Ï´Ù"
+      "<span class="bltS_A">*</span>"ëŠ” í•„ìˆ˜ ê¸°ìž¬ í•­ëª©ìž…ë‹ˆë‹¤"
    </p>
    <table class="formTypeA" border="1px">
       <colgroup>
@@ -862,25 +870,25 @@ label {
 
 
       <tr>
-         <th><label for="vi_pw">ÇÇÇØ»ç·Ê ºñ¹Ð¹øÈ£</label> <span
+         <th><label for="vi_pw">í”¼í•´ì‚¬ë¡€ ë¹„ë°€ë²ˆí˜¸</label> <span
 				class="bltS_A">*</span></th>
          <td><input type="password" class="txt" name="pw"
 				id="vi_pw" value="" style="width: 230px;" maxlength="20"
-				placeholder="ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä."></td>
+				placeholder="ë¹„ë°€ë²ˆí˜¸ë¥¼ ìž…ë ¥í•˜ì„¸ìš”."></td>
       </tr>
 
       <tr>
-         <th><label for="vi_name">¼º¸í</label> <span class="bltS_A">*</span></th>
+         <th><label for="vi_name">ì„±ëª…</label> <span class="bltS_A">*</span></th>
          <td><input type="text" class="txt" name="name" value=""
-				id="vi_name" style="width: 230px;" placeholder="±ÍÇÏÀÇ ¼º¸íÀ» ÀÔ·ÂÇÏ¼¼¿ä."></td>
+				id="vi_name" style="width: 230px;" placeholder="ê·€í•˜ì˜ ì„±ëª…ì„ ìž…ë ¥í•˜ì„¸ìš”."></td>
       </tr>
 
       <tr>
-         <th><label for="vi_tel">¿¬¶ôÃ³</label> <span class="bltS_A">*</span></th>
-         <td><select name="member_phone1" id="vi_tel" title="±¹¹ø¼±ÅÃ"
+         <th><label for="vi_tel">ì—°ë½ì²˜</label> <span class="bltS_A">*</span></th>
+         <td><select name="member_phone1" id="vi_tel" title="êµ­ë²ˆì„ íƒ"
 				style="width: 80px;"
 				onchange="javascript:if(1){member_phone.value = member_phone1[member_phone1.selectedIndex].value + member_phone2.value + member_phone3.value }">
-               <option selected value=0>¼±ÅÃ</option>
+               <option selected value=0>ì„ íƒ</option>
                <option value="010">010
                
 					<option value="011">011
@@ -896,21 +904,21 @@ label {
 					<option value="070">070
          
 			</select> - <input type="text" name="member_phone2" class="txt" value=""
-				maxlength="4" title="°¡¿îµ¥ ÀÚ¸® ÀÔ·Â"
+				maxlength="4" title="ê°€ìš´ë° ìžë¦¬ ìž…ë ¥"
 				onchange="javascript:if(1){member_phone.value = member_phone1[member_phone1.selectedIndex].value + member_phone2.value + member_phone3.value }"
 				style="ime-mode: disabled; width: 70px;"
 				onKeyPress="return numbersonly(event, false)" /> - <input
 				type="text" name="member_phone3" class="txt" value="" maxlength="4"
 				class="input80"
 				onchange="javascript:if(1){member_phone.value = member_phone1[member_phone1.selectedIndex].value + member_phone2.value + member_phone3.value }"
-				style="ime-mode: disabled; width: 70px;" title="³¡ ÀÚ¸® ÀÔ·Â"
+				style="ime-mode: disabled; width: 70px;" title="ë ìžë¦¬ ìž…ë ¥"
 				onKeyPress="return numbersonly(event, false)" /> <input
 				type="hidden" name="member_phone" id="member_phone" value=""
 				readonly /> <script>
-                        function srvTime(){ // ¼­¹öÀÇ ½Ã°£À» °¡Á®¿Â´Ù.
+                        function srvTime(){ // ì„œë²„ì˜ ì‹œê°„ì„ ê°€ì ¸ì˜¨ë‹¤.
                             var xmlHttp;
-                            if (window.XMLHttpRequest) {//ºÐ±âÇÏÁö ¾ÊÀ¸¸é IE¿¡¼­¸¸ ÀÛµ¿µÈ´Ù.
-                                xmlHttp = new XMLHttpRequest(); // IE 7.0 ÀÌ»ó, Å©·Ò, ÆÄÀÌ¾îÆø½º µî
+                            if (window.XMLHttpRequest) {//ë¶„ê¸°í•˜ì§€ ì•Šìœ¼ë©´ IEì—ì„œë§Œ ìž‘ë™ëœë‹¤.
+                                xmlHttp = new XMLHttpRequest(); // IE 7.0 ì´ìƒ, í¬ë¡¬, íŒŒì´ì–´í­ìŠ¤ ë“±
                                 xmlHttp.open('HEAD',window.location.href.toString(),false);
                                 xmlHttp.setRequestHeader("Content-Type", "text/html");
                                 xmlHttp.send('');
@@ -926,10 +934,10 @@ label {
                         function v2014_handphone_check(form_name) {
                             var key_handphone = $(form_name).val();
                             if(!key_handphone) {
-                                alert('¿¬¶ôÃ³¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä.');
+                                alert('ì—°ë½ì²˜ë¥¼ ìž…ë ¥í•´ ì£¼ì„¸ìš”.');
                                 return false;
                             }
-                            var st = srvTime(); // ¼­¹öÀÈ ÇöÀç ½Ã°£ °¡Á®¿À±â
+                            var st = srvTime(); // ì„œë²„ìœ í˜„ìž¬ ì‹œê°„ ê°€ì ¸ì˜¤ê¸°
                             var dt = new Date(st);
                      if(!dt)dt = new Date();
                             var yyyy = dt.getFullYear().toString();
@@ -946,30 +954,30 @@ label {
             <a
 								onclick="v2014_handphone_check('#member_phone');return false;"
 								target="target_iframe"><img src="images/injung.PNG"
-								alt="ÀÎÁõ¹øÈ£ ¹Þ±â (¹«·á)"></a>
+								alt="ì¸ì¦ë²ˆí˜¸ ë°›ê¸° (ë¬´ë£Œ)"></a>
             <div style="padding-top: 5px;">
-               <label>¡Ø SMS°¡ ¼ö½ÅµÇÁö ¾Ê´Â °æ¿ì, ½ºÆÔ ¹®ÀÚÇÔÀ» È®ÀÎÇØ º¸¼¼¿ä. <br>¡Ø ½ºÆÔ Â÷´Ü ¾ÛÀ» ¼³Ä¡ÇÑ °æ¿ì¿¡´Â ÇØ´ç
-               ¾ÛÀÇ ½ºÆÔÇÔÀ» È®ÀÎÇØ º¸¼¼¿ä.</label>
-               <!--<span style="background-color:yellow"><span class="explain_text_red"> (Àü¼ÛµÈ ÀÎÁõ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.) </span></span>-->
+               <label>â€» SMSê°€ ìˆ˜ì‹ ë˜ì§€ ì•ŠëŠ” ê²½ìš°, ìŠ¤íŒ¸ ë¬¸ìží•¨ì„ í™•ì¸í•´ ë³´ì„¸ìš”. <br>â€» ìŠ¤íŒ¸ ì°¨ë‹¨ ì•±ì„ ì„¤ì¹˜í•œ ê²½ìš°ì—ëŠ” í•´ë‹¹
+               ì•±ì˜ ìŠ¤íŒ¸í•¨ì„ í™•ì¸í•´ ë³´ì„¸ìš”.</label>
+               <!--<span style="background-color:yellow"><span class="explain_text_red"> (ì „ì†¡ëœ ì¸ì¦ë²ˆí˜¸ë¥¼ ìž…ë ¥í•˜ì„¸ìš”.) </span></span>-->
             </div>
 						</td>
       </tr>
 
       <tr>
-         <th><label for="vi_certification">ÀÎÁõ¹øÈ£ ÀÔ·Â</label> <span
+         <th><label for="vi_certification">ì¸ì¦ë²ˆí˜¸ ìž…ë ¥</label> <span
 				class="bltS_A">*</span></th>
          <td><input type="text" class="txt" name="handphone_key"
 				maxlength="10" id="vi_certification"
 				style="width: 230px; ime-mode: disabled;"
 				onKeyPress="return numbersonly(event, false)"
-				placeholder="¿¬¶ôÃ³·Î ¼ö½ÅµÈ ÀÎÁõ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä."></td>
+				placeholder="ì—°ë½ì²˜ë¡œ ìˆ˜ì‹ ëœ ì¸ì¦ë²ˆí˜¸ë¥¼ ìž…ë ¥í•˜ì„¸ìš”."></td>
       </tr>
 
       <tr>
-         <th><label for="vi_email">ÀÌ¸ÞÀÏ</label> <span class="bltS_A">*</span></th>
+         <th><label for="vi_email">ì´ë©”ì¼</label> <span class="bltS_A">*</span></th>
          <td><input type="text" class="txt" name="member_email"
 				id="vi_email" value="" style="width: 230px;"
-				placeholder="±ÍÇÏÀÇ ÀÌ¸ÞÀÏ ÁÖ¼Ò¸¦ ÀÔ·ÂÇÏ¼¼¿ä."></td>
+				placeholder="ê·€í•˜ì˜ ì´ë©”ì¼ ì£¼ì†Œë¥¼ ìž…ë ¥í•˜ì„¸ìš”."></td>
       </tr>
    </table>
 
@@ -977,7 +985,7 @@ label {
 
 <div class="panel panel-default" style="width:330px;">
             <div class="panel-body">
-                <b>ÇÇÇØ»ç·Ê µî·Ï ¾à°ü ¹× ÇÇÇØÈ¸¿ø °¡ÀÔ µ¿ÀÇ</b>
+                <b>í”¼í•´ì‚¬ë¡€ ë“±ë¡ ì•½ê´€ ë° í”¼í•´íšŒì› ê°€ìž… ë™ì˜</b>
             </div>
             <div>
                <br>
@@ -985,26 +993,26 @@ label {
         </div>
         <div class="agreeArea">
 <textarea rows="10px" cols="100px" readonly="readonly" style=""> 
-ÇÇÇØ»ç·Ê µî·Ï ¾à°ü
+í”¼í•´ì‚¬ë¡€ ë“±ë¡ ì•½ê´€
             
-1. º»ÀÎÀÌ µî·ÏÇÑ ÇÇÇØ»ç·Ê Á¤º¸´Â ¿ëÀÇÀÚ °Ë°Å ¹× ÇÇÇØ ¹æÁö¸¦ À§ÇÑ ¸ñÀûÀ¸·Î °øÀÎµÈ ¼ö»ç±â°ü¿¡ Á¦°øµÊÀ» µ¿ÀÇÇÕ´Ï´Ù.
-2. º»ÀÎÀÌ µî·ÏÇÑ ÇÇÇØ»ç·Ê Á¤º¸´Â Ãß°¡ ÇÇÇØ¸¦ ¹æÁöÇÏ±â À§ÇÑ ¸ñÀûÀ¸·Î °³ÀÎ, ±â¾÷ µî Á¦3ÀÚ¿¡°Ô Á¦°øµÊÀ» µ¿ÀÇÇÕ´Ï´Ù.
-3. º»ÀÎÀÌ µî·ÏÇÑ ÇÇÇØ»ç·Ê Á¤º¸´Â °æÂû¼­¿¡ Á÷Á¢ ¹æ¹®ÇÏ¿© ½Å°í Á¢¼ö ¿¹Á¤ÀÌ°Å³ª ½Å°í Á¢¼ö°¡ ¿Ï·áµÈ »ç·ÊÀÔ´Ï´Ù.
-4. ÇãÀ§»ç½Ç À¯Æ÷, ¸í¿¹ÈÑ¼Õ µî ¹ýÀûºÐÀï ¹ß»ý ½Ã ¸ðµç Ã¥ÀÓÀº ÇÇÇØ»ç·Ê µî·ÏÀÚÀÎ º»ÀÎ¿¡°Ô ÀÖ½À´Ï´Ù.
-5. ÇÇÇØ»ç·Ê µî·Ï ¿©ºÎ ¹× °Ë°Å¼Ò½Ä µîÀÇ Ãß°¡ Á¤º¸°¡ ¿ëÀÇÀÚ¿Í ÇÇÇØÀÚ¿¡°Ô ÅëÁöµÊÀ» µ¿ÀÇÇÕ´Ï´Ù.
-6. ¹°Ç° ¹è¼Û ¶Ç´Â È¯ºÒÀÌ ¿Ï·áµÈ °æ¿ì, Áï½Ã µî·ÏÇÑ ÇÇÇØ»ç·Ê¸¦ »èÁ¦ÇÒ °ÍÀÔ´Ï´Ù.
+1. ë³¸ì¸ì´ ë“±ë¡í•œ í”¼í•´ì‚¬ë¡€ ì •ë³´ëŠ” ìš©ì˜ìž ê²€ê±° ë° í”¼í•´ ë°©ì§€ë¥¼ ìœ„í•œ ëª©ì ìœ¼ë¡œ ê³µì¸ëœ ìˆ˜ì‚¬ê¸°ê´€ì— ì œê³µë¨ì„ ë™ì˜í•©ë‹ˆë‹¤.
+2. ë³¸ì¸ì´ ë“±ë¡í•œ í”¼í•´ì‚¬ë¡€ ì •ë³´ëŠ” ì¶”ê°€ í”¼í•´ë¥¼ ë°©ì§€í•˜ê¸° ìœ„í•œ ëª©ì ìœ¼ë¡œ ê°œì¸, ê¸°ì—… ë“± ì œ3ìžì—ê²Œ ì œê³µë¨ì„ ë™ì˜í•©ë‹ˆë‹¤.
+3. ë³¸ì¸ì´ ë“±ë¡í•œ í”¼í•´ì‚¬ë¡€ ì •ë³´ëŠ” ê²½ì°°ì„œì— ì§ì ‘ ë°©ë¬¸í•˜ì—¬ ì‹ ê³  ì ‘ìˆ˜ ì˜ˆì •ì´ê±°ë‚˜ ì‹ ê³  ì ‘ìˆ˜ê°€ ì™„ë£Œëœ ì‚¬ë¡€ìž…ë‹ˆë‹¤.
+4. í—ˆìœ„ì‚¬ì‹¤ ìœ í¬, ëª…ì˜ˆí›¼ì† ë“± ë²•ì ë¶„ìŸ ë°œìƒ ì‹œ ëª¨ë“  ì±…ìž„ì€ í”¼í•´ì‚¬ë¡€ ë“±ë¡ìžì¸ ë³¸ì¸ì—ê²Œ ìžˆìŠµë‹ˆë‹¤.
+5. í”¼í•´ì‚¬ë¡€ ë“±ë¡ ì—¬ë¶€ ë° ê²€ê±°ì†Œì‹ ë“±ì˜ ì¶”ê°€ ì •ë³´ê°€ ìš©ì˜ìžì™€ í”¼í•´ìžì—ê²Œ í†µì§€ë¨ì„ ë™ì˜í•©ë‹ˆë‹¤.
+6. ë¬¼í’ˆ ë°°ì†¡ ë˜ëŠ” í™˜ë¶ˆì´ ì™„ë£Œëœ ê²½ìš°, ì¦‰ì‹œ ë“±ë¡í•œ í”¼í•´ì‚¬ë¡€ë¥¼ ì‚­ì œí•  ê²ƒìž…ë‹ˆë‹¤.
             
-¡Ø ¾à°üÀ» À§¹èÇÏ´Â °æ¿ì, ´ÙÀ½°ú °°Àº Ã³¹úÀ» ¹ÞÀ» ¼ö ÀÖ½À´Ï´Ù.
-¨ç »ç¶÷À» ºñ¹æÇÒ ¸ñÀûÀ¸·Î Á¤º¸Åë½Å¸ÁÀ» ÅëÇÏ¿© °ø¿¬È÷ »ç½ÇÀ» Àû½ÃÇÏ¿© Å¸ÀÎÀÇ ¸í¿¹¸¦ ÈÑ¼ÕÇÏ´Â °æ¿ì 3³â ÀÌÇÏÀÇ Â¡¿ªÀÌ³ª ±Ý°í ¶Ç´Â 2Ãµ¸¸¿ø ÀÌÇÏÀÇ ¹ú±Ý¿¡ Ã³ÇÏ°í
-»ç¶÷À» ºñ¹æÇÒ ¸ñÀûÀ¸·Î Á¤º¸Åë½Å¸ÁÀ» ÅëÇÏ¿© °ø¿¬È÷ ÇãÀ§ÀÇ »ç½ÇÀ» Àû½ÃÇÏ¿© Å¸ÀÎÀÇ ¸í¿¹¸¦ ÈÑ¼ÕÇÏ´Â °æ¿ì¿¡´Â 7³â ÀÌÇÏÀÇ Â¡¿ª, 10³â ÀÌÇÏÀÇ ÀÚ°ÝÁ¤Áö ¶Ç´Â 5Ãµ¸¸¿ø ÀÌÇÏÀÇ ¹ú±Ý¿¡ Ã³ÇÒ ¼ö ÀÖ½À´Ï´Ù.
-¨è °³ÀÎÀûÀÎ ¾Ó½É ¶Ç´Â ±¥¾ÂÇÔ µî »ç±â¹üÁË ¿ÜÀÇ »çÀ¯·Î µî·ÏÇÏ½Ã´Â °æ¿ì, ¸í¿¹ÈÑ¼Õ¿¡ ÇØ´çµÉ ¼ö ÀÖÀ¸¸ç ÀÌ´Â ¹Î¡¤Çü»ç»óÀÇ ºÒÀÌÀÍÀ» ¹ÞÀ» ¼ö ÀÖ½À´Ï´Ù.
-¨é Á¦Ç°¿¡ ´ëÇÑ »óÅÂºÒ¸¸, ¹ÝÇ°°ÅºÎ, ÅÃ¹èºñ ÂøºÒµîÀÇ »ç·Ê µî·ÏÀº ¿µ¾÷¹æÇØ ¹× ¸í¿¹ÈÑ¼Õ¿¡ ÇØ´çµÉ ¼ö ÀÖ½À´Ï´Ù.
+â€» ì•½ê´€ì„ ìœ„ë°°í•˜ëŠ” ê²½ìš°, ë‹¤ìŒê³¼ ê°™ì€ ì²˜ë²Œì„ ë°›ì„ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+â‘  ì‚¬ëžŒì„ ë¹„ë°©í•  ëª©ì ìœ¼ë¡œ ì •ë³´í†µì‹ ë§ì„ í†µí•˜ì—¬ ê³µì—°ížˆ ì‚¬ì‹¤ì„ ì ì‹œí•˜ì—¬ íƒ€ì¸ì˜ ëª…ì˜ˆë¥¼ í›¼ì†í•˜ëŠ” ê²½ìš° 3ë…„ ì´í•˜ì˜ ì§•ì—­ì´ë‚˜ ê¸ˆê³  ë˜ëŠ” 2ì²œë§Œì› ì´í•˜ì˜ ë²Œê¸ˆì— ì²˜í•˜ê³ 
+ì‚¬ëžŒì„ ë¹„ë°©í•  ëª©ì ìœ¼ë¡œ ì •ë³´í†µì‹ ë§ì„ í†µí•˜ì—¬ ê³µì—°ížˆ í—ˆìœ„ì˜ ì‚¬ì‹¤ì„ ì ì‹œí•˜ì—¬ íƒ€ì¸ì˜ ëª…ì˜ˆë¥¼ í›¼ì†í•˜ëŠ” ê²½ìš°ì—ëŠ” 7ë…„ ì´í•˜ì˜ ì§•ì—­, 10ë…„ ì´í•˜ì˜ ìžê²©ì •ì§€ ë˜ëŠ” 5ì²œë§Œì› ì´í•˜ì˜ ë²Œê¸ˆì— ì²˜í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+â‘¡ ê°œì¸ì ì¸ ì•™ì‹¬ ë˜ëŠ” ê´˜ì”¸í•¨ ë“± ì‚¬ê¸°ë²”ì£„ ì™¸ì˜ ì‚¬ìœ ë¡œ ë“±ë¡í•˜ì‹œëŠ” ê²½ìš°, ëª…ì˜ˆí›¼ì†ì— í•´ë‹¹ë  ìˆ˜ ìžˆìœ¼ë©° ì´ëŠ” ë¯¼Â·í˜•ì‚¬ìƒì˜ ë¶ˆì´ìµì„ ë°›ì„ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+â‘¢ ì œí’ˆì— ëŒ€í•œ ìƒíƒœë¶ˆë§Œ, ë°˜í’ˆê±°ë¶€, íƒë°°ë¹„ ì°©ë¶ˆë“±ì˜ ì‚¬ë¡€ ë“±ë¡ì€ ì˜ì—…ë°©í•´ ë° ëª…ì˜ˆí›¼ì†ì— í•´ë‹¹ë  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 </textarea>
         <div class="alert_cheat_write alert_cheat_write-info">
             <b><input type="checkbox" name="cheat_rule_c" value="1"
 			id="cheat_rule_c" valign="bottom"
 			onclick="return cheat_rule_check(cheat_rule.value)" /> <label
-			for="cheat_rule_c">ÇÇÇØ»ç·Ê µî·Ï ¾à°ü¿¡ µ¿ÀÇÇÕ´Ï´Ù.(ÇÊ¼ö)</label></b>
+			for="cheat_rule_c">í”¼í•´ì‚¬ë¡€ ë“±ë¡ ì•½ê´€ì— ë™ì˜í•©ë‹ˆë‹¤.(í•„ìˆ˜)</label></b>
             <input type="hidden" readonly name="cheat_rule" value=""
 			valign="bottom" style="width:0px;height:0px;">
         </div>
@@ -1020,122 +1028,122 @@ label {
 		<b><input type="checkbox" name="agreement_1" value="1"
 			id="chk_agreement_1"
 			onclick="return value_change('agreement_1h',this.value)" /> <label
-			for="chk_agreement_1">¼­ºñ½º ÀÌ¿ë¾à°ü¿¡ µ¿ÀÇÇÕ´Ï´Ù.(ÇÊ¼ö)</label></b> <a
-			href="NewFile.html" target="_blank" class="alert_cheat_write-link"> :: ¾à°ü º¸±â</a>
+			for="chk_agreement_1">ì„œë¹„ìŠ¤ ì´ìš©ì•½ê´€ì— ë™ì˜í•©ë‹ˆë‹¤.(í•„ìˆ˜)</label></b> <a
+			href="NewFile.html" target="_blank" class="alert_cheat_write-link"> :: ì•½ê´€ ë³´ê¸°</a>
 	</div>
             <div class="alert_cheat_write alert_cheat_write-info">            
             <div style="margin-top:6px;">            
 <textarea rows="10" cols="100" readonly="readonly">
-1. ¼öÁýÇÏ´Â °³ÀÎÁ¤º¸ Ç×¸ñ
+1. ìˆ˜ì§‘í•˜ëŠ” ê°œì¸ì •ë³´ í•­ëª©
 
-´õÄ¡Æ®´Â È¸¿ø°¡ÀÔ, ¿øÈ°ÇÑ È¸¿ø »ó´ã, °¢Á¾ ¼­ºñ½º µî ±âº»ÀûÀÎ ¼­ºñ½º Á¦°øÀ» À§ÇÑ ÇÊ¼öÁ¤º¸¿Í È¸¿ø ¸ÂÃã ¼­ºñ½º Á¦°øÀ» À§ÇÑ ¼±ÅÃÁ¤º¸·Î ±¸ºÐÇÏ¿© ¾Æ·¡¿Í °°Àº °³ÀÎÁ¤º¸¸¦ ¼öÁýÇÏ°í ÀÖ½À´Ï´Ù.
+ë”ì¹˜íŠ¸ëŠ” íšŒì›ê°€ìž…, ì›í™œí•œ íšŒì› ìƒë‹´, ê°ì¢… ì„œë¹„ìŠ¤ ë“± ê¸°ë³¸ì ì¸ ì„œë¹„ìŠ¤ ì œê³µì„ ìœ„í•œ í•„ìˆ˜ì •ë³´ì™€ íšŒì› ë§žì¶¤ ì„œë¹„ìŠ¤ ì œê³µì„ ìœ„í•œ ì„ íƒì •ë³´ë¡œ êµ¬ë¶„í•˜ì—¬ ì•„ëž˜ì™€ ê°™ì€ ê°œì¸ì •ë³´ë¥¼ ìˆ˜ì§‘í•˜ê³  ìžˆìŠµë‹ˆë‹¤.
 
-1) ¼öÁýÇ×¸ñ
+1) ìˆ˜ì§‘í•­ëª©
 
-<ÀÏ¹Ý È¸¿ø°¡ÀÔ ½Ã>
+<ì¼ë°˜ íšŒì›ê°€ìž… ì‹œ>
 
-ÇÊ¼öÇ×¸ñ : ¼º¸í, ¾ÆÀÌµð, ºñ¹Ð¹øÈ£, ÈÞ´ë ÀüÈ­¹øÈ£, ÀÌ¸ÞÀÏ ÁÖ¼Ò, ¾ÆÀÌÇÉ Á¤º¸, CI/DI¹øÈ£, »ý³â¿ùÀÏ/¼ºº°, ¸¸ 14¼¼ ¹Ì¸¸ÀÎ °æ¿ì ¹ýÁ¤ ´ë¸®ÀÎ Á¤º¸
+í•„ìˆ˜í•­ëª© : ì„±ëª…, ì•„ì´ë””, ë¹„ë°€ë²ˆí˜¸, íœ´ëŒ€ ì „í™”ë²ˆí˜¸, ì´ë©”ì¼ ì£¼ì†Œ, ì•„ì´í•€ ì •ë³´, CI/DIë²ˆí˜¸, ìƒë…„ì›”ì¼/ì„±ë³„, ë§Œ 14ì„¸ ë¯¸ë§Œì¸ ê²½ìš° ë²•ì • ëŒ€ë¦¬ì¸ ì •ë³´
 
-¼±ÅÃ»çÇ× : ½Ç¸íÀÎÁõ°ª, ¾ÆÀÌÇÉ È¸¿øÀº ¾ÆÀÌÇÉ ¹øÈ£, »çÁø
+ì„ íƒì‚¬í•­ : ì‹¤ëª…ì¸ì¦ê°’, ì•„ì´í•€ íšŒì›ì€ ì•„ì´í•€ ë²ˆí˜¸, ì‚¬ì§„
 
-<±â¾÷ /´ÜÃ¼ È¸¿ø°¡ÀÔ ½Ã>
+<ê¸°ì—… /ë‹¨ì²´ íšŒì›ê°€ìž… ì‹œ>
 
-ÇÊ¼öÇ×¸ñ : ¾ÆÀÌµð, ºñ¹Ð¹øÈ£, ¹ýÀÎ¸í, »ç¾÷ÀÚµî·Ï¹øÈ£, ´ëÇ¥ÀÚ¸í, ¾÷Á¾, ÀÌ¸ÞÀÏ ÁÖ¼Ò, »ç¾÷Àå ¼ÒÀçÁö, ´ã´çÀÚ ÀÌ¸§, ¾ÆÀÌÇÉ Á¤º¸, CI/DI¹øÈ£, »ý³â¿ùÀÏ/¼ºº°, ÈÞ´ë ÀüÈ­¹øÈ£, À¯¼± ÀüÈ­¹øÈ£
+í•„ìˆ˜í•­ëª© : ì•„ì´ë””, ë¹„ë°€ë²ˆí˜¸, ë²•ì¸ëª…, ì‚¬ì—…ìžë“±ë¡ë²ˆí˜¸, ëŒ€í‘œìžëª…, ì—…ì¢…, ì´ë©”ì¼ ì£¼ì†Œ, ì‚¬ì—…ìž¥ ì†Œìž¬ì§€, ë‹´ë‹¹ìž ì´ë¦„, ì•„ì´í•€ ì •ë³´, CI/DIë²ˆí˜¸, ìƒë…„ì›”ì¼/ì„±ë³„, íœ´ëŒ€ ì „í™”ë²ˆí˜¸, ìœ ì„  ì „í™”ë²ˆí˜¸
 
-¼±ÅÃ»çÇ× : ¼³¸³ÀÏ
+ì„ íƒì‚¬í•­ : ì„¤ë¦½ì¼
 
-<¼Ò¼È ³×Æ®¿öÅ©/¸ð¹ÙÀÏ ¼­ºñ½º ÀÌ¿ë ½Ã>
+<ì†Œì…œ ë„¤íŠ¸ì›Œí¬/ëª¨ë°”ì¼ ì„œë¹„ìŠ¤ ì´ìš© ì‹œ>
 
-¼±ÅÃ»çÇ× : »ý³â¿ùÀÏ, ¼ºº°, ÇÐ±³¸í(ÀÔÇÐ³âµµ), Á÷¾÷, °ü½É»ç, Ç÷¾×Çü, »çÁø, Æù¹øÈ£, ÆùÁÖ¼Ò·Ï, À§Ä¡ Á¤º¸(À§Ä¡±â¹Ý¼­ºñ½º ÀÌ¿ë ½Ã), À½¼º Á¤º¸(À½¼º±â¹Ý¼­ºñ½º ÀÌ¿ë ½Ã)
+ì„ íƒì‚¬í•­ : ìƒë…„ì›”ì¼, ì„±ë³„, í•™êµëª…(ìž…í•™ë…„ë„), ì§ì—…, ê´€ì‹¬ì‚¬, í˜ˆì•¡í˜•, ì‚¬ì§„, í°ë²ˆí˜¸, í°ì£¼ì†Œë¡, ìœ„ì¹˜ ì •ë³´(ìœ„ì¹˜ê¸°ë°˜ì„œë¹„ìŠ¤ ì´ìš© ì‹œ), ìŒì„± ì •ë³´(ìŒì„±ê¸°ë°˜ì„œë¹„ìŠ¤ ì´ìš© ì‹œ)
 
-<À¯·á ¼­ºñ½º ÀÌ¿ë ½Ã>
+<ìœ ë£Œ ì„œë¹„ìŠ¤ ì´ìš© ì‹œ>
 
-ÈÞ´ëÆù Á¤º¸, ½Å¿ëÄ«µå Á¤º¸, ÀºÇà°èÁÂ Á¤º¸, °áÁ¦±â·Ï µîÀÇ Á¤º¸°¡ ¼öÁýµÉ ¼ö ÀÖ½À´Ï´Ù.
+íœ´ëŒ€í° ì •ë³´, ì‹ ìš©ì¹´ë“œ ì •ë³´, ì€í–‰ê³„ì¢Œ ì •ë³´, ê²°ì œê¸°ë¡ ë“±ì˜ ì •ë³´ê°€ ìˆ˜ì§‘ë  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 
-¼±ÅÃÁ¤º¸¸¦ ÀÔ·ÂÇÏÁö ¾ÊÀº °æ¿ì¿¡µµ ¼­ºñ½º ÀÌ¿ë Á¦ÇÑÀº ¾øÀ¸¸ç ÀÌ¿ëÀÚÀÇ ±âº»Àû ÀÎ±Ç Ä§ÇØÀÇ ¿ì·Á°¡ ÀÖ´Â ¹Î°¨ÇÑ °³ÀÎ Á¤º¸(ÀÎÁ¾, »ç»ó ¹× ½ÅÁ¶, Á¤Ä¡Àû ¼ºÇâ ÀÌ³ª ¹üÁË±â·Ï, ÀÇ·áÁ¤º¸ µî)´Â ¼öÁýÇÏÁö ¾Ê½À´Ï´Ù.
+ì„ íƒì •ë³´ë¥¼ ìž…ë ¥í•˜ì§€ ì•Šì€ ê²½ìš°ì—ë„ ì„œë¹„ìŠ¤ ì´ìš© ì œí•œì€ ì—†ìœ¼ë©° ì´ìš©ìžì˜ ê¸°ë³¸ì  ì¸ê¶Œ ì¹¨í•´ì˜ ìš°ë ¤ê°€ ìžˆëŠ” ë¯¼ê°í•œ ê°œì¸ ì •ë³´(ì¸ì¢…, ì‚¬ìƒ ë° ì‹ ì¡°, ì •ì¹˜ì  ì„±í–¥ ì´ë‚˜ ë²”ì£„ê¸°ë¡, ì˜ë£Œì •ë³´ ë“±)ëŠ” ìˆ˜ì§‘í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
 
-´Ü, ¼­ºñ½º ÀÌ¿ë°úÁ¤¿¡¼­ ¾Æ·¡¿Í °°Àº Á¤º¸µéÀÌ ÀÚµ¿À¸·Î »ý¼ºµÇ¾î ¼öÁýµÉ ¼ö ÀÖ½À´Ï´Ù.
+ë‹¨, ì„œë¹„ìŠ¤ ì´ìš©ê³¼ì •ì—ì„œ ì•„ëž˜ì™€ ê°™ì€ ì •ë³´ë“¤ì´ ìžë™ìœ¼ë¡œ ìƒì„±ë˜ì–´ ìˆ˜ì§‘ë  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 
-IP Address, ÄíÅ°, ¹æ¹® ÀÏ½Ã, ¼­ºñ½º ÀÌ¿ë ±â·Ï, ºÒ·® ÀÌ¿ë ±â·Ï
+IP Address, ì¿ í‚¤, ë°©ë¬¸ ì¼ì‹œ, ì„œë¹„ìŠ¤ ì´ìš© ê¸°ë¡, ë¶ˆëŸ‰ ì´ìš© ê¸°ë¡
 
-2) °³ÀÎÁ¤º¸ ¼öÁý¹æ¹ý
+2) ê°œì¸ì •ë³´ ìˆ˜ì§‘ë°©ë²•
 
-´õÄ¡Æ®´Â ´ÙÀ½°ú °°Àº ¹æ¹ýÀ¸·Î °³ÀÎÁ¤º¸¸¦ ¼öÁýÇÒ ¼ö ÀÖ½À´Ï´Ù.
+ë”ì¹˜íŠ¸ëŠ” ë‹¤ìŒê³¼ ê°™ì€ ë°©ë²•ìœ¼ë¡œ ê°œì¸ì •ë³´ë¥¼ ìˆ˜ì§‘í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 
-- È¨ÆäÀÌÁö, ¼­¸é¾ç½Ä, ÆÑ½º, ÀüÈ­, »ó´ã °Ô½ÃÆÇ, ÀÌ¸ÞÀÏ, ÀÌº¥Æ® ÀÀ¸ð, ¹è¼Û¿äÃ»
+- í™ˆíŽ˜ì´ì§€, ì„œë©´ì–‘ì‹, íŒ©ìŠ¤, ì „í™”, ìƒë‹´ ê²Œì‹œíŒ, ì´ë©”ì¼, ì´ë²¤íŠ¸ ì‘ëª¨, ë°°ì†¡ìš”ì²­
 
-- Çù·ÂÈ¸»ç·ÎºÎÅÍÀÇ Á¦°ø
+- í˜‘ë ¥íšŒì‚¬ë¡œë¶€í„°ì˜ ì œê³µ
 
-- »ý¼ºÁ¤º¸ ¼öÁý ÅøÀ» ÅëÇÑ ¼öÁý
+- ìƒì„±ì •ë³´ ìˆ˜ì§‘ íˆ´ì„ í†µí•œ ìˆ˜ì§‘
 
-2. °³ÀÎÁ¤º¸ÀÇ ¼öÁý ¹× ÀÌ¿ë¸ñÀû
+2. ê°œì¸ì •ë³´ì˜ ìˆ˜ì§‘ ë° ì´ìš©ëª©ì 
 
-´õÄ¡Æ®´Â ¼öÁýÇÑ °³ÀÎÁ¤º¸¸¦ ´ÙÀ½ÀÇ ¸ñÀûÀ» À§ÇØ È°¿ëÇÕ´Ï´Ù. ÀÌ¿ëÀÚ°¡ Á¦°øÇÑ ¸ðµç Á¤º¸´Â ÇÏ±â ¸ñÀû¿¡ ÇÊ¿äÇÑ ¿ëµµ ÀÌ¿Ü·Î´Â »ç¿ëµÇÁö ¾ÊÀ¸¸ç ÀÌ¿ë ¸ñÀûÀÌ º¯°æµÉ ½Ã¿¡´Â »çÀü µ¿ÀÇ¸¦ ±¸ÇÒ °ÍÀÔ´Ï´Ù.
+ë”ì¹˜íŠ¸ëŠ” ìˆ˜ì§‘í•œ ê°œì¸ì •ë³´ë¥¼ ë‹¤ìŒì˜ ëª©ì ì„ ìœ„í•´ í™œìš©í•©ë‹ˆë‹¤. ì´ìš©ìžê°€ ì œê³µí•œ ëª¨ë“  ì •ë³´ëŠ” í•˜ê¸° ëª©ì ì— í•„ìš”í•œ ìš©ë„ ì´ì™¸ë¡œëŠ” ì‚¬ìš©ë˜ì§€ ì•Šìœ¼ë©° ì´ìš© ëª©ì ì´ ë³€ê²½ë  ì‹œì—ëŠ” ì‚¬ì „ ë™ì˜ë¥¼ êµ¬í•  ê²ƒìž…ë‹ˆë‹¤.
 
-1) ¼­ºñ½º Á¦°ø¿¡ °üÇÑ °è¾à ÀÌÇà ¹× ¼­ºñ½º Á¦°ø¿¡ µû¸¥ ¿ä±ÝÁ¤»ê
+1) ì„œë¹„ìŠ¤ ì œê³µì— ê´€í•œ ê³„ì•½ ì´í–‰ ë° ì„œë¹„ìŠ¤ ì œê³µì— ë”°ë¥¸ ìš”ê¸ˆì •ì‚°
 
-ÄÜÅÙÃ÷ Á¦°ø, ±¸¸Å ¹× ¿ä±Ý °áÁ¦, ¹°Ç°¹è¼Û ¶Ç´Â Ã»±¸Áö µî ¹ß¼Û, ±ÝÀ¶°Å·¡ º»ÀÎ ÀÎÁõ ¹× ±ÝÀ¶ ¼­ºñ½º, ¿ä±ÝÃß½É µî
+ì½˜í…ì¸  ì œê³µ, êµ¬ë§¤ ë° ìš”ê¸ˆ ê²°ì œ, ë¬¼í’ˆë°°ì†¡ ë˜ëŠ” ì²­êµ¬ì§€ ë“± ë°œì†¡, ê¸ˆìœµê±°ëž˜ ë³¸ì¸ ì¸ì¦ ë° ê¸ˆìœµ ì„œë¹„ìŠ¤, ìš”ê¸ˆì¶”ì‹¬ ë“±
 
-2) È¸¿ø °ü¸®
+2) íšŒì› ê´€ë¦¬
 
-È¸¿øÁ¦ ¼­ºñ½º ÀÌ¿ë¿¡ µû¸¥ º»ÀÎÈ®ÀÎ, °³ÀÎ ½Äº°, ºÒ·®È¸¿øÀÇ ºÎÁ¤ ÀÌ¿ë ¹æÁö¿Í ºñÀÎ°¡ »ç¿ë ¹æÁö, °¡ÀÔ ÀÇ»ç È®ÀÎ, ¿¬·ÉÈ®ÀÎ, ¸¸14¼¼ ¹Ì¸¸ ¾Æµ¿ °³ÀÎÁ¤º¸ ¼öÁý ½Ã ¹ýÁ¤ ´ë¸®ÀÎ µ¿ÀÇ¿©ºÎ È®ÀÎ, ºÒ¸¸Ã³¸® µî ¹Î¿øÃ³¸®, °íÁö»çÇ× Àü´Þ
+íšŒì›ì œ ì„œë¹„ìŠ¤ ì´ìš©ì— ë”°ë¥¸ ë³¸ì¸í™•ì¸, ê°œì¸ ì‹ë³„, ë¶ˆëŸ‰íšŒì›ì˜ ë¶€ì • ì´ìš© ë°©ì§€ì™€ ë¹„ì¸ê°€ ì‚¬ìš© ë°©ì§€, ê°€ìž… ì˜ì‚¬ í™•ì¸, ì—°ë ¹í™•ì¸, ë§Œ14ì„¸ ë¯¸ë§Œ ì•„ë™ ê°œì¸ì •ë³´ ìˆ˜ì§‘ ì‹œ ë²•ì • ëŒ€ë¦¬ì¸ ë™ì˜ì—¬ë¶€ í™•ì¸, ë¶ˆë§Œì²˜ë¦¬ ë“± ë¯¼ì›ì²˜ë¦¬, ê³ ì§€ì‚¬í•­ ì „ë‹¬
 
-3) ½Å±Ô ¼­ºñ½º °³¹ß ¹× ¸¶ÄÉÆÃ¡¤±¤°í¿¡ÀÇ È°¿ë
+3) ì‹ ê·œ ì„œë¹„ìŠ¤ ê°œë°œ ë° ë§ˆì¼€íŒ…Â·ê´‘ê³ ì—ì˜ í™œìš©
 
-½Å±Ô ¼­ºñ½º °³¹ß°ú ÀÌº¥Æ® Çà»ç¿¡ µû¸¥ Á¤º¸ Àü´Þ ¹× ¸ÂÃã ¼­ºñ½º Á¦°ø, ÀÎ±¸Åë°èÇÐÀû Æ¯¼º¿¡ µû¸¥ ¼­ºñ½º Á¦°ø ¹× ±¤°í °ÔÀç, Á¢¼Ó ºóµµ ÆÄ¾Ç ¶Ç´Â È¸¿øÀÇ ¼­ºñ½º ÀÌ¿ë¿¡ ´ëÇÑ Åë°è
+ì‹ ê·œ ì„œë¹„ìŠ¤ ê°œë°œê³¼ ì´ë²¤íŠ¸ í–‰ì‚¬ì— ë”°ë¥¸ ì •ë³´ ì „ë‹¬ ë° ë§žì¶¤ ì„œë¹„ìŠ¤ ì œê³µ, ì¸êµ¬í†µê³„í•™ì  íŠ¹ì„±ì— ë”°ë¥¸ ì„œë¹„ìŠ¤ ì œê³µ ë° ê´‘ê³  ê²Œìž¬, ì ‘ì† ë¹ˆë„ íŒŒì•… ë˜ëŠ” íšŒì›ì˜ ì„œë¹„ìŠ¤ ì´ìš©ì— ëŒ€í•œ í†µê³„
 
-3. °³ÀÎÁ¤º¸ÀÇ º¸À¯ ¹× ÀÌ¿ë±â°£
+3. ê°œì¸ì •ë³´ì˜ ë³´ìœ  ë° ì´ìš©ê¸°ê°„
 
-´õÄ¡Æ®´Â È¸¿ø°¡ÀÔÀÏ·ÎºÎÅÍ ¼­ºñ½º¸¦ Á¦°øÇÏ´Â ±â°£ µ¿¾È¿¡ ÇÑÇÏ¿© ÀÌ¿ëÀÚÀÇ °³ÀÎÁ¤º¸¸¦ º¸À¯ ¹× ÀÌ¿ëÇÏ°Ô µË´Ï´Ù.
+ë”ì¹˜íŠ¸ëŠ” íšŒì›ê°€ìž…ì¼ë¡œë¶€í„° ì„œë¹„ìŠ¤ë¥¼ ì œê³µí•˜ëŠ” ê¸°ê°„ ë™ì•ˆì— í•œí•˜ì—¬ ì´ìš©ìžì˜ ê°œì¸ì •ë³´ë¥¼ ë³´ìœ  ë° ì´ìš©í•˜ê²Œ ë©ë‹ˆë‹¤.
 
-È¸¿ø Å»Åð¸¦ ¿äÃ»ÇÏ°Å³ª °³ÀÎÁ¤º¸ÀÇ ¼öÁý ¹× ÀÌ¿ë¿¡ ´ëÇÑ µ¿ÀÇ¸¦ Ã¶È¸ÇÏ´Â °æ¿ì, ¼öÁý ¹× ÀÌ¿ë¸ñÀûÀÌ ´Þ¼ºµÇ°Å³ª º¸À¯ ¹× ÀÌ¿ë±â°£ÀÌ Á¾·áÇÑ °æ¿ì ÇØ´ç °³ÀÎÁ¤º¸¸¦ ÁöÃ¼ ¾øÀÌ ÆÄ±âÇÕ´Ï´Ù.
+íšŒì› íƒˆí‡´ë¥¼ ìš”ì²­í•˜ê±°ë‚˜ ê°œì¸ì •ë³´ì˜ ìˆ˜ì§‘ ë° ì´ìš©ì— ëŒ€í•œ ë™ì˜ë¥¼ ì² íšŒí•˜ëŠ” ê²½ìš°, ìˆ˜ì§‘ ë° ì´ìš©ëª©ì ì´ ë‹¬ì„±ë˜ê±°ë‚˜ ë³´ìœ  ë° ì´ìš©ê¸°ê°„ì´ ì¢…ë£Œí•œ ê²½ìš° í•´ë‹¹ ê°œì¸ì •ë³´ë¥¼ ì§€ì²´ ì—†ì´ íŒŒê¸°í•©ë‹ˆë‹¤.
 
-´Ü, ´ÙÀ½ÀÇ Á¤º¸¿¡ ´ëÇØ¼­´Â ¾Æ·¡ÀÇ ÀÌÀ¯·Î ¸í½ÃÇÑ ±â°£ µ¿¾È º¸Á¸ÇÕ´Ï´Ù.
+ë‹¨, ë‹¤ìŒì˜ ì •ë³´ì— ëŒ€í•´ì„œëŠ” ì•„ëž˜ì˜ ì´ìœ ë¡œ ëª…ì‹œí•œ ê¸°ê°„ ë™ì•ˆ ë³´ì¡´í•©ë‹ˆë‹¤.
 
-- ºÎÁ¤ÀÌ¿ë±â·Ï
+- ë¶€ì •ì´ìš©ê¸°ë¡
 
-º¸Á¸ ÀÌÀ¯ : ºÎÁ¤ ÀÌ¿ë ¹æÁö
+ë³´ì¡´ ì´ìœ  : ë¶€ì • ì´ìš© ë°©ì§€
 
-º¸Á¸ ±â°£ : 1³â
+ë³´ì¡´ ê¸°ê°„ : 1ë…„
 
-»ó¹ý, ÀüÀÚ»ó°Å·¡ µî¿¡¼­ÀÇ ¼ÒºñÀÚº¸È£¿¡ °üÇÑ ¹ý·ü µî °ü°è¹ý·ÉÀÇ ±ÔÁ¤¿¡ ÀÇÇÏ¿© º¸Á¸ÇÒ ÇÊ¿ä°¡ ÀÖ´Â °æ¿ì ´õÄ¡Æ®´Â °ü°è¹ý·É¿¡¼­ Á¤ÇÑ ÀÏÁ¤ÇÑ ±â°£ µ¿¾È È¸¿øÁ¤º¸¸¦ º¸°üÇÕ´Ï´Ù. ÀÌ °æ¿ì ´õÄ¡Æ®´Â º¸°üÇÏ´Â Á¤º¸¸¦ ±× º¸°üÀÇ ¸ñÀûÀ¸·Î¸¸ ÀÌ¿ëÇÏ¸ç º¸Á¸±â°£Àº ¾Æ·¡¿Í °°½À´Ï´Ù.
+ìƒë²•, ì „ìžìƒê±°ëž˜ ë“±ì—ì„œì˜ ì†Œë¹„ìžë³´í˜¸ì— ê´€í•œ ë²•ë¥  ë“± ê´€ê³„ë²•ë ¹ì˜ ê·œì •ì— ì˜í•˜ì—¬ ë³´ì¡´í•  í•„ìš”ê°€ ìžˆëŠ” ê²½ìš° ë”ì¹˜íŠ¸ëŠ” ê´€ê³„ë²•ë ¹ì—ì„œ ì •í•œ ì¼ì •í•œ ê¸°ê°„ ë™ì•ˆ íšŒì›ì •ë³´ë¥¼ ë³´ê´€í•©ë‹ˆë‹¤. ì´ ê²½ìš° ë”ì¹˜íŠ¸ëŠ” ë³´ê´€í•˜ëŠ” ì •ë³´ë¥¼ ê·¸ ë³´ê´€ì˜ ëª©ì ìœ¼ë¡œë§Œ ì´ìš©í•˜ë©° ë³´ì¡´ê¸°ê°„ì€ ì•„ëž˜ì™€ ê°™ìŠµë‹ˆë‹¤.
 
-- °è¾à ¶Ç´Â Ã»¾àÃ¶È¸ µî¿¡ °üÇÑ ±â·Ï
+- ê³„ì•½ ë˜ëŠ” ì²­ì•½ì² íšŒ ë“±ì— ê´€í•œ ê¸°ë¡
 
-º¸Á¸ ÀÌÀ¯ : ÀüÀÚ»ó°Å·¡ µî¿¡¼­ÀÇ ¼ÒºñÀÚº¸È£¿¡ °üÇÑ ¹ý·ü
+ë³´ì¡´ ì´ìœ  : ì „ìžìƒê±°ëž˜ ë“±ì—ì„œì˜ ì†Œë¹„ìžë³´í˜¸ì— ê´€í•œ ë²•ë¥ 
 
-º¸Á¸ ±â°£ : 5³â
+ë³´ì¡´ ê¸°ê°„ : 5ë…„
 
-- ´ë±Ý°áÁ¦ ¹× ÀçÈ­ µîÀÇ °ø±Þ¿¡ °üÇÑ ±â·Ï
+- ëŒ€ê¸ˆê²°ì œ ë° ìž¬í™” ë“±ì˜ ê³µê¸‰ì— ê´€í•œ ê¸°ë¡
 
-º¸Á¸ ÀÌÀ¯ : ÀüÀÚ»ó°Å·¡ µî¿¡¼­ÀÇ ¼ÒºñÀÚº¸È£¿¡ °üÇÑ ¹ý·ü
+ë³´ì¡´ ì´ìœ  : ì „ìžìƒê±°ëž˜ ë“±ì—ì„œì˜ ì†Œë¹„ìžë³´í˜¸ì— ê´€í•œ ë²•ë¥ 
 
-º¸Á¸ ±â°£ : 5³â
+ë³´ì¡´ ê¸°ê°„ : 5ë…„
 
-- ¼ÒºñÀÚÀÇ ºÒ¸¸ ¶Ç´Â ºÐÀïÃ³¸®¿¡ °üÇÑ ±â·Ï
+- ì†Œë¹„ìžì˜ ë¶ˆë§Œ ë˜ëŠ” ë¶„ìŸì²˜ë¦¬ì— ê´€í•œ ê¸°ë¡
 
-º¸Á¸ ÀÌÀ¯ : ÀüÀÚ»ó°Å·¡ µî¿¡¼­ÀÇ ¼ÒºñÀÚº¸È£¿¡ °üÇÑ ¹ý·ü
+ë³´ì¡´ ì´ìœ  : ì „ìžìƒê±°ëž˜ ë“±ì—ì„œì˜ ì†Œë¹„ìžë³´í˜¸ì— ê´€í•œ ë²•ë¥ 
 
-º¸Á¸ ±â°£ : 3³â
+ë³´ì¡´ ê¸°ê°„ : 3ë…„
 
-- º»ÀÎÈ®ÀÎ¿¡ °üÇÑ ±â·Ï
+- ë³¸ì¸í™•ì¸ì— ê´€í•œ ê¸°ë¡
 
-º¸Á¸ ÀÌÀ¯ : Á¤º¸Åë½Å¸Á ÀÌ¿ëÃËÁø ¹× Á¤º¸º¸È£ µî¿¡ °üÇÑ ¹ý·ü
+ë³´ì¡´ ì´ìœ  : ì •ë³´í†µì‹ ë§ ì´ìš©ì´‰ì§„ ë° ì •ë³´ë³´í˜¸ ë“±ì— ê´€í•œ ë²•ë¥ 
 
-º¸Á¸ ±â°£ : 6°³¿ù
+ë³´ì¡´ ê¸°ê°„ : 6ê°œì›”
 
-- ¹æ¹®¿¡ °üÇÑ ±â·Ï
+- ë°©ë¬¸ì— ê´€í•œ ê¸°ë¡
 
-º¸Á¸ ÀÌÀ¯ : Åë½Åºñ¹Ðº¸È£¹ý
+ë³´ì¡´ ì´ìœ  : í†µì‹ ë¹„ë°€ë³´í˜¸ë²•
 
-º¸Á¸ ±â°£ : 3°³¿ù
+ë³´ì¡´ ê¸°ê°„ : 3ê°œì›”
          
 </textarea>
    </div>   
    <b><input type="checkbox" name="agreement_2" value="1"
 			id="chk_agreement_2"
 			onclick="return value_change('agreement_2h',this.value)" /> <label
-			for="chk_agreement_2">°³ÀÎÁ¤º¸ ¼öÁý ¹× ÀÌ¿ë¿¡ µ¿ÀÇÇÕ´Ï´Ù.(ÇÊ¼ö)</label></b>
+			for="chk_agreement_2">ê°œì¸ì •ë³´ ìˆ˜ì§‘ ë° ì´ìš©ì— ë™ì˜í•©ë‹ˆë‹¤.(í•„ìˆ˜)</label></b>
 </div>
          
          </div>
@@ -1149,9 +1157,9 @@ IP Address, ÄíÅ°, ¹æ¹® ÀÏ½Ã, ¼­ºñ½º ÀÌ¿ë ±â·Ï, ºÒ·® ÀÌ¿ë ±â·Ï
         </div>
         <div id="submit_btn" class="submit_btn">
             <!--<a href="#"><img src="./layouts/2014/images/btn/btn_damageAgreeApp.gif" alt=""></a>-->
-            <!--<input type="submit" value="" name="" onclick="return confirm('È®ÀÎ ¹öÆ°À» ´©¸¥ ÈÄ ÇÇÇØ»ç·Ê°¡ µî·ÏµÉ ¶§ ±îÁö ±â´Ù·Á ÁÖ¼¼¿ä.');"/>-->
-            <input type="submit" value="È®ÀÎ" name="" />
-            <!--<input type="button" value="Ãë¼Ò" class="btngray" onclick="cancelCheck();" />-->
+            <!--<input type="submit" value="" name="" onclick="return confirm('í™•ì¸ ë²„íŠ¼ì„ ëˆ„ë¥¸ í›„ í”¼í•´ì‚¬ë¡€ê°€ ë“±ë¡ë  ë•Œ ê¹Œì§€ ê¸°ë‹¤ë ¤ ì£¼ì„¸ìš”.');"/>-->
+            <input type="submit" value="í™•ì¸" name="" />
+            <!--<input type="button" value="ì·¨ì†Œ" class="btngray" onclick="cancelCheck();" />-->
         </div>
 
 
