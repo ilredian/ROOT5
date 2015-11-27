@@ -18,51 +18,51 @@ public class BoardController {
 	@Autowired(required=false)
 	private BoardNoticeDAO boardNoticeDAO;
 	
-	@RequestMapping()
+	@RequestMapping("freeMain.go")
 	public String freeMain(){
 		System.out.println("자유게시판 메인 창 이동");
-		return "";
+		return "home.boardFree.freeMain";
 	}
 	
 	@RequestMapping()
 	public String freeView(){
 		System.out.println("자유게시판 뷰 이동");
-		return "";
+		return "home.boardFree.freeView";
 	}
 	
 	@RequestMapping(value="" , method=RequestMethod.GET)
 	public String freeWrite(BoardFreeDTO boardDTO){
 		System.out.println("자유게시판 글쓰기 이동");
-		return "";
+		return "home.boardFree.freeWrite";
 	}
 	
 	@RequestMapping(value="" , method=RequestMethod.POST)
 	public String freeWrite(){
 		System.out.println("자유게시판 글쓰기 DB 작업 수행");
-		return "";
+		return "home.boardFree.freeMain";
 	}
 	
-	@RequestMapping()
+	@RequestMapping("noticeMain.go")
 	public String noticeMain(){
 		System.out.println("공지사항 메인 창 이동");
-		return "";
+		return "home.boardNotice.noticeMain";
 	}
 	
 	@RequestMapping()
 	public String noticeView(){
 		System.out.println("공지사항 뷰 이동");
-		return "";
+		return "home.boardNotice.noticeView";
 	}
 	
 	@RequestMapping(value="" , method=RequestMethod.GET)
 	public String noticeWriteView(BoardFreeDTO boardDTO){
 		System.out.println("공지사항 글쓰기 이동");
-		return "";
+		return "home.boardNotice.noticeWrite";
 	}
 	
 	@RequestMapping(value="" , method=RequestMethod.POST)
 	public String noticeWrite(){
 		System.out.println("공지사항 글쓰기 DB 작업 수행");
-		return "";
+		return "home.boardNotice.noticeMain";
 	}
 }
