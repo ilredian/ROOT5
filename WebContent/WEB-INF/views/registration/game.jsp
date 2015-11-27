@@ -1,14 +1,22 @@
 <!-- 게임뭐시기 -->
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-	
+<div class="well" align="center">
 	<h3 align="center">
 			<img src="img/qwe.PNG"
 				alt="용의자(사기범) 정보">
@@ -16,7 +24,7 @@
 		<p class="infoTxtTop" align="center">
 			<span class="bltS_A">*</span> 는 필수 기재 항목입니다
 		</p>
-	<div class="well" align="center">
+	
 	<table class="formTypeA">
 		<caption>피해 발생 사이트에 대한 사이트명, 거래물품종류, 용의자 아이디, 사기 게시물 링크 입력폼</caption>
 		<colgroup>
@@ -136,6 +144,7 @@
 
 
 	<div class="formSection">
+<div class="well" align="center">
 		<h3 align="center">
 			<img src="img/infor.PNG"
 				alt="용의자(사기범) 정보">
@@ -143,7 +152,7 @@
 		<p class="infoTxtTop" align="center">
 			<span class="bltS_A">*</span> 는 필수 기재 항목입니다
 		</p>
-		<div class="well" align="center">
+		
 		<table class="formTypeA">
 			<caption>용의자 정보에 대한 계좌정보, 은행명, 명의자 성명, 계좌번호, 입금 금액, 입금일,
 				연락처 정보, 연락처, 성별, 용의자 특징 입력 폼</caption>
@@ -396,48 +405,132 @@
 
 		</table>
 	</div>
-
+<div class="well" align="center">
 	<div class="formSection">
-		<h3 align="center">
-			<img src="img/infor2.PNG"
-				alt="피해자(본인) 정보">
-		</h3>
-		<p class="infoTxtTop" align="center">
-			<span class="bltS_A">*</span> 는 필수 기재 항목입니다
-		</p>
-		<div class="well" align="center">
-		<table class="formTypeA">
-			<caption>피해자 정보에 대한 피해사례 비밀번호, 성명, 연락처. 연락처 인증, 이메일 입력 폼</caption>
-			<colgroup>
-				<col width="150">
-				<col width="*">
-			</colgroup>
+   <h3>피해자(본인)정보</h3>
+   <p class="infoTxtTop">
+      "<span class="bltS_A">*</span>"는 필수 기재 항목입니다"
+   </p>
+   <table class="formTypeA" border="1px">
+      <colgroup>
+         <col width="150">
+         <col width="*">
+      </colgroup>
 
 
+      <tr>
+         <th><label for="vi_pw">피해사례 비밀번호</label> <span
+				class="bltS_A">*</span></th>
+         <td><input type="password" class="txt" name="pw"
+				id="vi_pw" value="" style="width: 230px;" maxlength="20"
+				placeholder="비밀번호를 입력하세요."></td>
+      </tr>
 
-			<tr>
-				<th><label for="vi_name">성명</label> <span class="bltS_A">*</span></th>
-				<td><input type="text" class="txt" name="name" value="이인영"
-					id="vi_name" style="width: 230px;" placeholder="귀하의 성명을 입력하세요."></td>
-			</tr>
+      <tr>
+         <th><label for="vi_name">성명</label> <span class="bltS_A">*</span></th>
+         <td><input type="text" class="txt" name="name" value=""
+				id="vi_name" style="width: 230px;" placeholder="귀하의 성명을 입력하세요."></td>
+      </tr>
 
-			<tr>
-				<th><label for="vi_tel">연락처</label> <span class="bltS_A">*</span></th>
-				<td><input type="hidden" name="member_phone" id="member_phone"
-					value="01023631402" readonly />01023631402</td>
-			</tr>
+      <tr>
+         <th><label for="vi_tel">연락처</label> <span class="bltS_A">*</span></th>
+         <td><select name="member_phone1" id="vi_tel" title="국번선택"
+				style="width: 80px;"
+				onchange="javascript:if(1){member_phone.value = member_phone1[member_phone1.selectedIndex].value + member_phone2.value + member_phone3.value }">
+               <option selected value=0>선택</option>
+               <option value="010">010
+               
+					<option value="011">011
+               
+					<option value="016">016
+               
+					<option value="017">017
+               
+					<option value="018">018
+               
+					<option value="019">019
+               
+					<option value="070">070
+         
+			</select> - <input type="text" name="member_phone2" class="txt" value=""
+				maxlength="4" title="가운데 자리 입력"
+				onchange="javascript:if(1){member_phone.value = member_phone1[member_phone1.selectedIndex].value + member_phone2.value + member_phone3.value }"
+				style="ime-mode: disabled; width: 70px;"
+				onKeyPress="return numbersonly(event, false)" /> - <input
+				type="text" name="member_phone3" class="txt" value="" maxlength="4"
+				class="input80"
+				onchange="javascript:if(1){member_phone.value = member_phone1[member_phone1.selectedIndex].value + member_phone2.value + member_phone3.value }"
+				style="ime-mode: disabled; width: 70px;" title="끝 자리 입력"
+				onKeyPress="return numbersonly(event, false)" /> <input
+				type="hidden" name="member_phone" id="member_phone" value=""
+				readonly /> <script>
+                        function srvTime(){ // 서버의 시간을 가져온다.
+                            var xmlHttp;
+                            if (window.XMLHttpRequest) {//분기하지 않으면 IE에서만 작동된다.
+                                xmlHttp = new XMLHttpRequest(); // IE 7.0 이상, 크롬, 파이어폭스 등
+                                xmlHttp.open('HEAD',window.location.href.toString(),false);
+                                xmlHttp.setRequestHeader("Content-Type", "text/html");
+                                xmlHttp.send('');
+                                return xmlHttp.getResponseHeader("Date");
+                            }else if (window.ActiveXObject) {
+                                xmlHttp = new ActiveXObject('Msxml2.XMLHTTP');
+                                xmlHttp.open('HEAD',window.location.href.toString(),false);
+                                xmlHttp.setRequestHeader("Content-Type", "text/html");
+                                xmlHttp.send('');
+                                return xmlHttp.getResponseHeader("Date");
+                            }
+                        }
+                        function v2014_handphone_check(form_name) {
+                            var key_handphone = $(form_name).val();
+                            if(!key_handphone) {
+                                alert('연락처를 입력해 주세요.');
+                                return false;
+                            }
+                            var st = srvTime(); // 서버읜 현재 시간 가져오기
+                            var dt = new Date(st);
+                     if(!dt)dt = new Date();
+                            var yyyy = dt.getFullYear().toString();
+                            var mm = (dt.getMonth()+1).toString(); // getMonth() is zero-based
+                            var dd  = dt.getDate().toString();
+                            var hh  = dt.getHours().toString();
+                            var ii  = dt.getMinutes().toString();
+                            var time = yyyy + (mm[1]?mm:"0"+mm[0]) + (dd[1]?dd:"0"+dd[0])+ (hh[1]?hh:"0"+hh[0])+ (ii[1]?ii:"0"+ii[0]);
+                            // https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/btoa
+                            window.open('./?mod=sms_cheat&phone='+window.btoa(unescape(encodeURIComponent(key_handphone)))+'&t='+window.btoa(unescape(encodeURIComponent(time))),'temp');
+                        }
+                    </script>
+							<!--<iframe src="#" name="target_iframe" width="0" height="0" frameborder="0" marginwidth="0", marginheight="0" scrolling="no"></iframe>-->
+            <a
+								onclick="v2014_handphone_check('#member_phone');return false;"
+								target="target_iframe"><img src="images/injung.PNG"
+								alt="인증번호 받기 (무료)"></a>
+            <div style="padding-top: 5px;">
+               <label>※ SMS가 수신되지 않는 경우, 스팸 문자함을 확인해 보세요. <br>※ 스팸 차단 앱을 설치한 경우에는 해당
+               앱의 스팸함을 확인해 보세요.</label>
+               <!--<span style="background-color:yellow"><span class="explain_text_red"> (전송된 인증번호를 입력하세요.) </span></span>-->
+            </div>
+						</td>
+      </tr>
 
-			<input type="hidden" name="handphone_key" maxlength="10"
-				value="12345">
+      <tr>
+         <th><label for="vi_certification">인증번호 입력</label> <span
+				class="bltS_A">*</span></th>
+         <td><input type="text" class="txt" name="handphone_key"
+				maxlength="10" id="vi_certification"
+				style="width: 230px; ime-mode: disabled;"
+				onKeyPress="return numbersonly(event, false)"
+				placeholder="연락처로 수신된 인증번호를 입력하세요."></td>
+      </tr>
 
-			<tr>
-				<th><label for="vi_email">이메일</label> <span class="bltS_A">*</span></th>
-				<td><input type="text" class="txt" name="member_email"
-					id="vi_email" value="jkikss@naver.com" style="width: 230px;"
-					placeholder="귀하의 이메일 주소를 입력하세요."></td>
-			</tr>
-		</table>
-	</div>
+      <tr>
+         <th><label for="vi_email">이메일</label> <span class="bltS_A">*</span></th>
+         <td><input type="text" class="txt" name="member_email"
+				id="vi_email" value="" style="width: 230px;"
+				placeholder="귀하의 이메일 주소를 입력하세요."></td>
+      </tr>
+   </table>
+
+</div>
 </div>
 <h3><img src="img/agr.PNG" alt=""></h3>
 <textarea rows="" cols="" readonly="readonly" style="margin: 0px; width: 900px; height: 300px;">
