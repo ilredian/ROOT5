@@ -8,13 +8,11 @@ public class HomeController {
 
 	@RequestMapping("index.go")
 	public String index(){
-		System.out.println("메인 이동");
 		return "main.index";
 	}
 	
 	@RequestMapping("home.go")
 	public String Home(){
-		System.out.println("홈 이동");
 		return "home.home.home";
 	}
 }

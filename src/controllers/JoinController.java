@@ -19,13 +19,11 @@ public class JoinController {
 	
 	@RequestMapping(value="signin.go" , method=RequestMethod.GET)
 	public String Singin(){
-		System.out.println("회원가입 페이지 요청");
 		return "join.signin";
 	}
 	
 	@RequestMapping(value="signin.go" , method=RequestMethod.POST)
 	public String Singin(MemberDTO memberDTO) throws ClassNotFoundException, SQLException{
-		System.out.println("회원가입완료");
 		//가입처리 (DAO 단)
 		System.out.println(memberDTO.toString());
 		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
@@ -37,7 +35,6 @@ public class JoinController {
 	
 	@RequestMapping("pwSearch.go")
 	public String pwSearch(){
-		System.out.println("��й�ȣ ã�� â �̵�");
 		return "join.pwSearch";
 	}
 	

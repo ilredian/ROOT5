@@ -12,7 +12,7 @@
      
      	<definition name="home.*.*" template="/WEB-INF/views/home/{1}/inc/layout.jsp"> 
          	<put-attribute name="title"  value="wecome to kosta" /> 
-         	<put-attribute name="css" value="/css/home/{2}.css" />
+         	<put-attribute name="css" value="css/home/{2}.css" />
          	<put-attribute name="header"  value="/WEB-INF/views/inc/header.jsp" /> 
          	<put-attribute name="footer"  value="/WEB-INF/views/inc/footer.jsp" />
          	<put-attribute name="aside"   value="/WEB-INF/views/home/{1}/inc/aside.jsp" />
