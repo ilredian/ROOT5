@@ -42,21 +42,24 @@ public class BoardController {
 			query = q;
 		}
 		System.out.println(page + " / " + field + " / " + query);
-		
+	/*	
 		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
 		List<BoardFreeDTO> list= boardFreeDAO.getNotices(page, field, query);
 		
 		model.addAttribute("list", list); //자동 forward
-		return "home.boardFree.freeMain";
+	*/	return "home.boardFree.freeMain";
 	}
+	
+	
+	
 	//2. 자유게시판 상세보기
 	@RequestMapping("freeView.go")	//자유게시판 상세보기 - 페이지
 	public String freeView(String seq , Model model) throws ClassNotFoundException, SQLException{
-		
+	/*	
 	     BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
 		 BoardFreeDTO boardFreeDTO = boardFreeDAO.getNotice(seq);
 		 model.addAttribute("boardFreeDTO", boardFreeDTO); ///// DB 테이블 명--파라미터명 일치 여부 확인후 수정바람*****
-		
+	*/	
 		return "home.boardFree.freeView";
 	}
 	//3. 자유게시판 글쓰기(화면만 뿌리기)
@@ -70,10 +73,10 @@ public class BoardController {
 	    System.out.println("실제 글 등록 처리"); 
 	    System.out.println("n : " + DTO.getTitle()); 
 	    System.out.println("n : " + DTO.getContent());
-
+/*
 	    BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
 	    boardFreeDAO.insert(DTO);
-
+*/
 	  return "home.boardFree.freeMain";
 	}
 	

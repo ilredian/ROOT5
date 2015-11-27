@@ -3,6 +3,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DAO.BoardFreeDAO">
+ 
  <select id="getCount" resultType="Integer">
   SELECT COUNT(*) CNT 
   FROM NOTICES 
@@ -46,4 +47,5 @@
       INSERT INTO NOTICES(SEQ, TITLE, CONTENT, WRITER, REGDATE, HIT, FILESRC , FILESRC2)
       VALUES( #{seq}, #{title}, #{content}, #{writer}, SYSDATE, 0, #{fileSrc ,jdbcType=VARCHAR} , #{fileSrc2 ,jdbcType=VARCHAR})
 </insert>
+
 </mapper>

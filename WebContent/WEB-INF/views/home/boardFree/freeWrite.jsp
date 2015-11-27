@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>자유게시판 글쓰기</title>
 </head>
 <body>
+
+자유게시판 글쓰기자유게시판 글쓰기
 
 </body>
 </html>

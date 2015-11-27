@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>자유게시판 상세보기</title>
 </head>
 <body>
 
+아이에마[ㅔ라제ㅐ라재랍ㅈ]
 </body>
 </html>
