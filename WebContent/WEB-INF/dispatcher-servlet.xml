@@ -10,12 +10,7 @@ http://www.springframework.org/schema/context/spring-context.xsd
 	
 	<!-- 빈객체 생성 및 조립 (주입) -->
 	<context:component-scan base-package="controllers" />
-<!-- 
-	<bean id="boardDAO" class="DAO.BoardDAO"/>
-	<bean id="memberDAO" class="DAO.MemberDAO"/>
-	<bean id="noticeDAO" class="DAO.NoticeDAO"/>
-	<bean id="statementDAO" class="DAO.StatementDAO"/>
-	 -->
+
    <!-- Tiles START -->
 	<bean id="tilesConfigurer"
 		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
