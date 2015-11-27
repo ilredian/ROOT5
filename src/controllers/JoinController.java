@@ -37,7 +37,7 @@ public class JoinController {
 	
 	@RequestMapping("pwSearch.go")
 	public String pwSearch(){
-		System.out.println("��й�ȣ ã�� â �̵�");
+		System.out.println("비밀번호 찾기");
 		return "join.pwSearch";
 	}
 	
