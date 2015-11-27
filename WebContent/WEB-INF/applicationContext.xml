@@ -37,12 +37,6 @@ http://www.springframework.org/schema/context/spring-context.xsd
 		<property value="classpath*:mapper/*xml" name="mapperLocations" />
 	</bean>
 
-	<!-- member dao에 설정 -->
-<!-- 	
-	<bean id="newMemberDAO" class="DAO.NewMemberDAO">
-		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-	</bean>
- -->
 	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
 		<constructor-arg ref="sqlSessionFactoryBean" index="0" />
 	</bean>
