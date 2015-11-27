@@ -17,6 +17,12 @@ public class BoardFreeDTO {
 	//////////////////
 	
 	
+	@Override
+	public String toString() {
+		return "BoardFreeDTO [seq=" + seq + ", title=" + title + ", content=" + content + ", regdate=" + regdate
+				+ ", hit=" + hit + ", groupno=" + groupno + ", step=" + step + ", depth=" + depth + "]";
+	}
+
 	public BoardFreeDTO() {
 		super();
 	}
