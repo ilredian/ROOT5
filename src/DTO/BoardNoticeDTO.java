@@ -14,6 +14,77 @@ public class BoardNoticeDTO {
 	private int categoryno; /* 카테고리번호 */
 	
 	
+	public int getBoardno() {
+		return boardno;
+	}
+	public void setBoardno(int boardno) {
+		this.boardno = boardno;
+	}
+	public String getTitle() {
+		return title;
+	}
+
+	
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public Date getRegdate() {
+		return regdate;
+	}
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
+	}
+	public int getCountno() {
+		return countno;
+	}
+	public void setCountno(int countno) {
+		this.countno = countno;
+	}
+	public int getActive() {
+		return active;
+	}
+	public void setActive(int active) {
+		this.active = active;
+	}
+	public int getCritical() {
+		return critical;
+	}
+	public void setCritical(int critical) {
+		this.critical = critical;
+	}
+	public int getCategoryno() {
+		return categoryno;
+	}
+	public void setCategoryno(int categoryno) {
+		this.categoryno = categoryno;
+	}
+	@Override
+	public String toString() {
+		return "BoardNoticeDTO [boardno=" + boardno + ", title=" + title + ", content=" + content + ", regdate="
+				+ regdate + ", countno=" + countno + ", active=" + active + ", critical=" + critical + ", categoryno="
+				+ categoryno + "]";
+	}
+	public BoardNoticeDTO(int boardno, String title, String content, Date regdate, int countno, int active,
+			int critical, int categoryno) {
+		super();
+		this.boardno = boardno;
+		this.title = title;
+		this.content = content;
+		this.regdate = regdate;
+		this.countno = countno;
+		this.active = active;
+		this.critical = critical;
+		this.categoryno = categoryno;
+	}
+
+	
+	
 
 
 	/*
