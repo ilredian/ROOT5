@@ -4,16 +4,14 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DAO.BoardNoticeDAO">
 
-<!-- 자유게시판과 동일하고_ 작성자만 없다.  -->
-
-<!-- 게시물 개수  -->
+ <!-- 공지사항 글갯수 -->
  <select id="getCount" resultType="Integer">
   SELECT COUNT(*) CNT 
   FROM NOTICES 
   WHERE ${param1} LIKE '%${param2}%'
  </select> 
  
- <!-- 게시물 목록 가져오기  -->
+ <!-- 공지사항 목록  -->
  <select id="getNotices" resultType="DTO.BoardFreeDTO">
      SELECT * FROM
                ( SELECT ROWNUM NUM, N.* 
@@ -23,8 +21,7 @@
                        WHERE ${param2} LIKE '%${param3}%' ORDER BY REGDATE DESC) N
                 ) WHERE NUM BETWEEN 1 + (${param1}-1)*5 AND 5 + (${param1}-1)*5
     </select>
-    
-     <!-- 게시물 상세보기  -->
+  <!-- 공지사항 상세 -->
  <select id="getNotice" resultType="DTO.BoardFreeDTO">
      <!--   Notice getNotice(String seq) 
             parameter 하나짜리는[ 변수이름 ] (param1 은 안되요)
@@ -32,7 +29,7 @@
      SELECT * FROM NOTICES WHERE SEQ=#{seq}
 </select>
 
- <!-- 게시물 삭제  -->
+ <!-- 공지사항 삭제  -->
  <delete id="delete" >
      <!-- int delete(String seq)  
        parameterType="Interger" 을 생략해 볼게요
@@ -40,7 +37,7 @@
      DELETE NOTICES WHERE SEQ=#{seq}
  </delete>
  
-  <!-- 게시물 수정 -->
+ <!-- 공지사항 수정  -->
  <update id="update" >
      <!-- int update(Notice notice)   
        parameter  객체로 ..... Notice 객체 (만약에 setter , getter 가 구현되어 있다면)
@@ -49,6 +46,7 @@
  </update>
  
   <!-- 게시물 등록  --> <!-- 관리자만 등록한다_  -->
+ <!-- 공지사항 등록  -->
  <insert id="insert">
      <!-- int insert( Notice n ) 
         INSERT INTO TNOTICES(SEQ, TITLE, CONTENT, WRITER, REGDATE, HIT, FILESRC , FILESRC2)
@@ -60,8 +58,4 @@
       INSERT INTO NOTICES(BOARDNO, TITLE, CONTENT,REGDATE, HIT)
       VALUES( #{boardno}, #{title}, #{content}, SYSDATE, 0)
 </insert>
-
-
-
-
 </mapper>
