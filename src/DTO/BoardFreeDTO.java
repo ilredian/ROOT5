@@ -12,7 +12,7 @@ public class BoardFreeDTO {
 	private int countno;		//조회수
 	private int active;
 	
-	private int groupno; 	
+	private int groupno; 	 
 	private int step;
 	private int depth;
 	private int notice ;

@@ -12,5 +12,4 @@
 	<insert id="login" parameterType="DTO.MemberDTO">
 		SELECT * FROM MEMBER WHERE email=#{EMAIL}
 	</insert>
-	
 </mapper>
