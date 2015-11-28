@@ -4,11 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>공지게시판_글쓰기</title>
+<title>Insert title here</title>
 </head>
 <body>
-
-공지게시판_글쓰기
 
 </body>
 </html>

@@ -32,5 +32,12 @@
 			
 		<!-- Footer 영역  -->
 		<tiles:insertAttribute name="footer" />
+		<script type="text/javascript">
+		$(function(){
+			$('#gameView').click(function(){
+				location.href="gameView.go?contentNo=1";
+			});
+		});
+		</script>
 </body>
 </html>

@@ -1,10 +1,10 @@
 @CHARSET "UTF-8";
 
-.freeMain tr, .freeMain th, .freeMain td{
+.noticeMain tr, .noticeMain th, .noticeMain td{
 	 text-align: center;
 }
 
-.number, .writer, .date, .count
+.number, .date, .count
 {
 	width: 10%;
 	text-align: center;
@@ -12,7 +12,7 @@
 
 .subject
 {
-	width:60%;
+	width:70%;
 	text-align: center;
 }
 

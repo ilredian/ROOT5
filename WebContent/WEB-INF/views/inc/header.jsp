@@ -47,11 +47,11 @@
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="schedule.do?cmd=month">MiniDiary</a>
+			<a class="navbar-brand" href="index.go">AhnCheat</a>
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
-			<ul class="nav navbar-nav">	
-				<li><a href="index.jsp">검색</a></li>
+			<ul class="nav navbar-nav">
+				<li><a href="index.go">검색</a></li>
 				<li><a href="registration.go">피해등록 </a></li>
 				<li><a href="home.go">홈</a></li>
 			</ul>
@@ -78,9 +78,13 @@
 										</h4>
 									</div>
 									<div class="modal-body" style="padding: 40px 50px;">
+<<<<<<< HEAD
 										
 										<!-- 로그인 폼 -->
 										<form role="form" action="login.go">
+=======
+										<form role="form" action="login.go" >
+>>>>>>> ROOT/master
 											<div class="form-group">
 												<label for="usrname"><span
 													class="glyphicon glyphicon-user"></span> 이메일</label> <input
