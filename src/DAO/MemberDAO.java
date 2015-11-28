@@ -14,7 +14,7 @@ public interface MemberDAO {
 	public int insert(MemberDTO member) throws ClassNotFoundException, SQLException;
 	
 	//로그인하기
-	public MemberDTO login(String email, String pwd) throws ClassNotFoundException, SQLException;
+	public int login(MemberDTO memberDTO) throws ClassNotFoundException, SQLException;
 	
 }
 

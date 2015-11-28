@@ -78,7 +78,7 @@
 										</h4>
 									</div>
 									<div class="modal-body" style="padding: 40px 50px;">
-										<form role="form" action="login.go">
+										<form role="form" action="login.go" >
 											<div class="form-group">
 												<label for="usrname"><span
 													class="glyphicon glyphicon-user"></span> 이메일</label> <input
