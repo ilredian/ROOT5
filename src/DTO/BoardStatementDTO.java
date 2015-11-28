@@ -3,6 +3,7 @@ package DTO;
 import java.util.Date;
 
 public class BoardStatementDTO {
+	
 	/* 진술서*/
 	
 	private String boardno;    //시퀀스
