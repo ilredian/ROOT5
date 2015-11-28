@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<div class="container">
+<div class="container freeView">
 	<h2>자유게시판</h2>
 	<table class="table table-striped">
 		<tbody>
@@ -58,7 +58,7 @@
 				<td style="width: 90%;">
 					<table>
 						<tr>
-							<td>aqua (피해회원) | 2015.11.28 09:55:21</td>
+							<td>aqua 님 | 2015.11.28 09:55:21</td>
 						</tr>
 						<tr>
 							<td>댓글 내용을 입력해 봅시다.</td>

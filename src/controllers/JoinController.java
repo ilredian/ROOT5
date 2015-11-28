@@ -30,7 +30,7 @@ public class JoinController {
 		int row = memberDAO.insert(memberDTO);
 		System.out.println(row);
 
-		return "redirect:../index.htm";
+		return "redirect:index.go";
 	}
 	
 	@RequestMapping("pwSearch.go")
