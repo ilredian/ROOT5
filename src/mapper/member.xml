@@ -8,7 +8,7 @@
 	</select> 	
 
 	<insert id="insert" parameterType="DTO.MemberDTO">
-		INSERT INTO MEMBER(email, pwd, name, cPhone)
-		values(#{email},#{pwd},#{name},#{cPhone})
+		INSERT INTO memberdb(email, password, name, phone, regdate, regpwd, photo, typeno) 
+		VALUES(#{email}, #{password}, #{name}, #{phone},SYSDATE(),SYSDATE(),#{photo},0)
 	</insert>
 </mapper>
