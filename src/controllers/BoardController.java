@@ -132,8 +132,8 @@ public class BoardController {
 	@RequestMapping(value="noticeWrite.go" , method=RequestMethod.POST)
 	public String noticeWrite(BoardNoticeDTO DTO, HttpServletRequest request ){
 			System.out.println("실제 글 등록 처리"); 
-		    System.out.println("n : " + DTO.getTitle()); 
-		    System.out.println("n : " + DTO.getContent());
+/*		    System.out.println("n : " + DTO.getTitle());
+		    System.out.println("n : " + DTO.getContent());*/
 	/*
 		    BoardNoticeDAO boardNoticeDAO = sqlSession.getMapper(BoardNoticeDAO.class);
 		    boardNoticeDAO.insert(DTO);
