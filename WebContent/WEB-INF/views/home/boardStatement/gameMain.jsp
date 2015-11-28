@@ -86,7 +86,7 @@
 						<td>111-1111-1111-1110</td>
 						<td>010-1234-5678</td>
 						<td>2015.10.10</td>
-						<td><button type="submit"><a href="gameView.jsp">자세히 보기</a></button></td>
+						<td><button type="submit"><a href="game.go">자세히 보기</a></button></td>
 					</tr>
 				</tbody>
 			</table>
