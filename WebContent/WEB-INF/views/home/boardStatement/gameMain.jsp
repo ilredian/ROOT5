@@ -17,10 +17,10 @@
 	<div class="container">
 		<div class="container">
 			<ul class="nav nav-tabs">
-				<li role="presentation"><a href="a.jsp">직거래</a></li>
-				<li role="presentation"  class="active"><a href="b.jsp">게임.비실물</a></li>
-				<li role="presentation"><a href="c.jsp">스팸</a></li>
-				<li role="presentation"><a href="d.jsp">비매너</a></li>
+				<li role="presentation"><a href="tradeMain.go">직거래</a></li>
+				<li role="presentation"  class="active"><a href="gameMain.go">게임.비실물</a></li>
+				<li role="presentation"><a href="spamMain.go">스팸</a></li>
+				<li role="presentation"><a href="mannerMain.go">비매너</a></li>
 			</ul>
 		</div>
 		<div class="container">

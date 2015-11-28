@@ -25,6 +25,9 @@
 		<div class="top-wrapper clear">
 			<!-- Content 영역 -->
 			<tiles:insertAttribute name="content" />
+			<c:if test="${param.contentNo != null}">
+				<jsp:include page="/WEB-INF/views/home/boardFree/freeMain.jsp"></jsp:include>
+			</c:if>
 			<!-- Aside(Navi) 영역 -->
 			<tiles:insertAttribute name="aside" />
 		</div>

@@ -7,12 +7,14 @@ import DTO.MemberDTO;
 
 public interface MemberDAO {
 
-	//È¸¿øÁ¤º¸ ¾ò±â
+	//íšŒì›ëª©ë¡
 	public MemberDTO getMember(String userid) throws ClassNotFoundException, SQLException;
-	//È¸¿ø°¡ÀÔ
+	
+	//íšŒì›ê°€ì…
 	public int insert(MemberDTO member) throws ClassNotFoundException, SQLException;
 	
-	
+	//ë¡œê·¸ì¸í•˜ê¸°
+	public int login(MemberDTO memberDTO) throws ClassNotFoundException, SQLException;
 	
 }
 

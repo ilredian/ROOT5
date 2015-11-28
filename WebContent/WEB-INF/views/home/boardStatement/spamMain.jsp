@@ -16,11 +16,11 @@
 <body>
 	<div class="container">
 		<div class="container">
-			<ul class="nav nav-tabs">
-				<li role="presentation"><a href="a.jsp">직거래</a></li>
-				<li role="presentation"><a href="b.jsp">게임.비실물</a></li>
-				<li role="presentation" class="active"><a href="c.jsp">스팸</a></li>
-				<li role="presentation"><a href="d.jsp">비매너</a></li>
+				<ul class="nav nav-tabs">
+				<li role="presentation"><a href="tradeMain.go">직거래</a></li>
+				<li role="presentation"><a href="gameMain.go">게임.비실물</a></li>
+				<li role="presentation" class="active"><a href="spamMain.go">스팸</a></li>
+				<li role="presentation"><a href="mannerMain.go">비매너</a></li>
 			</ul>
 		</div>
 		<div class="container">
@@ -74,7 +74,7 @@
 						<td>111-1111-1111-1110</td>
 						<td>010-1234-5678</td>
 						<td>2015.10.10</td>
-						<td><button type="submit"><a href="spamView.jsp">자세히 보기</a></button></td>
+						<td><button type="submit"><a href="spamView.go">자세히 보기</a></button></td>
 					</tr>
 				</tbody>
 			</table>

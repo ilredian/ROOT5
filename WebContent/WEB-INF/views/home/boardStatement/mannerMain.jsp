@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+go<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -17,10 +17,10 @@
 	<div class="container">
 		<div class="container">
 			<ul class="nav nav-tabs">
-				<li role="presentation"><a href="a.jsp">직거래</a></li>
-				<li role="presentation"><a href="b.jsp">게임.비실물</a></li>
-				<li role="presentation"><a href="c.jsp">스팸</a></li>
-				<li role="presentation" class="active"><a href="d.jsp">비매너</a></li>
+				<li role="presentation"><a href="tradeMain.go">직거래</a></li>
+				<li role="presentation"><a href="gameMain.go">게임.비실물</a></li>
+				<li role="presentation"><a href="spamMain.go">스팸</a></li>
+				<li role="presentation" class="active"><a href="mannerMain.go">비매너</a></li>
 			</ul>
 		</div>
 		<div class="container">

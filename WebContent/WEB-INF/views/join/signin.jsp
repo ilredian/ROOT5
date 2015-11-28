@@ -2,20 +2,7 @@
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-</head>
-<body>
 	<div class="display" style="background-image: url('include/nav.jpg');">
 	<div class="container" style="margin: auto; padding: 20px; vertical-align: middle; height: 100%; width: 100%;">
 		<div style="text-align: center; color: white;">
@@ -25,41 +12,41 @@
 		<!-- <button id="checkId">중복확인</button>
 		<input type="button" onclick="location.href='member.do?cmd=memberidcheck&m_id=admin@kosta.com'">확인 -->
 		<div style="width: 400px;">
-		<form class="form-horizontal" name="joinform" action="member.do?cmd=memberjoinok" method="post" onsubmit="return CheckForm();">
+		<form class="form-horizontal" name="joinform" action="" method="post" onsubmit="return CheckForm();">
 			<div class="form-group">
-				<label for="m_id" class="col-sm-4 control-label">이메일</label>
+				<label for="email" class="col-sm-4 control-label">이메일</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control" name="m_id" id="m_id"  placeholder="Email">
+					<input type="text" class="form-control" name="email" id="email"  placeholder="이메일을 입력하세요">
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="m_pwd1" class="col-sm-4 control-label">비밀번호</label>
+				<label for="password" class="col-sm-4 control-label">비밀번호</label>
 				<div class="col-sm-8">
-					<input type="password" class="form-control" name="m_pwd1" id="m_pwd1" placeholder="Password">
+					<input type="password" class="form-control" name="password" id="password" placeholder="비밀번호를 입력하세요">
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="m_pwd2" class="col-sm-4 control-label">비밀번호확인</label>
+				<label for="passwordchk" class="col-sm-4 control-label">비밀번호확인</label>
 				<div class="col-sm-8">
-					<input type="password" class="form-control" name="m_pwd2" id="m_pwd2" placeholder="Password Check">
+					<input type="password" class="form-control" name="passwordchk" id="passwordchk" placeholder="비밀번호를 다시 입력하세요">
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="m_name" class="col-sm-4 control-label">이름</label>
+				<label for="name" class="col-sm-4 control-label">이름</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control" name="m_name" id="m_name" placeholder="Name">
+					<input type="text" class="form-control" name="name" id="name" placeholder="Name">
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="m_phone" class="col-sm-4 control-label">전화번호</label>
+				<label for="phone" class="col-sm-4 control-label">전화번호</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control" name="m_phone" id="m_phone" placeholder="(예시) 01012345678">
+					<input type="text" class="form-control" name="phone" id="phone" placeholder="(예시) 01012345678">
 				</div>
 			</div>
 			<hr>
 			<input type="submit" value="JOIN" class="btn btn-success">
 			<input type="button" onclick="location.href='javascript:joinform.reset()'" value="RESET" class="btn btn-info">
-			<input type="button" onclick="location.href='index.jsp'" value="CANCEL" class="btn btn-danger">
+			<input type="button" onclick="location.href='index.go'" value="CANCEL" class="btn btn-danger">
 		</form>
 		</div>
 		</div>
@@ -83,11 +70,11 @@
 	// 쉼표를 이용해서 여러 변수를 한 번에 선언할 수 있다
 	// 보기 좋으라고 쉼표 단위로 줄을 바꿨다 
 	   
-	var uid = document.getElementById("m_id");
-	var upw = document.getElementById("m_pwd1");
-	var upw2 = document.getElementById("m_pwd2");
-	var name2 = document.getElementById("m_name");
-	var tel = document.getElementById("m_phone");
+	var uid = document.getElementById("email");
+	var upw = document.getElementById("password");
+	var upw2 = document.getElementById("passwordchk");
+	var name2 = document.getElementById("name");
+	var tel = document.getElementById("phone");
 
 	
 	// 선택한 form에 서밋 이벤트가 발생하면 실행한다
@@ -139,9 +126,3 @@
 </script>
 
 </div>
-</body>
-</html>
-	
-	
-</body>
-</html>
