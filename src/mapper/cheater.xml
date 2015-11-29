@@ -18,7 +18,7 @@
 	<insert id="insert" parameterType="DTO.CheaterDTO">
 		INSERT INTO cheaterdb(
 								bankname,
-								cheatername, 
+								cheatername,
 								account,
 								deposit,
 								depositdate,
