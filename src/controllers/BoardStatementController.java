@@ -46,31 +46,35 @@ public class BoardStatementController {
 		}
 
 		// 로그 남기기
-		System.out.println(page + " / " + field + " / " + query);
-
+		System.out.println(page + " / " + field + " / " + query + " / " + cheatno);
+/*
 		// 마이바티스로 넘기기
 		CheaterDAO cheaterDAO = sqlSession.getMapper(CheaterDAO.class);
 		List<CheaterDTO> list = cheaterDAO.getSearchCheater(page, field, query, cheatno);
 
 		// 모델에 담기
 		model.addAttribute("list", list);
-
+*/
 		// 페이지 이동 구분하기
 		switch (cheatno) {
 		
 		case 1:// 사기종류 카테고리번호가 1일 경우 직거래 피해 사례 페이지로 이동
+			System.out.println("직거래 피해 사례 페이지 이동");
 			go = "home.boardStatement.tradeMain";
 			break;
 
 		case 2:// 사기종류 카테고리번호가 2일 경우 게임 피해 사례 페이지로 이동
+			System.out.println("게임 피해 사례 페이지 이동");
 			go = "home.boardStatement.gameMain";
 			break;
 
 		case 3:// 사기종류 카테고리번호가 3일 경우 스팸 피해 사례 페이지로 이동
+			System.out.println("스팸 피해 사례 페이지 이동");
 			go = "home.boardStatement.spamMain";
 			break;
 
 		case 4:// 사기종류 카테고리번호가 4일 경우 비매너 피해 사례 페이지로 이동
+			System.out.println("비매너 피해 사례 페이지 이동");
 			go = "home.boardStatement.mannerMain";
 			break;
 		}
@@ -88,14 +92,14 @@ public class BoardStatementController {
 		// 진술서 번호 int로 변환
 		int stateno = Integer.parseInt(sno);
 		int cheatno = Integer.parseInt(cno);
-
+/*
 		// 마이바티스로 넘기기
 		CheaterDAO cheaterDAO = sqlSession.getMapper(CheaterDAO.class);
 		CheaterDTO cheaterDTO = cheaterDAO.getCheater(stateno);
 
 		// 모델에 담기
 		model.addAttribute("cheaterDTO", cheaterDTO);
-
+*/
 		// 페이지 이동 구분하기
 		switch (cheatno) {
 		
