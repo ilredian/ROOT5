@@ -58,20 +58,20 @@ public class BoardStatementController {
 		// 페이지 이동 구분하기
 		switch (cheatno) {
 		
-		case 1:// 사기종류 카테고리번호가 1일 경우 게임 피해 사례 페이지로 이동
-			go = "home.boardStatement.gameMain";
+		case 1:// 사기종류 카테고리번호가 1일 경우 직거래 피해 사례 페이지로 이동
+			go = "home.boardStatement.tradeMain";
 			break;
 
-		case 2:// 사기종류 카테고리번호가 2일 경우 비매너 피해 사례 페이지로 이동
-			go = "home.boardStatement.mannerMain";
+		case 2:// 사기종류 카테고리번호가 2일 경우 게임 피해 사례 페이지로 이동
+			go = "home.boardStatement.gameMain";
 			break;
 
 		case 3:// 사기종류 카테고리번호가 3일 경우 스팸 피해 사례 페이지로 이동
 			go = "home.boardStatement.spamMain";
 			break;
 
-		case 4:// 사기종류 카테고리번호가 4일 경우 직거래 피해 사례 페이지로 이동
-			go = "home.boardStatement.tradeMain";
+		case 4:// 사기종류 카테고리번호가 4일 경우 비매너 피해 사례 페이지로 이동
+			go = "home.boardStatement.mannerMain";
 			break;
 		}
 
@@ -99,20 +99,20 @@ public class BoardStatementController {
 		// 페이지 이동 구분하기
 		switch (cheatno) {
 		
-		case 1:// 사기종류 카테고리번호가 1일 경우 게임 피해 사례 상세 내용 이동
-			go = "home.boardStatement.gameView";
+		case 1:// 사기종류 카테고리번호가 1일 경우 직거래 피해 사례 상세 내용 이동
+			go = "home.boardStatement.tradeView";
 			break;
 
-		case 2:// 사기종류 카테고리번호가 2일 경우 비매너 피해 사례 상세 내용 이동
-			go = "home.boardStatement.mannerView";
+		case 2:// 사기종류 카테고리번호가 2일 경우 게임 피해 사례 상세 내용 이동
+			go = "home.boardStatement.gameView";
 			break;
 
 		case 3:// 사기종류 카테고리번호가 3일 경우 스팸 피해 사례 상세 내용 이동
 			go = "home.boardStatement.spamView";
 			break;
 
-		case 4:// 사기종류 카테고리번호가 4일 경우 직거래 피해 사례 상세 내용 이동
-			go = "home.boardStatement.tradeView";
+		case 4:// 사기종류 카테고리번호가 4일 경우 비매너 피해 사례 상세 내용 이동
+			go = "home.boardStatement.mannerView";
 			break;
 		}
 
