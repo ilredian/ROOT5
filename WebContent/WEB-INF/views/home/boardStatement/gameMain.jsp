@@ -22,7 +22,7 @@
 				<td>111-1111-1111-1110</td>
 				<td>010-1234-5678</td>
 				<td>2015.10.10</td>
-				<td><button type="button" id="gameView">자세히보기</button></td>
+				<td><input type="button" class="viewBtn" id="statementView.go?sno=1" value="자세히보기" ></td>		
 			</tr>
 		</tbody>
 	</table>
