@@ -45,7 +45,7 @@
 	<script type="text/javascript">
 		$(function() {
 			$('#gameView').click(function() {
-				location.href = "gameView.go?contentNo=1";
+				location.href = "statementView.go?cno=1";
 			});
 		});
 	</script>
