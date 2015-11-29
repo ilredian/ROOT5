@@ -24,7 +24,7 @@
 				<td>010-1234-5678</td>
 				<td>2015.10.10</td>
 				<td><button type="submit">
-						<a href="spamView.go">자세히 보기</a>
+						<a href="statementView.go?sno=1">자세히 보기</a>
 					</button></td>
 			</tr>
 		</tbody>
