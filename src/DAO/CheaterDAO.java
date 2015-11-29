@@ -9,6 +9,9 @@ public interface CheaterDAO {
 	//진술서 등록된 수 불러오기
 	public int getCheaterCount() throws Exception;
 	
+	//진술서 카테고리별 등록된 수 불러오기
+	public int getCheaterCount(int cheatno) throws Exception;
+	
 	//진술서 등록 정보 전체 중 특정하여 불러오기
 	public List<CheaterDTO> getAllCheater(int page, String field, String query) throws Exception;
 	
