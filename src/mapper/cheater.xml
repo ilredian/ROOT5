@@ -8,7 +8,13 @@
 	<select id="getCheaterCount" resultType="Integer">
 		SELECT count(*) cnt
 		FROM cheaterdb
-		WHERE ${param1} LIKE '%${param2}%'
+	</select>
+	
+	<!-- 진술서 카테고리별 등록된 수 불러오기 -->
+	<select id="getCheaterCount" resultType="Integer">
+		SELECT count(*) cnt
+		FROM cheaterdb
+		WHERE ${param1} LIKE '%${param2}%' AND cheatno = #{param3}
 	</select>
 	
 	<!-- 진술서 등록 정보 전체 중 특정하여 불러오기 -->
