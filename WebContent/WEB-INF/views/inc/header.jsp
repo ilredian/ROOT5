@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,6 +32,7 @@
 			$("#myModal").modal();
 		});
 	});
+	
 </script>
 
 </head>
@@ -63,8 +65,6 @@
 							<span class="glyphicon glyphicon-log-in"></span> 로그인
 						</button>
 
-
-
 						<!-- Modal -->
 						<div class="modal fade" id="myModal" role="dialog">
 							<div class="modal-dialog">
@@ -78,7 +78,10 @@
 										</h4>
 									</div>
 									<div class="modal-body" style="padding: 40px 50px;">
-										<form role="form" action="login.go" >
+										
+										<!-- 로그인 폼 -->
+										<form role="form" action="login.go" method="post">
+
 											<div class="form-group">
 												<label for="usrname"><span
 													class="glyphicon glyphicon-user"></span> 이메일</label> <input
@@ -91,9 +94,11 @@
 													type="text" class="form-control" id="psw"
 													placeholder="Enter password">
 											</div>
+											<!-- 이메일 저장- 쿠키에 기록_ -->
 											<div class="checkbox">
-												<label><input type="checkbox" value="" checked>Remember
-													me</label>
+												<label>
+													<input type="checkbox" value="" checked>Remember me
+												</label>
 											</div>
 											<button type="submit" class="btn btn-success btn-block">
 												<span class="glyphicon glyphicon-off"></span> 로그인

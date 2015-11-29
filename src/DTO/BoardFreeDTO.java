@@ -1,59 +1,85 @@
 package DTO;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class BoardFreeDTO {
 	
-	private String seq;    //시퀀스
+	private String boardno;    //시퀀스
 	private String title;	//제목
+	private String name;	//작성자 이름	
 	private String content;	//글 내용
 	private Date regdate;	//작성일
-	private int hit;		//조회수
+	private int countno;		//조회수
+	private int active;
 	
-	private int groupno; 	
+	private int groupno; 	 
 	private int step;
 	private int depth;
+	private int notice ;
+	private int memberno; 
+	private int categoryno;
 	
-	//////////////////
 	
-	
-	@Override
-	public String toString() {
-		return "BoardFreeDTO [seq=" + seq + ", title=" + title + ", content=" + content + ", regdate=" + regdate
-				+ ", hit=" + hit + ", groupno=" + groupno + ", step=" + step + ", depth=" + depth + "]";
-	}
-
-	public BoardFreeDTO() {
+	public BoardFreeDTO(String boardno, String title, String name, String content, Date regdate, int countno,
+			int active, int groupno, int step, int depth, int notice, int memberno, int categoryno) {
 		super();
-	}
-	
-	public BoardFreeDTO(String seq, String title, String content, Date regdate, int hit, int groupno, int step,
-			int depth) {
-		super();
-		this.seq = seq;
+		this.boardno = boardno;
 		this.title = title;
+		this.name = name;
 		this.content = content;
 		this.regdate = regdate;
-		this.hit = hit;
+		this.countno = countno;
+		this.active = active;
 		this.groupno = groupno;
 		this.step = step;
 		this.depth = depth;
+		this.notice = notice;
+		this.memberno = memberno;
+		this.categoryno = categoryno;
 	}
 	
-
-
-
-	public String getSeq() {
-		return seq;
+	@Override
+	public String toString() {
+		return "BoardFreeDTO [boardno=" + boardno + ", title=" + title + ", name=" + name + ", content=" + content
+				+ ", regdate=" + regdate + ", countno=" + countno + ", active=" + active + ", groupno=" + groupno
+				+ ", step=" + step + ", depth=" + depth + ", notice=" + notice + ", memberno=" + memberno
+				+ ", categoryno=" + categoryno + "]";
 	}
-	public void setSeq(String seq) {
-		this.seq = seq;
+	public int getNotice() {
+		return notice;
+	}
+	public void setNotice(int notice) {
+		this.notice = notice;
+	}
+	public int getMemberno() {
+		return memberno;
+	}
+	public void setMemberno(int memberno) {
+		this.memberno = memberno;
+	}
+	public int getCategoryno() {
+		return categoryno;
+	}
+	public void setCategoryno(int categoryno) {
+		this.categoryno = categoryno;
+	}
+	public String getBoardno() {
+		return boardno;
+	}
+	public void setBoardno(String boardno) {
+		this.boardno = boardno;
 	}
 	public String getTitle() {
 		return title;
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getContent() {
 		return content;
@@ -67,11 +93,17 @@ public class BoardFreeDTO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	public int getHit() {
-		return hit;
+	public int getCountno() {
+		return countno;
 	}
-	public void setHit(int hit) {
-		this.hit = hit;
+	public void setCountno(int countno) {
+		this.countno = countno;
+	}
+	public int getActive() {
+		return active;
+	}
+	public void setActive(int active) {
+		this.active = active;
 	}
 	public int getGroupno() {
 		return groupno;
@@ -91,6 +123,10 @@ public class BoardFreeDTO {
 	public void setDepth(int depth) {
 		this.depth = depth;
 	}
+
+	//////////////////
+	
+
 	
 	
 /*	자유게시판

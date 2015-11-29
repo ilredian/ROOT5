@@ -1,108 +1,91 @@
 package DTO;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class BoardNoticeDTO {
 
-	private String seq; // 시퀀스
-	private String title; // 제목
-	private String content; // 글 내용
-	private Date regdate; // 작성일
-	private int hit; // 조회수
-
-	private int groupno;
-	private int step;
-	private int depth;
-
-	//////////////////
-
-	@Override
-	public String toString() {
-		return "BoardFreeDTO [seq=" + seq + ", title=" + title + ", content=" + content + ", regdate=" + regdate
-				+ ", hit=" + hit + ", groupno=" + groupno + ", step=" + step + ", depth=" + depth + "]";
+	private int boardno; //게시판번호
+	private String title;/* 제목 */
+	private String content; /* 내용 */
+	private Date regdate; /* 작성일 */
+	private int countno;/* 조회수 */
+	private int active; /* 삭제여부 */
+	private int critical; /* 강조여부 */
+	private int categoryno; /* 카테고리번호 */
+	
+	
+	public int getBoardno() {
+		return boardno;
 	}
-
-	public BoardNoticeDTO() {
-		super();
+	public void setBoardno(int boardno) {
+		this.boardno = boardno;
 	}
-
-	public BoardNoticeDTO(String seq, String title, String content, Date regdate, int hit, int groupno, int step,
-			int depth) {
-		super();
-		this.seq = seq;
-		this.title = title;
-		this.content = content;
-		this.regdate = regdate;
-		this.hit = hit;
-		this.groupno = groupno;
-		this.step = step;
-		this.depth = depth;
-	}
-
-
-	public String getSeq() {
-		return seq;
-	}
-
-	public void setSeq(String seq) {
-		this.seq = seq;
-	}
-
 	public String getTitle() {
 		return title;
 	}
 
+	
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 	public String getContent() {
 		return content;
 	}
-
 	public void setContent(String content) {
 		this.content = content;
 	}
-
 	public Date getRegdate() {
 		return regdate;
 	}
-
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-
-	public int getHit() {
-		return hit;
+	public int getCountno() {
+		return countno;
+	}
+	public void setCountno(int countno) {
+		this.countno = countno;
+	}
+	public int getActive() {
+		return active;
+	}
+	public void setActive(int active) {
+		this.active = active;
+	}
+	public int getCritical() {
+		return critical;
+	}
+	public void setCritical(int critical) {
+		this.critical = critical;
+	}
+	public int getCategoryno() {
+		return categoryno;
+	}
+	public void setCategoryno(int categoryno) {
+		this.categoryno = categoryno;
+	}
+	@Override
+	public String toString() {
+		return "BoardNoticeDTO [boardno=" + boardno + ", title=" + title + ", content=" + content + ", regdate="
+				+ regdate + ", countno=" + countno + ", active=" + active + ", critical=" + critical + ", categoryno="
+				+ categoryno + "]";
+	}
+	public BoardNoticeDTO(int boardno, String title, String content, Date regdate, int countno, int active,
+			int critical, int categoryno) {
+		super();
+		this.boardno = boardno;
+		this.title = title;
+		this.content = content;
+		this.regdate = regdate;
+		this.countno = countno;
+		this.active = active;
+		this.critical = critical;
+		this.categoryno = categoryno;
 	}
 
-	public void setHit(int hit) {
-		this.hit = hit;
-	}
+	
+	
 
-	public int getGroupno() {
-		return groupno;
-	}
-
-	public void setGroupno(int groupno) {
-		this.groupno = groupno;
-	}
-
-	public int getStep() {
-		return step;
-	}
-
-	public void setStep(int step) {
-		this.step = step;
-	}
-
-	public int getDepth() {
-		return depth;
-	}
-
-	public void setDepth(int depth) {
-		this.depth = depth;
-	}
 
 	/*
 	 * 자유게시판 글번호 SEQ N/A NULL 제목 TITLE N/A NULL 글내용 CONTENT N/A NULL 작성일 REGDATE
