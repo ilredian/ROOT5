@@ -4,9 +4,26 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DAO.CheaterDAO">
 
-	<!-- 진술서 등록 정보 모두 불러오기 -->
-	<select id="getAllCheater" resultType="DTO.CheaterDTO">
-		SELECT * FROM cheaterdb
+	<!-- 진술서 등록된 수 불러오기 -->
+	<select id="getCheaterCount" resultType="Integer">
+		SELECT count(*) cnt
+		FROM cheaterdb
+		WHERE ${param1} LIKE '%${param2}%'
+	</select>
+
+	<!-- 진술서 등록 정보 특정하여 불러오기 -->
+	<select id="getSearchCheater" resultType="DTO.CheaterDTO">
+		SELECT * 
+		FROM(
+				SELECT rownum num, N.*
+				FROM(
+						SELECT *
+						FROM cheaterdb
+						WHERE ${param2} LIKE '%${param3}%'
+						ORDER BY regdate DESC
+					) N
+			)
+		WHERE num BETWEEN 1 + (${param1}-1)*5 AND 5 + (${param1}-1)*5
 	</select>
 
 	<!-- 진술서 등록 정보 특정 한개만 불러오기 -->
