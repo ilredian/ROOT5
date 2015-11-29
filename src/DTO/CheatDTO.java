@@ -1,5 +1,6 @@
 package DTO;
 
+/* 사기종류 */
 public class CheatDTO {
 
 	private int cheatno; /* 사기 번호 */
