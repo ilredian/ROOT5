@@ -28,6 +28,7 @@ public class LoginController {
 	@RequestMapping(value = "login.go", method=RequestMethod.POST)
 	public String Login(MemberDTO memberDTO, HttpServletResponse response) throws Exception {
 		//스크립트 구문을 쓰기위한 준비
+		response.setContentType("text/html;charset=UTF-8");
 		out = response.getWriter();
 		
 		//로그 남기기
@@ -59,6 +60,7 @@ public class LoginController {
 		session.invalidate();
 		
 		//스크립트 구문을 쓰기위한 준비
+		response.setContentType("text/html;charset=UTF-8");
 		out = response.getWriter();
 		
 		//경고창 띄우기
