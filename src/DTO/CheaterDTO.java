@@ -131,6 +131,7 @@ public class CheaterDTO {
 	public void setMemberno(int memberno) {
 		this.memberno = memberno;
 	}
+	
 	@Override
 	public String toString() {
 		return "CheaterDTO [stateno=" + stateno + ", bankname=" + bankname + ", cheatername=" + cheatername
