@@ -3,4 +3,34 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DAO.CheatDAO">
+
+	<!-- 모든 사기종류 카테고리 가져오기 -->
+	<select id="getAllCheat" resultType="DTO.CheatDTO">
+		SELECT * FROM cheat
+	</select>
+	
+	<!-- 하나의 사기종류 카테고리 가져오기 -->
+	<select id="getCheat" parameterType="Integer" resultType="DTO.CheatDTO">
+		SELECT * FROM cheat
+		WHERE cheatno = #{cheatno}
+	</select>
+	
+	<!-- 사기 종류 추가하기 -->
+	<insert id="insert" parameterType="DTO.CheatDTO">
+		INSERT INTO cheat(cheatno, cheatname) 
+		VALUES(#{cheatno}, #{cheatname})
+	</insert>
+	
+	<!-- 사기 종류 수정하기 -->
+	<update id="update" parameterType="DTO.CheatDTO">
+		UPDATE cheat
+		SET cheatname = #{cheatname}
+		WHERE cheatno = #{cheatno}
+	</update>
+	
+	<!-- 사기 종류 삭제하기 -->
+	<delete id="delete" parameterType="Integer">
+		DELETE FROM cheat
+		WHERE cheatno = #{cheatno}
+	</delete>
 </mapper>
