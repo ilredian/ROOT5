@@ -10,9 +10,9 @@
 		FROM cheaterdb
 		WHERE ${param1} LIKE '%${param2}%'
 	</select>
-
-	<!-- 진술서 등록 정보 특정하여 불러오기 -->
-	<select id="getSearchCheater" resultType="DTO.CheaterDTO">
+	
+	<!-- 진술서 등록 정보 전체 중 특정하여 불러오기 -->
+	<select id="getAllCheater" resultType="DTO.CheaterDTO">
 		SELECT * 
 		FROM(
 				SELECT rownum num, N.*
@@ -20,6 +20,21 @@
 						SELECT *
 						FROM cheaterdb
 						WHERE ${param2} LIKE '%${param3}%'
+						ORDER BY regdate DESC
+					) N
+			)
+		WHERE num BETWEEN 1 + (${param1}-1)*5 AND 5 + (${param1}-1)*5
+	</select>
+
+	<!-- 진술서 등록 정보 카테고리별 특정하여 불러오기 -->
+	<select id="getSearchCheater" resultType="DTO.CheaterDTO">
+		SELECT * 
+		FROM(
+				SELECT rownum num, N.*
+				FROM(
+						SELECT *
+						FROM cheaterdb
+						WHERE ${param2} LIKE '%${param3}%' AND cheatno = #{param4}
 						ORDER BY regdate DESC
 					) N
 			)
