@@ -6,8 +6,11 @@ import DTO.CheaterDTO;
 
 public interface CheaterDAO {
 	
-	//진술서 등록 정보 모두 불러오기
-	public List<CheaterDTO> getAllCheater() throws Exception;
+	//진술서 등록된 수 불러오기
+	public int getCheaterCount() throws Exception;
+	
+	//진술서 등록 정보 특정하여 불러오기
+	public List<CheaterDTO> getSearchCheater() throws Exception;
 	
 	//진술서 등록 정보 특정 한개만 불러오기
 	public CheaterDTO getCheater(int stateno) throws Exception;
