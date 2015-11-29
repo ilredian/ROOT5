@@ -10,14 +10,14 @@ public interface CheaterDAO {
 	public List<CheaterDTO> getAllCheater() throws Exception;
 	
 	//진술서 등록 정보 특정 한개만 불러오기
-	public CheaterDTO getCheater() throws Exception;
+	public CheaterDTO getCheater(int stateno) throws Exception;
 	
 	//진술서 등록하기
-	public int insert() throws Exception;
+	public int insert(CheaterDTO cheaterDTO) throws Exception;
 	
 	//진술서 수정하기
-	public int update() throws Exception;
+	public int update(CheaterDTO cheaterDTO) throws Exception;
 	
 	//진술서 삭제하기
-	public int delete() throws Exception;
+	public int delete(int stateno) throws Exception;
 }
