@@ -30,9 +30,15 @@
 		<div class="top-wrapper clear">
 			<div class="container">
 				<!-- Search 영역 -->
+				<c:if test="${param.sno == null}">
 				<tiles:insertAttribute name="search" />
+				</c:if>
 				<!-- Content 영역 -->
 				<tiles:insertAttribute name="content" />
+				<!-- StatementMain영역 -->
+				<c:if test="${param.sno != null}">
+					<jsp:include page="/WEB-INF/views/home/boardStatement/gameMain.jsp"></jsp:include>
+				</c:if>
 			</div>
 			<!-- Aside(Navi) 영역 -->
 			<tiles:insertAttribute name="aside" />
@@ -43,10 +49,11 @@
 	<!-- Footer 영역  -->
 	<tiles:insertAttribute name="footer" />
 	<script type="text/javascript">
-		$(function() {
-			$('#gameView').click(function() {
-				location.href = "statementView.go?cno=1";
-			});
+		$('.viewBtn').click(function(){
+			console.log(this);
+			var loc = this.getAttribute("id");
+			console.log(loc);
+			location.href = loc;
 		});
 	</script>
 </body>
