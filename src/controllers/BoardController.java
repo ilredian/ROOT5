@@ -45,7 +45,7 @@ public class BoardController {
 		String linkUrl = "freeMain.go";// 페이지번호를 누르면 이동할 경로
 		int boardCount = boardFreeDAO.getCount(field, query);// 검색 결과에 따른 게시글 총 갯수
 		int start = (page - 1) * pageSize;
-		HomePager pager = new HomePager(boardCount, page, pageSize, pagerSize, linkUrl);
+		HomePager pager = new HomePager(boardCount, page, pageSize, pagerSize, linkUrl, start);
 		
 		List<BoardFreeDTO> list= boardFreeDAO.getNotices(start, field, query, pageSize);
 		
@@ -90,27 +90,24 @@ public class BoardController {
 	
 	//1. 공지게시판 메인(목록 리스트)
 	@RequestMapping("noticeMain.go")
-	public String noticeMain(String pg , String f , String q , Model model) throws Exception{
-		//게시판 기본 설정(기본값 처리)/////////////
-				int page = 1;
-				String field = "TITLE";
-				String query ="%%";
-				//////////////////////////////////////
-				if(pg != null && pg.equals("")){
-					page = Integer.parseInt(pg);
-				}
-				if(f != null && f.equals("")){
-					field = f;
-				}
-				if(q != null && q.equals("")){
-					query = q;
-				}
+	public String noticeMain(	
+			@RequestParam(value = "pg", required = false, defaultValue = "1") int page, // 현재 페이지 번호
+			@RequestParam(value = "f", required = false, defaultValue = "title") String field, // 검색 카테고리
+			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, // 검색 내용
+			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, // 한 페이지에 보여줄 게시글 갯수
+			Model model) throws Exception {
+		
 				System.out.println(page + " / " + field + " / " + query);
 				
 				BoardNoticeDAO boardNoticeDAO = sqlSession.getMapper(BoardNoticeDAO.class);
-				System.out.println("yyy");
+
+				int pagerSize = 10;// 한 번에 보여줄 페이지 번호 갯수
+				String linkUrl = "freeMain.go";// 페이지번호를 누르면 이동할 경로
+				int boardCount = boardNoticeDAO.getCount(field, query);// 검색 결과에 따른 게시글 총 갯수
+				int start = (page - 1) * pageSize;
+				HomePager pager = new HomePager(boardCount, page, pageSize, pagerSize, linkUrl, start);
 				
-				List<BoardNoticeDTO> list= boardNoticeDAO.getNotices();
+				List<BoardNoticeDTO> list= boardNoticeDAO.getNotices(start, field, query, pageSize);
 				System.out.println("zzz");
 				
 				model.addAttribute("list", list); //자동 forward
