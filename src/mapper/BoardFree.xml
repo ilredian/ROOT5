@@ -4,14 +4,13 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DAO.BoardFreeDAO">
 	<select id="getNotices" resultType="DTO.BoardFreeDTO" >
-		<!-- List<Notice> getNotices(int page, String field, String query) int 
-			srow = 1 + (page-1)*5; int erow = 5 + (page-1)*5; -->
-		SELECT *
-		FROM boardfree
-		WHERE ${param2} LIKE '%${param3}%'
-		ORDER BY regdate DESC
-		LIMIT ${param1} ,5
+  SELECT * FROM
+                     ( SELECT * 
+                       FROM boardfree
+                       WHERE (@rownum:=0)=0 and ${param2} LIKE '%${param3}%' ORDER BY REGDATE DESC) N
+                ) NUM LIMIT ${param1}, ${param4}
 	</select>
+	
 	<select id="getCount" resultType="Integer">
 		SELECT COUNT(*) CNT
 		FROM BOARDFREE
@@ -30,9 +29,10 @@
 		boardno=#{boardno}
 	</update>
 	<insert id="insert">
-		int insert( Notice n ) INSERT INTO TNOTICES(boardno, TITLE, CONTENT, 
-			WRITER, REGDATE, HIT, FILESRC , FILESRC2) VALUES( (SELECT MAX(TO_NUMBER(boardno))+1 
-			FROM TNOTICES), :title, :content, :writer, SYSDATE, 0, :fileSrc , :fileSrc2)
+<!-- 	
+		int insert( Notice n ) INSERT INTO boardfree(boardno, TITLE, CONTENT, 
+			WRITER, REGDATE, countno) VALUES( (SELECT MAX(TO_NUMBER(boardno))+1 
+			FROM TNOTICES), :title, :content, :writer, SYSDATE, 0 ) -->
 		<selectKey order="BEFORE" keyProperty="boardno" resultType="String">
 			SELECT NVL(MAX(TO_NUMBER(boardno)),0)+1 FROM boardfree
 		</selectKey>
