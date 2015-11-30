@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="container">
-		<hr>
+<!-- 		<hr>
 	<div class="footer1" style="height: 50px; vertical-align: middle;margin-bottom:-30px">
 
 		<div>
@@ -13,8 +13,9 @@
 				<a href="#"><img src="img/footer5.PNG"></a>
 		</div>
 	</div>
-			<hr>
+			<hr> -->
 	<div class="footer2">
+	<hr>
 		<div>
 			<div>
 				<img src="img/aa.PNG" style="float: left;" width="167px" height="67px">

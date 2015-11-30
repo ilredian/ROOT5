@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <div class="container">
@@ -16,19 +17,24 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>1</td>
-				<td>핸드폰</td>
-				<td>이 oo</td>
-				<td>111-1111-1111-1110</td>
-				<td>010-1234-5678</td>
-				<td>2015.10.10</td>
-				<td><button type="submit">
-						<a href="statementView.go?sno=1">자세히 보기</a>
-					</button></td>
-			</tr>
+			<c:forEach var="list" items="${list}">
+				<tr>
+					<td>${list.stateno}</td>
+					<td>${list.goodsname}</td>
+					<td>${list.cheatername}</td>
+					<td>${list.account}</td>
+					<td>${list.phone}</td>
+					<td>${list.regdate}</td>
+					<td><input type="button" class="viewBtn" value="자세히보기"
+						id="statementView.go?sno=${list.stateno}&cno=1"></td>
+				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
+</div>
+<div style="text-align: center;">
+	<c:set var="pager" value="${pager.toString()}" />
+	${pager}
 </div>
 <div style="float: left;">
 	<button id="list">
@@ -44,6 +50,3 @@
 		<a href="#">사기피해사례 등록</a>
 	</button>
 </div>
-
-<!-- 추후에 페이저 등록 -->
-
