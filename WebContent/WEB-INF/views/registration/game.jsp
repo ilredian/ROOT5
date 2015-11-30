@@ -17,6 +17,7 @@
 </head>
 <body>
 <div class="well" align="center">
+<div class="container">
 	<h3 align="center">
 			<img src="img/qwe.PNG"
 				alt="용의자(사기범) 정보">
@@ -558,7 +559,9 @@
             <!--<input type="submit" value="" name="" onclick="return confirm('확인 버튼을 누른 후 피해사례가 등록될 때 까지 기다려 주세요.');"/>-->
             
         </div>
-        
+       </div>
+      </div>
+     
 
 </body>
 </html>
