@@ -43,13 +43,18 @@ public class BoardStatementController {
 		int pagerSize = 10;//한 번에 보여줄 페이지 번호 갯수
 		String linkUrl = "statementMain.go";//페이지번호를 누르면 이동할 경로
 		int boardCount = cheaterDAO.getCheaterCount(field, query, cheatno);
+		System.out.println("게시글 갯수 : " + boardCount);
+		int start = (page-1)*pageSize;
+		int end = pageSize+(page-1)*pageSize;
 		
 		Pager pager = new Pager(boardCount, page, pageSize, pagerSize, linkUrl, cheatno);	
 		
-		List<CheaterDTO> list = cheaterDAO.getSearchCheater(page, field, query, cheatno, pageSize);
+		List<CheaterDTO> list = cheaterDAO.getSearchCheater(start, field, query, cheatno, end);
 
+		String thePager = pager.toString();
+		System.out.println(thePager);
 		// 모델에 담기
-		model.addAttribute("pager", pager);
+		model.addAttribute("pager", thePager);
 		model.addAttribute("list", list);
 
 		// 페이지 이동 구분하기

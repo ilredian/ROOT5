@@ -19,32 +19,20 @@
 	
 	<!-- 진술서 등록 정보 전체 중 특정하여 불러오기 -->
 	<select id="getAllCheater" resultType="DTO.CheaterDTO">
-		SELECT * 
-		FROM(
-				SELECT rownum num, N.*
-				FROM(
-						SELECT *
-						FROM cheaterdb
-						WHERE ${param2} LIKE '%${param3}%'
-						ORDER BY regdate DESC
-					) N
-			)
-		WHERE num BETWEEN 1 + (${param1}-1)*${param4} AND ${param4} + (${param1}-1)*${param4}
+		SELECT *
+		FROM cheaterdb
+		WHERE ${param2} LIKE '%${param3}%'
+		ORDER BY regdate DESC, stateno DESC
+		LIMIT ${param1}, ${param4}
 	</select>
 
 	<!-- 진술서 등록 정보 카테고리별 특정하여 불러오기 -->
 	<select id="getSearchCheater" resultType="DTO.CheaterDTO">
-		SELECT * 
-		FROM(
-				SELECT rownum num, N.*
-				FROM(
-						SELECT *
-						FROM cheaterdb
-						WHERE ${param2} LIKE '%${param3}%' AND cheatno = #{param4}
-						ORDER BY regdate DESC
-					) N
-			)
-		WHERE num BETWEEN 1 + (${param1}-1)*${param5} AND ${param5} + (${param1}-1)*${param5}
+		SELECT *
+		FROM cheaterdb
+		WHERE ${param2} LIKE '%${param3}%' AND cheatno = ${param4}
+		ORDER BY regdate DESC, stateno DESC
+		LIMIT ${param1}, ${param5}
 	</select>
 
 	<!-- 진술서 등록 정보 특정 한개만 불러오기 -->

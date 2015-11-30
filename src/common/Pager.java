@@ -66,7 +66,8 @@ public class Pager {
 			linkString.append(String.format(
 				"[<a href='%s?pg=%d&cno=%d'>마지막</a>]", linkUrl, pageCount, cheatno));
 		}
-		
+		System.out.println("Pager : " + linkString.toString());
+		System.out.println("Pager : " + linkString);
 		return linkString.toString();
 	}
 }
