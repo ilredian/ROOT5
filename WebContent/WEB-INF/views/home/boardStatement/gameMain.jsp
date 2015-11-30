@@ -80,9 +80,4 @@
 		<a href="#">사기피해사례 등록</a>
 	</button>
 </div>
-<div>
-	<button id="a" style="float: right;">
-		<a href="#">사기피해사례 등록</a>
-	</button>
-</div>
-<c:out value="${pager.toString}" />
+<c:out value="${pager}"/>

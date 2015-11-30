@@ -24,6 +24,8 @@ public class Pager {
 		
 		pageCount = 
 			(dataCount / pageSize) + ((dataCount % pageSize) > 0 ? 1 : 0); 
+		
+		System.out.println(pageSize+"/"+pagerSize+"/"+dataCount+"/"+currentPage+"/"+pageCount+"/"+cheatno+"/"+linkUrl);
 	}
 	
 	public String toString(){
@@ -66,7 +68,8 @@ public class Pager {
 			linkString.append(String.format(
 				"[<a href='%s?pg=%d&cno=%d'>마지막</a>]", linkUrl, pageCount, cheatno));
 		}
-		
+		System.out.println("Pager : " + linkString.toString());
+		System.out.println("Pager : " + linkString);
 		return linkString.toString();
 	}
 }
