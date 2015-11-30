@@ -78,13 +78,10 @@
 										</h4>
 									</div>
 									<div class="modal-body" style="padding: 40px 50px;">
-<<<<<<< HEAD
 										
 										<!-- 로그인 폼 -->
-										<form role="form" action="login.go">
-=======
-										<form role="form" action="login.go" >
->>>>>>> ROOT/master
+										<form role="form" action="login.go" method="post">
+
 											<div class="form-group">
 												<label for="usrname"><span
 													class="glyphicon glyphicon-user"></span> 이메일</label> <input
