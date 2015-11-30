@@ -11,13 +11,11 @@
  </select> 
  <!-- 공지사항 목록  -->
  <select id="getNotices" resultType="DTO.BoardNoticeDTO">
-             SELECT * FROM
-               ( SELECT @rownum:=@rownum+1 num, N.* 
-                 FROM 
-                     ( SELECT * 
-                       FROM BOARDNOTICE 
-                       WHERE (@rownum:=0)=0 and title LIKE '%테%' ORDER BY REGDATE DESC) N
-                ) NUM LIMIT 5
+   	SELECT *
+		FROM boardnotice
+		WHERE ${param2} LIKE '%${param3}%' 
+		ORDER BY regdate DESC, boardno DESC
+		LIMIT ${param1}, ${param4}
     </select>
 
  <!-- 공지사항 상세 -->

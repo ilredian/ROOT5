@@ -15,7 +15,7 @@
 	<div class="well well-sm" align="center">
 		<form>
 			<div class="form-group">
-				<img alt="직거래 피해사례" src="img/jik.PNG"> <input type="text"
+				<h2>직거래 피해 사례</h2> <input type="text"
 					name="keyword" class="txt" title="검색어 입력"
 					placeholder="로그인 후 상세 검색을 사용하세요." size="30" onclick="#">
 				<!-- onclick 에 로그인 창띄우는 거 -->

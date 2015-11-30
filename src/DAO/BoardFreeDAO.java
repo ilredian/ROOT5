@@ -10,7 +10,7 @@ public interface BoardFreeDAO {
 		public int getCount(String field, String query) throws ClassNotFoundException, SQLException;
 		//전체 게시물
 		public List<BoardFreeDTO> getNotices(int start, String field, String query, int pagerSize) throws Exception;
-		//게시물 삭제
+		//게시물 삭제int start, String field, String query, int pagerSize
 		public int delete(String seq) throws ClassNotFoundException, SQLException;
 		//게시물 수정
 		public int update(BoardFreeDTO BoardDTO) throws ClassNotFoundException, SQLException;
