@@ -42,5 +42,4 @@
 		<a href="#">사기피해사례 등록</a>
 	</button>
 </div>
-<!-- 추후에 페이저 등록 -->
-<c:
+<c:out value="${pager.toString}"/>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import DAO.CheaterDAO;
 import DTO.CheaterDTO;
+import common.Pager;
 
 //피해 사례 현황 게시판
 @Controller
@@ -35,13 +36,13 @@ public class BoardStatementController {
 
 		// 로그 남기기
 		System.out.println(page + " / " + field + " / " + query + " / " + cheatno);
-/*
+
 		// 마이바티스로 넘기기
 		CheaterDAO cheaterDAO = sqlSession.getMapper(CheaterDAO.class);
 		
 		int pagerSize = 10;//한 번에 보여줄 페이지 번호 갯수
 		String linkUrl = "statementMain.go";//페이지번호를 누르면 이동할 경로
-		int boardCount = cheaterDAO.getCheaterCount(field, query, cheatno, pageSize);
+		int boardCount = cheaterDAO.getCheaterCount(field, query, cheatno);
 		
 		Pager pager = new Pager(boardCount, page, pageSize, pagerSize, linkUrl, cheatno);	
 		
@@ -50,7 +51,7 @@ public class BoardStatementController {
 		// 모델에 담기
 		model.addAttribute("pager", pager);
 		model.addAttribute("list", list);
-*/
+
 		// 페이지 이동 구분하기
 		switch (cheatno) {
 		
