@@ -45,7 +45,7 @@ public class BoardController {
 		String linkUrl = "freeMain.go";// 페이지번호를 누르면 이동할 경로
 		int boardCount = boardFreeDAO.getCount(field, query);// 검색 결과에 따른 게시글 총 갯수
 		int start = (page - 1) * pageSize;
-		HomePager pager = new HomePager(boardCount, page, pageSize, pagerSize, linkUrl, start);
+		HomePager pager = new HomePager(boardCount, page, pageSize, pagerSize, linkUrl);
 		
 		List<BoardFreeDTO> list= boardFreeDAO.getNotices(start, field, query, pageSize);
 		
@@ -105,7 +105,7 @@ public class BoardController {
 				String linkUrl = "freeMain.go";// 페이지번호를 누르면 이동할 경로
 				int boardCount = boardNoticeDAO.getCount(field, query);// 검색 결과에 따른 게시글 총 갯수
 				int start = (page - 1) * pageSize;
-				HomePager pager = new HomePager(boardCount, page, pageSize, pagerSize, linkUrl, start);
+				HomePager pager = new HomePager(boardCount, page, pageSize, pagerSize, linkUrl);
 				
 				List<BoardNoticeDTO> list= boardNoticeDAO.getNotices(start, field, query, pageSize);
 				System.out.println("zzz");
