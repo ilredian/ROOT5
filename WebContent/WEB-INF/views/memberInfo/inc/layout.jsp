@@ -28,14 +28,10 @@
 		<tiles:insertAttribute name="visual" />
 		<!-- Main   영역  -->
 		<div id="main">
-			<div class="top-wrapper clear">
-				<!-- Content 영역 -->
-				<div class="tab-content">
-					<tiles:insertAttribute name="content" />
-				</div>
-				<!-- Aside(Navi) 영역 -->
-				<tiles:insertAttribute name="aside" />
-			</div>
+			<!-- Content 영역 -->
+			<tiles:insertAttribute name="content" />
+			<!-- Aside(Navi) 영역 -->
+			<tiles:insertAttribute name="aside" />
 		</div>
 
 	</div>

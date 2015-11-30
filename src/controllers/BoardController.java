@@ -44,14 +44,16 @@ public class BoardController {
 			query = q;
 		}
 		System.out.println(page + " / " + field + " / " + query);
+		
 		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
 		System.out.println("asdf");
 		
-		List<BoardFreeDTO> list= boardFreeDAO.getNotices();
+		List<BoardFreeDTO> list= boardFreeDAO.getNotices(page, field, query);
 		System.out.println("fghj");
 		
 	    model.addAttribute("list", list); //자동 forward
 	    System.out.println("tuio");
+	    
 		return "home.boardFree.freeMain";
 	}
 	//2. 자유게시판 상세보기
