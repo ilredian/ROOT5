@@ -3,7 +3,13 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!-- nav -->
-
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#myBtn").click(function() {
+			$("#myModal").modal();
+		});
+	});
+</script>
 <nav class="navbar navbar-default" role="navigation">
 <div class="container-fluid">
 	<div class="navbar-header">
