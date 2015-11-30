@@ -6,7 +6,7 @@
 	<table class="table table-striped">
 		<tbody>
 			<tr>
-				<th colspan="3">제목 들어가는 부분</th>
+				<th colspan="3">${boardFreeDTO.title}</th>
 			</tr>
 			<tr>
 				<td style="width: 10%;">

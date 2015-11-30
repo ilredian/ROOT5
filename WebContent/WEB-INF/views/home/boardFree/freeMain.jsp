@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="container freeMain">
   <h2>자유게시판</h2>
-  <p>Total :</p>            
+  <p>Total : </p>         
+  
   <table class="table table-hover">
     <thead>
       <tr>
@@ -15,12 +18,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-   	 	<td>${BOARDNO}</td>
-   	 	<td class="content"><a href="freeView.go?page=1&contentNo=1">${CONTENT}</a></td>
-   	 	<td>${REGDATE}</td>
-   	 	<td>${HIT}</td>
-      </tr>
+   	<c:forEach var="n" items="${list}" >
+  <!--    <tr>
+        <td class="number">${n.boardno}</td>
+        <td class="writer">작성자</td>
+        <td class="subject"><a href="freeView.go?page=${page}&contentNo=${countno}">${n.title}</a></td>
+        <td class="date">${n.regdate}</td>
+        <td class="count">${n.countno}</td>
+      </tr>--> 
+      </c:forEach>
     </tbody>
   </table>
 </div>

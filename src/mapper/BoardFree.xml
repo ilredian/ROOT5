@@ -3,49 +3,41 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DAO.BoardFreeDAO">
- 
- <select id="getCount" resultType="Integer">
-  SELECT COUNT(*) CNT 
-  FROM BOARDFREE 
-  WHERE ${param1} LIKE '%${param2}%'
- </select> 
- <select id="getNotices" resultType="DTO.BoardFreeDTO">
-     SELECT * FROM
-               ( SELECT ROWNUM NUM, N.* 
-                 FROM 
-                     ( SELECT * 
-                       FROM boardfree 
-                       WHERE ${param2} LIKE '%${param3}%' ORDER BY REGDATE DESC) N
-                ) WHERE NUM BETWEEN 1 + (${param1}-1)*5 AND 5 + (${param1}-1)*5
-    </select>
- <select id="getNotice" resultType="DTO.BoardFreeDTO">
-     <!--   Notice getNotice(String boardno) 
-            parameter 하나짜리는[ 변수이름 ] (param1 은 안되요)
-     -->
-     SELECT * FROM boardfree WHERE boardno=#{boardno}
-</select>
- <delete id="delete" >
-     <!-- int delete(String boardno)  
-       parameterType="Interger" 을 생략해 볼게요
-     -->
-     DELETE boardfree WHERE boardno=#{boardno}
- </delete>
- <update id="update" >
-     <!-- int update(Notice notice)   
-       parameter  객체로 ..... Notice 객체 (만약에 setter , getter 가 구현되어 있다면)
-     -->
-     UPDATE boardfree SET TITLE=#{title}, CONTENT=#{content} WHERE boardno=#{boardno}
- </update>
- <insert id="insert">
-     <!-- int insert( Notice n ) 
-        INSERT INTO TNOTICES(boardno, TITLE, CONTENT, WRITER, REGDATE, HIT, FILESRC , FILESRC2)
-        VALUES( (SELECT MAX(TO_NUMBER(boardno))+1 FROM TNOTICES), :title, :content, :writer, SYSDATE, 0, :fileSrc , :fileSrc2)
-     -->
-      <selectKey order="BEFORE" keyProperty="boardno" resultType="String">
-       SELECT NVL(MAX(TO_NUMBER(boardno)),0)+1 FROM boardfree
-      </selectKey>
-      INSERT INTO boardfree(boardno, TITLE, CONTENT, WRITER, REGDATE, COUNTNO)
-      VALUES( #{boardno}, #{title}, #{content}, #{writer}, SYSDATE, 0)
-</insert>
+	<select id="getNotices" resultType="DTO.BoardFreeDTO" >
+		<!-- List<Notice> getNotices(int page, String field, String query) int 
+			srow = 1 + (page-1)*5; int erow = 5 + (page-1)*5; -->
+		SELECT *
+		FROM boardfree
+		WHERE title LIKE '%${param3}%'
+		ORDER BY REGDATE DESC
+		LIMIT 1 ,5
+	</select>
+	<select id="getCount" resultType="Integer">
+		SELECT COUNT(*) CNT
+		FROM BOARDFREE
+		WHERE ${param1} LIKE '%${param2}%'
+	</select>
+	
+	<select id="getNotice" resultType="DTO.BoardFreeDTO">
+		SELECT * FROM boardfree WHERE boardno=#{boardno}
+	</select>
 
+	<delete id="delete">
+		DELETE boardfree WHERE boardno=#{boardno}
+	</delete>
+	<update id="update">
+		UPDATE boardfree SET TITLE=#{title}, CONTENT=#{content} WHERE
+		boardno=#{boardno}
+	</update>
+	<insert id="insert">
+		int insert( Notice n ) INSERT INTO TNOTICES(boardno, TITLE, CONTENT, 
+			WRITER, REGDATE, HIT, FILESRC , FILESRC2) VALUES( (SELECT MAX(TO_NUMBER(boardno))+1 
+			FROM TNOTICES), :title, :content, :writer, SYSDATE, 0, :fileSrc , :fileSrc2)
+		<selectKey order="BEFORE" keyProperty="boardno" resultType="String">
+			SELECT NVL(MAX(TO_NUMBER(boardno)),0)+1 FROM boardfree
+		</selectKey>
+		INSERT INTO boardfree(boardno, TITLE, CONTENT, WRITER, REGDATE,
+		COUNTNO)
+		VALUES( #{boardno}, #{title}, #{content}, #{writer}, SYSDATE, 0)
+	</insert>
 </mapper>

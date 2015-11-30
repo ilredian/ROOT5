@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <div class="container">
+	스팸 피해 사례 수 : <c:out value="${boardCount}"></c:out>
 	<table class="table table-hover table-responsive">
 		<thead>
 			<tr>

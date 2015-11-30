@@ -1,6 +1,7 @@
 package controllers;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import DAO.BoardFreeDAO;
 import DTO.BoardFreeDTO;
 import DTO.BoardNoticeDTO;
 
@@ -24,11 +26,12 @@ public class BoardController {
 	
 	//1. 자유게시판 메인(목록리스트)
 	@RequestMapping("freeMain.go")   //자유게시판 메인- 목록보기 List
-	public String freeMain(String pg , String f , String q , Model model) throws ClassNotFoundException, SQLException{
+	public String freeMain(String pg , String f , String q , Model model) throws Exception{
 		//게시판 기본 설정(기본값 처리)/////////////
+		//검색 처리를 위한 코드
 		int page = 1;
-		String field = "TITLE";
-		String query ="%%";
+		String field = "TITLE"; 	// 제목명 
+		String query ="%%";			// 
 		//////////////////////////////////////
 		if(pg != null && pg.equals("")){
 			page = Integer.parseInt(pg);
@@ -40,23 +43,22 @@ public class BoardController {
 			query = q;
 		}
 		System.out.println(page + " / " + field + " / " + query);
-	/*	
 		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
-		List<BoardFreeDTO> list= boardFreeDAO.getNotices(page, field, query);
-		
-		model.addAttribute("list", list); //자동 forward
-	*/	
-		
+		System.out.println("asdf");
+		List<BoardFreeDTO> list= boardFreeDAO.getNotices();
+		System.out.println("fghj");
+	   model.addAttribute("list", list); //자동 forward
+	    System.out.println("tuio");
 		return "home.boardFree.freeMain";
 	}
 	//2. 자유게시판 상세보기
 	@RequestMapping("freeView.go")	//자유게시판 상세보기 - 페이지
 	public String freeView(String seq , Model model) throws ClassNotFoundException, SQLException{
-	/*	
+	/*
 	     BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
 		 BoardFreeDTO boardFreeDTO = boardFreeDAO.getNotice(seq);
 		 model.addAttribute("boardFreeDTO", boardFreeDTO); ///// DB 테이블 명--파라미터명 일치 여부 확인후 수정바람*****
-	*/	
+		*/
 		return "home.boardFree.freeView";
 	}
 	//3. 자유게시판 글쓰기(화면만 뿌리기)
@@ -70,10 +72,12 @@ public class BoardController {
 	    System.out.println("실제 글 등록 처리"); 
 	    System.out.println("n : " + DTO.getTitle()); 
 	    System.out.println("n : " + DTO.getContent());
-/*
+	  
+	    /*
 	    BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
 	    boardFreeDAO.insert(DTO);
-*/
+	    */
+	    
 	  return "home.boardFree.freeMain";
 	}
 

@@ -24,7 +24,6 @@
 			<p class="infoTxtTop" align="center">
 				<span class="bltS_A">*</span> 는 필수 기재 항목입니다
 			</p>
-
 			<table class="formTypeA">
 				<caption>피해 발생 사이트에 대한 사이트명, 거래물품종류, 용의자 아이디, 사기 게시물 링크
 					입력폼</caption>
@@ -581,6 +580,7 @@
 ② 개인적인 앙심 또는 괘씸함 등 사기범죄 외의 사유로 등록하시는 경우, 명예훼손에 해당될 수 있으며 이는 민·형사상의 불이익을 받을 수 있습니다.
 ③ 제품에 대한 상태불만, 반품거부, 택배비 착불등의 사례 등록은 영업방해 및 명예훼손에 해당될 수 있습니다.
         </textarea>
+
 			<div class="alert_cheat_write alert_cheat_write-info">
 				<b><input type="checkbox" name="cheat_rule_c" value="1"
 					id="cheat_rule_c" valign="bottom"
