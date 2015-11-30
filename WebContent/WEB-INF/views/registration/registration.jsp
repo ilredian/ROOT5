@@ -66,7 +66,7 @@
 						<h5>
 							<a
 								href="game.go"><img
-								src="img/c.PNG" alt="직거래"></a>
+								src="img/gamebtn.PNG" alt="게임"></a>
 						</h5>
 						<div class="cont" style="margin-left: 20px;">
 							<p>
@@ -92,7 +92,7 @@
 						<h5>
 							<a
 								href="manner.go"><img
-								src="img/c.PNG" alt="직거래"></a>
+								src="img/bebtn.PNG" alt="비매너"></a>
 						</h5>
 						<div class="cont" style="margin-left: 20px;">
 							<p>
@@ -118,7 +118,7 @@
 						<h5>
 							<a
 								href="#"><img
-								src="img/c.PNG" alt="직거래"></a>
+								src="img/phonbtn.PNG" alt="폰"></a>
 						</h5>
 						<div class="cont" style="margin-left: 20px;">
 							<p>

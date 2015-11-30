@@ -15,5 +15,8 @@ public interface MemberDAO {
 	
 	//회원가입
 	public int insert(MemberDTO member) throws Exception;
+	
+	//로그인하기
+	public MemberDTO login(String email, String pwd) throws Exception;
 }
 

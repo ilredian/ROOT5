@@ -7,13 +7,16 @@ import DTO.CheaterDTO;
 public interface CheaterDAO {
 	
 	//진술서 등록된 수 불러오기
-	public int getCheaterCount() throws Exception;
+	public int getAllCheaterCount() throws Exception;
+	
+	//진술서 카테고리별 등록된 수 불러오기
+	public int getCheaterCount(String field, String query, int cheatno) throws Exception;
 	
 	//진술서 등록 정보 전체 중 특정하여 불러오기
-	public List<CheaterDTO> getAllCheater(int page, String field, String query) throws Exception;
+	public List<CheaterDTO> getAllCheater(int start, String field, String query, int end) throws Exception;
 	
 	//진술서 등록 정보 카테고리별 특정하여 불러오기
-	public List<CheaterDTO> getSearchCheater(int page, String field, String query, int cheatno) throws Exception;
+	public List<CheaterDTO> getSearchCheater(int start, String field, String query, int cheatno, int end) throws Exception;
 	
 	//진술서 등록 정보 특정 한개만 불러오기
 	public CheaterDTO getCheater(int stateno) throws Exception;
