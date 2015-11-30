@@ -29,7 +29,7 @@
 						ORDER BY regdate DESC
 					) N
 			)
-		WHERE num BETWEEN 1 + (${param1}-1)*5 AND 5 + (${param1}-1)*5
+		WHERE num BETWEEN 1 + (${param1}-1)*${param4} AND ${param4} + (${param1}-1)*${param4}
 	</select>
 
 	<!-- 진술서 등록 정보 카테고리별 특정하여 불러오기 -->
@@ -44,7 +44,7 @@
 						ORDER BY regdate DESC
 					) N
 			)
-		WHERE num BETWEEN 1 + (${param1}-1)*5 AND 5 + (${param1}-1)*5
+		WHERE num BETWEEN 1 + (${param1}-1)*${param5} AND ${param5} + (${param1}-1)*${param5}
 	</select>
 
 	<!-- 진술서 등록 정보 특정 한개만 불러오기 -->
