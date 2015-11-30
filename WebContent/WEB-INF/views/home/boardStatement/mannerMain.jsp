@@ -1,65 +1,9 @@
 go<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<title>Bootstrap Example</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</head>
-<body>
-	<div class="container">
-		<div class="container">
-			<ul class="nav nav-tabs">
-				<li role="presentation"><a href="tradeMain.go">직거래</a></li>
-				<li role="presentation"><a href="gameMain.go">게임.비실물</a></li>
-				<li role="presentation"><a href="spamMain.go">스팸</a></li>
-				<li role="presentation" class="active"><a href="mannerMain.go">비매너</a></li>
-			</ul>
-		</div>
-		<div class="container">
-			<div class="well well-sm" align="center">
-				<form>
-					<div class="form-group">
-						<img alt="직거래 피해사례" src="img/jik.PNG"> <input type="text"
-							name="keyword" class="txt" title="검색어 입력"
-							placeholder="로그인 후 상세 검색을 사용하세요." size="30" onclick="#">
-						<!-- onclick 에 로그인 창띄우는 거 -->
-						<button type="button" class="btn btn-default">
-							<a href="#">검색</a>
-						</button>
-					</div>
-				</form>
-				<div>
-					<select>
-						<option>최근 3개월간</option>
-						<option>최근 6개월간</option>
-						<option>최근 9개월간</option>
-					</select> 
-					<span class="chkArea"><input type="radio" name="where" value="cheat_site|cheat_item|cheat_suspect|cheat_id|cheat_phone|cheat_account" class="rdo" id="sRdo_all" checked><label for="sRdo_all">전체(개요 제외)</label></span>
-								<span class="chkArea"><input type="radio" name="where" value="cheat_phone" class="rdo" id="sRdo_1"><label for="sRdo_1">연락처</label></span>
-								<span class="chkArea"><input type="radio" name="where" value="cheat_account" class="rdo" id="sRdo_1"><label for="sRdo_2">계좌번호</label></span>
-								<span class="chkArea"><input type="radio" name="where" value="cheat_suspect" class="rdo" id="sRdo_1"><label for="sRdo_3">판매자명</label></span>
-								<span class="chkArea"><input type="radio" name="where" value="cheat_id" class="rdo" id="sRdo_1"><label for="sRdo_3">아이디</label></span>
-								<span class="chkArea"><input type="radio" name="where" value="content" class="rdo" id="sRdo_1"><label for="sRdo_4">사건개요</label></span>
 
-				</div>
-			</div>
-			<div class="well well-sm">
-				<div class="boxTypeC"
-					style="color: #808080; font-weight: bold; text-align: center; margin: 0 0 10px 0; padding: 14px;">
-					이히히는 피해사례의 사실 확인을 위해 전화통화, 계좌번호 검증을 진행하고 있습니다.</div>
-
-			</div>
-		</div>
-		<div class="container">
-			<!-- <table class="table table-hover table-responsive">
+<div class="container">
+	<!-- <table class="table table-hover table-responsive">
 				<thead>
 					<tr>
 						<th>번호</th>
@@ -83,15 +27,15 @@ go<%@ page language="java" contentType="text/html; charset=UTF-8"
 					</tr>
 				</tbody>
 			</table> -->
-		</div>
-		<div class="container">
-			서비스 이용 안내
-			<div class="well well-sm">요청하신 페이지는 권한이 있어야 접근 가능한 페이지입니다.<br>
-			 로그인후에도 본 페이지가 보여지면 열람 권한이 없는 경우입니다.<br>
-			  ※ 비회원인 경우에는 동일한 아이피에서 작성한 (본인)게시물의열람이 가능합니다.<br>
-			 </div>
-		</div>
-		<!-- <div style="float: left;">
+</div>
+<div class="container">
+	서비스 이용 안내
+	<div class="well well-sm">
+		요청하신 페이지는 권한이 있어야 접근 가능한 페이지입니다.<br> 로그인후에도 본 페이지가 보여지면 열람 권한이 없는
+		경우입니다.<br> ※ 비회원인 경우에는 동일한 아이피에서 작성한 (본인)게시물의열람이 가능합니다.<br>
+	</div>
+</div>
+<!-- <div style="float: left;">
 			<button id="list">
 				<a href="#">목록</a>
 			</button>
@@ -100,12 +44,10 @@ go<%@ page language="java" contentType="text/html; charset=UTF-8"
 			</button>
 
 		</div> -->
-		<div>
-			<button id="a" style="float: right;">
-				<a href="#">로그인 하기</a>
-			</button>
-		</div>
-	</div>
-	<!-- 추후에 페이저 등록 -->
-</body>
-</html>
+<div>
+	<button id="a" style="float: right;">
+		<a href="#">로그인 하기</a>
+	</button>
+</div>
+
+<!-- 추후에 페이저 등록 -->
