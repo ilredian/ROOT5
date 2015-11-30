@@ -24,6 +24,8 @@ public class Pager {
 		
 		pageCount = 
 			(dataCount / pageSize) + ((dataCount % pageSize) > 0 ? 1 : 0); 
+		
+		System.out.println(pageSize+"/"+pagerSize+"/"+dataCount+"/"+currentPage+"/"+pageCount+"/"+cheatno+"/"+linkUrl);
 	}
 	
 	public String toString(){
