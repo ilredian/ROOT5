@@ -31,7 +31,7 @@ public class BoardController {
 	@RequestMapping("freeMain.go")   //자유게시판 메인- 목록보기 List
 	public String freeMain(// get으로 들어오는 parameter값 선언 및 기본값 설정
 			@RequestParam(value = "pg", required = false, defaultValue = "1") int page, // 현재 페이지 번호
-			@RequestParam(value = "f", required = false, defaultValue = "cheatername") String field, // 검색 카테고리
+			@RequestParam(value = "f", required = false, defaultValue = "title") String field, // 검색 카테고리
 			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, // 검색 내용
 			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, // 한 페이지에 보여줄 게시글 갯수
 			Model model) throws Exception {

@@ -31,7 +31,7 @@
 		CONTENT=#{content} WHERE
 		boardno=#{boardno}
 	</update>
-	<insert id="insert" parameterType="DTO.boardFreeDTO">
+	<insert id="insert" parameterType="DTO.BoardFreeDTO">
 		<!-- int insert( Notice n ) INSERT INTO TNOTICES(boardno, TITLE, CONTENT, 
 			WRITER, REGDATE, HIT, FILESRC , FILESRC2) VALUES( (SELECT MAX(TO_NUMBER(boardno))+1 
 			FROM TNOTICES), :title, :content, :writer, SYSDATE, 0, :fileSrc , :fileSrc2) 
