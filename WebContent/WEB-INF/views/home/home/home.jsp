@@ -4,3 +4,4 @@
 <a href="freeMain.go">자유게시판</a>
 <a href="noticeMain.go">공지게시판</a>
 <a href="statementMain.go">진술서게시판</a>
+<a href="chartMain.go">피해사례통계</a>
