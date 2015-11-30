@@ -19,6 +19,10 @@ public class BoardFreeDTO {
 	private int memberno; 
 	private int categoryno;
 	
+	public BoardFreeDTO() {
+		super();
+	}
+
 	public BoardFreeDTO(int boardno, String title, String name, String content, Date regdate, int countno, int active,
 			int groupno, int step, int depth, int notice, int memberno, int categoryno) {
 		super();

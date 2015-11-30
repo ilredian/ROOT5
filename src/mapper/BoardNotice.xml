@@ -3,7 +3,6 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DAO.BoardNoticeDAO">
-
  <!-- 공지사항 글갯수 -->
  <select id="getCount" resultType="Integer">
   SELECT COUNT(*) CNT 
@@ -12,18 +11,20 @@
  </select> 
  <!-- 공지사항 목록  -->
  <select id="getNotices" resultType="DTO.BoardNoticeDTO">
-     SELECT * FROM
-               ( SELECT ROWNUM NUM, N.* 
+             SELECT * FROM
+               ( SELECT @rownum:=@rownum+1 num, N.* 
                  FROM 
                      ( SELECT * 
                        FROM BOARDNOTICE 
-                       WHERE ${param2} LIKE '%${param3}%' ORDER BY REGDATE DESC) N
-                ) WHERE NUM BETWEEN 1 + (${param1}-1)*5 AND 5 + (${param1}-1)*5
+                       WHERE (@rownum:=0)=0 and title LIKE '%테%' ORDER BY REGDATE DESC) N
+                ) NUM LIMIT 5
     </select>
-  <!-- 공지사항 상세 -->
+
+ <!-- 공지사항 상세 -->
  <select id="getNotice" resultType="DTO.BoardNoticeDTO">
      SELECT * FROM BOARDNOTICE WHERE BOARDNO=#{BOARDNO}
 </select>
+
  <!-- 공지사항 삭제  -->
  <delete id="delete" >
      DELETE BOARDNOTICE WHERE BOARDNO=#{BOARDNO}
@@ -31,7 +32,7 @@
  
  <!-- 공지사항 수정  -->
  <update id="update" >
-     UPDATE BOARDNOTICE SET TITLE=#{title}, CONTENT=#{content}, FILESRC=#{fileSrc ,jdbcType=VARCHAR} WHERE BOARDNO=#{BOARDNO}
+     UPDATE BOARDNOTICE SET TITLE=#{title}, CONTENT=#{content}  WHERE BOARDNO=#{BOARDNO}
  </update>
  
  <!-- 공지사항 등록  -->
@@ -39,7 +40,7 @@
       <selectKey order="BEFORE" keyProperty="BOARDNO" resultType="String">
        SELECT NVL(MAX(TO_NUMBER(boardno)),0)+1 FROM BOARDNOTICE
       </selectKey>
-      INSERT INTO BOARDNOTICE(BOARDNO, TITLE, CONTENT,REGDATE, COUNTONO)
-      VALUES( #{boardno}, #{title}, #{content}, SYSDATE, 0)
+      INSERT INTO BOARDNOTICE(BOARDNO, TITLE, CONTENT,REGDATE, COUNTNO, ACTIVE, CRITICAL, CATEGORYNO)
+      VALUES( #{boardno}, #{title}, #{content}, SYSDATE, 0, 0, 0, 0)
 </insert>
 </mapper>
