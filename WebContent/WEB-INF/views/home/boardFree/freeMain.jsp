@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="container freeMain">
 	<h2>자유게시판</h2>
-	<p>Total : <c:out value="${pager}"/></p>
+	<p>Total : <c:out value="${boardCount}"/></p>
 
 	<table class="table table-hover">
 		<thead>
