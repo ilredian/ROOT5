@@ -7,7 +7,7 @@ import DTO.CheaterDTO;
 public interface CheaterDAO {
 	
 	//진술서 등록된 수 불러오기
-	public int getCheaterCount() throws Exception;
+	public int getAllCheaterCount() throws Exception;
 	
 	//진술서 카테고리별 등록된 수 불러오기
 	public int getCheaterCount(String field, String query, int cheatno) throws Exception;
