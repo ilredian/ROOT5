@@ -17,7 +17,7 @@
 
 
 	<div class="container">
-		<img src="boardStatementimages/a1.PNG">
+		<img src="images/a1_Dtaile.PNG">
 	</div>
 	<div class="container">
 		<div class="container">
