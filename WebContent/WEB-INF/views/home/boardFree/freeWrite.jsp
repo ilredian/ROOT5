@@ -7,8 +7,6 @@
 <title>자유게시판 글쓰기</title>
 </head>
 <body>
-
-자유게시판 글쓰기자유게시판 글쓰기
-
+	
 </body>
 </html>
