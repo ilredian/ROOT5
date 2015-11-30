@@ -31,7 +31,7 @@
 			<div class="container">
 				<!-- Search 영역 -->
 				<c:if test="${param.sno == null}">
-				<tiles:insertAttribute name="search" />
+					<tiles:insertAttribute name="search" />
 				</c:if>
 				<!-- Content 영역 -->
 				<tiles:insertAttribute name="content" />
@@ -45,14 +45,12 @@
 		</div>
 	</div>
 
-
 	<!-- Footer 영역  -->
 	<tiles:insertAttribute name="footer" />
+	
 	<script type="text/javascript">
 		$('.viewBtn').click(function(){
-			console.log(this);
 			var loc = this.getAttribute("id");
-			console.log(loc);
 			location.href = loc;
 		});
 	</script>
