@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class BoardFreeDTO {
 	
-	private String boardno;    //시퀀스
+	private int boardno;    //시퀀스
 	private String title;	//제목
 	private String name;	//작성자 이름	
 	private String content;	//글 내용
@@ -19,9 +19,8 @@ public class BoardFreeDTO {
 	private int memberno; 
 	private int categoryno;
 	
-	
-	public BoardFreeDTO(String boardno, String title, String name, String content, Date regdate, int countno,
-			int active, int groupno, int step, int depth, int notice, int memberno, int categoryno) {
+	public BoardFreeDTO(int boardno, String title, String name, String content, Date regdate, int countno, int active,
+			int groupno, int step, int depth, int notice, int memberno, int categoryno) {
 		super();
 		this.boardno = boardno;
 		this.title = title;
@@ -38,35 +37,10 @@ public class BoardFreeDTO {
 		this.categoryno = categoryno;
 	}
 	
-	@Override
-	public String toString() {
-		return "BoardFreeDTO [boardno=" + boardno + ", title=" + title + ", name=" + name + ", content=" + content
-				+ ", regdate=" + regdate + ", countno=" + countno + ", active=" + active + ", groupno=" + groupno
-				+ ", step=" + step + ", depth=" + depth + ", notice=" + notice + ", memberno=" + memberno
-				+ ", categoryno=" + categoryno + "]";
-	}
-	public int getNotice() {
-		return notice;
-	}
-	public void setNotice(int notice) {
-		this.notice = notice;
-	}
-	public int getMemberno() {
-		return memberno;
-	}
-	public void setMemberno(int memberno) {
-		this.memberno = memberno;
-	}
-	public int getCategoryno() {
-		return categoryno;
-	}
-	public void setCategoryno(int categoryno) {
-		this.categoryno = categoryno;
-	}
-	public String getBoardno() {
+	public int getBoardno() {
 		return boardno;
 	}
-	public void setBoardno(String boardno) {
+	public void setBoardno(int boardno) {
 		this.boardno = boardno;
 	}
 	public String getTitle() {
@@ -123,22 +97,30 @@ public class BoardFreeDTO {
 	public void setDepth(int depth) {
 		this.depth = depth;
 	}
-
-	//////////////////
-	
-
-	
-	
-/*	자유게시판
-	글번호	SEQ	N/A	NULL
-	제목	TITLE	N/A	NULL
-	글내용	CONTENT	N/A	NULL
-	작성일	REGDATE	N/A	NULL
-	조회수	HIT	N/A	NULL
-
-	그룹번호	GROUPNO	N/A	NULL
-	답글	STEP	N/A	NULL
-	새 컬럼4	DEPTH	N/A	NULL
-*/
+	public int getNotice() {
+		return notice;
+	}
+	public void setNotice(int notice) {
+		this.notice = notice;
+	}
+	public int getMemberno() {
+		return memberno;
+	}
+	public void setMemberno(int memberno) {
+		this.memberno = memberno;
+	}
+	public int getCategoryno() {
+		return categoryno;
+	}
+	public void setCategoryno(int categoryno) {
+		this.categoryno = categoryno;
+	}
+	@Override
+	public String toString() {
+		return "BoardFreeDTO [boardno=" + boardno + ", title=" + title + ", name=" + name + ", content=" + content
+				+ ", regdate=" + regdate + ", countno=" + countno + ", active=" + active + ", groupno=" + groupno
+				+ ", step=" + step + ", depth=" + depth + ", notice=" + notice + ", memberno=" + memberno
+				+ ", categoryno=" + categoryno + "]";
+	}
 	
 }
