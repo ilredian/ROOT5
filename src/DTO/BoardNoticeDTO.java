@@ -13,6 +13,7 @@ public class BoardNoticeDTO {
 	private int critical; /* 강조여부 */
 	private int categoryno; /* 카테고리번호 */
 	
+	public BoardNoticeDTO(){}
 	
 	public int getBoardno() {
 		return boardno;
