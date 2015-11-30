@@ -2,6 +2,7 @@ package common;
 
 //boardStatement 전용 페이징 처리
 public class Pager {
+	
 	private int pageSize;//한 페이지당 데이터 개수
 	private int pagerSize;//번호로 보여주는 페이지 Link 개수
 	private int dataCount;//총 데이터 수

@@ -7,55 +7,39 @@
  <!-- 공지사항 글갯수 -->
  <select id="getCount" resultType="Integer">
   SELECT COUNT(*) CNT 
-  FROM NOTICES 
+  FROM BOARDNOTICE 
   WHERE ${param1} LIKE '%${param2}%'
  </select> 
- 
  <!-- 공지사항 목록  -->
- <select id="getNotices" resultType="DTO.BoardFreeDTO">
+ <select id="getNotices" resultType="DTO.BoardNoticeDTO">
      SELECT * FROM
                ( SELECT ROWNUM NUM, N.* 
                  FROM 
                      ( SELECT * 
-                       FROM NOTICES 
+                       FROM BOARDNOTICE 
                        WHERE ${param2} LIKE '%${param3}%' ORDER BY REGDATE DESC) N
                 ) WHERE NUM BETWEEN 1 + (${param1}-1)*5 AND 5 + (${param1}-1)*5
     </select>
   <!-- 공지사항 상세 -->
- <select id="getNotice" resultType="DTO.BoardFreeDTO">
-     <!--   Notice getNotice(String seq) 
-            parameter 하나짜리는[ 변수이름 ] (param1 은 안되요)
-     -->
-     SELECT * FROM NOTICES WHERE SEQ=#{seq}
+ <select id="getNotice" resultType="DTO.BoardNoticeDTO">
+     SELECT * FROM BOARDNOTICE WHERE BOARDNO=#{BOARDNO}
 </select>
-
  <!-- 공지사항 삭제  -->
  <delete id="delete" >
-     <!-- int delete(String seq)  
-       parameterType="Interger" 을 생략해 볼게요
-     -->
-     DELETE NOTICES WHERE SEQ=#{seq}
+     DELETE BOARDNOTICE WHERE BOARDNO=#{BOARDNO}
  </delete>
  
  <!-- 공지사항 수정  -->
  <update id="update" >
-     <!-- int update(Notice notice)   
-       parameter  객체로 ..... Notice 객체 (만약에 setter , getter 가 구현되어 있다면)
-     -->
-     UPDATE NOTICES SET TITLE=#{title}, CONTENT=#{content}, FILESRC=#{fileSrc ,jdbcType=VARCHAR} WHERE SEQ=#{seq}
+     UPDATE BOARDNOTICE SET TITLE=#{title}, CONTENT=#{content}, FILESRC=#{fileSrc ,jdbcType=VARCHAR} WHERE BOARDNO=#{BOARDNO}
  </update>
  
-  <!-- 게시물 등록  --> <!-- 관리자만 등록한다_  -->
  <!-- 공지사항 등록  -->
  <insert id="insert">
-     <!-- int insert( Notice n ) 
-        INSERT INTO TNOTICES(SEQ, TITLE, CONTENT, WRITER, REGDATE, HIT, FILESRC , FILESRC2)
-        VALUES( (SELECT MAX(TO_NUMBER(SEQ))+1 FROM TNOTICES), :title, :content, :writer, SYSDATE, 0, :fileSrc , :fileSrc2)
-     -->
-      <selectKey order="BEFORE" keyProperty="seq" resultType="String">
-       SELECT NVL(MAX(TO_NUMBER(boardno)),0)+1 FROM NOTICES
+      <selectKey order="BEFORE" keyProperty="BOARDNO" resultType="String">
+       SELECT NVL(MAX(TO_NUMBER(boardno)),0)+1 FROM BOARDNOTICE
       </selectKey>
-      INSERT INTO NOTICES(BOARDNO, TITLE, CONTENT,REGDATE, HIT)
+      INSERT INTO BOARDNOTICE(BOARDNO, TITLE, CONTENT,REGDATE, COUNTONO)
       VALUES( #{boardno}, #{title}, #{content}, SYSDATE, 0)
 </insert>
 </mapper>
