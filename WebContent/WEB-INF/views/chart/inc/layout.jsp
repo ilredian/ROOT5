@@ -5,16 +5,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<!-- Title 영역  -->
-<title><tiles:getAsString name="title" /></title>
+		href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title><!-- Title 영역  --> <tiles:getAsString name="title" />
+
+</title>
 <!-- StyleSheet  Link 영역 -->
 <link href='<tiles:getAsString name="css"/>' type="text/css"
 	rel="stylesheet" />
@@ -29,13 +25,21 @@
 		<div class="top-wrapper clear">
 			<!-- Content 영역 -->
 			<tiles:insertAttribute name="content" />
+			<c:if test="${param.contentNo != null}">
+				<jsp:include page="/WEB-INF/views/home/boardFree/freeMain.jsp"></jsp:include>
+			</c:if>
 			<!-- Aside(Navi) 영역 -->
 			<tiles:insertAttribute name="aside" />
 		</div>
 	</div>
 
-
 	<!-- Footer 영역  -->
 	<tiles:insertAttribute name="footer" />
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script
+		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 </body>
 </html>
