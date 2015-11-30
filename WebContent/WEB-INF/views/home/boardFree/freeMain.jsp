@@ -16,11 +16,10 @@
     </thead>
     <tbody>
       <tr>
-        <td>1</td>
-        <td>aqua</td>
-        <td class="content"><a href="freeView.go?page=1&contentNo=1">test</a></td>
-        <td>2015.11.27</td>
-        <td>0</td>
+   	 	<td>${BOARDNO}</td>
+   	 	<td class="content"><a href="freeView.go?page=1&contentNo=1">${CONTENT}</a></td>
+   	 	<td>${REGDATE}</td>
+   	 	<td>${HIT}</td>
       </tr>
     </tbody>
   </table>

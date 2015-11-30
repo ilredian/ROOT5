@@ -15,10 +15,8 @@ import DTO.CheaterDTO;
 //피해 사례 현황 게시판
 @Controller
 public class BoardStatementController {
-
 	@Autowired
 	private SqlSession sqlSession;
-
 	// 피해 사례 페이지 이동
 	@RequestMapping("statementMain.go")
 	public String gameMain(//get으로 들어오는 parameter값 선언 및 기본값 설정
@@ -28,7 +26,6 @@ public class BoardStatementController {
 							@RequestParam(value="cno",required =false, defaultValue="1") int cheatno, // 사기종류 카테고리 번호
 							Model model
 							) throws Exception {
-
 		// 페이지 이동 경로 변수 선언
 		String go = "";
 
@@ -38,7 +35,6 @@ public class BoardStatementController {
 		// 마이바티스로 넘기기
 		CheaterDAO cheaterDAO = sqlSession.getMapper(CheaterDAO.class);
 		List<CheaterDTO> list = cheaterDAO.getSearchCheater(page, field, query, cheatno);
-
 		// 모델에 담기
 		model.addAttribute("list", list);
 */
@@ -65,16 +61,13 @@ public class BoardStatementController {
 			go = "home.boardStatement.mannerMain";
 			break;
 		}
-
 		return go;
 	}
-
 	// 게임 피해 사례 상세 내용
 	@RequestMapping("statementView.go")
 	public String gameView(//get으로 들어오는 parameter값 선언 및 기본값 설정
 							@RequestParam(value="sno",required =false, defaultValue="1") int stateno, 
 							@RequestParam(value="cno",required =false, defaultValue="1") int cheatno, Model model) throws Exception {
-
 		// 페이지 이동 경로 변수 선언
 		String go = "";
 		
