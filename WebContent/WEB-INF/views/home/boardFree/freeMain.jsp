@@ -17,6 +17,7 @@
 				<th class="count">조회</th>
 			</tr>
 		</thead>
+			<form action="freeWrite.go">
 		<tbody>
 			<c:forEach var="n" items="${list}">
 				<tr>
@@ -30,6 +31,12 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<br>
+		<div><br>
+			<input type="submit" value="글쓰기"
+							style="float: right; width: 60px; height: 40px; margin-right: 40px; margin-top: -40px;">
+		</div>
+	</form>
 </div>
 <div style="text-align: center;">
 	<c:set var="pager" value="${pager.toString()}" />
