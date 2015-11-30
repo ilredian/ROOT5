@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DAO.BoardNoticeDAO">
+
+ <!-- 공지사항 글갯수 -->
+ <select id="getCount" resultType="Integer">
+  SELECT COUNT(*) CNT 
+  FROM BOARDNOTICE 
+  WHERE ${param1} LIKE '%${param2}%'
+ </select> 
+ <!-- 공지사항 목록  -->
+ <select id="getNotices" resultType="DTO.BoardNoticeDTO">
+     SELECT * FROM
+               ( SELECT ROWNUM NUM, N.* 
+                 FROM 
+                     ( SELECT * 
+                       FROM BOARDNOTICE 
+                       WHERE ${param2} LIKE '%${param3}%' ORDER BY REGDATE DESC) N
+                ) WHERE NUM BETWEEN 1 + (${param1}-1)*5 AND 5 + (${param1}-1)*5
+    </select>
+  <!-- 공지사항 상세 -->
+ <select id="getNotice" resultType="DTO.BoardNoticeDTO">
+     SELECT * FROM BOARDNOTICE WHERE BOARDNO=#{BOARDNO}
+</select>
+ <!-- 공지사항 삭제  -->
+ <delete id="delete" >
+     DELETE BOARDNOTICE WHERE BOARDNO=#{BOARDNO}
+ </delete>
+ 
+ <!-- 공지사항 수정  -->
+ <update id="update" >
+     UPDATE BOARDNOTICE SET TITLE=#{title}, CONTENT=#{content}, FILESRC=#{fileSrc ,jdbcType=VARCHAR} WHERE BOARDNO=#{BOARDNO}
+ </update>
+ 
+ <!-- 공지사항 등록  -->
+ <insert id="insert">
+      <selectKey order="BEFORE" keyProperty="BOARDNO" resultType="String">
+       SELECT NVL(MAX(TO_NUMBER(boardno)),0)+1 FROM BOARDNOTICE
+      </selectKey>
+      INSERT INTO BOARDNOTICE(BOARDNO, TITLE, CONTENT,REGDATE, COUNTONO)
+      VALUES( #{boardno}, #{title}, #{content}, SYSDATE, 0)
+</insert>
+</mapper>
