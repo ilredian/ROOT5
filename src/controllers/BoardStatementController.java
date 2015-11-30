@@ -47,14 +47,14 @@ public class BoardStatementController {
 		int start = (page-1)*pageSize;
 		int end = pageSize+(page-1)*pageSize;
 		
-		Pager pager = new Pager(boardCount, page, pageSize, pagerSize, linkUrl, cheatno);	
+		Pager pager = new Pager(boardCount, page, pageSize, pagerSize, linkUrl, cheatno);
 		
 		List<CheaterDTO> list = cheaterDAO.getSearchCheater(start, field, query, cheatno, end);
 
 		String thePager = pager.toString();
 		System.out.println(thePager);
 		// 모델에 담기
-		model.addAttribute("pager", thePager);
+		model.addAttribute("pager", pager);
 		model.addAttribute("list", list);
 
 		// 페이지 이동 구분하기
