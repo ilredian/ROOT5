@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import DAO.BoardFreeDAO;
+import DAO.BoardNoticeDAO;
 import DTO.BoardFreeDTO;
 import DTO.BoardNoticeDTO;
 
@@ -43,12 +44,16 @@ public class BoardController {
 			query = q;
 		}
 		System.out.println(page + " / " + field + " / " + query);
+		
 		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
 		System.out.println("asdf");
-		List<BoardFreeDTO> list= boardFreeDAO.getNotices();
+		
+		List<BoardFreeDTO> list= boardFreeDAO.getNotices(page, field, query);
 		System.out.println("fghj");
-	   model.addAttribute("list", list); //자동 forward
+		
+	    model.addAttribute("list", list); //자동 forward
 	    System.out.println("tuio");
+	    
 		return "home.boardFree.freeMain";
 	}
 	//2. 자유게시판 상세보기
@@ -86,7 +91,7 @@ public class BoardController {
 	
 	//1. 공지게시판 메인(목록 리스트)
 	@RequestMapping("noticeMain.go")
-	public String noticeMain(String pg , String f , String q , Model model){
+	public String noticeMain(String pg , String f , String q , Model model) throws Exception{
 		//게시판 기본 설정(기본값 처리)/////////////
 				int page = 1;
 				String field = "TITLE";
@@ -103,11 +108,14 @@ public class BoardController {
 				}
 				System.out.println(page + " / " + field + " / " + query);
 				
-				/*	
 				BoardNoticeDAO boardNoticeDAO = sqlSession.getMapper(BoardNoticeDAO.class);
-				List<BoardNoticeDAO> list= boardNoticeDAO.getNotices(page, field, query);
+				System.out.println("yyy");
+				
+				List<BoardNoticeDTO> list= boardNoticeDAO.getNotices();
+				System.out.println("zzz");
+				
 				model.addAttribute("list", list); //자동 forward
-				*/
+				System.out.println("xxx");
 				
 		return "home.boardNotice.noticeMain";
 	}
