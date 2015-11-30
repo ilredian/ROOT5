@@ -7,6 +7,6 @@
 <title>자유게시판 글쓰기</title>
 </head>
 <body>
-	
+	fdsfdfdf
 </body>
 </html>
