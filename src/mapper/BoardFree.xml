@@ -3,21 +3,14 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DAO.BoardFreeDAO">
-	<select id="getNotices" resultType="DTO.BoardFreeDTO" >
-			SELECT *
+	<select id="getNotices" resultType="DTO.BoardFreeDTO">
+		SELECT *
 		FROM boardfree
-		WHERE title LIKE '%${param3}%'
-		ORDER BY REGDATE DESC
-		LIMIT 1 ,5 
-		
-		<!-- List<Notice> getNotices(int page, String field, String query) int 
-			srow = 1 + (page-1)*5; int erow = 5 + (page-1)*5; -->
-		<!-- SELECT *
-		FROM boardfree
-		WHERE title LIKE '%${param3}%'
-		ORDER BY REGDATE DESC
-		LIMIT 1 ,5 -->
+		WHERE ${param2} LIKE '%${param3}%' 
+		ORDER BY regdate DESC, boardno DESC
+		LIMIT ${param1}, ${param4}
 	</select>
+
 	<select id="getCount" resultType="Integer">
 		SELECT COUNT(*) CNT
 		FROM BOARDFREE
@@ -26,15 +19,21 @@
 	
 	<select id="getNotice" parameterType="Integer" resultType="DTO.BoardFreeDTO">
 		SELECT * FROM boardfree WHERE boardno=#{boardno}
+		FROM
+		BOARDFREE
+		WHERE ${param1} LIKE '%${param2}%'
 	</select>
 
 	<delete id="delete">
 		DELETE FROM boardfree WHERE boardno=#{boardno}
 	</delete>
+	
 	<update id="update">
-		UPDATE boardfree SET TITLE=#{title}, CONTENT=#{content} WHERE
+		UPDATE boardfree SET TITLE=#{title},
+		CONTENT=#{content} WHERE
 		boardno=#{boardno}
 	</update>
+	
 	<insert id="insert" parameterType="DTO.BoardFreeDTO">
 	<!-- 	<selectKey order="BEFORE" keyProperty="boardno" resultType="String">
 			SELECT NVL(MAX(TO_NUMBER(boardno)),0)+1 FROM boardfree

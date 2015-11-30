@@ -28,8 +28,6 @@ public class Pager {
 			(dataCount / pageSize) + ((dataCount % pageSize) > 0 ? 1 : 0); 
 		this.next = (((this.currentPage-1) / this.pagerSize) + 1) * this.pagerSize + 1;
 		this.previous = ((this.currentPage-1) / this.pagerSize) * this.pagerSize;
-		System.out.println(next);
-		System.out.println(previous);
 	}
 	
 	public String toString(){

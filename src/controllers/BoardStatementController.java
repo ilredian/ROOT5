@@ -22,13 +22,14 @@ public class BoardStatementController {
 
 	// 피해 사례 페이지 이동
 	@RequestMapping("statementMain.go")
-	public String gameMain(// get으로 들어오는 parameter값 선언 및 기본값 설정
-			@RequestParam(value = "pg", required = false, defaultValue = "1") int page, // 현재 페이지 번호
-			@RequestParam(value = "f", required = false, defaultValue = "cheatername") String field, // 검색 카테고리
-			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, // 검색 내용
-			@RequestParam(value = "cno", required = false, defaultValue = "1") int cheatno, // 사기종류 카테고리 번호
-			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, // 한 페이지에 보여줄 게시글 갯수
-			Model model) throws Exception {
+	public String gameMain(//get으로 들어오는 parameter값 선언 및 기본값 설정
+							@RequestParam(value="pg",required =false, defaultValue="1") int page, // 현재 페이지 번호
+							@RequestParam(value="f",required =false, defaultValue="cheatername") String field, // 검색 카테고리
+							@RequestParam(value="q",required =false, defaultValue="%%") String query, // 검색 내용
+							@RequestParam(value="cno",required =false, defaultValue="1") int cheatno, // 사기종류 카테고리 번호
+							@RequestParam(value="ps",required =false, defaultValue="10") int pageSize, // 한 페이지에 보여줄 게시글 갯수
+							Model model
+							) throws Exception {
 
 		// 페이지 이동 경로 변수 선언
 		String go = "";
@@ -38,7 +39,6 @@ public class BoardStatementController {
 
 		// 마이바티스로 넘기기
 		CheaterDAO cheaterDAO = sqlSession.getMapper(CheaterDAO.class);
-
 		int pagerSize = 10;// 한 번에 보여줄 페이지 번호 갯수
 		String linkUrl = "statementMain.go";// 페이지번호를 누르면 이동할 경로
 		int boardCount = cheaterDAO.getCheaterCount(field, query, cheatno);// 검색 결과에 따른 게시글 총 갯수
@@ -53,7 +53,7 @@ public class BoardStatementController {
 
 		// 페이지 이동 구분하기
 		switch (cheatno) {
-
+		
 		case 1:// 사기종류 카테고리번호가 1일 경우 직거래 피해 사례 페이지로 이동
 			System.out.println("직거래 피해 사례 페이지 이동");
 			go = "home.boardStatement.tradeMain";
@@ -80,27 +80,26 @@ public class BoardStatementController {
 
 	// 게임 피해 사례 상세 내용
 	@RequestMapping("statementView.go")
-	public String gameView(// get으로 들어오는 parameter값 선언 및 기본값 설정
-			@RequestParam(value = "sno", required = false, defaultValue = "1") int stateno,
-			@RequestParam(value = "cno", required = false, defaultValue = "1") int cheatno, Model model)
-					throws Exception {
+	public String gameView(//get으로 들어오는 parameter값 선언 및 기본값 설정
+							@RequestParam(value="sno",required =false, defaultValue="1") int stateno, 
+							@RequestParam(value="cno",required =false, defaultValue="1") int cheatno, Model model) throws Exception {
 
 		// 페이지 이동 경로 변수 선언
 		String go = "";
-
+		
 		// 로그 남기기
 		System.out.println(stateno + " / " + cheatno);
-
 /*
-		// 마이바티스로 넘기기 CheaterDAO cheaterDAO =
-		sqlSession.getMapper(CheaterDAO.class); CheaterDTO cheaterDTO =
-		cheaterDAO.getCheater(stateno);
-		  
-		// 모델에 담기 model.addAttribute("cheaterDTO", cheaterDTO);
+		// 마이바티스로 넘기기
+		CheaterDAO cheaterDAO = sqlSession.getMapper(CheaterDAO.class);
+		CheaterDTO cheaterDTO = cheaterDAO.getCheater(stateno);
+
+		// 모델에 담기
+		model.addAttribute("cheaterDTO", cheaterDTO);
 */
 		// 페이지 이동 구분하기
 		switch (cheatno) {
-
+		
 		case 1:// 사기종류 카테고리번호가 1일 경우 직거래 피해 사례 상세 내용 이동
 			System.out.println("직거래 피해 사례 상세보기 이동");
 			go = "home.boardStatement.tradeView";
@@ -121,6 +120,7 @@ public class BoardStatementController {
 			go = "home.boardStatement.mannerView";
 			break;
 		}
+
 		return go;
 	}
 }
