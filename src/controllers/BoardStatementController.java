@@ -22,10 +22,11 @@ public class BoardStatementController {
 	// 피해 사례 페이지 이동
 	@RequestMapping("statementMain.go")
 	public String gameMain(//get으로 들어오는 parameter값 선언 및 기본값 설정
-							@RequestParam(value="pg",required =false, defaultValue="1") int page, // 페이지 번호
+							@RequestParam(value="pg",required =false, defaultValue="1") int page, // 현재 페이지 번호
 							@RequestParam(value="f",required =false, defaultValue="cheatername") String field, // 검색 카테고리
 							@RequestParam(value="q",required =false, defaultValue="%%") String query, // 검색 내용
 							@RequestParam(value="cno",required =false, defaultValue="1") int cheatno, // 사기종류 카테고리 번호
+							@RequestParam(value="ps",required =false, defaultValue="10") int pageSize, // 한 페이지에 보여줄 게시글 갯수
 							Model model
 							) throws Exception {
 
@@ -37,9 +38,17 @@ public class BoardStatementController {
 /*
 		// 마이바티스로 넘기기
 		CheaterDAO cheaterDAO = sqlSession.getMapper(CheaterDAO.class);
-		List<CheaterDTO> list = cheaterDAO.getSearchCheater(page, field, query, cheatno);
+		
+		int pagerSize = 10;//한 번에 보여줄 페이지 번호 갯수
+		String linkUrl = "statementMain.go";//페이지번호를 누르면 이동할 경로
+		int boardCount = cheaterDAO.getCheaterCount(field, query, cheatno, pageSize);
+		
+		Pager pager = new Pager(boardCount, page, pageSize, pagerSize, linkUrl, cheatno);	
+		
+		List<CheaterDTO> list = cheaterDAO.getSearchCheater(page, field, query, cheatno, pageSize);
 
 		// 모델에 담기
+		model.addAttribute("pager", pager);
 		model.addAttribute("list", list);
 */
 		// 페이지 이동 구분하기
