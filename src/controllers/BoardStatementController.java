@@ -23,21 +23,11 @@ public class BoardStatementController {
 	// 피해 사례 페이지 이동
 	@RequestMapping("statementMain.go")
 	public String gameMain(// get으로 들어오는 parameter값 선언 및 기본값 설정
-			@RequestParam(value = "pg", required = false, defaultValue = "1") int page, // 현재
-																						// 페이지
-																						// 번호
-			@RequestParam(value = "f", required = false, defaultValue = "cheatername") String field, // 검색
-																										// 카테고리
-			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, // 검색
-																							// 내용
-			@RequestParam(value = "cno", required = false, defaultValue = "1") int cheatno, // 사기종류
-																							// 카테고리
-																							// 번호
-			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, // 한
-																								// 페이지에
-																								// 보여줄
-																								// 게시글
-																								// 갯수
+			@RequestParam(value = "pg", required = false, defaultValue = "1") int page, // 현재 페이지 번호
+			@RequestParam(value = "f", required = false, defaultValue = "cheatername") String field, // 검색 카테고리
+			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, // 검색 내용
+			@RequestParam(value = "cno", required = false, defaultValue = "1") int cheatno, // 사기종류 카테고리 번호
+			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, // 한 페이지에 보여줄 게시글 갯수
 			Model model) throws Exception {
 
 		// 페이지 이동 경로 변수 선언
@@ -60,8 +50,6 @@ public class BoardStatementController {
 
 		List<CheaterDTO> list = cheaterDAO.getSearchCheater(start, field, query, cheatno, end);
 
-		String thePager = pager.toString();
-		System.out.println(thePager);
 		// 모델에 담기
 		model.addAttribute("pager", pager);
 		model.addAttribute("list", list);

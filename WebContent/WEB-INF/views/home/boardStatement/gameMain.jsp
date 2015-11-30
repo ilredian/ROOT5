@@ -16,18 +16,24 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>1</td>
-				<td>핸드폰</td>
-				<td>이 oo</td>
-				<td>111-1111-1111-1110</td>
-				<td>010-1234-5678</td>
-				<td>2015.10.10</td>
-				<td><input type="button" class="viewBtn"
-					id="statementView.go?sno=1" value="자세히보기"></td>
-			</tr>
+			<c:forEach var="list" items="${list}">
+				<tr>
+					<td>${list.stateno}</td>
+					<td>${list.goodsname}</td>
+					<td>${list.cheatername}</td>
+					<td>${list.account}</td>
+					<td>${list.phone}</td>
+					<td>${list.regdate}</td>
+					<td><input type="button" class="viewBtn" value="자세히보기"
+						id="statementView.go?sno=${list.stateno}&cno=2"></td>
+				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
+</div>
+<div style="text-align: center;">
+	<c:set var="pager" value="${pager.toString()}" />
+	${pager}
 </div>
 <div style="float: left;">
 	<button id="list">
@@ -42,4 +48,3 @@
 		<a href="#">사기피해사례 등록</a>
 	</button>
 </div>
-<c:out value="${pager.toString()}"/>
