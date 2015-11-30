@@ -88,7 +88,6 @@
 						</div>
 					</div>
 					<!--  -->
-					<input type="button" class="btn btn-default" value="내정보" src="memberMessage.go">
 					<button type="submit" class="btn btn-default"
 						style="margin-right: 50px; margin-top: 10px">
 						<a href="memberMessage.go"> <span class="glyphicon glyphicon-log-in"></span>
