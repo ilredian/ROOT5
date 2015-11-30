@@ -8,9 +8,9 @@
 			srow = 1 + (page-1)*5; int erow = 5 + (page-1)*5; -->
 		SELECT *
 		FROM boardfree
-		WHERE title LIKE '%${param3}%'
-		ORDER BY REGDATE DESC
-		LIMIT 1 ,5
+		WHERE ${param2} LIKE '%${param3}%'
+		ORDER BY regdate DESC
+		LIMIT ${param1} ,5
 	</select>
 	<select id="getCount" resultType="Integer">
 		SELECT COUNT(*) CNT
