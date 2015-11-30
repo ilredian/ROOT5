@@ -9,6 +9,8 @@ public class Pager {
 	private int currentPage;//현재 페이지 번호
 	private int pageCount;//총 페이지 수
 	private int cheatno;//cheater 카테고리 번호
+	private int next;//다음 버튼
+	private int previous;//이전 버튼
 	
 	private String linkUrl;//페이저가 포함되는 페이지의 주소
 	
@@ -24,6 +26,10 @@ public class Pager {
 		this.cheatno = cheatno;
 		this.pageCount = 
 			(dataCount / pageSize) + ((dataCount % pageSize) > 0 ? 1 : 0); 
+		this.next = (((this.currentPage-1) / this.pagerSize) + 1) * this.pagerSize + 1;
+		this.previous = ((this.currentPage-1) / this.pagerSize) * this.pagerSize;
+		System.out.println(next);
+		System.out.println(previous);
 	}
 	
 	public String toString(){
@@ -35,8 +41,10 @@ public class Pager {
 				String.format("[<a href='%s?pg=1&cno=%d'>처음</a>]",linkUrl,cheatno));
 			linkString.append("&nbsp;");
 			linkString.append("&nbsp;");
+			if(currentPage > 10){
 			linkString.append(String.format(
-				"[<a href='%s?pg=%d&cno=%d'>이전</a>]", linkUrl, currentPage - 1, cheatno));
+				"[<a href='%s?pg=%d&cno=%d'>이전</a>]", linkUrl, previous, cheatno));
+			}
 			linkString.append("&nbsp;");
 		}
 		
@@ -59,8 +67,10 @@ public class Pager {
 		//3. 다음, 마지막 항목 만들기
 		if (currentPage < pageCount) {
 			linkString.append("&nbsp;");
+			if( next <= pageCount){
 			linkString.append(String.format(
-				"[<a href='%s?pg=%d&cno=%d'>다음</a>]",linkUrl, currentPage + 1, cheatno));
+				"[<a href='%s?pg=%d&cno=%d'>다음</a>]",linkUrl, next, cheatno));
+			}
 			linkString.append("&nbsp;");
 			linkString.append("&nbsp;");
 			linkString.append(String.format(
