@@ -1,6 +1,7 @@
 package controllers;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import DAO.BoardFreeDAO;
 import DTO.BoardFreeDTO;
 import DTO.BoardNoticeDTO;
 
@@ -40,12 +42,12 @@ public class BoardController {
 			query = q;
 		}
 		System.out.println(page + " / " + field + " / " + query);
-	/*	
+	
 		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
 		List<BoardFreeDTO> list= boardFreeDAO.getNotices(page, field, query);
 		
-		model.addAttribute("list", list); //자동 forward
-	*/	
+		Model fm=model.addAttribute("list", list); //자동 forward
+		
 		
 		return "home.boardFree.freeMain";
 	}
