@@ -19,6 +19,7 @@
 	
 	<select id="getNotice" parameterType="Integer" resultType="DTO.BoardLawDTO">
 		SELECT * FROM boardlaw WHERE boardno=#{boardno}
+
 	</select>
 
 	<delete id="delete">

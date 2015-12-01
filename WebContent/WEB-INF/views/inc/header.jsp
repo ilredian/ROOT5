@@ -135,8 +135,9 @@
 											me
 										</label>
 									</div>
-									<input type="submit" class="btn btn-success btn-block">
-									<span class="glyphicon glyphicon-off"></span> 로그인
+									<button type="submit" class="btn btn-success btn-block">
+										<span class="glyphicon glyphicon-off"></span> 로그인
+									</button>
 								</form>
 							</div>
 							<div class="modal-footer">

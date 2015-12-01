@@ -3,7 +3,7 @@ package DTO;
 import java.sql.Date;
 
 public class BoardLawDTO {
-	
+
 	private int boardno; //게시판번호
 	private String title;/* 제목 */
 	private String content; /* 내용 */
