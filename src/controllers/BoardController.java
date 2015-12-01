@@ -57,10 +57,10 @@ public class BoardController {
 	}
 	//2. 자유게시판 상세보기
 	@RequestMapping("freeView.go")	//자유게시판 상세보기 - 페이지
-	public String freeView(String seq , Model model) throws ClassNotFoundException, SQLException{
+	public String freeView(String boardno , Model model) throws ClassNotFoundException, SQLException{
 	    
 		 BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
-		 BoardFreeDTO boardFreeDTO = boardFreeDAO.getNotice(seq);
+		 BoardFreeDTO boardFreeDTO = boardFreeDAO.getNotice(boardno);
 		 model.addAttribute("boardFreeDTO", boardFreeDTO); ///// DB 테이블 명--파라미터명 일치 여부 확인후 수정바람*****
 		
 		 return "home.boardFree.freeView";
@@ -96,10 +96,10 @@ public class BoardController {
 	}
 	//6. 게시물 삭제
 	@RequestMapping("freeDelete.go")   
-	public String freeDelete(String seq) throws ClassNotFoundException, SQLException{
+	public String freeDelete(String boardno) throws ClassNotFoundException, SQLException{
 		
 	    BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
-	    boardFreeDAO.delete(seq);
+	    boardFreeDAO.delete(boardno);
 	    System.out.println("자유게시판 삭제완료");
 		return "home.boardFree.freeMain";
 		
