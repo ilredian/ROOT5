@@ -16,9 +16,9 @@
 				<th class="number">번호</th>
 				<th class="writer">작성자</th>
 				<th class="subject">제목</th>
-<!-- 				<th class="career">경력</th>
+				<th class="career">경력</th>
 				<th class="company">소속</th>
- -->				<th class="date">등록일</th>
+				<th class="date">등록일</th>
 				<th class="count">조회</th>
 			</tr>
 		</thead>
@@ -28,10 +28,10 @@
 				<tr>
 					<td class="number">${n.boardno}</td>
 					<td class="writer">작성자</td>
-<%-- 					<th class="career">${n.career}</th>
-					<th class="company">${n.company}</th> --%>
 					<td class="subject"><a
 						href="lawView.go?page=${page}&contentNo=${countno}">${n.title}</a></td>
+					<th class="career">${n.career}</th>
+					<th class="company">${n.company}</th>
 					<td class="date">${n.regdate}</td>
 					<td class="count">${n.countno}</td>
 				</tr>
