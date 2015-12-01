@@ -15,10 +15,19 @@
 		 <!--  패턴 방식으로 -->
 		 <!--  경로가 제일 빡쳐.
 		 home/boardFree/*  이냐 /boardFree/* -->
-		 
-		   <security:intercept-url pattern="/boardFree/*" access="hasRole('ROLE_USER')" />
-		  <security:intercept-url pattern="/boardNotice/noticeWrite" access="hasRole('ROLE_ADMIN')" />
- 
+   <security:intercept-url pattern="/boardFree/*" access="hasRole('ROLE_USER')" />
+    <security:intercept-url pattern="/boardNotice/noticeWrite" access="hasRole('ROLE_ADMIN')" />
+	 
+	  <security:intercept-url pattern="/boardNotice/noticeWrite" access="hasRole('ROLE_ADMIN')" />
+	    <security:intercept-url pattern="/boardNotice/noticeWrite" access="hasRole('ROLE_ADMIN')" />
+	      <security:intercept-url pattern="/boardNotice/noticeWrite" access="hasRole('ROLE_ADMIN')" />
+	        <security:intercept-url pattern="/boardNotice/noticeWrite" access="hasRole('ROLE_ADMIN')" />
+	          <security:intercept-url pattern="/boardNotice/noticeWrite" access="hasRole('ROLE_ADMIN')" />
+	<!-- 
+	 <security:intercept-url pattern="/post/*" access="permitAll" />
+ 	 <security:intercept-url pattern="/admin/*" access="hasAnyRole('TEACHER','MANAGER','CENTER','MASTER')" /> -->
+
+
 	</security:http>
 	<security:authentication-manager>
 		<security:authentication-provider>
@@ -29,6 +38,8 @@
 									           from memberdb m join roll r 
 									           on m.EMAIL = r.EMAIL 
 									           where m.EMAIL=?" />
+									           
+		<security:password-encoder hash="md5" base64="false"/><!--여기 추가-->						           
 		</security:authentication-provider>
 	</security:authentication-manager> 
 </beans>
