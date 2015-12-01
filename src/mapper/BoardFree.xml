@@ -19,9 +19,8 @@
 	
 	<select id="getNotice" parameterType="Integer" resultType="DTO.BoardFreeDTO">
 		SELECT * FROM boardfree WHERE boardno=#{boardno}
-		FROM
-		BOARDFREE
-		WHERE ${param1} LIKE '%${param2}%'
+<!-- 		WHERE ${param1} LIKE '%${param2}%'
+ -->		
 	</select>
 
 	<delete id="delete">

@@ -58,12 +58,12 @@ public class BoardController {
 	//2. 자유게시판 상세보기
 	@RequestMapping("freeView.go")	//자유게시판 상세보기 - 페이지
 	public String freeView(String seq , Model model) throws ClassNotFoundException, SQLException{
-	/*
-	     BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
+	    
+		 BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
 		 BoardFreeDTO boardFreeDTO = boardFreeDAO.getNotice(seq);
 		 model.addAttribute("boardFreeDTO", boardFreeDTO); ///// DB 테이블 명--파라미터명 일치 여부 확인후 수정바람*****
-		*/
-		return "home.boardFree.freeView";
+		
+		 return "home.boardFree.freeView";
 	}
 	//3. 자유게시판 글쓰기(화면만 뿌리기)
 	@RequestMapping(value="freeWrite.go" , method=RequestMethod.GET)	
@@ -85,6 +85,17 @@ public class BoardController {
 	  return "home.boardFree.freeMain";
 	}
 
+	//5. 게시물 수정
+	public String freeEdit(){
+		return null;
+		
+	}
+	//6. 게시물 삭제
+	public String freeDelete(){
+		return null;
+		
+	}
+	
 
 	////////////공지게시판////////////
 	
@@ -148,7 +159,16 @@ public class BoardController {
 	*/
 		return "home.boardNotice.noticeMain";
 	}
-	////////////////////////////////////////////
+	
+	
+	//5. 게시물 수정
+	public String noticeEdit(){
+		return null;
+	}
+	//6. 게시물 삭제
+	public String noticeDelete(){
+		return null;
+	}
 
 
 }
