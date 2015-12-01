@@ -60,6 +60,9 @@ $(function() {
 		<thead>
 			<tr>
 				<th>게시물 주소 :
+				
+				<!-- 내 글만 지워야지_  -->
+				
 					<div style="float: right;">
 						<input type="button" id="edit" value="수정">  <!-- freeEdit.go  -->
 						<input type="button" id="delete" value="삭제">  <!-- freeDelete.go -->
