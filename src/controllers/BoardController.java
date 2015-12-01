@@ -368,7 +368,6 @@ public class BoardController {
 			System.out.println("lawview");
 			 BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
 			 BoardLawDTO boardLawDTO = boardLawDAO.getNotice(boardno);
-			 System.out.println("내가 스트링이오.:"+boardLawDTO.toString());
 			 model.addAttribute("boardLawDTO", boardLawDTO); ///// DB 테이블 명--파라미터명 일치 여부 확인후 수정바람*****
 			
 			 return "home.boardLaw.lawView";
