@@ -24,12 +24,14 @@ public class JoinController {
 	
 	@RequestMapping(value="signin.go" , method=RequestMethod.GET)
 	public String Singin(){
+		System.out.println("회원가입 페이지로 이동");
 		return "join.signin";
 	}
 	
 	@RequestMapping(value="signin.go" , method=RequestMethod.POST)
 	public String Singin(MemberDTO memberDTO, HttpServletResponse response) throws Exception{
 		//가입처리 (DAO 단)
+		System.out.println("회원가입 실행");
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		String go = "";
@@ -53,14 +55,4 @@ public class JoinController {
 	public String pwSearch(){
 		return "join.pwSearch";
 	}
-	
-	/*
-	@RequestMapping("member.go")
-	public String SingOK(MemberDTO member) throws ClassNotFoundException, SQLException{
-		System.out.println("회원가입완료");
-		memberDAO.insert(member);
-		return "redirect:../index.htm";
-	}
-*/
-
 }

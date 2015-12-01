@@ -10,6 +10,7 @@
 		});
 	});
 </script>
+
 <nav class="navbar navbar-default" role="navigation">
 <div class="container-fluid">
 	<div class="navbar-header">
@@ -27,7 +28,6 @@
 			<li><a href="home.go">홈</a></li>
 		</ul>
 
-		<form class="nav navbar-nav navbar-right">
 			<div class="links">
 				<div class="container" align="right">
 					<!--  -->
@@ -51,18 +51,18 @@
 								<div class="modal-body" style="padding: 40px 50px;">
 
 									<!-- 로그인 폼 -->
-									<form role="form" action="login.go" method="post">
+									<form action="login.go" method="post">
 
 										<div class="form-group">
 											<label for="usrname"><span
 												class="glyphicon glyphicon-user"></span> 이메일</label> <input
-												type="text" class="form-control" id="usrname"
+												type="text" class="form-control" id="usrname" name="email"
 												placeholder="Enter email">
 										</div>
 										<div class="form-group">
 											<label for="psw"><span
 												class="glyphicon glyphicon-eye-open"></span> 비밀번호</label> <input
-												type="text" class="form-control" id="psw"
+												type="password" class="form-control" id="psw" name="password"
 												placeholder="Enter password">
 										</div>
 										<!-- 이메일 저장- 쿠키에 기록_ -->
@@ -71,9 +71,8 @@
 												me
 											</label>
 										</div>
-										<button type="submit" class="btn btn-success btn-block">
+										<input type="submit" class="btn btn-success btn-block">
 											<span class="glyphicon glyphicon-off"></span> 로그인
-										</button>
 									</form>
 								</div>
 								<div class="modal-footer">
@@ -114,7 +113,6 @@
 					</button>
 				</div>
 			</div>
-		</form>
 	</div>
 </div>
 </nav>
