@@ -6,13 +6,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <title><!-- Title 영역  --> <tiles:getAsString name="title" />
 
 </title>
@@ -21,6 +14,7 @@
 	rel="stylesheet" />
 </head>
 <body>
+	<input type="hidden" id="cno" value="${param.cno}">
 	<!-- Header 영역 -->
 	<tiles:insertAttribute name="header" />
 	<!-- Visual 영역 -->
@@ -48,11 +42,7 @@
 	<!-- Footer 영역  -->
 	<tiles:insertAttribute name="footer" />
 	
-	<script type="text/javascript">
-		$('.viewBtn').click(function(){
-			var loc = this.getAttribute("id");
-			location.href = loc;
-		});
-	</script>
+	<!-- javascript 영역 -->
+	<script type="text/javascript" src='<tiles:getAsString name="js"/>' ></script>
 </body>
 </html>

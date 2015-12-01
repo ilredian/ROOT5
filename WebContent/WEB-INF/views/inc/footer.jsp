@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="container">
-<!-- 		<hr>
+	<!-- 		<hr>
 	<div class="footer1" style="height: 50px; vertical-align: middle;margin-bottom:-30px">
 
 		<div>
@@ -15,7 +15,7 @@
 	</div>
 			<hr> -->
 	<div class="footer2">
-	<hr>
+		<hr>
 		<div>
 			<div>
 				<img src="footerimages/logo.PNG" style="float: left;" width="167px" height="67px">
