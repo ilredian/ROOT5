@@ -27,7 +27,11 @@ public class BoardController {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	////////////자유게시판////////////////
+////////////자유게시판////////////////
+////////////자유게시판////////////////
+////////////자유게시판////////////////
+////////////자유게시판////////////////
+////////////자유게시판////////////////
 	
 	//1. 자유게시판 메인(목록리스트)
 	@RequestMapping("freeMain.go")   //자유게시판 메인- 목록보기 List
@@ -64,17 +68,18 @@ public class BoardController {
 	}
 	//2. 자유게시판 상세보기
 	@RequestMapping("freeView.go")	//자유게시판 상세보기 - 페이지
-	public String freeView(String seq , Model model) throws ClassNotFoundException, SQLException{
-	/*
-	     BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
-		 BoardFreeDTO boardFreeDTO = boardFreeDAO.getNotice(seq);
+	public String freeView(String boardno , Model model) throws ClassNotFoundException, SQLException{
+	    
+		 BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
+		 BoardFreeDTO boardFreeDTO = boardFreeDAO.getNotice(boardno);
 		 model.addAttribute("boardFreeDTO", boardFreeDTO); ///// DB 테이블 명--파라미터명 일치 여부 확인후 수정바람*****
-		*/
-		return "home.boardFree.freeView";
+		
+		 return "home.boardFree.freeView";
 	}
 	//3. 자유게시판 글쓰기(화면만 뿌리기)
 	@RequestMapping(value="freeWrite.go" , method=RequestMethod.GET)	
 	public String freeWrite(BoardFreeDTO boardDTO){
+		System.out.println("자유게시판 글쓰기 창");
 		return "home.boardFree.freeWrite";
 	}
 	//4. 자유게시판 글쓰기(실제 글 등록 -DB)
@@ -84,16 +89,54 @@ public class BoardController {
 	    System.out.println("n : " + DTO.getTitle()); 
 	    System.out.println("n : " + DTO.getContent());
 	  
-	    /*
 	    BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
 	    boardFreeDAO.insert(DTO);
-	    */
-	    
+	    System.out.println("자유게시판 글쓰기 완료");
 	  return "home.boardFree.freeMain";
 	}
 
-
-	////////////공지게시판////////////
+	//5. 게시물 수정 (화면 (select)
+	@RequestMapping(value = "freeEdit.go",  method = RequestMethod.GET)   
+	public String freeEdit(String boardno, Model model) throws ClassNotFoundException, SQLException{
+		
+	    BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
+	    BoardFreeDTO freedto = boardFreeDAO.getNotice(boardno);
+	    System.out.println("자유게시판 원본글 가져오기");
+	    model.addAttribute("freedto", freedto);
+		  
+	    return "home.boardFree.freeEdit";		  
+	}
+	
+	//5-1. 게시물 수정 (실제 처리(update)
+	@RequestMapping(value = "freeEdit.go",  method = RequestMethod.POST)   
+	public String freeEdit(BoardFreeDTO boardFreeDTO, HttpServletRequest request) throws ClassNotFoundException, SQLException{
+		
+	    BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
+	    boardFreeDAO.update(boardFreeDTO);
+	    System.out.println("자유게시판 수정완료");
+	    
+		return "home.boardFree.freeMain";
+	}
+	
+	//6. 게시물 삭제
+	@RequestMapping("freeDelete.go")   
+	public String freeDelete(String boardno) throws ClassNotFoundException, SQLException{
+		
+	    BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
+	    boardFreeDAO.delete(boardno);
+	    
+	    System.out.println("자유게시판 삭제완료");
+	    
+//		return "redirect:freeMain";
+	    return "home.boardFree.freeMain";
+	    
+	}
+	
+	
+////////////공지게시판////////////
+////////////공지게시판////////////
+////////////공지게시판////////////
+////////////공지게시판////////////
 	
 	//1. 공지게시판 메인(목록 리스트)
 	@RequestMapping("noticeMain.go")
@@ -155,7 +198,44 @@ public class BoardController {
 	*/
 		return "home.boardNotice.noticeMain";
 	}
-	////////////////////////////////////////////
+	
+	
+	//5. 게시물 수정
+	@RequestMapping(value = "noticeEdit.go",  method = RequestMethod.GET)   
+	public String noticeEdit(String boardno, Model model) throws ClassNotFoundException, SQLException{
+		
+	    BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
+	    BoardFreeDTO freedto = boardFreeDAO.getNotice(boardno);
+	    System.out.println("자유게시판 원본글 가져오기");
+	    model.addAttribute("freedto", freedto);
+		  
+	    return "home.boardNotice.noticeEdit";		  
+	}
+	
+	//5-1. 게시물 수정 (실제 처리(update)
+	@RequestMapping(value = "noticeEdit.go",  method = RequestMethod.POST)   
+	public String noticeEdit(BoardNoticeDTO boardDTO, HttpServletRequest request) throws ClassNotFoundException, SQLException{
+		
+     	BoardNoticeDAO boardNoticeDAO = sqlSession.getMapper(BoardNoticeDAO.class);
+	    boardNoticeDAO.update(boardDTO);
+	    System.out.println("공지게시판 수정완료");
+	    
+	    return "home.boardNotice.noticeMain";
+	}
+	
+	//6. 게시물 삭제
+	@RequestMapping("noticeDelete.go")   
+	public String noticeDelete(String boardno) throws ClassNotFoundException, SQLException{
+		
+	    BoardNoticeDAO boardNoticeDAO = sqlSession.getMapper(BoardNoticeDAO.class);
+	    boardNoticeDAO.delete(boardno);
+	    
+	    System.out.println("공지게시판 삭제완료");
+	    
+	    return "home.boardNotice.noticeMain";
 
-
-}
+	}
+	
+	
+	
+}//End BoardController

@@ -11,11 +11,11 @@ public interface BoardFreeDAO {
 		//전체 게시물
 		public List<BoardFreeDTO> getNotices(int start, String field, String query, int pagerSize) throws Exception;
 		//게시물 삭제int start, String field, String query, int pagerSize
-		public int delete(String seq) throws ClassNotFoundException, SQLException;
+		public int delete(String boardno) throws ClassNotFoundException, SQLException;
 		//게시물 수정
-		public int update(BoardFreeDTO BoardDTO) throws ClassNotFoundException, SQLException;
+		public int update(BoardFreeDTO boardFreeDTO) throws ClassNotFoundException, SQLException;
 		//게시물 상세
-		public BoardFreeDTO getNotice(String seq) throws ClassNotFoundException, SQLException;
+		public BoardFreeDTO getNotice(String boardno) throws ClassNotFoundException, SQLException;
 		//게시물 입력
 		public int insert(BoardFreeDTO n) throws ClassNotFoundException, SQLException;
 	}	

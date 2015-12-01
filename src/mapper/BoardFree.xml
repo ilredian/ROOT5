@@ -19,9 +19,8 @@
 	
 	<select id="getNotice" parameterType="Integer" resultType="DTO.BoardFreeDTO">
 		SELECT * FROM boardfree WHERE boardno=#{boardno}
-		FROM
-		BOARDFREE
-		WHERE ${param1} LIKE '%${param2}%'
+<!-- 		WHERE ${param1} LIKE '%${param2}%'
+ -->		
 	</select>
 
 	<delete id="delete">
@@ -29,9 +28,11 @@
 	</delete>
 	
 	<update id="update">
-		UPDATE boardfree SET TITLE=#{title},
-		CONTENT=#{content} WHERE
-		boardno=#{boardno}
+		UPDATE boardfree 
+		SET 
+		TITLE=#{title},
+		CONTENT=#{content} 
+		WHERE boardno=#{boardno}
 	</update>
 	
 	<insert id="insert" parameterType="DTO.BoardFreeDTO">

@@ -16,13 +16,13 @@
 <body>
 	<div class="container">
 		<h2>
-			<img src="img/N_title.PNG" alt="피해사례 통계">
+			피해사례 통계
 		</h2>
 		<div class="well well-sm">
 			<FORM METHOD="POST" name="search_submit" ACTION="./?mod=_statistics">
 				<div style="height: 20px;"></div>
 				<div class="boxTypeC di_searchArea al">
-					<strong><img src="img/N.PNG" alt="기간설정"></strong> <select
+					<strong>기간설정</strong> <select
 						name="start_year" id="start_year" title="시작 년 선택">
 						<option value="2006" selected>2006</option>
 						<option value="2007">2007</option>
@@ -73,7 +73,7 @@
 						<option value="12">12</option>
 					</select>월 <a href="./?mod=_home"
 						onclick="return confirm('로그인 후 사용 가능한 기능입니다.\n확인을 누르면 로그인 화면으로 이동합니다.');"><img
-						src="img/N_1.PNG" alt="조회하기"></a> &nbsp;※ 2015년 10월까지를 선택하면
+						src="chartimages/N_1.PNG" alt="조회하기"></a> &nbsp;※ 2015년 10월까지를 선택하면
 					2015년 10월 말일까지의 통계가 조회됩니다.
 				</div>
 			</FORM>

@@ -5,17 +5,17 @@
 
 <div class="container">
 	<ul class="nav nav-tabs">
-		<li role="presentation"><a href="statementMain.go?cno=1">직거래</a></li>
-		<li role="presentation" class="active"><a href="statementMain.go?cno=2">게임.비실물</a></li>
-		<li role="presentation"><a href="statementMain.go?cno=3">스팸</a></li>
-		<li role="presentation"><a href="statementMain.go?cno=4">비매너</a></li>
+		<li role="presentation" id="tradeMain"><a href="statementMain.go?cno=1">직거래</a></li>
+		<li role="presentation" id="gameMain"><a href="statementMain.go?cno=2">게임.비실물</a></li>
+		<li role="presentation" id="spameMain"><a href="statementMain.go?cno=3">스팸</a></li>
+		<li role="presentation" id="mannerMain"><a href="statementMain.go?cno=4">비매너</a></li>
 	</ul>
 </div>
 <div class="container">
 	<div class="well well-sm" align="center">
 		<form>
 			<div class="form-group">
-				<img alt="직거래 피해사례" src="img/jik.PNG"> <input type="text"
+				<h2 id="statementText">직거래 피해 사례</h2> <input type="text"
 					name="keyword" class="txt" title="검색어 입력"
 					placeholder="로그인 후 상세 검색을 사용하세요." size="30" onclick="#">
 				<!-- onclick 에 로그인 창띄우는 거 -->

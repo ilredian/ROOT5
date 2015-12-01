@@ -5,7 +5,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="container freeMain">
 	<h2>자유게시판</h2>
-	<p>Total : <c:out value="${boardCount}"/></p>
+	<p>
+		Total :
+		<c:out value="${boardCount}" />
+	</p>
 
 	<table class="table table-hover">
 		<thead>
@@ -17,7 +20,7 @@
 				<th class="count">조회</th>
 			</tr>
 		</thead>
-			<form action="freeWrite.go">
+
 		<tbody>
 			<c:forEach var="n" items="${list}">
 				<tr>
@@ -32,11 +35,10 @@
 		</tbody>
 	</table>
 	<br>
-		<div><br>
-			<input type="submit" value="글쓰기"
-							style="float: right; width: 60px; height: 40px; margin-right: 40px; margin-top: -40px;">
-		</div>
-	</form>
+	<div>
+		<br> <input type="button" value="글쓰기" id="freeWrite"
+			style="float: right; width: 60px; height: 40px; margin-right: 40px; margin-top: -40px;">
+	</div>
 </div>
 <div style="text-align: center;">
 	<c:set var="pager" value="${pager.toString()}" />

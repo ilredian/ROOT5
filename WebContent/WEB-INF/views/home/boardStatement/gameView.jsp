@@ -15,7 +15,7 @@
 </head>
 <body>
 	<div class="container">
-		<img alt="직거래 피해 상세 보기" src="img/a_Dtaile.PNG">
+		직거래 피해 상세 보기
 	</div>
 	<div class="container">
 		<div class="container">
@@ -37,7 +37,7 @@
 	<div class="container">
 		<div class="container">
 			<h3>
-				<img src="img/a_Dtaile1.PNG" alt="피해 발생 사이트 정보">
+				피해 발생 사이트 정보
 			</h3>
 			<table class="table table table-striped">
 				<colgroup>
@@ -87,7 +87,7 @@
 	<div class="container">
 		<div class="container">
 			<h3>
-				<img src="img/a_Dtaile2.PNG" alt="용의자 (사기자)정보">
+				용의자 (사기자)정보
 			</h3>
 			<table class="table table table-striped">
 				<colgroup>
@@ -142,7 +142,7 @@
 	<div class="container">
 		<div class="container">
 			<h3>
-				<img src="img/a_Dtaile3.PNG" alt="사건 개요 (진술서)">
+				<img src="boardStatement_images/a_Dtaile3.PNG" alt="사건 개요 (진술서)">
 			</h3>
 			<table class="table table table-striped">
 				<colgroup>

@@ -1,20 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="container freeView">
 	<h2>자유게시판</h2>
 	<table class="table table-striped">
 		<tbody>
 			<tr>
-				<th colspan="3">제목 들어가는 부분</th>
+				<th colspan="3">${boardFreeDTO.title}</th>
 			</tr>
 			<tr>
 				<td style="width: 10%;"><img alt="no_pic"
-					src="img/user_no_pic.gif"></td>
+					src="boardFreeimages/user_no_pic.gif"></td>
 				<td style="width: 70%;">
 					<table>
 						<tr>
-							<th>aqua (피해회원)</th>
+							<th>(피해회원)</th>
 						</tr>
 						<tr>
 							<td>입력된 인사말이 없습니다.</td>
@@ -35,9 +36,13 @@
 		<thead>
 			<tr>
 				<th>게시물 주소 :
+				
+				<!-- 내 글만 지워야지_  -->
+				
 					<div style="float: right;">
-						<input type="button" value="수정"> <input type="button"
-							value="삭제"> <input type="button" value="목록">
+						<input type="button" id="edit" value="수정">  <!-- freeEdit.go  -->
+						<input type="button" id="delete" value="삭제">  <!-- freeDelete.go -->
+						<input type="button" id="list" value="목록">  <!-- freeMain.go -->
 					</div>
 
 				</th>
@@ -53,7 +58,7 @@
 		<tbody>
 			<tr>
 				<td style="width: 10%;">
-					<img alt="no_pic" src="img/user_no_pic.gif">
+					<img alt="no_pic" src="boardFreeimages/user_no_pic.gif">
 				</td>
 				<td style="width: 90%;">
 					<table>
