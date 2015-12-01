@@ -17,18 +17,24 @@
 	<!-- Header 영역 -->
 	<tiles:insertAttribute name="header" />
 	<!-- Visual 영역 -->
-	<div class="container">
-		<tiles:insertAttribute name="visual" />
-		<!-- Main   영역  -->
-		<div id="main">
+	<tiles:insertAttribute name="visual" />
+	<!-- Main   영역  -->
+	<div id="main">
+		<div class="top-wrapper clear">
 			<!-- Content 영역 -->
 			<tiles:insertAttribute name="content" />
+			<c:if test="${param.contentNo != null}">
+				<jsp:include page="/WEB-INF/views/home/boardLaw/lawMain.jsp"></jsp:include>
+			</c:if>
 			<!-- Aside(Navi) 영역 -->
 			<tiles:insertAttribute name="aside" />
 		</div>
-
 	</div>
+
 	<!-- Footer 영역  -->
 	<tiles:insertAttribute name="footer" />
+
+	<!-- javascript 영역 -->
+	<script type="text/javascript" src='<tiles:getAsString name="js"/>' ></script>
 </body>
 </html>
