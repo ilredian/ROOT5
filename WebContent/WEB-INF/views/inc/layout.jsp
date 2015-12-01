@@ -8,25 +8,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-<style>
-.modal-header, h4, .close {
-	background-color: #5cb85c;
-	color: white !important;
-	text-align: center;
-	font-size: 30px;
-}
-
-.modal-footer {
-	background-color: #f9f9f9;
-}
-</style>
 </head>
 <body>
 	<!-- header 영역 -->
@@ -41,5 +22,8 @@
 
 	<!-- footer 영역 -->
 	<tiles:insertAttribute name="footer" />
+	
+	<!-- javascript 영역 -->
+	<script type="text/javascript" src='<tiles:getAsString name="js"/>' ></script>
 </body>
 </html>

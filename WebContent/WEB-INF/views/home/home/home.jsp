@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <a href="freeMain.go">자유게시판</a>
-<a href="statementMain.go">진술서게시판</a>
+<a href="statementMain.go?cno=1">진술서게시판</a>
 
 <div class="container-fluid" align="center">
 	<div class="row1">
