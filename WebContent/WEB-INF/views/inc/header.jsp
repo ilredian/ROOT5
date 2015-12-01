@@ -34,7 +34,7 @@
 	/* 로그아웃 버튼 */
 	$(document).ready(function() {
 		$("#myBtn2").click(function() {
-			location.replace("/logout.go");
+			location.replace("logout.go");
 		});
 	});
 	
@@ -75,33 +75,21 @@
 <!--//////////////////////////////////////////////////////  -->
 		<div class="links">
 			<div class="container" align="right">
-			
 				<!-- 로그인 버튼 _ 로그인 전과 후의 변화 -->
-			
-				<c:set var="session" value="${sessionScope.memberInfo}" scope="request" />
-				<c:out value="${session}"/>
-
-<%-- 					<c:when test="${session}">  <!-- 세션이 null 이 아니면 -->
+				<c:choose>
+				<c:when test="${empty memberInfo}">  <!-- 세션이 null 이면 -->
 							<button type="button" class="btn btn-default" id="myBtn"
 								style="margin-right: 50px; margin-top: 10px">
 								<span class="glyphicon glyphicon-log-in"></span>로그인
 							</button>
 						</c:when>
- --%>						<%-- 
 						<c:otherwise> <!-- 세션이 있다면_ -->
 							<button type="button" class="btn btn-default" id="myBtn2"
 								style="margin-right: 50px; margin-top: 10px">
 								<span class="glyphicon glyphicon-log-in"></span>로그아웃
 							</button>
 						</c:otherwise>
-						 --%>
-							<button type="button" class="btn btn-default" id="myBtn"
-								style="margin-right: 50px; margin-top: 10px">
-								<span class="glyphicon glyphicon-log-in"></span>로그인
-							</button> 
-						 
-						 
-						 
+					</c:choose>
 				<!-- Modal -->
 				<div class="modal fade" id="myModal" role="dialog">
 					<div class="modal-dialog">
