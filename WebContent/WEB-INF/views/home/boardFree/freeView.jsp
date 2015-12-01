@@ -10,7 +10,7 @@
 			</tr>
 			<tr>
 				<td style="width: 10%;"><img alt="no_pic"
-					src="img/user_no_pic.gif"></td>
+					src="boardFreeimages/user_no_pic.gif"></td>
 				<td style="width: 70%;">
 					<table>
 						<tr>
@@ -53,7 +53,7 @@
 		<tbody>
 			<tr>
 				<td style="width: 10%;">
-					<img alt="no_pic" src="img/user_no_pic.gif">
+					<img alt="no_pic" src="boardFreeimages/user_no_pic.gif">
 				</td>
 				<td style="width: 90%;">
 					<table>
