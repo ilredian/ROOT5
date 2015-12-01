@@ -4,7 +4,7 @@
 
 <a href="freeMain.go">자유게시판</a>
 <a href="statementMain.go?cno=1">진술서게시판</a>
-
+<a href="lawMain.go">변호사게시판</a>
 <div class="container-fluid" align="center">
 	<div class="row1">
 		<div class="col-sm-6"

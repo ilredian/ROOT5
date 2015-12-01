@@ -17,6 +17,7 @@
 				<th class="writer">작성자</th>
 				<th class="subject">제목</th>
 				<th class="date">등록일</th>
+				
 				<th class="count">조회</th>
 			</tr>
 		</thead>

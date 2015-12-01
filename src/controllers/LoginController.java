@@ -44,11 +44,8 @@ public class LoginController {
 			out.print("<script type='text/javascript'>alert('해당 이메일은 가입되어 있지 않습니다.')</script>");
 		}else {//아이디가 있음
 			if(result.getPassword().equals(memberDTO.getPassword())){//비밀번호가 같음
-<<<<<<< HEAD
 				System.out.println("로그인 값 저장");
-=======
 				System.out.println("로그인 세션 설정");
->>>>>>> 180e46f3a9a5e2ced0382981a77d940eaed2524d
 				session.setAttribute("MemberInfo", result);
 			}else{//비밀번호가 틀림
 				//경고창 띄우기
