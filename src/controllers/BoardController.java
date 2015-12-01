@@ -161,13 +161,11 @@ public class BoardController {
 	
 	//2. 공지게시판 상세보기
 	@RequestMapping("noticeView.go")
-	public String noticeView(String seq , Model model){
+	public String noticeView(String seq , Model model) throws ClassNotFoundException, SQLException{
 	
-		/*	
 	  	 BoardNoticeDAO boardNoticeDAO = sqlSession.getMapper(BoardNoticeDAO.class);
 		 BoardNoticeDTO boardNoticeDTO = boardNoticeDAO.getNotice(seq);
 		 model.addAttribute("boardNoticeDTO", boardNoticeDTO); ///// DB 테이블 명--파라미터명 일치 여부 확인후 수정바람*****
-	*/	
 		
 		return "home.boardNotice.noticeView";
 	}
@@ -181,14 +179,14 @@ public class BoardController {
 	
 	//4. 공지게시판 글쓰기(실제 글 등록 -DB)
 	@RequestMapping(value="noticeWrite.go" , method=RequestMethod.POST)
-	public String noticeWrite(BoardNoticeDTO DTO, HttpServletRequest request ){
+	public String noticeWrite(BoardNoticeDTO DTO, HttpServletRequest request ) throws ClassNotFoundException, SQLException{
 			System.out.println("실제 글 등록 처리"); 
-/*		    System.out.println("n : " + DTO.getTitle());
-		    System.out.println("n : " + DTO.getContent());*/
-	/*
+			
+		    System.out.println("n : " + DTO.getTitle());
+		    System.out.println("n : " + DTO.getContent());
+		    
 		    BoardNoticeDAO boardNoticeDAO = sqlSession.getMapper(BoardNoticeDAO.class);
 		    boardNoticeDAO.insert(DTO);
-	*/
 		return "home.boardNotice.noticeMain";
 	}
 	

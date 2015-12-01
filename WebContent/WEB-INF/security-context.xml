@@ -7,59 +7,12 @@
                      http://www.springframework.org/schema/security 
                      http://www.springframework.org/schema/security/spring-security.xsd">
 
-<!-- 	1단계 처리 (JSTL & EL)
-	
- 			<li><a href="${pageContext.request.contextPath}/joinus/login.htm">로그인</a></li>
-			 Spring 사용한 인증 : ID, PWD session 생성 
-			 <c:if test="${empty pageContext.request.userPrincipal}">
-    			<li><a href="${pageContext.request.contextPath}/joinus/login.htm">로그인</a></li>
- 			 </c:if>
- 			 <c:if test="${not empty pageContext.request.userPrincipal}">
-    			<li><a href="${pageContext.request.contextPath}/logout">
-    			(${pageContext.request.userPrincipal.name})로그아웃</a></li>
- 			 </c:if>
- 			 			 -->
- 
-	<!-- 2단계 : 로그인 페이지 처리 
-		login, logout , 권한 정책
-	-->
- <!--    <security:http>
-		<security:csrf disabled="true"/>
-	    <security:form-login login-page="/joinus/login.htm"
-	                         authentication-failure-url="/joinus/login.htm?error" />
-	    <security:logout logout-success-url="/index.htm" />
-		<security:intercept-url pattern="/customer/noticeDetail.htm"
-								access="hasRole('ROLE_USER')" />
-		<security:intercept-url pattern="/customer/noticeReg.htm"  
-								access="hasRole('ROLE_ADMIN')" />
-	</security:http>
-	
-	<security:authentication-manager>
-		<security:authentication-provider>
-			<security:user-service>
-				<security:user name="aa" password="aa"
-											authorities="ROLE_USER" />
-				<security:user name="admin" password="1004"
-											authorities="ROLE_USER,ROLE_ADMIN" />
-			</security:user-service>
-		</security:authentication-provider>
-	</security:authentication-manager> 
-
-
- -->
-
 	<security:http>
 		<security:csrf disabled="true"/>
 	    <security:form-login login-page="/joinus/login.htm"
 	                         authentication-failure-url="/joinus/login.htm?error" />
 	    <security:logout logout-success-url="/index.htm" />
 		
-		<!--   
-		<security:intercept-url pattern="/customer/noticeDetail.htm"
-								access="hasRole('ROLE_USER')" />
-		<security:intercept-url pattern="/customer/noticeReg.htm"  
-								access="hasRole('ROLE_ADMIN')" />
-	 	위 코드를 개선 pattern 방식으로 전환	 -->						
 <!-- 
   <security:intercept-url pattern="/customer/*Reg.htm" access="ROLE_USER" />
  -->
@@ -73,11 +26,11 @@
 		<security:authentication-provider>
 			<security:jdbc-user-service
 				data-source-ref="driverManagerDataSource"
-				users-by-username-query="SELECT USERID, pwd AS PASSWORD, 1 enabled FROM member where userid=?"
-				authorities-by-username-query="select m.USERID , r.ROLE_NAME  
-									           from member m join roll r 
-									           on m.userid = r.userid 
-									           where m.userid=?" />
+				users-by-username-query="SELECT EMAIL, PASSWORD, 1 enabled FROM MEMBERDB where EMAIL=?"
+				authorities-by-username-query="select m.EMAIL , r.ROLE_NAME  
+									           from memberdb m join roll r 
+									           on m.EMAIL = r.EMAIL 
+									           where m.EMAIL=?" />
 		</security:authentication-provider>
 	</security:authentication-manager> 
 </beans>
