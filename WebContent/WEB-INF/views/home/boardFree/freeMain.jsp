@@ -28,7 +28,7 @@
 			<c:forEach var="n" items="${list}">
 				<tr>
 					<td class="number">${n.boardno}</td>
-					<td class="writer">${n.name}</td>
+					<td class="writer">작성자</td>
 					<td class="subject"><a
 						href="freeView.go?pg=${param.pg}&bno=${n.boardno}">${n.title}</a></td>
 					<td class="date">${n.regdate}</td>
