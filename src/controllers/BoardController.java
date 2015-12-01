@@ -365,6 +365,7 @@ public class BoardController {
 		@RequestMapping("lawView.go")	//자유게시판 상세보기 - 페이지
 		public String lawView(String boardno , Model model) throws ClassNotFoundException, SQLException{
 		    
+			System.out.println("lawview");
 			 BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
 			 BoardLawDTO boardLawDTO = boardLawDAO.getNotice(boardno);
 			 model.addAttribute("boardLawDTO", boardLawDTO); ///// DB 테이블 명--파라미터명 일치 여부 확인후 수정바람*****
