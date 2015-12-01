@@ -1,18 +1,19 @@
 $('#edit').click(function() {
-	console.log("수정페이지로이동")
-	location.replace("/freeEdit.go");
+	var pg = $('#pageNo').val();
+	var bno = $('#boardNo').val();
+	location.replace("freeEdit.go?pg=" + pg + "&bno=" + bno);
 });
 
 $('#delete').click(function() {
-	console.log("삭제")
-	location.replace("/freeDelete.go");
+	var bno = $('#boardNo').val();
+	location.replace("freeDelete.go?bno=" + bno);
 });
 
 $('#list').click(function() {
-	console.log("전페이지로 이동")
-	history.go(-1);
+	var pg = $('#pageNo').val();
+	location.replace("freeMain.go?pg=" + pg);
 });
 
 $('#freeWrite').click(function(){
-	location.replace("/freeWrite.go");
+	location.replace("freeWrite.go");
 });

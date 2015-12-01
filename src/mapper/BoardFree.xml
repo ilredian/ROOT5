@@ -6,7 +6,7 @@
 	<select id="getNotices" resultType="DTO.BoardFreeDTO">
 		SELECT *
 		FROM boardfree
-		WHERE ${param2} LIKE '%${param3}%' 
+		WHERE ${param2} LIKE '%${param3}%' and active = 0
 		ORDER BY regdate DESC, boardno DESC
 		LIMIT ${param1}, ${param4}
 	</select>
@@ -14,6 +14,7 @@
 	<select id="getCount" resultType="Integer">
 		SELECT COUNT(*) CNT
 		FROM BOARDFREE
+		WHERE active = 0
 		<!-- WHERE ${param1} LIKE '%${param2}%' -->
 	</select>
 	
@@ -27,6 +28,12 @@
 		DELETE FROM boardfree WHERE boardno=#{boardno}
 	</delete>
 	
+	<update id="updateActive">
+		UPDATE boardfree 
+		SET active=1
+		WHERE boardno=#{boardno}
+	</update>
+	
 	<update id="update">
 		UPDATE boardfree 
 		SET 
@@ -35,11 +42,15 @@
 		WHERE boardno=#{boardno}
 	</update>
 	
+	<update id="updateCountno">
+		UPDATE boardfree 
+		SET 
+		countno=countno+1
+		WHERE boardno=#{boardno}
+	</update>
+	
 	<insert id="insert" parameterType="DTO.BoardFreeDTO">
-	<!-- 	<selectKey order="BEFORE" keyProperty="boardno" resultType="String">
-			SELECT NVL(MAX(TO_NUMBER(boardno)),0)+1 FROM boardfree
-		</selectKey> -->
-		INSERT INTO boardfree(boardno, TITLE, CONTENT, WRITER, REGDATE,COUNTNO)
-		VALUES( #{boardno}, #{title}, #{content}, #{writer}, SYSDATE, 0)
+		INSERT INTO boardfree(title, name, content, regdate, groupno, notice, memberno, categoryno) 
+		VALUES(#{title}, #{name}, #{content}, SYSDATE(), last_insert_id()+1, 0, #{memberno}, 1)
 	</insert>
 </mapper>

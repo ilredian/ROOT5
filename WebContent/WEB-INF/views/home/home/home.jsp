@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<a href="freeMain.go">자유게시판</a>
+<a href="freeMain.go?pg=1">자유게시판</a>
 <a href="statementMain.go?cno=1">진술서게시판</a>
 
 <div class="container-fluid" align="center">

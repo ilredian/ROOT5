@@ -45,7 +45,7 @@ public class LoginController {
 		}else {//아이디가 있음
 			if(result.getPassword().equals(memberDTO.getPassword())){//비밀번호가 같음
 				System.out.println("로그인 세션 설정");
-				session.setAttribute("MemberInfo", result);
+				session.setAttribute("memberInfo", result);
 			}else{//비밀번호가 틀림
 				//경고창 띄우기
 				out.print("<script type='text/javascript'>alert('비밀번호가 틀립니다.')</script>");
