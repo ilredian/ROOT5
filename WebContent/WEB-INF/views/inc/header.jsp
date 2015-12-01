@@ -30,8 +30,13 @@
 	});
 </script>
 
-<nav class="navbar navbar-default" role="navigation">
-<div class="container-fluid">
+<nav class="navbar navbar-default" role="navigation" style="
+    margin-bottom: 0px;
+">
+<div class="container-fluid" style="
+    margin-top: 0px;
+    margin-bottom: 0px;
+">
 	<div class="navbar-header">
 		<button type="button" class="navbar-toggle" data-toggle="collapse"
 			data-target="#myNavbar">
