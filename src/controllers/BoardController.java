@@ -67,8 +67,8 @@ public class BoardController {
 		
 		List<BoardFreeDTO> list= boardFreeDAO.getNotices(start, field, query, pageSize);
 		
-		System.out.println(session.getAttribute("MemberInfo"));
-		String email = ((MemberDTO)session.getAttribute("MemberInfo")).getEmail();
+		System.out.println(session.getAttribute("memberInfo"));
+		String email = ((MemberDTO)session.getAttribute("memberInfo")).getEmail();
 
 		model.addAttribute("Email", email);
 		model.addAttribute("pager", pager);
@@ -351,8 +351,8 @@ public class BoardController {
 			
 			List<BoardLawDTO> list= boardLawDAO.getNotices(start, field, query, pageSize);
 			
-			System.out.println(session.getAttribute("MemberInfo"));
-			String email = ((MemberDTO)session.getAttribute("MemberInfo")).getEmail();
+			System.out.println(session.getAttribute("memberInfo"));
+			String email = ((MemberDTO)session.getAttribute("memberInfo")).getEmail();
 
 			model.addAttribute("Email", email);
 			model.addAttribute("pager", pager);
