@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ <%@ taglib prefix="se" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="container freeMain">
@@ -28,7 +29,7 @@
 					<td class="number">${n.boardno}</td>
 					<td class="writer">작성자</td>
 					<td class="subject"><a
-						href="freeView.go?page=${page}&contentNo=${countno}">${n.title}</a></td>
+						href="freeView.go?page=${pager}&contentNo=${n.boardno}">${n.title}</a></td>
 					<td class="date">${n.regdate}</td>
 					<td class="count">${n.countno}</td>
 				</tr>
@@ -37,8 +38,16 @@
 	</table>
 	<br>
 	<div>
-		<br> <input type="button" value="글쓰기" id="freeWrite"
+		<br>
+		<!-- Spring Taglib 사용 -->
+		<se:authorize ifAllGranted="ROLE_USER , ROLE_ADMIN">
+<!-- 	예제<a class="btn-write button" href="noticeReg.htm">글쓰기</a>
+ -->
+			 <input type="button" value="글쓰기" id="freeWrite"
 			style="float: right; width: 60px; height: 40px; margin-right: 40px; margin-top: -40px;">
+		</se:authorize>
+		
+	
 	</div>
 </div>
 <div style="text-align: center;">
