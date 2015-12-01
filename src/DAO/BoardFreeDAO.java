@@ -13,7 +13,7 @@ public interface BoardFreeDAO {
 		//게시물 삭제int start, String field, String query, int pagerSize
 		public int delete(String seq) throws ClassNotFoundException, SQLException;
 		//게시물 수정
-		public int update(BoardFreeDTO BoardDTO) throws ClassNotFoundException, SQLException;
+		public int update(BoardFreeDTO boardFreeDTO) throws ClassNotFoundException, SQLException;
 		//게시물 상세
 		public BoardFreeDTO getNotice(String seq) throws ClassNotFoundException, SQLException;
 		//게시물 입력
