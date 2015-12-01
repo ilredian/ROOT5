@@ -14,7 +14,7 @@
 	rel="stylesheet" />
 </head>
 <body>
-<%-- 	<!-- Header 영역 -->
+	<!-- Header 영역 -->
 	<tiles:insertAttribute name="header" />
 	<!-- Visual 영역 -->
 	<tiles:insertAttribute name="visual" />
@@ -24,7 +24,7 @@
 			<!-- Content 영역 -->
 			<tiles:insertAttribute name="content" />
 			<c:if test="${param.contentNo != null}">
-				<jsp:include page="/WEB-INF/views/home/boardFree/freeMain.jsp"></jsp:include>
+				<jsp:include page="/WEB-INF/views/home/boardLaw/lawMain.jsp"></jsp:include>
 			</c:if>
 			<!-- Aside(Navi) 영역 -->
 			<tiles:insertAttribute name="aside" />
@@ -35,6 +35,6 @@
 	<tiles:insertAttribute name="footer" />
 
 	<!-- javascript 영역 -->
-	<script type="text/javascript" src='<tiles:getAsString name="js"/>' ></script> --%>
+	<script type="text/javascript" src='<tiles:getAsString name="js"/>' ></script>
 </body>
 </html>
