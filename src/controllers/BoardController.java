@@ -244,7 +244,7 @@ public class BoardController {
 	///////////////////////////////////
 	///////////////////////////////////
 	
-	//1. 자유게시판 메인(목록리스트)
+	//1. 변호사게시판 메인(목록리스트)
 		@RequestMapping("lawMain.go")   //자유게시판 메인- 목록보기 List
 		public String lawMain(// get으로 들어오는 parameter값 선언 및 기본값 설정
 				@RequestParam(value = "pg", required = false, defaultValue = "1") int page, // 현재 페이지 번호
@@ -260,7 +260,7 @@ public class BoardController {
 			BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
 			
 			int pagerSize = 10;// 한 번에 보여줄 페이지 번호 갯수
-			String linkUrl = "freeMain.go";// 페이지번호를 누르면 이동할 경로
+			String linkUrl = "lawMain.go";// 페이지번호를 누르면 이동할 경로
 			int boardCount = boardLawDAO.getCount(field, query);// 검색 결과에 따른 게시글 총 갯수
 			int start = (page - 1) * pageSize;
 			HomePager pager = new HomePager(boardCount, page, pageSize, pagerSize, linkUrl);
@@ -277,7 +277,7 @@ public class BoardController {
 		    
 			return "home.boardLaw.lawMain";
 		}
-		//2. 자유게시판 상세보기
+		//2. 변호사게시판 상세보기
 		@RequestMapping("lawView.go")	//자유게시판 상세보기 - 페이지
 		public String lawView(String boardno , Model model) throws ClassNotFoundException, SQLException{
 		    
@@ -287,13 +287,13 @@ public class BoardController {
 			
 			 return "home.boardLaw.lawView";
 		}
-		//3. 자유게시판 글쓰기(화면만 뿌리기)
+		//3.변호사게시판 글쓰기(화면만 뿌리기)
 		@RequestMapping(value="lawWrite.go" , method=RequestMethod.GET)	
 		public String lawWrite(BoardLawDTO boardDTO){
 			System.out.println("자유게시판 글쓰기 창");
 			return "home.boardLaw.lawWrite";
 		}
-		//4. 자유게시판 글쓰기(실제 글 등록 -DB)
+		//4. 변호사게시판 글쓰기(실제 글 등록 -DB)
 		@RequestMapping(value="lawWrite.go" , method=RequestMethod.POST)   
 		public String LawWrite(BoardLawDTO DTO, HttpServletRequest request) throws ClassNotFoundException, SQLException{
 		    System.out.println("실제 글 등록 처리"); 

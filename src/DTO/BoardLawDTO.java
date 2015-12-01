@@ -204,7 +204,7 @@ public class BoardLawDTO {
 	}
 
 
-	public BoardLawDTO(){}
+	public BoardLawDTO(){};
 	
 	
 	public BoardLawDTO(int boardno, String title, String content, Date regdate, int countno, int active, int categoryno,
