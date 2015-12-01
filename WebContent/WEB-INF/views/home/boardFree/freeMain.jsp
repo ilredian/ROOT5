@@ -46,7 +46,6 @@
 			style="float: right; width: 60px; height: 40px; margin-right: 40px; margin-top: -40px;">
 		</se:authorize>
 		
-	
 	</div>
 </div>
 <div style="text-align: center;">
