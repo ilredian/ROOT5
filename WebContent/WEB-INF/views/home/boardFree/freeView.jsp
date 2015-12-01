@@ -51,12 +51,13 @@
 		</thead>
 		<tbody>
 			<tr>
-				<th>댓글 1개</th>
+				<td><b>댓글 </b><c:out value="${replycount}" /><b>개</b></td>
 			</tr>
 		</tbody>
 	</table>
 	<table class="table">
 		<tbody>
+			<c:forEach var="replyDTO" items="${replyDTO}">
 			<tr>
 				<td style="width: 10%;">
 					<img alt="no_pic" src="boardFreeimages/user_no_pic.gif">
@@ -64,18 +65,19 @@
 				<td style="width: 90%;">
 					<table>
 						<tr>
-							<td>aqua 님 | 2015.11.28 09:55:21</td>
+							<td>${replyDTO.name} 님 | ${replyDTO.regdate}</td>
 						</tr>
 						<tr>
-							<td>댓글 내용을 입력해 봅시다.</td>
+							<td>${replyDTO.content}</td>
 						</tr>
 					</table>
 				</td>
 			</tr>
+			</c:forEach>
 			<tr>
 				<td style="text-align: center;" colspan="2">
 					<input type="text" id="" name="" style="width: 90%">
-					<input type="button" id="replybtn" value="댓글 등록">
+					<input class="btn btn-default" type="button" id="replybtn" value="댓글 등록">
 				</td>
 			</tr>
 		</tbody>

@@ -22,13 +22,13 @@ public interface ReplyDAO {
 	public List<ReplyDTO> getAllReply(String searchTitle, String searchContent) throws Exception;
 	
 	// 검색된 카테고리별 댓글 정보
-	public List<ReplyDTO> getCategoryReply(String searchTitle, String searchContent) throws Exception;
+	public List<ReplyDTO> getCategoryReply(String searchTitle, String searchContent, int categoryno) throws Exception;
 	
 	// 검색된 회원별 댓글 정보
-	public List<ReplyDTO> getMemberReply(String searchTitle, String searchContent) throws Exception;
+	public List<ReplyDTO> getMemberReply(String searchTitle, String searchContent, int memberno) throws Exception;
 	
 	// 검색된 게시판별 댓글 정보
-	public List<ReplyDTO> getBoardReply(String searchTitle, String searchContent) throws Exception;
+	public List<ReplyDTO> getBoardReply(String searchTitle, String searchContent, int boardno) throws Exception;
 	
 	// 댓글 추가
 	public int insertReply(ReplyDTO replyDTO) throws Exception;

@@ -21,11 +21,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import DAO.BoardFreeDAO;
 import DAO.BoardLawDAO;
 import DAO.BoardNoticeDAO;
+import DAO.ReplyDAO;
 import DTO.BoardFreeDTO;
 import DTO.BoardNoticeDTO;
 
 import DTO.BoardLawDTO;
 import DTO.MemberDTO;
+import DTO.ReplyDTO;
 import common.HomePager;
 
 @Controller
@@ -93,9 +95,15 @@ public class BoardController {
 			boardFreeDAO.updateCountno(boardno);
 			boardFreeDTO.setCountno(boardFreeDTO.getCountno() + 1);
 		}
-
+		System.out.println("리플 정보 가져오기");
+		ReplyDAO replyDAO = sqlSession.getMapper(ReplyDAO.class);
+		int replycount = replyDAO.getBoardReplyCount("content", "%%", boardno);
+		List<ReplyDTO> replyDTO = replyDAO.getBoardReply("content", "%%", boardno);
+		
 		model.addAttribute("boardFreeDTO", boardFreeDTO);
-
+		model.addAttribute("replycount", replycount);
+		model.addAttribute("replyDTO", replyDTO);
+		
 		return "home.boardFree.freeView";
 	}
 
