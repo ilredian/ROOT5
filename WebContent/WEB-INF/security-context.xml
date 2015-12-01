@@ -6,20 +6,19 @@
                      http://www.springframework.org/schema/beans/spring-beans.xsd
                      http://www.springframework.org/schema/security 
                      http://www.springframework.org/schema/security/spring-security.xsd">
-
 	<security:http>
-		<security:csrf disabled="true"/>
-	    <security:form-login login-page="/joinus/login.htm"
-	                         authentication-failure-url="/joinus/login.htm?error" />
-	    <security:logout logout-success-url="/index.htm" />
-		
-<!-- 
-  <security:intercept-url pattern="/customer/*Reg.htm" access="ROLE_USER" />
- -->
- 
- <!--  패턴 방식으로 -->
-   <security:intercept-url pattern="/customer/*" access="hasRole('ROLE_USER')" />
-  <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
+				<security:csrf disabled="true"/>
+			    <security:form-login login-page="/index.htm"
+			                         authentication-failure-url="/joinus/login.htm?error" />
+			    <security:logout logout-success-url="/index.htm" />
+				
+		 <!--  패턴 방식으로 -->
+		   <security:intercept-url pattern="home/boardFree/*" access="hasRole('ROLE_USER')" />
+		   
+		   <security:intercept-url pattern="home/boardFree/*" access="hasRole('ROLE_USER')" />
+		   <security:intercept-url pattern="home/boardFree/*" access="hasRole('ROLE_USER')" />
+		         
+		  <security:intercept-url pattern="home/boardNotice/noticeWrite" access="hasRole('ROLE_ADMIN')" />
  
 	</security:http>
 	<security:authentication-manager>
