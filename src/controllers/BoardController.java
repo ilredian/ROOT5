@@ -217,7 +217,7 @@ public class BoardController {
 	}
 	
 	//6. 게시물 삭제
-	@RequestMapping("NoticeDelete.go")   
+	@RequestMapping("noticeDelete.go")   
 	public String noticeDelete(String boardno) throws ClassNotFoundException, SQLException{
 		
 	    BoardNoticeDAO boardNoticeDAO = sqlSession.getMapper(BoardNoticeDAO.class);
