@@ -1,29 +1,33 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>자유게시판 글쓰기</title>
-<script type="text/javascript" src="../se2/js/HuskyEZCreator.js" charset="utf-
-8"></script>
-
-<script type="text/javascript">
-var oEditors = [];
-nhn.husky.EZCreator.createInIFrame({
- oAppRef: oEditors,
- elPlaceHolder: "ir1",
- sSkinURI: "../se2/SmartEditor2Skin.html",
- fCreator: "createSEditor2"
-});
-</script>
-
-</head>
-<body>
-
-<textarea name="ir1" id="ir1" rows="10" cols="100" style="width:766px; height:412px;
-display:none;">에디터에 기본으로 삽입할 글(수정 모드)이 없다면 이 value 값을 지정하지 않으시면
-됩니다.</textarea>
-
-</body>
-</html>
+<div class="container freeMain">
+	<table class="table table-hover">
+		<thead>
+			<tr >
+				<th class="sub">제목</th><th class="subwrite"><input type="text" style="float: left; margin-bottom: 1px;" value
+							placeholder="이메일 주소 입력" size="15px"></input></th>
+			</tr>
+			<tr>
+				<th class="writer">작성자:</th> <th class="Writer" name="Writher">
+					<input type="text" value="${Email}" readonly> <!-- <c:set value=/> -->
+			</tr>
+	</table>
+	<br>
+		<div><br>
+			<table style="float: right; margin-right: 30px;">
+			<tr style="margin-right: 30px;">
+			<th>
+			<input type="submit" value="취소"
+							style="float: right; width: 65px; height: 40px; margin-right: 20px; margin-top: -40px;">
+			</th>
+			<th >
+			<input type="submit" value="확인"
+							style="float: right; width: 65px; height: 40px; margin-right: 20px; margin-top: -40px;">
+							</th>
+		</table>
+		</div>
+</div>

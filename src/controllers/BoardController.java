@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import DAO.BoardFreeDAO;
 import DAO.BoardNoticeDAO;
 import DTO.BoardFreeDTO;
 import DTO.BoardNoticeDTO;
+import DTO.MemberDTO;
 import common.HomePager;
 
 @Controller
@@ -34,6 +36,7 @@ public class BoardController {
 			@RequestParam(value = "f", required = false, defaultValue = "title") String field, // 검색 카테고리
 			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, // 검색 내용
 			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, // 한 페이지에 보여줄 게시글 갯수
+			HttpSession session,
 			Model model) throws Exception {
 
 		// 로그 남기기
@@ -49,6 +52,10 @@ public class BoardController {
 		
 		List<BoardFreeDTO> list= boardFreeDAO.getNotices(start, field, query, pageSize);
 		
+		System.out.println(session.getAttribute("MemberInfo"));
+		String email = ((MemberDTO)session.getAttribute("MemberInfo")).getEmail();
+
+		model.addAttribute("Email", email);
 		model.addAttribute("pager", pager);
 	    model.addAttribute("list", list); //자동 forward
 	    model.addAttribute("boardCount", boardCount);
