@@ -6,21 +6,28 @@
                      http://www.springframework.org/schema/beans/spring-beans.xsd
                      http://www.springframework.org/schema/security 
                      http://www.springframework.org/schema/security/spring-security.xsd">
-
 	<security:http>
-		<security:csrf disabled="true"/>
-	    <security:form-login login-page="/joinus/login.htm"
-	                         authentication-failure-url="/joinus/login.htm?error" />
-	    <security:logout logout-success-url="/index.htm" />
-		
-<!-- 
-  <security:intercept-url pattern="/customer/*Reg.htm" access="ROLE_USER" />
- -->
- 
- <!--  패턴 방식으로 -->
-   <security:intercept-url pattern="/customer/*" access="hasRole('ROLE_USER')" />
-  <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
- 
+				<security:csrf disabled="true"/>
+			    <security:form-login login-page="/index.go" 
+			                         authentication-failure-url="/index.go?error" />
+			    <security:logout logout-success-url="/index.go" /> <!-- 경로시발, -->
+				
+		 <!--  패턴 방식으로 -->
+		 <!--  경로가 제일 빡쳐.
+		 home/boardFree/*  이냐 /boardFree/* -->
+   <security:intercept-url pattern="/boardFree/*" access="hasRole('ROLE_USER')" />
+    <security:intercept-url pattern="/boardNotice/noticeWrite" access="hasRole('ROLE_ADMIN')" />
+	 
+	  <security:intercept-url pattern="/boardNotice/noticeWrite" access="hasRole('ROLE_ADMIN')" />
+	    <security:intercept-url pattern="/boardNotice/noticeWrite" access="hasRole('ROLE_ADMIN')" />
+	      <security:intercept-url pattern="/boardNotice/noticeWrite" access="hasRole('ROLE_ADMIN')" />
+	        <security:intercept-url pattern="/boardNotice/noticeWrite" access="hasRole('ROLE_ADMIN')" />
+	          <security:intercept-url pattern="/boardNotice/noticeWrite" access="hasRole('ROLE_ADMIN')" />
+	<!-- 
+	 <security:intercept-url pattern="/post/*" access="permitAll" />
+ 	 <security:intercept-url pattern="/admin/*" access="hasAnyRole('TEACHER','MANAGER','CENTER','MASTER')" /> -->
+
+
 	</security:http>
 	<security:authentication-manager>
 		<security:authentication-provider>
@@ -31,6 +38,8 @@
 									           from memberdb m join roll r 
 									           on m.EMAIL = r.EMAIL 
 									           where m.EMAIL=?" />
+									           
+		<security:password-encoder hash="md5" base64="false"/><!--여기 추가-->						           
 		</security:authentication-provider>
 	</security:authentication-manager> 
 </beans>
