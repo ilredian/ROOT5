@@ -2,7 +2,20 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<div class="container">
+
+<html>
+<head>
+<title>Bootstrap Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
 	<div class="well">
 		<div class="container" align="center">
 			<h3>직거래 피해사례 등록</h3>
@@ -75,7 +88,22 @@
 								<option value="1">직접 입력하기(오른쪽에 URL을 입력하세요.)</option>
 						</select> http://www.<input type="text" name="cheat_site" id="cheat_site"
 							class="txt" value="" size="26" placeholder=" URL이 입력됩니다."
-							readonly maxlength="30" /></td>
+							readonly maxlength="30" /> <script>
+								$("#cheat_site_temp").change(
+										function() {
+											if ($(this).val() == 1) {
+												$("#cheat_site").removeClass(
+														'input_hidden');
+												$("#cheat_site").addClass(
+														'input_bold');
+											} else {
+												$("#cheat_site").removeClass(
+														'input_bold');
+												$("#cheat_site").addClass(
+														'input_hidden');
+											}
+										});
+							</script></td>
 					</tr>
 					<tr>
 						<th>거래 물품 종류 <span class="bltS_A">*</span></th>
@@ -138,181 +166,207 @@
 												</h1>
 												<div class="sub_msg">자동차/바이크</div></label></il></td>
 									</tr>
-								<tr>
-									<td align="center"><il> <input type="radio"
-											name="cheat_item_temp" class="rdo" id="s_goods9"
-											value="스포츠/레저/운동" onclick="label_rdo_click('s_goods9');">
-										<label for="s_goods9"><h1>
-												<span class="glyphicon glyphicon-bullhorn"
-													onclick="label_rdo_click('s_goods9');"></span>
-											</h1>
-											<div class="sub_msg">스포츠/레저/운동</div></label></il></td>
-									<td align="center"><il> <input type="radio"
-											name="cheat_item_temp" class="rdo" id="s_goods10"
-											value="게임기/주변기기" onclick="label_rdo_click('s_goods10');">
-										<label for="s_goods10"><h1>
-												<span class="glyphicon glyphicon-print"
-													onclick="label_rdo_click('s_goods10');"></span>
-											</h1>
-											<div class="sub_msg">게임기/주변기기</div></label></il></td>
-									<td align="center"><il> <input type="radio"
-											name="cheat_item_temp" class="rdo" id="s_goods11"
-											value="유아동/출산" onclick="label_rdo_click('s_goods11');">
-										<label for="s_goods11"><h1>
-												<span class="glyphicon glyphicon-user"
-													onclick="label_rdo_click('s_goods11');"></span>
-											</h1>
-											<div class="sub_msg">유아동/출산</div></label></il></td>
-									<td align="center"><il class="first "> <input
-											type="radio" name="cheat_item_temp" class="rdo"
-											id="s_goods12" value="가전/전자제품"
-											onclick="label_rdo_click('s_goods12');"> <label
-											for="s_goods12"><h1>
-												<span class="glyphicon glyphicon-hdd"
-													onclick="label_rdo_click('s_goods12');"></span>
-											</h1>
-											<div class="sub_msg">가전/전자제품</div></label></il></td>
-									<td align="center"><il> <input type="radio"
-											name="cheat_item_temp" class="rdo" id="s_goods13"
-											value="가방/지갑/잡화" onclick="label_rdo_click('s_goods13');">
-										<label for="s_goods13"><h1>
-												<span class="glyphicon glyphicon-lock"
-													onclick="label_rdo_click('s_goods13');"></span>
-											</h1>
-											<div class="sub_msg">가방/지갑/잡화</div></label></il></td>
-									<td align="center"><il> <input type="radio"
-											name="cheat_item_temp" class="rdo" id="s_goods14"
-											value="음악/영화/주변기기" onclick="label_rdo_click('s_goods14');">
-										<label for="s_goods14"><h1>
-												<span class="glyphicon glyphicon-music"
-													onclick="label_rdo_click('s_goods14');"></span>
-											</h1>
-											<div class="sub_msg">음악/영화/주변기기</div></label></il></td>
-								</tr>
-								<tr>
-									<td align="center"><il> <input type="radio"
-											name="cheat_item_temp" class="rdo" id="s_goods15"
-											value="도서/학습" onclick="label_rdo_click('s_goods15');">
-										<label for="s_goods15"><h1>
-												<span class="glyphicon glyphicon-education"
-													onclick="label_rdo_click('s_goods15');"></span>
-											</h1>
-											<div class="sub_msg">도서/학습</div></label></il></td>
-									<td align="center"><il> <input type="radio"
-											name="cheat_item_temp" class="rdo" id="s_goods16"
-											value="식품/음료/의약품" onclick="label_rdo_click('s_goods16');">
-										<label for="s_goods16"><h1>
-												<span class="glyphicon glyphicon-apple"
-													onclick="label_rdo_click('s_goods16');"></span>
-											</h1>
-											<div class="sub_msg">식품/음료/의약품</div></label></il></td>
-									<td align="center"><il> <input type="radio"
-											name="cheat_item_temp" class="rdo" id="s_goods17"
-											value="공구/중장비/농기구" onclick="label_rdo_click('s_goods17');">
-										<label for="s_goods17"><h1>
-												<span class="glyphicon glyphicon-wrench"
-													onclick="label_rdo_click('s_goods17');"></span>
-											</h1>
-											<div class="sub_msg">공구/중장비/농기구</div></label></il></td>
+									<tr>
+										<td align="center"><il> <input type="radio"
+												name="cheat_item_temp" class="rdo" id="s_goods9"
+												value="스포츠/레저/운동" onclick="label_rdo_click('s_goods9');">
+											<label for="s_goods9"><h1>
+													<span class="glyphicon glyphicon-bullhorn"
+														onclick="label_rdo_click('s_goods9');"></span>
+												</h1>
+												<div class="sub_msg">스포츠/레저/운동</div></label></il></td>
+										<td align="center"><il> <input type="radio"
+												name="cheat_item_temp" class="rdo" id="s_goods10"
+												value="게임기/주변기기" onclick="label_rdo_click('s_goods10');">
+											<label for="s_goods10"><h1>
+													<span class="glyphicon glyphicon-print"
+														onclick="label_rdo_click('s_goods10');"></span>
+												</h1>
+												<div class="sub_msg">게임기/주변기기</div></label></il></td>
+										<td align="center"><il> <input type="radio"
+												name="cheat_item_temp" class="rdo" id="s_goods11"
+												value="유아동/출산" onclick="label_rdo_click('s_goods11');">
+											<label for="s_goods11"><h1>
+													<span class="glyphicon glyphicon-user"
+														onclick="label_rdo_click('s_goods11');"></span>
+												</h1>
+												<div class="sub_msg">유아동/출산</div></label></il></td>
+										<td align="center"><il class="first "> <input
+												type="radio" name="cheat_item_temp" class="rdo"
+												id="s_goods12" value="가전/전자제품"
+												onclick="label_rdo_click('s_goods12');"> <label
+												for="s_goods12"><h1>
+													<span class="glyphicon glyphicon-hdd"
+														onclick="label_rdo_click('s_goods12');"></span>
+												</h1>
+												<div class="sub_msg">가전/전자제품</div></label></il></td>
+										<td align="center"><il> <input type="radio"
+												name="cheat_item_temp" class="rdo" id="s_goods13"
+												value="가방/지갑/잡화" onclick="label_rdo_click('s_goods13');">
+											<label for="s_goods13"><h1>
+													<span class="glyphicon glyphicon-lock"
+														onclick="label_rdo_click('s_goods13');"></span>
+												</h1>
+												<div class="sub_msg">가방/지갑/잡화</div></label></il></td>
+										<td align="center"><il> <input type="radio"
+												name="cheat_item_temp" class="rdo" id="s_goods14"
+												value="음악/영화/주변기기" onclick="label_rdo_click('s_goods14');">
+											<label for="s_goods14"><h1>
+													<span class="glyphicon glyphicon-music"
+														onclick="label_rdo_click('s_goods14');"></span>
+												</h1>
+												<div class="sub_msg">음악/영화/주변기기</div></label></il></td>
+									</tr>
+									<tr>
+										<td align="center"><il> <input type="radio"
+												name="cheat_item_temp" class="rdo" id="s_goods15"
+												value="도서/학습" onclick="label_rdo_click('s_goods15');">
+											<label for="s_goods15"><h1>
+													<span class="glyphicon glyphicon-education"
+														onclick="label_rdo_click('s_goods15');"></span>
+												</h1>
+												<div class="sub_msg">도서/학습</div></label></il></td>
+										<td align="center"><il> <input type="radio"
+												name="cheat_item_temp" class="rdo" id="s_goods16"
+												value="식품/음료/의약품" onclick="label_rdo_click('s_goods16');">
+											<label for="s_goods16"><h1>
+													<span class="glyphicon glyphicon-apple"
+														onclick="label_rdo_click('s_goods16');"></span>
+												</h1>
+												<div class="sub_msg">식품/음료/의약품</div></label></il></td>
+										<td align="center"><il> <input type="radio"
+												name="cheat_item_temp" class="rdo" id="s_goods17"
+												value="공구/중장비/농기구" onclick="label_rdo_click('s_goods17');">
+											<label for="s_goods17"><h1>
+													<span class="glyphicon glyphicon-wrench"
+														onclick="label_rdo_click('s_goods17');"></span>
+												</h1>
+												<div class="sub_msg">공구/중장비/농기구</div></label></il></td>
 
-									<td align="center"><il> <input type="radio"
-											name="cheat_item_temp" class="rdo" id="s_goods18"
-											value="피싱/대출/계약" onclick="label_rdo_click('s_goods18');">
-										<label for="s_goods18"><h1>
-												<span class="glyphicon glyphicon-usd"
-													onclick="label_rdo_click('s_goods18');"></span>
-											</h1>
-											<div class="sub_msg">피싱/대출/계약</div></label></il></td>
-									<td align="center"><il> <input type="radio"
-											name="cheat_item_temp" class="rdo" id="s_goods19"
-											value="성인/사행성" onclick="label_rdo_click('s_goods19');">
-										<label for="s_goods19"><h1>
-												<span class="glyphicon glyphicon-piggy-bank"
-													onclick="label_rdo_click('s_goods19');"></span>
-											</h1>
-											<div class="sub_msg">성인/사행성</div></label></il></td>
-									<td align="center"><il class="first "> <input
-											type="radio" name="cheat_item_temp" class="rdo"
-											id="s_goods20" value="소프트웨어"
-											onclick="label_rdo_click('s_goods20');"> <label
-											for="s_goods20"><h1>
-												<span class="glyphicon glyphicon-cd"
-													onclick="label_rdo_click('s_goods20');"></span>
-											</h1>
-											<div class="sub_msg">소프트웨어</div></label></il></td>
-								</tr>
-								<tr>
-									<td align="center"><il> <input type="radio"
-											name="cheat_item_temp" class="rdo" id="s_goods21"
-											value="동물/생물/식물/용품" onclick="label_rdo_click('s_goods21');">
-										<label for="s_goods21"><h1>
-												<span class="glyphicon glyphicon-tree-deciduous"
-													onclick="label_rdo_click('s_goods21');"></span>
-											</h1>
-											<div class="sub_msg">동물/생물/식물/용품</div></label></il></td>
-									<td align="center"><il> <input type="radio"
-											name="cheat_item_temp" class="rdo" id="s_goods22"
-											value="가구/인테리어" onclick="label_rdo_click('s_goods22');">
-										<label for="s_goods22"><h1>
-												<span class="glyphicon glyphicon-bed"
-													onclick="label_rdo_click('s_goods22');"></span>
-											</h1>
-											<div class="sub_msg">가구/인테리어</div></label></il></td>
-									<td align="center"><il> <input type="radio"
-											name="cheat_item_temp" class="rdo" id="s_goods23"
-											value="안경/선글라스" onclick="label_rdo_click('s_goods23');">
-										<label for="s_goods23"><h1>
-												<span class="glyphicon glyphicon-sunglasses"
-													onclick="label_rdo_click('s_goods23');"></span>
-											</h1>
-											<div class="sub_msg">안경/선글라스</div></label></il></td>
-									<td align="center"><il> <input type="radio"
-											name="cheat_item_temp" class="rdo" id="s_goods24"
-											value="생활/주방/욕실용품" onclick="label_rdo_click('s_goods24');">
-										<label for="s_goods24"><h1>
-												<span class="glyphicon glyphicon-cutlery"
-													onclick="label_rdo_click('s_goods24');"></span>
-											</h1>
-											<div class="sub_msg">생활/주방/욕실용품</div></label></il></td>
-									<td align="center"><il> <input type="radio"
-											name="cheat_item_temp" class="rdo" id="s_goods25"
-											value="문구/사무/소모품" onclick="label_rdo_click('s_goods25');">
-										<label for="s_goods25"><h1>
-												<span class="glyphicon glyphicon-erase"
-													onclick="label_rdo_click('s_goods25');"></span>
-											</h1>
-											<div class="sub_msg">문구/사무/소모품</div></label></il></td>
-									<td align="center"><il class="first "> <input
-											type="radio" name="cheat_item_temp" class="rdo"
-											id="s_goods26" value="배송비"
-											onclick="label_rdo_click('s_goods26');"> <label
-											for="s_goods26"><h1>
-												<span class="glyphicon glyphicon-bitcoin"
-													onclick="label_rdo_click('s_goods26');"></span>
-											</h1>
-											<div class="sub_msg">배송비</div></label></il></td>
-								</tr>
-								<tr>
-									<td align="center"><il> <input type="radio"
-											name="cheat_item_temp" class="rdo" id="s_goods27" value="화폐"
-											onclick="label_rdo_click('s_goods27');"> <label
-											for="s_goods27"><h1>
-												<span class="glyphicon glyphicon-unchecked"
-													onclick="label_rdo_click('s_goods27');"></span>
-											</h1>
-											<div class="sub_msg">화폐</div></label></il></td>
-									<td align="center"><il> <input type="radio"
-											name="cheat_item_temp" class="rdo" id="s_goods28" value="기타"
-											onclick="label_rdo_click('s_goods28');"> <label
-											for="s_goods28"><h1>
-												<span class="glyphicon glyphicon-option-horizontal"
-													onclick="label_rdo_click('s_goods28');"></span>
-											</h1>
-											<div class="sub_msg">기타</div></label></il></td>
-									<input type="hidden" name="cheat_item" id="cheat_item" value=""
-										maxlength="20" class="txt" readonly />
-									</ul>
-
+										<td align="center"><il> <input type="radio"
+												name="cheat_item_temp" class="rdo" id="s_goods18"
+												value="피싱/대출/계약" onclick="label_rdo_click('s_goods18');">
+											<label for="s_goods18"><h1>
+													<span class="glyphicon glyphicon-usd"
+														onclick="label_rdo_click('s_goods18');"></span>
+												</h1>
+												<div class="sub_msg">피싱/대출/계약</div></label></il></td>
+										<td align="center"><il> <input type="radio"
+												name="cheat_item_temp" class="rdo" id="s_goods19"
+												value="성인/사행성" onclick="label_rdo_click('s_goods19');">
+											<label for="s_goods19"><h1>
+													<span class="glyphicon glyphicon-piggy-bank"
+														onclick="label_rdo_click('s_goods19');"></span>
+												</h1>
+												<div class="sub_msg">성인/사행성</div></label></il></td>
+										<td align="center"><il class="first "> <input
+												type="radio" name="cheat_item_temp" class="rdo"
+												id="s_goods20" value="소프트웨어"
+												onclick="label_rdo_click('s_goods20');"> <label
+												for="s_goods20"><h1>
+													<span class="glyphicon glyphicon-cd"
+														onclick="label_rdo_click('s_goods20');"></span>
+												</h1>
+												<div class="sub_msg">소프트웨어</div></label></il></td>
+									</tr>
+									<tr>
+										<td align="center"><il> <input type="radio"
+												name="cheat_item_temp" class="rdo" id="s_goods21"
+												value="동물/생물/식물/용품" onclick="label_rdo_click('s_goods21');">
+											<label for="s_goods21"><h1>
+													<span class="glyphicon glyphicon-tree-deciduous"
+														onclick="label_rdo_click('s_goods21');"></span>
+												</h1>
+												<div class="sub_msg">동물/생물/식물/용품</div></label></il></td>
+										<td align="center"><il> <input type="radio"
+												name="cheat_item_temp" class="rdo" id="s_goods22"
+												value="가구/인테리어" onclick="label_rdo_click('s_goods22');">
+											<label for="s_goods22"><h1>
+													<span class="glyphicon glyphicon-bed"
+														onclick="label_rdo_click('s_goods22');"></span>
+												</h1>
+												<div class="sub_msg">가구/인테리어</div></label></il></td>
+										<td align="center"><il> <input type="radio"
+												name="cheat_item_temp" class="rdo" id="s_goods23"
+												value="안경/선글라스" onclick="label_rdo_click('s_goods23');">
+											<label for="s_goods23"><h1>
+													<span class="glyphicon glyphicon-sunglasses"
+														onclick="label_rdo_click('s_goods23');"></span>
+												</h1>
+												<div class="sub_msg">안경/선글라스</div></label></il></td>
+										<td align="center"><il> <input type="radio"
+												name="cheat_item_temp" class="rdo" id="s_goods24"
+												value="생활/주방/욕실용품" onclick="label_rdo_click('s_goods24');">
+											<label for="s_goods24"><h1>
+													<span class="glyphicon glyphicon-cutlery"
+														onclick="label_rdo_click('s_goods24');"></span>
+												</h1>
+												<div class="sub_msg">생활/주방/욕실용품</div></label></il></td>
+										<td align="center"><il> <input type="radio"
+												name="cheat_item_temp" class="rdo" id="s_goods25"
+												value="문구/사무/소모품" onclick="label_rdo_click('s_goods25');">
+											<label for="s_goods25"><h1>
+													<span class="glyphicon glyphicon-erase"
+														onclick="label_rdo_click('s_goods25');"></span>
+												</h1>
+												<div class="sub_msg">문구/사무/소모품</div></label></il></td>
+										<td align="center"><il class="first "> <input
+												type="radio" name="cheat_item_temp" class="rdo"
+												id="s_goods26" value="배송비"
+												onclick="label_rdo_click('s_goods26');"> <label
+												for="s_goods26"><h1>
+													<span class="glyphicon glyphicon-bitcoin"
+														onclick="label_rdo_click('s_goods26');"></span>
+												</h1>
+												<div class="sub_msg">배송비</div></label></il></td>
+									</tr>
+									<tr>
+										<td align="center"><il> <input type="radio"
+												name="cheat_item_temp" class="rdo" id="s_goods27" value="화폐"
+												onclick="label_rdo_click('s_goods27');"> <label
+												for="s_goods27"><h1>
+													<span class="glyphicon glyphicon-unchecked"
+														onclick="label_rdo_click('s_goods27');"></span>
+												</h1>
+												<div class="sub_msg">화폐</div></label></il></td>
+										<td align="center"><il> <input type="radio"
+												name="cheat_item_temp" class="rdo" id="s_goods28" value="기타"
+												onclick="label_rdo_click('s_goods28');"> <label
+												for="s_goods28"><h1>
+													<span class="glyphicon glyphicon-option-horizontal"
+														onclick="label_rdo_click('s_goods28');"></span>
+												</h1>
+												<div class="sub_msg">기타</div></label></il></td>
+										<input type="hidden" name="cheat_item" id="cheat_item"
+											value="" maxlength="20" class="txt" readonly />
+								</ul>
+								<script>
+									$("#cheat_item_temp")
+											.change(
+													function() {
+														if ($(this).val() == 1) {
+															$("#cheat_item")
+																	.removeClass(
+																			'input_hidden');
+															$("#cheat_item")
+																	.addClass(
+																			'input_bold');
+														} else {
+															$("#cheat_item")
+																	.removeClass(
+																			'input_bold');
+															$("#cheat_item")
+																	.addClass(
+																			'input_hidden');
+														}
+													});
+									function label_rdo_click(id_name) {
+										$('#' + id_name).prop('checked', true);
+										var temp_item_name = $('#' + id_name)
+												.val();
+										$('#cheat_item').val(temp_item_name);
+									}
+								</script>
 								</tr>
 							</table>
 					</tr>
@@ -648,12 +702,68 @@
 								style="ime-mode: disabled; width: 70px;" title="끝 자리 입력"
 								onKeyPress="return numbersonly(event, false)" /> <input
 								type="hidden" name="member_phone" id="member_phone" value=""
-								readonly /> <!--<iframe src="#" name="target_iframe" width="0" height="0" frameborder="0" marginwidth="0", marginheight="0" scrolling="no"></iframe>-->
-								<a
-								onclick="v2014_handphone_check('#member_phone');return false;"
-								target="target_iframe"><img
-									src="./layouts/2014/images/btn/btn_certificationSand2.gif"
-									alt="인증번호 받기 (무료)"></a>
+								readonly /> <script>
+									function srvTime() { // 서버의 시간을 가져온다.
+										var xmlHttp;
+										if (window.XMLHttpRequest) {//분기하지 않으면 IE에서만 작동된다.
+											xmlHttp = new XMLHttpRequest(); // IE 7.0 이상, 크롬, 파이어폭스 등
+											xmlHttp.open('HEAD',
+													window.location.href
+															.toString(), false);
+											xmlHttp
+													.setRequestHeader(
+															"Content-Type",
+															"text/html");
+											xmlHttp.send('');
+											return xmlHttp
+													.getResponseHeader("Date");
+										} else if (window.ActiveXObject) {
+											xmlHttp = new ActiveXObject(
+													'Msxml2.XMLHTTP');
+											xmlHttp.open('HEAD',
+													window.location.href
+															.toString(), false);
+											xmlHttp
+													.setRequestHeader(
+															"Content-Type",
+															"text/html");
+											xmlHttp.send('');
+											return xmlHttp
+													.getResponseHeader("Date");
+										}
+									}
+									function v2014_handphone_check(form_name) {
+										var key_handphone = $(form_name).val();
+										if (!key_handphone) {
+											alert('연락처를 입력해 주세요.');
+											return false;
+										}
+										var st = srvTime(); // 서버읜 현재 시간 가져오기
+										var dt = new Date(st);
+										if (!dt)
+											dt = new Date();
+										var yyyy = dt.getFullYear().toString();
+										var mm = (dt.getMonth() + 1).toString(); // getMonth() is zero-based
+										var dd = dt.getDate().toString();
+										var hh = dt.getHours().toString();
+										var ii = dt.getMinutes().toString();
+										var time = yyyy
+												+ (mm[1] ? mm : "0" + mm[0])
+												+ (dd[1] ? dd : "0" + dd[0])
+												+ (hh[1] ? hh : "0" + hh[0])
+												+ (ii[1] ? ii : "0" + ii[0]);
+										// https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/btoa
+										window
+												.open(
+														'./?mod=sms_cheat&phone='
+																+ window
+																		.btoa(unescape(encodeURIComponent(key_handphone)))
+																+ '&t='
+																+ window
+																		.btoa(unescape(encodeURIComponent(time))),
+														'temp');
+									}
+								</script> <!--<iframe src="#" name="target_iframe" width="0" height="0" frameborder="0" marginwidth="0", marginheight="0" scrolling="no"></iframe>-->
 								<div style="padding-top: 5px;">
 									※ SMS가 수신되지 않는 경우, 스팸 문자함을 확인해 보세요. <br>※ 스팸 차단 앱을 설치한
 									경우에는 해당 앱의 스팸함을 확인해 보세요.
@@ -671,6 +781,8 @@
 						</tr>
 					</table>
 				</div>
+
+				<br>
 
 
 				<div class="panel panel-default" style="width: 330px;">
@@ -706,8 +818,13 @@
 							type="hidden" readonly name="cheat_rule" value="" valign="bottom"
 							style="width: 0px; height: 0px;">
 					</div>
-
-
+					<script>
+						function value_change(id_name, value) {
+							var input = document.getElementById(id_name);
+							input.value = value;
+							//input.onchange();
+						}
+					</script>
 					<div class="alert_cheat_write alert_cheat_write-info">
 						<b><input type="checkbox" name="agreement_1" value="1"
 							id="chk_agreement_1"
@@ -831,20 +948,30 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 							for="chk_agreement_2">개인정보 수집 및 이용에 동의합니다.(필수)</label></b>
 					</div>
 
+
 				</div>
 				<input type="hidden" id="agreement_1h" value="0" name="agreement_1h"
 					style="width: 0px; height: 0px;">
 				<input type="hidden" id="agreement_2h" value="0" name="agreement_2h"
 					style="width: 0px; height: 0px;">
-				<br>
+
+				<div>
+					<br>
+				</div>
+				<div id="submit_btn" class="submit_btn">
+					<a href="#"><img src="registrationimages/trade/agrbut.PNG" alt=""></a>
+					<!--<input type="submit" value="" name="" onclick="return confirm('확인 버튼을 누른 후 피해사례가 등록될 때 까지 기다려 주세요.');"/>-->
+
+				</div>
 
 				<div id="submit_btn" class="submit_btn">
 					<a href="#"><img src="img/agrbut.PNG" alt=""></a>
 					<!--<input type="submit" value="" name="" onclick="return confirm('확인 버튼을 누른 후 피해사례가 등록될 때 까지 기다려 주세요.');"/>-->
 
 				</div>
+				</div>
 			</table>
 		</div>
 	</div>
-</div>
-<!-- //container -->
+	<!-- //container -->
+</body>

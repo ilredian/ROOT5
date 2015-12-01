@@ -57,17 +57,18 @@ public class BoardController {
 	}
 	//2. 자유게시판 상세보기
 	@RequestMapping("freeView.go")	//자유게시판 상세보기 - 페이지
-	public String freeView(String seq , Model model) throws ClassNotFoundException, SQLException{
-	/*
-	     BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
-		 BoardFreeDTO boardFreeDTO = boardFreeDAO.getNotice(seq);
+	public String freeView(String boardno , Model model) throws ClassNotFoundException, SQLException{
+	    
+		 BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
+		 BoardFreeDTO boardFreeDTO = boardFreeDAO.getNotice(boardno);
 		 model.addAttribute("boardFreeDTO", boardFreeDTO); ///// DB 테이블 명--파라미터명 일치 여부 확인후 수정바람*****
-		*/
-		return "home.boardFree.freeView";
+		
+		 return "home.boardFree.freeView";
 	}
 	//3. 자유게시판 글쓰기(화면만 뿌리기)
 	@RequestMapping(value="freeWrite.go" , method=RequestMethod.GET)	
 	public String freeWrite(BoardFreeDTO boardDTO){
+		System.out.println("자유게시판 글쓰기 창");
 		return "home.boardFree.freeWrite";
 	}
 	//4. 자유게시판 글쓰기(실제 글 등록 -DB)
@@ -77,14 +78,32 @@ public class BoardController {
 	    System.out.println("n : " + DTO.getTitle()); 
 	    System.out.println("n : " + DTO.getContent());
 	  
-	    /*
 	    BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
 	    boardFreeDAO.insert(DTO);
-	    */
-	    
+	    System.out.println("자유게시판 글쓰기 완료");
 	  return "home.boardFree.freeMain";
 	}
 
+	//5. 게시물 수정
+	@RequestMapping("freeEdit.go")   
+	public String freeEdit(BoardFreeDTO boardFreeDTO) throws ClassNotFoundException, SQLException{
+		
+	    BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
+	    boardFreeDAO.update(boardFreeDTO);
+	    System.out.println("자유게시판 수정완료");
+		return "home.boardFree.freeEdit";
+		
+	}
+	//6. 게시물 삭제
+	@RequestMapping("freeDelete.go")   
+	public String freeDelete(String boardno) throws ClassNotFoundException, SQLException{
+		
+	    BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
+	    boardFreeDAO.delete(boardno);
+	    System.out.println("자유게시판 삭제완료");
+		return "home.boardFree.freeMain";
+		
+	}
 
 	////////////공지게시판////////////
 	
@@ -148,7 +167,16 @@ public class BoardController {
 	*/
 		return "home.boardNotice.noticeMain";
 	}
-	////////////////////////////////////////////
+	
+	
+	//5. 게시물 수정
+	public String noticeEdit(){
+		return null;
+	}
+	//6. 게시물 삭제
+	public String noticeDelete(){
+		return null;
+	}
 
 
 }

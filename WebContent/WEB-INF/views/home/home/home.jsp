@@ -72,8 +72,8 @@
 			style="background-color: lavender; margin: 10px; height: 165px; width: 275px;">
 			<form action="" style="margin-top: 20px; float: left;">
 				<div>
-					<input type="text" style="float: left; margin-bottom: 1px;" value=""
-						placeholder="이메일 주소 입력" size="15px"> <input
+					<input type="text" style="float: left; margin-bottom: 1px;"
+						value="" placeholder="이메일 주소 입력" size="15px"> <input
 						type="password" style="float: left; margin-top: 1px;" value=""
 						placeholder="비밀번호" size="15px">
 				</div>

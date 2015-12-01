@@ -3,42 +3,57 @@
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<div class="well" align="center">
-	<div class="container">
-		<h3 align="center">
-			<img src="img/qwe.PNG" alt="용의자(사기범) 정보">
-		</h3>
-		<p class="infoTxtTop" align="center">
-			<span class="bltS_A">*</span> 는 필수 기재 항목입니다
-		</p>
-		<table class="formTypeA">
-			<caption>피해 발생 사이트에 대한 사이트명, 거래물품종류, 용의자 아이디, 사기 게시물 링크 입력폼</caption>
-			<colgroup>
-				<col width="150">
-				<col width="*">
-			</colgroup>
-			<tr>
-				<th><label for="s_stie">사이트명(URL)</label> <span class="bltS_A">*</span></th>
-				<td><input type="hidden" name="category" value="신고"> <select
-					name="cheat_site_temp"
-					onchange="javascript:if(cheat_site_temp.value == '1'){ cheat_site.readOnly = false; cheat_site.focus(); } else{ cheat_site.value = cheat_site_temp.value; cheat_site.readOnly = true; cheat_site.focus(); }"
-					id="cheat_site_temp" title="사이트 선택">
-						<option selected value="">피해가 발생한 사이트를 선택하세요.</option>
-						<option value="">─────────</option>
-						<option value="cafe.naver.com">네이버 카페</option>
-						<option value="blog.naver.com">네이버 블로그</option>
-						<option value="cafe.daum.net">다음 카페</option>
-						<option value="blog.daum.net">다음 블로그</option>
-						<option value="kakao.com">카카오톡/스토리</option>
-						<option value="ruliweb.daum.net">루리웹</option>
-						<option value="nateonweb.nate.com">네이트온</option>
-						<option value="itembay.com">아이템베이</option>
-						<option value="itemmania.com">아이템매니아</option>
-						<option value="">─────────</option>
-						<option value="1">직접 입력하기(오른쪽에 URL을 입력하세요.)</option>
-				</select> http://www.<input type="text" name="cheat_site" id="cheat_site"
-					class="txt" value="" size="26" placeholder=" URL이 입력됩니다." readonly
-					maxlength="30" /> <script>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="well" align="center">
+		<div class="container">
+			<h3 align="center">
+				<img src="registrationimages/game/qwe.PNG" alt="용의자(사기범) 정보">
+			</h3>
+			<p class="infoTxtTop" align="center">
+				<span class="bltS_A">*</span> 는 필수 기재 항목입니다
+			</p>
+			<table class="formTypeA">
+				<caption>피해 발생 사이트에 대한 사이트명, 거래물품종류, 용의자 아이디, 사기 게시물 링크
+					입력폼</caption>
+				<colgroup>
+					<col width="150">
+					<col width="*">
+				</colgroup>
+				<tr>
+					<th><label for="s_stie">사이트명(URL)</label> <span class="bltS_A">*</span></th>
+					<td><input type="hidden" name="category" value="신고"> <select
+						name="cheat_site_temp"
+						onchange="javascript:if(cheat_site_temp.value == '1'){ cheat_site.readOnly = false; cheat_site.focus(); } else{ cheat_site.value = cheat_site_temp.value; cheat_site.readOnly = true; cheat_site.focus(); }"
+						id="cheat_site_temp" title="사이트 선택">
+							<option selected value="">피해가 발생한 사이트를 선택하세요.</option>
+							<option value="">─────────</option>
+							<option value="cafe.naver.com">네이버 카페</option>
+							<option value="blog.naver.com">네이버 블로그</option>
+							<option value="cafe.daum.net">다음 카페</option>
+							<option value="blog.daum.net">다음 블로그</option>
+							<option value="kakao.com">카카오톡/스토리</option>
+							<option value="ruliweb.daum.net">루리웹</option>
+							<option value="nateonweb.nate.com">네이트온</option>
+							<option value="itembay.com">아이템베이</option>
+							<option value="itemmania.com">아이템매니아</option>
+							<option value="">─────────</option>
+							<option value="1">직접 입력하기(오른쪽에 URL을 입력하세요.)</option>
+					</select> http://www.<input type="text" name="cheat_site" id="cheat_site"
+						class="txt" value="" size="26" placeholder=" URL이 입력됩니다." readonly
+						maxlength="30" /> <script>
+
 							$("#cheat_site_temp").change(
 									function() {
 										if ($(this).val() == 1) {
@@ -54,46 +69,48 @@
 										}
 									});
 						</script></td>
-			</tr>
-			<tr>
-				<th>거래 물품 종류 <span class="bltS_A">*</span></th>
-				<td>
-					<ul class="damageGoodsDealList">
-						<il class="first oneLine" style="float: left;"> <input
-							type="radio" name="cheat_item_temp" class="rdo" id="s_goods17"
-							value="포인트/마일리지" onclick="label_rdo_click('s_goods17');">
-						<label for="s_goods17" style="margin-right: 10px">
-							<h1>
-								<span class="glyphicon glyphicon-usd"></span>
-							</h1>
-							<div class="sub_msg">포인트/마일리지</div>
-						</label></il>
+				</tr>
+				<tr>
+					<th>거래 물품 종류 <span class="bltS_A">*</span></th>
+					<td>
+						<ul class="damageGoodsDealList">
+							<il class="first oneLine" style="float: left;"> <input
+								type="radio" name="cheat_item_temp" class="rdo" id="s_goods17"
+								value="포인트/마일리지" onclick="label_rdo_click('s_goods17');">
+							<label for="s_goods17" style="margin-right: 10px">
+								<h1>
+									<span class="glyphicon glyphicon-usd"></span>
+								</h1>
+								<div class="sub_msg">포인트/마일리지</div>
+							</label></il>
 
 
-						<il class="oneLine" style="float: left;"> <input type="radio"
-							name="cheat_item_temp" class="rdo" id="s_goods18" value="게임 아이템"
-							onclick="label_rdo_click('s_goods18');"> <label
-							for="s_goods18" style="margin-top: 8px; margin-right: 10px">
-							<h2>
-								<span class="glyphicon glyphicon-briefcase"></span>
-							</h2>
-							<div class="sub_msg">게임 아이템</div>
-						</label></il>
+							<il class="oneLine" style="float: left;"> <input
+								type="radio" name="cheat_item_temp" class="rdo" id="s_goods18"
+								value="게임 아이템" onclick="label_rdo_click('s_goods18');">
+							<label for="s_goods18"
+								style="margin-top: 8px; margin-right: 10px">
+								<h2>
+									<span class="glyphicon glyphicon-briefcase"></span>
+								</h2>
+								<div class="sub_msg">게임 아이템</div>
+							</label></il>
 
 
-						<il class="oneLine" style="float: left;"> <input type="radio"
-							name="cheat_item_temp" class="rdo" id="s_goods20" value="아이디/계정"
-							onclick="label_rdo_click('s_goods20');"> <label
-							for="s_goods20" style="margin-top: 8px">
-							<h2>
-								<span class="glyphicon glyphicon-user"></span>
-							</h2>
-							<div class="sub_msg">아이디/계정</div>
-						</label></il>
-						<input type="hidden" name="cheat_item" id="cheat_item" value=""
-							maxlength="20" class="txt" readonly />
+							<il class="oneLine" style="float: left;"> <input
+								type="radio" name="cheat_item_temp" class="rdo" id="s_goods20"
+								value="아이디/계정" onclick="label_rdo_click('s_goods20');">
+							<label for="s_goods20" style="margin-top: 8px">
+								<h2>
+									<span class="glyphicon glyphicon-user"></span>
+								</h2>
+								<div class="sub_msg">아이디/계정</div>
+							</label></il>
+							<input type="hidden" name="cheat_item" id="cheat_item" value=""
+								maxlength="20" class="txt" readonly />
 
-					</ul> <script>
+						</ul> <script>
+
 							$("#cheat_item_temp").change(
 									function() {
 										if ($(this).val() == 1) {
@@ -402,11 +419,16 @@
 
 			</table>
 		</div>
-		<div class="well" align="center">
-			<div class="formSection">
-				<h3>피해자(본인)정보</h3>
-				<p class="infoTxtTop">
-					"<span class="bltS_A">*</span>"는 필수 기재 항목입니다"
+
+
+		<div class="formSection">
+			<div class="well" align="center">
+				<h3 align="center">
+					<img src="registrationimages/game/infor.PNG" alt="용의자(사기범) 정보">
+				</h3>
+				<p class="infoTxtTop" align="center">
+					<span class="bltS_A">*</span> 는 필수 기재 항목입니다
+
 				</p>
 				<table class="formTypeA" border="1px">
 					<colgroup>
@@ -514,26 +536,9 @@
 														'temp');
 									}
 								</script> <!--<iframe src="#" name="target_iframe" width="0" height="0" frameborder="0" marginwidth="0", marginheight="0" scrolling="no"></iframe>-->
-							<a onclick="v2014_handphone_check('#member_phone');return false;"
-							target="target_iframe"><img src="images/injung.PNG"
-								alt="인증번호 받기 (무료)"></a>
-							<div style="padding-top: 5px;">
-								<label>※ SMS가 수신되지 않는 경우, 스팸 문자함을 확인해 보세요. <br>※ 스팸
-									차단 앱을 설치한 경우에는 해당 앱의 스팸함을 확인해 보세요.
-								</label>
-								<!--<span style="background-color:yellow"><span class="explain_text_red"> (전송된 인증번호를 입력하세요.) </span></span>-->
-							</div></td>
-					</tr>
+							</td>
+						</tr>
 
-					<tr>
-						<th><label for="vi_certification">인증번호 입력</label> <span
-							class="bltS_A">*</span></th>
-						<td><input type="text" class="txt" name="handphone_key"
-							maxlength="10" id="vi_certification"
-							style="width: 230px; ime-mode: disabled;"
-							onKeyPress="return numbersonly(event, false)"
-							placeholder="연락처로 수신된 인증번호를 입력하세요."></td>
-					</tr>
 
 					<tr>
 						<th><label for="vi_email">이메일</label> <span class="bltS_A">*</span></th>
@@ -544,12 +549,11 @@
 				</table>
 
 			</div>
-		</div>
-		<h3>
-			<img src="img/agr.PNG" alt="">
-		</h3>
-		<textarea rows="" cols="" readonly="readonly"
-			style="margin: 0px; width: 900px; height: 300px;">
+			<h3>
+				<img src="registrationimages/game/agr.PNG" alt="">
+			</h3>
+			<textarea rows="" cols="" readonly="readonly"
+				style="margin: 0px; width: 900px; height: 300px;">
         피해사례 등록 약관
             
 1. 본인이 등록한 피해사례 정보는 용의자 검거 및 피해 방지를 위한 목적으로 공인된 수사기관에 제공됨을 동의합니다.
@@ -565,19 +569,17 @@
 ② 개인적인 앙심 또는 괘씸함 등 사기범죄 외의 사유로 등록하시는 경우, 명예훼손에 해당될 수 있으며 이는 민·형사상의 불이익을 받을 수 있습니다.
 ③ 제품에 대한 상태불만, 반품거부, 택배비 착불등의 사례 등록은 영업방해 및 명예훼손에 해당될 수 있습니다.
         </textarea>
-
-		<div class="alert_cheat_write alert_cheat_write-info">
-			<b><input type="checkbox" name="cheat_rule_c" value="1"
-				id="cheat_rule_c" valign="bottom"
-				onclick="return cheat_rule_check(cheat_rule.value)" /> <label
-				for="cheat_rule_c">피해사례 등록 약관에 동의합니다.(필수)</label></b> <input
-				type="hidden" readonly name="cheat_rule" value="" valign="bottom"
-				style="width: 0px; height: 0px;">
-		</div>
-		<div id="submit_btn" class="submit_btn">
-			<a href="#"><img src="img/agrbut.PNG" alt=""></a>
-			<!--<input type="submit" value="" name="" onclick="return confirm('확인 버튼을 누른 후 피해사례가 등록될 때 까지 기다려 주세요.');"/>-->
-
+			<div class="alert_cheat_write alert_cheat_write-info">
+				<b><input type="checkbox" name="cheat_rule_c" value="1"
+					id="cheat_rule_c" valign="bottom"
+					onclick="return cheat_rule_check(cheat_rule.value)" /> <label
+					for="cheat_rule_c">피해사례 등록 약관에 동의합니다.(필수)</label></b> <input
+					type="hidden" readonly name="cheat_rule" value="" valign="bottom"
+					style="width: 0px; height: 0px;">
+			</div>
+			<div id="submit_btn" class="submit_btn">
+				<a href="#"><img src="registrationimages/game/agrbut.PNG" alt=""></a>
+				<!--<input type="submit" value="" name="" onclick="return confirm('확인 버튼을 누른 후 피해사례가 등록될 때 까지 기다려 주세요.');"/>-->
 		</div>
 	</div>
 </div>

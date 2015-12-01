@@ -17,7 +17,7 @@
 
 
 	<div class="container">
-		<img src="images/a1_Dtaile.PNG">
+		<img src="boardStatementimages/spam/spama1.PNG">
 	</div>
 	<div class="container">
 		<div class="container">
@@ -39,7 +39,7 @@
 	<div class="container">
 		<div class="container">
 			<h3>
-				<img src="boardStatementimages/a2.PNG">
+				<img src="boardStatementimages/spam/a2.PNG">
 			</h3>
 			<table class="table table table-striped">
 				<colgroup>
@@ -89,7 +89,7 @@
 	<div class="container">
 		<div class="container">
 			<h3>
-				<img src="boardStatementimages/a3.PNG">
+				<img src="boardStatementimages/spam/a3.PNG">
 			</h3>
 			<table class="table table table-striped">
 				<colgroup>
@@ -144,7 +144,7 @@
 	<div class="container">
 		<div class="container">
 			<h3>
-				<img src="boardStatementimages/a4.PNG">
+				<img src="boardStatementimages/spam/a4.PNG">
 			</h3>
 			<table class="table table table-striped">
 				<colgroup>
