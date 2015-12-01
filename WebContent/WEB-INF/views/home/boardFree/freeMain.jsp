@@ -38,11 +38,10 @@
       </tbody>
    </table>
    <div>
-      <se:authorize ifAllGranted="ROLE_USER , ROLE_ADMIN">
-         <br>
+      <%-- <se:authorize ifAllGranted="ROLE_USER , ROLE_ADMIN"> --%>
          <input class="btn btn-primary" type="button" value="글쓰기"
             id="freeWrite" style="float: right;">
-      </se:authorize>
+      <%-- </se:authorize> --%>
    </div>
 </div>
 <div style="text-align: center;">

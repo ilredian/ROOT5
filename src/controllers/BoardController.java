@@ -38,7 +38,62 @@ public class BoardController {
 
 	@Autowired
 	private SqlSession sqlSession;
+	
+	//////////// 리플 등록////////////////
+	//////////// 리플 등록////////////////
+	//////////// 리플 등록////////////////
+	//////////// 리플 등록////////////////
+	//////////// 리플 등록////////////////
+	@RequestMapping(value="reply.go", method = RequestMethod.POST)
+	public String reply(@RequestParam("pg") int page,
+						@RequestParam("bno") int boardno,
+						@RequestParam("cno") int categoryno,
+						HttpSession session,
+						ReplyDTO replyDTO
+						) throws Exception{
+		// 로그남기기
+		System.out.println("리플 등록 시작");
+		
+		// 페이지 이동을 위한 변수 선언
+		String go = "";
+		
+		// 리플 DB 넘기기
+		ReplyDAO replyDAO = sqlSession.getMapper(ReplyDAO.class);
+		replyDTO.setName(((MemberDTO)session.getAttribute("memberInfo")).getName());
+		replyDTO.setBoardno(boardno);
+		replyDTO.setMemberno(((MemberDTO)session.getAttribute("memberInfo")).getMemberno());
+		replyDTO.setCategoryno(categoryno);
+		int result = replyDAO.insertReply(replyDTO);
+		
+		if(result>0){
+			System.out.println("리플 등록 완료");
+		}else{
+			System.out.println("리플 등록 실패");
+		}
+		
+		// 페이지 이동 스위치 문
+		switch(categoryno){
+			case 1 :
+				go="redirect:freeView.go?pg="+page+"&bno="+boardno;
+			break;
+			
+			case 2 :
+				go="redirect:noticeView.go?pg="+page+"&bno="+boardno;
+			break;
+			
+			case 3 :
+				go="redirect:photoView.go?pg="+page+"&bno="+boardno;
+			break;
+			
+			case 4 :
+				go="redirect:lawView.go?pg="+page+"&bno="+boardno;
+			break;
+		}
+		
+		return go;
+	}
 
+	
 	//////////// 자유게시판////////////////
 	//////////// 자유게시판////////////////
 	//////////// 자유게시판////////////////

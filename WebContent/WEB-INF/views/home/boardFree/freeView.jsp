@@ -76,8 +76,10 @@
 			</c:forEach>
 			<tr>
 				<td style="text-align: center;" colspan="2">
-					<input type="text" id="" name="" style="width: 90%">
-					<input class="btn btn-default" type="button" id="replybtn" value="댓글 등록">
+					<form action="reply.go?pg=${param.pg}&bno=${param.bno}&cno=1" method="post">
+						<input type="text" id="replyContent" name="content" style="width: 90%">
+						<input class="btn btn-primary" type="submit" id="replybtn" value="댓글 등록">
+					</form>
 				</td>
 			</tr>
 		</tbody>
