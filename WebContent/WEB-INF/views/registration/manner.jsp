@@ -65,22 +65,7 @@
 				<option value="1">직접 입력하기(오른쪽에 URL을 입력하세요.)</option>
 		</select> http://www.<input type="text" name="cheat_site" id="cheat_site"
 			class="txt" value="" size="26" placeholder=" URL이 입력됩니다." readonly
-			maxlength="30" /> <script>
-								$("#cheat_site_temp").change(
-										function() {
-											if ($(this).val() == 1) {
-												$("#cheat_site").removeClass(
-														'input_hidden');
-												$("#cheat_site").addClass(
-														'input_bold');
-											} else {
-												$("#cheat_site").removeClass(
-														'input_bold');
-												$("#cheat_site").addClass(
-														'input_hidden');
-											}
-										});
-							</script></td>
+			maxlength="30" /></td>
 	</tr>
 	<tr>
 		<th>거래 물품 종류 <span class="bltS_A">*</span></th>
@@ -308,33 +293,7 @@
 						<input type="hidden" name="cheat_item" id="cheat_item" value=""
 							maxlength="20" class="txt" readonly />
 				</ul>
-				<script>
-									$("#cheat_item_temp")
-											.change(
-													function() {
-														if ($(this).val() == 1) {
-															$("#cheat_item")
-																	.removeClass(
-																			'input_hidden');
-															$("#cheat_item")
-																	.addClass(
-																			'input_bold');
-														} else {
-															$("#cheat_item")
-																	.removeClass(
-																			'input_bold');
-															$("#cheat_item")
-																	.addClass(
-																			'input_hidden');
-														}
-													});
-									function label_rdo_click(id_name) {
-										$('#' + id_name).prop('checked', true);
-										var temp_item_name = $('#' + id_name)
-												.val();
-										$('#cheat_item').val(temp_item_name);
-									}
-								</script>
+				
 				</tr>
 			</table>
 	</tr>
@@ -669,68 +628,7 @@
 				style="ime-mode: disabled; width: 70px;" title="끝 자리 입력"
 				onKeyPress="return numbersonly(event, false)" /> <input
 				type="hidden" name="member_phone" id="member_phone" value=""
-				readonly /> <script>
-									function srvTime() { // 서버의 시간을 가져온다.
-										var xmlHttp;
-										if (window.XMLHttpRequest) {//분기하지 않으면 IE에서만 작동된다.
-											xmlHttp = new XMLHttpRequest(); // IE 7.0 이상, 크롬, 파이어폭스 등
-											xmlHttp.open('HEAD',
-													window.location.href
-															.toString(), false);
-											xmlHttp
-													.setRequestHeader(
-															"Content-Type",
-															"text/html");
-											xmlHttp.send('');
-											return xmlHttp
-													.getResponseHeader("Date");
-										} else if (window.ActiveXObject) {
-											xmlHttp = new ActiveXObject(
-													'Msxml2.XMLHTTP');
-											xmlHttp.open('HEAD',
-													window.location.href
-															.toString(), false);
-											xmlHttp
-													.setRequestHeader(
-															"Content-Type",
-															"text/html");
-											xmlHttp.send('');
-											return xmlHttp
-													.getResponseHeader("Date");
-										}
-									}
-									function v2014_handphone_check(form_name) {
-										var key_handphone = $(form_name).val();
-										if (!key_handphone) {
-											alert('연락처를 입력해 주세요.');
-											return false;
-										}
-										var st = srvTime(); // 서버읜 현재 시간 가져오기
-										var dt = new Date(st);
-										if (!dt)
-											dt = new Date();
-										var yyyy = dt.getFullYear().toString();
-										var mm = (dt.getMonth() + 1).toString(); // getMonth() is zero-based
-										var dd = dt.getDate().toString();
-										var hh = dt.getHours().toString();
-										var ii = dt.getMinutes().toString();
-										var time = yyyy
-												+ (mm[1] ? mm : "0" + mm[0])
-												+ (dd[1] ? dd : "0" + dd[0])
-												+ (hh[1] ? hh : "0" + hh[0])
-												+ (ii[1] ? ii : "0" + ii[0]);
-										// https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/btoa
-										window
-												.open(
-														'./?mod=sms_cheat&phone='
-																+ window
-																		.btoa(unescape(encodeURIComponent(key_handphone)))
-																+ '&t='
-																+ window
-																		.btoa(unescape(encodeURIComponent(time))),
-														'temp');
-									}
-								</script> <!--<iframe src="#" name="target_iframe" width="0" height="0" frameborder="0" marginwidth="0", marginheight="0" scrolling="no"></iframe>-->
+				readonly /> <!--<iframe src="#" name="target_iframe" width="0" height="0" frameborder="0" marginwidth="0", marginheight="0" scrolling="no"></iframe>-->
 			</td>
 		</tr>
 
@@ -779,13 +677,6 @@
 			style="width: 0px; height: 0px;">
 	</div>
 
-	<script>
-						function value_change(id_name, value) {
-							var input = document.getElementById(id_name);
-							input.value = value;
-							//input.onchange();
-						}
-					</script>
 	<div class="alert_cheat_write alert_cheat_write-info">
 		<b><input type="checkbox" name="agreement_1" value="1"
 			id="chk_agreement_1"

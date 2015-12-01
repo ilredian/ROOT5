@@ -3,134 +3,82 @@
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</head>
-<body>
-	<div class="well" align="center">
-		<div class="container">
-			<h3 align="center">
-				<img src="registrationimages/game/qwe.PNG" alt="용의자(사기범) 정보">
-			</h3>
-			<p class="infoTxtTop" align="center">
-				<span class="bltS_A">*</span> 는 필수 기재 항목입니다
-			</p>
-			<table class="formTypeA">
-				<caption>피해 발생 사이트에 대한 사이트명, 거래물품종류, 용의자 아이디, 사기 게시물 링크
-					입력폼</caption>
-				<colgroup>
-					<col width="150">
-					<col width="*">
-				</colgroup>
-				<tr>
-					<th><label for="s_stie">사이트명(URL)</label> <span class="bltS_A">*</span></th>
-					<td><input type="hidden" name="category" value="신고"> <select
-						name="cheat_site_temp"
-						onchange="javascript:if(cheat_site_temp.value == '1'){ cheat_site.readOnly = false; cheat_site.focus(); } else{ cheat_site.value = cheat_site_temp.value; cheat_site.readOnly = true; cheat_site.focus(); }"
-						id="cheat_site_temp" title="사이트 선택">
-							<option selected value="">피해가 발생한 사이트를 선택하세요.</option>
-							<option value="">─────────</option>
-							<option value="cafe.naver.com">네이버 카페</option>
-							<option value="blog.naver.com">네이버 블로그</option>
-							<option value="cafe.daum.net">다음 카페</option>
-							<option value="blog.daum.net">다음 블로그</option>
-							<option value="kakao.com">카카오톡/스토리</option>
-							<option value="ruliweb.daum.net">루리웹</option>
-							<option value="nateonweb.nate.com">네이트온</option>
-							<option value="itembay.com">아이템베이</option>
-							<option value="itemmania.com">아이템매니아</option>
-							<option value="">─────────</option>
-							<option value="1">직접 입력하기(오른쪽에 URL을 입력하세요.)</option>
-					</select> http://www.<input type="text" name="cheat_site" id="cheat_site"
-						class="txt" value="" size="26" placeholder=" URL이 입력됩니다." readonly
-						maxlength="30" /> <script>
-
-							$("#cheat_site_temp").change(
-									function() {
-										if ($(this).val() == 1) {
-											$("#cheat_site").removeClass(
-													'input_hidden');
-											$("#cheat_site").addClass(
-													'input_bold');
-										} else {
-											$("#cheat_site").removeClass(
-													'input_bold');
-											$("#cheat_site").addClass(
-													'input_hidden');
-										}
-									});
-						</script></td>
-				</tr>
-				<tr>
-					<th>거래 물품 종류 <span class="bltS_A">*</span></th>
-					<td>
-						<ul class="damageGoodsDealList">
-							<il class="first oneLine" style="float: left;"> <input
-								type="radio" name="cheat_item_temp" class="rdo" id="s_goods17"
-								value="포인트/마일리지" onclick="label_rdo_click('s_goods17');">
-							<label for="s_goods17" style="margin-right: 10px">
-								<h1>
-									<span class="glyphicon glyphicon-usd"></span>
-								</h1>
-								<div class="sub_msg">포인트/마일리지</div>
-							</label></il>
+<div class="well" align="center">
+	<div class="container">
+		<h3 align="center">
+			<img src="registrationimages/game/qwe.PNG" alt="용의자(사기범) 정보">
+		</h3>
+		<p class="infoTxtTop" align="center">
+			<span class="bltS_A">*</span> 는 필수 기재 항목입니다
+		</p>
+		<table class="formTypeA">
+			<caption>피해 발생 사이트에 대한 사이트명, 거래물품종류, 용의자 아이디, 사기 게시물 링크 입력폼</caption>
+			<colgroup>
+				<col width="150">
+				<col width="*">
+			</colgroup>
+			<tr>
+				<th><label for="s_stie">사이트명(URL)</label> <span class="bltS_A">*</span></th>
+				<td><input type="hidden" name="category" value="신고"> <select
+					name="cheat_site_temp"
+					onchange="javascript:if(cheat_site_temp.value == '1'){ cheat_site.readOnly = false; cheat_site.focus(); } else{ cheat_site.value = cheat_site_temp.value; cheat_site.readOnly = true; cheat_site.focus(); }"
+					id="cheat_site_temp" title="사이트 선택">
+						<option selected value="">피해가 발생한 사이트를 선택하세요.</option>
+						<option value="">─────────</option>
+						<option value="cafe.naver.com">네이버 카페</option>
+						<option value="blog.naver.com">네이버 블로그</option>
+						<option value="cafe.daum.net">다음 카페</option>
+						<option value="blog.daum.net">다음 블로그</option>
+						<option value="kakao.com">카카오톡/스토리</option>
+						<option value="ruliweb.daum.net">루리웹</option>
+						<option value="nateonweb.nate.com">네이트온</option>
+						<option value="itembay.com">아이템베이</option>
+						<option value="itemmania.com">아이템매니아</option>
+						<option value="">─────────</option>
+						<option value="1">직접 입력하기(오른쪽에 URL을 입력하세요.)</option>
+				</select> http://www.<input type="text" name="cheat_site" id="cheat_site"
+					class="txt" value="" size="26" placeholder=" URL이 입력됩니다." readonly
+					maxlength="30" /></td>
+			</tr>
+			<tr>
+				<th>거래 물품 종류 <span class="bltS_A">*</span></th>
+				<td>
+					<ul class="damageGoodsDealList">
+						<il class="first oneLine" style="float: left;"> <input
+							type="radio" name="cheat_item_temp" class="rdo" id="s_goods17"
+							value="포인트/마일리지" onclick="label_rdo_click('s_goods17');">
+						<label for="s_goods17" style="margin-right: 10px">
+							<h1>
+								<span class="glyphicon glyphicon-usd"></span>
+							</h1>
+							<div class="sub_msg">포인트/마일리지</div>
+						</label></il>
 
 
-							<il class="oneLine" style="float: left;"> <input
-								type="radio" name="cheat_item_temp" class="rdo" id="s_goods18"
-								value="게임 아이템" onclick="label_rdo_click('s_goods18');">
-							<label for="s_goods18"
-								style="margin-top: 8px; margin-right: 10px">
-								<h2>
-									<span class="glyphicon glyphicon-briefcase"></span>
-								</h2>
-								<div class="sub_msg">게임 아이템</div>
-							</label></il>
+						<il class="oneLine" style="float: left;"> <input type="radio"
+							name="cheat_item_temp" class="rdo" id="s_goods18" value="게임 아이템"
+							onclick="label_rdo_click('s_goods18');"> <label
+							for="s_goods18" style="margin-top: 8px; margin-right: 10px">
+							<h2>
+								<span class="glyphicon glyphicon-briefcase"></span>
+							</h2>
+							<div class="sub_msg">게임 아이템</div>
+						</label></il>
 
 
-							<il class="oneLine" style="float: left;"> <input
-								type="radio" name="cheat_item_temp" class="rdo" id="s_goods20"
-								value="아이디/계정" onclick="label_rdo_click('s_goods20');">
-							<label for="s_goods20" style="margin-top: 8px">
-								<h2>
-									<span class="glyphicon glyphicon-user"></span>
-								</h2>
-								<div class="sub_msg">아이디/계정</div>
-							</label></il>
-							<input type="hidden" name="cheat_item" id="cheat_item" value=""
-								maxlength="20" class="txt" readonly />
+						<il class="oneLine" style="float: left;"> <input type="radio"
+							name="cheat_item_temp" class="rdo" id="s_goods20" value="아이디/계정"
+							onclick="label_rdo_click('s_goods20');"> <label
+							for="s_goods20" style="margin-top: 8px">
+							<h2>
+								<span class="glyphicon glyphicon-user"></span>
+							</h2>
+							<div class="sub_msg">아이디/계정</div>
+						</label></il>
+						<input type="hidden" name="cheat_item" id="cheat_item" value=""
+							maxlength="20" class="txt" readonly />
 
-						</ul> <script>
-
-							$("#cheat_item_temp").change(
-									function() {
-										if ($(this).val() == 1) {
-											$("#cheat_item").removeClass(
-													'input_hidden');
-											$("#cheat_item").addClass(
-													'input_bold');
-										} else {
-											$("#cheat_item").removeClass(
-													'input_bold');
-											$("#cheat_item").addClass(
-													'input_hidden');
-										}
-									});
-							function label_rdo_click(id_name) {
-								$('#' + id_name).prop('checked', true);
-								var temp_item_name = $('#' + id_name).val();
-								$('#cheat_item').val(temp_item_name);
-							}
-						</script>
+					</ul>
 				</td>
 			</tr>
 
@@ -474,70 +422,9 @@
 							style="ime-mode: disabled; width: 70px;" title="끝 자리 입력"
 							onKeyPress="return numbersonly(event, false)" /> <input
 							type="hidden" name="member_phone" id="member_phone" value=""
-							readonly /> <script>
-									function srvTime() { // 서버의 시간을 가져온다.
-										var xmlHttp;
-										if (window.XMLHttpRequest) {//분기하지 않으면 IE에서만 작동된다.
-											xmlHttp = new XMLHttpRequest(); // IE 7.0 이상, 크롬, 파이어폭스 등
-											xmlHttp.open('HEAD',
-													window.location.href
-															.toString(), false);
-											xmlHttp
-													.setRequestHeader(
-															"Content-Type",
-															"text/html");
-											xmlHttp.send('');
-											return xmlHttp
-													.getResponseHeader("Date");
-										} else if (window.ActiveXObject) {
-											xmlHttp = new ActiveXObject(
-													'Msxml2.XMLHTTP');
-											xmlHttp.open('HEAD',
-													window.location.href
-															.toString(), false);
-											xmlHttp
-													.setRequestHeader(
-															"Content-Type",
-															"text/html");
-											xmlHttp.send('');
-											return xmlHttp
-													.getResponseHeader("Date");
-										}
-									}
-									function v2014_handphone_check(form_name) {
-										var key_handphone = $(form_name).val();
-										if (!key_handphone) {
-											alert('연락처를 입력해 주세요.');
-											return false;
-										}
-										var st = srvTime(); // 서버읜 현재 시간 가져오기
-										var dt = new Date(st);
-										if (!dt)
-											dt = new Date();
-										var yyyy = dt.getFullYear().toString();
-										var mm = (dt.getMonth() + 1).toString(); // getMonth() is zero-based
-										var dd = dt.getDate().toString();
-										var hh = dt.getHours().toString();
-										var ii = dt.getMinutes().toString();
-										var time = yyyy
-												+ (mm[1] ? mm : "0" + mm[0])
-												+ (dd[1] ? dd : "0" + dd[0])
-												+ (hh[1] ? hh : "0" + hh[0])
-												+ (ii[1] ? ii : "0" + ii[0]);
-										// https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/btoa
-										window
-												.open(
-														'./?mod=sms_cheat&phone='
-																+ window
-																		.btoa(unescape(encodeURIComponent(key_handphone)))
-																+ '&t='
-																+ window
-																		.btoa(unescape(encodeURIComponent(time))),
-														'temp');
-									}
-								</script> <!--<iframe src="#" name="target_iframe" width="0" height="0" frameborder="0" marginwidth="0", marginheight="0" scrolling="no"></iframe>-->
-							</td>
-						</tr>
+							readonly /> <!--<iframe src="#" name="target_iframe" width="0" height="0" frameborder="0" marginwidth="0", marginheight="0" scrolling="no"></iframe>-->
+						</td>
+					</tr>
 
 
 					<tr>
@@ -580,6 +467,7 @@
 			<div id="submit_btn" class="submit_btn">
 				<a href="#"><img src="registrationimages/game/agrbut.PNG" alt=""></a>
 				<!--<input type="submit" value="" name="" onclick="return confirm('확인 버튼을 누른 후 피해사례가 등록될 때 까지 기다려 주세요.');"/>-->
+			</div>
 		</div>
 	</div>
 </div>

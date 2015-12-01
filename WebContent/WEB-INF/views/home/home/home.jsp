@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <a href="freeMain.go">자유게시판</a>
 <a href="statementMain.go?cno=1">진술서게시판</a>
 
@@ -9,18 +10,19 @@
 		<div class="col-sm-6"
 			style="background-color: lavender; margin: 10px; height: 165px; width: 535px;">
 			<div style="margin-top: 30px">
-				<img alt="목록" src="img/z.PNG"> <select style="width: 317px">
+				<img alt="목록" src="homeimages/z.PNG"> <select
+					style="width: 317px">
 					<option>전체 피해 사례</option>
 					<option>직거래</option>
 					<option>전체 사례</option>
 				</select>
 			</div>
 			<div>
-				<img alt="검색" src="img/x.PNG"> <input type="text"
+				<img alt="검색" src="homeimages/x.PNG"> <input type="text"
 					placeholder="로그인후 피해사례를 검색 할 수 있습니다(무료)" size="40">
 			</div>
 			<div>
-				<input type="image" src="img/button.PNG"
+				<input type="image" src="homeimages/button.PNG"
 					onclick="form_submit('search','./?mod=_search_result','web');"
 					style="position: absolute; left: 455px; top: 20px;">
 			</div>
@@ -41,25 +43,27 @@
 					<tr>
 						<td>
 							<div>
-								<input type="image" src="img/8.PNG" width="86px" height="51px">
+								<input type="image" src="homeimages/1.PNG" width="86px"
+									height="51px">
 							</div>
 						</td>
 						<td>
 							<div style="margin-left: 5px;">
-								<input type="image" src="img/1.PNG" width="86px" height="51px">
+								<input type="image" src="homeimages/aa.PNG" width="86px"
+									height="51px">
 							</div>
 						</td>
 					</tr>
 					<tr>
 						<td>
 							<div>
-								<input type="image" src="img/list.PNG" width="86px"
+								<input type="image" src="homeimages/catch.PNG" width="86px"
 									height="51px">
 							</div>
 						</td>
 						<td>
 							<div style="margin-left: 5px;">
-								<input type="image" src="img/notice.PNG" width="86px"
+								<input type="image" src="homeimages/notice.PNG" width="86px"
 									height="51px">
 							</div>
 						</td>
@@ -72,9 +76,9 @@
 			style="background-color: lavender; margin: 10px; height: 165px; width: 275px;">
 			<form action="" style="margin-top: 20px; float: left;">
 				<div>
-					<input type="text" style="float: left; margin-bottom: 1px;"
-						value="" placeholder="이메일 주소 입력" size="15px"> <input
-						type="password" style="float: left; margin-top: 1px;" value=""
+					<input type="text" style="float: left; margin-bottom: 1px;" value
+						placeholder="이메일 주소 입력" size="15px"> <input
+						type="password" style="float: left; margin-top: 1px;" value
 						placeholder="비밀번호" size="15px">
 				</div>
 				<div>
@@ -89,7 +93,7 @@
 				<a href="#" style="float: right;">비밀번호 찾기</a>
 			</div>
 			<div>
-				<input type="image" src="img/regist.PNG">
+				<input type="image" src="homeimages/regist.PNG">
 			</div>
 		</div>
 	</div>
