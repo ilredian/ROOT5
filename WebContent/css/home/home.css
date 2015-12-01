@@ -1,1 +1,7 @@
 @CHARSET "UTF-8";
+.container-fluid {
+	margin: 50px;
+	padding: 10px;;
+	vertical-align: middle;
+	position: relative;
+}
