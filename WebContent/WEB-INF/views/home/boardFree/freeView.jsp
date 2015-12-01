@@ -4,30 +4,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="container freeView">
 	<h2>자유게시판</h2>
- <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
- <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script type="text/javascript">
-
-$(function() {
-    $('#edit').click(function(){
-    	console.log("수정페이지로이동")
-    	 location.replace("/freeEdit.go");
-    });
-    
-    $('#delete').click(function(){
-    	console.log("삭제")
-    	location.replace("/freeDelete.go");
-    });
-    
-    $('#list').click(function(){
-    	console.log("전페이지로 이동")
-    	history.go(-1);
-    });
-    
-});
-    
-</script>	
-
 	<table class="table table-striped">
 		<tbody>
 			<tr>
