@@ -363,7 +363,7 @@ public class BoardController {
 		}
 		//2. 변호사게시판 상세보기
 		@RequestMapping("lawView.go")	//자유게시판 상세보기 - 페이지
-		public String lawView(String boardno , Model model) throws ClassNotFoundException, SQLException{
+		public String lawView(@RequestParam("boardno") int boardno , Model model) throws ClassNotFoundException, SQLException{
 		    
 			System.out.println("lawview");
 			 BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
@@ -393,7 +393,7 @@ public class BoardController {
 
 		//5. 게시물 수정 (화면 (select)
 		@RequestMapping(value = "lawEdit.go",  method = RequestMethod.GET)   
-		public String lawEdit(String boardno, Model model) throws ClassNotFoundException, SQLException{
+		public String lawEdit(@RequestParam("boardno") int boardno, Model model) throws ClassNotFoundException, SQLException{
 			
 		    BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
 		    BoardLawDTO lawdto = boardLawDAO.getNotice(boardno);
@@ -416,7 +416,7 @@ public class BoardController {
 		
 		//6. 게시물 삭제
 		@RequestMapping("lawDelete.go")   
-		public String lawDelete(String boardno) throws ClassNotFoundException, SQLException{
+		public String lawDelete(@RequestParam("boardno") int boardno) throws ClassNotFoundException, SQLException{
 			
 		    BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
 		    boardLawDAO.delete(boardno);

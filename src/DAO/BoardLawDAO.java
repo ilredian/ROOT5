@@ -9,11 +9,11 @@ public interface BoardLawDAO {
     //전체 게시물
     public List<BoardLawDTO> getNotices(int start, String field, String query, int pagerSize) throws Exception;
     //게시물 삭제int start, String field, String query, int pagerSize
-    public int delete(String boardno) throws ClassNotFoundException, SQLException;
+    public int delete(int boardno) throws ClassNotFoundException, SQLException;
     //게시물 수정
     public int update(BoardLawDTO boardLawDTO) throws ClassNotFoundException, SQLException;
     //게시물 상세
-    public BoardLawDTO getNotice(String boardno) throws ClassNotFoundException, SQLException;
+    public BoardLawDTO getNotice(int boardno) throws ClassNotFoundException, SQLException;
     //게시물 입력
     public int insert(BoardLawDTO n) throws ClassNotFoundException, SQLException;
  

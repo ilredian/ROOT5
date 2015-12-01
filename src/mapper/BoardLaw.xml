@@ -17,7 +17,7 @@
 		WHERE ${param1} LIKE '%${param2}%'
 	</select>
 	
-	<select id="getNotice" resultType="DTO.BoardLawDTO">
+	<select id="getNotice" parameterType="Integer" resultType="DTO.BoardLawDTO">
 		SELECT * FROM boardlaw WHERE boardno=#{boardno}
 	</select>
 
