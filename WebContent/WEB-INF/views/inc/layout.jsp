@@ -27,14 +27,6 @@
 	background-color: #f9f9f9;
 }
 </style>
-<script>
-	$(document).ready(function() {
-		$("#myBtn").click(function() {
-			$("#myModal").modal();
-		});
-	});
-	
-</script>
 </head>
 <body>
 	<!-- header 영역 -->

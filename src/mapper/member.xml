@@ -5,7 +5,7 @@
 <mapper namespace="DAO.MemberDAO">
 
 	<select id="getMember" parameterType="DTO.MemberDTO" resultType="DTO.MemberDTO">
-		SELECT * FROM MEMBER WHERE email=#{EMAIL}
+		SELECT * FROM memberdb WHERE email=#{EMAIL}
 	</select>
 
 	<insert id="insert" parameterType="DTO.MemberDTO">

@@ -18,7 +18,6 @@ import DTO.MemberDTO;
 @Controller
 public class LoginController {
 
-	HttpSession session = null;
 	PrintWriter out = null;
 
 	@Autowired
@@ -26,7 +25,8 @@ public class LoginController {
 
 	// 로그인 정보 DB 확인
 	@RequestMapping(value = "login.go", method=RequestMethod.POST)
-	public String Login(MemberDTO memberDTO, HttpServletResponse response) throws Exception {
+	public String Login(MemberDTO memberDTO, HttpServletResponse response, HttpSession session) throws Exception {
+		System.out.println("로그인 실행");
 		//스크립트 구문을 쓰기위한 준비
 		response.setContentType("text/html;charset=UTF-8");
 		out = response.getWriter();
@@ -44,6 +44,7 @@ public class LoginController {
 			out.print("<script type='text/javascript'>alert('해당 이메일은 가입되어 있지 않습니다.')</script>");
 		}else {//아이디가 있음
 			if(result.getPassword().equals(memberDTO.getPassword())){//비밀번호가 같음
+				System.out.println("로그인 세션 설정");
 				session.setAttribute("MemberInfo", result);
 			}else{//비밀번호가 틀림
 				//경고창 띄우기
@@ -55,7 +56,7 @@ public class LoginController {
 
 	// 로그아웃
 	@RequestMapping(value = "logout.go")
-	public String Logout(HttpServletResponse response) throws IOException {
+	public String Logout(HttpServletResponse response, HttpSession session) throws IOException {
 		// 세션 삭제
 		session.invalidate();
 		
