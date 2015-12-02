@@ -30,7 +30,6 @@
  	 	</c:forEach>
     </tbody>
   </table>
-  
    <div>
       <se:authorize ifAllGranted="ROLE_ADMIN">
          <br>
