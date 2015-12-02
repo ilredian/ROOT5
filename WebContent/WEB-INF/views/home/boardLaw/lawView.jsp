@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<input type="hidden" id="pageNo" value="${param.pg}">
+<input type="hidden" id="boardNo" value="${param.bno}">
 <div class="container lawView">
 	<h2>변호사게시판</h2>
 	<table class="table table-striped">
@@ -18,17 +20,17 @@
 							<th>변호사</th>
 						</tr>
 						<tr>
-							<td>입력된 인사말이 없습니다.</td>
+							<td>${memberInfo.message}</td>
 						</tr>
 					</table>
 				</td>
-				<td style="width: 20%">조회</td>
+				<td style="width: 20%">조회  ${boardLawDTO.countno}</td>
 			</tr>
 		</tbody>
 	</table>
 	<table class="table">
 		<tr>
-			<td>내용입니다.<br> 이러이러한 일이 있어서 이러이러 함.<br> 뷰가 참 아름답네여<br>
+			<td>	${boardLawDTO.content}<br>
 			</td>
 		</tr>
 	</table>
@@ -36,11 +38,11 @@
 		<thead>
 			<tr>
 				<td><b>게시물 주소 :</b>
-				<div id="qwer"><script>$('#qwer').text(window.location.href)</script>
+				<div id="asdf"><script>$('#asdf').text(window.location.href)</script>
 					<div style="float: right;">
-						<input class="btn btn-default1" type="button" id="edit" value="수정">  <!-- freeEdit.go  -->
-						<input class="btn btn-default1" type="button" id="delete" value="삭제">  <!-- freeDelete.go -->
-						<input class="btn btn-default1" type="button" id="list" value="목록">  <!-- freeMain.go -->
+						<input class="btn btn-default" type="button" id="edit" value="수정">  <!-- freeEdit.go  -->
+						<input class="btn btn-default" type="button" id="delete" value="삭제">  <!-- freeDelete.go -->
+						<input class="btn btn-default" type="button" id="list" value="목록">  <!-- freeMain.go -->
 					</div>
 				</div>
 				</td>

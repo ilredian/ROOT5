@@ -30,7 +30,7 @@
 					<td class="number">${n.boardno}</td>
 					<td class="writer">${n.name}</td>
 					<td class="subject"><a
-						href="lawView.go?page=${page}&boardno=${n.boardno}">&nbsp;&nbsp;&nbsp;&nbsp;
+						href="lawView.go?pg=${param.pg}&bno=${n.boardno}">&nbsp;&nbsp;&nbsp;&nbsp;
 						${n.title}<br>->${n.message}</a></td>
 					<th class="career">${n.career}</th>
 					<th class="company">${n.company}</th>
@@ -42,11 +42,13 @@
 	</table>
 	<br>
 	<div>
-	   <se:authorize ifAllGranted="ROLE_USER , ROLE_ADMIN">
+	<%--    <se:authorize ifAllGranted="ROLE_USER , ROLE_ADMIN">
 		<br> <input type="button" value="글쓰기" id="lawWrite"
 			style="float: right; width: 60px; height: 40px; margin-right: 40px; margin-top: -40px;">
-	 </se:authorize>
-	</div>
+	 </se:authorize> --%>
+	 		<br> <input  class="btn btn-primary" type="button" value="글쓰기" id="lawWrite"
+			style="float: right; width: 60px; height: 40px; margin-right: 40px; margin-top: -40px;">
+	</div>                                                                                                                                                                                                                                                             
 </div>
 <div style="text-align: center;">
 	<c:set var="pager" value="${pager.toString()}" />
