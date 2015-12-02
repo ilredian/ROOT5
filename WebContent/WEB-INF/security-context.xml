@@ -17,18 +17,19 @@
 		 <!--  경로가 제일 빡쳐.
 		 home/boardFree/*  이냐 /boardFree/* -->
 		 <!--1. 자유게시판은 모두(관리자/ 접근 가능  -->
-   <security:intercept-url pattern="boardFree/*" access="hasRole('ROLE_USER')" />
+   <security:intercept-url pattern="/boardFree/*" access="hasRole('ROLE_USER')" />
    <!-- 2. 공지게시판 작성 Write 는 관리자만 허용 -->
     <security:intercept-url pattern="/noticeWrite.go" access="hasRole('ROLE_ADMIN')" />
-    <!--3. r -->
-	  <security:intercept-url pattern="/noticeWrite.go" access="hasRole('ROLE_USER')" />
-	  <!--4. 진술서 상세세부(statementView) 경찰만 열람가능  -->
+
+<!-- 
+	  4. 진술서 상세세부(statementView) 경찰만 열람가능 
 	    <security:intercept-url pattern="/boardStatement/*view.go" access="hasRole('ROLE_POLICE')" />
-	    <!--5. 변호사 게시판 boardlawwrite 변호사만 작성가능  -->
+	    5. 변호사 게시판 boardlawwrite 변호사만 작성가능 
 	      <security:intercept-url pattern="/boardLaw/lawWrite.go" access="hasRole('ROLE_LAWYER')" />
-	<!-- 
+ -->	<!-- 
 	 <security:intercept-url pattern="/post/*" access="permitAll" />
  	 <security:intercept-url pattern="/admin/*" access="hasAnyRole('TEACHER','MANAGER','CENTER','MASTER')" /> -->
+
 
 	</security:http>
 	<security:authentication-manager>
@@ -36,9 +37,9 @@
 			<security:jdbc-user-service
 				data-source-ref="driverManagerDataSource"
 				users-by-username-query="SELECT email, password, 1 enabled FROM memberdb where email like '%%'"
-				authorities-by-username-query="select m.EMAIL , r.ROLE_NAME  
+				authorities-by-username-query="select m.EMAIL , r.typeno, r.ROLE_NAME  
 									           from memberdb m join roll r 
-									           on m.EMAIL = r.EMAIL 
+									           on m.typeno = r.typeno 
 									           where m.EMAIL=?" />
 									           
 		<security:password-encoder hash="md5" base64="false"/><!--여기 추가-->						           
