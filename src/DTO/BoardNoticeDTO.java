@@ -7,13 +7,11 @@ public class BoardNoticeDTO {
 	private int boardno; //게시판번호
 	private String title;/* 제목 */
 	private String content; /* 내용 */
-	private Date regdate; /* 작성일 */
+	private String regdate; /* 작성일 */
 	private int countno;/* 조회수 */
 	private int active; /* 삭제여부 */
 	private int critical; /* 강조여부 */
 	private int categoryno; /* 카테고리번호 */
-	
-	public BoardNoticeDTO(){}
 	
 	public int getBoardno() {
 		return boardno;
@@ -34,10 +32,10 @@ public class BoardNoticeDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getRegdate() {
+	public String getRegdate() {
 		return regdate;
 	}
-	public void setRegdate(Date regdate) {
+	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
 	public int getCountno() {
@@ -70,28 +68,4 @@ public class BoardNoticeDTO {
 				+ regdate + ", countno=" + countno + ", active=" + active + ", critical=" + critical + ", categoryno="
 				+ categoryno + "]";
 	}
-	public BoardNoticeDTO(int boardno, String title, String content, Date regdate, int countno, int active,
-			int critical, int categoryno) {
-		super();
-		this.boardno = boardno;
-		this.title = title;
-		this.content = content;
-		this.regdate = regdate;
-		this.countno = countno;
-		this.active = active;
-		this.critical = critical;
-		this.categoryno = categoryno;
-	}
-
-	
-	
-
-
-	/*
-	 * 자유게시판 글번호 SEQ N/A NULL 제목 TITLE N/A NULL 글내용 CONTENT N/A NULL 작성일 REGDATE
-	 * N/A NULL 조회수 HIT N/A NULL
-	 * 
-	 * 그룹번호 GROUPNO N/A NULL 답글 STEP N/A NULL 새 컬럼4 DEPTH N/A NULL
-	 */
-
 }

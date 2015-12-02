@@ -72,6 +72,8 @@
 		WHERE ${param1} LIKE '%${param2}%'
 		AND active = 0
 		AND boardno = ${param3}
+		ORDER BY regdate DESC
+		LIMIT ${param4}, 10
 	</select>
 	
 	<!-- 댓글 추가 -->

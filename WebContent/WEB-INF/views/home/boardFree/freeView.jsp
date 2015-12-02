@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <input type="hidden" id="pageNo" value="${param.pg}">
 <input type="hidden" id="boardNo" value="${param.bno}">
@@ -30,58 +30,85 @@
 	</table>
 	<table class="table">
 		<tr>
-			<td>
-				${boardFreeDTO.content}
-			</td>
+			<td>${boardFreeDTO.content}</td>
 		</tr>
 	</table>
 	<table class="table">
 		<thead>
 			<tr>
 				<td><b>게시물 주소 :</b>
-				<div id="asdf"><script>$('#asdf').text(window.location.href)</script>
-					<div style="float: right;">
-						<input class="btn btn-default" type="button" id="edit" value="수정">  <!-- freeEdit.go  -->
-						<input class="btn btn-default" type="button" id="delete" value="삭제">  <!-- freeDelete.go -->
-						<input class="btn btn-default" type="button" id="list" value="목록">  <!-- freeMain.go -->
-					</div>
-				</div>
-				</td>
+					<div id="asdf">
+						<script>
+							$('#asdf').text(window.location.href)
+						</script>
+						<div style="float: right;">
+							<input class="btn btn-default" type="button" id="edit" value="수정">
+							<!-- freeEdit.go  -->
+							<input class="btn btn-default" type="button" id="delete"
+								value="삭제">
+							<!-- freeDelete.go -->
+							<input class="btn btn-default" type="button" id="list" value="목록">
+							<!-- freeMain.go -->
+						</div>
+					</div></td>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td><b>댓글 </b><c:out value="${replycount}" /><b>개</b></td>
+				<td><b>댓글 </b> <c:out value="${replycount}" /><b>개</b></td>
 			</tr>
 		</tbody>
 	</table>
 	<table class="table">
 		<tbody>
 			<c:forEach var="replyDTO" items="${replyDTO}">
-			<tr>
-				<td style="width: 10%;">
-					<img alt="no_pic" src="boardFreeimages/user_no_pic.gif">
-				</td>
-				<td style="width: 90%;">
-					<table>
-						<tr>
-							<td>${replyDTO.name} 님 | ${replyDTO.regdate}</td>
-						</tr>
-						<tr>
-							<td>${replyDTO.content}</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
+				<tr>
+					<td style="width: 10%;"><img alt="no_pic"
+						src="boardFreeimages/user_no_pic.gif"></td>
+					<td style="width: 90%;">
+						<table>
+							<tbody>
+								<tr>
+									<td>
+										<div>
+											<div style="float: left;">
+												<b>${replyDTO.name}</b> 님 | ${replyDTO.regdate}
+											</div>
+											<div style="float: right;">
+												<c:if test="${replyDTO.memberno == memberInfo.memberno}">
+													<a class="updateReply" href="#"
+														id="updateReply.go?pg=${param.pg}&bno=${param.bno}&cno=1&rno=${replyDTO.replyno}">수정</a>
+													&nbsp;&nbsp;
+													<a
+														href="updateReplyActive.go?pg=${param.pg}&bno=${param.bno}&cno=1&rno=${replyDTO.replyno}">삭제</a>
+													&nbsp;&nbsp;
+												</c:if>
+												<a href="#">답글</a>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr style="clear: both;">
+									<td style="width: 1%;">${replyDTO.content}</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
 			</c:forEach>
-			<tr>
-				<td style="text-align: center;" colspan="2">
-					<form action="reply.go?pg=${param.pg}&bno=${param.bno}&cno=1" method="post">
-						<input type="text" id="replyContent" name="content" style="width: 90%">
-						<input class="btn btn-primary" type="submit" id="replybtn" value="댓글 등록">
-					</form>
-				</td>
-			</tr>
 		</tbody>
 	</table>
+	<div style="text-align: center;">
+		<c:set var="rpager" value="${rpager.toString()}" />
+		${rpager}
+	</div>
+	<br>
+	<div style="text-align: center;">
+		<form action="reply.go?pg=${param.pg}&bno=${param.bno}&cno=1"
+			method="post">
+			<input type="text" id="replyContent" name="content"
+				style="width: 90%"> <input class="btn btn-primary"
+				type="submit" id="replybtn" value="댓글 등록">
+		</form>
+	</div>
 </div>

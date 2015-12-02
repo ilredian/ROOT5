@@ -8,7 +8,7 @@ public class BoardFreeDTO {
 	private String title;	//제목
 	private String name;	//작성자 이름	
 	private String content;	//글 내용
-	private Date regdate;	//작성일
+	private String regdate;	//작성일
 	private int countno;		//조회수
 	private int active;
 	
@@ -19,24 +19,13 @@ public class BoardFreeDTO {
 	private int memberno; 
 	private int categoryno;
 	
-	public BoardFreeDTO(){};
+	private int boardReplyCount;//게시글 당 리플 갯수
 	
-	public BoardFreeDTO(int boardno, String title, String name, String content, Date regdate, int countno, int active,
-			int groupno, int step, int depth, int notice, int memberno, int categoryno) {
-		super();
-		this.boardno = boardno;
-		this.title = title;
-		this.name = name;
-		this.content = content;
-		this.regdate = regdate;
-		this.countno = countno;
-		this.active = active;
-		this.groupno = groupno;
-		this.step = step;
-		this.depth = depth;
-		this.notice = notice;
-		this.memberno = memberno;
-		this.categoryno = categoryno;
+	public int getBoardReplyCount() {
+		return boardReplyCount;
+	}
+	public void setBoardReplyCount(int boardReplyCount) {
+		this.boardReplyCount = boardReplyCount;
 	}
 	
 	public int getBoardno() {
@@ -63,10 +52,10 @@ public class BoardFreeDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getRegdate() {
+	public String getRegdate() {
 		return regdate;
 	}
-	public void setRegdate(Date regdate) {
+	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
 	public int getCountno() {

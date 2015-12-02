@@ -1,7 +1,7 @@
 package common;
 
 //boardStatement를 제외한 나머지 페이징 처리
-public class HomePager {
+public class BoardPager {
 
 	private int pageSize;// 한 페이지당 데이터 개수
 	private int pagerSize;// 번호로 보여주는 페이지 Link 개수
@@ -13,7 +13,7 @@ public class HomePager {
 
 	private String linkUrl;// 페이저가 포함되는 페이지의 주소
 
-	public HomePager(int dataCount, int currentPage, int pageSize, int pagerSize, String linkUrl) {
+	public BoardPager(int dataCount, int currentPage, int pageSize, int pagerSize, String linkUrl) {
 
 		this.linkUrl = linkUrl;
 
