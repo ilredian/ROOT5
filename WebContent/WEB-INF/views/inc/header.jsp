@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="se" uri="http://www.springframework.org/security/tags" %>
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!-- nav -->
 <link rel="stylesheet"
@@ -34,11 +35,13 @@
 	/* 로그아웃 버튼 */
 	$(document).ready(function() {
 		$("#myBtn2").click(function() {
+			alert("로그아웃되었습니다.")
 			location.replace("logout.go");
 		});
 	});
 	
 </script>
+
 
 <nav class="navbar navbar-default" role="navigation" style="
     margin-bottom: 0px;
@@ -61,6 +64,8 @@
 			<li><a href="registration.go">피해등록 </a></li>
 			<li><a href="home.go">홈</a></li>
 		</ul>
+		
+		
 <!-- ////////////////////////////////////////////////////////// -->
 <%-- <!--  2단계 Spring taglib 사용방법(인증과 권한) -->
 				<se:authorize ifNotGranted="ROLE_USER">
@@ -76,6 +81,12 @@
 		<div class="links">
 			<div class="container" align="right">
 				<!-- 로그인 버튼 _ 로그인 전과 후의 변화 -->
+				
+			<%-- 		<c:if test="${pwd}">
+					<script type="text/javascript">
+					alert("비밀번호가 틀리셨습니다.");</script>
+						</c:if> --%>
+						${pwd}
 				<c:choose>
 				<c:when test="${empty memberInfo}">  <!-- 세션이 null 이면 -->
 							<button type="button" class="btn btn-default" id="myBtn"
@@ -102,17 +113,16 @@
 								</h4>
 							</div>
 							<div class="modal-body" style="padding: 40px 50px;">
-<%-- 	
-	 <c:if test="${param.error != null}">
+ 	
+	<%--  <c:if test="${param.error != null}">
    		<div>
      		로그인실패<br>
      		<c:if test="${SPRING_SECURITY_LAST_EXCEPTION != null}">
    			이유 : <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}" />
-     	</c:if> 
-     	
+     		</c:if> 
    		</div>
-  	</c:if>  
-				 --%>			
+  	</c:if>   --%>
+						
 				 	<!-- 로그인 폼 -->
 								<!-- <form action="login.go" method="post"> 
 								${pageContext.request.contextPath}/login -->

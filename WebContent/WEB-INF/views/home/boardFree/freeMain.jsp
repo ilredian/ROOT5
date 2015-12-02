@@ -25,27 +25,34 @@
       </thead>
 
       <tbody>
-         <c:forEach var="n" items="${list}">
+         <c:forEach var="list" items="${list}">
             <tr>
-               <td class="number">${n.boardno}</td>
-               <td class="writer">${n.name}</td>
+               <td class="number">${list.boardno}</td>
+               <td class="writer">${list.name}</td>
                <td class="subject"><a
-                  href="freeView.go?pg=${param.pg}&bno=${n.boardno}">${n.title}</a></td>
-               <td class="date">${n.regdate}</td>
-               <td class="count">${n.countno}</td>
+                  href="freeView.go?pg=${param.pg}&bno=${list.boardno}">${list.title}</a> 
+                  <c:if test="${list.boardReplyCount > 0}">
+                  	<span style="color:red;">${list.boardReplyCount}</span>
+                  </c:if>
+                </td>
+               <td class="date">${list.regdate}</td>
+               <td class="count">${list.countno}</td>
             </tr>
          </c:forEach>
       </tbody>
    </table>
+   
    <div>
-      <se:authorize ifAllGranted="ROLE_USER , ROLE_ADMIN">
+      <se:authorize ifAllGranted="ROLE_USER">
          <br>
          <input class="btn btn-primary" type="button" value="글쓰기"
             id="freeWrite" style="float: right;">
       </se:authorize>
+
        <input class="btn btn-primary" type="button" value="글쓰기"
             id="freeWrite" style="float: right;">
    </div>
+   
 </div>
 <div style="text-align: center;">
    <c:set var="pager" value="${pager.toString()}" />

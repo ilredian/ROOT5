@@ -1,21 +1,21 @@
 $('#edit').click(function() {
 	var pg = $('#pageNo').val();
 	var bno = $('#boardNo').val();
-	location.replace("freeEdit.go?pg=" + pg + "&bno=" + bno);
+	location.replace("noticeEdit.go?pg=" + pg + "&bno=" + bno);
 });
 
 $('#delete').click(function() {
 	var bno = $('#boardNo').val();
-	location.replace("freeDelete.go?bno=" + bno);
+	location.replace("noticeDelete.go?bno=" + bno);
 });
 
 $('#list').click(function() {
 	var pg = $('#pageNo').val();
-	location.replace("freeMain.go?pg=" + pg);
+	location.replace("noticeMain.go?pg=" + pg);
 });
 
-$('#freeWrite').click(function(){
-	location.replace("freeWrite.go");
+$('#noticeWrite').click(function(){
+	location.replace("noticeWrite.go");
 });
 
 $('.updateReply').click(function(data){

@@ -1,103 +1,114 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<input type="hidden" id="pageNo" value="${param.pg}">
+<input type="hidden" id="boardNo" value="${param.bno}">
 <div class="container noticeView">
 	<h2>공지사항 게시판</h2>
-	 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
- <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script type="text/javascript">
-
-$(function() {
-    $('#edit').click(function(){
-    	console.log("수정페이지로이동")
-    	 location.replace("/noticeEdit.go");
-    });
-    
-    $('#delete').click(function(){
-    	console.log("삭제")
-    	location.replace("/noticeDelete.go");
-    });
-    
-    $('#list').click(function(){
-    	console.log("전페이지로 이동")
-    	history.go(-1);
-    });
-    
-});
-</script>	
-	
-	
 	<table class="table table-striped">
 		<tbody>
 			<tr>
-				<th colspan="3"> 제목</th>
+				<th colspan="3">${boardNoticeDTO.title}</th>
 			</tr>
 			<tr>
-				<td style="width: 10%;">
-					<img alt="no_pic" src="boardNotice/user_no_pic.gif">
-				</td>
+				<td style="width: 10%;"><img alt="no_pic"
+					src="boardFreeimages/user_no_pic.gif"></td>
 				<td style="width: 70%;">
 					<table>
 						<tr>
-							<th>운영자</th>
+							<th>(피해회원)</th>
 						</tr>
 						<tr>
-							<td>입력된 인사말이 없습니다.</td>
+							<td>${memberInfo.message}</td>
 						</tr>
 					</table>
 				</td>
-				<td style="width: 20%">조회</td>
+				<td style="width: 20%">조회 ${boardNoticeDTO.countno}</td>
 			</tr>
 		</tbody>
 	</table>
 	<table class="table">
 		<tr>
-			<td>공지사항 내용입니다.<br> 이러이러한 일을 공지합니다.<br> 뷰 수정해야함
-			</td>
+			<td>${boardNoticeDTO.content}</td>
 		</tr>
 	</table>
 	<table class="table">
 		<thead>
 			<tr>
-				<th>게시물 주소 :
-					<div style="float: right;">
-						<input type="button" id="edit" value="수정"> <!-- noticeEdit.go -->
-						<input type="button" id="delete" value="삭제"> <!-- noticeDelete.gos\  -->
-						<input type="button" id="list" value="목록"> <!--  -->
-					</div>
-				</th>
+				<td><b>게시물 주소 :</b>
+					<div id="asdf">
+						<script>
+							$('#asdf').text(window.location.href)
+						</script>
+						<div style="float: right;">
+							<input class="btn btn-default" type="button" id="edit" value="수정">
+							<!-- noticeEdit.go  -->
+							<input class="btn btn-default" type="button" id="delete"
+								value="삭제">
+							<!-- noticeDelete.go -->
+							<input class="btn btn-default" type="button" id="list" value="목록">
+							<!-- noticeMain.go -->
+						</div>
+					</div></td>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<th>댓글 1개</th>
+				<td><b>댓글 </b> <c:out value="${replycount}" /><b>개</b></td>
 			</tr>
 		</tbody>
 	</table>
 	<table class="table">
 		<tbody>
-			<tr>
-				<td style="width: 10%;">
-					<img alt="no_pic" src="boardNotice/user_no_pic.gif">
-				</td>
-				<td style="width: 90%;">
-					<table>
-						<tr>
-							<td>aqua 님 | 2015.11.28 09:55:21</td>
-						</tr>
-						<tr>
-							<td>댓글 내용을 입력해 봅시다.</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-			<tr>
-				<td style="text-align: center;" colspan="2">
-					<input type="text" id="" name="" style="width: 90%">
-					<input type="button" id="replybtn" value="댓글 등록">
-				</td>
-			</tr>
+			<c:forEach var="replyDTO" items="${replyDTO}">
+				<tr>
+					<td style="width: 10%;"><img alt="no_pic"
+						src="boardFreeimages/user_no_pic.gif"></td>
+					<td style="width: 90%;">
+						<table>
+							<tbody>
+								<tr>
+									<td>
+										<div>
+											<div style="float: left;">
+												<b>${replyDTO.name}</b> 님 | ${replyDTO.regdate}
+											</div>
+											<div style="float: right;">
+												<c:if test="${replyDTO.memberno == memberInfo.memberno}">
+													<a class="updateReply" href="#"
+														id="updateReply.go?pg=${param.pg}&bno=${param.bno}&cno=2&rno=${replyDTO.replyno}">수정</a>
+													&nbsp;&nbsp;
+													<a class="updateReplyActive"
+														href="updateReplyActive.go?pg=${param.pg}&bno=${param.bno}&cno=2&rno=${replyDTO.replyno}">삭제</a>
+													&nbsp;&nbsp;
+												</c:if>
+												<a href="#">답글</a>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr style="clear: both;">
+									<td style="width: 1%;">${replyDTO.content}</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
+	<div style="text-align: center;">
+		<c:set var="rpager" value="${rpager.toString()}" />
+		${rpager}
+	</div>
+	<br>
+	<div style="text-align: center;">
+		<form action="reply.go?pg=${param.pg}&bno=${param.bno}&cno=2"
+			method="post">
+			<input type="text" id="replyContent" name="content"
+				style="width: 90%"> <input class="btn btn-primary"
+				type="submit" id="replybtn" value="댓글 등록">
+		</form>
+	</div>
 </div>

@@ -9,9 +9,9 @@ public class MemberDTO {
 	private String password;/* 비밀번호 */
 	private String name;/* 이름 */
 	private String phone;/* 휴대전화 */
-	private Date regdate;/* 가입일 */
+	private String regdate;/* 가입일 */
 	private int active;/* 활성화 DEFAULT 0 */
-	private Date regpwd;/* 비밀번호변경일 */
+	private String regpwd;/* 비밀번호변경일 */
 	private int point;/* 포인트 DEFAULT 0 */
 	private int emailconfirm;/* 메일인증 DEFAULT 0 */
 	private String photo;/* 사진 */
@@ -48,10 +48,10 @@ public class MemberDTO {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public Date getRegdate() {
+	public String getRegdate() {
 		return regdate;
 	}
-	public void setRegdate(Date regdate) {
+	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
 	public int getActive() {
@@ -60,10 +60,10 @@ public class MemberDTO {
 	public void setActive(int active) {
 		this.active = active;
 	}
-	public Date getRegpwd() {
+	public String getRegpwd() {
 		return regpwd;
 	}
-	public void setRegpwd(Date regpwd) {
+	public void setRegpwd(String regpwd) {
 		this.regpwd = regpwd;
 	}
 	public int getPoint() {
