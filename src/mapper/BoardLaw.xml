@@ -17,7 +17,7 @@
 		WHERE ${param1} LIKE '%${param2}%'
 	</select>
 	
-	<select id="getNotice" resultType="DTO.BoardLawDTO">
+	<select id="getNotice" parameterType="Integer" resultType="DTO.BoardLawDTO">
 		SELECT * FROM boardlaw WHERE boardno=#{boardno}
 
 	</select>
@@ -35,10 +35,10 @@
 	</update>
 	
 	<insert id="insert" parameterType="DTO.BoardLawDTO">
-		<selectKey order="BEFORE" keyProperty="boardno" resultType="String">
-			SELECT NVL(MAX(TO_NUMBER(boardno)),0)+1 FROM boardfree
-		</selectKey>
-		INSERT INTO boardlaw(boardno, TITLE, CONTENT, name, REGDATE,COUNTNO)
-		VALUES( #{boardno}, #{title}, #{content}, #{name}, SYSDATE, 0)
+<!-- 		<selectKey order="BEFORE" keyProperty="boardno" resultType="String">
+			SELECT NVL(MAX(TO_NUMBER(boardno)),0)+1 FROM boardlaw
+		</selectKey> -->
+		INSERT INTO boardlaw(boardno, TITLE, CONTENT, name, REGDATE,COUNTNO,memberno)
+		VALUES( #{boardno}, #{title}, #{content}, #{name}, SYSDATE, 0,#{memberno})
 	</insert>
 </mapper>

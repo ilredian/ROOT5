@@ -48,7 +48,7 @@
          <input class="btn btn-primary" type="button" value="글쓰기"
             id="freeWrite" style="float: right;">
       </se:authorize>
-      
+
        <input class="btn btn-primary" type="button" value="글쓰기"
             id="freeWrite" style="float: right;">
    </div>

@@ -1,5 +1,6 @@
 package controllers;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -658,7 +659,7 @@ public class BoardController {
 		}
 		//2. 변호사게시판 상세보기
 		@RequestMapping("lawView.go")	//자유게시판 상세보기 - 페이지
-		public String lawView(String boardno , Model model) throws ClassNotFoundException, SQLException{
+		public String lawView(@RequestParam("bno") int boardno , Model model) throws ClassNotFoundException, SQLException{
 		    
 			System.out.println("lawview");
 			 BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
@@ -675,43 +676,79 @@ public class BoardController {
 		}
 		//4. 변호사게시판 글쓰기(실제 글 등록 -DB)
 		@RequestMapping(value="lawWrite.go" , method=RequestMethod.POST)   
-		public String LawWrite(BoardLawDTO DTO, HttpServletRequest request) throws ClassNotFoundException, SQLException{
+		public String LawWrite(BoardLawDTO DTO,  HttpSession session, HttpServletResponse response,
+				HttpServletRequest request) throws ClassNotFoundException, SQLException, IOException{
 		    System.out.println("실제 글 등록 처리"); 
 		    System.out.println("n : " + DTO.getTitle()); 
 		    System.out.println("n : " + DTO.getContent());
-		  
+		    response.setContentType("text/html;charset=UTF-8");
+			out = response.getWriter();
 		    BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
-		    boardLawDAO.insert(DTO);
-		    System.out.println("자유게시판 글쓰기 완료");
-		  return "home.boardLaw.lawMain";
+		    int result = boardLawDAO.insert(DTO);
+
+			if (result != 0) {
+				System.out.println("자유게시판 글쓰기 완료");
+				out.print(
+						"<script type='text/javascript'>alert('글이 성공적으로 등록되었습니다.'); location.replace('redirect:lawMain.go?pg=1');</script>");
+			} else {
+				System.out.println("자유게시판 글쓰기 등록 실패");
+				out.print(
+						"<script type='text/javascript'>alert('글을 등록하는데 실패하였습니다.'); location.replace('redirect:lawMain.go?pg=1');</script>");
+			}
+			return "redirect:lawMain.go?pg=1";
 		}
 
 		//5. 게시물 수정 (화면 (select)
 		@RequestMapping(value = "lawEdit.go",  method = RequestMethod.GET)   
-		public String lawEdit(String boardno, Model model) throws ClassNotFoundException, SQLException{
+		public String lawEdit(@RequestParam("bno") int boardno,HttpSession session, Model model) throws ClassNotFoundException, SQLException{
+
+			// 로그 남기기
+			System.out.println("게시물 수정 페이지로 이동");
+
+			// 페이지 이동 변수 선언
+			String go = "";
+
+			BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
 			
-		    BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
-		    BoardLawDTO lawdto = boardLawDAO.getNotice(boardno);
-		    System.out.println("자유게시판 원본글 가져오기");
-		    model.addAttribute("lawdto", lawdto);
-			  
-		    return "home.boardLaw.lawEdit";		  
+			int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
+			BoardLawDTO boardLawDTO = boardLawDAO.getNotice(boardno);
+			
+			if (memberno == boardLawDTO.getMemberno()) {
+				System.out.println("자유게시판 원본글 가져오기");
+				model.addAttribute("boardLawDTO", boardLawDTO);
+				go = "home.boardLaw.lawEdit";
+			} else {
+				go = "redirect:index.go";
+			}
+			return go;
 		}
+
 		
 		//5-1. 게시물 수정 (실제 처리(update)
 		@RequestMapping(value = "lawEdit.go",  method = RequestMethod.POST)   
-		public String lawEdit(BoardLawDTO boardLawDTO, HttpServletRequest request) throws ClassNotFoundException, SQLException{
-			
-		    BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
-		    boardLawDAO.update(boardLawDTO);
-		    System.out.println("자유게시판 수정완료");
-		    
-			return "home.boardLaw.lawMain";
+		public String lawEdit(	@RequestParam("pg") int page,
+				BoardLawDTO boardLawDTO,
+				HttpSession session,
+				HttpServletRequest request) throws Exception {
+			//로그 남기기
+			System.out.println("게시물 수정 작업 시작");
+			//페이지 이동 변수 선언
+			String go = "";
+			int memberno = ((MemberDTO)session.getAttribute("memberInfo")).getMemberno();
+
+		    if(memberno == boardLawDTO.getMemberno()){
+				BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
+				boardLawDAO.update(boardLawDTO);
+				System.out.println("자유게시판 수정완료");
+				go = "redirect:lawMain.go?pg"+page;
+			}else{
+				go = "redirect:index.go";
+			}
+			return go;
 		}
-		
 		//6. 게시물 삭제
 		@RequestMapping("lawDelete.go")   
-		public String lawDelete(String boardno) throws ClassNotFoundException, SQLException{
+		public String lawDelete(@RequestParam("bno") int boardno) throws ClassNotFoundException, SQLException{
 			
 		    BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
 		    boardLawDAO.delete(boardno);
