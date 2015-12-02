@@ -55,6 +55,16 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
     <url-pattern>/*</url-pattern>
   </filter-mapping>
   
+  	<!-- 인증과 권한 관련 -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+  
     <error-page>
     <error-code>404</error-code>
     <location>/Error/Error404.jsp</location>
