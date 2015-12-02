@@ -97,7 +97,7 @@
 						<c:otherwise> <!-- 세션이 있다면_ -->
 							<button type="button" class="btn btn-default" id="myBtn2"
 								style="margin-right: 50px; margin-top: 10px">
-								<span class="glyphicon glyphicon-log-in"></span>${memberInfo.email} 님 로그아웃
+								<span class="glyphicon glyphicon-log-in"></span>${memberInfo.name} 님 로그아웃
 							</button>
 						</c:otherwise>
 					</c:choose>
