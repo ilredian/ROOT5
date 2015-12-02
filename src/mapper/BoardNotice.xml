@@ -3,42 +3,59 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DAO.BoardNoticeDAO">
- <!-- 공지사항 글갯수 -->
- <select id="getCount" resultType="Integer">
-  SELECT COUNT(*) CNT 
-  FROM BOARDNOTICE 
-  WHERE ${param1} LIKE '%${param2}%'
- </select> 
- <!-- 공지사항 목록  -->
- <select id="getNotices" resultType="DTO.BoardNoticeDTO">
-   	SELECT *
+	<!-- 공지사항 글갯수 -->
+	<select id="getCount" resultType="Integer">
+		SELECT COUNT(*) CNT
+		FROM BOARDNOTICE
+		WHERE active = 0
+	</select>
+
+	<!-- 공지사항 목록 -->
+	<select id="getNotices" resultType="DTO.BoardNoticeDTO">
+		SELECT *
 		FROM boardnotice
-		WHERE ${param2} LIKE '%${param3}%' 
+		WHERE ${param2} LIKE '%${param3}%' and active = 0
 		ORDER BY regdate DESC, boardno DESC
 		LIMIT ${param1}, ${param4}
-    </select>
+	</select>
 
- <!-- 공지사항 상세 -->
- <select id="getNotice" resultType="DTO.BoardNoticeDTO">
-     SELECT * FROM BOARDNOTICE WHERE BOARDNO=#{BOARDNO}
-</select>
+	<!-- 공지사항 상세 -->
+	<select id="getNotice" resultType="DTO.BoardNoticeDTO">
+		SELECT * FROM boardnotice 
+		WHERE boardno=#{boardno}
+	</select>
 
- <!-- 공지사항 삭제  -->
- <delete id="delete" >
-     DELETE BOARDNOTICE WHERE BOARDNO=#{BOARDNO}
- </delete>
- 
- <!-- 공지사항 수정  -->
- <update id="update" >
-     UPDATE BOARDNOTICE SET TITLE=#{title}, CONTENT=#{content}  WHERE BOARDNO=#{BOARDNO}
- </update>
- 
- <!-- 공지사항 등록  -->
- <insert id="insert">
-      <selectKey order="BEFORE" keyProperty="BOARDNO" resultType="String">
-       SELECT NVL(MAX(TO_NUMBER(boardno)),0)+1 FROM BOARDNOTICE
-      </selectKey>
-      INSERT INTO BOARDNOTICE(BOARDNO, TITLE, CONTENT,REGDATE, COUNTNO, ACTIVE, CRITICAL, CATEGORYNO)
-      VALUES( #{boardno}, #{title}, #{content}, SYSDATE, 0, 0, 0, 0)
-</insert>
+	<!-- 공지사항 삭제 -->
+	<delete id="delete">
+		DELETE FROM boardnotice 
+		WHERE boardno=#{boardno}
+	</delete>
+	
+	<update id="updateActive">
+		UPDATE boardnotice 
+		SET active=1
+		WHERE boardno=#{boardno}
+	</update>
+
+	<!-- 공지사항 수정 -->
+	<update id="update">
+		UPDATE boardnotice 
+		SET 
+		TITLE=#{title},
+		CONTENT=#{content} 
+		WHERE boardno=#{boardno}
+	</update>
+	
+	<update id="updateCountno">
+		UPDATE boardnotice 
+		SET 
+		countno=countno+1
+		WHERE boardno=#{boardno}
+	</update>
+
+	<!-- 공지사항 등록 -->
+	<insert id="insert" parameterType="DTO.BoardNoticeDTO">
+		INSERT INTO boardnotice(TITLE, CONTENT, REGDATE, CRITICAL, CATEGORYNO)
+		VALUES(#{title}, #{content}, SYSDATE(), 0, 2)
+	</insert>
 </mapper>

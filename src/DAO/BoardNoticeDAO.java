@@ -1,25 +1,33 @@
 package DAO;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import DTO.BoardNoticeDTO;
 
 public interface BoardNoticeDAO {
-	//게시물 개수
-	public int getCount(String field, String query) throws ClassNotFoundException, SQLException;
-	//전체 게시물
+
+	// 게시물 개수
+	public int getCount(String field, String query) throws Exception;
+
+	// 전체 게시물
 	public List<BoardNoticeDTO> getNotices(int start, String field, String query, int pagerSize) throws Exception;
-	//게시물 삭제
-	public int delete(String seq) throws ClassNotFoundException, SQLException;
-	//게시물 수정
-	public int update(BoardNoticeDTO BoardDTO) throws ClassNotFoundException, SQLException;
-	//게시물 상세
-	public BoardNoticeDTO getNotice(String seq) throws ClassNotFoundException, SQLException;
-	//게시물 입력
-	public int insert(BoardNoticeDTO n) throws ClassNotFoundException, SQLException;
+
+	// 게시물 완전 삭제
+	public int delete(int boardno) throws Exception;
 	
-	
-	
+	//게시물 삭제(active값만 수정하여 보이지 않게함)
+	public int updateActive(int boardno) throws Exception;
+
+	// 게시물 수정
+	public int update(BoardNoticeDTO BoardDTO) throws Exception;
+
+	// 게시물 조회수 증가
+	public int updateCountno(int boardno) throws Exception;
+
+	// 게시물 상세
+	public BoardNoticeDTO getNotice(int boardno) throws Exception;
+
+	// 게시물 입력
+	public int insert(BoardNoticeDTO n) throws Exception;
 	
 }

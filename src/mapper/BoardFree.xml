@@ -15,17 +15,16 @@
 		SELECT COUNT(*) CNT
 		FROM BOARDFREE
 		WHERE active = 0
-		<!-- WHERE ${param1} LIKE '%${param2}%' -->
 	</select>
 	
 	<select id="getNotice"  resultType="DTO.BoardFreeDTO">
-		SELECT * FROM boardfree WHERE boardno=#{boardno}
-<!-- 		WHERE ${param1} LIKE '%${param2}%'
- -->		
+		SELECT * FROM boardfree 
+		WHERE boardno=#{boardno}
 	</select>
 
 	<delete id="delete">
-		DELETE FROM boardfree WHERE boardno=#{boardno}
+		DELETE FROM boardfree 
+		WHERE boardno=#{boardno}
 	</delete>
 	
 	<update id="updateActive">

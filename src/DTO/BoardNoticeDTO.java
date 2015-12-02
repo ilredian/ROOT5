@@ -1,7 +1,5 @@
 package DTO;
 
-import java.sql.Date;
-
 public class BoardNoticeDTO {
 
 	private int boardno; //게시판번호
@@ -12,6 +10,15 @@ public class BoardNoticeDTO {
 	private int active; /* 삭제여부 */
 	private int critical; /* 강조여부 */
 	private int categoryno; /* 카테고리번호 */
+	
+	private int boardReplyCount;//게시글 당 리플 갯수
+	
+	public int getBoardReplyCount() {
+		return boardReplyCount;
+	}
+	public void setBoardReplyCount(int boardReplyCount) {
+		this.boardReplyCount = boardReplyCount;
+	}
 	
 	public int getBoardno() {
 		return boardno;

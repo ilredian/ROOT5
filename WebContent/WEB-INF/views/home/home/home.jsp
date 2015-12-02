@@ -105,9 +105,9 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th><a href="noticeMain.go"><p style="text-align: left;">공지사항</p></a></th>
+						<th><a href="noticeMain.go?pg=1"><p style="text-align: left;">공지사항</p></a></th>
 						<th></th>
-						<th><a href="noticeMain.go"><p style="text-align: right;">더보기</p></a></th>
+						<th><a href="noticeMain.go?pg=1"><p style="text-align: right;">더보기</p></a></th>
 					</tr>
 				</thead>
 				<tbody>
