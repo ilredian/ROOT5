@@ -41,12 +41,18 @@
          </c:forEach>
       </tbody>
    </table>
+   
    <div>
-      <%-- <se:authorize ifAllGranted="ROLE_USER , ROLE_ADMIN"> --%>
+      <se:authorize ifAllGranted="ROLE_USER">
+         <br>
          <input class="btn btn-primary" type="button" value="글쓰기"
             id="freeWrite" style="float: right;">
-      <%-- </se:authorize> --%>
+      </se:authorize>
+      
+       <input class="btn btn-primary" type="button" value="글쓰기"
+            id="freeWrite" style="float: right;">
    </div>
+   
 </div>
 <div style="text-align: center;">
    <c:set var="pager" value="${pager.toString()}" />

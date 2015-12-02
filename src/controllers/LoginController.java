@@ -3,6 +3,8 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -25,7 +27,7 @@ public class LoginController {
 
 	// 로그인 정보 DB 확인
 	@RequestMapping(value = "login.go", method=RequestMethod.POST)
-	public String Login(MemberDTO memberDTO, HttpServletResponse response, HttpSession session) throws Exception {
+	public String Login(MemberDTO memberDTO, HttpServletResponse response, HttpServletRequest request, HttpSession session) throws Exception {
 		System.out.println("로그인 실행");
 		//스크립트 구문을 쓰기위한 준비
 		response.setContentType("text/html;charset=UTF-8");
@@ -48,11 +50,29 @@ public class LoginController {
 				System.out.println("로그인 값 저장");
 				System.out.println("로그인 세션 설정");
 
+		
+				
 				session.setAttribute("memberInfo", result);
+				
+				session.setMaxInactiveInterval(60*60) ;
+				
+				String id = request.getParameter("email");
+				String pwd = request.getParameter("password");
+				
+				/*
+				Cookie cookie = new Cookie("email", "bbb@naver.com");
+				cookie.setMaxAge(60*5);
+				response.addCookie(cookie);
+				System.out.println("bbb@ 쿠키 생성");
+				*/		
+				
+				System.out.println("email : " + id + " / password : " + pwd);
 
 			}else{//비밀번호가 틀림
 				//경고창 띄우기
-				out.print("<script type='text/javascript'>alert('비밀번호가 틀립니다.')</script>");
+				System.out.println("비밀번호 땡");
+				session.setAttribute("memberInfo", result);
+				
 			}
 		}		
 		return "main.index";

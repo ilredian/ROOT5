@@ -34,11 +34,14 @@
 	/* 로그아웃 버튼 */
 	$(document).ready(function() {
 		$("#myBtn2").click(function() {
+			alert("로그아웃되었습니다.")
 			location.replace("logout.go");
 		});
 	});
 	
+	
 </script>
+
 
 <nav class="navbar navbar-default" role="navigation" style="
     margin-bottom: 0px;
