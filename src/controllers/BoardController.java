@@ -2,6 +2,8 @@ package controllers;
 
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,7 +30,8 @@ import DTO.BoardNoticeDTO;
 import DTO.BoardLawDTO;
 import DTO.MemberDTO;
 import DTO.ReplyDTO;
-import common.HomePager;
+import common.BoardPager;
+import common.ReplyPager;
 
 @Controller
 public class BoardController {
@@ -39,11 +42,11 @@ public class BoardController {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	//////////// 리플 등록////////////////
-	//////////// 리플 등록////////////////
-	//////////// 리플 등록////////////////
-	//////////// 리플 등록////////////////
-	//////////// 리플 등록////////////////
+	//////////// 리플 ////////////////
+	//////////// 리플 ////////////////
+	//////////// 리플 ////////////////
+	//////////// 리플 ////////////////
+	//////////// 리플 ////////////////
 	@RequestMapping(value="reply.go", method = RequestMethod.POST)
 	public String reply(@RequestParam("pg") int page,
 						@RequestParam("bno") int boardno,
@@ -93,6 +96,96 @@ public class BoardController {
 		return go;
 	}
 
+	@RequestMapping("updateReply.go")
+	public String updateReply(
+			@RequestParam("pg") int page,
+			@RequestParam("bno") int boardno,
+			@RequestParam("cno") int categoryno,
+			@RequestParam("rno") int replyno,
+			ReplyDTO replyDTO
+			) throws Exception{
+		// 로그남기기
+		System.out.println("리플 수정 시작");
+				
+		// 페이지 이동을 위한 변수 선언
+		String go = "";
+		
+		// 리플 DB 넘기기
+		ReplyDAO replyDAO = sqlSession.getMapper(ReplyDAO.class);
+		replyDTO.setReplyno(replyno);
+		int result = replyDAO.updateReply(replyDTO);
+		
+		if(result>0){
+			System.out.println("리플 수정 성공");
+		}else{
+			System.out.println("리플 수정 실패");
+		}
+		
+		// 페이지 이동 스위치 문
+		switch(categoryno){
+			case 1 :
+				go="redirect:freeView.go?pg="+page+"&bno="+boardno;
+			break;
+					
+			case 2 :
+				go="redirect:noticeView.go?pg="+page+"&bno="+boardno;
+			break;
+					
+			case 3 :
+				go="redirect:photoView.go?pg="+page+"&bno="+boardno;
+			break;
+					
+			case 4 :
+				go="redirect:lawView.go?pg="+page+"&bno="+boardno;
+			break;
+		}
+		
+		System.out.println("리플 수정 완료");
+				
+		return go;
+	}
+	
+	@RequestMapping("updateReplyActive.go")
+	public String updateReplyActive(@RequestParam("pg") int page,
+									@RequestParam("bno") int boardno,
+									@RequestParam("cno") int categoryno,
+									@RequestParam("rno") int replyno,
+									HttpSession session,
+									ReplyDTO replyDTO
+									) throws Exception{
+		// 로그남기기
+		System.out.println("리플 삭제 (active 값 변경) 시작");
+		
+		// 페이지 이동을 위한 변수 선언
+		String go = "";
+				
+		// 리플 DB 넘기기
+		ReplyDAO replyDAO = sqlSession.getMapper(ReplyDAO.class);
+		replyDAO.updateReplyActive(replyno);
+		
+		// 페이지 이동 스위치 문
+		switch(categoryno){
+			case 1 :
+				go="redirect:freeView.go?pg="+page+"&bno="+boardno;
+			break;
+			
+			case 2 :
+				go="redirect:noticeView.go?pg="+page+"&bno="+boardno;
+			break;
+					
+			case 3 :
+				go="redirect:photoView.go?pg="+page+"&bno="+boardno;
+			break;
+					
+			case 4 :
+				go="redirect:lawView.go?pg="+page+"&bno="+boardno;
+			break;
+		}
+		
+		System.out.println("리플 삭제(active값 변경) 성공");
+		
+		return go;
+	}
 	
 	//////////// 자유게시판////////////////
 	//////////// 자유게시판////////////////
@@ -120,24 +213,39 @@ public class BoardController {
 		int boardCount = boardFreeDAO.getCount(field, query);// 검색 결과에 따른 게시글 총
 																// 갯수
 		int start = (page - 1) * pageSize;
-		HomePager pager = new HomePager(boardCount, page, pageSize, pagerSize, linkUrl);
+		BoardPager pager = new BoardPager(boardCount, page, pageSize, pagerSize, linkUrl);
 		
 		List<BoardFreeDTO> list= boardFreeDAO.getNotices(start, field, query, pageSize);
 		
-		System.out.println(session.getAttribute("memberInfo"));
 		String email = ((MemberDTO)session.getAttribute("memberInfo")).getEmail();
 
 		model.addAttribute("Email", email);
 		model.addAttribute("pager", pager);
-		model.addAttribute("list", list); // 자동 forward
 		model.addAttribute("boardCount", boardCount);
 
+		//메인 리스트에 댓글 숫자 출력
+		ReplyDAO replyDAO = sqlSession.getMapper(ReplyDAO.class);
+		for(int i=0; i < list.size(); i++){
+			list.get(i).setBoardReplyCount(replyDAO.getBoardReplyCount("content", query, list.get(i).getBoardno()));
+		}
+		model.addAttribute("list", list); // 자동 forward
+				
+		System.out.println("자유게시판 메인 출력 완료");
+		
 		return "home.boardFree.freeMain";
 	}
 
 	// 2. 자유게시판 상세보기
 	@RequestMapping("freeView.go") // 자유게시판 상세보기 - 페이지
-	public String freeView(@RequestParam("bno") int boardno, HttpSession session, Model model) throws Exception {
+	public String freeView(
+			@RequestParam("bno") int boardno, // 게시글 번호
+			@RequestParam(value = "pg", required = false, defaultValue = "1") int page, // 현재 페이지 번호
+			@RequestParam(value = "f", required = false, defaultValue = "title") String field, // 검색 카테고리
+			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, // 검색 내용
+			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, // 한 페이지에 보여줄 게시글 갯수
+			@RequestParam(value = "rpg", required = false, defaultValue = "1") int replypage, // 현재 페이지 번호
+			HttpSession session, 
+			Model model) throws Exception {
 		// 로그남기기
 		System.out.println("자유게시판 상세보기 페이지 이동");
 
@@ -153,11 +261,45 @@ public class BoardController {
 		System.out.println("리플 정보 가져오기");
 		ReplyDAO replyDAO = sqlSession.getMapper(ReplyDAO.class);
 		int replycount = replyDAO.getBoardReplyCount("content", "%%", boardno);
-		List<ReplyDTO> replyDTO = replyDAO.getBoardReply("content", "%%", boardno);
+		
+		// 리플 페이지 처리
+		int rstart = (replypage - 1) * 10;
+		ReplyPager rpager = new ReplyPager(replycount, replypage, 10, 10, "freeView.go", boardno, page);
+		
+		List<ReplyDTO> replyDTO = replyDAO.getBoardReply("content", "%%", boardno, rstart);
 		
 		model.addAttribute("boardFreeDTO", boardFreeDTO);
 		model.addAttribute("replycount", replycount);
+		model.addAttribute("rpager", rpager);
 		model.addAttribute("replyDTO", replyDTO);
+		
+		//상세보기 밑 리스트 뿌려주기
+		// 로그 남기기
+		System.out.println(page + " / " + field + " / " + query);
+
+		boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
+
+		String linkUrl = "freeMain.go";// 페이지번호를 누르면 이동할 경로
+		int boardCount = boardFreeDAO.getCount(field, query);// 검색 결과에 따른 게시글 총 갯수
+		int pagerSize = 10;// 한 번에 보여줄 페이지 번호 갯수
+		int start = (page - 1) * pageSize;
+		BoardPager pager = new BoardPager(boardCount, page, pageSize, pagerSize, linkUrl);
+				
+		List<BoardFreeDTO> list= boardFreeDAO.getNotices(start, field, query, pageSize);
+				
+		System.out.println(session.getAttribute("memberInfo"));
+		String email = ((MemberDTO)session.getAttribute("memberInfo")).getEmail();
+
+		model.addAttribute("Email", email);
+		model.addAttribute("pager", pager);
+		model.addAttribute("boardCount", boardCount);
+		
+		//메인 리스트에 댓글 숫자 출력
+		for(int i=0; i < list.size(); i++){
+			list.get(i).setBoardReplyCount(replyDAO.getBoardReplyCount("content", query, list.get(i).getBoardno()));
+		}
+		
+		model.addAttribute("list", list); // 자동 forward
 		
 		return "home.boardFree.freeView";
 	}
@@ -292,7 +434,7 @@ public class BoardController {
 		int boardCount = boardNoticeDAO.getCount(field, query);// 검색 결과에 따른 게시글
 																// 총 갯수
 		int start = (page - 1) * pageSize;
-		HomePager pager = new HomePager(boardCount, page, pageSize, pagerSize, linkUrl);
+		BoardPager pager = new BoardPager(boardCount, page, pageSize, pagerSize, linkUrl);
 
 		List<BoardNoticeDTO> list = boardNoticeDAO.getNotices(start, field, query, pageSize);
 		System.out.println("zzz");
@@ -410,7 +552,7 @@ public class BoardController {
 			String linkUrl = "lawMain.go";// 페이지번호를 누르면 이동할 경로
 			int boardCount = boardLawDAO.getCount(field, query);// 검색 결과에 따른 게시글 총 갯수
 			int start = (page - 1) * pageSize;
-			HomePager pager = new HomePager(boardCount, page, pageSize, pagerSize, linkUrl);
+			BoardPager pager = new BoardPager(boardCount, page, pageSize, pagerSize, linkUrl);
 			
 			List<BoardLawDTO> list= boardLawDAO.getNotices(start, field, query, pageSize);
 			

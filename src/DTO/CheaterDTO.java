@@ -9,7 +9,7 @@ public class CheaterDTO {
 	private String cheatername; /* 명의자 성명 */
 	private String account; /* 계좌번호 */
 	private int deposit; /* 입금 금액 */
-	private Date depositdate; /* 입금일 */
+	private String depositdate; /* 입금일 */
 	private String phone; /* 연락처 */
 	private String sex; /* 성별 */
 	private String feature; /* 용의자특징 */
@@ -53,10 +53,10 @@ public class CheaterDTO {
 	public void setDeposit(int deposit) {
 		this.deposit = deposit;
 	}
-	public Date getDepositdate() {
+	public String getDepositdate() {
 		return depositdate;
 	}
-	public void setDepositdate(Date depositdate) {
+	public void setDepositdate(String depositdate) {
 		this.depositdate = depositdate;
 	}
 	public String getPhone() {

@@ -1,12 +1,10 @@
 package DTO;
 
-import java.sql.Date;
-
 public class ReplyDTO {
 	private int replyno;/* 댓글번호 */
 	private String name;/* 작성자 */
 	private String content;/* 내용 */
-	private Date regdate;/* 작성일 */
+	private String regdate;/* 작성일 */
 	private int active;/* 삭제여부 DEFAULT 0*/
 	private int groupno;/* 그룹 */
 	private int step;/* 순서 DEFAULT 0*/
@@ -33,10 +31,10 @@ public class ReplyDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getRegdate() {
+	public String getRegdate() {
 		return regdate;
 	}
-	public void setRegdate(Date regdate) {
+	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
 	public int getActive() {
