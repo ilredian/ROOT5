@@ -20,7 +20,7 @@
 					placeholder="로그인 후 상세 검색을 사용하세요." size="30" onclick="#">
 				<!-- onclick 에 로그인 창띄우는 거 -->
 				<button type="button" class="btn btn-default">
-					<a href="#">검색</a>
+					<a href="search.go">검색</a>
 				</button>
 			</div>
 		</form>
