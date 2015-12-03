@@ -30,15 +30,18 @@
 		UPDATE boardlaw
 		SET 
 		TITLE=#{title},
-		CONTENT=#{content} 
+		message=#{message},
+		 tel=#{tel},
+		 phone=#{phone},
+		 career=#{career},
+		 company=#{company},
+		 	edu=#{edu},
+		 	place=#{place}
 		WHERE boardno=#{boardno}
 	</update>
 	
 	<insert id="insert" parameterType="DTO.BoardLawDTO">
-<!-- 		<selectKey order="BEFORE" keyProperty="boardno" resultType="String">
-			SELECT NVL(MAX(TO_NUMBER(boardno)),0)+1 FROM boardlaw
-		</selectKey> -->
-		INSERT INTO boardlaw(boardno, TITLE, CONTENT, name, REGDATE,COUNTNO,memberno)
-		VALUES( #{boardno}, #{title}, #{content}, #{name}, SYSDATE, 0,#{memberno})
+		INSERT INTO boardlaw(TITLE, CONTENT, name, REGDATE,COUNTNO,memberno,career,company,message,phone,tel,edu,fee,place)
+		VALUES( #{title}, '글내용없음', #{name}, SYSDATE(), 0,#{memberno},#{career},#{company},#{message},#{phone},#{tel},#{edu},#{fee},#{place})
 	</insert>
 </mapper>

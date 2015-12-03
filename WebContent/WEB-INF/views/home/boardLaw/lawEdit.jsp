@@ -19,13 +19,57 @@
 					<input type="hidden" name="memberno" value="${boardLawDTO.memberno}">
 				</td>
 			</tr>
+				<th class="active">경력</th>
+				<td>
+						<input type="text" class="form-control" id="career" name="career" value="${boardLawDTO.career}">	
+				</td>
+				</tr>
+			
 			<tr>
+				<th class="active">소속</th>
+				<td>
+					 <input type="text" class="form-control" id="company" name="company" value="${boardLawDTO.company}">	
+			</td>
+			</tr>
+			
+			<tr>
+			<th class="active">지역</th> 
+			<td>
+				<input type="text" class="form-control" id="place" name="place"  value="${boardLawDTO.place}">	</tr>
+			<tr>
+				<th class="active">한줄소개</th>
+			<td>
+					<input type="text" class="form-control" style="HEIGHT: 50px; WIDTH: 100%"
+					id="message" name="message" value="${boardLawDTO.message}">	
+			</td></tr>
+			
+			<tr>
+				<th class="active">전화번호:</th>
+			<td>
+					휴대폰번호: <input type="text" class="form-control" id="phone" name="phone" style="width: 50%" value="${boardLawDTO.phone}">	
+					회사 전화번호: <input type="text" class="form-control" id="tel" name="tel" style="width: 50%" align="left" value="${boardLawDTO.tel}">	
+			</td>
+			</tr>	
+			<tr>
+			<th class="active">학력 사항:</th>
+			<td>
+				<textarea id="edu" name="edu"
+										style="width: 100%; height: 100%" rows="15">${boardLawDTO.edu}</textarea>						
+			</td></tr>
+				
+			<tr>
+			<th class="active">요금 안내:</th>
+			<td>
+					 <textarea id="fee" name="fee"
+										style="width: 100%; height: 100%" rows="15" >${boardLawDTO.fee}</textarea>			
+			</td></tr>
+<%-- 			<tr>
 				<td colspan="2">
 					<textarea id="editor" style="HEIGHT: 300px; WIDTH: 100%" rows="10" cols="30" name="content">
 					${boardLawDTO.content}
 					</textarea>
 				</td>
-			</tr>
+			</tr> --%>
 			<tr>
 				<th class="active">고운 언어가 좋아요!</th>
 				<td>
