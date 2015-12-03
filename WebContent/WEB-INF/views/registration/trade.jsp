@@ -829,14 +829,8 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 				<br>
 			</div>
 			<div id="submit_btn" class="submit_btn">
-				<a href="#"><img src="registrationimages/trade/agrbut.PNG"
+				<a href="statementMain.go?cno=1"><img src="registrationimages/trade/agrbut.PNG"
 					alt=""></a>
-				<!--<input type="submit" value="" name="" onclick="return confirm('확인 버튼을 누른 후 피해사례가 등록될 때 까지 기다려 주세요.');"/>-->
-
-			</div>
-
-			<div id="submit_btn" class="submit_btn">
-				<a href="#"><img src="img/agrbut.PNG" alt=""></a>
 				<!--<input type="submit" value="" name="" onclick="return confirm('확인 버튼을 누른 후 피해사례가 등록될 때 까지 기다려 주세요.');"/>-->
 
 			</div>
