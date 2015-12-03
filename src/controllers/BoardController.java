@@ -676,16 +676,26 @@ public class BoardController {
 		}
 		//4. 변호사게시판 글쓰기(실제 글 등록 -DB)
 		@RequestMapping(value="lawWrite.go" , method=RequestMethod.POST)   
-		public String LawWrite(BoardLawDTO DTO,  HttpSession session, HttpServletResponse response,
+		public String LawWrite(BoardLawDTO boardLawDTO,  HttpSession session, HttpServletResponse response,
 				HttpServletRequest request) throws ClassNotFoundException, SQLException, IOException{
 		    System.out.println("실제 글 등록 처리"); 
-		    System.out.println("n : " + DTO.getTitle()); 
-		    System.out.println("n : " + DTO.getContent());
+		    
 		    response.setContentType("text/html;charset=UTF-8");
 			out = response.getWriter();
 		    BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
-		    int result = boardLawDAO.insert(DTO);
+		    
+		    System.out.println("n : " + boardLawDTO.getTitle()); 
+		    System.out.println("getMessage : " + boardLawDTO.getMessage());
+		    System.out.println("getCareer : " + boardLawDTO.getCareer());
+		    System.out.println("getCompany: " + boardLawDTO.getCompany());
+		    System.out.println("getEdu : " + boardLawDTO.getEdu());
+		    System.out.println("getFee : " + boardLawDTO.getFee());
+		    
+		    int result = boardLawDAO.insert(boardLawDTO);
 
+		    
+
+		    
 			if (result != 0) {
 				System.out.println("자유게시판 글쓰기 완료");
 				out.print(
@@ -740,7 +750,7 @@ public class BoardController {
 				BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
 				boardLawDAO.update(boardLawDTO);
 				System.out.println("자유게시판 수정완료");
-				go = "redirect:lawMain.go?pg"+page;
+				go = "redirect:freeMain.go?pg="+page;
 			}else{
 				go = "redirect:index.go";
 			}

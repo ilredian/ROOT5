@@ -30,12 +30,17 @@
 				<th class="active">소속</th>
 				<td>
 					 <input type="text" class="form-control" id="company" name="company" placeholder="ex) cheat법률사무소">	
-			</td></tr>
-
+			</td>
+			</tr>
+			
+			<tr>
+			<th class="active">지역</th> 
+			<td>
+				<input type="text" class="form-control" id="place" name="place" placeholder="ex) 서울 ㅇㅇ구">	</tr>
 			<tr>
 				<th class="active">한줄소개</th>
 			<td>
-					한줄소개: <input type="text" class="form-control" style="HEIGHT: 80px; WIDTH: 100%"
+					<input type="text" class="form-control" style="HEIGHT: 50px; WIDTH: 100%"
 					id="message" name="message" placeholder="ex) 부장검사 출신 부산 형사 성범죄 전문 변호사">	
 			</td></tr>
 			
@@ -49,21 +54,24 @@
 			<tr>
 			<th class="active">학력 사항:</th>
 			<td>
-					학력 사항: <input type="text" class="form-control" id="edu" name="edu" style="HEIGHT: 400px; WIDTH: 100%"  rows="10" cols="30" >	
+				<textarea id="edu" name="edu"
+										style="width: 100%; height: 100%" rows="15"></textarea>						
 			</td></tr>
 				
 			<tr>
 			<th class="active">요금 안내:</th>
 			<td>
-					요금 안내: <input type="text" class="form-control" id="fee" name="fee" style="HEIGHT: 300px; WIDTH: 100%">	
+					 <textarea id="fee" name="fee"
+										style="width: 100%; height: 100%" rows="15"></textarea>			
 			</td></tr>
-			<tr>
+			
+<!-- 			<tr>
 				<td colspan="2">
 					<textarea id="editor" style="HEIGHT: 300px; WIDTH: 100%" rows="10" cols="30" name="content">
 					</textarea>
 				</td>
 			</tr>
-			<tr>
+			<tr> -->
 				<th class="active">고운 언어가 좋아요!</th>
 				<td>
 				"말이 입힌 상처는 칼이 입힌 상처보다 깊다." - 모로코 속담<br>

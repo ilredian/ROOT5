@@ -47,6 +47,6 @@
 </div>
 <div>
 	<button id="a" style="float: right;">
-		<a href="#">사기피해사례 등록</a>
+		<a href="trade.go">사기피해사례 등록</a>
 	</button>
 </div>

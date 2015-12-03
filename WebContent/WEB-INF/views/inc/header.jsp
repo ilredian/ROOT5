@@ -78,7 +78,7 @@
 				<c:choose>
 				<c:when test="${empty memberInfo}">  <!-- 세션이 null 이면 -->
 							<button type="button" class="btn btn-default" id="myBtn"
-								style="margin-right: 50px; margin-top: 10px">
+								style="margin-right: 10px; margin-top: 10px">
 								<span class="glyphicon glyphicon-log-in"></span>로그인
 							</button>
 						</c:when>
@@ -100,19 +100,19 @@
 				</div>
 				<!--  -->
 				<button type="submit" class="btn btn-default"
-					style="margin-right: 50px; margin-top: 10px">
+					style="margin-right: 10px; margin-top: 10px">
 					<a href="memberMessage.go"> <span
 						class="glyphicon glyphicon-log-in"></span> 내 정보
 					</a>
 				</button>
 				<button type="submit" class="btn btn-default"
-					style="margin-right: 50px; margin-top: 10px">
+					style="margin-right: 10px; margin-top: 10px">
 					<a href="signin.go"> <span class="glyphicon glyphicon-log-in"></span>
 						회원가입
 					</a>
 				</button>
 				<button type="submit" class="btn btn-default"
-					style="margin-right: 50px; margin-top: 10px">
+					style="margin-right: 10px; margin-top: 10px">
 					<a href="pwSearch.go"> <span class="glyphicon glyphicon-log-in"></span>
 						비밀번호 찾기
 					</a>
