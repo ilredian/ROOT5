@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="se" uri="http://www.springframework.org/security/tags" %>
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!-- nav -->
 <link rel="stylesheet"
@@ -13,23 +12,13 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<style>
-.modal-header, h4, .close {
-	background-color: #5cb85c;
-	color: white !important;
-	text-align: center;
-	font-size: 30px;
-}
-
-.modal-footer {
-	background-color: #f9f9f9;
-}
-</style>
 <script type="text/javascript">
+
+
 	/* 로그인 버튼  */
 	$(document).ready(function() {
 		$("#myBtn").click(function() {
-			$("#myModal").modal();
+			window.open("login.go") 
 		});
 	});
 	/* 로그아웃 버튼 */
@@ -40,9 +29,8 @@
 		});
 	});
 	
+	
 </script>
-
-
 <nav class="navbar navbar-default" role="navigation" style="
     margin-bottom: 0px;
 ">
@@ -64,8 +52,6 @@
 			<li><a href="registration.go">피해등록 </a></li>
 			<li><a href="home.go">홈</a></li>
 		</ul>
-		
-		
 <!-- ////////////////////////////////////////////////////////// -->
 <%-- <!--  2단계 Spring taglib 사용방법(인증과 권한) -->
 				<se:authorize ifNotGranted="ROLE_USER">
@@ -81,20 +67,14 @@
 		<div class="links">
 			<div class="container" align="right">
 				<!-- 로그인 버튼 _ 로그인 전과 후의 변화 -->
-				
-			<%-- 		<c:if test="${pwd}">
-					<script type="text/javascript">
-					alert("비밀번호가 틀리셨습니다.");</script>
-						</c:if> --%>
 						${pwd}
-						
 				<c:if test="${memberInfo.typeno}=1">
 					관리자
 				</c:if>	
 				<c:if test="${memberInfo.typeno}=0">
 					사용자
 				</c:if>	
-						
+				
 				<c:choose>
 				<c:when test="${empty memberInfo}">  <!-- 세션이 null 이면 -->
 							<button type="button" class="btn btn-default" id="myBtn"
@@ -112,74 +92,10 @@
 								<c:if test="${memberInfo.typeno==0}">
 									<c:out value="사용자"/>
 								</c:if>	
-								${memberInfo.email} 님 로그아웃
+								${memberInfo.name} 님 로그아웃
 							</button>
 						</c:otherwise>
 					</c:choose>
-				<!-- Modal -->
-				<div class="modal fade" id="myModal" role="dialog">
-					<div class="modal-dialog">
-						<!-- Modal content-->
-						<div class="modal-content">
-							<div class="modal-header" style="padding: 35px 50px;">
-								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4>
-										<span class="glyphicon glyphicon-lock"></span> 로그인
-								</h4>
-							</div>
-							<div class="modal-body" style="padding: 40px 50px;">
- 	
-	<%--  <c:if test="${param.error != null}">
-   		<div>
-     		로그인실패<br>
-     		<c:if test="${SPRING_SECURITY_LAST_EXCEPTION != null}">
-   			이유 : <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}" />
-     		</c:if> 
-   		</div>
-  	</c:if>   --%>
-						
-				 	<!-- 로그인 폼 -->
-								<!-- <form action="login.go" method="post"> 
-								${pageContext.request.contextPath}/login -->
-       							<form action="login.go" method="post"> 
-									<div class="form-group">
-										<label for="usrname"><span
-											class="glyphicon glyphicon-user"></span> 이메일</label> <input
-											type="text" class="form-control" id="usrname" name="email"
-											placeholder="Enter email">
-									</div>
-									<div class="form-group">
-										<label for="psw"><span
-											class="glyphicon glyphicon-eye-open"></span> 비밀번호</label> <input
-											type="password" class="form-control" id="psw" name="password"
-											placeholder="Enter password">
-									</div>
-									<!-- 이메일 저장- 쿠키에 기록_ -->
-									<div class="checkbox">
-										<label> <input type="checkbox" value="" checked>Remember
-											me
-										</label>
-									</div>
-									<button type="submit" class="btn btn-success btn-block">
-										<span class="glyphicon glyphicon-off"></span> 로그인
-									</button>
-								</form>
-							</div>
-							<div class="modal-footer">
-								<button type="submit"
-									class="btn btn-danger btn-default pull-left"
-									data-dismiss="modal">
-									<span class="glyphicon glyphicon-remove"></span> 닫기
-								</button>
-								<p>
-									<a href="signin.go">회원가입</a>
-								</p>
-								<p>
-									<a href="pwSearch.go">비밀번호 찾기</a>
-								</p>
-							</div>
-						</div>
-						<!-- modalend -->
 					</div>
 				</div>
 				<!--  -->
