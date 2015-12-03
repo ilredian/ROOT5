@@ -13,7 +13,7 @@
 
 	<select id="getCount" resultType="Integer">
 		SELECT COUNT(*) CNT
-		FROM BOARDFREE
+		FROM boardfree
 		WHERE active = 0
 	</select>
 	
