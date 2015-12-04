@@ -64,3 +64,26 @@ function value_change(id_name, value) {
 	input.value = value;
 	//input.onchange();
 }
+
+function formOK(data){
+	console.log("사이트명"+$('#cheat_site_temp').val());
+	console.log("거래물품종류"+$('.rdo').val());
+	console.log("물품명"+$('#subject').val());
+	console.log("용의자아이디"+$('#cheat_id').val());
+	console.log("사기게시물 링크"+$('#link').val());
+	console.log("계좌정보"+$('#cheat_site_temp').val());
+	console.log("은행명"+$('#cheat_site_temp').val());
+	console.log("명의자성명"+$('#cheat_site_temp').val());
+	console.log("계좌번호"+$('#cheat_site_temp').val());
+	console.log("입금금액"+$('#cheat_site_temp').val());
+	console.log("입금일"+$('#cheat_site_temp').val());
+	console.log("연락처정보"+$('#cheat_site_temp').val());
+	console.log("연락처"+$('#cheat_site_temp').val());
+	console.log("성별"+$('#cheat_site_temp').val());
+	console.log("용의자특징"+$('#cheat_site_temp').val());
+	console.log("피해자이름"+$('#cheat_site_temp').val());
+	console.log("연락처"+$('#cheat_site_temp').val());
+	console.log("이메일"+$('#cheat_site_temp').val());
+	console.log(data);
+	return false;
+}

@@ -1,16 +1,24 @@
 package controllers;
 
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import DAO.CheatBankDAO;
+import DAO.CheatDomainDAO;
+import DAO.CheatItemsDAO;
 import DAO.CheaterDAO;
+import DTO.CheatBankDTO;
+import DTO.CheatDomainDTO;
+import DTO.CheatItemsDTO;
 import DTO.CheaterDTO;
 
 //진술서 등록 (피해 등록) 컨트롤러
@@ -25,7 +33,8 @@ public class RegistrationController {
 
 	//피해 등록 페이지로 이동
 	@RequestMapping("registration.go")
-	public String registration() {
+	public String registration() throws Exception {
+		
 		return "registration.registration";
 	}
 
@@ -38,8 +47,25 @@ public class RegistrationController {
 
 	//직거래 피해 등록 페이지로 이동
 	@RequestMapping(value = "trade.go", method = RequestMethod.GET)
-	public String trade() {
+	public String trade(Model model) throws Exception {
 		System.out.println("직거래 진술서 작성 페이지 이동");
+		
+		CheatDomainDAO cdDAO = sqlSession.getMapper(CheatDomainDAO.class);
+		CheatItemsDAO ciDAO = sqlSession.getMapper(CheatItemsDAO.class);
+		CheatBankDAO cbDAO = sqlSession.getMapper(CheatBankDAO.class);
+		
+		List<CheatDomainDTO> domainlist = cdDAO.getList();
+		List<CheatItemsDTO> itemslist = ciDAO.getList(0);
+		List<CheatBankDTO> banklist1 = cbDAO.getList(0,25);
+		List<CheatBankDTO> banklist2 = cbDAO.getList(25,13);
+		List<CheatBankDTO> banklist3 = cbDAO.getList(38,25);
+		
+		model.addAttribute("domainlist",domainlist);
+		model.addAttribute("itemslist", itemslist);
+		model.addAttribute("banklist1", banklist1);
+		model.addAttribute("banklist2", banklist2);
+		model.addAttribute("banklist3", banklist3);
+		
 		return "registration.trade";
 	}
 
