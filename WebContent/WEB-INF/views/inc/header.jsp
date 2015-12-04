@@ -16,12 +16,10 @@
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script type="text/javascript">
-
-
 	/* 로그인 버튼  */
 	$(document).ready(function() {
 		$("#myBtn").click(function() {
-			window.open("login.go") 
+		location.replace("login.go") 
 		});
 	});
 	/* 로그아웃 버튼 */
@@ -31,8 +29,6 @@
 			location.replace("logout.go");
 		});
 	});
-	
-	
 </script>
 <nav class="navbar navbar-default" role="navigation" style="
     margin-bottom: 0px;
@@ -70,16 +66,8 @@
 		<div class="links">
 			<div class="container" align="right">
 				<!-- 로그인 버튼 _ 로그인 전과 후의 변화 -->
-						${pwd}
-				<c:if test="${memberInfo.typeno}=1">
-					관리자
-				</c:if>	
-				<c:if test="${memberInfo.typeno}=0">
-					사용자
-				</c:if>	
-				
-				<c:choose>
-				<c:when test="${empty memberInfo}">  <!-- 세션이 null 이면 -->
+						<c:choose>
+						<c:when test="${empty memberInfo}">  <!-- 세션이 null 이면 -->
 							<button type="button" class="btn btn-default" id="myBtn"
 								style="margin-right: 10px; margin-top: 10px">
 								<span class="glyphicon glyphicon-log-in"></span>로그인
@@ -87,7 +75,7 @@
 						</c:when>
 						<c:otherwise> <!-- 세션이 있다면_ -->
 							<button type="button" class="btn btn-default" id="myBtn2"
-								style="margin-right: 50px; margin-top: 10px">
+								style="margin-right: 20px; margin-top: 10px">
 								<span class="glyphicon glyphicon-log-in"></span>
 								<c:if test="${memberInfo.typeno==1}">
 									<c:out value="관리자"/>
@@ -95,14 +83,11 @@
 								<c:if test="${memberInfo.typeno==0}">
 									<c:out value="사용자"/>
 								</c:if>	
-								${memberInfo.name} 님 로그아웃
+								${memberInfo.name}님 로그아웃
 							</button>
-						</c:otherwise>
-					</c:choose>
-					</div>
-				</div>
-				<!--  -->
-				<button type="submit" class="btn btn-default"
+							</c:otherwise>
+						</c:choose>
+					<button type="submit" class="btn btn-default"
 					style="margin-right: 10px; margin-top: 10px">
 					<a href="memberMessage.go"> <span
 						class="glyphicon glyphicon-log-in"></span> 내 정보
@@ -119,7 +104,9 @@
 					<a href="pwSearch.go"> <span class="glyphicon glyphicon-log-in"></span>
 						비밀번호 찾기
 					</a>
-				</button>
+				</button>	
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
