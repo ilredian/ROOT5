@@ -8,6 +8,8 @@ http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd
 ">
 
+<context:annotation-config/>
+
 	<!-- 빈객체 생성 및 조립 (주입) -->
 	<context:component-scan base-package="controllers" />
 
@@ -34,5 +36,12 @@ http://www.springframework.org/schema/context/spring-context.xsd
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
 		<property name="order" value="1"></property>
 	</bean>
+	
+	<!-- email -->
+	
+	<bean id="email" class="spring.email.Email">
+    </bean>
+    <bean id="emailSender" class="spring.email.EmailSender">
+    </bean>
 
 </beans>
