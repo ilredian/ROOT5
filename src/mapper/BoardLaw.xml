@@ -19,8 +19,17 @@
 	
 	<select id="getNotice" parameterType="Integer" resultType="DTO.BoardLawDTO">
 		SELECT * FROM boardlaw WHERE boardno=#{boardno}
-
 	</select>
+	
+	<!--   public BoardLawDTO getNotice(int boardno) throws ClassNotFoundException, SQLException; -->
+	<select id="preView" parameterType="Integer" resultType="DTO.BoardLawDTO">
+		select * from boardlaw where boardno = #{boardno}
+	</select>
+	
+	<!--  public String preView(int boardno) throws DataAccessException {
+	   -->
+	
+	
 
 	<delete id="delete">
 		DELETE FROM boardlaw WHERE boardno=#{boardno}
