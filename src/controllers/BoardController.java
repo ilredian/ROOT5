@@ -2,6 +2,7 @@ package controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,8 +16,12 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.jdbc.core.JdbcTemplate;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,6 +41,7 @@ import common.ReplyPager;
 
 @Controller
 public class BoardController {
+	 private JdbcTemplate jdbcTemplate;
 
 	// 자바스크립트 쓰기위한 전역 변수 설정
 	PrintWriter out;
@@ -768,7 +774,18 @@ public class BoardController {
 		    
 		}
 	
-	
+	//7       // 게시물 본문내용 미리보기(/preView)
+		
+		@RequestMapping("preView.go")   
+		public String preView(@RequestParam("bno") int boardno, Model model) throws ClassNotFoundException, SQLException{
+			System.out.println("lawpreView");
+			 BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
+			 BoardLawDTO boardLawDTO = boardLawDAO.getNotice(boardno);
+			 model.addAttribute("boardLawDTO", boardLawDTO); ///// DB 테이블 명--파라미터명 일치 여부 확인후 수정바람*****
+			
+			 
+	              return "home.boardLaw.lawView";
+	       }
 	
 	
 	
