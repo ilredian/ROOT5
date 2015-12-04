@@ -32,7 +32,7 @@
   <div class="container"style="margin-top: 20px">
   <div class="row">
   	
-     <div class="col-sm-2" ><ul>
+       <div class="col-sm-2" ><ul>
 					<li class="menu"><a><img src="" alt="신고관리" /></a>
 						<ul class="hide">
 							<li><a href="free.go">자유게시판</a></li>
@@ -60,19 +60,29 @@
 
     <div class="col-sm-10" >
     <table class="table table-hover">
-    <h3>은행종류</h3>
+    <h3>사진게시판</h3>
     	<tr>
     	<th>
-    	은행명
+    	글번호
     	</th>
-    	
+    	<th>
+    	작성자
+    	</th>
+    	<th>
+    	제목
+    	</th>
+    	<th>
+    	날짜
+    	</th>
+    	<th>
+    	조회수
+    	</th>
     	</tr>
+    
     
     </table>
     	<div class="container">
-    		<input type="button" class="btn btn-info" value="수정">
     		<input type="button" class="btn btn-danger" value="삭제">
-    		<input type="button" class="btn btn-success" value="추가">
     	</div>
     </div>
   </div>
