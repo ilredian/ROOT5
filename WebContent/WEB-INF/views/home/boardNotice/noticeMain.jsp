@@ -40,7 +40,7 @@
    </table>
    
    <div>
-      <se:authorize ifAllGranted="ROLE_USER">
+      <se:authorize ifAllGranted="ROLE_USER,ROLE_ADMIN">
          <br>
          <input class="btn btn-primary" type="button" value="글쓰기"
             id="noticeWrite" style="float: right;">
