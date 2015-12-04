@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DAO.CheatItemsDAO">
+	<select id="getList" resultType="DTO.CheatItemsDTO">
+		SELECT *
+		FROM cheatitems
+		LIMIT #{start}, 26
+	</select>
+</mapper>

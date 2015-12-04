@@ -25,7 +25,7 @@ public class SmartEditorController {
 	}
 
 	// 단일파일업로드
-	@RequestMapping("photoUpload.go")
+	@RequestMapping("/photoUpload.go")
 	public String photoUpload(HttpServletRequest request, SmartEditorDTO smartEditorDTO) {
 		System.out.println("단일파일업로드");
 		String callback = smartEditorDTO.getCallback();
@@ -89,7 +89,7 @@ public class SmartEditorController {
 	}
 
 	// 다중파일업로드
-	@RequestMapping("multiplePhotoUpload.go")
+	@RequestMapping("/multiplePhotoUpload.go")
 	public void multiplePhotoUpload(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("다중파일업로드");
 		try {

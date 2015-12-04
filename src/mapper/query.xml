@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DAO.QueryDAO">
+	
+	<select id="getSearchQuery" resultType="DTO.QueryDTO">
+		SELECT *
+		FROM query
+		WHERE query LIKE '${param1}%'
+		ORDER BY count DESC
+	</select>
+	
+	<select id="getQuery" resultType="Integer">
+		SELECT count(*) cnt
+		FROM query
+		WHERE query = '${param1}'
+	</select>
+	
+	<insert id="insertQuery">
+		INSERT INTO query
+		VALUES('${param1}',#{param2})
+	</insert>
+	
+	<update id="updateQuery">
+		UPDATE query
+		SET count = count + 1
+		WHERE query = '${param1}'
+	</update>
+</mapper>
