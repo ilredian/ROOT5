@@ -1,19 +1,26 @@
 @CHARSET "UTF-8";
 
-.noticeMain tr, .noticeMain th, .noticeMain td{
+.lawMain tr, .lawMain th, .lawMain td{
 	 text-align: center;
 }
 
-.number, .date, .count
+.date, .writer, .career, .company
 {
 	width: 10%;
 	text-align: center;
 }
 
+.number, .count
+{
+	width: 5%;
+	text-align: center;
+}
+
 .subject
 {
-	width:70%;
+	width:50%;
 	text-align: center;
+	text-decoration: blink;
 }
 
 .content

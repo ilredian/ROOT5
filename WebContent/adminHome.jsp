@@ -31,11 +31,11 @@
 		<p>이페이지는 고나리자 전용 페이지 입니다</p>
 		<div class="container" style="margin-top: 20px">
 			<div class="row">
-
+	
 				  <div class="col-sm-2" ><ul>
 					<li class="menu"><a><img src="" alt="신고관리" /></a>
 						<ul class="hide">
-							<li><a href="free.go">자유게시판</a></li>
+							<li><a href="freeMain.go">자유게시판</a></li>
 							<li><a href="poto.go">사진게시판</a></li>
 							<li><a href="commment.go">댓글</a></li>
 

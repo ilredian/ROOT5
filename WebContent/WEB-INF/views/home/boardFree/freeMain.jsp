@@ -19,7 +19,6 @@
             <th class="writer">작성자</th>
             <th class="subject">제목</th>
             <th class="date">등록일</th>
-
             <th class="count">조회</th>
          </tr>
       </thead>
@@ -51,7 +50,7 @@
       </se:authorize>
 
        <input class="btn btn-primary" type="button" value="글쓰기"
-            id="freeWrite" style="float: right;">
+            id="freeWrite" style="float: right; text-align: center;">
    </div>
    
 </div>
