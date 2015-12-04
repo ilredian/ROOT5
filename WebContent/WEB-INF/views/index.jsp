@@ -9,8 +9,8 @@
 		<h1 align="center">사기피해사례 검색</h1>
 		<form id="search" class="navbar-form navbar-center" action="totalSearch.go">
 			<div class="input-group form-search">
-				<div>
-				<input type="text" name="q"
+				<div class="ui-widget"><label for="tags"></label>
+				<input type="text" name="q" id="tags"
 					class="form-control search-query" placeholder="검색하세요"
 					align="top" /></div> 
 					<span class="input-group-btn">

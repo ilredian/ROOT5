@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import DAO.CheaterDAO;
+import DAO.QueryDAO;
 import DTO.CheaterDTO;
 import common.BoardPager;
 
@@ -48,6 +49,15 @@ public class SearchController {
 		
 		//DAO 변수 선언
 		CheaterDAO cheaterDAO = sqlSession.getMapper(CheaterDAO.class);
+		
+		//검색 query 값 db에 저장 
+		QueryDAO queryDAO = sqlSession.getMapper(QueryDAO.class);
+		int result = queryDAO.getQuery(query, 1);
+		if(result == 1){
+			queryDAO.updateQuery(query, 1);
+		}else{
+			queryDAO.insertQuery(query, 1);
+		}
 		
 		//직거래
 		//페이징 처리
