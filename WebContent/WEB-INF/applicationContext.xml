@@ -51,8 +51,8 @@ http://www.springframework.org/schema/context/spring-context.xsd
         <property name="host" value="smtp.gmail.com" />
         <property name="port" value="587" />
         <property name="defaultEncoding" value="utf-8"/>
-        <property name="username" value="lghd101069@gmail.com" />
-        <property name="password" value="britzq12" />
+        <property name="username" value="ghkdworl23@gmail.com" />
+        <property name="password" value="xoals159" />
        
         <property name="javaMailProperties">
             <props>
