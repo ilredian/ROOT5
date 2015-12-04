@@ -3,18 +3,19 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import com.sun.media.jfxmedia.logging.Logger;
 
 import DAO.MemberDAO;
 import DTO.MemberDTO;
@@ -26,8 +27,18 @@ public class LoginController {
 
 	@Autowired
 	private SqlSession sqlSession;
-
+	
+	
+	@RequestMapping(value="login.go" , method=RequestMethod.GET)
+	public String Login(){
+		System.out.println("로그인 페이지로 이동");
+		return "join.login";
+	}
+	
 	// 로그인 정보 DB 확인
+	/*
+	@PreAuthorize("hasRole('ROLE_USER'")
+	*/
 	@RequestMapping(value = "login.go", method=RequestMethod.POST)
 	public String Login(
 			MemberDTO memberDTO,
@@ -87,6 +98,13 @@ public class LoginController {
 		}		
 		return "main.index";
 	}
+	
+	@RequestMapping(value="/ERROR.go" , method=RequestMethod.GET)
+	public void Denied(){
+		
+		System.out.println("접근 거부");
+	}
+	
 	// 로그아웃
 	@RequestMapping(value = "logout.go")
 	public String Logout(HttpServletResponse response, HttpSession session) throws IOException {

@@ -43,7 +43,8 @@
    </table>
    
    <div>
-      <se:authorize ifAllGranted="ROLE_USER">
+      <se:authorize ifAnyGranted="ROLE_USER"><!-- Any 아무거나 만족해도  -->
+      <%--    <se:authorize ifAnyGranted="hasRole('ROLE_USER')">  --%>
          <br>
          <input class="btn btn-primary" type="button" value="글쓰기"
             id="freeWrite" style="float: right;">
