@@ -783,7 +783,6 @@ public class BoardController {
 			 BoardLawDTO boardLawDTO = boardLawDAO.getNotice(boardno);
 			 model.addAttribute("boardLawDTO", boardLawDTO); ///// DB 테이블 명--파라미터명 일치 여부 확인후 수정바람*****
 			
-			 
 	              return "home.boardLaw.lawView";
 	       }
 	

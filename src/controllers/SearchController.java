@@ -39,13 +39,12 @@ public class SearchController {
 	
 	@RequestMapping("totalSearch.go")
 	public String totalSearch(
-			@RequestParam(value = "pg", required = false, defaultValue = "1") int page,
 			@RequestParam(value = "f", required = false, defaultValue = "cheatername") String field,
 			@RequestParam(value = "q", required = false, defaultValue = "%%") String query,
-			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize,
 			Model model) throws Exception{
 		//로그 남기기
 		System.out.println("모든 진술서 검색");
+		System.out.println("검색 필드 및 쿼리 값 : "+field+ " / " + query);
 		
 		//DAO 변수 선언
 		CheaterDAO cheaterDAO = sqlSession.getMapper(CheaterDAO.class);
@@ -59,50 +58,35 @@ public class SearchController {
 			queryDAO.insertQuery(query, 1);
 		}
 		
-		//직거래
-		//페이징 처리
-		int pagerSize = 10;// 한 번에 보여줄 페이지 번호 갯수
-		String linkUrl = "trade.go";// 페이지번호를 누르면 이동할 경로
+		//직거래///////
 		int cheatno = 1;
 		int tradeboardCount = cheaterDAO.getCheaterCount(field, query, cheatno);
-		int start = (page - 1) * pageSize;
-		BoardPager tradepager = new BoardPager(tradeboardCount, page, pageSize, pagerSize, linkUrl);
-		//DB 처리
-		List<CheaterDTO> tradelist = cheaterDAO.getSearchCheater(start, field, query, cheatno, pagerSize);
 		
-		model.addAttribute("tradepager", tradepager);
+		//DB 처리
+		List<CheaterDTO> tradelist = cheaterDAO.getSearchCheater(0, field, query, cheatno, 10);
+		
 		model.addAttribute("tradeboardCount", tradeboardCount);
 		model.addAttribute("tradelist", tradelist);
 		
-		//게임
-		//페이징 처리
-		pagerSize = 10;// 한 번에 보여줄 페이지 번호 갯수
-		linkUrl = "game.go";// 페이지번호를 누르면 이동할 경로
+		//게임///////
 		cheatno = 2;
 		int gameboardCount = cheaterDAO.getCheaterCount(field, query, cheatno);
-		start = (page - 1) * pageSize;
-		BoardPager gamepager = new BoardPager(gameboardCount, page, pageSize, pagerSize, linkUrl);
+		
 		//DB 처리
-		List<CheaterDTO> gamelist = cheaterDAO.getSearchCheater(start, field, query, cheatno, pagerSize);
+		List<CheaterDTO> gamelist = cheaterDAO.getSearchCheater(0, field, query, cheatno, 10);
 				
-		model.addAttribute("gamepager", gamepager);
 		model.addAttribute("gameboardCount", gameboardCount);
 		model.addAttribute("gamelist", gamelist);
 				
-		//비매너 페이징 처리
-		pagerSize = 10;// 한 번에 보여줄 페이지 번호 갯수
-		linkUrl = "manner.go";// 페이지번호를 누르면 이동할 경로
-		cheatno = 3;
+		//비매너 페이징 처리///////
 		int mannerboardCount = cheaterDAO.getCheaterCount(field, query, cheatno);
-		start = (page - 1) * pageSize;
-		BoardPager mannerpager = new BoardPager(mannerboardCount, page, pageSize, pagerSize, linkUrl);
+		
 		//DB 처리
-		List<CheaterDTO> mannerlist = cheaterDAO.getSearchCheater(start, field, query, cheatno, pagerSize);
+		List<CheaterDTO> mannerlist = cheaterDAO.getSearchCheater(0, field, query, cheatno, 10);
 				
-		model.addAttribute("mannerpager", mannerpager);
 		model.addAttribute("mannerboardCount", mannerboardCount);
 		model.addAttribute("mannerlist", mannerlist);
 		
-		return "search.search_a";
+		return "search.totalStatement";
 	}
 }
