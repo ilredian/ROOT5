@@ -26,13 +26,13 @@
 </head>
 <body>
 
-	<div class="container-fluid">
-  <h1>Hello World!</h1>
-  <p>Resize the browser window to see the effect.</p>
-  <div class="container">
+	<div class="container" >
+  <h1>관리자 페이지</h1>
+  <p>이페이지는 고나리자 전용 페이지 입니다</p>
+  <div class="container"style="margin-top: 20px">
   <div class="row">
   	
-    <div class="col-sm-2" style="border: 1px; border-color: black;"><ul>
+    <div class="col-sm-2" ><ul>
 					<li class="menu"><a><img src="" alt="신고관리" /></a>
 						<ul class="hide">
 							<li>자유게시판</li>
@@ -58,8 +58,24 @@
 				</ul>
 				</div>
     
-    <div class="col-sm-10" style="background-color:lavender;">
-    	
+    <div class="col-sm-10" >
+    <table class="table table-hover">
+    <h3>사기종류</h3>
+    	<tr>
+    	<th>
+    	사기번호
+    	</th>
+    	<th>
+    	사기이름
+    	</th>
+    	</tr>
+    
+    </table>
+    	<div class="container">
+    		<input type="button" class="btn btn-info" value="수정">
+    		<input type="button" class="btn btn-danger" value="삭제">
+    		<input type="button" class="btn btn-success" value="추가">
+    	</div>
     </div>
   </div>
   </div>
