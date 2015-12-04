@@ -6,7 +6,7 @@
 	<!-- 공지사항 글갯수 -->
 	<select id="getCount" resultType="Integer">
 		SELECT COUNT(*) CNT
-		FROM BOARDNOTICE
+		FROM boardnotice
 		WHERE active = 0
 	</select>
 

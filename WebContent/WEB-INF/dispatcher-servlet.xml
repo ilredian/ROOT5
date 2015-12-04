@@ -7,11 +7,13 @@ http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd
 ">
-	
+
+<context:annotation-config/>
+
 	<!-- 빈객체 생성 및 조립 (주입) -->
 	<context:component-scan base-package="controllers" />
 
-   <!-- Tiles START -->
+	<!-- Tiles START -->
 	<bean id="tilesConfigurer"
 		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
 		<property name="definitions">
@@ -25,6 +27,21 @@ http://www.springframework.org/schema/context/spring-context.xsd
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.tiles2.TilesView" />
 	</bean>
+
+	<!-- Tiles END -->
+
+	<!-- ajax -->
+
+	<bean id="jsonView" class="net.sf.json.spring.web.servlet.view.JsonView" />
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<property name="order" value="1"></property>
+	</bean>
 	
-	<!-- Tiles END   -->
+	<!-- email -->
+	
+	<bean id="email" class="spring.email.Email">
+    </bean>
+    <bean id="emailSender" class="spring.email.EmailSender">
+    </bean>
+
 </beans>
