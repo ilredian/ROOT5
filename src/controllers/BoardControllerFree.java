@@ -55,8 +55,13 @@ public class BoardControllerFree {
 		int boardCount = boardFreeDAO.getCount(field, query);// 검색 결과에 따른 게시글 총
 																// 갯수
 		int start = (page - 1) * pageSize;
-		BoardPager pager = new BoardPager(boardCount, page, pageSize, pagerSize, linkUrl);
 		
+		BoardPager pager= null;
+		if(!query.equals("%%")){
+			pager = new BoardPager(boardCount, page, pageSize, pagerSize, linkUrl, field, query);
+		}else{
+		pager = new BoardPager(boardCount, page, pageSize, pagerSize, linkUrl);
+		}
 		List<BoardFreeDTO> list= boardFreeDAO.getNotices(start, field, query, pageSize);
 		
 		String email = ((MemberDTO)session.getAttribute("memberInfo")).getEmail();

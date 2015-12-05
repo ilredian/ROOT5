@@ -81,3 +81,15 @@
 	<c:set var="pager" value="${pager.toString()}" />
 	${pager}
 </div>
+<br>
+<div style="text-align: center;">
+	<form action="boardFreeSearch.go">
+	<select id="select" name="field">
+		<option value="title">제목</option>
+		<option value="content">내용</option>
+		<option value="name">작성자</option>
+	</select>
+	<input type="text" name="query">
+	<input class="btn btn-primary" type="submit" value="검색">
+	</form>
+</div>
