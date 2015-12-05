@@ -31,8 +31,7 @@
 					<td class="writer">${list.name}</td>
 					<td class="subject"><c:choose>
 							<c:when test="${param.q != null}">
-								<a
-									href="freeView.go?pg=${param.pg}&bno=${list.boardno}&f=${param.f}&q=${param.q}"
+								<a href="freeView.go?pg=${param.pg}&bno=${list.boardno}&f=${param.f}&q=${param.q}"
 									data-toggle="tooltip" title="${list.content}"
 									data-placement="right"> <c:if test="${list.depth > 0}">
 										<c:forEach begin="0" end="${list.depth}">

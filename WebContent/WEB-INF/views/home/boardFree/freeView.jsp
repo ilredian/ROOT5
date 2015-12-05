@@ -83,7 +83,6 @@
 														href="updateReplyActive.go?pg=${param.pg}&bno=${param.bno}&cno=1&rno=${replyDTO.replyno}">삭제</a>
 													&nbsp;&nbsp;
 												</c:if>
-												<a href="#">답글</a>
 											</div>
 										</div>
 									</td>
