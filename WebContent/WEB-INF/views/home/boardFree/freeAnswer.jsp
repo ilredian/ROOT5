@@ -16,8 +16,8 @@
 			<tr>
 				<th class="active">작성자</th>
 				<td>
-					<c:out value="${boardFreeDTO.name}"/>
-					<input type="hidden" name="name" value="${boardFreeDTO.name}">
+					<c:out value="${memberInfo.name}"/>
+					<input type="hidden" name="name" value="${memberInfo.name}">
 					<input type="hidden" name="memberno" value="${boardFreeDTO.memberno}">
 				</td>
 			</tr>
@@ -25,7 +25,6 @@
 				<td colspan="2">
 					<textarea id="editor" style="HEIGHT: 300px; WIDTH: 100%" rows="10" cols="30" name="content">
 					
-					<br><br><br>
 					-----원 본 글 -----
 					${boardFreeDTO.content}
 					</textarea>
@@ -35,8 +34,8 @@
 				<th class="active">고운 언어가 좋아요!</th>
 				<td>
 				"말이 입힌 상처는 칼이 입힌 상처보다 깊다." - 모로코 속담<br>
-				<c:out value="${boardFreeDTO.name}"/>님의 글은 <c:out value="${boardFreeDTO.name}"/>님의 품격을 보여주는 <c:out value="${boardFreeDTO.name}"/>님의 얼굴입니다.
-				글에 <c:out value="${boardFreeDTO.name}"/>님의 성숙함을 담아주세요.
+				<c:out value="${memberInfo.name}"/>님의 글은 <c:out value="${memberInfo.name}"/>님의 품격을 보여주는 <c:out value="${memberInfo.name}"/>님의 얼굴입니다.
+				글에 <c:out value="${memberInfo.name}"/>님의 성숙함을 담아주세요.
 				</td>
 			</tr>
 			<tr>
