@@ -12,4 +12,10 @@
 		INSERT INTO memberdb(email, password, name, phone, regdate, regpwd, photo) 
 		VALUES(#{email}, #{password}, #{name}, #{phone},SYSDATE(),SYSDATE(),#{photo})
 	</insert>
+	
+	<!-- (회원 탈퇴) -->
+	<update id="delete" parameterType="DTO.MemberDTO">
+		UPDATE MEMBERDB  SET ACTIVE = 1  WHERE MEMBERNO = #{MEMBERNO}
+	</update>
+	
 </mapper>

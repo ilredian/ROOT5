@@ -1,11 +1,27 @@
 package controllers;
 
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpSession;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import DAO.BoardFreeDAO;
+import DAO.MemberDAO;
+import DTO.BoardFreeDTO;
+import DTO.MemberDTO;
 
 @Controller
 public class MemberInfoController {
+	
+	PrintWriter out;
+	@Autowired
+	private SqlSession sqlSession;
 
 	@RequestMapping(value="memberMessage.go", method=RequestMethod.GET)
 	public String message(){//쪽지
@@ -71,11 +87,24 @@ public class MemberInfoController {
 	}
 	
 	@RequestMapping(value="memberWithdrawal.go", method=RequestMethod.GET)
-	public String withdrawal(){//회원탈퇴
+	public String updateActive(){//회원탈퇴
 		
 		//로그 남기기
 		System.out.println("내 회원탈퇴 페이지로 이동");
-		
 		return "memberInfo.memberWithdrawal";
+		
+	}
+	
+	@RequestMapping(value="memberWithdrawal.go", method=RequestMethod.POST)
+	public String updateActive(@RequestParam("mno") int memberno, HttpSession session) throws Exception{//실제회원탈퇴
+		
+		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
+		MemberDTO memberDTO = memberDAO.delete(memberno);
+		
+		//로그 남기기
+		System.out.println("내 회원탈퇴 페이지로 이동");
+		return "memberInfo.memberWithdrawal";	
+		
+		
 	}
 }
