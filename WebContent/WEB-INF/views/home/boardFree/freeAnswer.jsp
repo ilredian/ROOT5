@@ -18,7 +18,9 @@
 				<td>
 					<c:out value="${memberInfo.name}"/>
 					<input type="hidden" name="name" value="${memberInfo.name}">
-					<input type="hidden" name="memberno" value="${boardFreeDTO.memberno}">
+					<input type="hidden" name="memberno" value="${memberInfo.memberno}">
+					<input type="hidden" name="depth" value="${boardFreeDTO.depth+1}">
+					<input type="hidden" name="step" value="${boardFreeDTO.step+1}">
 				</td>
 			</tr>
 			<tr>

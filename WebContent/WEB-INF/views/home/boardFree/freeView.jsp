@@ -27,7 +27,9 @@
 						</tr>
 					</table>
 				</td>
-				<td style="width: 20%">조회 ${boardFreeDTO.countno}</td>
+				<td style="width: 20%">조회 ${boardFreeDTO.countno}
+				<input class="btn btn-default" type="button" id="answer" value="답글">
+				</td>
 			</tr>
 		</tbody>
 	</table>
@@ -48,7 +50,6 @@
 							<input class="btn btn-default" type="button" id="edit" value="수정">
 							<input class="btn btn-default" type="button" id="delete" value="삭제">
 							<input class="btn btn-default" type="button" id="list" value="목록">
-							<input class="btn btn-default" type="button" id="answer" value="답글">
 						</div>
 					</div></td>
 			</tr>
