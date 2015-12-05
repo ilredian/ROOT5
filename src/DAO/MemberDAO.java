@@ -18,5 +18,8 @@ public interface MemberDAO {
 	
 	//로그인하기
 	public MemberDTO login(String email, String pwd) throws Exception;
+	
+	//회원탈퇴
+	public MemberDTO delete(int memberno) throws Exception;
 }
 
