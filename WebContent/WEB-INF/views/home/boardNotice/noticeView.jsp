@@ -42,13 +42,15 @@
 							$('#asdf').text(window.location.href)
 						</script>
 						<div style="float: right;">
-							<input class="btn btn-default" type="button" id="edit" value="수정">
+							<c:if test="${boardFreeDTO.memberno == memberInfo.memberno}">
 							<!-- noticeEdit.go  -->
+							<input class="btn btn-default" type="button" id="edit" value="수정">
+							<!-- noticeDelete.go -->
 							<input class="btn btn-default" type="button" id="delete"
 								value="삭제">
-							<!-- noticeDelete.go -->
-							<input class="btn btn-default" type="button" id="list" value="목록">
+							</c:if>
 							<!-- noticeMain.go -->
+							<input class="btn btn-default" type="button" id="list" value="목록">
 						</div>
 					</div></td>
 			</tr>
@@ -83,7 +85,6 @@
 														href="updateReplyActive.go?pg=${param.pg}&bno=${param.bno}&cno=2&rno=${replyDTO.replyno}">삭제</a>
 													&nbsp;&nbsp;
 												</c:if>
-												<a href="#">답글</a>
 											</div>
 										</div>
 									</td>

@@ -37,6 +37,23 @@ public class SearchController {
 		return go;
 	}
 	
+	@RequestMapping("boardNoticeSearch.go")
+	public String boardNoticeSearch(
+			@RequestParam("field") String field,
+			@RequestParam("query") String query
+			){//공지사항 게시판 검색
+		//로그 남기기
+		System.out.println("공지사항 게시판 검색");
+		
+		//경로 설정 변수 선언
+		String go = "";
+		
+		//검색 URI 설정
+		go = "redirect:noticeMain.go?pg=1&f="+field+"&q="+query;
+		
+		return go;
+	}
+	
 	@RequestMapping("totalSearch.go")
 	public String totalSearch(
 			@RequestParam(value = "f", required = false, defaultValue = "cheatername") String field,

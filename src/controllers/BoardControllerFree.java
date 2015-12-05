@@ -3,7 +3,6 @@ package controllers;
 import java.io.PrintWriter;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -26,16 +25,12 @@ import common.ReplyPager;
 @Controller
 public class BoardControllerFree {// 자유게시판
 
+	// 자바스크립트 쓰기위한 전역 변수 선언
 	PrintWriter out;
+	
 	@Autowired
 	private SqlSession sqlSession;
-
-	//////////// 자유게시판////////////////
-	//////////// 자유게시판////////////////
-	//////////// 자유게시판////////////////
-	//////////// 자유게시판////////////////
-	//////////// 자유게시판////////////////
-
+	
 	// 1. 자유게시판 메인(목록리스트)
 	@RequestMapping("freeMain.go") // 자유게시판 메인- 목록보기 List
 	public String freeMain(// get으로 들어오는 parameter값 선언 및 기본값 설정
@@ -48,7 +43,7 @@ public class BoardControllerFree {// 자유게시판
 		// 로그 남기기
 		System.out.println(page + " / " + field + " / " + query);
 
-		// 맵퍼 설정하여 DAO 변수 잡기
+		// 맵퍼 설정하여 DAO 변수 선언
 		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
 
 		// 페이징 처리
@@ -79,7 +74,7 @@ public class BoardControllerFree {// 자유게시판
 		model.addAttribute("boardCount", boardCount);
 		model.addAttribute("list", list);
 
-		//로그 남기기
+		// 로그 남기기
 		System.out.println("자유게시판 메인 출력 완료");
 
 		return "home.boardFree.freeMain";
@@ -111,7 +106,7 @@ public class BoardControllerFree {// 자유게시판
 			boardFreeDTO.setCountno(boardFreeDTO.getCountno() + 1);
 		}
 		
-		//게시글에 달린 리플들 정보값을 불러오기 위한 변수 선언 및 가져오기
+		// 게시글에 달린 리플들 정보값을 불러오기 위한 변수 선언 및 가져오기
 		System.out.println("리플 정보 가져오기");
 		ReplyDAO replyDAO = sqlSession.getMapper(ReplyDAO.class);
 		int replycount = replyDAO.getBoardReplyCount("content", "%%", boardno);
@@ -125,7 +120,7 @@ public class BoardControllerFree {// 자유게시판
 			rpager = new ReplyPager(replycount, replypage, 10, 10, "freeView.go", boardno, page);
 		}
 		
-		//해당 게시판에 대한 리플들 불러오기
+		// 해당 게시판에 대한 리플들 불러오기
 		List<ReplyDTO> replyDTO = replyDAO.getBoardReply("content", "%%", boardno, rstart);
 
 		// 상세보기 화면 밑에 메인 화면 리스트 뿌려주기
@@ -168,7 +163,10 @@ public class BoardControllerFree {// 자유게시판
 	// 3. 자유게시판 글쓰기(페이지 이동)
 	@RequestMapping(value = "freeWrite.go", method = RequestMethod.GET)
 	public String freeWrite() {
+		
+		//로그 남기기
 		System.out.println("자유게시판 글쓰기 페이지 이동");
+		
 		return "home.boardFree.freeWrite";
 	}
 
@@ -190,11 +188,11 @@ public class BoardControllerFree {// 자유게시판
 		if (result != 0) {
 			System.out.println("자유게시판 글쓰기 완료");
 			out.print(
-					"<script type='text/javascript'>alert('글이 성공적으로 등록되었습니다.'); location.replace('freeMain.go?cno=1');</script>");
+					"<script type='text/javascript'>alert('글이 성공적으로 등록되었습니다.'); location.replace('freeMain.go?pg=1');</script>");
 		} else {
 			System.out.println("자유게시판 글쓰기 등록 실패");
 			out.print(
-					"<script type='text/javascript'>alert('글을 등록하는데 실패하였습니다.'); location.replace('freeMain.go?cno=1');</script>");
+					"<script type='text/javascript'>alert('글을 등록하는데 실패하였습니다.'); location.replace('freeMain.go?pg=1');</script>");
 		}
 		out.close();
 	}
@@ -212,12 +210,16 @@ public class BoardControllerFree {// 자유게시판
 
 		// 모델 객체에 담기
 		model.addAttribute("boardFreeDTO", boardFreeDTO);
+		
 		return "home.boardFree.freeEdit";
 	}
 
 	// 5-1. 게시물 수정 (수정 처리)
 	@RequestMapping(value = "freeEdit.go", method = RequestMethod.POST)
-	public void freeEdit(@RequestParam("pg") int page, BoardFreeDTO boardFreeDTO,
+	public void freeEdit(@RequestParam("pg") int page, 
+			@RequestParam(value="f", required = false, defaultValue = "title") String field,
+			@RequestParam(value="q", required = false, defaultValue = "%%") String query,
+			BoardFreeDTO boardFreeDTO,
 			HttpServletResponse response) throws Exception {
 
 		// 로그 남기기
@@ -226,6 +228,12 @@ public class BoardControllerFree {// 자유게시판
 		// 경고문 띄우기 전 한글 처리
 		response.setContentType("text/html;charset=UTF-8");
 		out = response.getWriter();
+		
+		// 검색한 후 수정했을 경우
+		String addURI = "";
+		if(!query.equals("%%")){
+			addURI += "&f="+field+"&q="+query;
+		}
 
 		// 글 수정 진행
 		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
@@ -233,7 +241,7 @@ public class BoardControllerFree {// 자유게시판
 		
 		if(result == 1){
 			System.out.println("자유게시판 수정완료");
-			out.print("<script>alter('게시물 수정이 성공적으로 처리되었습니다.');location.replace('freeMain.go?pg=" + page + "');</script>");
+			out.print("<script>alter('게시물 수정이 성공적으로 처리되었습니다.');location.replace('freeMain.go?pg=" + page + addURI + "');</script>");
 		}else{
 			out.print("<script>alter('게시물 수정에 실패하였습니다.');location.replace('index.go');</script>");
 		}
