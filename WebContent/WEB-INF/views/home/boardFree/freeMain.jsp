@@ -31,28 +31,27 @@
 					<td class="writer">${list.name}</td>
 					<td class="subject"><c:choose>
 							<c:when test="${param.q != null}">
-								<a href="freeView.go?pg=${param.pg}&bno=${list.boardno}&f=${param.f}&q=${param.q}"
+								<a
+									href="freeView.go?pg=${param.pg}&bno=${list.boardno}&f=${param.f}&q=${param.q}"
 									data-toggle="tooltip" title="${list.content}"
-									data-placement="right">
-									<c:if test="${list.depth > 0}">
-									<c:forEach begin="0" end="${list.depth}">
+									data-placement="right"> <c:if test="${list.depth > 0}">
+										<c:forEach begin="0" end="${list.depth}">
 									&nbsp;&nbsp;
 									</c:forEach>
 									->
-									</c:if>
-									${list.title}</a>
+									</c:if> ${list.title}
+								</a>
 							</c:when>
 							<c:otherwise>
 								<a href="freeView.go?pg=${param.pg}&bno=${list.boardno}"
 									data-toggle="tooltip" title="${list.content}"
-									data-placement="right">
-									<c:if test="${list.depth > 0}">
-									<c:forEach begin="0" end="${list.depth}">
+									data-placement="right"> <c:if test="${list.depth > 0}">
+										<c:forEach begin="0" end="${list.depth}">
 									&nbsp;&nbsp;
 									</c:forEach>
 									->
-									</c:if>
-									${list.title}</a>
+									</c:if> ${list.title}
+								</a>
 							</c:otherwise>
 						</c:choose> <c:if test="${list.boardReplyCount > 0}">
 							<span style="color: red;">${list.boardReplyCount}</span>
@@ -76,20 +75,19 @@
 		<input class="btn btn-primary" type="button" value="글쓰기"
 			id="freeWrite" style="float: right; text-align: center;">
 	</div>
-</div>
-<div style="text-align: center;">
-	<c:set var="pager" value="${pager.toString()}" />
-	${pager}
-</div>
-<br>
-<div style="text-align: center;">
-	<form action="boardFreeSearch.go">
-	<select id="select" name="field">
-		<option value="title">제목</option>
-		<option value="content">내용</option>
-		<option value="name">작성자</option>
-	</select>
-	<input type="text" name="query">
-	<input class="btn btn-primary" type="submit" value="검색">
-	</form>
+	<div style="text-align: center;">
+		<c:set var="pager" value="${pager.toString()}" />
+		${pager}
+	</div>
+	<br>
+	<div style="text-align: center;">
+		<form action="boardFreeSearch.go">
+			<select id="select" name="field">
+				<option value="title">제목</option>
+				<option value="content">내용</option>
+				<option value="name">작성자</option>
+			</select> <input type="text" name="query"> <input
+				class="btn btn-primary" type="submit" value="검색">
+		</form>
+	</div>
 </div>

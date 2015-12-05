@@ -14,7 +14,7 @@
 	<select id="getCount" resultType="Integer">
 		SELECT COUNT(*) CNT
 		FROM boardfree
-		WHERE active = 0
+		WHERE ${param1} LIKE '%${param2}%' and active = 0
 	</select>
 	
 	<select id="getNotice"  resultType="DTO.BoardFreeDTO">
