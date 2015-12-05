@@ -1,18 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<% response.setHeader("X-Frame-Options", "SAMEORIGIN"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript"
-	src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script type="text/javascript" charset="utf-8"
 	src="/ROOT/navereditor/js/HuskyEZCreator.js"></script>
-<script>
+<script type="text/javascript">
+//전역변수선언
+var editor_object = [];
+	
 	$(function() {
-		//전역변수선언
-		var editor_object = [];
+	
 
 		nhn.husky.EZCreator.createInIFrame({
 			oAppRef : editor_object,
@@ -43,6 +46,7 @@
 		});
 	});
 </script>
+
 </head>
 <body>
 	<form id="frm" method="post" action="send.go">
