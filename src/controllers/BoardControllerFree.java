@@ -179,7 +179,10 @@ public class BoardControllerFree {
 
 	// 5. 게시물 수정 (화면 (select)
 	@RequestMapping(value = "freeEdit.go", method = RequestMethod.GET)
-	public String freeEdit(@RequestParam("bno") int boardno, HttpSession session,  Model model ,HttpServletResponse response) throws Exception {
+	public String freeEdit(@RequestParam("bno") int boardno,
+			HttpSession session, 
+			Model model ,
+			HttpServletResponse response) throws Exception {
 
 		// 로그 남기기
 		System.out.println("게시물 수정 페이지로 이동");
@@ -257,9 +260,18 @@ public class BoardControllerFree {
 	
 	// 7. 답글 입력_창이동
 	@RequestMapping(value = "freeAnswer.go", method = RequestMethod.GET)
-	public String freeAnswer() {
-		System.out.println("자유게시판 글쓰기 창");
-		return "home.boardFree.freeWrite";
+	public String freeAnswer(@RequestParam("bno") int boardno,
+								HttpSession session, 
+								Model model ,
+								HttpServletResponse response) throws Exception {
+		System.out.println("자유게시판 답글 글쓰기 창");
+		
+		// 페이지 이동 변수 선언
+		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
+		BoardFreeDTO boardFreeDTO = boardFreeDAO.getNotice(boardno);
+			System.out.println("자유게시판 원본글 가져오기");
+			model.addAttribute("boardFreeDTO", boardFreeDTO);
+		return "home.boardFree.freeAnswer";
 	}
 
 	//7-2. 답글 실제 등록
