@@ -13,6 +13,7 @@
 			결정하신 후 탈퇴해 주세요.</p>
 	</div>
 	<hr>
+	<form action="delete.go" method="post">
 	<div>
 		<table>
 			<thead
@@ -32,11 +33,15 @@
 				<tr>
 					<td><input type="password"></td>
 				</tr>
+				<tr>
+					<input type="submit" value="회원탈퇴">
+				</tr>
 			</tbody>
 		</table>
 		<hr>
 		<div style="margin-top: 20px">
-			<a type="submit" href="#">로그아웃</a> <a type="submit" href="#">회원탈퇴</a>
+			<a type="submit" href="#">로그아웃</a> 
 		</div>
 	</div>
+	</form>
 </div>

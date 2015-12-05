@@ -86,7 +86,7 @@ public class MemberInfoController {
 		return "memberInfo.memberPwdChange";
 	}
 	
-	@RequestMapping(value="memberWithdrawal.go", method=RequestMethod.GET)
+	@RequestMapping(value="delete.go", method=RequestMethod.GET)
 	public String updateActive(){//회원탈퇴
 		
 		//로그 남기기
@@ -95,15 +95,15 @@ public class MemberInfoController {
 		
 	}
 	
-	@RequestMapping(value="memberWithdrawal.go", method=RequestMethod.POST)
+	@RequestMapping(value="delete.go", method=RequestMethod.POST)
 	public String updateActive(@RequestParam("mno") int memberno, HttpSession session) throws Exception{//실제회원탈퇴
 		
 		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
-		MemberDTO memberDTO = memberDAO.delete(memberno);
+		memberDAO.delete(memberno);
 		
 		//로그 남기기
 		System.out.println("내 회원탈퇴 페이지로 이동");
-		return "memberInfo.memberWithdrawal";	
+		return "home.home.home";	
 		
 		
 	}
