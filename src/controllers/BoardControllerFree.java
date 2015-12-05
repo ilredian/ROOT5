@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.mysql.fabric.Response;
+
 import DAO.BoardFreeDAO;
 import DAO.ReplyDAO;
 import DTO.BoardFreeDTO;
@@ -180,14 +182,14 @@ public class BoardControllerFree {
 
 	// 5. 게시물 수정 (화면 (select)
 	@RequestMapping(value = "freeEdit.go", method = RequestMethod.GET)
-	public String freeEdit(@RequestParam("bno") int boardno, HttpSession session, Model model) throws Exception {
+	public String freeEdit(@RequestParam("bno") int boardno, HttpSession session,  Model model ,HttpServletResponse response) throws Exception {
 
 		// 로그 남기기
 		System.out.println("게시물 수정 페이지로 이동");
 
 		// 페이지 이동 변수 선언
 		String go = "";
-
+		
 		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
 
 		int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
@@ -197,7 +199,16 @@ public class BoardControllerFree {
 			model.addAttribute("boardFreeDTO", boardFreeDTO);
 			go = "home.boardFree.freeEdit";
 		} else {
-			go = "redirect:index.go";
+			System.out.println("작성자 본인이 아니다!");
+			
+			response.setContentType("text/html;charset=UTF-8");
+			out = response.getWriter();
+			
+			out.write("<script>alert('작성자 본인이 아닙니다!')</script>");
+
+			out.print("<script>alert('작성자 본인이 아닙니다!')</script>");
+			out.flush();
+
 		}
 		return go;
 	}

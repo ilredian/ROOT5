@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <form id="frm" method="post" action="">
 	<div class="container noticeWrite">
-		<h2>자유게시판</h2>
+		<h2>공지게시판</h2>
 		<table class="table">
 			<tr>
 				<th class="active">제목</th>

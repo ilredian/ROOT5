@@ -71,7 +71,7 @@ $(document).ready(function(){
 					<td class="writer">${n.name}</td>
 					<td class="subject">
 				<a href="lawView.go?pg=${param.pg}&bno=${n.boardno}" 
-				data-toggle="tooltip"  title="${n.title}" data-placement="right">
+				data-toggle="tooltip"  title="${n.content}" data-placement="right">
 						${n.title}  -> ${n.message}</a>
 						
 						<!--	onmouseover="setTimeout('me()', 1500)" onmouseout="me1()">&nbsp;&nbsp;&nbsp;  -->

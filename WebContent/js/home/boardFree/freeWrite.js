@@ -1,7 +1,7 @@
+var editor_object = [];
+
 $(function() {
 	//전역변수선언
-	var editor_object = [];
-
 	nhn.husky.EZCreator.createInIFrame({
 		oAppRef : editor_object,
 		elPlaceHolder : "editor",
