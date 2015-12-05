@@ -6,6 +6,15 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="container freeMain">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+
    <h2>자유게시판</h2>
    <p>
       Total :
@@ -29,7 +38,8 @@
                <td class="number">${list.boardno}</td>
                <td class="writer">${list.name}</td>
                <td class="subject"><a
-                  href="freeView.go?pg=${param.pg}&bno=${list.boardno}">${list.title}</a> 
+                  href="freeView.go?pg=${param.pg}&bno=${list.boardno}" data-toggle="tooltip"
+                  title="${list.content}" data-placement="right">${list.title}</a> 
                   <c:if test="${list.boardReplyCount > 0}">
                   	<span style="color:red;">${list.boardReplyCount}</span>
                   </c:if>
@@ -52,7 +62,6 @@
        <input class="btn btn-primary" type="button" value="글쓰기"
             id="freeWrite" style="float: right; text-align: center;">
    </div>
-   
 </div>
 <div style="text-align: center;">
    <c:set var="pager" value="${pager.toString()}" />
