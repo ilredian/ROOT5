@@ -14,6 +14,12 @@ $('#list').click(function() {
 	location.replace("freeMain.go?pg=" + pg);
 });
 
+$('#answer').click(function() { //답글달기
+	var pg = $('#pageNo').val();
+	var bno = $('#boardNo').val();
+	location.replace("freeAnswer.go?pg=" + pg + "&bno=" + bno);
+});
+
 $('#freeWrite').click(function(){
 	location.replace("freeWrite.go");
 });

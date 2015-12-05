@@ -31,8 +31,7 @@ public interface BoardFreeDAO {
 	public int insert(BoardFreeDTO n) throws Exception;
 	
 	//게시물 답글 달기
-	public int Reply(BoardFreeDTO n) throws Exception;
-	
+	public int answer(BoardFreeDTO boardFreeDTO) throws Exception;
 	
 	
 }

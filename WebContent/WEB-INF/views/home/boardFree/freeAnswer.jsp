@@ -2,14 +2,16 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
 <form id="frm" method="post" action="">
 	<input type="hidden" name="boardno" value="${boardFreeDTO.boardno}" >
 	<div class="container freeMain">
-		<h2>자유게시판</h2>
+		<h2>답글</h2>
 		<table class="table">
 			<tr>
 				<th class="active">제목</th>
-				<td><input type="text" name="title" style="WIDTH: 100%;" value="${boardFreeDTO.title}"></td>
+				<td><input type="text" name="title" style="WIDTH: 100%;" value="[RE}:${boardFreeDTO.title}"></td>
 			</tr>
 			<tr>
 				<th class="active">작성자</th>
@@ -22,6 +24,9 @@
 			<tr>
 				<td colspan="2">
 					<textarea id="editor" style="HEIGHT: 300px; WIDTH: 100%" rows="10" cols="30" name="content">
+					
+					<br><br><br>
+					-----원 본 글 -----
 					${boardFreeDTO.content}
 					</textarea>
 				</td>

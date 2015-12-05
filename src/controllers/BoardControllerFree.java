@@ -45,7 +45,6 @@ public class BoardControllerFree {
 			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, // 한 페이지에 보여줄 게시글 갯수
 			HttpSession session,
 			Model model) throws Exception {
-
 		// 로그 남기기
 		System.out.println(page + " / " + field + " / " + query);
 
@@ -256,26 +255,21 @@ public class BoardControllerFree {
 
 	}
 	
-	// 7. 답글 입력
-	@RequestMapping("freeReply.go")
-	public String freeReply(@RequestParam("bno") int boardno, HttpSession session) throws Exception {
+	// 7. 답글 입력_창이동
+	@RequestMapping(value = "freeAnswer.go", method = RequestMethod.GET)
+	public String freeAnswer() {
+		System.out.println("자유게시판 글쓰기 창");
+		return "home.boardFree.freeWrite";
+	}
 
+	//7-2. 답글 실제 등록
+	@RequestMapping(value = "freeAnswer.go", method = RequestMethod.POST)
+	public String freeAnswer(@RequestParam("bno") int boardno, BoardFreeDTO boardFreeDTO, HttpSession session) throws Exception {
 		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
-
-		int memberno = boardFreeDAO.getNotice(boardno).getMemberno();
-		
-		if (((MemberDTO) session.getAttribute("memberInfo")).getMemberno() == memberno) {
-			boardFreeDAO.updateActive(boardno);
-			System.out.println("자유게시판 게시물 답급 완료");
-		} else {
-			System.out.println("자유게시판 게시물을 답급이 안됩니다.");
-		}
+		//답글 입력_
+		boardFreeDAO.answer(boardFreeDTO);
 
 		return "redirect:freeMain.go?pg=1";
-
-	}
+		}	
 	
-	
-	
-
 }

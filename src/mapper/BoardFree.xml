@@ -53,9 +53,10 @@
 		VALUES(#{title}, #{name}, #{content}, SYSDATE(), last_insert_id()+1, 0, #{memberno}, 1)
 	</insert>
 	
-	<insert id="" parameterType="">
-		insert into boardfree()
-		valeus()
+	<!-- 답글도 똑같이_  -->
+	<insert id="answer" parameterType="DTO.BoardFreeDTO">
+		INSERT INTO boardfree(title, name, content, regdate, groupno, notice, memberno, categoryno) 
+		VALUES(#{title}, #{name}, #{content}, SYSDATE(), last_insert_id()+1, 0, #{memberno}, )
 	</insert>
 	
 </mapper>
