@@ -13,8 +13,8 @@ public class BoardPager {
 
 	private String linkUrl;// 페이저가 포함되는 페이지의 주소
 
-	private String field;
-	private String query;
+	private String field;//검색 필드(ex:제목, 내용)
+	private String query;//검색 값
 	
 	public BoardPager(int dataCount, int currentPage, int pageSize, int pagerSize, String linkUrl){
 		this.linkUrl = linkUrl;
