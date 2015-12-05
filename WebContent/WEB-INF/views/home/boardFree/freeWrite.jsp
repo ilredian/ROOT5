@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<form id="frm" method="post" action="freeMain.go">
+<form id="frm" method="post" action="">
 	<div class="container freeMain">
 		<h2>자유게시판</h2>
 		<table class="table">

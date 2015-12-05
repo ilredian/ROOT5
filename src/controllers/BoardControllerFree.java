@@ -276,10 +276,18 @@ public class BoardControllerFree {
 
 	//7-2. 답글 실제 등록
 	@RequestMapping(value = "freeAnswer.go", method = RequestMethod.POST)
-	public String freeAnswer(@RequestParam("bno") int boardno, BoardFreeDTO boardFreeDTO, HttpSession session) throws Exception {
+	public String freeAnswer(BoardFreeDTO boardFreeDTO, HttpSession session) throws Exception {
+		
+		//로그 남기기
+		System.out.println("자유 게시판 답글 시작");
+		System.out.println(boardFreeDTO.toString());
+		
+		//DB 로직
 		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
-		//답글 입력_
+		System.out.println("답글 작성");
 		boardFreeDAO.answer(boardFreeDTO);
+		
+		System.out.println("자유 게시판 답글 끝");
 
 		return "redirect:freeMain.go?pg=1";
 		}	

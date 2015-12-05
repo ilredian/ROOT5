@@ -7,7 +7,7 @@
 		SELECT *
 		FROM boardfree
 		WHERE ${param2} LIKE '%${param3}%' and active = 0
-		ORDER BY regdate DESC, boardno DESC
+		ORDER BY regdate DESC, groupno DESC, step ASC
 		LIMIT ${param1}, ${param4}
 	</select>
 
@@ -54,15 +54,9 @@
 	</insert>
 	
 	<!-- 답글 -->
-	<select id="">
-		select count(*) cnt
-		from boardfree
-		where groupno = #{boardno}
-	</select>
-	
 	<insert id="answer" parameterType="DTO.BoardFreeDTO">
 		INSERT INTO boardfree(title, name, content, regdate, groupno, step, depth, notice, memberno, categoryno) 
-		VALUES(#{title}, #{name}, #{content}, SYSDATE(), #{bno}, #{step}, #{depth} , 0, #{memberno}, 1)
+		VALUES(#{title}, #{name}, #{content}, SYSDATE(), #{boardno}, #{step}, #{depth} , 0, #{memberno}, 1)
 	</insert>
 	
 </mapper>

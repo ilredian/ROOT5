@@ -34,8 +34,8 @@
 								<a href="freeView.go?pg=${param.pg}&bno=${list.boardno}&f=${param.f}&q=${param.q}"
 									data-toggle="tooltip" title="${list.content}"
 									data-placement="right">
-									<c:if test="${list.step > 0}">
-									<c:forEach items="${list.step}">
+									<c:if test="${list.depth > 0}">
+									<c:forEach begin="0" end="${list.depth}">
 									&nbsp;&nbsp;
 									</c:forEach>
 									->
@@ -46,9 +46,12 @@
 								<a href="freeView.go?pg=${param.pg}&bno=${list.boardno}"
 									data-toggle="tooltip" title="${list.content}"
 									data-placement="right">
-									<c:forEach items="${list.step}">
+									<c:if test="${list.depth > 0}">
+									<c:forEach begin="0" end="${list.depth}">
 									&nbsp;&nbsp;
 									</c:forEach>
+									->
+									</c:if>
 									${list.title}</a>
 							</c:otherwise>
 						</c:choose> <c:if test="${list.boardReplyCount > 0}">
