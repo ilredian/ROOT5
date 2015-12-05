@@ -255,5 +255,27 @@ public class BoardControllerFree {
 		return "redirect:freeMain.go?pg=1";
 
 	}
+	
+	// 7. 답글 입력
+	@RequestMapping("freeReply.go")
+	public String freeReply(@RequestParam("bno") int boardno, HttpSession session) throws Exception {
+
+		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
+
+		int memberno = boardFreeDAO.getNotice(boardno).getMemberno();
+		
+		if (((MemberDTO) session.getAttribute("memberInfo")).getMemberno() == memberno) {
+			boardFreeDAO.updateActive(boardno);
+			System.out.println("자유게시판 게시물 답급 완료");
+		} else {
+			System.out.println("자유게시판 게시물을 답급이 안됩니다.");
+		}
+
+		return "redirect:freeMain.go?pg=1";
+
+	}
+	
+	
+	
 
 }

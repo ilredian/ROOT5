@@ -52,4 +52,10 @@
 		INSERT INTO boardfree(title, name, content, regdate, groupno, notice, memberno, categoryno) 
 		VALUES(#{title}, #{name}, #{content}, SYSDATE(), last_insert_id()+1, 0, #{memberno}, 1)
 	</insert>
+	
+	<insert id="" parameterType="">
+		insert into boardfree()
+		valeus()
+	</insert>
+	
 </mapper>
