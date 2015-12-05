@@ -53,10 +53,16 @@
 		VALUES(#{title}, #{name}, #{content}, SYSDATE(), last_insert_id()+1, 0, #{memberno}, 1)
 	</insert>
 	
-	<!-- 답글도 똑같이_  -->
+	<!-- 답글 -->
+	<select id="">
+		select count(*) cnt
+		from boardfree
+		where groupno = #{boardno}
+	</select>
+	
 	<insert id="answer" parameterType="DTO.BoardFreeDTO">
-		INSERT INTO boardfree(title, name, content, regdate, groupno, notice, memberno, categoryno) 
-		VALUES(#{title}, #{name}, #{content}, SYSDATE(), last_insert_id()+1, 0, #{memberno}, )
+		INSERT INTO boardfree(title, name, content, regdate, groupno, step, depth, notice, memberno, categoryno) 
+		VALUES(#{title}, #{name}, #{content}, SYSDATE(), #{bno}, #{step}, #{depth} , 0, #{memberno}, 1)
 	</insert>
 	
 </mapper>
