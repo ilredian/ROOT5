@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <title>가로메뉴</title>
 <link rel="stylesheet" href="css/demo.css" type="text/css" media="all" />
-<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$("ul#topnav li").hover(function() {

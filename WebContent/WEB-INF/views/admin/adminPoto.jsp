@@ -26,67 +26,56 @@
 </head>
 <body>
 
-	<div class="container" >
-  <h1>관리자 페이지</h1>
-  <p>이페이지는 고나리자 전용 페이지 입니다</p>
-  <div class="container"style="margin-top: 20px">
-  <div class="row">
-  	
-       <div class="col-sm-2" ><ul>
-					<li class="menu"><a><img src="" alt="신고관리" /></a>
-						<ul class="hide">
-							<li><a href="free.go">자유게시판</a></li>
-							<li><a href="poto.go">사진게시판</a></li>
-							<li><a href="commment.go">댓글</a></li>
+	<div class="container">
+		<h1>관리자 페이지</h1>
+		<p>이페이지는 고나리자 전용 페이지 입니다</p>
+		<div class="container" style="margin-top: 20px">
+			<div class="row">
 
-						</ul></li>
-
-					<li class="menu"><a><img src="" alt="메뉴관리" /></a>
-						<ul class="hide">
-							<li><a href="site.go">사이트명</a></li>
-							<li><a href="deallist.go">거래물품종류</a></li>
-							<li><a href="bank.go">은행종류</a></li>
-							<li><a href="join.go">회원가입</a></li>
-							<li><a href="fake.go">사기종류</a></li>
-							<li><a href="memberagent.go">회원관리</a></li>
-							<li><a href="catrgory.go">카테고리</a></li>
-						</ul></li>
-					<li class="menu"><a><img src="" alt="메일함" /></a>
-						<ul class="hide">
-							<li><a href="mail.go">보낸함</a></li>
-						</ul></li>
-				</ul>
+				<div class="col-sm-2">
+					<ul>
+						<li class="menu"><a><img src="" alt="신고관리" /></a>
+							<ul class="hide">
+								<li><a href="free.go">자유게시판</a></li>
+								<li><a href="poto.go">사진게시판</a></li>
+								<li><a href="commment.go">댓글</a></li>
+							</ul></li>
+						<li class="menu"><a><img src="" alt="메뉴관리" /></a>
+							<ul class="hide">
+								<li><a href="site.go">사이트명</a></li>
+								<li><a href="deallist.go">거래물품종류</a></li>
+								<li><a href="bank.go">은행종류</a></li>
+								<li><a href="join.go">회원가입</a></li>
+								<li><a href="fake.go">사기종류</a></li>
+								<li><a href="memberagent.go">회원관리</a></li>
+								<li><a href="catrgory.go">카테고리</a></li>
+							</ul></li>
+						<li class="menu"><a><img src="" alt="메일함" /></a>
+							<ul class="hide">
+								<li><a href="mail.go">보낸함</a></li>
+							</ul></li>
+					</ul>
 				</div>
 
-    <div class="col-sm-10" >
-    <table class="table table-hover">
-    <h3>사진게시판</h3>
-    	<tr>
-    	<th>
-    	글번호
-    	</th>
-    	<th>
-    	작성자
-    	</th>
-    	<th>
-    	제목
-    	</th>
-    	<th>
-    	날짜
-    	</th>
-    	<th>
-    	조회수
-    	</th>
-    	</tr>
-    
-    
-    </table>
-    	<div class="container">
-    		<input type="button" class="btn btn-danger" value="삭제">
-    	</div>
-    </div>
-  </div>
-  </div>
-</div>
+				<div class="col-sm-10">
+					<table class="table table-hover">
+						<h3>사진게시판</h3>
+						<tr>
+							<th>글번호</th>
+							<th>작성자</th>
+							<th>제목</th>
+							<th>날짜</th>
+							<th>조회수</th>
+						</tr>
+
+
+					</table>
+					<div class="container">
+						<input type="button" class="btn btn-danger" value="삭제">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

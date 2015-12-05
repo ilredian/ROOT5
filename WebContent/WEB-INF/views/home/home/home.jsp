@@ -7,6 +7,7 @@
 <a href="freeMain.go?pg=1">자유게시판</a>
 <a href="statementMain.go?cno=1">진술서게시판</a>
 <a href="lawMain.go?pg=1">변호사게시판</a>
+<a href="adhome.go">관리자 임시링크</a>
 <div class="container-fluid" align="center">
 	<div class="row1">
 		<div class="col-sm-6"

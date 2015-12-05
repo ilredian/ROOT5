@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class AdminController {
 
+	@RequestMapping(value = "adhome.go", method = RequestMethod.GET)
+	public String AdmainHome() {
+
+		return "admin.adminHome";
+	}
 	@RequestMapping(value = "free.go", method = RequestMethod.GET)
 	public String AdmainFree() {
 
