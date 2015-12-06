@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import DAO.BoardFreeDAO;
+import DAO.MemberDAO;
 import DAO.ReplyDAO;
 import DTO.BoardFreeDTO;
 import DTO.MemberDTO;
@@ -106,6 +107,10 @@ public class BoardControllerFree {// 자유게시판
 			boardFreeDTO.setCountno(boardFreeDTO.getCountno() + 1);
 		}
 		
+		// 해당 게시판의 글쓴이 사진 가져오기
+		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
+		boardFreeDTO.setPhoto(memberDAO.getPhoto(boardFreeDTO.getMemberno()));
+		
 		// 게시글에 달린 리플들 정보값을 불러오기 위한 변수 선언 및 가져오기
 		System.out.println("리플 정보 가져오기");
 		ReplyDAO replyDAO = sqlSession.getMapper(ReplyDAO.class);
@@ -123,6 +128,11 @@ public class BoardControllerFree {// 자유게시판
 		// 해당 게시판에 대한 리플들 불러오기
 		List<ReplyDTO> replyDTO = replyDAO.getBoardReply("content", "%%", boardno, rstart);
 
+		// 리플에 있는 사진 불러오기
+		for(int i = 0; i < replyDTO.size(); i++){
+			replyDTO.get(i).setPhoto(memberDAO.getPhoto(replyDTO.get(i).getMemberno()));
+		}
+		
 		// 상세보기 화면 밑에 메인 화면 리스트 뿌려주기
 		boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
 
@@ -302,6 +312,8 @@ public class BoardControllerFree {// 자유게시판
 				
 		// DB 로직
 		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
+		// 글 쓰기전 step update를 통한 순서 정리
+		boardFreeDAO.updateStep(boardFreeDTO.getGroupno(), boardFreeDTO.getStep());
 		int result = boardFreeDAO.answer(boardFreeDTO);
 
 		if(result == 1){

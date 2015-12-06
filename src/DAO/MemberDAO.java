@@ -21,5 +21,8 @@ public interface MemberDAO {
 	
 	//회원탈퇴
 	public MemberDTO delete(int memberno) throws Exception;
+	
+	//회원 사진 정보
+	public String getPhoto(int memberno) throws Exception;
 }
 

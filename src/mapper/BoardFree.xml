@@ -3,36 +3,42 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DAO.BoardFreeDAO">
-	<select id="getNotices" resultType="DTO.BoardFreeDTO">
-		SELECT *
-		FROM boardfree
-		WHERE ${param2} LIKE '%${param3}%' and active = 0
-		ORDER BY regdate DESC, groupno DESC, step ASC
-		LIMIT ${param1}, ${param4}
-	</select>
-
+	<!-- 자유 게시판 글 갯수 -->
 	<select id="getCount" resultType="Integer">
 		SELECT COUNT(*) CNT
 		FROM boardfree
 		WHERE ${param1} LIKE '%${param2}%' and active = 0
 	</select>
 	
+	<!-- 자유 게시판 목록 -->
+	<select id="getNotices" resultType="DTO.BoardFreeDTO">
+		SELECT *
+		FROM boardfree
+		WHERE ${param2} LIKE '%${param3}%' and active = 0
+		ORDER BY groupno DESC, step ASC
+		LIMIT ${param1}, ${param4}
+	</select>
+	
+	<!-- 자유 게시판 상세 -->
 	<select id="getNotice"  resultType="DTO.BoardFreeDTO">
 		SELECT * FROM boardfree 
 		WHERE boardno=#{boardno}
 	</select>
 
+	<!-- 자유 게시판 (완전)삭제 -->
 	<delete id="delete">
 		DELETE FROM boardfree 
 		WHERE boardno=#{boardno}
 	</delete>
 	
+	<!-- 자유 게시판 Active변경(삭제처리) -->
 	<update id="updateActive">
 		UPDATE boardfree 
 		SET active=1
 		WHERE boardno=#{boardno}
 	</update>
 	
+	<!-- 자유 게시판 수정 -->
 	<update id="update">
 		UPDATE boardfree 
 		SET 
@@ -41,6 +47,7 @@
 		WHERE boardno=#{boardno}
 	</update>
 	
+	<!-- 자유 게시판 조회수 변경 -->
 	<update id="updateCountno">
 		UPDATE boardfree 
 		SET 
@@ -48,15 +55,23 @@
 		WHERE boardno=#{boardno}
 	</update>
 	
+	<!-- 자유 게시판 등록 -->
 	<insert id="insert" parameterType="DTO.BoardFreeDTO">
 		INSERT INTO boardfree(title, name, content, regdate, groupno, notice, memberno, categoryno) 
 		VALUES(#{title}, #{name}, #{content}, SYSDATE(), last_insert_id()+1, 0, #{memberno}, 1)
 	</insert>
 	
-	<!-- 답글 -->
+	<!-- 답글 순서 정리 -->
+	<update id="updateStep">
+		UPDATE boardfree
+		SET step = step + 1
+		WHERE groupno = ${param1} AND step >= ${param2}
+	</update>
+	
+	<!-- 답글 등록 -->
 	<insert id="answer" parameterType="DTO.BoardFreeDTO">
 		INSERT INTO boardfree(title, name, content, regdate, groupno, step, depth, notice, memberno, categoryno) 
-		VALUES(#{title}, #{name}, #{content}, SYSDATE(), #{boardno}, #{step}, #{depth} , 0, #{memberno}, 1)
+		VALUES(#{title}, #{name}, #{content}, SYSDATE(), #{groupno}, #{step}, #{depth} , 0, #{memberno}, 1)
 	</insert>
 	
 </mapper>

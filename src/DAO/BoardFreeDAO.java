@@ -30,7 +30,10 @@ public interface BoardFreeDAO {
 	// 게시물 입력
 	public int insert(BoardFreeDTO n) throws Exception;
 	
-	//게시물 답글 달기
+	// 답글 순서 정리
+	public int updateStep(int groupno, int step) throws Exception;
+	
+	// 게시물 답글 달기
 	public int answer(BoardFreeDTO boardFreeDTO) throws Exception;
 	
 }

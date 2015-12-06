@@ -15,7 +15,7 @@
 		SELECT *
 		FROM boardnotice
 		WHERE ${param2} LIKE '%${param3}%' and active = 0
-		ORDER BY regdate DESC, boardno DESC
+		ORDER BY critical DESC, boardno DESC
 		LIMIT ${param1}, ${param4}
 	</select>
 
@@ -25,12 +25,13 @@
 		WHERE boardno=#{boardno}
 	</select>
 
-	<!-- 공지사항 삭제 -->
+	<!-- 공지사항 (완전)삭제 -->
 	<delete id="delete">
 		DELETE FROM boardnotice 
 		WHERE boardno=#{boardno}
 	</delete>
 	
+	<!-- 공지사항 Active변경(삭제처리) -->
 	<update id="updateActive">
 		UPDATE boardnotice 
 		SET active=1
@@ -46,6 +47,7 @@
 		WHERE boardno=#{boardno}
 	</update>
 	
+	<!-- 공지사항 조회수 변경 -->
 	<update id="updateCountno">
 		UPDATE boardnotice 
 		SET 
@@ -55,7 +57,7 @@
 
 	<!-- 공지사항 등록 -->
 	<insert id="insert" parameterType="DTO.BoardNoticeDTO">
-		INSERT INTO boardnotice(TITLE, CONTENT, REGDATE, CRITICAL, CATEGORYNO)
-		VALUES(#{title}, #{content}, SYSDATE(), 0, 2)
+		INSERT INTO boardnotice(TITLE, name, CONTENT, REGDATE, CRITICAL, memberno, CATEGORYNO)
+		VALUES(#{title}, #{name}, #{content}, SYSDATE(), 0, #{memberno}, 2)
 	</insert>
 </mapper>

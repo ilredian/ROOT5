@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import DAO.BoardNoticeDAO;
+import DAO.MemberDAO;
 import DAO.ReplyDAO;
 import DTO.BoardNoticeDTO;
 import DTO.MemberDTO;
@@ -90,6 +91,7 @@ public class BoardControllerNotice {//공지사항 게시판
 				@RequestParam(value = "q", required = false, defaultValue = "%%") String query, // 검색 내용
 				@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, // 한 페이지에 보여줄 게시글 갯수
 				@RequestParam(value = "rpg", required = false, defaultValue = "1") int replypage, // 현재 페이지 번호
+				HttpSession session,
 				Model model) throws Exception {
 			// 로그남기기
 			System.out.println("공지 게시판 상세보기 페이지 이동");
@@ -105,6 +107,10 @@ public class BoardControllerNotice {//공지사항 게시판
 			boardNoticeDAO.updateCountno(boardno);
 			boardNoticeDTO.setCountno(boardNoticeDTO.getCountno() + 1);
 				
+			// 해당 게시판의 글쓴이 사진 가져오기
+			MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
+			boardNoticeDTO.setPhoto(memberDAO.getPhoto(boardNoticeDTO.getMemberno()));
+			
 			// 게시글에 달린 리플들 정보값을 불러오기 위한 변수 선언 및 가져오기
 			System.out.println("리플 정보 가져오기");
 			ReplyDAO replyDAO = sqlSession.getMapper(ReplyDAO.class);
@@ -121,6 +127,11 @@ public class BoardControllerNotice {//공지사항 게시판
 			
 			// 해당 게시판에 대한 리플들 불러오기
 			List<ReplyDTO> replyDTO = replyDAO.getBoardReply("content", "%%", boardno, rstart);
+			
+			// 리플에 있는 사진 불러오기
+			for(int i = 0; i < replyDTO.size(); i++){
+				replyDTO.get(i).setPhoto(memberDAO.getPhoto(replyDTO.get(i).getMemberno()));
+			}
 			
 			// 상세보기 화면 밑에 메인 화면 리스트 뿌려주기
 			boardNoticeDAO = sqlSession.getMapper(BoardNoticeDAO.class);
