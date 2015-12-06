@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DAO.ReportBoardDAO">
+	
+	<!-- 신고된 게시글 수 -->
+	<select id="getReportBoardCount" resultType="Integer">
+		SELECT count(*)
+		FROM reportboard
+		WHERE ${param1} LIKE '%${param2}%' AND categoryno = ${param3}
+		GROUP by boardno
+	</select>
+	
+	<!-- 자유게시판 신고된 정보 불러오기 -->
+	<select id="getReportBoard" parameterType="DTO.ReportBoardDTO" resultType="DTO.BoardFreeDTO">
+		SELECT *
+		FROM boardfree
+		WHERE boardno = #{boardno}
+	</select>
+	
+	<!-- 신고한 사람이 많은 순으로 불러오기 -->
+	<select id="getReportBoardno" resultType="DTO.ReportTempDTO">
+		SELECT boardno, count(*) count
+		FROM reportboard
+		WHERE categoryno = #{param2}
+		GROUP BY boardno
+		limit ${param1}, ${param3}
+		ORDER BY count DESC, boardno DESC
+	</select>
+	
+	<!-- 신고 게시판 등록 -->
+	<insert id="insertReportBoard" parameterType="DTO.ReportBoardDTO">
+		INSERT INTO reportboard
+		VALUES(#{categoryno}, #{boardno}, #{memberno})
+	</insert>
+	
+	<!-- 게시된 글이 완전 삭제처리 됐을시 -->
+	<delete id="deleteReportBoard">
+		DELETE FROM reportboard
+		WHERE boardno = #{boardno}
+	</delete>
+</mapper>

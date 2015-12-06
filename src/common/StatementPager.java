@@ -32,7 +32,7 @@ public class StatementPager {
 	}
 
 	public StatementPager(int dataCount, int currentPage, int pageSize, int pagerSize, String linkUrl, int cheatno,
-			int boardno, int boardPage) {
+			String field, String query) {
 
 		this.linkUrl = linkUrl;
 
