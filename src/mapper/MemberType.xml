@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DAO.MemberTypeDAO">
+
+	<select id="getMemberTypeList">
+		SELECT *
+		FROM membertype
+	</select>
+
+	<update id="updateMemberType">
+		UPDATE membertype
+		SET typename = #{typename}
+		WHERE typeno = #{typeno}
+	</update>
+
+	<insert id="insertMemberType">
+		INSERT into membertype(typeno, typename)
+		VALUES(#{typeno}, #{typename})
+	</insert>
+
+	<delete id="deleteMemberType">
+		DELETE FROM membertype
+		WHERE typeno = #{typeno}
+	</delete>
+	
+</mapper>

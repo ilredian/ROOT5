@@ -5,8 +5,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet"
-		href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title><!-- Title 영역  --> <tiles:getAsString name="title" />
 
@@ -23,23 +21,38 @@
 	<!-- Main   영역  -->
 	<div id="main">
 		<div class="top-wrapper clear">
-			<!-- Content 영역 -->
-			<tiles:insertAttribute name="content" />
-			<c:if test="${param.contentNo != null}">
-				<jsp:include page="/WEB-INF/views/home/boardFree/freeMain.jsp"></jsp:include>
-			</c:if>
-			<!-- Aside(Navi) 영역 -->
-			<tiles:insertAttribute name="aside" />
+			<div class="container">
+				<h1>관리자 페이지</h1>
+				<p>이페이지는 고나리자 전용 페이지 입니다</p>
+				<div class="container" style="margin-top: 20px">
+					<div class="row">
+						<div class="col-sm-2">
+							<!-- Aside(Navi) 영역 -->
+							<tiles:insertAttribute name="aside" />
+						</div>
+
+						<!-- Content 영역 -->
+						<div class="col-sm-10">
+							<tiles:insertAttribute name="content" />
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
 	<!-- Footer 영역  -->
 	<tiles:insertAttribute name="footer" />
-
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script
-		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+<script>
+    // html dom 이 다 로딩된 후 실행된다.
+    $(document).ready(function(){
+        // memu 클래스 바로 하위에 있는 a 태그를 클릭했을때
+        $(".menu>a").click(function(){
+            // 현재 클릭한 태그가 a 이기 때문에
+            // a 옆의 태그중 ul 태그에 hide 클래스 태그를 넣던지 빼던지 한다.
+            $(this).next("ul").toggleClass("hide");
+        });
+    });
+</script>
 </body>
 </html>
