@@ -1,8 +1,8 @@
 package DTO;
 
-public class QueryDTO {
-	private String query;
-	private int count;
+public class QueryDTO {//검색어 빅 데이터
+	private String query;// 검색어
+	private int count;// 검색된 query 횟수
 	
 	public String getQuery() {
 		return query;
