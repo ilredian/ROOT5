@@ -7,9 +7,10 @@
 	<!-- 신고된 게시글 수 -->
 	<select id="getReportBoardCount" resultType="Integer">
 		SELECT count(*)
-		FROM reportboard
-		WHERE ${param1} LIKE '%${param2}%' AND categoryno = ${param3}
-		GROUP by boardno
+		FROM boardfree
+		WHERE boardno IN (select boardno from reportboard where categoryno = ${param3} GROUP by boardno) 
+		AND ${param1} LIKE '%${param2}%'
+		AND active = 0
 	</select>
 	
 	<!-- 자유게시판 신고된 정보 불러오기 -->
@@ -23,10 +24,10 @@
 	<select id="getReportBoardno" resultType="Integer">
 		SELECT boardno
 		FROM reportboard
-		WHERE categoryno = #{param2}
+		WHERE categoryno = ${param2}
 		GROUP BY boardno
-		limit ${param1}, ${param3}
 		ORDER BY count(*) DESC
+		limit ${param1}, ${param3}
 	</select>
 	
 	<!-- 신고 게시판 등록 -->

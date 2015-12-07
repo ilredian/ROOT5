@@ -16,7 +16,7 @@
 			<li><a href="adminMemberType.go">회원종류</a></li>
 			<li><a href="adminStatementCategory.go">사기종류</a></li>
 			<li><a href="adminMember.go">회원관리</a></li>
-			<li><a href="adminBoardCatrgory.go">카테고리</a></li>
+			<li><a href="adminBoardCategory.go">카테고리</a></li>
 		</ul></li>
 	<li class="menu"><a><img src="" alt="메일함" /></a>
 		<ul class="hide">

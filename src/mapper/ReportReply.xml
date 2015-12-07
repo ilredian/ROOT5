@@ -7,22 +7,22 @@
 	<!-- 신고된 게시글 수 -->
 	<select id="getReportReplyCount" resultType="Integer">
 		SELECT count(*)
-		FROM reportreply
-		WHERE ${param1} LIKE '%${param2}%'
-		GROUP by replyno
+		FROM reply 
+		WHERE replyno IN (SELECT replyno FROM reportreply GROUP by replyno)
+		AND ${param1} LIKE '%${param2}%'
 	</select>
-	
+
 	<!-- 신고한 사람이 많은 순으로 불러오기 -->
 	<select id="getReportReplyno" resultType="Integer">
 		SELECT replyno
 		FROM reportreply
 		GROUP BY replyno
-		limit ${param1}, ${param2}
 		ORDER BY count(*) DESC
+		limit ${param1}, ${param2}
 	</select>
 	
 	<!-- 신고 했는지 확인 -->
-	<select id="" parameterType="DTO.ReportReplyDTO" resultType="Integer">
+	<select id="getInsertReply" parameterType="DTO.ReportReplyDTO" resultType="Integer">
 		SELECT count(*)
 		FROM reportreply
 		WHERE categoryno=#{categoryno} AND boardno=#{boardno} AND replyno=#{replyno} AND memberno=#{memberno}

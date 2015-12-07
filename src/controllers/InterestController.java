@@ -1,6 +1,8 @@
 package controllers;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -12,24 +14,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import DAO.InterestStatementDAO;
 import DTO.InterestStatementDTO;
 import DTO.MemberDTO;
 
 @Controller
-public class HomeController {
+public class InterestController {
+
+	// 자바스크립트 쓰기위한 전역 변수 설정
+	PrintWriter out;
 	
 	@Autowired
 	private SqlSession sqlSession;
-
-	@RequestMapping("index.go")
-	public String index(){
-		return "main.index";
-	}
 	
-	@RequestMapping("home.go")
-	public String Home(
+	// 관심 지정해놨던 진술서 DB 와 비교
+	@RequestMapping("")
+	public String interestSelect(
 			HttpSession session,
 			Model model) throws Exception {
 		
@@ -50,24 +52,16 @@ public class HomeController {
 		for(int i = 0; i < result.size(); i++){
 			int score = 0;
 			if(result.get(i).getCheatername() != null){
-				if(result.get(i).getCheatername().equals(isDTO.getCheatername())){
 				score += 10;
-				}
 			}
 			if(result.get(i).getAccount() != null){
-				if(result.get(i).getAccount().equals(isDTO.getAccount())){
 				score += 40;
-				}
 			}
 			if(result.get(i).getPhone() != null){
-				if(result.get(i).getPhone().equals(isDTO.getPhone())){
 				score += 30;
-				}
 			}
 			if(result.get(i).getCheaterid() != null){
-				if(result.get(i).getCheaterid().equals(isDTO.getCheaterid())){
 				score += 20;
-				}
 			}
 			if(score >= 30){
 				result.get(i).setScore(score);
@@ -88,14 +82,8 @@ public class HomeController {
 		
 		Collections.sort(list, comparator);
 		
-		// model에 담기
 		model.addAttribute("list", list);
 		
-		// 로그 남기기
-		System.out.println("홈으로 이동");
-		
-		return "home.home.home";
+		return "";
 	}
-	
-	
 }
