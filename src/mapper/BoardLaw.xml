@@ -3,34 +3,38 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DAO.BoardLawDAO">
+	<!-- 목록리스트 -->
 	<select id="getNotices" resultType="DTO.BoardLawDTO">
 		SELECT *
 		FROM boardlaw
 		WHERE ${param2} LIKE '%${param3}%' 
-		ORDER BY groupno DESC, step ASC
-		<!-- ORDER BY  regdate DESC, boardno DESC  -->
+		ORDER BY  boardno DESC <!--  regdate DESC, -->
 		LIMIT ${param1}, ${param4}
 	</select>
-
+	
+	<!-- 글 갯수 -->
 	<select id="getCount" resultType="Integer">
 		SELECT COUNT(*) CNT
 		FROM boardlaw
 		WHERE ${param1} LIKE '%${param2}%'
 	</select>
 	
+	<!-- 글 상세보기  -->
 	<select id="getNotice" parameterType="Integer" resultType="DTO.BoardLawDTO">
 		SELECT * FROM boardlaw WHERE boardno=#{boardno}
 	</select>
 	
-	<!--   public BoardLawDTO getNotice(int boardno) throws ClassNotFoundException, SQLException; -->
-	<select id="preView" parameterType="Integer" resultType="DTO.BoardLawDTO">
+	<!-- 글 미리보기_ 비동기  -->
+<!-- 	<select id="preView" parameterType="Integer" resultType="DTO.BoardLawDTO">
 		select * from boardlaw where boardno = #{boardno}
-	</select>
+	</select> -->
 	
+	<!--  글 삭제  -->
 	<delete id="delete">
 		DELETE FROM boardlaw WHERE boardno=#{boardno}
 	</delete>
 	
+	<!-- 글 수정  -->
 	<update id="update">
 		UPDATE boardlaw
 		SET 
@@ -45,23 +49,24 @@
 		WHERE boardno=#{boardno}
 	</update>
 	
+	<!-- 글쓰기  -->
 	<insert id="insert" parameterType="DTO.BoardLawDTO">
 		INSERT INTO boardlaw(TITLE, CONTENT, name, REGDATE,COUNTNO,memberno,career,company,message,phone,tel,edu,fee,place)
 		VALUES( #{title}, '글내용없음', #{name}, SYSDATE(), 0,#{memberno},#{career},#{company},#{message},#{phone},#{tel},#{edu},#{fee},#{place})
 	</insert>
 	
 	<!-- 답글 순서 정리 -->
-	<update id="updateStep">
+<!-- 	<update id="updateStep">
 		UPDATE boardlaw
 		SET step = step + 1
 		WHERE groupno = ${param1} AND step >= ${param2}
-	</update>
+	</update> -->
 	
 	<!-- 답글 등록 -->
-	<insert id="answer" parameterType="DTO.BoardFreeDTO">
+	<!-- <insert id="answer" parameterType="DTO.BoardFreeDTO">
 		INSERT INTO boardlaw(title, name, content, regdate, groupno, step, depth, notice, memberno, categoryno) 
 		VALUES(#{title}, #{name}, #{content}, SYSDATE(), #{groupno}, #{step}, #{depth} , 0, #{memberno}, 1)
-	</insert>
+	</insert> -->
 	
 	<!-- 조회수 변경 -->
 	<update id="updateCountno">

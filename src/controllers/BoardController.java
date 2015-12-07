@@ -1,19 +1,29 @@
 package controllers;
 
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import DAO.BoardFreeDAO;
+import DAO.BoardLawDAO;
+import DAO.BoardNoticeDAO;
+import DAO.MemberDAO;
 import DAO.ReplyDAO;
+import DTO.BoardFreeDTO;
+import DTO.BoardLawDTO;
+import DTO.BoardNoticeDTO;
 import DTO.MemberDTO;
 import DTO.ReplyDTO;
+import common.BoardPager;
 
 @Controller
 public class BoardController {//공통 기능(리플)
@@ -122,6 +132,7 @@ public class BoardController {//공통 기능(리플)
 				
 		return go;
 	}
+	
 	
 	@RequestMapping("updateReplyActive.go")
 	public String updateReplyActive(@RequestParam("pg") int page,

@@ -4,7 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DAO.MemberDAO">
 
-	<!-- 회원 가입 전 가입 확인 -->
+	<!-- 회원 가입 전 가입 확인 / 로그인 -->
 	<select id="getMember" parameterType="DTO.MemberDTO" resultType="DTO.MemberDTO">
 		SELECT * FROM memberdb WHERE email=#{EMAIL}
 	</select>
