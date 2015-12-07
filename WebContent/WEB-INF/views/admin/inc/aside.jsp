@@ -4,8 +4,8 @@
 <ul>
 	<li class="menu"><a><img src="" alt="신고관리" /></a>
 		<ul class="hide">
-			<li><a href="adminBoardFree.go">자유게시판</a></li>
-			<li><a href="adminBoardPhoto.go">사진게시판</a></li>
+			<li><a href="adminBoardFree.go?cno=1">자유게시판</a></li>
+			<li><a href="adminBoardPhoto.go?cno=3">사진게시판</a></li>
 			<li><a href="adminCommment.go">댓글</a></li>
 		</ul></li>
 	<li class="menu"><a><img src="" alt="메뉴관리" /></a>
