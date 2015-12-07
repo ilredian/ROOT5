@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DAO.ReportReplyDAO">
+	
+	<!-- 신고된 게시글 수 -->
+	<select id="getReportReplyCount" resultType="Integer">
+		SELECT count(*)
+		FROM reportreply
+		WHERE ${param1} LIKE '%${param2}%'
+		GROUP by replyno
+	</select>
+	
+	<!-- 신고한 사람이 많은 순으로 불러오기 -->
+	<select id="getReportReplyno" resultType="Integer">
+		SELECT replyno
+		FROM reportreply
+		GROUP BY replyno
+		limit ${param1}, ${param2}
+		ORDER BY count(*) DESC
+	</select>
+	
+	<!-- 신고 했는지 확인 -->
+	<select id="" parameterType="DTO.ReportReplyDTO" resultType="Integer">
+		SELECT count(*)
+		FROM reportreply
+		WHERE categoryno=#{categoryno} AND boardno=#{boardno} AND replyno=#{replyno} AND memberno=#{memberno}
+	</select>
+	
+	<!-- 신고 게시판 등록 -->
+	<insert id="insertReportReply" parameterType="DTO.ReportBoardDTO">
+		INSERT INTO reportreply(categoryno, boardno, replyno, memberno)
+		VALUES(#{categoryno}, #{boardno}, #{replyno}, #{memberno})
+	</insert>
+	
+	<!-- 게시된 글이 완전 삭제처리 됐을시 -->
+	<delete id="deleteReportReply">
+		DELETE FROM reportreply
+		WHERE replyno = #{replyno}
+	</delete>
+</mapper>

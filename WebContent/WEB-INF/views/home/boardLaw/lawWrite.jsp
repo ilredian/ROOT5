@@ -4,6 +4,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <form id="frm1" method="post" action="">
 	<div class="container lawMain">
+<script type="text/javascript">
+$(function() {
+	$(document).ready(function() {
+	var dbTxt = $('#edu').html();
+	dbTxt = dbTxt.replace(/<br>/g, '\n');
+	});
+	
+	
+});
+</script>
 		<h2>변호사게시판</h2>
 		<table class="table">
 			<tr>
@@ -18,14 +28,12 @@
 					<input type="hidden" name="memberno" value="${memberInfo.memberno}">
 				</td>
 			</tr>
-			
 			<tr>
 				<th class="active">경력</th>
 				<td>
 						<input type="text" class="form-control" id="career" name="career" placeholder="경력을 써주세요. ex) 8년">	
 				</td>
 				</tr>
-			
 			<tr>
 				<th class="active">소속</th>
 				<td>
@@ -54,15 +62,15 @@
 			<tr>
 			<th class="active">학력 사항:</th>
 			<td>
-				<textarea id="edu" name="edu"
-										style="width: 100%; height: 100%" rows="15"></textarea>						
+				<textarea id="edu" name="edu" 
+				style="width: 100%; height: 100%" rows="15"></textarea>						
 			</td></tr>
 				
 			<tr>
 			<th class="active">요금 안내:</th>
 			<td>
-					 <textarea id="fee" name="fee"
-										style="width: 100%; height: 100%" rows="15"></textarea>			
+				 <textarea id="fee" name="fee"
+								style="width: 100%; height: 100%" rows="15"></textarea>			
 			</td></tr>
 			
 <!-- 			<tr>
@@ -84,7 +92,7 @@
 				<td colspan="2">
 					<div style="text-align: center;">
 						<input class="btn btn-primary" id="savebutton1" type="button" value="저장"> 
-						<input class="btn btn-default" onclick="history.go(-1);" type="button" value="취소">
+						<input class="btn btn-default" onclick="history.go(-1)" type="button" value="취소">
 					</div>
 				</td>
 			</tr>

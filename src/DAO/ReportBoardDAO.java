@@ -4,7 +4,6 @@ import java.util.List;
 
 import DTO.BoardFreeDTO;
 import DTO.ReportBoardDTO;
-import DTO.ReportTempDTO;
 
 public interface ReportBoardDAO {
 	// 신고된 게시글 수
@@ -14,7 +13,7 @@ public interface ReportBoardDAO {
 	public BoardFreeDTO getReportBoard(int boardno) throws Exception;
 	
 	// 신고한 사람이 많은 순으로 불러오기
-	public List<ReportTempDTO> getReportBoardno(int start, int categoryno, int pageSize) throws Exception;
+	public List<Integer> getReportBoardno(int start, int categoryno, int pageSize) throws Exception;
 	
 	// 게시글 신고하기
 	public int insertReportBoard(ReportBoardDTO reportBoardDTO) throws Exception;

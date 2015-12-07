@@ -9,4 +9,21 @@
 		ORDER BY bankname ASC
 		LIMIT #{param1}, ${param2}
 	</select>
+	
+	<update id="updateBank" parameterType="DTO.CheatBankDTO">
+		UPDATE cheatbank
+		SET bankname = #{bankname}
+		WHERE bankname = #{bankname}
+	</update>
+	
+	<insert id="insertBank" parameterType="DTO.CheatBankDTO">
+		INSERT INTO cheatbank(bankname)
+		VALUES(#{bankname})
+	</insert>
+	
+	<delete id="deleteBank" parameterType="DTO.CheatBankDTO">
+		DELETE FROM cheatbank
+		WHERE bankname = #{bankname}
+	</delete>
+	
 </mapper>

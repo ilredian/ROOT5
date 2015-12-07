@@ -7,4 +7,20 @@
 		SELECT *
 		FROM cheatdomain
 	</select>
+
+	<update id="updateDomain" parameterType="DTO.CheatDomainDTO">
+		UPDATE cheatdomain
+		SET domain=#{domain}, domainname=#{domainname}
+		WHERE domainname = #{domainname}
+	</update>
+
+	<insert id="insertDomain" parameterType="DTO.CheatDomainDTO">
+		INSERT INTO cheatdomain(domain, domainname)
+		VALUES(#{domain}, #{domainname})
+	</insert>
+
+	<delete id="deleteDomain" parameterType="DTO.CheatDomainDTO">
+		DELETE FROM cheatdomain
+		WHERE domainname = #{domainname}
+	</delete>
 </mapper>

@@ -19,7 +19,7 @@ public interface MemberDAO {
 	//로그인하기
 	public MemberDTO login(String email, String pwd) throws Exception;
 	
-	//회원탈퇴
+	//회원탈퇴 	UPDATE MEMBERDB  SET ACTIVE = 1  WHERE MEMBERNO = #{MEMBERNO}
 	public MemberDTO delete(int memberno) throws Exception;
 	
 	//회원 사진 정보
