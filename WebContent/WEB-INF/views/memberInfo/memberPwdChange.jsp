@@ -34,6 +34,6 @@
 	</div>
 	<hr>
 	<div align="center">
-		<a type="submit" href="#">비밀번호 변경</a>
+		<a type="submit" href="pwSearch.ho">비밀번호 변경</a>
 	</div>
 </div>

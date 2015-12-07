@@ -33,7 +33,7 @@
 						<!-- Modal content-->
 						<div class="modal-content">
 							<div class="modal-header" style="padding: 35px 50px;">
-								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<a href="index.go"><button type="button" class="close" data-dismiss="modal">&times;</button></a>
 								<h4>
 										<span class="glyphicon glyphicon-lock"></span> 로그인
 								</h4>
@@ -71,7 +71,7 @@
 								<button type="submit"
 									class="btn btn-danger btn-default pull-left"
 									data-dismiss="modal">
-									<span class="glyphicon glyphicon-remove"></span> 닫기
+									<a href="index.go"><span class="glyphicon glyphicon-remove"></span> 닫기</a>
 								</button>
 								<p>
 									<a href="signin.go">회원가입</a>

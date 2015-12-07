@@ -37,13 +37,6 @@
 	${pager}
 </div>
 <div style="float: left;">
-	<button id="list">
-		<a href="#">목록</a>
-	</button>
-	<button id="next">
-		<a href="#">다음</a>
-	</button>
-
 </div>
 <div>
 	<button id="a" style="float: right;">

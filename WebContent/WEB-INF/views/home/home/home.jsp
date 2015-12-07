@@ -99,7 +99,7 @@
 				<a href="#" style="float: right;">비밀번호 찾기</a>
 			</div>
 			<div>
-				<input type="image" src="homeimages/regist.PNG">
+				<a href="signin.go"><input type="image" src="homeimages/regist.PNG"></a>
 			</div>
 		</div>
 	</div>
