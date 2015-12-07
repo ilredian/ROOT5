@@ -47,6 +47,13 @@
 		AND active = 0
 	</select>
 	
+	<!-- 특정 댓글 정보 -->
+	<select id="getReply">
+		SELECT *
+		FROM reply
+		WHERE replyno = #{replyno}
+	</select>
+	
 	<!-- 검색된 카테고리별 댓글 정보 -->
 	<select id="getCategoryReply" resultType="DTO.ReplyDTO">
 		SELECT *

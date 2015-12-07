@@ -6,6 +6,22 @@
 	<select id="getList" resultType="DTO.CheatItemsDTO">
 		SELECT *
 		FROM cheatitems
-		LIMIT #{start}, 26
+		LIMIT #{start}, #{end}
 	</select>
+	
+	<update id="updateCheatItem" parameterType="DTO.CheatItemsDTO">
+		UPDATE cheatitems
+		SET goodskind = #{goodskind}, goodsname = #{goodsname}, goodsspan = #{goodsspan}
+		WHERE goodsname = #{goodsname}
+	</update>
+	
+	<insert id="insertCheatItem" parameterType="DTO.CheatItemsDTO">
+		INSERT INTO cheatitems(goodskind, goodsname, goodsspan)
+		VALUES(#{goodskind}, #{goodsname}, #{goodsspan})
+	</insert>
+	
+	<delete id="deleteCheatItem" parameterType="DTO.CheatItemsDTO">
+		DELETE FROM cheatitems
+		WHERE goodsname = #{goodsname}
+	</delete>
 </mapper>
