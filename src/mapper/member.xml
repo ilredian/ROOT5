@@ -21,7 +21,7 @@
 	</update>
 	
 	<!-- 사진 불러오기 -->
-	<select id="">
+	<select id="getPhoto" resultType="String">
 		SELECT photo
 		FROM memberdb
 		WHERE memberno = #{memberno}

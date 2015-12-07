@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DAO.MessageDAO">
+	<select id="getAllMessage" resultType="DTO.MessageDTO">
+		SELECT *
+		FROM message
+		LIMIT ${param1}, ${param2}
+	</select>
+		
+	<select id="getMyMessage" resultType="DTO.MessageDTO">
+		SELECT *
+		FROM message
+		WHERE memberno = #{memberno}
+	</select>
+	
+	<select id="getMessage" resultType="DTO.MessageDTO">
+		SELECT *
+		FROM message
+		WHERE messageno = #{messageno}
+	</select>
+	
+	<update id="isopen">
+		UPDATE message
+		SET isopen = 1
+		WHERE messageno = #{messageno}
+	</update>
+	
+	<delete id="deleteMessage">
+		DELETE FROM message
+		WHERE messageno = #{messageno}
+	</delete>
+	
+	<insert id="sendMessage">
+		INSERT INTO message(frommemberno, title, content, regdate, memberno)
+		VALUES 
+	</insert>
+	
+</mapper>
