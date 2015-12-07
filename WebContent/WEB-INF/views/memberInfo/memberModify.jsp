@@ -1,23 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
+<form id="frm1" method="post" action="">
 <div class="container">
 	<h3>정보수정</h3>
 
-	(*) 표시가 있는 항목은 반드시 입력해야 합니다.<br> 허위로 작성된 정보일 경우 승인이 보류되거나 임의로
-	삭제처리될 수 있으니 주의해 주세요.
+	<!-- (*) 표시가 있는 항목은 반드시 입력해야 합니다.<br> 허위로 작성된 정보일 경우 승인이 보류되거나 임의로
+	삭제처리될 수 있으니 주의해 주세요. -->
 	<hr>
 	<table>
 
 		<tr>
-			<td class="key">이메일<span>*</span><br>(로그인 시 사용)
+
+			<td class="key">메세지<span>*</span><br>
 			</td>
 			<td style="padding-left: 20px"><input type="text" name="email"
-				value="jkikss@naver.com" size="35" class="input"
+				value="${memberDTO.message}" size="35" class="input"
 				onblur="sameCheck(this,'hLayeremail');" /> <span class="hmsg"
 				id="hLayeremail"></span>
-				<div>주로 사용하는 이메일 주소를 입력해 주세요. 비밀번호 잊어버렸을 때 확인 받을 수 있습니다.</div>
+				<div>메세지는 상태글과 같은 역할을 합니다.</div>
 				<div class="remail">
 					<input type="checkbox" name="remail" value="1" checked="checked" />
 					정보/광고 수신 동의(검거소식, 피해자 알림 등의 수신을 위해 동의해 주십시오.)
@@ -31,8 +33,8 @@
 
 	<!-- 페이저 -->
 	<div class="container" align="">
-		<a type="submit" href="#">정보수정</a> <a type="submit" href="#">컨택센터</a>
-		<a type="submit" href="#">로그아웃</a>
+			<input class="btn btn-primary" id="savebutton1" type="button" value="정보수정"> 
 	</div>
 </div>
 
+</form>
