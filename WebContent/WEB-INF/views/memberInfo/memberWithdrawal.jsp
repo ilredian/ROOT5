@@ -1,8 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <h3>회원탈퇴</h3>
+<script>
+
+function withdrawal(){
+	if($('#pwd1').val()!=$('#pwd2').val()){
+		alert("비밀번호가 일치하지 않습니다");
+		return false;
+	}
+}
+
+</script>
 <div>
 	<div>
 		<p style="color: blue">
@@ -13,7 +23,7 @@
 			결정하신 후 탈퇴해 주세요.</p>
 	</div>
 	<hr>
-	<form action="delete.go" method="post">
+	<form action="memberWithdrawal.go" method="post" onsubmit="return withdrawal()">
 	<div>
 		<table>
 			<thead
@@ -28,19 +38,16 @@
 
 			<tbody style="float: left">
 				<tr>
-					<td><input type="password"></td>
+					<td><input type="password" id="pwd1" name="password"></td>
 				</tr>
 				<tr>
-					<td><input type="password"></td>
-				</tr>
-				<tr>
-					<input type="submit" value="회원탈퇴">
+					<td><input type="password" id="pwd2"></td>
 				</tr>
 			</tbody>
 		</table>
 		<hr>
 		<div style="margin-top: 20px">
-			<a type="submit" href="#">로그아웃</a> 
+			<input type="submit" id="click" value="회원탈퇴">
 		</div>
 	</div>
 	</form>

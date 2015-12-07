@@ -15,7 +15,8 @@
 		SELECT *
 		FROM boardfree
 		WHERE ${param2} LIKE '%${param3}%' and active = 0
-		ORDER BY groupno DESC, step ASC
+		ORDER BY boardno desc, groupno DESC, step ASC ,regdate desc
+		<!-- regdate desc,  -->
 		LIMIT ${param1}, ${param4}
 	</select>
 	
