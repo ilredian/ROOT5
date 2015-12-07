@@ -14,6 +14,7 @@
 	rel="stylesheet" />
 </head>
 <body>
+	<input type="hidden" id="mno" value="${param.mno}">
 	<!-- Header 영역 -->
 	<tiles:insertAttribute name="header" />
 	<!-- Visual 영역 -->
@@ -30,5 +31,12 @@
 	</div>
 	<!-- Footer 영역  -->
 	<tiles:insertAttribute name="footer" />
+	
+	<!-- javascript 영역 -->
+	<script type="text/javascript" src='<tiles:getAsString name="js"/>' ></script>
+		
+	<!-- javascript 영역 -->
+	<script type="text/javascript" src='<tiles:getAsString name="commonjs"/>' ></script>
+	
 </body>
 </html>
