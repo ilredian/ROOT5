@@ -21,6 +21,9 @@ public interface ReplyDAO {
 	// 검색된 모든 댓글 정보
 	public List<ReplyDTO> getAllReply(String searchTitle, String searchContent) throws Exception;
 	
+	// 특정 댓글 정보
+	public ReplyDTO getReply(int replyno) throws Exception;
+	
 	// 검색된 카테고리별 댓글 정보
 	public List<ReplyDTO> getCategoryReply(String searchTitle, String searchContent, int categoryno) throws Exception;
 	
