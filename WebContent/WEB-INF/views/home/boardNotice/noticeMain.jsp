@@ -27,7 +27,7 @@
 			<c:forEach var="list" items="${list}">
 				<tr>
 					<td class="number">${list.boardno}</td>
-					<td class="writer">${list.name}</td>
+					<td class="writer">관리자</td>
 					<td class="subject"><c:choose>
 							<c:when test="${param.q != null}">
 								<a

@@ -68,7 +68,7 @@
 		WHERE groupno = ${param1} AND step >= ${param2}
 	</update>
 	
-	<!-- 답글 등록 -->
+	<!-- 답글 등록 -->	
 	<insert id="answer" parameterType="DTO.BoardFreeDTO">
 		INSERT INTO boardfree(title, name, content, regdate, groupno, step, depth, notice, memberno, categoryno) 
 		VALUES(#{title}, #{name}, #{content}, SYSDATE(), #{groupno}, #{step}, #{depth} , 0, #{memberno}, 1)

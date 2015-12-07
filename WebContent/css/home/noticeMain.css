@@ -4,7 +4,7 @@
 	 text-align: center;
 }
 
-.number, .date, .count
+.number, .date, .count, .writer
 {
 	width: 10%;
 	text-align: center;
@@ -12,7 +12,7 @@
 
 .subject
 {
-	width:70%;
+	width:60%;
 	text-align: center;
 }
 

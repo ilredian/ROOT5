@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -103,15 +104,16 @@ public class AdminController {// 관리자 페이지
 	
 	// 신고 게시판 삭제
 	@RequestMapping("deleteReportBoardFree.go")
+	@Transactional	//게시글을 불러오고 , 게시글을 삭제_ 12월 7일
 	public void deleteBoardFree(
 			@RequestParam("bno") int boardno) throws Exception{
-		
 		// 로그 남기기
 		System.out.print("신고 게시글 삭제");
 		
 		// DB 접속
 		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
 		ReportBoardDAO reportBoardDAO = sqlSession.getMapper(ReportBoardDAO.class);
+		
 		reportBoardDAO.deleteReportBoard(boardno); 
 		int result = boardFreeDAO.delete(boardno);
 		

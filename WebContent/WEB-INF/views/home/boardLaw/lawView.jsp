@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <input type="hidden" id="pageNo" value="${param.pg}">
 <input type="hidden" id="boardNo" value="${param.bno}">
+
 <div class="container lawView">
 	<h2>변호사게시판</h2>
 	<table class="table table-striped">
@@ -64,12 +65,11 @@
 			</td>
 		</tr>
 		<tr>	
-			<th bgcolor="lightgray">학력</th>
-			<textarea style="width: 100%; height: 100%" rows="15">
-			<td>${boardLawDTO.edu}<br>
+			<th bgcolor="lightgray" >학력</th>
+			<td id="edu">
+				${boardLawDTO.edu}
 			</td>
-			</textarea>						
-			
+	
 		</tr>
 		<tr>
 			<th bgcolor="lightgray">요금</th>
@@ -83,8 +83,10 @@
 				<td><b>게시물 주소 :</b>
 				<div id="asdf"><script>$('#asdf').text(window.location.href)</script>
 					<div style="float: right;">
-						<input class="btn btn-default" type="button" id="edit" value="수정">  <!-- freeEdit.go  -->
-						<input class="btn btn-default" type="button" id="delete" value="삭제">  <!-- freeDelete.go -->
+							<c:if test="${boardLawDTO.memberno == memberInfo.memberno}">
+								<input class="btn btn-default" type="button" id="edit" value="수정">
+								<input class="btn btn-default" type="button" id="delete" value="삭제">
+							</c:if>
 						<input class="btn btn-default" type="button" id="list" value="목록">  <!-- freeMain.go -->
 					</div>
 				</div>
