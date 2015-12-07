@@ -28,8 +28,6 @@
 	
 	<!--  public String preView(int boardno) throws DataAccessException {
 	   -->
-	
-	
 
 	<delete id="delete">
 		DELETE FROM boardlaw WHERE boardno=#{boardno}
