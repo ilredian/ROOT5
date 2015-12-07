@@ -189,13 +189,18 @@ public class BoardControllerLaw {
 		out = response.getWriter();
 		BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
 
+	
+		
 		System.out.println("n : " + boardLawDTO.getTitle());
 		System.out.println("getMessage : " + boardLawDTO.getMessage());
 		System.out.println("getCareer : " + boardLawDTO.getCareer());
 		System.out.println("getCompany: " + boardLawDTO.getCompany());
 		System.out.println("getEdu : " + boardLawDTO.getEdu());
 		System.out.println("getFee : " + boardLawDTO.getFee());
-
+		
+		boardLawDTO.setEdu(boardLawDTO.getEdu().replaceAll("\r\n", "<br/>"));
+		boardLawDTO.setFee(boardLawDTO.getFee().replaceAll("\r\n", "<br/>"));
+		
 		int result = boardLawDAO.insert(boardLawDTO);
 
 		if (result != 0) {

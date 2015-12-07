@@ -83,8 +83,10 @@
 				<td><b>게시물 주소 :</b>
 				<div id="asdf"><script>$('#asdf').text(window.location.href)</script>
 					<div style="float: right;">
-						<input class="btn btn-default" type="button" id="edit" value="수정">  <!-- freeEdit.go  -->
-						<input class="btn btn-default" type="button" id="delete" value="삭제">  <!-- freeDelete.go -->
+							<c:if test="${boardLawDTO.memberno == memberInfo.memberno}">
+								<input class="btn btn-default" type="button" id="edit" value="수정">
+								<input class="btn btn-default" type="button" id="delete" value="삭제">
+							</c:if>
 						<input class="btn btn-default" type="button" id="list" value="목록">  <!-- freeMain.go -->
 					</div>
 				</div>
