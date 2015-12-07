@@ -2,6 +2,7 @@ package DTO;
 
 public class BoardNoticeDTO {
 
+	//db에 등록 되어 있어야 할 것들
 	private int boardno; //게시판번호
 	private String title;/* 제목 */
 	private String content; /* 내용 */
@@ -9,9 +10,28 @@ public class BoardNoticeDTO {
 	private int countno;/* 조회수 */
 	private int active; /* 삭제여부 */
 	private int critical; /* 강조여부 */
+	private int memberno; // 멤버 등록 번호
 	private int categoryno; /* 카테고리번호 */
+	//////////////////////////////////
 	
+	//db에 등록 되어 있지 않아도 되는 것들
 	private int boardReplyCount;//게시글 당 리플 갯수
+	private String photo;//게시글 글쓴이 사진
+	//////////////////////////////////
+	
+	public int getMemberno() {
+		return memberno;
+	}
+	public void setMemberno(int memberno) {
+		this.memberno = memberno;
+	}
+	
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
 	
 	public int getBoardReplyCount() {
 		return boardReplyCount;

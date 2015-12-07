@@ -19,5 +19,5 @@ public interface CheatDAO {
 	public int update(CheatDTO cheatDTO) throws Exception;
 	
 	//사기 종류 삭제하기
-	public int delete(int cheatno) throws Exception;
+	public int delete(CheatDTO cheatDTO) throws Exception;
 }

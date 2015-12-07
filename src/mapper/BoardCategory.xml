@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DAO.BoardCategoryDAO">
+
+	<select id="getBoardCategoryList" resultType="DTO.BoardCategoryDTO">
+		SELECT *
+		FROM category
+	</select>
+
+	<update id="updateBoardCategory" parameterType="DTO.BoardCategoryDTO">
+		UPDATE category
+		SET categoryname = #{categoryname}
+		WHERE categoryno = #{categoryno}
+	</update>
+
+	<insert id="insertBoardCategory" parameterType="DTO.BoardCategoryDTO">
+		INSERT INTO category(categoryno, categoryname)
+		VALUES(#{categoryno}, #{categoryname})
+	</insert>
+
+	<delete id="deleteBoardCategory" parameterType="DTO.BoardCategoryDTO">
+		DELETE FROM category
+		WHERE categoryno = #{categoryno}
+	</delete>
+</mapper>

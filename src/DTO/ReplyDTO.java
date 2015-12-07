@@ -13,6 +13,15 @@ public class ReplyDTO {
 	private int memberno;/* 회원번호 */
 	private int categoryno;/* 카테고리번호 */
 	
+	private String photo;/* 사진 */
+	
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+	
 	public int getReplyno() {
 		return replyno;
 	}

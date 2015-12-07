@@ -4,9 +4,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <input type="hidden" id="pageNo" value="${param.pg}">
 <input type="hidden" id="boardNo" value="${param.bno}">
-<%-- 
-<input type="hidden" id="boardNo" value="${param.bno}">
- --%>
 <div class="container freeView">
 	<h2>자유게시판</h2>
 	<table class="table table-striped">
@@ -41,14 +38,16 @@
 	<table class="table">
 		<thead>
 			<tr>
-				<td><b>게시물 주소 :</b>	
+				<td><b>게시물 주소 :</b>
 					<div id="asdf">
 						<script>
 							$('#asdf').text(window.location.href)
 						</script>
 						<div style="float: right;">
-							<input class="btn btn-default" type="button" id="edit" value="수정">
-							<input class="btn btn-default" type="button" id="delete" value="삭제">
+							<c:if test="${boardFreeDTO.memberno == memberInfo.memberno}">
+								<input class="btn btn-default" type="button" id="edit" value="수정">
+								<input class="btn btn-default" type="button" id="delete" value="삭제">
+							</c:if>
 							<input class="btn btn-default" type="button" id="list" value="목록">
 						</div>
 					</div></td>
@@ -84,7 +83,6 @@
 														href="updateReplyActive.go?pg=${param.pg}&bno=${param.bno}&cno=1&rno=${replyDTO.replyno}">삭제</a>
 													&nbsp;&nbsp;
 												</c:if>
-												<a href="#">답글</a>
 											</div>
 										</div>
 									</td>

@@ -1,29 +1,39 @@
 package DTO;
 
-import java.sql.Date;
-
 public class BoardFreeDTO {
 	
+	//db에 등록 되어 있어야 할 것들
 	private int boardno;    //시퀀스
 	private String title;	//제목
 	private String name;	//작성자 이름	
 	private String content;	//글 내용
 	private String regdate;	//작성일
 	private int countno;		//조회수
-	private int active;
+	private int active; /* 삭제여부 */
 	
-	private int groupno; 	 
-	private int step;
-	private int depth;
-	private int notice ;
-	private int memberno; 
-	private int categoryno;
+	private int groupno; //게시글 그룹 	 
+	private int step; //그룹 내 게시글 순서
+	private int depth; //댓글 들여쓰기
+	private int notice; /* 강조여부 */
+	private int memberno; // 멤버 등록 번호
+	private int categoryno; /* 카테고리번호 */
+	//////////////////////////////////
 	
+	//db에 등록 되어 있지 않아도 되는 것들
+	private String photo;//게시글 사진
 	private int boardReplyCount;//게시글 당 리플 갯수
+	//////////////////////////////////
 	
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
 	public int getBoardReplyCount() {
 		return boardReplyCount;
 	}
+	
 	public void setBoardReplyCount(int boardReplyCount) {
 		this.boardReplyCount = boardReplyCount;
 	}

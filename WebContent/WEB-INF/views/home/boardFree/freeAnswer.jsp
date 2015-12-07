@@ -5,7 +5,7 @@
 
 
 <form id="frm" method="post" action="">
-	<input type="hidden" name="boardno" value="${boardFreeDTO.boardno}" >
+	<input type="hidden" name="groupno" value="${boardFreeDTO.groupno}" >
 	<div class="container freeMain">
 		<h2>답글</h2>
 		<table class="table">

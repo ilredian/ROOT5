@@ -4,10 +4,12 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DAO.MemberDAO">
 
+	<!-- 회원 가입 전 가입 확인 -->
 	<select id="getMember" parameterType="DTO.MemberDTO" resultType="DTO.MemberDTO">
 		SELECT * FROM memberdb WHERE email=#{EMAIL}
 	</select>
 
+	<!-- 회원 가입 -->
 	<insert id="insert" parameterType="DTO.MemberDTO">
 		INSERT INTO memberdb(email, password, name, phone, regdate, regpwd, photo) 
 		VALUES(#{email}, #{password}, #{name}, #{phone},SYSDATE(),SYSDATE(),#{photo})
@@ -18,4 +20,10 @@
 		UPDATE MEMBERDB  SET ACTIVE = 1  WHERE MEMBERNO = #{MEMBERNO}
 	</update>
 	
+	<!-- 사진 불러오기 -->
+	<select id="">
+		SELECT photo
+		FROM memberdb
+		WHERE memberno = #{memberno}
+	</select>
 </mapper>

@@ -16,16 +16,15 @@ import DTO.MemberDTO;
 import DTO.ReplyDTO;
 
 @Controller
-public class BoardController {
+public class BoardController {//공통 기능(리플)
+	
 	// 자바스크립트 쓰기위한 전역 변수 설정
 	PrintWriter out;
+	
 	@Autowired
 	private SqlSession sqlSession;
-	//////////// 리플 ////////////////
-	//////////// 리플 ////////////////
-	//////////// 리플 ////////////////
-	//////////// 리플 ////////////////
-	//////////// 리플 ////////////////
+
+	//리플 등록
 	@RequestMapping(value="reply.go", method = RequestMethod.POST)
 	public String reply(@RequestParam("pg") int page,
 						@RequestParam("bno") int boardno,
@@ -165,6 +164,4 @@ public class BoardController {
 		
 		return go;
 	}
-	
-	
-}//End BoardController
+}

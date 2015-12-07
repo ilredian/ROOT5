@@ -4,6 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DAO.QueryDAO">
 	
+	<!-- 모든 검색어 불러오기 -->
 	<select id="getSearchQuery" resultType="DTO.QueryDTO">
 		SELECT *
 		FROM query
@@ -11,17 +12,20 @@
 		ORDER BY count DESC
 	</select>
 	
+	<!-- 특정 검색어 횟수 불러오기 -->
 	<select id="getQuery" resultType="Integer">
 		SELECT count(*) cnt
 		FROM query
 		WHERE query = '${param1}'
 	</select>
 	
+	<!-- 새로운 검색어 등록하기 -->
 	<insert id="insertQuery">
 		INSERT INTO query
 		VALUES('${param1}',#{param2})
 	</insert>
 	
+	<!-- 기존 검색어 검색 횟수 증가시키기 -->
 	<update id="updateQuery">
 		UPDATE query
 		SET count = count + 1
