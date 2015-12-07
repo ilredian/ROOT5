@@ -10,8 +10,10 @@ $('.delete').click(function(){
 	}
 });
 
-$('.insert').click(function(){
+function insertBoardCategory(){
 	if(confirm('이 항목을 추가하시겠습니까?')){
-		location.replace("'"+$(this).attr("id")+"'");
+		return true;
+	}else{
+		return false;
 	}
-});
+}

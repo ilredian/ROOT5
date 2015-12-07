@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <h3>Category</h3>
 <table class="table table-hover">
@@ -13,19 +13,17 @@
 		<tr>
 			<td>${list.categoryno}</td>
 			<td>${list.categoryname}</td>
-			<td>
-				<div class="container">
-					<input type="button" class="btn btn-info update"
-						id="updateBoardCategory.go?cn=${list.categoryname}&cno=${list.categoryno}"
-						value="수정"> <input type="button"
-						class="btn btn-danger delete"
-						id="deleteBoardCategory.go?cn=${list.categoryname}&cno=${list.categoryno}"
-						value="삭제"> <input type="button"
-						class="btn btn-success insert"
-						id="insertBoardCategory.go?cn=${list.categoryname}&cno=${list.categoryno}"
-						value="추가">
-				</div>
-			</td>
+			<td><input type="button" class="btn btn-info update"
+				id="updateBoardCategory.go?cn=${list.categoryname}&cno=${list.categoryno}"
+				value="수정"> <input type="button"
+				class="btn btn-danger delete"
+				id="deleteBoardCategory.go?cn=${list.categoryname}&cno=${list.categoryno}"
+				value="삭제"></td>
 		</tr>
 	</c:forEach>
 </table>
+<form action="" method="post" onsubmit="return insertBoardCategory()">
+	
+	<input type="submit" class="btn btn-success insert"
+		id="insertBoardCategory" value="추가">
+</form>
