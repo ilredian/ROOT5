@@ -12,12 +12,12 @@
 				<th colspan="3">${boardLawDTO.title}</th>
 			</tr>
 			<tr>
-				<td style="width: 10%;"><!-- <img alt="no_pic"
-					src="boardLawimages/user_no_pic.gif"> --></td>
+				<td style="width: 10%;"><img alt="no_pic"
+					src="boardLawimages/user_no_pic.gif"></td>
 				<td style="width: 70%;">
 					<table class="table">
 						<tr>
-							<th>변호사</th>
+							<th>${boardLawDTO.name} 변호사</th>
 						</tr>
 						<tr>
 							<td>${memberInfo.message}</td>
@@ -30,9 +30,35 @@
 	</table>
 	<table class="table">
 		<tr>
-			<td>	${boardLawDTO.content}<br>
+			<th bgcolor="lightgray">경력</th>
+			<td>${boardLawDTO.career}<br>
 			</td>
 		</tr>
+		<hr>
+		<tr>
+			<th bgcolor="lightgray">핸드폰</th>
+			<td>${boardLawDTO.phone}<br>
+			</td>
+			<th bgcolor="lightgray">사무실</th>
+			<td>${boardLawDTO.tel}<br>
+			</td>
+		</tr>
+		<tr>
+			<th bgcolor="lightgray">요금</th>
+			<td>${boardLawDTO.fee}<br>
+			</td>
+			<th bgcolor="lightgray">학력</th>
+			<td>${boardLawDTO.edu}<br>
+			</td>
+			<th bgcolor="lightgray">위치</th>
+			<td>${boardLawDTO.place}<br>
+			</td>
+		</tr>
+		<tr>
+		
+		</tr>
+		<hr>
+
 	</table>
 	<table class="table">
 		<thead>
