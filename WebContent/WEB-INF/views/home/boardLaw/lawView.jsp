@@ -29,36 +29,53 @@
 		</tbody>
 	</table>
 	<table class="table">
+			<tr>
+				<th bgcolor="lightgray">경력</th>
+				<td>
+					${boardLawDTO.career}<br>
+				</td>
+				</tr>
+			<tr>
+			<tr>
+				<th bgcolor="lightgray">소속</th>
+				<td>
+					${boardLawDTO.company}<br>
+			</td>
+			</tr>
+			<tr>
+				<th bgcolor="lightgray">지역</th>
+				<td>${boardLawDTO.place}<br>
+				</td>
+			</tr>
+			<tr>
+				<th bgcolor="lightgray">한줄소개</th>
+				<td>${boardLawDTO.message}<br>
+				</td>
+			</tr>
 		<tr>
-			<th bgcolor="lightgray">경력</th>
-			<td>${boardLawDTO.career}<br>
+			<th bgcolor="lightgray" >핸드폰</th>
+			<td>
+			${boardLawDTO.phone}
 			</td>
 		</tr>
-		<hr>
 		<tr>
-			<th bgcolor="lightgray">핸드폰</th>
-			<td>${boardLawDTO.phone}<br>
-			</td>
-			<th bgcolor="lightgray">사무실</th>
+			<th bgcolor="lightgray" >사무실</th>
 			<td>${boardLawDTO.tel}<br>
 			</td>
+		</tr>
+		<tr>	
+			<th bgcolor="lightgray">학력</th>
+			<textarea style="width: 100%; height: 100%" rows="15">
+			<td>${boardLawDTO.edu}<br>
+			</td>
+			</textarea>						
+			
 		</tr>
 		<tr>
 			<th bgcolor="lightgray">요금</th>
 			<td>${boardLawDTO.fee}<br>
 			</td>
-			<th bgcolor="lightgray">학력</th>
-			<td>${boardLawDTO.edu}<br>
-			</td>
-			<th bgcolor="lightgray">위치</th>
-			<td>${boardLawDTO.place}<br>
-			</td>
 		</tr>
-		<tr>
-		
-		</tr>
-		<hr>
-
 	</table>
 	<table class="table">
 		<thead>
@@ -76,33 +93,59 @@
 		</thead>
 		<tbody>
 			<tr>
-				<th>댓글 1개</th>
+				<td><b>댓글 </b> <c:out value="${replycount}" /><b>개</b></td>
 			</tr>
 		</tbody>
 	</table>
 	<table class="table">
 		<tbody>
-			<tr>
-				<td style="width: 10%;">
-			<!-- 		<img alt="no_pic" src="boardLawimages/user_no_pic.gif"> -->
-				</td>
-				<td style="width: 90%;">
-					<table>
-						<tr>
-							<td>aqua 님 | 2015.11.28 09:55:21</td>
-						</tr>
-						<tr>
-							<td>댓글 내용을 입력해 봅시다.</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-			<tr>
-				<td style="text-align: center;" colspan="2">
-					<input type="text" id="" name="" style="width: 90%">
-					<input type="button" id="replybtn" value="댓글 등록">
-				</td>
-			</tr>
+				<c:forEach var="replyDTO" items="${replyDTO}">
+				<tr>
+					<td style="width: 10%;"><img alt="no_pic"
+						src="boardFreeimages/user_no_pic.gif"></td>
+					<td style="width: 90%;">
+						<table>
+							<tbody>
+								<tr>
+									<td>
+										<div>
+											<div style="float: left;">
+												<b>${replyDTO.name}</b> 님 | ${replyDTO.regdate}
+											</div>
+											<div style="float: right;">
+												<c:if test="${replyDTO.memberno == memberInfo.memberno}">
+													<a class="updateReply" href="#"
+														id="updateReply.go?pg=${param.pg}&bno=${param.bno}&cno=1&rno=${replyDTO.replyno}">수정</a>
+													&nbsp;&nbsp;
+													<a class="updateReplyActive"
+														href="updateReplyActive.go?pg=${param.pg}&bno=${param.bno}&cno=1&rno=${replyDTO.replyno}">삭제</a>
+													&nbsp;&nbsp;
+												</c:if>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr style="clear: both;">
+									<td style="width: 1%;">${replyDTO.content}</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
+	<div style="text-align: center;">
+		<c:set var="rpager" value="${rpager.toString()}" />
+		${rpager}
+	</div>
+	<br>
+	<div style="text-align: center;">
+		<form action="reply.go?pg=${param.pg}&bno=${param.bno}&cno=1"
+			method="post">
+			<input type="text" id="replyContent" name="content"
+				style="width: 90%"> <input class="btn btn-primary"
+				type="submit" id="replybtn" value="댓글 등록">
+		</form>
+	</div>
 </div>

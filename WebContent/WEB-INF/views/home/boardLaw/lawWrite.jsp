@@ -18,14 +18,12 @@
 					<input type="hidden" name="memberno" value="${memberInfo.memberno}">
 				</td>
 			</tr>
-			
 			<tr>
 				<th class="active">경력</th>
 				<td>
 						<input type="text" class="form-control" id="career" name="career" placeholder="경력을 써주세요. ex) 8년">	
 				</td>
 				</tr>
-			
 			<tr>
 				<th class="active">소속</th>
 				<td>
@@ -54,7 +52,7 @@
 			<tr>
 			<th class="active">학력 사항:</th>
 			<td>
-				<textarea id="edu" name="edu"
+				<textarea id="edu" name="edu" 
 										style="width: 100%; height: 100%" rows="15"></textarea>						
 			</td></tr>
 				

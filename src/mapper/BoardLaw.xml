@@ -7,7 +7,8 @@
 		SELECT *
 		FROM boardlaw
 		WHERE ${param2} LIKE '%${param3}%' 
-		ORDER BY regdate DESC, boardno DESC
+		ORDER BY groupno DESC, step ASC
+		<!-- ORDER BY  regdate DESC, boardno DESC  -->
 		LIMIT ${param1}, ${param4}
 	</select>
 
@@ -26,9 +27,6 @@
 		select * from boardlaw where boardno = #{boardno}
 	</select>
 	
-	<!--  public String preView(int boardno) throws DataAccessException {
-	   -->
-
 	<delete id="delete">
 		DELETE FROM boardlaw WHERE boardno=#{boardno}
 	</delete>

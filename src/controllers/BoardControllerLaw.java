@@ -129,10 +129,10 @@ public class BoardControllerLaw {
 			// 해당 게시판에 대한 리플들 불러오기
 			List<ReplyDTO> replyDTO = replyDAO.getBoardReply("content", "%%", boardno, rstart);
 
-			// 리플에 있는 사진 불러오기
-			for(int i = 0; i < replyDTO.size(); i++){
-				replyDTO.get(i).setPhoto(memberDAO.getPhoto(replyDTO.get(i).getMemberno()));
-			}
+//			// 리플에 있는 사진 불러오기
+//			for(int i = 0; i < replyDTO.size(); i++){
+//				replyDTO.get(i).setPhoto(memberDAO.getPhoto(replyDTO.get(i).getMemberno()));
+//			}
 			
 			// 상세보기 화면 밑에 메인 화면 리스트 뿌려주기
 			boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
