@@ -55,7 +55,7 @@ public class RegistrationController {
 		CheatBankDAO cbDAO = sqlSession.getMapper(CheatBankDAO.class);
 		
 		List<CheatDomainDTO> domainlist = cdDAO.getList();
-		List<CheatItemsDTO> itemslist = ciDAO.getList(0);
+		List<CheatItemsDTO> itemslist = ciDAO.getList(0, 26);
 		List<CheatBankDTO> banklist1 = cbDAO.getList(0,25);
 		List<CheatBankDTO> banklist2 = cbDAO.getList(25,13);
 		List<CheatBankDTO> banklist3 = cbDAO.getList(38,25);
