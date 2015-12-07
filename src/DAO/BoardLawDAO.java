@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.dao.DataAccessException;
 
+import DTO.BoardFreeDTO;
 import DTO.BoardLawDTO;
 public interface BoardLawDAO {
     //게시물 개수
@@ -18,6 +19,16 @@ public interface BoardLawDAO {
     public BoardLawDTO getNotice(int boardno) throws ClassNotFoundException, SQLException;
     //게시물 입력
     public int insert(BoardLawDTO n) throws ClassNotFoundException, SQLException;
-    //게시물 본문 미리보기
-    public BoardLawDTO preView(int boardno) throws DataAccessException;
+
+    ///추가 12월 7일
+ // 게시물 조회수 증가
+ 	public int updateCountno(int boardno) throws Exception;
+    
+	// 답글 순서 정리
+	public int updateStep(int groupno, int step) throws Exception;
+	
+	// 게시물 답글 달기
+	public int answer(BoardLawDTO boardLawDTO) throws Exception;
+	
+    
 }

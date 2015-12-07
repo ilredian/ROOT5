@@ -14,32 +14,6 @@ A:Hover { color:#c0c0c0; text-decoration:none; }
 </style>
 
 <script language="javascript">
-/* 
-headstring = "<HTML><HEAD><TITLE>스크립트 예제</TITLE><HEAD>" 
-bodystring = "<BODY bgcolor=#f3f3f3>" 
-endstring = "</BODY></HTML>" 
-iswin1 = 0; 
-function me() { 
-   if (iswin1==1) return; 
-   win1 = open ("","","width=300,height=250"); 
-   win1.document.open(); 
-   win1.document.write (headstring); 
-   win1.document.write (bodystring); 
-   text1 +="<table class='table'><tr><td>=> 내용: ${memberInfo.message}</td></tr></table>";
-   text1 +="</tbody></table></div> <p>";
-   text1 = "<center><font size=2 color=#0066cc>" + text1 + "</font></center>"; 
-   win1.document.write (text1); 
-   win1.document.write (endstring); 
-   win1.document.close(); 
-   iswin1 = 1; 
-} 
-function me1() { 
-   if (iswin1==0) return; 	 
-   win1.close(); 
-   iswin1 = 0; 
-}  
- */
-
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
 });
@@ -71,8 +45,8 @@ $(document).ready(function(){
 					<td class="writer">${n.name}</td>
 					<td class="subject">
 				<a href="lawView.go?pg=${param.pg}&bno=${n.boardno}" 
-				data-toggle="tooltip"  title="${n.content}" data-placement="right">
-						${n.title}  -> ${n.message}</a>
+				data-toggle="tooltip"  title="${n.message}" data-placement="right">
+						${n.title}</a>
 						
 						<!--	onmouseover="setTimeout('me()', 1500)" onmouseout="me1()">&nbsp;&nbsp;&nbsp;  -->
 					</td>

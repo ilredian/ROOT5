@@ -7,7 +7,8 @@
 		SELECT *
 		FROM boardlaw
 		WHERE ${param2} LIKE '%${param3}%' 
-		ORDER BY regdate DESC, boardno DESC
+		ORDER BY groupno DESC, step ASC
+		<!-- ORDER BY  regdate DESC, boardno DESC  -->
 		LIMIT ${param1}, ${param4}
 	</select>
 
@@ -26,11 +27,6 @@
 		select * from boardlaw where boardno = #{boardno}
 	</select>
 	
-	<!--  public String preView(int boardno) throws DataAccessException {
-	   -->
-	
-	
-
 	<delete id="delete">
 		DELETE FROM boardlaw WHERE boardno=#{boardno}
 	</delete>
@@ -53,4 +49,25 @@
 		INSERT INTO boardlaw(TITLE, CONTENT, name, REGDATE,COUNTNO,memberno,career,company,message,phone,tel,edu,fee,place)
 		VALUES( #{title}, '글내용없음', #{name}, SYSDATE(), 0,#{memberno},#{career},#{company},#{message},#{phone},#{tel},#{edu},#{fee},#{place})
 	</insert>
+	
+	<!-- 답글 순서 정리 -->
+	<update id="updateStep">
+		UPDATE boardlaw
+		SET step = step + 1
+		WHERE groupno = ${param1} AND step >= ${param2}
+	</update>
+	
+	<!-- 답글 등록 -->
+	<insert id="answer" parameterType="DTO.BoardFreeDTO">
+		INSERT INTO boardlaw(title, name, content, regdate, groupno, step, depth, notice, memberno, categoryno) 
+		VALUES(#{title}, #{name}, #{content}, SYSDATE(), #{groupno}, #{step}, #{depth} , 0, #{memberno}, 1)
+	</insert>
+	
+	<!-- 조회수 변경 -->
+	<update id="updateCountno">
+		UPDATE boardlaw
+		SET 
+		countno=countno+1
+		WHERE boardno=#{boardno}
+	</update>
 </mapper>
