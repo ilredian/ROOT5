@@ -16,13 +16,13 @@
 			<td>
 				<div class="container">
 					<input type="button" class="btn btn-info update"
-						id="updateBoardCategory.go?cn=${list.cheatname}&cno=${list.cheatno}"
+						id="updateBoardCategory.go?cn=${list.categoryname}&cno=${list.categoryno}"
 						value="수정"> <input type="button"
 						class="btn btn-danger delete"
-						id="deleteBoardCategory.go?cn=${list.cheatname}&cno=${list.cheatno}"
+						id="deleteBoardCategory.go?cn=${list.categoryname}&cno=${list.categoryno}"
 						value="삭제"> <input type="button"
 						class="btn btn-success insert"
-						id="insertBoardCategory.go?cn=${list.cheatname}&cno=${list.cheatno}"
+						id="insertBoardCategory.go?cn=${list.categoryname}&cno=${list.categoryno}"
 						value="추가">
 				</div>
 			</td>

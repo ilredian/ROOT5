@@ -6,7 +6,7 @@
 	<select id="getList" resultType="DTO.CheatItemsDTO">
 		SELECT *
 		FROM cheatitems
-		LIMIT #{start}, #{end}
+		LIMIT ${param1}, ${param2}
 	</select>
 	
 	<update id="updateCheatItem" parameterType="DTO.CheatItemsDTO">

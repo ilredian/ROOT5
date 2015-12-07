@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DAO.InterestStatementDAO">
+
+	<!-- 등록된 정보인지 확인 -->
+	<select id="getResist" parameterType="DTO.InterestStatementDTO"
+		resultType="Integer">
+		select count(*)
+		from intereststatement
+		where memberno =
+		#{memberno}
+	</select>
+
+	<!-- 관심 목록에 등록한 정보 불러오기 -->
+	<select id="getInterestStatement" resultType="DTO.InterestStatementDTO">
+		SELECT *
+		FROM
+		intereststatement
+		WHERE memberno = #{memberno}
+	</select>
+
+	<!-- 관심 목록에 등록 -->
+	<insert id="insertInterest" parameterType="DTO.InterestStatementDTO">
+		insert into
+		intereststatement(
+		bankname,
+		cheatername,
+		account,
+		deposit,
+		depositdate,
+		phone,
+		sex,
+		feature,
+		domain,
+		goodskind,
+		goodsname,
+		cheaterid,
+		link,
+		regdate,
+		content,
+		cheatno,
+		memberno
+		)
+		VALUES(
+		#{bankname},
+		#{cheatername},
+		#{account},
+		#{deposit},
+		#{depositdate},
+		#{phone},
+		#{sex},
+		#{feature},
+		#{domain},
+		#{goodskind},
+		#{goodsname},
+		#{cheaterid},
+		#{link},
+		#{regdate},
+		#{content},
+		#{cheatno},
+		#{memberno}
+		)
+	</insert>
+
+	<!-- 관심 목록 삭제 -->
+	<delete id="deleteInterest" parameterType="DTO.InterestStatementDTO">
+		delete from
+		intereststatement
+		where memberno = #{memberno}
+	</delete>
+
+	<!-- 관심 목록과 전체 DB 비교하기 위한 로직 -->
+	<select id="compareDB" parameterType="DTO.InterestStatementDTO" resultType="DTO.InterestStatementDTO">
+		SELECT *
+		FROM cheaterdb
+		WHERE
+		cheatername = #{cheatername} or
+		account = #{account} or
+		phone = #{phone} or
+		cheaterid = #{cheaterid}
+	</select>
+</mapper>

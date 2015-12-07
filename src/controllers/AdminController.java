@@ -62,12 +62,12 @@ public class AdminController {// 관리자 페이지
 			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, 
 			// 한 페이지에 보여줄 게시글 갯수
 			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, 
-			@RequestParam("cno") int categoryno, Model model) throws Exception {
+			@RequestParam(value = "cno", defaultValue = "1") int categoryno, Model model) throws Exception {
 
 		// 로그 남기기
 		System.out.println("신고 게시판 관리자 페이지 이동");
 		System.out.println(page + " / " + field + " / " + query);
-
+		
 		// 맵퍼 설정하여 DAO 변수 선언
 		ReportBoardDAO reportBoardDAO = sqlSession.getMapper(ReportBoardDAO.class);
 
@@ -136,7 +136,7 @@ public class AdminController {// 관리자 페이지
 	public String AdminCommment(// 현재 페이지 번호
 			@RequestParam(value = "pg", required = false, defaultValue = "1") int page, 
 			// 검색 카테고리
-			@RequestParam(value = "f", required = false, defaultValue = "title") String field,
+			@RequestParam(value = "f", required = false, defaultValue = "content") String field,
 			// 검색 내용
 			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, 
 			// 한 페이지에 보여줄 게시글 갯수
@@ -178,7 +178,7 @@ public class AdminController {// 관리자 페이지
 		// 로그 남기기
 		System.out.println("신고된 리플 출력 완료");
 		
-		return "admin.adminCommment";
+		return "admin.adminComment";
 	}
 
 	// 사기 사이트 설정 관리자 창으로 이동

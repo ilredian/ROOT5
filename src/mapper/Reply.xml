@@ -48,7 +48,7 @@
 	</select>
 	
 	<!-- 특정 댓글 정보 -->
-	<select id="getReply">
+	<select id="getReply" resultType="DTO.ReplyDTO">
 		SELECT *
 		FROM reply
 		WHERE replyno = #{replyno}
