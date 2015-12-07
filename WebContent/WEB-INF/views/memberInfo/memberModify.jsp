@@ -19,7 +19,7 @@
 				value="${memberDTO.message}" size="35" class="input"
 				onblur="sameCheck(this,'hLayeremail');" /> <span class="hmsg"
 				id="hLayeremail"></span>
-				<div>메세지는 상태글과 같은 역할을 합니다.</div>
+				<div>메세지는 상태글과 같은 역할을 합니다.</div><br><br>
 				<div class="remail">
 					<input type="checkbox" name="remail" value="1" checked="checked" />
 					정보/광고 수신 동의(검거소식, 피해자 알림 등의 수신을 위해 동의해 주십시오.)
@@ -27,7 +27,7 @@
 				<div class="remail">
 					<input type="checkbox" name="smail" value="1" /> 댓글 알림 수신 거부(댓글
 					입력한 글에 다른 사람이 댓글을 남겨도 알림을 받지 않습니다.)
-				</div></td>
+				</div><br><br></td>
 		</tr>
 	</table>
 
