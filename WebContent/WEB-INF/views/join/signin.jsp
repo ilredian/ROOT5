@@ -44,6 +44,7 @@
 				</div>
 			</div>
 			<hr>
+			<input type="hidden" value="images/common/user_no_pic.gif" name="photo">
 			<input type="submit" value="JOIN" class="btn btn-success">
 			<input type="button" onclick="location.href='javascript:joinform.reset()'" value="RESET" class="btn btn-info">
 			<input type="button" onclick="location.href='index.go'" value="CANCEL" class="btn btn-danger">

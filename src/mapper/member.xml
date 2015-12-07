@@ -16,12 +16,12 @@
 	</insert>
 	
 	<!-- (회원 탈퇴) -->
-	<update id="delete" parameterType="DTO.MemberDTO">
+	<update id="delete">
 		UPDATE MEMBERDB  SET ACTIVE = 1  WHERE MEMBERNO = #{MEMBERNO}
 	</update>
 	
 	<!-- 사진 불러오기 -->
-	<select id="">
+	<select id="getPhoto" resultType="String">
 		SELECT photo
 		FROM memberdb
 		WHERE memberno = #{memberno}

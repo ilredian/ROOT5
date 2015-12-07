@@ -25,6 +25,7 @@ import DTO.BoardNoticeDTO;
 import DTO.MemberDTO;
 import DTO.ReplyDTO;
 import common.BoardPager;
+import jdk.nashorn.internal.ir.RuntimeNode.Request;
 
 @Controller
 public class MemberInfoController {
@@ -160,7 +161,7 @@ public class MemberInfoController {
 		return "memberInfo.memberPwdChange";
 	}
 	
-	@RequestMapping(value="delete.go", method=RequestMethod.GET)
+	@RequestMapping(value="memberWithdrawal.go", method=RequestMethod.GET)
 	public String updateActive(){//회원탈퇴
 		
 		//로그 남기기
@@ -169,11 +170,24 @@ public class MemberInfoController {
 		
 	}
 	
-	@RequestMapping(value="delete.go", method=RequestMethod.POST)
-	public String updateActive(@RequestParam("mno") int memberno, HttpSession session) throws Exception{//실제회원탈퇴
+	@RequestMapping(value="memberWithdrawal.go", method=RequestMethod.POST)
+	public String updateActive(MemberDTO memberDTO, 
+			HttpSession session) throws Exception{//실제회원탈퇴
 		
 		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
-		memberDAO.delete(memberno);
+		String originpwd = ((MemberDTO)session.getAttribute("memberInfo")).getPassword();
+		int memberno = ((MemberDTO)session.getAttribute("memberInfo")).getMemberno();
+		System.out.println(originpwd);
+		System.out.println(memberno);
+		
+		if(memberDTO.getPassword().equals(originpwd)){
+			memberDAO.delete(memberno);
+			session.invalidate();
+			System.out.println("회원탈퇴 완료");
+		}else{
+			return "memberInfo.memberWithdrawal";
+		}
+
 		
 		//로그 남기기
 		System.out.println("내 회원탈퇴 페이지로 이동");

@@ -13,7 +13,7 @@
 			</tr>
 			<tr>
 				<td style="width: 10%;"><img alt="no_pic"
-					src="boardFreeimages/user_no_pic.gif"></td>
+					src="${boardFreeDTO.photo}"></td>
 				<td style="width: 70%;">
 					<table>
 						<tr>
