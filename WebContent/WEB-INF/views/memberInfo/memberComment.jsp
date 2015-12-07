@@ -7,16 +7,19 @@
 	<table class="table table-hover table-responsive"
 		style="margin-top: 10px">
 		<tr>
-			<th>글 번호</th>
+			<th>댓글번호</th>
 			<th>내용</th>
-			<th>조회</th>
-			<th>날짜</th>
+			<th>게시판 종류</th>
+			<th>게시판번호</th>
+			<th>작성일</th>
 		</tr>
+		
 		<tr>
-			<td>1</td>
-			<td>게시물이 없습니다</td>
-			<td>-</td>
-			<td>2015.11.28 15:26</td>
+			<td>${replyDTO.replyno}</td>
+			<td>${replyDTO.content}</td>
+			<td>${replyDTO.categoryno}</td>
+			<td>${replyDTO.boardno}</td>
+			<td>${replyDTO.regdate}</td>
 		</tr>
 	</table>
 	<!-- 페이저 -->

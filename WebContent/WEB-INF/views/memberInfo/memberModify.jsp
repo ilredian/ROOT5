@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<form id="frm1" method="post" action="">
+<form id="frm2" method="post" action="">
 <div class="container">
 	<h3>정보수정</h3>
 
@@ -33,7 +33,7 @@
 
 	<!-- 페이저 -->
 	<div class="container" align="">
-			<input class="btn btn-primary" id="savebutton1" type="button" value="정보수정"> 
+			<input class="btn btn-primary" id="savebutton2" type="button" value="정보수정"> 
 	</div>
 </div>
 

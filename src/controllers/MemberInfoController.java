@@ -3,6 +3,7 @@ package controllers;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
@@ -17,6 +18,7 @@ import DAO.BoardFreeDAO;
 import DAO.BoardLawDAO;
 import DAO.BoardNoticeDAO;
 import DAO.MemberDAO;
+import DAO.MemberInfoDAO;
 import DTO.BoardFreeDTO;
 import DTO.BoardLawDTO;
 import DTO.BoardNoticeDTO;
@@ -101,6 +103,12 @@ public class MemberInfoController {
 		return "memberInfo.memberReply";
 	}
 	
+	
+
+
+	
+	
+	
 	@RequestMapping(value="memberConnect.go", method=RequestMethod.GET)
 	public String connect(){//접속기록
 		
@@ -118,6 +126,30 @@ public class MemberInfoController {
 		
 		return "memberInfo.memberModify";
 	}
+	
+	
+	// 5-1. 메세지 수정 (실제 처리(update)
+	@RequestMapping(value = "memberModify.go", method = RequestMethod.POST)
+	public String modify( MemberDTO memberDTO, HttpSession session,
+			HttpServletRequest request) throws Exception {
+		// 로그 남기기
+		System.out.println("게시물 수정 작업 시작");
+		// 페이지 이동 변수 선언
+		String go = "";
+		int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
+
+		if (memberno == memberDTO.getMemberno()) {
+			MemberInfoDAO memberInfoDAO = sqlSession.getMapper(MemberInfoDAO.class);
+			memberInfoDAO.update(memberDTO);
+			System.out.println("변호사게시판 수정완료");
+			go = "redirect:memberModify.go";
+		} else {
+			go = "redirect:memberModify.go";
+		}
+		return go;
+	}
+	
+	
 	
 	@RequestMapping(value="memberPwdChange.go", method=RequestMethod.GET)
 	public String pwdChange(){//비번변경
