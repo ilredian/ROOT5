@@ -19,7 +19,7 @@ public interface MemberInfoDAO {
 		public MemberDTO getMember(String email) throws Exception;
 		
 		//자기정보 수정하기
-		public int update(MemberDTO MemberDTO) throws Exception;
+		public int update(MemberDTO memberDTO) throws Exception;
 		
 		//회원탈퇴
 		public MemberDTO delete(int memberno) throws Exception;

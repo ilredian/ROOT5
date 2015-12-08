@@ -20,11 +20,9 @@
 	</select>
 		
 	<!-- //자기정보 수정하기 -->
-	<update id="update"  parameterType="DTO.MemberDTO">
-		UPDATE memeberdb
-		SET 
-		message=#{message}
-	
+	<update id="update" parameterType="DTO.MemberDTO">
+		UPDATE memberdb
+		SET message=#{message}
 		WHERE memberno=#{memberno}
 	</update>
 
