@@ -48,10 +48,10 @@
 		<put-attribute name="commonjs" value="js/memberInfo/memberInfo.js" />
 	</definition>
 	
-	<definition name="message" template="/WEB-INF/views/message/inc/layout.jsp">
-		<put-attribute name="css" value="css/memberInfo/{1}.css" />
-		<put-attribute name="content" value="/WEB-INF/views/memberInfo/{1}.jsp" />
-		<put-attribute name="js" value="js/memberInfo/{1}.js" />
+	<definition name="message.*" template="/WEB-INF/views/message/inc/layout.jsp">
+		<put-attribute name="css" value="css/message/{1}.css" />
+		<put-attribute name="content" value="/WEB-INF/views/message/{1}.jsp" />
+		<put-attribute name="js" value="js/message/{1}.js" />
 	</definition>
 
 	<definition name="*.*" template="/WEB-INF/views/{1}/inc/layout.jsp">

@@ -19,6 +19,7 @@
 		SELECT *
 		FROM message
 		WHERE memberno = ${param3}
+		ORDER BY regdate DESC
 		LIMIT ${param1}, ${param2}
 	</select>
 	
@@ -47,7 +48,7 @@
 	
 	<insert id="sendMessage">
 		INSERT INTO message(frommemberno, title, content, regdate, memberno)
-		VALUES(#{frommemberno}, #{title}, #{content}, SYSDATE(), #{memberno})
+		VALUES(#{memberno}, #{title}, #{content}, SYSDATE(),#{frommemberno})
 	</insert>
 	
 </mapper>

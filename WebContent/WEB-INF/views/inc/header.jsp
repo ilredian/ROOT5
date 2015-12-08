@@ -30,8 +30,10 @@
 		});
 	});
 	/* 쪽지 열기 */
-	$('#messageWindow').click(function(){
-		window.open('message.jsp','My message','width=300,height=300');
+	$(document).ready(function() {
+		$('#messageWindow').click(function(){
+			window.open('message.jsp','My message','width=500,height=500');
+		});
 	});
 </script>
 <nav class="navbar navbar-default" role="navigation" style="

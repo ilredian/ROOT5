@@ -4,26 +4,43 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="container">
 	<h4>받은 쪽지함</h4>
-	<table class="table table-striped">
+	<table class="table table-hover">
 		<tr>
-			<th></th>
 			<th><p class="text-center">회원번호</p></th>
 			<th><p class="text-center">보낸이</p></th>
 			<th><p class="text-center">제목</p></th>
 			<th><p class="text-center">받은일시</p></th>
-			<th></th>
+			<th><p class="text-center">삭제</p></th>
 		</tr>
 		<c:choose>
 			<c:when test="${not empty list}">
-				<c:forEach items="${list}" var="list">
-					<tr>
-						<td>${list.frommemberno}</td>
-						<td>${memberDTO.name}</td>
-						<td><a href="messageOpen.go?msno=${list.messageno}">${list.title}</a></td>
-						<td>${list.regdate}</td>
+				<c:forEach items="${list}" var="list" varStatus="index">
+					<tr style="text-align: center;">
+						<td>
+							<c:if test="${list.isopen == 0}"><b></c:if>
+							${list.frommemberno}
+							<c:if test="${list.isopen == 0}"></b></c:if>
+						</td>
+						<c:forEach items="${memberDTO}" var="memberDTO" begin="${index.index}" end="${index.index}">
+							<td>
+							<c:if test="${list.isopen == 0}"><b></c:if>
+							${memberDTO.name}
+							<c:if test="${list.isopen == 0}"></b></c:if>
+							</td>
+						</c:forEach>
+						<td><a href="messageOpen.go?msno=${list.messageno}">
+						<c:if test="${list.isopen == 0}"><b></c:if>
+						${list.title}
+						<c:if test="${list.isopen == 0}"></b></c:if>
+						</a></td>
+						<td>
+						<c:if test="${list.isopen == 0}"><b></c:if>
+						${list.regdate}
+						<c:if test="${list.isopen == 0}"></b></c:if>
+						</td>
 						<td>
 							<div>
-								<input type="button" class="btn btn-danger messageDelete" id="${list.messageno}"
+								<input type="button" class="btn btn-danger btn-xs messageDelete" id="${list.messageno}"
 									value="삭제">
 							</div>
 						</td>
@@ -31,18 +48,24 @@
 				</c:forEach>
 			</c:when>
 			<c:otherwise>
-				<p class="text-center">
-					<c:out value="받은 쪽지가 없습니다." />
-				</p>
+				<tr>
+					<td colspan="5">
+						<p class="text-center">
+							<c:out value="받은 쪽지가 없습니다." />
+						</p>
+					</td>
+				</tr>
 			</c:otherwise>
 		</c:choose>
 	</table>
 	<div style="float: right;">
 		<input type="button" id="${memberno}"
-			class="btn btn-primary messageWrite" value="쪽지쓰기">
+			class="btn btn-primary btn-sm messageWrite" value="쪽지쓰기">
 	</div>
 	<div style="clear: both; text-align: center;">
 		<c:set var="pager" value="${pager.toString()}" />
-		${pager}
+		<ul class="pagination">
+			${pager}
+		</ul>
 	</div>
 </div>

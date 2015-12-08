@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
@@ -66,6 +67,7 @@ public class MessageController {
 		model.addAttribute("messageCount", messageCount);
 		model.addAttribute("memberDTO", memberDTO);
 		model.addAttribute("list", list);
+		session.setAttribute("memberInfo", ((MemberDTO)session.getAttribute("memberInfo")));
 		
 		return "message.messageMain";
 	}
@@ -99,10 +101,16 @@ public class MessageController {
 	
 	// 메시지 삭제
 	@RequestMapping("messageDelete.go")
-	public void deleteMessage(@RequestParam("msno") int messageno) throws Exception{
+	public void deleteMessage(@RequestParam("msno") int messageno,
+			HttpServletResponse response
+			) throws Exception{
 		
 		// 로그 남기기
 		System.out.println("메시지 삭제");
+		
+		//스크립트 구문을 쓰기위한 준비
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
 		
 		// DB 연결
 		MessageDAO messageDAO = sqlSession.getMapper(MessageDAO.class);
@@ -110,9 +118,9 @@ public class MessageController {
 		
 		// 결과 후 메인으로 이동
 		if(result == 1){
-			out.print("<script>alert('메시지가 성공적으로 삭제되었습니다.');location.replace('message.messageMain');</script>");
+			out.print("<script>alert('메시지가 성공적으로 삭제되었습니다.');location.replace('messageWindow.go');</script>");
 		}else{
-			out.print("<script>alert('메시지 삭제에 실패하였습니다.');location.replace('message.messageMain');</script>");
+			out.print("<script>alert('메시지 삭제에 실패하였습니다.');location.replace('messageWindow.go');</script>");
 		}
 		out.close();
 	}
@@ -131,10 +139,15 @@ public class MessageController {
 	@RequestMapping(value="messageSend.go", method = RequestMethod.POST)
 	public void sendMessage(
 			@RequestParam("name") String name,
+			HttpServletResponse response,
 			MessageDTO messageDTO) throws Exception{
 		
 		// 로그 남기기
 		System.out.println("메시지 보내기");
+		
+		//스크립트 구문을 쓰기위한 준비
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
 
 		// DAO 변수 선언
 		MessageDAO messageDAO = sqlSession.getMapper(MessageDAO.class);
@@ -143,17 +156,17 @@ public class MessageController {
 		int frommemberno = messageDTO.getFrommemberno();
 		
 		//존재하면 쪽지 보내기
-		if(name.equals(messageDAO.getFromName(frommemberno))){
+		if(name.equals(((MemberDTO)messageDAO.getFromName(frommemberno)).getName())){
 			int result = messageDAO.sendMessage(messageDTO);
-			
+			System.out.println("보내기 완료");
 			// 결과 후 메인으로 이동
 			if(result == 1){
-				out.print("<script>alert('메시지가 성공적으로 전송되었습니다.');location.replace('message.messageMain');</script>");
+				out.print("<script>alert('메시지가 성공적으로 전송되었습니다.');location.replace('messageWindow.go');</script>");
 			}else{
-				out.print("<script>alert('메시지 전송에 실패하였습니다.');location.replace('message.messageMain');</script>");
+				out.print("<script>alert('메시지 전송에 실패하였습니다.');location.replace('messageWindow.go');</script>");
 			}
 		}else{
-			out.print("<script>alert('회원번호 혹은 이름이 잘못 입력되었습니다.');location.replace('message.messageMain');</script>");
+			out.print("<script>alert('회원번호 혹은 이름이 잘못 입력되었습니다.');location.replace('messageWindow.go');</script>");
 		}
 		out.close();
 	}

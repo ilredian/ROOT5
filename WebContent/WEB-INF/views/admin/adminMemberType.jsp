@@ -14,7 +14,7 @@
 			<td>${list.typeno}</td>
 			<td>${list.typename}</td>
 			<td>
-				<div class="container">
+				<div class="btn-group">
 					<input type="button" class="btn btn-info update" id="updateMemberType.go?tn=${list.typename}&tno=${list.typeno}" value="수정"> <input
 						type="button" class="btn btn-danger delete" id="deleteMemberType.go?tn=${list.typename}&tno=${list.typeno}" value="삭제"> <input
 						type="button" class="btn btn-success insert" id="insertMemberType.go?tn=${list.typename}&tno=${list.typeno}" value="추가">

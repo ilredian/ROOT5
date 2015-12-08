@@ -14,7 +14,7 @@
 			<td>${list.domain}</td>
 			<td>${list.domainname}</td>
 			<td>
-				<div class="container">
+				<div class="btn-group">
 					<input type="button" class="btn btn-info update"
 						id="updateStatementCategory.go?do=${list.domain}&dn=${list.domainname}"
 						value="수정"> <input type="button"
