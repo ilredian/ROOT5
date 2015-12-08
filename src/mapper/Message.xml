@@ -8,17 +8,30 @@
 		FROM message
 		LIMIT ${param1}, ${param2}
 	</select>
+	
+	<select id="getMyMessageCount" resultType="Integer">
+		SELECT count(*)
+		FROM message
+		WHERE memberno = #{memberno}
+	</select>
 		
 	<select id="getMyMessage" resultType="DTO.MessageDTO">
 		SELECT *
 		FROM message
-		WHERE memberno = #{memberno}
+		WHERE memberno = ${param3}
+		LIMIT ${param1}, ${param2}
 	</select>
 	
 	<select id="getMessage" resultType="DTO.MessageDTO">
 		SELECT *
 		FROM message
 		WHERE messageno = #{messageno}
+	</select>
+	
+	<select id="getFromName" resultType="DTO.MemberDTO">
+		SELECT *
+		FROM memberdb
+		WHERE memberno = #{memberno}
 	</select>
 	
 	<update id="isopen">
@@ -34,7 +47,7 @@
 	
 	<insert id="sendMessage">
 		INSERT INTO message(frommemberno, title, content, regdate, memberno)
-		VALUES 
+		VALUES(#{frommemberno}, #{title}, #{content}, SYSDATE(), #{memberno})
 	</insert>
 	
 </mapper>
