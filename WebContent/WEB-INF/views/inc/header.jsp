@@ -29,6 +29,10 @@
 			location.replace("logout.go");
 		});
 	});
+	/* 쪽지 열기 */
+	$('#messageWindow').click(function(){
+		window.open('message.jsp','My message','width=300,height=300');
+	});
 </script>
 <nav class="navbar navbar-default" role="navigation" style="
     margin-bottom: 0px;
@@ -74,6 +78,9 @@
 							</button>
 						</c:when>
 						<c:otherwise> <!-- 세션이 있다면_ -->
+							<button type="button" class="btn btn-default btn-sm" id="messageWindow">
+          						<span class="glyphicon glyphicon-envelope"></span> 쪽지
+        					</button>
 							<button type="button" class="btn btn-default" id="myBtn2"
 								style="margin-right: 20px; margin-top: 10px">
 								<span class="glyphicon glyphicon-log-in"></span>

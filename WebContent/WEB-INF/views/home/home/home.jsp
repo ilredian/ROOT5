@@ -4,10 +4,6 @@
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<a href="freeMain.go?pg=1">자유게시판</a>
-<a href="statementMain.go?cno=1">진술서게시판</a>
-<a href="lawMain.go?pg=1">변호사게시판</a>
-<a href="adhome.go">관리자 임시링크</a>
 <table class="table">
 <c:if test="${not empty list}">
 <c:forEach items="${list}" var="list" begin="0" end="9">
@@ -103,7 +99,7 @@
 				<a href="#" style="float: right;">비밀번호 찾기</a>
 			</div>
 			<div>
-				<input type="image" src="homeimages/regist.PNG">
+				<a href="signin.go"><input type="image" src="homeimages/regist.PNG"></a>
 			</div>
 		</div>
 	</div>

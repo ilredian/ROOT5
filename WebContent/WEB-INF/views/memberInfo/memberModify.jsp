@@ -31,8 +31,8 @@
 
 	<!-- 페이저 -->
 	<div class="container" align="">
-		<a type="submit" href="#">정보수정</a> <a type="submit" href="#">컨택센터</a>
-		<a type="submit" href="#">로그아웃</a>
+		<a type="submit" href="#">정보수정</a> <a type="submit" href="contmain.go">컨택센터</a>
+		<a type="submit" href="logout.go">로그아웃</a>
 	</div>
 </div>
 
