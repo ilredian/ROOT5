@@ -39,10 +39,10 @@
 <nav class="navbar navbar-default" role="navigation" style="
     margin-bottom: 0px;
 ">
-<div class="container-fluid" style="
+<div class="container" style="
     margin-top: 0px;
     margin-bottom: 0px;
-">
+" align="center">
 	<div class="navbar-header">
 		<button type="button" class="navbar-toggle" data-toggle="collapse"
 			data-target="#myNavbar">
@@ -80,7 +80,7 @@
 							</button>
 						</c:when>
 						<c:otherwise> <!-- 세션이 있다면_ -->
-							<button type="button" class="btn btn-default btn-sm" id="messageWindow">
+							<button style="margin-top:10px;" type="button" class="btn btn-default btn-sm" id="messageWindow">
           						<span class="glyphicon glyphicon-envelope"></span> 쪽지
         					</button>
 							<button type="button" class="btn btn-default" id="myBtn2"
