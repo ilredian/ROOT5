@@ -20,10 +20,8 @@
 			<td>${list.name}</td>
 			<td>${list.content}</td>
 			<td>
-				<div class="container">
-					<input type="button" class="btn btn-danger delete"
-						id="deleteReportBoardFree.go?bno=${list.replyno}" value="삭제">
-				</div>
+				<input type="button" class="btn btn-danger delete"
+					id="deleteReportBoardFree.go?bno=${list.replyno}" value="삭제">
 			</td>
 		</tr>
 	</c:forEach>

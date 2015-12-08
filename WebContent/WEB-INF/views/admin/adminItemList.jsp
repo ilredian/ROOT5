@@ -19,7 +19,7 @@
 			<td>${list.goodsspan}</td>
 			<td><h1><span class="${list.goodsspan}"></span></h1></td>
 			<td>
-				<div class="container">
+				<div class="btn-group">
 					<input type="button" class="btn btn-info update"
 						id="updateItem.go?gn=${list.goodsname}&gk=${list.goodskind}&gs=${list.goodsspan}"
 						value="수정"> <input type="button"

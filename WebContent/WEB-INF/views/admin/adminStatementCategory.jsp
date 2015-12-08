@@ -15,7 +15,7 @@
 			<td>${list.cheatno}</td>
 			<td>${list.cheatname}</td>
 			<td>
-				<div class="container">
+				<div class="btn-group">
 					<input type="button" class="btn btn-info update"
 						id="updateStatementCategory.go?cn=${list.cheatname}&cno=${list.cheatno}"
 						value="수정"> <input type="button"

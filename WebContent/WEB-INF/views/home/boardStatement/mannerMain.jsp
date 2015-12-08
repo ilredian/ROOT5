@@ -47,7 +47,7 @@
 		</div> -->
 <div>
 	<button id="a" style="float: right;">
-		<a href="#">로그인 하기</a>
+		<a href="login.go">로그인 하기</a>
 	</button>
 </div>
 <div style="text-align: center;">

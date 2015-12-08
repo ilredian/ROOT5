@@ -14,6 +14,6 @@
 
 
 </table>
-<div class="container">
+<div class="btn-group">
 	<input type="button" class="btn btn-danger" value="삭제">
 </div>

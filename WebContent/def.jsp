@@ -16,10 +16,9 @@
 <body>
    <div class="container" align="center">
       <div class="homeContArea bodyCont">
-         <h2 align="left">사기 피해 사례</h2>
+         <h2 align="left">피해사례 분류</h2>
          <div style="padding: 20px; border: 4px solid #eff0f1; float: left;">
             <div class="fl section" style="float: left; margin-right: 20px;">
-               <h4 align="left">피해사례 분류</h4>
                <div class="cont">
                   <!-- 링크 -->
                   

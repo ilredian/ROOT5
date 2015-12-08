@@ -28,11 +28,9 @@
 			<td>${list.regdate}</td>
 			<td>${list.countno}</td>
 			<td>
-				<div class="container">
 					<input type="button" class="btn btn-danger delete"
 						id="deleteReportBoardFree.go?bno=${list.boardno}"
 						value="삭제">
-				</div>
 			</td>
 		</tr>
 	</c:forEach>
