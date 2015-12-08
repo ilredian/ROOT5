@@ -34,4 +34,3 @@
 		</div>
 	</div>
 </div>
-<input type="button" id="messagebtn" value="메시지 창 열기">
