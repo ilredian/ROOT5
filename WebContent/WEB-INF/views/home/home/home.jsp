@@ -16,21 +16,21 @@
 		<div class="col-sm-6"
 			style="background-color: lavender; margin: 10px; height: 165px; width: 535px;">
 			<div style="margin-top: 30px">
-				<img alt="목록" src="homeimages/z.PNG"> <select
-					style="width: 317px">
+				<h4 style="float:left">거래 구분</h4> <select style="width: 317px">
 					<option>전체 피해 사례</option>
 					<option>직거래</option>
 					<option>전체 사례</option>
 				</select>
 			</div>
-			<div>
-				<img alt="검색" src="homeimages/x.PNG"> <input type="text"
-					placeholder="로그인후 피해사례를 검색 할 수 있습니다(무료)" size="40">
+			<div style="float:left">
+				<h4>피해사례검색</h4> 
+				<input type="text" placeholder="로그인후 피해사례를 검색 할 수 있습니다(무료)" size="40">
 			</div>
-			<div>
+			<div style="float:left">
 				<input type="image" src="homeimages/button.PNG"
 					onclick="form_submit('search','./?mod=_search_result','web');"
 					style="position: absolute; left: 455px; top: 20px;">
+				<!-- <a href="./?mod=_search_result" onclick="form_submit('search','./?mod=_search_result','web');"> -->
 			</div>
 			<hr>
 			<p style="text-align: inherit;">

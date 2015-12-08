@@ -17,7 +17,7 @@
 
 
 	<div class="container">
-		<img src="boardStatementimages/spam/spama1.PNG">
+		<h3>스팸 피해사럐</h3>
 	</div>
 	<div class="container">
 		<div class="container">
@@ -39,7 +39,7 @@
 	<div class="container">
 		<div class="container">
 			<h3>
-				<img src="boardStatementimages/spam/a2.PNG">
+				피해발생사이트정보
 			</h3>
 			<table class="table table table-striped">
 				<colgroup>
@@ -89,7 +89,7 @@
 	<div class="container">
 		<div class="container">
 			<h3>
-				<img src="boardStatementimages/spam/a3.PNG">
+				피해 상세보기
 			</h3>
 			<table class="table table table-striped">
 				<colgroup>
@@ -144,7 +144,7 @@
 	<div class="container">
 		<div class="container">
 			<h3>
-				<img src="boardStatementimages/spam/a4.PNG">
+				사건개요(진술서)
 			</h3>
 			<table class="table table table-striped">
 				<colgroup>

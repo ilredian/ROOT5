@@ -141,9 +141,7 @@
 	<!-- 사건개요 -->
 	<div class="container">
 		<div class="container">
-			<h3>
-				<img src="boardStatement_images/a_Dtaile3.PNG" alt="사건 개요 (진술서)">
-			</h3>
+
 			<table class="table table table-striped">
 				<colgroup>
 					<col width="162">

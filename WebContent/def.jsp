@@ -23,15 +23,16 @@
                   <!-- 링크 -->
                   
                   <!-- 직거래 -->
-                  <a href="#"><img src="homenavimages/q.PNG"></a>
-                  <!-- 게임 -->
+<!--                   <a href="#"><img src="homenavimages/q.PNG"></a>
+                  게임
                   <a href="#"><img src="homenavimages/w.PNG"></a>
-                  <!-- 비매너 -->
+                  비매너
                   <a href="#"><img src="homenavimages/e.PNG"></a>
-                  <!-- 스팸 -->
+                  스팸
                   <a href="#"><img src="homenavimages/r.PNG"></a>
-                  <!-- 피해사례 등록 -->
-                  <a href="#"><img src="homenavimages/t.PNG"></a>
+                  피해사례 등록
+                  <a href="#"><img src="homenavimages/t.PNG"></a> 버튼 -->
+                  <button type=""></button>
                </div>
             </div>
          </div>

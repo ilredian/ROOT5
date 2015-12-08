@@ -22,13 +22,13 @@
 			<div class="damageMenuList">
 				<div class="sec1" style="float: left; margin-left: 70px">
 					<h5>
-						<a href="trade.go"><img
-							src="registrationimages/registration/c.PNG" alt="직거래"></a>
+						<!-- <a href="trade.go"><img
+							src="registrationimages/registration/c.PNG" alt="직거래"></a> 직거래 -->
+							<input type="submit" value="직거래" class="btn btn-danger container" id="trade" style="margin-left:-50px">
 					</h5>
 					<div class="cont" style="margin-left: 20px;">
 						<p>
-							<img src="registrationimages/registration/d.PNG"
-								alt="입금하고 실물 물품을 못 받은 경우">
+							입금하고 실물 물품을 못 받은 경우
 						</p>
 						<ul>
 							<li>컴퓨터/노트북</li>
@@ -39,21 +39,21 @@
 							<li>여행/스포츠/음반</li>
 							<li>보이스피싱</li>
 						</ul>
-						<a href="trade.go" class="btnGo"><img
-							src="registrationimages/registration/e.PNG" alt="직거래 피혜사례 등록"></a>
+						<!-- <a href="trade.go" class="btnGo"><img
+							src="registrationimages/registration/e.PNG" alt="직거래 피혜사례 등록"></a> 직거래 피해 사례-->
+						<input type="submit" value="게임 비실물" class="btn btn-danger btn-lg" id="game">
 					</div>
 				</div>
 			</div>
 			<div class="damageMenuList">
 				<div class="sec2" style="float: left; margin-left: 10px">
 					<h5>
-						<a href="game.go"><img
-							src="registrationimages/registration/gamebtn.PNG" alt="게임"></a>
+<!-- 						<a href="game.go"><img
+							src="registrationimages/registration/gamebtn.PNG" alt="게임"></a> 게임비실물버튼-->
 					</h5>
 					<div class="cont" style="margin-left: 20px;">
 						<p>
-							<img src="registrationimages/registration/game.PNG"
-								alt="입금하고 실물 물품을 못 받은 경우">
+							입금하고 실물 물품을 못 받은 경우
 						</p>
 						<ul>
 							<li>게임 머니</li>
@@ -63,22 +63,21 @@
 							<li>휴대폰 데이터 거래</li>
 
 						</ul>
-						<a href="game.go" class="btnGo"><img
+<!-- 						<a href="game.go" class="btnGo"><img
 							src="registrationimages/registration/game2.PNG" alt="직거래 피혜사례 등록"
-							style="margin-top: 40px"></a>
+							style="margin-top: 40px"></a> 게임 피해사례등록-->
 					</div>
 				</div>
 			</div>
 			<div class="damageMenuList">
 				<div class="sec3" style="float: left; margin-left: 10px">
 					<h5>
-						<a href="manner.go"><img
-							src="registrationimages/registration/bebtn.PNG" alt="비매너"></a>
+<!-- 						<a href="manner.go"><img
+							src="registrationimages/registration/bebtn.PNG" alt="비매너"></a> 비매너-->
 					</h5>
 					<div class="cont" style="margin-left: 20px;">
 						<p>
-							<img src="registrationimages/registration/bme.PNG"
-								alt="입금하고 실물 물품을 못 받은 경우">
+							입금하고 실물 물품을 못 받은 경우
 						</p>
 						<ul>
 							<li>상태 불량</li>
@@ -88,13 +87,13 @@
 							<li>상품정보 오기</li>
 
 						</ul>
-						<a href="manner.go" class="btnGo"><img
+<!-- 						<a href="manner.go" class="btnGo"><img
 							src="registrationimages/registration/bme2.PNG" alt="비매너 피혜사례 등록"
-							style="margin-top: 35px"></a>
+							style="margin-top: 35px"></a> 비매너 피해-->
 					</div>
 				</div>
 			</div>
-			<div class="damageMenuList">
+<!-- 대포폰 제거			<div class="damageMenuList">
 				<div class="sec4" style="float: left; margin-left: 10px">
 					<h5>
 						<a href="#"><img
@@ -115,7 +114,7 @@
 							style="margin-top: 100px"></a>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<!-- <div class="sec4"> -->
 		</div>
 	</div>

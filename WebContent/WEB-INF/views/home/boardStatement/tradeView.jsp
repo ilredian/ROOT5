@@ -17,7 +17,7 @@
 
 
 	<div class="container">
-		<img src="boardStatementimages/trade/a1.PNG">
+		<h3>직거래 피해사례</h3>
 	</div>
 	<div class="container">
 		<div class="container">
@@ -39,7 +39,7 @@
 	<div class="container">
 		<div class="container">
 			<h3>
-				<img src="boardStatementimages/trade/a2.PNG">
+				피해 발생 사이트 정보
 			</h3>
 			<table class="table table table-striped">
 				<colgroup>
@@ -89,7 +89,7 @@
 	<div class="container">
 		<div class="container">
 			<h3>
-				<img src="boardStatementimages/trade/a3.PNG">
+				용의자(사기범) 정보
 			</h3>
 			<table class="table table table-striped">
 				<colgroup>
@@ -144,7 +144,7 @@
 	<div class="container">
 		<div class="container">
 			<h3>
-				<img src="boardStatementimages/trade/a4.PNG">
+				사건 개요 (진술서)
 			</h3>
 			<table class="table table table-striped">
 				<colgroup>
