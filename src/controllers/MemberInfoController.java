@@ -14,6 +14,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -89,7 +90,6 @@ public class MemberInfoController {
 	}
 	////////////////////////내가 쓴 글 모두 가져오기 END///////////////////////////
 	
-	
 	@RequestMapping(value="memberComment.go", method=RequestMethod.GET)
 	public String comment(){//댓글
 		
@@ -107,12 +107,6 @@ public class MemberInfoController {
 		
 		return "memberInfo.memberReply";
 	}
-	
-	
-
-
-	
-	
 	
 	@RequestMapping(value="memberConnect.go", method=RequestMethod.GET)
 	public String connect(){//접속기록
@@ -134,7 +128,6 @@ public class MemberInfoController {
 		String message = ((MemberDTO) session.getAttribute("memberInfo")).getMessage();
 		System.out.println("message : " + message);
 		model.addAttribute("message",message);
-		model.addAttribute("memberDTO", memberDTO);
 		return "memberInfo.memberModify";
 	}
 	
@@ -168,8 +161,6 @@ public class MemberInfoController {
 		return "memberInfo.memberModify";
 	}
 	
-	
-	
 	@RequestMapping(value="memberPwdChange.go", method=RequestMethod.GET)
 	public String pwdChangebefore(MemberDTO memberDTO, 
 			HttpSession session,
@@ -177,35 +168,27 @@ public class MemberInfoController {
 			Model model) throws ParseException{//비번변경
 	
 		// 페이지 이동 변수 선언
-		String go = "";
-		MemberInfoDAO memberInfoDAO = sqlSession.getMapper(MemberInfoDAO.class);
-		
 		//로그 남기기
 		System.out.println("내 비번변경 페이지로 이동");
 
 		int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
 		System.out.println("memberno : " + memberno);
-
 		String Password = ((MemberDTO) session.getAttribute("memberInfo")).getPassword();
 		System.out.println("Password: " + Password);
 		String regdate = ((MemberDTO) session.getAttribute("memberInfo")).getRegdate();
 		System.out.println("regdate : " + regdate);
+		String regpwd = ((MemberDTO) session.getAttribute("memberInfo")).getRegpwd();
 		
-		//regdate 에 등록했던 날짜_
-		model.addAttribute("regdate",regdate);
+		//regpwd 에 등록했던 날짜_
+		model.addAttribute("regpwd",regpwd);
 
 		Date date = new Date();
 		date.getTime();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		System.out.println("현재날짜 : " + sdf.format(date));
-
-		
-		model.addAttribute("date", sdf.format(date));
-	
 		//현재 날짜 - 등록 날짜 (Day 일수)
-		
 		  SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-	        Date beginDate = formatter.parse(regdate);
+	        Date beginDate = formatter.parse(regpwd);
 	        Date endDate = date;
 	        
 	        long diff = endDate.getTime() - beginDate.getTime();
@@ -218,19 +201,42 @@ public class MemberInfoController {
 	}
 	
 	@RequestMapping(value="memberPwdChange.go", method=RequestMethod.POST)
-	public String pwdChangeafter(MemberDTO memberDTO, 
+	public String pwdChangeafter(
+			@ModelAttribute MemberDTO memberDTO, 
 			HttpSession session,
 			HttpServletRequest request, 
 			Model model) throws Exception{//비번변경
+		//비밀번호를 변경하려면
+		//원래 비밀번호값과 같은지 비교하고 맞다면
+		//변경할 비밀번호를 업데이트한다.
+		System.out.println("비밀번호 변경시작");
+		String oldpwd = ((MemberDTO) session.getAttribute("memberInfo")).getPassword();
+		System.out.println("원래저장된 pwd : "+  oldpwd );
 	
-		String email =  ((MemberDTO) session.getAttribute("memberInfo")).getEmail();
-		System.out.println("email : " + email);
-		MemberInfoDAO memberInfoDAO = sqlSession.getMapper(MemberInfoDAO.class);
-		memberInfoDAO.changepassword(email);
+		
+		String Newpwd = memberDTO.getNpassword();
+		System.out.println("바뀐 pwd : "+  Newpwd );
+		
+		//멤버 번호를 집어넣기
+		memberDTO.setMemberno(((MemberDTO)session.getAttribute("memberInfo")).getMemberno());
+		//	public MemberDTO changepassword(MemberDTO memberDTO) throws Exception;
+
+		if((memberDTO.getPassword()).equals(oldpwd)){
+			MemberInfoDAO memberInfoDAO = sqlSession.getMapper(MemberInfoDAO.class);
+			System.out.println("비밀번호 변경완료");
+			memberInfoDAO.changepassword(memberDTO);
+		}else{
+			System.out.println("비밀번호가 일치하지 않습니다");
+		}
+		//update가 완료돠면, MemberDTO에 저장된 메시지 정보를 가져와서  sessionDTO에 넣어준다.
+		MemberDTO sessionDTO=((MemberDTO)session.getAttribute("memberInfo"));
+		sessionDTO.setNpassword(memberDTO.getNpassword());
+		System.out.println("여기까지?");
+		//memberInfo 속성에 메시지정보가 있는 sessionDTO를 넣어준다.
+		session.setAttribute("memberInfo", sessionDTO);
 		
 		return "memberInfo.memberPwdChange";
 	}
-	
 	
 	@RequestMapping(value="memberWithdrawal.go", method=RequestMethod.GET)
 	public String updateActive(){//회원탈퇴
