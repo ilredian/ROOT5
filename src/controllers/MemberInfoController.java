@@ -1,6 +1,10 @@
 package controllers;
 
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -167,15 +171,14 @@ public class MemberInfoController {
 	
 	
 	@RequestMapping(value="memberPwdChange.go", method=RequestMethod.GET)
-	public String pwdChange(MemberDTO memberDTO, HttpSession session,
-			HttpServletRequest request, Model model){//비번변경
-		
-		
+	public String pwdChangebefore(MemberDTO memberDTO, 
+			HttpSession session,
+			HttpServletRequest request, 
+			Model model) throws ParseException{//비번변경
 	
 		// 페이지 이동 변수 선언
 		String go = "";
 		MemberInfoDAO memberInfoDAO = sqlSession.getMapper(MemberInfoDAO.class);
-		
 		
 		//로그 남기기
 		System.out.println("내 비번변경 페이지로 이동");
@@ -184,12 +187,50 @@ public class MemberInfoController {
 		System.out.println("memberno : " + memberno);
 
 		String Password = ((MemberDTO) session.getAttribute("memberInfo")).getPassword();
-		System.out.println("Password" + Password);
+		System.out.println("Password: " + Password);
 		String regdate = ((MemberDTO) session.getAttribute("memberInfo")).getRegdate();
-		System.out.println("regdate" + regdate);
+		System.out.println("regdate : " + regdate);
+		
+		//regdate 에 등록했던 날짜_
+		model.addAttribute("regdate",regdate);
+
+		Date date = new Date();
+		date.getTime();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		System.out.println("현재날짜 : " + sdf.format(date));
+
+		
+		model.addAttribute("date", sdf.format(date));
+	
+		//현재 날짜 - 등록 날짜 (Day 일수)
+		
+		  SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+	        Date beginDate = formatter.parse(regdate);
+	        Date endDate = date;
+	        
+	        long diff = endDate.getTime() - beginDate.getTime();
+	        long diffDays = diff / (24 * 60 * 60 * 1000);
+	 
+	        System.out.println("날짜차이=" + diffDays);
+	        model.addAttribute("diffDay", diffDays);
+	        
+		return "memberInfo.memberPwdChange";
+	}
+	
+	@RequestMapping(value="memberPwdChange.go", method=RequestMethod.POST)
+	public String pwdChangeafter(MemberDTO memberDTO, 
+			HttpSession session,
+			HttpServletRequest request, 
+			Model model) throws Exception{//비번변경
+	
+		String email =  ((MemberDTO) session.getAttribute("memberInfo")).getEmail();
+		System.out.println("email : " + email);
+		MemberInfoDAO memberInfoDAO = sqlSession.getMapper(MemberInfoDAO.class);
+		memberInfoDAO.changepassword(email);
 		
 		return "memberInfo.memberPwdChange";
 	}
+	
 	
 	@RequestMapping(value="memberWithdrawal.go", method=RequestMethod.GET)
 	public String updateActive(){//회원탈퇴
