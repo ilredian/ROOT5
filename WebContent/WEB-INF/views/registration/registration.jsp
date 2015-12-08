@@ -18,9 +18,9 @@
 </div>
 <div class="container" align="center">
 	<div class="well well-sm" align="center">
-		<div class="row">
+		<div class="row"  align="center">
 			<div class="damageMenuList" align="center">
-				<div class="sec1" style="float: left; margin-left: 70px" align="center">
+				<div class="sec1" style="float: left; margin-left: 150px" align="center">
 					<h5>
 					<a href="trade.go"><img
 							src="registrationimages/registration/c.PNG" alt="직거래"></a>
@@ -45,7 +45,7 @@
 				</div>
 			</div>
 			<div class="damageMenuList">
-				<div class="sec2" style="float: left; margin-left: 10px">
+				<div class="sec2" style="float: left; margin-left: 50px">
 					<h5>
 						<a href="game.go"><img
 							src="registrationimages/registration/gamebtn.PNG" alt="게임"></a>
@@ -69,7 +69,7 @@
 				</div>
 			</div>
 			<div class="damageMenuList">
-				<div class="sec3" style="float: left; margin-left: 10px">
+				<div class="sec3" style="float: left; margin-left: 50px">
 					<h5>
  						<a href="manner.go"><img
 							src="registrationimages/registration/bebtn.PNG" alt="비매너"></a>

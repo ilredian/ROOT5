@@ -9,7 +9,7 @@
 		<col width="*">
 	</colgroup>
 	<tr>
-		<th><label for="s_stie">사이트명(URL)</label> <span class="bltS_A">*</span></th>
+		<th class="active"><label for="s_stie">사이트명(URL)</label> <span class="bltS_A">*</span></th>
 		<td><input type="hidden" name="category" value="신고"> <select
 			name="cheat_site_temp"
 			onchange="javascript:if(cheat_site_temp.value == '1'){ cheat_site.readOnly = false; cheat_site.focus(); } else{ cheat_site.value = cheat_site_temp.value; cheat_site.readOnly = true; cheat_site.focus(); }"

@@ -71,9 +71,8 @@
 						<option value="10" selected>10</option>
 						<option value="11">11</option>
 						<option value="12">12</option>
-					</select>월 <a href="./?mod=_home"
-						onclick="return confirm('로그인 후 사용 가능한 기능입니다.\n확인을 누르면 로그인 화면으로 이동합니다.');">
-						<input type="submit" class="btn btn-info" value="조회"></a> &nbsp;※ 2015년 10월까지를 선택하면
+					</select>월 
+						<input type="submit" class="btn btn-info" value="조회"> &nbsp;※ 2015년 10월까지를 선택하면
 					2015년 10월 말일까지의 통계가 조회됩니다.
 				</div>
 			</FORM>

@@ -23,7 +23,7 @@
                   <!-- 링크 -->
                   
                   <!-- 직거래 -->
-<!--                   <a href="#"><img src="homenavimages/q.PNG"></a>
+                <a href="#"><img src="homenavimages/q.PNG"></a>
                   게임
                   <a href="#"><img src="homenavimages/w.PNG"></a>
                   비매너
@@ -31,7 +31,7 @@
                   스팸
                   <a href="#"><img src="homenavimages/r.PNG"></a>
                   피해사례 등록
-                  <a href="#"><img src="homenavimages/t.PNG"></a> 버튼 -->
+                  <a href="#"><img src="homenavimages/t.PNG"></a> 
                   <button type=""></button>
                </div>
             </div>
