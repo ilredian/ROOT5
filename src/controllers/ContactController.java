@@ -11,4 +11,18 @@ public class ContactController {
 		return "contact.contactmain";
 	}
 
+	@RequestMapping("question.go")
+	public String contQuest(){
+		return "contact.contactquestion";
+	}
+	
+	@RequestMapping("deletepls.go")
+	public String contDelete(){
+		return "contact.contactdeletepls";
+	}
+	
+	@RequestMapping("contlist.go")
+	public String contList(){
+		return "contact.contactlist";
+	}
 }

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
+﻿<%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="se"
@@ -38,12 +38,13 @@
 		});
 	});
 </script>
-<nav class="navbar navbar-default" role="navigation"
-	style="
+<nav class="navbar navbar-default" role="navigation" style="
     margin-bottom: 0px;
 ">
-<div class="container-fluid"
-	style="margin-top: 0px; margin-bottom: 0px;">
+<div class="container" style="
+    margin-top: 0px;
+    margin-bottom: 0px;
+" align="center">
 	<div class="navbar-header">
 		<button type="button" class="navbar-toggle" data-toggle="collapse"
 			data-target="#myNavbar">
@@ -73,6 +74,7 @@
 		<div class="links">
 			<div class="container" align="right">
 				<!-- 로그인 버튼 _ 로그인 전과 후의 변화 -->
+<<<<<<< HEAD
 				<c:choose>
 					<c:when test="${empty memberInfo}">
 						<!-- 세션이 null 이면 -->
@@ -118,6 +120,52 @@
 						</button>
 					</c:otherwise>
 				</c:choose>
+=======
+						<c:choose>
+						<c:when test="${empty memberInfo}">  <!-- 세션이 null 이면 -->
+							<button type="button" class="btn btn-default" id="myBtn"
+								style="margin-right: 10px; margin-top: 10px">
+								<span class="glyphicon glyphicon-log-in"></span>로그인
+							</button>
+						</c:when>
+						<c:otherwise> <!-- 세션이 있다면_ -->
+							<button style="margin-top:10px;" type="button" class="btn btn-default btn-sm" id="messageWindow">
+          						<span class="glyphicon glyphicon-envelope"></span> 쪽지
+        					</button>
+							<button type="button" class="btn btn-default" id="myBtn2"
+								style="margin-right: 20px; margin-top: 10px">
+								<span class="glyphicon glyphicon-log-in"></span>
+								<c:if test="${memberInfo.typeno==1}">
+									<c:out value="관리자"/>
+								</c:if>	
+								<c:if test="${memberInfo.typeno==0}">
+									<c:out value="사용자"/>
+								</c:if>	
+								${memberInfo.name}님 로그아웃
+							</button>
+							</c:otherwise>
+						</c:choose>
+					<button type="submit" class="btn btn-default"
+					style="margin-right: 10px; margin-top: 10px">
+					<a href="memberMessage.go"> <span
+						class="glyphicon glyphicon-log-in"></span> 내 정보
+					</a>
+				</button>
+				<button type="submit" class="btn btn-default"
+					style="margin-right: 10px; margin-top: 10px">
+					<a href="signin.go"> <span class="glyphicon glyphicon-log-in"></span>
+						회원가입
+					</a>
+				</button>
+				<button type="submit" class="btn btn-default"
+					style="margin-right: 10px; margin-top: 10px">
+					<a href="pwSearch.go"> <span class="glyphicon glyphicon-log-in"></span>
+						비밀번호 찾기
+					</a>
+				</button>	
+					</div>
+				</div>
+>>>>>>> 8648a4e167c98bf2a27be93612bd95c46570bac7
 			</div>
 		</div>
 	</div>

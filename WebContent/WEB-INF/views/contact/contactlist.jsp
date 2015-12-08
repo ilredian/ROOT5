@@ -23,18 +23,16 @@
                   <!-- 링크 -->
                   
                   <!-- 직거래 -->
-
-                <a href="#"><img src="homenavimages/q.PNG"></a>
-                  게임
-                  <a href="#"><img src="homenavimages/w.PNG"></a>
-                  비매너
-                  <a href="#"><img src="homenavimages/e.PNG"></a>
-                  스팸
-                  <a href="#"><img src="homenavimages/r.PNG"></a>
-                  피해사례 등록
-                  <a href="#"><img src="homenavimages/t.PNG"></a> 
-                  <button type=""></button>
-
+<!--                   <input type="submit" value="직거래" class="btn btn-danger btn btn-lg trade">
+                  <input type="submit" value="게임" class="btn btn-danger btn btn-lg game">
+                  <input type="submit" value="비매너" class="btn btn-danger btn btn-lg bemanner">
+                  <input type="submit" value="스팸" class="btn btn-danger btn btn-lg spam">
+                  <input type="submit" value="피해사례등록" class="btn btn-danger btn btn-lg registration"> -->
+					<a href="statementMain.go?cno=1"><img src="homenavimages/q.PNG"></a>
+					<a href="statementMain.go?cno=2"><img src="homenavimages/w.PNG"></a>
+					<a href="statementMain.go?cno=3"><img src="homenavimages/e.PNG"></a>
+					<a href="statementMain.go?cno=4"><img src="homenavimages/r.PNG"></a>
+					<a href="registration.go"><img src="homenavimages/t.PNG"></a>
                </div>
             </div>
          </div>

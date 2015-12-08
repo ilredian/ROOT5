@@ -11,32 +11,24 @@
 </c:forEach>
 </c:if>
 </table>
-<div class="container-fluid" align="center">
+<div class="container" align="center">
 	<div class="row1">
 		<div class="col-sm-6"
 			style="background-color: lavender; margin: 10px; height: 165px; width: 535px;">
-			<div>
-				<h4><strong>거래 구분</strong></h4>
-			 <select style>
+			<div style="margin-top:40px;">
+				<h4 style="float:left; vertical-align: middle;"><strong>거래 구분</strong></h4>
+			 <select style="margin-top:6px; margin-left:35px; float:left; vertical-align: middle;">
 					<option>전체 피해 사례</option>
 					<option>직거래</option>
 					<option>전체 사례</option>
-				</select>
+			 </select>
 			</div>
-			<div style="margin-top:20px;">
-				<h4 style="float:left; vertical-align: middle;"><strong>피해사례검색</strong></h4> 
-				<input style="margin-top:6px; float:left; vertical-align: middle;" type="text" placeholder="로그인후 피해사례를 검색 할 수 있습니다(무료)" size="40">
-			</div>
-			<div>
-				<input type="image" src="homeimages/button.PNG"
-					onclick="form_submit('search','./?mod=_search_result','web');"
-					>
+			<div style="margin-top:0px;">
+				<br><br><h4 style="float:left;margin-right:5px;vertical-align: middle;"><strong>피해사례검색</strong></h4>
+				<input style="margin-top:6px; float:left; vertical-align: middle;" type="text" placeholder="로그인후 피해사례를 검색 가능" size="30">
+				<input type="button" class="btn btn-info" value="검색">
 				<!-- <a href="./?mod=_search_result" onclick="form_submit('search','./?mod=_search_result','web');"> -->
 			</div>
-			<hr>
-			<p>
-				<서버코드> 건의 사기 피해사례가 등록되어 있습니다 | Since 2015-11-27 
-			</p>
 		</div>
 		<div class="col-sm-3"
 			style="margin: 10px; height: 165px; width: 214px; background-color: lavender; padding: 20px;">
@@ -100,7 +92,7 @@
 				<a href="#" style="float: right;">비밀번호 찾기</a>
 			</div>
 			<div>
-				<a href="signin.go"><input type="image" src="homeimages/regist.PNG"></a>
+				<a href="signin.go"><input type="button" class="btn btn-info btn-lg" value="회원가입"></a>
 			</div>
 		</div>
 	</div>
