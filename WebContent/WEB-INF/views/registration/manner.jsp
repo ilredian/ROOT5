@@ -811,11 +811,10 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 <div>
 	<br>
 </div>
-<div id="submit_btn" class="submit_btn">
-	<a href="#"><img src="registrationimages/trade/agrbut.PNG" alt=""></a>
-	<!--<input type="submit" value="" name="" onclick="return confirm('확인 버튼을 누른 후 피해사례가 등록될 때 까지 기다려 주세요.');"/>-->
-
-</div>
+<div class="container">
+				<input type="submit" class="btn btn-info btn-block"
+					value="피해사례 등록 약관에 동의하며, 피해사례를 등록합니다.">
+			</div>
 
 
 

@@ -5,9 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="well" align="center">
 	<div class="container">
-		<h3 align="center">
-			<img src="registrationimages/game/qwe.PNG" alt="용의자(사기범) 정보">
-		</h3>
+		<h3 align="center">용의자(사기범) 정보</h3>
 		<p class="infoTxtTop" align="center">
 			<span class="bltS_A">*</span> 는 필수 기재 항목입니다
 		</p>
@@ -108,9 +106,7 @@
 
 	<div class="formSection">
 		<div class="well" align="center">
-			<h3 align="center">
-				<img src="img/infor.PNG" alt="용의자(사기범) 정보">
-			</h3>
+			<h3 align="center">용의자(사기범) 정보</h3>
 			<p class="infoTxtTop" align="center">
 				<span class="bltS_A">*</span> 는 필수 기재 항목입니다
 			</p>
@@ -371,9 +367,7 @@
 
 		<div class="formSection">
 			<div class="well" align="center">
-				<h3 align="center">
-					<img src="registrationimages/game/infor.PNG" alt="용의자(사기범) 정보">
-				</h3>
+				<h3 align="center">용의자(사기범) 정보</h3>
 				<p class="infoTxtTop" align="center">
 					<span class="bltS_A">*</span> 는 필수 기재 항목입니다
 
@@ -436,9 +430,7 @@
 				</table>
 
 			</div>
-			<h3>
-				<img src="registrationimages/game/agr.PNG" alt="">
-			</h3>
+			<h3>해사례 등록 약관</h3>
 			<textarea rows="" cols="" readonly="readonly"
 				style="margin: 0px; width: 900px; height: 300px;">
         피해사례 등록 약관
@@ -464,10 +456,12 @@
 					type="hidden" readonly name="cheat_rule" value="" valign="bottom"
 					style="width: 0px; height: 0px;">
 			</div>
-			<div id="submit_btn" class="submit_btn">
-				<a href="#"><img src="registrationimages/game/agrbut.PNG" alt=""></a>
-				<!--<input type="submit" value="" name="" onclick="return confirm('확인 버튼을 누른 후 피해사례가 등록될 때 까지 기다려 주세요.');"/>-->
+			<div class="container">
+				<input type="submit" class="btn btn-info btn-block"
+					value="피해사례 등록 약관에 동의하며, 피해사례를 등록합니다.">
 			</div>
+			<!--<input type="submit" value="" name="" onclick="return confirm('확인 버튼을 누른 후 피해사례가 등록될 때 까지 기다려 주세요.');"/>-->
 		</div>
 	</div>
+</div>
 </div>
