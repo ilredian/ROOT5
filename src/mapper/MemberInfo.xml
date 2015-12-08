@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DAO.MemberInfoDAO">
+
+	<!-- 회원이 쓴 모든 댓글 -->
+	<select id="getAllReply"  resultType="DTO.ReplyDTO">
+		SELECT * FROM replay WHERE email=#{EMAIL} order by regdate DESC
+	</select>
+	
+	<!-- 자신이 쓴 모든 게시물-->
+<!-- 	<select id="getMember"  resultType="DTO.MemberDTO">
+		SELECT * FROM memberdb WHERE email=#{EMAIL}
+	</select>
+ -->
+	<!-- 자신의 정보 -->
+	<select id="getMember"  resultType="DTO.MemberDTO">
+		SELECT * FROM memberdb WHERE email=#{EMAIL}
+	</select>
+		
+	<!-- //자기정보 수정하기 -->
+	<update id="update" parameterType="DTO.MemberDTO">
+		UPDATE memberdb
+		SET message=#{message}
+		WHERE memberno=#{memberno}
+	</update>
+
+	
+	<!-- (회원 탈퇴) -->
+	<update id="delete"  parameterType="DTO.MemberDTO">
+		UPDATE MEMBERDB  SET ACTIVE = 1  WHERE MEMBERNO = #{MEMBERNO}
+	</update>
+	
+</mapper>
