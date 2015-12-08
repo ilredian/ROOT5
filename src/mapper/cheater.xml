@@ -3,12 +3,6 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DAO.CheaterDAO">
-
-	<!-- 진술서 등록된 수 불러오기 -->
-	<select id="getAllCheaterCount" resultType="Integer">
-		SELECT count(*) cnt
-		FROM cheaterdb
-	</select>
 	
 	<!-- 진술서 카테고리별 등록된 수 불러오기 -->
 	<select id="getCheaterCount" resultType="Integer">
@@ -107,4 +101,69 @@
 	<delete id="delete" parameterType="Integer">
 		DELETE FROM cheaterdb WHERE stateno = #{stateno} 
 	</delete>
+	
+	<!-- 차트용 -->
+	<!-- 피해사례 수 -->
+	<!-- 진술서 등록된 수 불러오기 -->
+	<select id="getAllCheaterCount" resultType="Integer">
+		SELECT count(*) count
+		FROM cheaterdb
+	</select>
+	
+	<!-- 카테고리별 진술서 수 불러오기 -->
+	<select id="getCountCategory" resultType="Integer">
+		SELECT count(*) count
+		FROM cheaterdb
+		WHERE cheatno = #{cheatno}
+	</select>
+	
+	<!-- 휴대폰번호 수 -->
+	<select id="getCountPhone" resultType="Integer">
+		SELECT count(phone)
+		FROM cheaterdb
+	</select>
+	
+	<!-- 계좌번호 수 -->
+	<select id="getCountAccount" resultType="Integer">
+		SELECT count(account)
+		FROM cheaterdb
+	</select>
+	
+	<!-- 피해금액 -->
+	<select id="getCountSum" resultType="Integer">
+		SELECT sum(COALESCE(deposit,0))
+		FROM cheaterdb
+	</select>
+	
+	<!-- 피해물품 TOP 10 -->
+	<select id="getCountItems" resultType="DTO.CheaterDTO">
+		SELECT goodskind, count(*) count
+		FROM cheaterdb
+		GROUP BY goodskind
+		ORDER BY count(*) DESC
+	</select>
+	
+	<!-- 용의자 -->
+	<select id="getCountCheaterName" resultType="DTO.CheaterDTO">
+		SELECT cheatername, count(*) count
+		FROM cheaterdb
+		GROUP BY cheatername
+		ORDER BY count(*) DESC
+	</select>
+	
+	<!-- 사이트 -->
+	<select id="getCountDomain" resultType="DTO.CheaterDTO">
+		SELECT domain, count(*) count
+		FROM cheaterdb
+		GROUP BY domain
+		ORDER BY count(*) DESC
+	</select>
+	
+	<!-- 은행 -->
+	<select id="getCountBankName" resultType="DTO.CheaterDTO">
+		SELECT bankname, count(*) count
+		FROM cheaterdb
+		GROUP BY bankname
+		ORDER BY count(*) DESC
+	</select>
 </mapper>
