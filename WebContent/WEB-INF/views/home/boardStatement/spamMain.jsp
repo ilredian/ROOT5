@@ -30,18 +30,9 @@
 		</tbody>
 	</table>
 </div>
-<div style="float: left;">
-	<button id="list">
-		<a href="#">목록</a>
-	</button>
-	<button id="next">
-		<a href="#">다음</a>
-	</button>
-
-</div>
 <div>
 	<button id="a" style="float: right;">
-		<a href="#">전화정보 등록</a>
+		<a href="spam.go">전화정보 등록</a>
 	</button>
 </div>
 <!-- 추후에 페이저 등록 -->
