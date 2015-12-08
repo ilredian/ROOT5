@@ -18,7 +18,3 @@ $(function() {
 		}
 	});
 });
-
-$('#messagebtn').click(function(){
-	window.open('message.jsp','My message','width=500,height=300');
-});
