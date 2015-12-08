@@ -60,10 +60,6 @@
                </tr>
                <!-- 네이버 에디터 -->
 
-
-
-
-
                <!-- /네이버 에디터 -->
                <tr>
                   <th class="active">고운 언어가 좋아요!</th>
@@ -202,8 +198,8 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
                </tr>
             </table>
             <div align="center">
-               <a href="#"><img src="homenavimages/p.PNG"></img></a> <a href="#"><img
-                  src="homenavimages/o.PNG"></img></a>
+<!--                <a href="#"><img src="homenavimages/p.PNG"></img></a> <a href="#"><img
+                  src="homenavimages/o.PNG"></img></a> 버튼 -->
          </form>
       </div>
    </div>

@@ -4,10 +4,6 @@
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<a href="freeMain.go?pg=1">자유게시판</a>
-<a href="statementMain.go?cno=1">진술서게시판</a>
-<a href="lawMain.go?pg=1">변호사게시판</a>
-<a href="adhome.go">관리자 임시링크</a>
 <table class="table">
 <c:if test="${not empty list}">
 <c:forEach items="${list}" var="list" begin="0" end="9">
@@ -19,25 +15,26 @@
 	<div class="row1">
 		<div class="col-sm-6"
 			style="background-color: lavender; margin: 10px; height: 165px; width: 535px;">
-			<div style="margin-top: 30px">
-				<img alt="목록" src="homeimages/z.PNG"> <select
-					style="width: 317px">
+			<div>
+				<h4><strong>거래 구분</strong></h4>
+			 <select style>
 					<option>전체 피해 사례</option>
 					<option>직거래</option>
 					<option>전체 사례</option>
 				</select>
 			</div>
-			<div>
-				<img alt="검색" src="homeimages/x.PNG"> <input type="text"
-					placeholder="로그인후 피해사례를 검색 할 수 있습니다(무료)" size="40">
+			<div style="margin-top:20px;">
+				<h4 style="float:left; vertical-align: middle;"><strong>피해사례검색</strong></h4> 
+				<input style="margin-top:6px; float:left; vertical-align: middle;" type="text" placeholder="로그인후 피해사례를 검색 할 수 있습니다(무료)" size="40">
 			</div>
 			<div>
 				<input type="image" src="homeimages/button.PNG"
 					onclick="form_submit('search','./?mod=_search_result','web');"
-					style="position: absolute; left: 455px; top: 20px;">
+					>
+				<!-- <a href="./?mod=_search_result" onclick="form_submit('search','./?mod=_search_result','web');"> -->
 			</div>
 			<hr>
-			<p style="text-align: inherit;">
+			<p>
 				<서버코드> 건의 사기 피해사례가 등록되어 있습니다 | Since 2015-11-27 
 			</p>
 		</div>
@@ -103,7 +100,7 @@
 				<a href="#" style="float: right;">비밀번호 찾기</a>
 			</div>
 			<div>
-				<input type="image" src="homeimages/regist.PNG">
+				<a href="signin.go"><input type="image" src="homeimages/regist.PNG"></a>
 			</div>
 		</div>
 	</div>

@@ -207,6 +207,8 @@ public class MemberInfoController {
 		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
 		String originpwd = ((MemberDTO)session.getAttribute("memberInfo")).getPassword();
 		int memberno = ((MemberDTO)session.getAttribute("memberInfo")).getMemberno();
+		
+		
 		System.out.println(originpwd);
 		System.out.println(memberno);
 		

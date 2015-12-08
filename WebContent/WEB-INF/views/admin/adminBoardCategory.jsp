@@ -13,12 +13,16 @@
 		<tr>
 			<td>${list.categoryno}</td>
 			<td>${list.categoryname}</td>
-			<td><input type="button" class="btn btn-info update"
-				id="updateBoardCategory.go?cn=${list.categoryname}&cno=${list.categoryno}"
-				value="수정"> <input type="button"
-				class="btn btn-danger delete"
-				id="deleteBoardCategory.go?cn=${list.categoryname}&cno=${list.categoryno}"
-				value="삭제"></td>
+			<td>
+				<div class="btn-group">
+					<input type="button" class="btn btn-info update"
+						id="updateBoardCategory.go?cn=${list.categoryname}&cno=${list.categoryno}"
+						value="수정"> <input type="button"
+						class="btn btn-danger delete"
+						id="deleteBoardCategory.go?cn=${list.categoryname}&cno=${list.categoryno}"
+						value="삭제">
+				</div>
+			</td>
 		</tr>
 	</c:forEach>
 </table>

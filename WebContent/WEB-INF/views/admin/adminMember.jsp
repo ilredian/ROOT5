@@ -12,7 +12,7 @@
 	</tr>
 
 </table>
-<div class="container">
+<div class="btn-group">
 	<input type="button" class="btn btn-info" value="수정"> <input
 		type="button" class="btn btn-danger" value="삭제"> <input
 		type="button" class="btn btn-success" value="추가">
