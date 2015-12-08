@@ -16,16 +16,16 @@
 		<div class="col-sm-6"
 			style="background-color: lavender; margin: 10px; height: 165px; width: 535px;">
 			<div>
-				<h4>거래 구분</h4>
-			 <select>
+				<h4><strong>거래 구분</strong></h4>
+			 <select style>
 					<option>전체 피해 사례</option>
 					<option>직거래</option>
 					<option>전체 사례</option>
 				</select>
 			</div>
-			<div>
-				<h4>피해사례검색</h4> 
-				<input type="text" placeholder="로그인후 피해사례를 검색 할 수 있습니다(무료)" size="40">
+			<div style="margin-top:20px;">
+				<h4 style="float:left; vertical-align: middle;"><strong>피해사례검색</strong></h4> 
+				<input style="margin-top:6px; float:left; vertical-align: middle;" type="text" placeholder="로그인후 피해사례를 검색 할 수 있습니다(무료)" size="40">
 			</div>
 			<div>
 				<input type="image" src="homeimages/button.PNG"
