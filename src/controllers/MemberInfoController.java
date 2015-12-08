@@ -90,12 +90,30 @@ public class MemberInfoController {
 	////////////////////////내가 쓴 글 모두 가져오기 END///////////////////////////
 	
 	
+	
+	
+	/////////////////////댓글
+	
 	@RequestMapping(value="memberComment.go", method=RequestMethod.GET)
-	public String comment(){//댓글
+	public String comment(HttpSession session,
+			HttpServletRequest request,
+			MemberDTO memberDTO,
+			Model model) throws Exception{//댓글
 		
 		//로그 남기기
 		System.out.println("내 댓글 페이지로 이동");
+		
+		memberDTO.setMemberno(((MemberDTO)session.getAttribute("memberInfo")).getMemberno());
+		//매퍼를 가져와, update 함수를 가져온다.
 
+		String email = ((MemberDTO) session.getAttribute("memberInfo")).getEmail();
+		int replyno=((ReplyDTO) session.getAttribute("memberInfo")).getReplyno();
+		MemberInfoDAO memberInfoDAO = sqlSession.getMapper(MemberInfoDAO.class);
+		memberInfoDAO.getAllReply(memberDTO);
+		model.addAttribute("replyno",replyno);
+		model.addAttribute("memberDTO", memberDTO);
+		
+		
 		return "memberInfo.memberComment";
 	}
 	
@@ -123,6 +141,10 @@ public class MemberInfoController {
 		return "memberInfo.memberConnect";
 	}
 	
+	
+	
+	
+	////////////// 메세지수정 ! (정보 가져오기.)
 	@RequestMapping(value="memberModify.go", method=RequestMethod.GET)
 	public String modify(HttpSession session,
 			HttpServletRequest request,
