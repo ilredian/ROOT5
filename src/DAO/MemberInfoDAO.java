@@ -25,5 +25,5 @@ public interface MemberInfoDAO {
 		public MemberDTO delete(int memberno) throws Exception;
 		
 		//비번변경
-		public MemberDTO changepassword(String email) throws Exception;
+		public MemberDTO changepassword(MemberDTO memberDTO) throws Exception;
 }

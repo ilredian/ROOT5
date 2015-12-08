@@ -32,4 +32,12 @@
 		UPDATE MEMBERDB  SET ACTIVE = 1  WHERE MEMBERNO = #{MEMBERNO}
 	</update>
 	
+	<!-- 비번변경 -->
+	<update id="changepassword"  parameterType="DTO.MemberDTO">
+		UPDATE MEMBERDB
+		SET password=#{password},
+		regpwd=sysdate()
+		WHERE MEMBERNO = #{MEMBERNO}
+	</update>
+	
 </mapper>
