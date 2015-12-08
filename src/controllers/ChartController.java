@@ -9,9 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import DAO.CheaterDAO;
 import DTO.CheaterDTO;
+import DTO.chartDTO;
 
 @Controller
 public class ChartController {
@@ -21,6 +23,10 @@ public class ChartController {
 	
 	@RequestMapping(value="chartMain.go", method=RequestMethod.GET)
 	public String chartMain(
+			@RequestParam("")
+			@RequestParam("")
+			@RequestParam("")
+			@RequestParam("")
 			Model model) throws Exception{
 		
 		//로그남기기
@@ -30,6 +36,11 @@ public class ChartController {
 		CheaterDAO cheaterDAO = sqlSession.getMapper(CheaterDAO.class);
 		
 		//통계 값 가져오기
+		//시간 값 설정			
+		Date date = new Date();
+		int year = date.getYear();
+		int month = date.getMonth();
+				
 		//피해사례 수
 		String allCheaterCount = String.format("%,d", cheaterDAO.getAllCheaterCount());
 		//카테고리 별 피해 사례 수
@@ -51,10 +62,18 @@ public class ChartController {
 		//은행
 		List<CheaterDTO> countBankName = cheaterDAO.getCountBankName();
 		
-		//시간 값 설정			
-		Date date = new Date();
-		int year = date.getYear();
-		int month = date.getMonth();
+		//꺾은선 그래프 차트용
+		
+		
+		
+		
+		
+		
+		
+		List<chartDTO> list = cheaterDAO.getChart();
+		model.addAttribute("list", list);
+		
+		
 		
 		// 차트 값 model 객체에 담기
 		model.addAttribute("allCheaterCount", allCheaterCount);

@@ -166,4 +166,14 @@
 		GROUP BY bankname
 		ORDER BY count(*) DESC
 	</select>
+	
+	<!-- 날짜별 날짜순 진술서 수 불러오기 -->
+	<select id="getChart" resultType="DTO.chartDTO">
+		SELECT regdate, count(*) count 
+		FROM cheaterdb 
+		WHERE DATE_FORMAT(regdate,'%Y-%m') 
+		BETWEEN '${regdate}'
+		AND '${regdate}' 
+		GROUP BY regdate
+	</select>
 </mapper>

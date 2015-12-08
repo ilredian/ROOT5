@@ -7,23 +7,61 @@
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
       function drawChart() {
-
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
           ['직거래피해',     ${countTrade}],
           ['게임, 비실물 피해',      ${countGame}],
           ['비매너 피해', ${countManner}]
         ]);
-
         var options = {
           title: '사기피해 종류'
         };
-
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
         chart.draw(data, options);
       }
     </script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart2);
+      function drawChart2() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['직거래피해',     ${countTrade}],
+          ['게임, 비실물 피해',      ${countGame}],
+          ['비매너 피해', ${countManner}]
+        ]);
+        var options = {
+          title: '사기피해 종류'
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
+        chart.draw(data, options);
+      }
+    </script>
+    <script type="text/javascript">
+    google.load('visualization', '1.1', {packages: ['line']});
+    google.setOnLoadCallback(drawChart1);
+
+    function drawChart1() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Day');
+      data.addColumn('number', '피해 사례 수');
+
+      data.addRows(${list});
+
+      var options = {
+        chart: {
+          title: '기간 별 등록된 피해 사례 수',
+        },
+        width: 1080,
+        height: 600
+      };
+
+      var chart = new google.charts.Line(document.getElementById('linechart_material'));
+
+      chart.draw(data, options);
+    }
+  </script>
 <div class="container">
 	<h2>피해사례 통계</h2>
 	<div class="well well-sm">
@@ -98,15 +136,17 @@
 			<td><span class="label label-danger">${countSum}</span> 원</td>
 		</tr>
 		<tr style="text-align: center;">
-			<td colspan="8"></td>
-		</tr>
-		<tr>
 			<td colspan="8">
-				<div id="piechart" style="width: 720px; height: 400px;"></div>
+				<div id="linechart_material"></div>
 			</td>
 		</tr>
 		<tr>
-			<td colspan="8"></td>
+			<td colspan="4">
+				<div id="piechart" style="width: 540px; height: 300px;"></div>
+			</td>
+			<td colspan="4">
+				<div id="piechart1" style="width: 540px; height: 300px;"></div>
+			</td>
 		</tr>
 	</table>
 </div>

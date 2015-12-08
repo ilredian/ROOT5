@@ -3,6 +3,7 @@ package DAO;
 import java.util.List;
 
 import DTO.CheaterDTO;
+import DTO.chartDTO;
 
 public interface CheaterDAO {
 	
@@ -55,4 +56,7 @@ public interface CheaterDAO {
 	
 	//은행
 	public List<CheaterDTO> getCountBankName() throws Exception;
+	
+	//날짜별
+	public List<chartDTO> getChart() throws Exception;
 }
