@@ -23,6 +23,15 @@ public class CheaterDTO {
 	private int cheatno; /* cheatDTO에 있는 사기 번호 */
 	private int memberno; /* memberDTO에 있는 회원번호 */
 	
+	private int count;//통계 수
+	
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	
 	public int getStateno() {
 		return stateno;
 	}
