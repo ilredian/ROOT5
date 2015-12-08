@@ -27,7 +27,7 @@ ul#topnav li span a:hover { text-decoration: underline; }
 </head>
 <body>
 <ul id="topnav">
-  <li><a href="#self">사기피해사례 현황</a><span> <a href="statementMain.go?cno=1">직거래 피해사례</a> | <a href="statementMain.go?cno=2">게임.비실물 피해사례</a> | <a href="statementMain.go?cno=3">스팸 피해사례</a> | <a href="statementMain.go?cno=4">비매너 피해사례</a> | <a href="chartMain.go">사기피해사례 통계</a> | <a href="#self">사건사진 자료</a></span></li>
+  <li><a href="#self">사기피해사례 현황</a><span> <a href="statementMain.go?cno=1">직거래 피해사례</a> | <a href="statementMain.go?cno=2">게임.비실물 피해사례</a> | <a href="statementMain.go?cno=4">비매너 피해사례</a> | <a href="chartMain.go">사기피해사례 통계</a> | <a href="#self">사건사진 자료</a></span></li>
   <li><a href="#self">커뮤니티 폴리스</a> <span> <a href="freeMain.go?pg=1">자유게시판</a> | <a href="statementMain.go?cno=1">진술서게시판</a> | <a href="lawMain.go?pg=1">변호사게시판</a> | <a href="adhome.go">관리자 임시링크</a></span> </li>
   <li><a href="contact.go">컨택센터</a> <span> <a href="noticeMain.go?pg=1">공지사항</a> | <a href="question.go">문의하기</a> | <a href="deletepls.go">피해사례 삭제요청</a> | <a href="contlist.go">피해사례 분류</a> </span></li>
 </ul>
