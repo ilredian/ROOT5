@@ -7,6 +7,7 @@ public class MemberDTO {
 	private int memberno;/* 회원번호 Auto_increment(시퀀스) */
 	private String email;/* 이메일 */
 	private String password;/* 비밀번호 */
+	private String npassword; /* 변경된 비밀번호 */
 	private String name;/* 이름 */
 	private String phone;/* 휴대전화 */
 	private String regdate;/* 가입일 */
@@ -96,12 +97,20 @@ public class MemberDTO {
 	public void setTypeno(int typeno) {
 		this.typeno = typeno;
 	}
+	public String getNpassword() {
+		return npassword;
+	}
+	public void setNpassword(String npassword) {
+		this.npassword = npassword;
+	}
+
+	
 	
 	@Override
 	public String toString() {
-		return "MemberDTO [memberno=" + memberno + ", email=" + email + ", password=" + password + ", name=" + name
-				+ ", phone=" + phone + ", regdate=" + regdate + ", active=" + active + ", regpwd=" + regpwd + ", point="
-				+ point + ", emailconfirm=" + emailconfirm + ", photo=" + photo + ", message=" + message + ", typeno="
-				+ typeno + "]";
+		return "MemberDTO [memberno=" + memberno + ", email=" + email + ", password=" + password + ", npassword="
+				+ npassword + ", name=" + name + ", phone=" + phone + ", regdate=" + regdate + ", active=" + active
+				+ ", regpwd=" + regpwd + ", point=" + point + ", emailconfirm=" + emailconfirm + ", photo=" + photo
+				+ ", message=" + message + ", typeno=" + typeno + "]";
 	}
 }

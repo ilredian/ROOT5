@@ -24,7 +24,7 @@ $('#click').onclick(){
 	<div>
 		<p style="color: blue">
 			현재 비밀번호는
-			<b>${regdate}</b>
+			<b>${regpwd}</b>
 			<%-- <p style="color: red"><% %></p> --%>
 			에 변경(등록)되었으며
 			<b>${diffDay}</b>
@@ -32,23 +32,23 @@ $('#click').onclick(){
 		</p>
 	</div>
 	<hr>
-	<form action="memberPwdChange.go" method="post" onsubmit="return aaa()">
+<form action="memberPwdChange.go" method="post" onsubmit="return aaa()">
 	<div>
 	<c:set var="n" value="${memberInfo}"/>
-		<strong style="margin-left: 30px">현재 비밀번호</strong> <input
-			type="password" id="pwd1" name="oldpassword" style="margin-left: 30px">
+		<strong style="margin-left: 30px">현재 비밀번호</strong> 
+		<input type="password" id="pwd1" name="password" style="margin-left: 30px">
 	</div>
 	<hr>
 	<div>
-		<strong style="margin-left: 30px">변경 비밀번호</strong> <input
-			type="password" id="pwd2" name="password" style="margin-left: 30px"><br>
+		<strong style="margin-left: 30px">변경 비밀번호</strong> 
+		<input type="password" id="pwd2" name="npassword" style="margin-left: 30px"><br>
 		<p style="color: silver; margin-top: 10px; margin-left: 150px;">4~12자의
 			영문과 숫자만 사용할 수 있습니다.</p>
 	</div>
 	<hr>
 	<div>
-		<strong style="margin-left: 30px">비밀번호 확인</strong> <input
-			type="password" id="pwd3" style="margin-left: 30px">
+		<strong style="margin-left: 30px">비밀번호 확인</strong> 
+		<input type="password" id="pwd3" style="margin-left: 30px">
 		<p style="color: silver; margin-top: 10px; margin-left: 150px;">비밀번호를
 			한번 더 입력하세요. 비밀번호는 잊지 않도록 주의하시기 바랍니다.</p>
 	</div>

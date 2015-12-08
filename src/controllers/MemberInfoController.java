@@ -173,25 +173,22 @@ public class MemberInfoController {
 
 		int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
 		System.out.println("memberno : " + memberno);
-
 		String Password = ((MemberDTO) session.getAttribute("memberInfo")).getPassword();
 		System.out.println("Password: " + Password);
 		String regdate = ((MemberDTO) session.getAttribute("memberInfo")).getRegdate();
 		System.out.println("regdate : " + regdate);
+		String regpwd = ((MemberDTO) session.getAttribute("memberInfo")).getRegpwd();
 		
-		//regdate 에 등록했던 날짜_
-		model.addAttribute("regdate",regdate);
+		//regpwd 에 등록했던 날짜_
+		model.addAttribute("regpwd",regpwd);
 
 		Date date = new Date();
 		date.getTime();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		System.out.println("현재날짜 : " + sdf.format(date));
-
-		model.addAttribute("date", sdf.format(date));
-	
 		//현재 날짜 - 등록 날짜 (Day 일수)
 		  SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-	        Date beginDate = formatter.parse(regdate);
+	        Date beginDate = formatter.parse(regpwd);
 	        Date endDate = date;
 	        
 	        long diff = endDate.getTime() - beginDate.getTime();
@@ -215,24 +212,26 @@ public class MemberInfoController {
 		System.out.println("비밀번호 변경시작");
 		String oldpwd = ((MemberDTO) session.getAttribute("memberInfo")).getPassword();
 		System.out.println("원래저장된 pwd : "+  oldpwd );
+	
+		
+		String Newpwd = memberDTO.getNpassword();
+		System.out.println("바뀐 pwd : "+  Newpwd );
 		
 		//멤버 번호를 집어넣기
 		memberDTO.setMemberno(((MemberDTO)session.getAttribute("memberInfo")).getMemberno());
 		//	public MemberDTO changepassword(MemberDTO memberDTO) throws Exception;
-		System.out.println(memberDTO.getPassword());
-		
+
 		if((memberDTO.getPassword()).equals(oldpwd)){
 			MemberInfoDAO memberInfoDAO = sqlSession.getMapper(MemberInfoDAO.class);
-			memberInfoDAO.changepassword(memberDTO);
 			System.out.println("비밀번호 변경완료");
-	
+			memberInfoDAO.changepassword(memberDTO);
 		}else{
 			System.out.println("비밀번호가 일치하지 않습니다");
 		}
 		//update가 완료돠면, MemberDTO에 저장된 메시지 정보를 가져와서  sessionDTO에 넣어준다.
 		MemberDTO sessionDTO=((MemberDTO)session.getAttribute("memberInfo"));
-		sessionDTO.setPassword(memberDTO.getPassword());
-		
+		sessionDTO.setNpassword(memberDTO.getNpassword());
+		System.out.println("여기까지?");
 		//memberInfo 속성에 메시지정보가 있는 sessionDTO를 넣어준다.
 		session.setAttribute("memberInfo", sessionDTO);
 		
