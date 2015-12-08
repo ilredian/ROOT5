@@ -27,14 +27,11 @@ public class LoginController {
 
 	@Autowired
 	private SqlSession sqlSession;
-	
-	
 	@RequestMapping(value="login.go" , method=RequestMethod.GET)
 	public String Login(){
 		System.out.println("로그인 페이지로 이동");
 		return "join.login";
 	}
-	
 	// 로그인 정보 DB 확인
 	/*
 	@PreAuthorize("hasRole('ROLE_USER'")
