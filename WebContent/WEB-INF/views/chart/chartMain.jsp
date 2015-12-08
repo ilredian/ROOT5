@@ -136,6 +136,3 @@
 		</c:forEach>
 	</table>
 </div>
-<c:forEach items="${countCheaterName}" var="name" varStatus="n">
-
-</c:forEach>

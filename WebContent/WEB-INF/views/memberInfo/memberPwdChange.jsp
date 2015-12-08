@@ -7,9 +7,10 @@
 	<div>
 		<p style="color: blue">
 			현재 비밀번호는
+			<b>${regdate}</b>
 			<%-- <p style="color: red"><% %></p> --%>
 			에 변경(등록)되었으며
-			<%-- <p style="color: red"><% %></p> --%>
+			<b>${diffDay}</b>
 			일이 경과되었습니다.<br> 비밀번호는 가급적 주기적으로 변경해 주세요.
 		</p>
 	</div>
