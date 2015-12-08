@@ -15,25 +15,26 @@
 	<div class="row1">
 		<div class="col-sm-6"
 			style="background-color: lavender; margin: 10px; height: 165px; width: 535px;">
-			<div style="margin-top: 30px">
-				<h4 style="float:left">거래 구분</h4> <select style="width: 317px">
+			<div>
+				<h4>거래 구분</h4>
+			 <select>
 					<option>전체 피해 사례</option>
 					<option>직거래</option>
 					<option>전체 사례</option>
 				</select>
 			</div>
-			<div style="float:left">
+			<div>
 				<h4>피해사례검색</h4> 
 				<input type="text" placeholder="로그인후 피해사례를 검색 할 수 있습니다(무료)" size="40">
 			</div>
-			<div style="float:left">
+			<div>
 				<input type="image" src="homeimages/button.PNG"
 					onclick="form_submit('search','./?mod=_search_result','web');"
-					style="position: absolute; left: 455px; top: 20px;">
+					>
 				<!-- <a href="./?mod=_search_result" onclick="form_submit('search','./?mod=_search_result','web');"> -->
 			</div>
 			<hr>
-			<p style="text-align: inherit;">
+			<p>
 				<서버코드> 건의 사기 피해사례가 등록되어 있습니다 | Since 2015-11-27 
 			</p>
 		</div>
