@@ -100,7 +100,7 @@
 				</c:choose>
 				<button type="submit" class="btn btn-default"
 					style="margin-right: 10px; margin-top: 10px">
-					<a href="memberMessage.go"> <span
+					<a href="memberMessage.go?mno=1"> <span
 						class="glyphicon glyphicon-log-in"></span> 내 정보
 					</a>
 				</button>

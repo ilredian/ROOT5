@@ -135,7 +135,6 @@ public class MemberInfoController {
 		System.out.println("내 댓글 가져오기 성공");
 		System.out.println(list.toString());
 		model.addAttribute("list", list);
-		System.out.println(list.get(0).getReplyno());
 		return "memberInfo.memberComment";
 	}
 	
