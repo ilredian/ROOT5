@@ -14,7 +14,7 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <title>
-		AhnCheat<tiles:getAsString name="title"/>
+		<tiles:getAsString name="title"/>
 </title>
 <!-- StyleSheet  Link 영역 -->
 <link href='<tiles:getAsString name="css"/>' type="text/css"

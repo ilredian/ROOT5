@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>
-		AhnCheat<tiles:getAsString name="title"/>
+		<tiles:getAsString name="title"/>
 </title>
 
 <!-- 네이버 에디터 링크 -->
