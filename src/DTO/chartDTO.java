@@ -3,10 +3,10 @@ package DTO;
 public class chartDTO {
 	private String regdate;
 	private int count;
-	public String getDay() {
+	public String getRegdate() {
 		return regdate;
 	}
-	public void setDay(String regdate) {
+	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
 	public int getCount() {

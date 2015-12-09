@@ -114,7 +114,10 @@
 	<select id="getCountCategory" resultType="Integer">
 		SELECT count(*) count
 		FROM cheaterdb
-		WHERE cheatno = #{cheatno}
+		WHERE cheatno = ${param3}
+		AND DATE_FORMAT(regdate,'%Y-%m') 
+		BETWEEN '${param1}'
+		AND '${param2}'
 	</select>
 	
 	<!-- 휴대폰번호 수 -->
@@ -136,9 +139,12 @@
 	</select>
 	
 	<!-- 피해물품 TOP 10 -->
-	<select id="getCountItems" resultType="DTO.CheaterDTO">
+	<select id="getCountItems" parameterType="DTO.chartDTO" resultType="DTO.chartItemsDTO">
 		SELECT goodskind, count(*) count
 		FROM cheaterdb
+		WHERE DATE_FORMAT(regdate,'%Y-%m') 
+		BETWEEN '${param1}'
+		AND '${param2}'
 		GROUP BY goodskind
 		ORDER BY count(*) DESC
 	</select>
@@ -168,12 +174,11 @@
 	</select>
 	
 	<!-- 날짜별 날짜순 진술서 수 불러오기 -->
-	<select id="getChart" resultType="DTO.chartDTO">
-		SELECT regdate, count(*) count 
+	<select id="getChart" parameterType="DTO.chartDTO" resultType="DTO.chartDTO">
+		SELECT count(*) count 
 		FROM cheaterdb 
 		WHERE DATE_FORMAT(regdate,'%Y-%m') 
 		BETWEEN '${regdate}'
-		AND '${regdate}' 
-		GROUP BY regdate
+		AND '${regdate}'
 	</select>
 </mapper>
