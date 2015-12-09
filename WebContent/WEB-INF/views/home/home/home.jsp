@@ -14,7 +14,7 @@
 <div class="container" align="center">
 	<div class="row1">
 		<div class="col-sm-6"
-			style="background-color: white; margin: 10px; height: 165px; width: 535px; border: 1px solid black">
+			style="background-color: white; margin: 10px; height: 165px; width: 570px; border: 1px solid black">
 			<div style="margin-top:40px; margin-left:10px">
 				<h4 style="float:left; vertical-align: middle;"><strong>거래 구분</strong></h4>
 			 <select style="margin-top:6px; margin-left:35px; float:left; vertical-align: middle;">
@@ -102,7 +102,7 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th><a href="noticeMain.go?pg=1"><p style="text-align: left;">공지사항</p></a></th>
+						<th><a href="noticeMain.go?pg=1"><p style="text-align: left;">자유게시판</p></a></th>
 						<th><a href="noticeMain.go?pg=1"><p style="text-align: right;">더보기</p></a></th>
 					</tr>
 				</thead>
@@ -132,7 +132,7 @@
 			</table>
 		</div>
 		<div class="col-sm-6"
-			style="background-color: white; border: 1px solid black; margin: 10px; width: 481px; height: 165px; float: left;">
+			style="background-color: white; border: 1px solid black; margin: 10px; width: 516px; height: 165px; float: left;">
 			<div
 				style="margin-left: -16px; width: 214px; height: 165px; float: left;">
 				<table class="table table-hover">
@@ -177,6 +177,83 @@
 					</tbody>
 				</table>
 			</div>
+		</div>
+	</div>
+	<div class="row3">
+		<div class="col-sm-6"
+			style="background-color: white;border: 1px solid black; margin: 10px; width: 570px; height: 165px; float: left;">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th><a href="noticeMain.go?pg=1"><p style="text-align: left;">공지사항</p></a></th>
+						<th><a href="noticeMain.go?pg=1"><p style="text-align: right;">더보기</p></a></th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr>
+
+						<td><a href="CC.jsp">피해사례 검증 안내</a></td>
+
+					</tr>
+
+
+					<tr>
+
+						<td><a href="#">KBS임재성기자입니다. 추석 선물/상품권 관련 사기 피해자를 찾습니다.</a></td>
+
+					</tr>
+
+
+					<tr>
+
+						<td><a href="#">더치트 및 클린콜 서비스 점검 안내(2015.08.11)</a></td>
+
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+			<div class="col-sm-6"
+			style="background-color: white; border: 1px solid black;margin-top:10px; margin-right: 23px; width: 516px; height: 349px; float: right;">
+			<div
+				style="margin-left: -16px; width: 214px; height: 165px; float: left;">
+				
+			</div>
+		</div>
+		<div class="col-sm-6"
+			style="background-color: white; border: 1px solid black; margin: 10px; width: 570px; height: 165px; float: left;">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th><a href="noticeMain.go?pg=1"><p style="text-align: left;">변호사게시판</p></a></th>
+						<th><a href="noticeMain.go?pg=1"><p style="text-align: right;">더보기</p></a></th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr>
+
+						<td><a href="CC.jsp">피해사례 검증 안내</a></td>
+
+					</tr>
+
+
+					<tr>
+
+						<td><a href="#">KBS임재성기자입니다. 추석 선물/상품권 관련 사기 피해자를 찾습니다.</a></td>
+
+					</tr>
+
+
+					<tr>
+
+						<td><a href="#">더치트 및 클린콜 서비스 점검 안내(2015.08.11)</a></td>
+
+					</tr>
+
+				</tbody>
+			</table>
 		</div>
 	</div>
 </div>
