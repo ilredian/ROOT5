@@ -76,9 +76,9 @@
 		SELECT *
 		FROM cheaterdb
 		WHERE
-		cheatername = #{cheatername} or
-		account = #{account} or
-		phone = #{phone} or
+		cheatername = #{cheatername} OR
+		account = #{account} OR
+		phone = #{phone} OR
 		cheaterid = #{cheaterid}
 	</select>
 </mapper>
