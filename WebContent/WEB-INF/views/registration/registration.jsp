@@ -17,7 +17,7 @@
 	</div>
 </div>
 <div class="container" align="center">
-	<div class="well well-sm" align="center">
+	
 		<div class="row"  align="center">
 			<div class="damageMenuList" align="center">
 				<div class="sec1" style="float: left; margin-left: 150px" align="center">
