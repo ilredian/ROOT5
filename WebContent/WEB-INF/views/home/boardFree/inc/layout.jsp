@@ -7,8 +7,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<!-- Title 영역  -->
-<title><tiles:getAsString name="title" /></title>
+<title>
+		AhnCheat<tiles:getAsString name="title"/>
+</title>
 
 <!-- 네이버 에디터 링크 -->
 <script type="text/javascript" charset="utf-8"

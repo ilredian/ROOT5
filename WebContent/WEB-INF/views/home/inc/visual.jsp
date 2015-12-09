@@ -1,4 +1,4 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <title>가로메뉴</title>
 <link rel="stylesheet" href="css/demo.css" type="text/css" media="all" />
