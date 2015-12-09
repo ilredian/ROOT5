@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<form action="" method="post">
+<form action="" method="post" name="writeForm">
 	<div class="container">
 		<h3>직거래 피해사례 등록</h3>
 		<p>피해사례 등록이 완려되면 피해자를 위한 기능이 실시간 제공됩니다.</p>
@@ -91,7 +91,7 @@
 		</div>
 
 		<h3>용의자(사기범) 정보</h3>
-		<p class="infoTxtTop">
+		<P class="infoTxtTop">
 			<span class="bltS_A">*</span> 는 필수 기재 항목입니다
 		</p>
 		<div class="container" align="center">
@@ -111,7 +111,7 @@
 						<span class="bltS_A">*</span></th>
 					<td><select name="cheat_bank" id="su_bank" title="은행선택"
 						style="width: 230px;">
-							<option selected value=0>은행선택(가나다 순)</option>
+							<option selected value="0">은행선택(가나다 순)</option>
 							<option value="">-----------------------
 								<c:forEach items="${banklist1}" var="list">
 									<option value="${list.bankname}">${list.bankname}
@@ -165,60 +165,45 @@
 						class="thecheat_input" /> <select name="cheat_date_temp_1"
 						id="su_dateY" title="연도선택" style="width: 80px;"
 						onchange="javascript:if(1){cheat_date.value = cheat_date_temp_1[cheat_date_temp_1.selectedIndex].value + cheat_date_temp_2.value + cheat_date_temp_3.value }">
-							<option selected value=0>년도 선택</option>
-							<option value="2015" selected>2015
-							<option value="2014">2014
+							<option value="">년도 선택</option>
+							<c:forEach begin="${year-10}" end="${year}" var="years">
+								<c:choose>
+									<c:when test="${years == year}">
+										<option selected value="${years}">${years}</option>
+									</c:when>
+									<c:otherwise>
+										<option value="${years}">${years}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
 					</select> <select name="cheat_date_temp_2" id="su_dateM" title="월 선택"
 						style="width: 80px;"
 						onchange="javascript:if(1){cheat_date.value = cheat_date_temp_1.value + cheat_date_temp_2[cheat_date_temp_2.selectedIndex].value + cheat_date_temp_3.value }">
-							<option selected value=0>월 선택</option>
-							<option value="01">01</option>
-							<option value="02">02</option>
-							<option value="03">03</option>
-							<option value="04">04</option>
-							<option value="05">05</option>
-							<option value="06">06</option>
-							<option value="07">07</option>
-							<option value="08">08</option>
-							<option value="09">09</option>
-							<option value="10">10</option>
-							<option value="11" selected>11</option>
-							<option value="12">12</option>
+							<option selected value="">월 선택</option>
+							<c:forEach begin="1" end="12" var="months">
+								<c:choose>
+									<c:when test="${months == month}">
+										<option selected value="${months}">${months}</option>
+									</c:when>
+									<c:otherwise>
+										<option value="${months}">${months}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
 					</select> <select name="cheat_date_temp_3" id="su_dateD" title="일 선택"
 						style="width: 80px;"
 						onchange="javascript:if(1){cheat_date.value = cheat_date_temp_1.value + cheat_date_temp_2.value + cheat_date_temp_3[cheat_date_temp_3.selectedIndex].value }">
-							<option selected value=0>일 선택</option>
-							<option value="01">01</option>
-							<option value="02">02</option>
-							<option value="03">03</option>
-							<option value="04">04</option>
-							<option value="05">05</option>
-							<option value="06">06</option>
-							<option value="07">07</option>
-							<option value="08">08</option>
-							<option value="09">09</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
-							<option value="13">13</option>
-							<option value="14">14</option>
-							<option value="15">15</option>
-							<option value="16">16</option>
-							<option value="17">17</option>
-							<option value="18">18</option>
-							<option value="19">19</option>
-							<option value="20">20</option>
-							<option value="21">21</option>
-							<option value="22">22</option>
-							<option value="23">23</option>
-							<option value="24">24</option>
-							<option value="25">25</option>
-							<option value="26">26</option>
-							<option value="27">27</option>
-							<option value="28">28</option>
-							<option value="29">29</option>
-							<option value="30" selected>30</option>
-							<option value="31">31</option>
+							<option selected value="0">일 선택</option>
+							<c:forEach begin="01" end="31" var="days">
+								<c:choose>
+									<c:when test="${days == date}">
+										<option selected value="${days}">${days}</option>
+									</c:when>
+									<c:otherwise>
+										<option value="${days}">${days}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
 					</select></td>
 				</tr>
 
@@ -281,9 +266,9 @@
 				<tr>
 					<th class="active" style="width: 150;">성별</th>
 					<td><span class="chkArea"><input type="radio"
-							name="cheat_sex" value="1" checked id="su_sexM" class="rdo"><label
+							name="cheat_sex" value="남자" checked id="su_sexM" class="rdo"><label
 							for="su_sexM">남자</label></span> <span class="chkArea"><input
-							type="radio" name="cheat_sex" value="2" id="su_sexW" class="rdo"><label
+							type="radio" name="cheat_sex" value="여자" id="su_sexW" class="rdo"><label
 							for="su_sexW">여자</label></span></td>
 				</tr>
 
@@ -299,76 +284,21 @@
 
 			</table>
 		</div>
-
-		<h3>피해자(본인) 정보</h3>
-		<p class="infoTxtTop">
+		<h3>사건 개요 (진술서)</h3>
+		<P class="infoTxtTop">
 			<span class="bltS_A">*</span> 는 필수 기재 항목입니다
 		</p>
-
 		<div class="container" align="center">
-
 			<table class="table">
-
 				<tr>
-					<th class="active" style="width: 150;"><label for="vi_pw">피해사례
-							비밀번호</label> <span class="bltS_A">*</span></th>
-					<td><input type="password" class="txt" name="pw" id="vi_pw"
-						value="" style="width: 230px;" maxlength="20"
-						placeholder="비밀번호를 입력하세요."></td>
-				</tr>
-
-				<tr>
-					<th class="active" style="width: 150;"><label for="vi_name">성명</label>
-						<span class="bltS_A">*</span></th>
-					<td><input type="text" class="txt" name="name" value=""
-						id="vi_name" style="width: 230px;" placeholder="귀하의 성명을 입력하세요."></td>
-				</tr>
-
-				<tr>
-					<th class="active" style="width: 150;"><label for="vi_tel">연락처</label>
-						<span class="bltS_A">*</span></th>
-					<td><select name="member_phone1" id="vi_tel" title="국번선택"
-						style="width: 80px;"
-						onchange="javascript:if(1){member_phone.value = member_phone1[member_phone1.selectedIndex].value + member_phone2.value + member_phone3.value }">
-							<option selected value=0>선택</option>
-							<option value="010">010
-							<option value="011">011
-							<option value="016">016
-							<option value="017">017
-							<option value="018">018
-							<option value="019">019
-							<option value="070">070
-					</select> - <input type="text" name="member_phone2" class="txt" value=""
-						maxlength="4" title="가운데 자리 입력"
-						onchange="javascript:if(1){member_phone.value = member_phone1[member_phone1.selectedIndex].value + member_phone2.value + member_phone3.value }"
-						style="ime-mode: disabled; width: 70px;"
-						onKeyPress="return numbersonly(event, false)" /> - <input
-						type="text" name="member_phone3" class="txt" value=""
-						maxlength="4" class="input80"
-						onchange="javascript:if(1){member_phone.value = member_phone1[member_phone1.selectedIndex].value + member_phone2.value + member_phone3.value }"
-						style="ime-mode: disabled; width: 70px;" title="끝 자리 입력"
-						onKeyPress="return numbersonly(event, false)" /> <input
-						type="hidden" name="member_phone" id="member_phone" value=""
-						readonly /> <!--<iframe src="#" name="target_iframe" width="0" height="0" frameborder="0" marginwidth="0", marginheight="0" scrolling="no"></iframe>-->
-						<div style="padding-top: 5px;">
-							※ SMS가 수신되지 않는 경우, 스팸 문자함을 확인해 보세요. <br>※ 스팸 차단 앱을 설치한 경우에는
-							해당 앱의 스팸함을 확인해 보세요.
-							<!--<span style="background-color:yellow"><span class="explain_text_red"> (전송된 인증번호를 입력하세요.) </span></span>-->
-						</div></td>
-				</tr>
-
-
-
-				<tr>
-					<th class="active" style="width: 150;"><label for="vi_email">이메일</label>
-						<span class="bltS_A">*</span></th>
-					<td><input type="text" class="txt" name="member_email"
-						id="vi_email" value="" style="width: 230px;"
-						placeholder="귀하의 이메일 주소를 입력하세요."></td>
+					<th>사건 발생 개요</th>
+					<td>
+						<textarea id="editor" style="HEIGHT: 300px; WIDTH: 100%" rows="10" cols="30" name="content">
+						</textarea>
+					</td>
 				</tr>
 			</table>
 		</div>
-
 		<br>
 
 <h3 align="center">동의 약관</h3>
@@ -403,9 +333,7 @@
 				<b><input type="checkbox" name="agreement_1" value="1"
 					id="chk_agreement_1"
 					onclick="return value_change('agreement_1h',this.value)" /> <label
-					for="chk_agreement_1">서비스 이용약관에 동의합니다.(필수)</label></b> <a
-					href="NewFile.html" target="_blank" class="alert_cheat_write-link">
-					:: 약관 보기</a>
+					for="chk_agreement_1">서비스 이용약관에 동의합니다.(필수)</label></b>
 			</div>
 			<div class="alert_cheat_write alert_cheat_write-info">
 				<div style="margin-top: 6px;">
@@ -538,9 +466,5 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 		</div>
 		<!-- <input type="submit" value="" name="" onclick="return confirm('확인 버튼을 누른 후 피해사례가 등록될 때 까지 기다려 주세요.');"/> -->
 		
-	</div>
-	</table>
-	</div>
-	</div>
 	</div>
 </form>
