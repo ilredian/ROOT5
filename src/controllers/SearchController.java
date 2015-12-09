@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import DAO.CheaterDAO;
 import DAO.QueryDAO;
 import DTO.CheaterDTO;
-import common.BoardPager;
 
 @Controller
 public class SearchController {

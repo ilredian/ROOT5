@@ -6,7 +6,6 @@
 	<select id="getList" resultType="DTO.CheatBankDTO">
 		SELECT *
 		FROM cheatbank
-		ORDER BY bankname ASC
 		LIMIT #{param1}, ${param2}
 	</select>
 	

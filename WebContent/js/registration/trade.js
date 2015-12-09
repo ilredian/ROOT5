@@ -1,3 +1,36 @@
+var editor_object = [];
+
+$(function() {
+	//전역변수선언
+	nhn.husky.EZCreator.createInIFrame({
+		oAppRef : editor_object,
+		elPlaceHolder : "editor",
+		sSkinURI : "/ROOT/navereditor/SmartEditor2Skin.html",
+		htParams : {
+			// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+			bUseToolbar : true,
+			// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+			bUseVerticalResizer : true,
+			// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+			bUseModeChanger : true,
+			fOnBeforeUnload : function() {
+			}
+		},
+		fCreator : "createSEditor2"
+	});
+
+	//전송버튼 클릭이벤트
+	$("#savebutton").click(function() {
+		//id가 smarteditor인 textarea에 에디터에서 대입
+		editor_object.getById["editor"].exec("UPDATE_CONTENTS_FIELD", []);
+
+		// 이부분에 에디터 validation 검증
+
+		//폼 submit
+		$("#frm").submit();
+	});
+});
+
 $("#cheat_site_temp").change(function() {
 	if ($(this).val() == 1) {
 		$("#cheat_site").removeClass('input_hidden');
@@ -63,27 +96,4 @@ function value_change(id_name, value) {
 	var input = document.getElementById(id_name);
 	input.value = value;
 	//input.onchange();
-}
-
-function formOK(data){
-	console.log("사이트명"+$('#cheat_site_temp').val());
-	console.log("거래물품종류"+$('.rdo').val());
-	console.log("물품명"+$('#subject').val());
-	console.log("용의자아이디"+$('#cheat_id').val());
-	console.log("사기게시물 링크"+$('#link').val());
-	console.log("계좌정보"+$('#cheat_site_temp').val());
-	console.log("은행명"+$('#cheat_site_temp').val());
-	console.log("명의자성명"+$('#cheat_site_temp').val());
-	console.log("계좌번호"+$('#cheat_site_temp').val());
-	console.log("입금금액"+$('#cheat_site_temp').val());
-	console.log("입금일"+$('#cheat_site_temp').val());
-	console.log("연락처정보"+$('#cheat_site_temp').val());
-	console.log("연락처"+$('#cheat_site_temp').val());
-	console.log("성별"+$('#cheat_site_temp').val());
-	console.log("용의자특징"+$('#cheat_site_temp').val());
-	console.log("피해자이름"+$('#cheat_site_temp').val());
-	console.log("연락처"+$('#cheat_site_temp').val());
-	console.log("이메일"+$('#cheat_site_temp').val());
-	console.log(data);
-	return false;
 }

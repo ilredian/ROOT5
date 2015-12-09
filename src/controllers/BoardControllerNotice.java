@@ -3,7 +3,6 @@ package controllers;
 import java.io.PrintWriter;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -19,7 +18,6 @@ import DAO.BoardNoticeDAO;
 import DAO.MemberDAO;
 import DAO.ReplyDAO;
 import DTO.BoardNoticeDTO;
-import DTO.MemberDTO;
 import DTO.ReplyDTO;
 import common.BoardPager;
 import common.ReplyPager;
