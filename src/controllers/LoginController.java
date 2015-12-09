@@ -3,6 +3,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -58,38 +59,25 @@ public class LoginController {
 		
 		System.out.println("result : " + result);
 		if(result == null){//아이디가 없음
-			//경고창 띄우기
 			System.out.println("해당 이메일은 가입되어 있지 않습니다");
-			String alert2 = "<script type='text/javascript'>alert('해당 이메일은 가입되어 있지 않습니다')</script>";
-			return "redirect:index.go";
+			out.print("<script type='text/javascript'>alert('해당 이메일은 가입되어 있지 않습니다')</script>");
+			out.close();
+			return "main.index";
 		
 		}else {//아이디가 있음
 			if(result.getPassword().equals(memberDTO.getPassword())){//비밀번호가 같음
 				System.out.println("로그인 값 저장");
 				System.out.println("로그인 세션 설정");
 				
+				//memberInfo 속성에 로그인 세션값을 넣기, 즉 로그인하기 
 				session.setAttribute("memberInfo", result);
-				session.setMaxInactiveInterval(60*60) ;
-				
-				String id = request.getParameter("email");
-				String pwd = request.getParameter("password");
-				
-				/* 로그인 세션값 유지하려면..?
-				Cookie cookie = new Cookie("email", "bbb@naver.com");
-				cookie.setMaxAge(60*5);
-				response.addCookie(cookie);
-				System.out.println("bbb@ 쿠키 생성");
-				*/		
-				System.out.println("email : " + id + " / password : " + pwd);
+				session.setMaxInactiveInterval(60*60*24) ;
 
 			}else{//비밀번호가 틀림  //내가 입력한 값과 DB에 값이 틀리면
  				//경고창 띄우기
-				String id = request.getParameter("email");
-				String pwd = request.getParameter("password");
-				System.out.println("email : " + id + " / password : " + pwd);
-				
 				System.out.println("비밀번호 땡");
-				data.addAttribute("pwd", "fail");
+				out.print("<script type='text/javascript'>alert('비밀번호 땡')</script>");
+				out.flush();
 				return "main.index";
 			}
 		}		

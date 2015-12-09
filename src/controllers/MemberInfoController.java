@@ -63,7 +63,6 @@ public class MemberInfoController {
 		//Free / Law / Notice 꺼 모두 가져오기_
 		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
 		BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
-		BoardNoticeDAO boardNoticeDAO = sqlSession.getMapper(BoardNoticeDAO.class);
 		
 		//로그 남기기
 		System.out.println("내 게시물 페이지로 이동");
@@ -71,7 +70,6 @@ public class MemberInfoController {
 		int pagerSize = 10;// 한 번에 보여줄 페이지 번호 갯수
 		String linkUrl = "adminMain.go";// 페이지번호를 누르면 이동할 경로
 		int boardCount = boardLawDAO.getCount(field, query)
-						+ boardNoticeDAO.getCount(field, query)
 						+ boardFreeDAO.getCount(field, query)	 ;	// 검색 결과에 따른 게시글 총갯수
 		
 		int start = (page - 1) * pageSize;
@@ -79,12 +77,10 @@ public class MemberInfoController {
 
 		List<BoardLawDTO> listLaw = boardLawDAO.getNotices(start, field, query, pageSize);
 		List<BoardFreeDTO> listFree = boardFreeDAO.getNotices(start, field, query, pageSize);
-		List<BoardNoticeDTO> listNotice = boardNoticeDAO.getNotices(start, field, query, pageSize);
 		
 		//뷰단에서 각각에 뿌려주면 된다.
 		model.addAttribute("listLaw", listLaw);
 		model.addAttribute("listFree", listFree);
-		model.addAttribute("listNotice", listNotice);
 		
 		return "memberInfo.memberBoard";
 	}

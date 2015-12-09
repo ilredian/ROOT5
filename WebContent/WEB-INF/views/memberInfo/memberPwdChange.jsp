@@ -16,7 +16,6 @@ $('#click').onclick(){
 		return false;
 	}
 }
-
 </script>
 <div>
 <%-- <input type="hidden" name="" value="${param. }">
