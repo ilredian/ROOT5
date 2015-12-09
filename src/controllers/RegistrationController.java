@@ -139,12 +139,13 @@ public class RegistrationController {
 		// 경고창으로 결과 알림
 		if(result == 1){
 			System.out.println("직거래 진술서 등록 완료");
-			out.print("<script>alter('진술서가 정상적으로 등록되었습니다.');location.replace('trade.go');</script>");
+			out.print("<script>alert('진술서가 정상적으로 등록되었습니다.');location.replace('index.go');</script>");
+			out.close();
 		}else{
 			System.out.println("직거래 진술서 등록 실패");
-			out.print("<script>alter('진술서 등록에 실패하였습니다.');location.replace('trade.go');</script>");
+			out.print("<script>alert('진술서 등록에 실패하였습니다.');location.replace('index.go');</script>");
+			out.close();
 		}
-		out.close();
 	}
 
 	//비매너 피해 등록 페이지로 이동

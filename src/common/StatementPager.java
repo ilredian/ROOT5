@@ -55,11 +55,11 @@ public class StatementPager {
 		if (query != null) {
 			// 1. 처음, 이전 항목 만들기
 			if (currentPage > 1) {
-				linkString.append(String.format("[<a href='%s?pg=1&cno=%d&f=%s&q=%s'>처음</a>]", linkUrl, cheatno, field, query));
+				linkString.append(String.format("<li><a href='%s?pg=1&cno=%d&f=%s&q=%s'>처음</a></li>", linkUrl, cheatno, field, query));
 				linkString.append("&nbsp;");
 				linkString.append("&nbsp;");
 				if (currentPage > 10) {
-					linkString.append(String.format("[<a href='%s?pg=%d&cno=%d&f=%s&q=%s'>이전</a>]", linkUrl, previous, cheatno, field, query));
+					linkString.append(String.format("<li><a href='%s?pg=%d&cno=%d&f=%s&q=%s'>이전</a></li>", linkUrl, previous, cheatno, field, query));
 				}
 				linkString.append("&nbsp;");
 			}
@@ -73,9 +73,9 @@ public class StatementPager {
 					break;
 				linkString.append("&nbsp;");
 				if (i == currentPage) {
-					linkString.append(String.format("[%d]", i));
+					linkString.append(String.format("<li class='active'>%d</li>", i));
 				} else {
-					linkString.append(String.format("<a href='%s?pg=%d&cno=%d&f=%s&q=%s'>%d</a>", linkUrl, i, cheatno, field, query, i));
+					linkString.append(String.format("<li><a href='%s?pg=%d&cno=%d&f=%s&q=%s'>%d</a></li>", linkUrl, i, cheatno, field, query, i));
 				}
 				linkString.append("&nbsp;");
 			}
@@ -84,20 +84,20 @@ public class StatementPager {
 			if (currentPage < pageCount) {
 				linkString.append("&nbsp;");
 				if (next <= pageCount) {
-					linkString.append(String.format("[<a href='%s?pg=%d&cno=%d&f=%s&q=%s'>다음</a>]", linkUrl, next, cheatno, field, query));
+					linkString.append(String.format("<li><a href='%s?pg=%d&cno=%d&f=%s&q=%s'>다음</a></li>", linkUrl, next, cheatno, field, query));
 				}
 				linkString.append("&nbsp;");
 				linkString.append("&nbsp;");
-				linkString.append(String.format("[<a href='%s?pg=%d&cno=%d&f=%s&q=%s'>마지막</a>]", linkUrl, pageCount, cheatno, field, query));
+				linkString.append(String.format("<li><a href='%s?pg=%d&cno=%d&f=%s&q=%s'>마지막</a></li>", linkUrl, pageCount, cheatno, field, query));
 			}
 		} else {
 			// 1. 처음, 이전 항목 만들기
 			if (currentPage > 1) {
-				linkString.append(String.format("[<a href='%s?pg=1&cno=%d'>처음</a>]", linkUrl, cheatno));
+				linkString.append(String.format("<li><a href='%s?pg=1&cno=%d'>처음</a></li>", linkUrl, cheatno));
 				linkString.append("&nbsp;");
 				linkString.append("&nbsp;");
 				if (currentPage > 10) {
-					linkString.append(String.format("[<a href='%s?pg=%d&cno=%d'>이전</a>]", linkUrl, previous, cheatno));
+					linkString.append(String.format("<li><a href='%s?pg=%d&cno=%d'>이전</a></li>", linkUrl, previous, cheatno));
 				}
 				linkString.append("&nbsp;");
 			}
@@ -111,9 +111,9 @@ public class StatementPager {
 					break;
 				linkString.append("&nbsp;");
 				if (i == currentPage) {
-					linkString.append(String.format("[%d]", i));
+					linkString.append(String.format("<li class='active'>%d</li>", i));
 				} else {
-					linkString.append(String.format("<a href='%s?pg=%d&cno=%d'>%d</a>", linkUrl, i, cheatno, i));
+					linkString.append(String.format("<li><a href='%s?pg=%d&cno=%d'>%d</a></li>", linkUrl, i, cheatno, i));
 				}
 				linkString.append("&nbsp;");
 			}
@@ -122,11 +122,11 @@ public class StatementPager {
 			if (currentPage < pageCount) {
 				linkString.append("&nbsp;");
 				if (next <= pageCount) {
-					linkString.append(String.format("[<a href='%s?pg=%d&cno=%d'>다음</a>]", linkUrl, next, cheatno));
+					linkString.append(String.format("<li><a href='%s?pg=%d&cno=%d'>다음</a></li>", linkUrl, next, cheatno));
 				}
 				linkString.append("&nbsp;");
 				linkString.append("&nbsp;");
-				linkString.append(String.format("[<a href='%s?pg=%d&cno=%d'>마지막</a>]", linkUrl, pageCount, cheatno));
+				linkString.append(String.format("<li><a href='%s?pg=%d&cno=%d'>마지막</a></li>", linkUrl, pageCount, cheatno));
 			}
 		}
 		return linkString.toString();

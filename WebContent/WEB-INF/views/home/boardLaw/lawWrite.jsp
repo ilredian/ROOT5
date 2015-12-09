@@ -48,7 +48,7 @@ $(function() {
 			<tr>
 				<th class="active">한줄소개</th>
 			<td>
-					<input type="text" class="form-control" style="HEIGHT: 50px; WIDTH: 100%"
+					<input type="text" class="form-control"
 					id="message" name="message" placeholder="ex) 부장검사 출신 부산 형사 성범죄 전문 변호사">	
 			</td></tr>
 			

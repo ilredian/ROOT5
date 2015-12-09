@@ -39,8 +39,7 @@
 	});
 </script>
 <nav class="navbar navbar-default" role="navigation"
-	style="
-    margin-bottom: 0px;">
+	style="margin-bottom: 0px;background-color: #E15656; border-color: #D83939;">
 <div class="container" style="margin-top: 0px; margin-bottom: 0px;"
 	align="center">
 	<div class="navbar-header">
@@ -49,13 +48,13 @@
 			<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 				class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="index.go">AhnCheat</a>
+		<a class="navbar-brand" href="index.go" style="color: white;">AhnCheat</a>
 	</div>
 	<div class="collapse navbar-collapse" id="myNavbar">
 		<ul class="nav navbar-nav">
-			<li><a href="index.go">검색</a></li>
-			<li><a href="registration.go">피해등록 </a></li>
-			<li><a href="home.go">홈</a></li>
+			<li><a href="index.go" style="color: white;">검색</a></li>
+			<li><a href="registration.go" style="color: white;">피해등록 </a></li>
+			<li><a href="home.go" style="color: white;">홈</a></li>
 		</ul>
 		<!-- ////////////////////////////////////////////////////////// -->
 		<%-- <!--  2단계 Spring taglib 사용방법(인증과 권한) -->
@@ -72,31 +71,34 @@
 		<div class="links">
 			<div class="container" align="right">
 				<!-- 로그인 버튼 _ 로그인 전과 후의 변화 -->
-						<c:choose>
-						<c:when test="${empty memberInfo}">  <!-- 세션이 null 이면 -->
-							<button type="button" class="btn btn-default" id="myBtn"
-								style="margin-right: 10px; margin-top: 10px">
-								<span class="glyphicon glyphicon-log-in"></span>로그인
-							</button>
-						</c:when>
-						<c:otherwise> <!-- 세션이 있다면_ -->
-							<button style="margin-top:10px;" type="button" class="btn btn-default btn-sm" id="messageWindow">
-          						<span class="glyphicon glyphicon-envelope"></span> 쪽지
-        					</button>
-							<button type="button" class="btn btn-default" id="myBtn2"
-								style="margin-right: 20px; margin-top: 10px">
-								<span class="glyphicon glyphicon-log-in"></span>
-								<c:if test="${memberInfo.typeno==1}">
-									<c:out value="관리자"/>
-								</c:if>	
-								<c:if test="${memberInfo.typeno==0}">
-									<c:out value="사용자"/>
-								</c:if>	
-								${memberInfo.name}님 로그아웃
-							</button>
-							</c:otherwise>
-						</c:choose>
-					<button type="submit" class="btn btn-default"
+				<c:choose>
+					<c:when test="${empty memberInfo}">
+						<!-- 세션이 null 이면 -->
+						<button type="button" class="btn btn-default" id="myBtn"
+							style="margin-right: 10px; margin-top: 10px">
+							<span class="glyphicon glyphicon-log-in"></span>로그인
+						</button>
+					</c:when>
+					<c:otherwise>
+						<!-- 세션이 있다면_ -->
+						<button style="margin-top: 10px;" type="button"
+							class="btn btn-default btn-sm" id="messageWindow">
+							<span class="glyphicon glyphicon-envelope"></span> 쪽지
+						</button>
+						<button type="button" class="btn btn-default" id="myBtn2"
+							style="margin-right: 20px; margin-top: 10px">
+							<span class="glyphicon glyphicon-log-in"></span>
+							<c:if test="${memberInfo.typeno==1}">
+								<c:out value="관리자" />
+							</c:if>
+							<c:if test="${memberInfo.typeno==0}">
+								<c:out value="사용자" />
+							</c:if>
+							${memberInfo.name}님 로그아웃
+						</button>
+					</c:otherwise>
+				</c:choose>
+				<button type="submit" class="btn btn-default"
 					style="margin-right: 10px; margin-top: 10px">
 					<a href="memberMessage.go"> <span
 						class="glyphicon glyphicon-log-in"></span> 내 정보
@@ -113,12 +115,12 @@
 					<a href="pwSearch.go"> <span class="glyphicon glyphicon-log-in"></span>
 						비밀번호 찾기
 					</a>
-				</button>	
-					</div>
-				</div>
+				</button>
 			</div>
 		</div>
 	</div>
+</div>
+</div>
 </div>
 </div>
 </div>

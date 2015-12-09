@@ -2,13 +2,16 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<div class="container" align="center">
+<div class="container">
+<h3>직거래 피해사례 등록</h3>
+		<p>피해사례 등록이 완려되면 피해자를 위한 기능이 실시간 제공됩니다.</p>
+		<br>
+		</div> 
+<div class="container">
+	<h3>피해 발생 사이트 정보</h3>
+	<div class="container" align="center">
 <table class="table">
-	<h2><strong>비매너 피해사례 등록</strong></h2>
-	<colgroup>
-		<col width="150">
-		<col width="*">
-	</colgroup>
+	
 	<tr>
 		<th class="active"><label for="s_stie">사이트명(URL)</label> <span class="bltS_A">*</span></th>
 		<td><input type="hidden" name="category" value="신고"> <select
@@ -320,7 +323,7 @@
 			maxlength="400"></td>
 	</tr>
 </table>
-
+</div>
 <div class="formSection">
 	<h3>용의자(사기범) 정보</h3>
 	<p class="infoTxtTop">
@@ -644,15 +647,8 @@
 	</table>
 </div>
 <br>
-<div class="panel panel-default" style="width: 310px;">
-	<div class="panel-body">
-		<b>피해사례 등록 약관 및 피해회원 가입 동의</b>
-	</div>
-	<div>
-		<br>
-	</div>
-</div>
-<div class="agreeArea">
+<h3 align="center">피해사례 등록 약관</h3>
+<div class="agreeArea" align="center">
 	<textarea rows="10px" cols="100px" readonly="readonly" style=""> 
 피해사례 등록 약관
             

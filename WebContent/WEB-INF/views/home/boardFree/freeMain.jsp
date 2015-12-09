@@ -76,7 +76,7 @@
 	</div>
 	<div style="text-align: center;">
 		<c:set var="pager" value="${pager.toString()}" />
-		${pager}
+		<ul class="pagination">${pager}</ul>
 	</div>
 	<br>
 	<div style="text-align: center;">

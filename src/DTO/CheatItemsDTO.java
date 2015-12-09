@@ -23,5 +23,9 @@ public class CheatItemsDTO {
 	public void setGoodsspan(String goodsspan) {
 		this.goodsspan = goodsspan;
 	}
+	@Override
+	public String toString() {
+		return "CheatItemsDTO [goodskind=" + goodskind + ", goodsname=" + goodsname + ", goodsspan=" + goodsspan + "]";
+	}
 	
 }

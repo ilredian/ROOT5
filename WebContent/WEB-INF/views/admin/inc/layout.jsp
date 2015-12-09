@@ -6,8 +6,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><!-- Title 영역  --> <tiles:getAsString name="title" />
-
+<title>
+		<title>AhnCheat</title>
+			<tiles:getAsString name="title"/>
+	
 </title>
 <!-- StyleSheet  Link 영역 -->
 <link href='<tiles:getAsString name="css"/>' type="text/css"
@@ -43,6 +45,10 @@
 
 	<!-- Footer 영역  -->
 	<tiles:insertAttribute name="footer" />
+	
+	<!-- javascript 영역 -->
+	<script type="text/javascript" src='<tiles:getAsString name="js"/>'></script>
+	
 <script>
     // html dom 이 다 로딩된 후 실행된다.
     $(document).ready(function(){

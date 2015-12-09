@@ -32,12 +32,14 @@
 		</tbody>
 	</table>
 </div>
-<div style="text-align: center;">
+<div id="b">
 	<c:set var="pager" value="${pager.toString()}" />
+	<ul class="pagination">
 	${pager}
+	</ul>
 </div>
 <div>
-	<button id="a" style="float: right;">
+	<button id="a">
 		<a href="game.go">사기피해사례 등록</a>
 	</button>
 </div>

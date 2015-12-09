@@ -11,8 +11,8 @@
 	
 	<update id="updateCheatItem" parameterType="DTO.CheatItemsDTO">
 		UPDATE cheatitems
-		SET goodskind = #{goodskind}, goodsname = #{goodsname}, goodsspan = #{goodsspan}
-		WHERE goodsname = #{goodsname}
+		SET goodsname = #{goodsname}, goodsspan = #{goodsspan}
+		WHERE goodskind = #{goodskind}
 	</update>
 	
 	<insert id="insertCheatItem" parameterType="DTO.CheatItemsDTO">
