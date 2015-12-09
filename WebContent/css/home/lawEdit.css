@@ -1,1 +1,23 @@
 @CHARSET "UTF-8";
+#css1{
+	WIDTH: 100%;
+}
+#message{
+	HEIGHT: 50px;
+	WIDTH: 100%;
+}
+#phone{
+	width: 50%;
+}
+#tel{
+	width: 50%;
+	align:left;
+}
+#edu{
+	width: 100%;
+	height: 100%;
+}
+#fee{
+	width: 100%;
+	height: 100%;
+}

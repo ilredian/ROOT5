@@ -4,11 +4,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <form action="" method="get">
-	<div class="container" align="center">
-		<h3 align="center">용의자(사기범) 정보</h3>
-		<p class="infoTxtTop" align="center">
-			<span class="bltS_A">*</span> 는 필수 기재 항목입니다
-		</p>
+	<div class="container">
+		<h3>게임, 비실불 피해사례 등록</h3>
+		<p>피해사례 등록이 완려되면 피해자를 위한 기능이 실시간 제공됩니다.</p>
+		<br>
+		<h3>피해 발생 사이트 정보</h3>
 		<table class="table">
 			<caption>피해 발생 사이트에 대한 사이트명, 거래물품종류, 용의자 아이디, 사기 게시물 링크 입력폼</caption>
 			<colgroup>
@@ -102,8 +102,8 @@
 			</tr>
 		</table>
 
-		<h3 align="center">용의자(사기범) 정보</h3>
-		<p class="infoTxtTop" align="center">
+		<h3>용의자(사기범) 정보</h3>
+		<p class="infoTxtTop">
 			<span class="bltS_A">*</span> 는 필수 기재 항목입니다
 		</p>
 
@@ -359,7 +359,7 @@
 
 		</table>
 	</div>
-	<div class="container" align="center">
+	<div class="container">
 		<h3>피해자(본인) 정보</h3>
 		<p class="infoTxtTop">
 			<span class="bltS_A">*</span> 는 필수 기재 항목입니다
@@ -437,7 +437,7 @@
 		</div>
 			</div>
 		<div class="container" align="center">
-			<h3>해사례 등록 약관</h3>
+			<h3>피해사례 등록 약관</h3>
 		</div>
 		<div class="container" align="center">
 			<textarea rows="" cols="" readonly="readonly"

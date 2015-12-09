@@ -301,7 +301,7 @@
 		</div>
 		<br>
 
-<h3 align="center">동의 약관</h3>
+<h3 align="center">피해사례 등록 약관</h3>
 		
 		<div class="agreeArea" align="center">
 			<textarea rows="10px" cols="100px" readonly="readonly" style=""> 
