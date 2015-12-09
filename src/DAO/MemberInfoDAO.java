@@ -1,7 +1,6 @@
 ﻿package DAO;
 
 import java.util.List;
-
 import DTO.BoardFreeDTO;
 import DTO.BoardLawDTO;
 import DTO.MemberDTO;
