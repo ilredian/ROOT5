@@ -1,4 +1,4 @@
-package controllers;
+﻿package controllers;
 
 import java.io.PrintWriter;
 import java.text.DateFormat;
@@ -47,7 +47,6 @@ public class MemberInfoController {
 		
 		return "memberInfo.memberMessage";
 	}
-	
 	////////////////////////내가 쓴 글 모두 가져오기 START///////////////////////////
 	@RequestMapping(value="memberBoard.go", method=RequestMethod.GET)
 	public String board(	
@@ -59,50 +58,87 @@ public class MemberInfoController {
 									Model model,
 									ReplyDTO replyDTO
 									) throws Exception{
-
 		//Free / Law / Notice 꺼 모두 가져오기_
 		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
 		BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
+	
+		MemberInfoDAO memberInfoDAO = sqlSession.getMapper(MemberInfoDAO.class);
 		
 		//로그 남기기
 		System.out.println("내 게시물 페이지로 이동");
 		
 		int pagerSize = 10;// 한 번에 보여줄 페이지 번호 갯수
 		String linkUrl = "adminMain.go";// 페이지번호를 누르면 이동할 경로
-		int boardCount = boardLawDAO.getCount(field, query)
-						+ boardFreeDAO.getCount(field, query)	 ;	// 검색 결과에 따른 게시글 총갯수
+		
+		//회원 번호 가져오기
+		int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
+
+		
+		//게시물 갯수 가져오기
+		int boardCountLaw = memberInfoDAO.getFreeCount(memberno);	// 검색 결과에 따른 게시글 총갯수
+		int boardCountFree=  memberInfoDAO.getLawCount(memberno);
+		int boardCount = boardCountFree + boardCountLaw;
+		
+		model.addAttribute("boardCountLaw", boardCountLaw);
+		model.addAttribute("boardCountFree", boardCountFree);
 		
 		int start = (page - 1) * pageSize;
 		BoardPager pager = new BoardPager(boardCount, page, pageSize, pagerSize, linkUrl);
 
-		List<BoardLawDTO> listLaw = boardLawDAO.getNotices(start, field, query, pageSize);
-		List<BoardFreeDTO> listFree = boardFreeDAO.getNotices(start, field, query, pageSize);
+		
+		//게시물 가져오기
+		List<BoardLawDTO> listLaw = memberInfoDAO.getLawNotice(memberno);
+		List<BoardFreeDTO> listFree = memberInfoDAO.getFreeNotice(memberno);
+		
+		//단, 내글만 가져오게해야한다_ 접속한 로그인값을 비교해서, 내 글이 아니면 가져오지 않게하기
+		//xml에서 설정하자
 		
 		//뷰단에서 각각에 뿌려주면 된다.
 		model.addAttribute("listLaw", listLaw);
 		model.addAttribute("listFree", listFree);
 		
+		model.addAttribute("pgLaw", 1);
+		model.addAttribute("pgFree", 1);
+		
 		return "memberInfo.memberBoard";
 	}
 	////////////////////////내가 쓴 글 모두 가져오기 END///////////////////////////
 	
+	
+	/////////////////////댓글
 	@RequestMapping(value="memberComment.go", method=RequestMethod.GET)
-	public String comment(){//댓글
-		
-		//로그 남기기
+	public String comment(
+			MemberDTO memberDTO,
+			HttpSession session,
+			HttpServletRequest request,
+			Model model) throws Exception{//댓글
 		System.out.println("내 댓글 페이지로 이동");
-
+		//기존 메세지 가져오기
+	/*	String message = ((MemberDTO) session.getAttribute("memberInfo")).getMessage();
+*/		/*System.out.println("message : " + message);
+		model.addAttribute("message",message);
+		*/
+/*		ReplyDTO replyDTO = sqlSession.getMapper(ReplyDTO.class);
+		MemberDTO memberDTO = sqlSession.getMapper(MemberDTO.class);
+		model.addAttribute("replyDTO",replyDTO);
+		model.addAttribute("memberDTO",memberDTO);*/
+		
+		//로그인한 세션에 있는 회원번호 가져오기_
+		int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
+		
+		System.out.println("memberno : " + memberno);
+		model.addAttribute("memberno",memberno);
+		
+		//매퍼에 있는 함수사용
+		MemberInfoDAO memberInfoDAO = sqlSession.getMapper(MemberInfoDAO.class);
+		List<ReplyDTO> list = memberInfoDAO.getAllReply(memberno);
+		System.out.println("내 댓글 가져오기 성공");
+		System.out.println(list.toString());
+		model.addAttribute("list", list);
+		System.out.println(list.get(0).getReplyno());
 		return "memberInfo.memberComment";
 	}
 	
-	@RequestMapping(value="memberReply.go", method=RequestMethod.GET)
-	public String reply(){//답글
-		
-		//로그 남기기
-		System.out.println("내 답글 페이지로 이동");
-		
-		return "memberInfo.memberReply";
-	}
 	
 	@RequestMapping(value="memberConnect.go", method=RequestMethod.GET)
 	public String connect(){//접속기록
@@ -110,9 +146,12 @@ public class MemberInfoController {
 		//로그 남기기
 		System.out.println("내 접속기록 페이지로 이동");
 		
-		return "memberInfo.memberConnect";
-	}
+		return "memberInfo.memberConnect";}
 	
+	
+	
+	
+	////////////// 메세지수정 ! (정보 가져오기.)
 	@RequestMapping(value="memberModify.go", method=RequestMethod.GET)
 	public String modify(HttpSession session,
 			HttpServletRequest request,

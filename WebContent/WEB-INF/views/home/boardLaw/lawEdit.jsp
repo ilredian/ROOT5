@@ -17,7 +17,7 @@
 				<td>
 					<c:out value="${boardLawDTO.name}"/>
 					<input type="hidden" name="name" value="${boardLawDTO.name}">
-					<input type="hidden" name="memberno" value="${boardLawDTO.memberno}">
+					<input type="hidden" name="memberno" value="${boarreplynodLawDTO.memberno}">
 				</td>
 			</tr>
 			<tr>
