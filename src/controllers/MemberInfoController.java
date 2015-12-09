@@ -47,7 +47,6 @@ public class MemberInfoController {
 		
 		return "memberInfo.memberMessage";
 	}
-	
 	////////////////////////내가 쓴 글 모두 가져오기 START///////////////////////////
 	@RequestMapping(value="memberBoard.go", method=RequestMethod.GET)
 	public String board(	
@@ -70,9 +69,15 @@ public class MemberInfoController {
 		
 		int pagerSize = 10;// 한 번에 보여줄 페이지 번호 갯수
 		String linkUrl = "adminMain.go";// 페이지번호를 누르면 이동할 경로
+		
+		//회원 번호 가져오기
+		int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
 
-		int boardCountLaw = memberInfoDAO.getCount(field, query);	// 검색 결과에 따른 게시글 총갯수
-		int boardCountFree=  boardFreeDAO.getCount(field, query);
+		
+		//게시물 갯수 가져오기
+		int boardCountLaw = memberInfoDAO.getFreeCount(memberno);	// 검색 결과에 따른 게시글 총갯수
+		int boardCountFree=  memberInfoDAO.getLawCount(memberno);
+		int boardCount = boardCountFree + boardCountLaw;
 		
 		model.addAttribute("boardCountLaw", boardCountLaw);
 		model.addAttribute("boardCountFree", boardCountFree);
@@ -80,8 +85,10 @@ public class MemberInfoController {
 		int start = (page - 1) * pageSize;
 		BoardPager pager = new BoardPager(boardCount, page, pageSize, pagerSize, linkUrl);
 
-		List<BoardLawDTO> listLaw = boardLawDAO.getNotices(start, field, query, pageSize);
-		List<BoardFreeDTO> listFree = boardFreeDAO.getNotices(start, field, query, pageSize);
+		
+		//게시물 가져오기
+		List<BoardLawDTO> listLaw = memberInfoDAO.getLawNotice(memberno);
+		List<BoardFreeDTO> listFree = memberInfoDAO.getFreeNotice(memberno);
 		
 		//단, 내글만 가져오게해야한다_ 접속한 로그인값을 비교해서, 내 글이 아니면 가져오지 않게하기
 		//xml에서 설정하자

@@ -11,10 +11,11 @@
 	
 	<!-- 자신이 쓴 모든 게시물 _ 자유-->
 	<!-- active=0 인것은 삭제되지 않은 것만 -->
- 	<select id="getFreeNotice"  resultType="DTO.MemberDTO">
-		SELECT l.boardno, l.title, l.memberno FROM boardfree l join memberdb m 
+ 	<select id="getFreeNotice"  resultType="DTO.BoardFreeDTO">
+		SELECT l.boardno, l.title, l.memberno , l.countno, l.regdate FROM boardfree l join memberdb m 
 		WHERE l.memberno=m.memberno and m.memberno=#{memberno}
 		and l.active=0
+		order by regdate desc
 	</select>
 	
 	<!-- 자유 게시판 글 갯수 -->
@@ -25,10 +26,11 @@
 	</select>
 	
 	<!-- 자신이 쓴 모든 게시물 _ 변호사-->
- 	<select id="getLawNotice"  resultType="DTO.MemberDTO">
- 		SELECT l.boardno, l.title, l.memberno FROM boardlaw l join memberdb m 
+ 	<select id="getLawNotice"  resultType="DTO.BoardLawDTO">
+ 		SELECT l.boardno, l.title, l.memberno, l.countno ,l.regdate FROM boardlaw l join memberdb m 
 		WHERE l.memberno=m.memberno and m.memberno=#{memberno}
 		and l.active=0
+		order by regdate desc
 	</select>
 
 	<!-- 변호사 게시판 글 갯수 -->

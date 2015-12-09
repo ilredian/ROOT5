@@ -4,16 +4,23 @@ import java.util.List;
 import DTO.MemberDTO;
 
 import DTO.BoardFreeDTO;
+import DTO.BoardLawDTO;
 import DTO.CheatDTO;
 import DTO.ReplyDTO;
 
 public interface MemberInfoDAO {
 	
 		//자신이 작성한 자유게시판 게시물 
-		public String getFreeNotice(MemberDTO member) throws Exception;
+		public List<BoardFreeDTO> getFreeNotice(int memberno) throws Exception;
 		
 		//자신이 작성한 자유게시판 게시물 수 
-		public String getLawNotice(MemberDTO member) throws Exception;
+		public int getFreeCount(int memberno) throws Exception;
+		
+		//자신이 작성한 변호사게시판 게시물 
+		public  List<BoardLawDTO> getLawNotice(int memberno) throws Exception;
+
+		//자신이 작성한 변호사게시판 게시물 수 
+		public int getLawCount(int memberno) throws Exception;
 		
 	
 		//회원이 쓴 모든 댓글

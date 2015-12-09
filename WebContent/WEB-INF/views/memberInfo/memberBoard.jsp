@@ -15,6 +15,7 @@ tr, th, td {text-align: center;}
 <div class="container">
 	<h3>변호사게시물</h3>
 	게시물 수 : <c:out value="${boardCountLaw}"/>
+
 	<table class="table table-hover table-responsive"
 		style="margin-top: 10px">
 		<tr>
@@ -24,13 +25,13 @@ tr, th, td {text-align: center;}
 			<th colspan="1">날짜</th>
 		</tr>
 		<c:forEach var="l" items="${listLaw}">
-		<tr>
 			<td colspan="1">${l.boardno}</td>
 			<td colspan="4"> <a href="lawView.go?pg=${pgFree}&bno=${l.boardno}">${l.title}</a></td>
 			<td colspan="1">${l.countno}</td>
 			<td colspan="1">${l.regdate}</td>
 		</tr>
 		</c:forEach>
+		
 	</table>
 	<h3>자유게시물</h3>
 	게시물 수 : <c:out value="${boardCountFree}"/>
