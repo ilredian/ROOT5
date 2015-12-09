@@ -21,7 +21,7 @@
 	/* 로그인 버튼  */
 	$(document).ready(function() {
 		$("#myBtn").click(function() {
-		location.replace("login.go") 
+			location.replace("login.go")
 		});
 	});
 	/* 로그아웃 버튼 */
@@ -33,8 +33,8 @@
 	});
 	/* 쪽지 열기 */
 	$(document).ready(function() {
-		$('#messageWindow').click(function(){
-			window.open('message.jsp','My message','width=500,height=500');
+		$('#messageWindow').click(function() {
+			window.open('message.jsp', 'My message', 'width=500,height=500');
 		});
 	});
 </script>
@@ -78,6 +78,19 @@
 							style="margin-right: 10px; margin-top: 10px">
 							<span class="glyphicon glyphicon-log-in"></span>로그인
 						</button>
+						<button type="submit" class="btn btn-default"
+							style="margin-right: 10px; margin-top: 10px">
+							<a href="signin.go"> <span class="glyphicon glyphicon-log-in"></span>
+								회원가입
+							</a>
+						</button>
+						<button type="submit" class="btn btn-default"
+							style="margin-right: 10px; margin-top: 10px">
+							<a href="pwSearch.go"> <span
+								class="glyphicon glyphicon-log-in"></span> 비밀번호 찾기
+							</a>
+						</button>
+
 					</c:when>
 					<c:otherwise>
 						<!-- 세션이 있다면_ -->
@@ -96,32 +109,16 @@
 							</c:if>
 							${memberInfo.name}님 로그아웃
 						</button>
+						<button type="submit" class="btn btn-default"
+							style="margin-right: 10px; margin-top: 10px">
+							<a href="memberMessage.go"> <span
+								class="glyphicon glyphicon-log-in"></span> 내 정보
+							</a>
+						</button>
 					</c:otherwise>
 				</c:choose>
-				<button type="submit" class="btn btn-default"
-					style="margin-right: 10px; margin-top: 10px">
-					<a href="memberMessage.go"> <span
-						class="glyphicon glyphicon-log-in"></span> 내 정보
-					</a>
-				</button>
-				<button type="submit" class="btn btn-default"
-					style="margin-right: 10px; margin-top: 10px">
-					<a href="signin.go"> <span class="glyphicon glyphicon-log-in"></span>
-						회원가입
-					</a>
-				</button>
-				<button type="submit" class="btn btn-default"
-					style="margin-right: 10px; margin-top: 10px">
-					<a href="pwSearch.go"> <span class="glyphicon glyphicon-log-in"></span>
-						비밀번호 찾기
-					</a>
-				</button>
 			</div>
 		</div>
 	</div>
-</div>
-</div>
-</div>
-</div>
 </div>
 </nav>
