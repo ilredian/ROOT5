@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
+﻿<%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -17,11 +17,12 @@ h1,h3 {
 </head>
 </html>
 <div class="container">
-   <div class="container-12">
+
       <div class="jumbotron" align="center" style="background-color: white; margin-top: 70px; margin-bottom: 80px;">
          <h1 align="center" style="color: #D83939;font-size: 80px; font-style: inherit;">사기피해사례 검색</h1><br><br>
          <form id="search" class="navbar-form navbar-center"
             action="totalSearch.go">
+
 				<table>
 					<tr>
 						<td><select name="f" class="input-lg">
