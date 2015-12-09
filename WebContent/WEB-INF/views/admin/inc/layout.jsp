@@ -43,6 +43,10 @@
 
 	<!-- Footer 영역  -->
 	<tiles:insertAttribute name="footer" />
+	
+	<!-- javascript 영역 -->
+	<script type="text/javascript" src='<tiles:getAsString name="js"/>'></script>
+	
 <script>
     // html dom 이 다 로딩된 후 실행된다.
     $(document).ready(function(){

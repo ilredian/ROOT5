@@ -4,6 +4,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -294,20 +296,25 @@ public class AdminController {// 관리자 페이지
 	}
 	
 	// 사기 물품 종류 수정
-	@RequestMapping("updateItem.go")
+	@RequestMapping(value="updateItem.go", method = RequestMethod.POST)
 	public void updateItem(
-			@RequestParam("gn") String goodskind,
-			@RequestParam("gk") String goodsname,
+			@RequestParam("gk") String goodskind,
+			@RequestParam("gn") String goodsname,
 			@RequestParam("gs") String goodsspan,
+			HttpServletResponse response,
 			CheatItemsDTO cheatItemsDTO) throws Exception{ 
-		
+
 		// 파라미터 값 세팅
 		cheatItemsDTO.setGoodskind(goodskind);
 		cheatItemsDTO.setGoodsname(goodsname);
 		cheatItemsDTO.setGoodsspan(goodsspan);
-		
+
 		// 로그 남기기
 		System.out.println("사기 물품 종류 수정");
+		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
 		
 		// DB 가져오기
 		CheatItemsDAO cheatItemsDAO = sqlSession.getMapper(CheatItemsDAO.class);
@@ -324,9 +331,10 @@ public class AdminController {// 관리자 페이지
 	// 사기 물품 종류 추가
 	@RequestMapping("insertItem.go")
 	public void insertItem(
-			@RequestParam("gn") String goodskind,
-			@RequestParam("gk") String goodsname,
+			@RequestParam("gk") String goodskind,
+			@RequestParam("gn") String goodsname,
 			@RequestParam("gs") String goodsspan,
+			HttpServletResponse response,
 			CheatItemsDTO cheatItemsDTO) throws Exception{ 
 		
 		// 파라미터 값 세팅
@@ -336,6 +344,10 @@ public class AdminController {// 관리자 페이지
 		
 		// 로그 남기기
 		System.out.println("사기 물품 종류 추가");
+		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
 		
 		// DB 가져오기
 		CheatItemsDAO cheatItemsDAO = sqlSession.getMapper(CheatItemsDAO.class);
@@ -352,9 +364,10 @@ public class AdminController {// 관리자 페이지
 	// 사기 물품 종류 삭제
 	@RequestMapping("deleteItem.go")
 	public void deleteItem(
-			@RequestParam("gn") String goodskind,
-			@RequestParam("gk") String goodsname,
+			@RequestParam("gk") String goodskind,
+			@RequestParam("gn") String goodsname,
 			@RequestParam("gs") String goodsspan,
+			HttpServletResponse response,
 			CheatItemsDTO cheatItemsDTO) throws Exception{ 
 		
 		// 파라미터 값 세팅
@@ -365,9 +378,13 @@ public class AdminController {// 관리자 페이지
 		// 로그 남기기
 		System.out.println("사기 물품 종류 삭제");
 		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
+		
 		// DB 가져오기
 		CheatItemsDAO cheatItemsDAO = sqlSession.getMapper(CheatItemsDAO.class);
-		int result = cheatItemsDAO.updateCheatItem(cheatItemsDTO);
+		int result = cheatItemsDAO.deleteCheatItem(cheatItemsDTO);
 		
 		if (result == 1) {
 			out.print("<script>alert('사기 물품 종류가 성공적으로 삭제되었습니다.');location.replace('adminItemList.go');</script>");
