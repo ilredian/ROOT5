@@ -2,9 +2,6 @@ package DAO;
 
 import java.util.List;
 import DTO.MemberDTO;
-
-import DTO.BoardFreeDTO;
-import DTO.CheatDTO;
 import DTO.ReplyDTO;
 
 public interface MemberInfoDAO {
@@ -13,7 +10,7 @@ public interface MemberInfoDAO {
 //		public String insert(MemberDTO member) throws Exception;
 	
 		//회원이 쓴 모든 댓글
-		public List<ReplyDTO> getAllReply(MemberDTO memberDTO) throws Exception;
+		public List<ReplyDTO> getAllReply(int memberno) throws Exception;
 
 		//자신의 정보
 		public MemberDTO getMember(String email) throws Exception;

@@ -90,44 +90,41 @@ public class MemberInfoController {
 	}
 	////////////////////////내가 쓴 글 모두 가져오기 END///////////////////////////
 	
-
-	
-	
 	
 	/////////////////////댓글
-	
-
 	@RequestMapping(value="memberComment.go", method=RequestMethod.GET)
-	public String comment(HttpSession session,
-			HttpServletRequest request,
+	public String comment(
 			MemberDTO memberDTO,
+			HttpSession session,
+			HttpServletRequest request,
 			Model model) throws Exception{//댓글
-		
-		//로그 남기기
 		System.out.println("내 댓글 페이지로 이동");
+		//기존 메세지 가져오기
+	/*	String message = ((MemberDTO) session.getAttribute("memberInfo")).getMessage();
+*/		/*System.out.println("message : " + message);
+		model.addAttribute("message",message);
+		*/
+/*		ReplyDTO replyDTO = sqlSession.getMapper(ReplyDTO.class);
+		MemberDTO memberDTO = sqlSession.getMapper(MemberDTO.class);
+		model.addAttribute("replyDTO",replyDTO);
+		model.addAttribute("memberDTO",memberDTO);*/
 		
-		memberDTO.setMemberno(((MemberDTO)session.getAttribute("memberInfo")).getMemberno());
-		//매퍼를 가져와, update 함수를 가져온다.
-
-		String email = ((MemberDTO) session.getAttribute("memberInfo")).getEmail();
-		int replyno=((ReplyDTO) session.getAttribute("memberInfo")).getReplyno();
+		//로그인한 세션에 있는 회원번호 가져오기_
+		int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
+		
+		System.out.println("memberno : " + memberno);
+		model.addAttribute("memberno",memberno);
+		
+		//매퍼에 있는 함수사용
 		MemberInfoDAO memberInfoDAO = sqlSession.getMapper(MemberInfoDAO.class);
-		memberInfoDAO.getAllReply(memberDTO);
-		model.addAttribute("replyno",replyno);
-		model.addAttribute("memberDTO", memberDTO);
-		
-		
+		List<ReplyDTO> list = memberInfoDAO.getAllReply(memberno);
+		System.out.println("내 댓글 가져오기 성공");
+		System.out.println(list.toString());
+		model.addAttribute("list", list);
+		System.out.println(list.get(0).getReplyno());
 		return "memberInfo.memberComment";
 	}
 	
-	@RequestMapping(value="memberReply.go", method=RequestMethod.GET)
-	public String reply(){//답글
-		
-		//로그 남기기
-		System.out.println("내 답글 페이지로 이동");
-		
-		return "memberInfo.memberReply";
-	}
 	
 	@RequestMapping(value="memberConnect.go", method=RequestMethod.GET)
 	public String connect(){//접속기록
@@ -135,8 +132,7 @@ public class MemberInfoController {
 		//로그 남기기
 		System.out.println("내 접속기록 페이지로 이동");
 		
-		return "memberInfo.memberConnect";
-	}
+		return "memberInfo.memberConnect";}
 	
 	
 	
