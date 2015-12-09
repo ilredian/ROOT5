@@ -5,7 +5,6 @@ $('.viewBtn').click(function() {
 
 $(function() {
 	var cno = $('#mno').attr("value");
-
 	if(cno == 1){
 		$('#memberMessage').attr("class", "active");
 		$('#statementText').text("쪽지");
@@ -16,15 +15,12 @@ $(function() {
 		$('#memberComment').attr("class", "active");
 		$('#statementText').text("댓글");
 	}else if(cno == 4){
-		$('#memberReply').attr("class", "active");
-		$('#statementText').text("답글");
-	}else if(cno == 5){
 		$('#memberConnect').attr("class", "active");
 		$('#statementText').text("접속기록");
-	}else if(cno == 6){
+	}else if(cno == 5){
 		$('#memberModify').attr("class", "active");
 		$('#statementText').text("정보수정");
-	}else if(cno == 7){
+	}else if(cno == 6){
 		$('#memberPwdChange').attr("class", "active");
 		$('#statementText').text("비번변경");
 	}else{
