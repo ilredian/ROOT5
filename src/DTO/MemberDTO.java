@@ -1,7 +1,5 @@
 package DTO;
 
-import java.sql.Date;
-
 public class MemberDTO {
 	
 	private int memberno;/* 회원번호 Auto_increment(시퀀스) */

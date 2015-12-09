@@ -1,12 +1,10 @@
 ﻿package DAO;
 
 import java.util.List;
-import DTO.MemberDTO;
-<<<<<<< HEAD
 
 import DTO.BoardFreeDTO;
 import DTO.BoardLawDTO;
-import DTO.CheatDTO;
+import DTO.MemberDTO;
 import DTO.ReplyDTO;
 
 public interface MemberInfoDAO {

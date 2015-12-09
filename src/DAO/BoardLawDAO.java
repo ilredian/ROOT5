@@ -2,9 +2,6 @@ package DAO;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.springframework.dao.DataAccessException;
-
-import DTO.BoardFreeDTO;
 import DTO.BoardLawDTO;
 public interface BoardLawDAO {
     //게시물 개수
