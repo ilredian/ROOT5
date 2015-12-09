@@ -26,16 +26,19 @@
 		<div class="col-sm-6"
 			style="background-color: white; margin: 10px; height: 165px; width: 570px; border: 1px solid black">
 			<div style="margin-top:40px; margin-left:10px">
-				<h4 style="float:left; vertical-align: middle;"><strong>거래 구분</strong></h4>
-			 <select style="margin-top:6px; margin-left:35px; float:left; vertical-align: middle;">
+
+				<h4 style="float:left; vertical-align: left;"><strong>거래 구분</strong></h4>
+
+				<select style="margin-top:6px; margin-left:35px; float:left; vertical-align: middle;">
 					<option>전체 피해 사례</option>
 					<option>직거래</option>
 					<option>전체 사례</option>
 			 </select>
+			 
 			</div>
 			<div style="margin-top:0px;">
-				<br><br><h4 style="float:left;margin-right:5px;vertical-align: middle;"><strong>피해사례검색</strong></h4>
-				<input style="margin-top:6px; float:left; vertical-align: middle;" type="text" placeholder="로그인후 피해사례를 검색 가능" size="30">
+				<br><br><h4 style="float:left;margin-right:5px;vertical-align: middle;"><strong>&nbsp;&nbsp;피해사례검색</strong></h4>
+				<input style="width: 60%; margin-top:6px; float:left; vertical-align: middle;" type="text" placeholder="로그인후 피해사례를 검색 가능"  size="30">
 				<input type="button" class="btn btn-info" value="검색">
 				<!-- <a href="./?mod=_search_result" onclick="form_submit('search','./?mod=_search_result','web');"> -->
 			</div>
