@@ -678,9 +678,7 @@
 		<b><input type="checkbox" name="agreement_1" value="1"
 			id="chk_agreement_1"
 			onclick="return value_change('agreement_1h',this.value)" /> <label
-			for="chk_agreement_1">서비스 이용약관에 동의합니다.(필수)</label></b> <a
-			href="NewFile.html" target="_blank" class="alert_cheat_write-link">
-			:: 약관 보기</a>
+			for="chk_agreement_1">서비스 이용약관에 동의합니다.(필수)</label></b>
 	</div>
 	<div class="alert_cheat_write alert_cheat_write-info">
 		<div style="margin-top: 6px;">

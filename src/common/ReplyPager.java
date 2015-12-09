@@ -79,7 +79,7 @@ public class ReplyPager {
 					break;
 				linkString.append("&nbsp;");
 				if (i == currentPage) {
-					linkString.append(String.format("<li class='active'>%d</li>", i));
+					linkString.append(String.format("<li class='active'><a href='#'>%d</a></li>", i));
 				} else {
 					linkString.append(String.format("<li><a href='%s?pg=%d&bno=%d&rpg=%d&f=%s&q=%s'>%d</a></li>", linkUrl, boardPage,
 							boardno, i, field, query, i));
@@ -123,7 +123,7 @@ public class ReplyPager {
 					break;
 				linkString.append("&nbsp;");
 				if (i == currentPage) {
-					linkString.append(String.format("<li class='active'>%d</li>", i));
+					linkString.append(String.format("<li class='active'><a href='#'>%d</a></li>", i));
 				} else {
 					linkString.append(String.format("<li><a href='%s?pg=%d&bno=%d&rpg=%d'>%d</a></li>", linkUrl, boardPage,
 							boardno, i, i));

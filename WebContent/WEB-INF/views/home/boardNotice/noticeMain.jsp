@@ -56,9 +56,9 @@
 		<input class="btn btn-primary" type="button" value="글쓰기"
 			id="noticeWrite" style="float: right;">
 	</div>
-	<div style="text-align: center;">
+	<div style="text-align: center; clear:both;">
 		<c:set var="pager" value="${pager.toString()}" />
-		${pager}
+		<ul class="pagination">${pager}</ul>
 	</div>
 	<div style="text-align: center;">
 		<form action="boardNoticeSearch.go">
