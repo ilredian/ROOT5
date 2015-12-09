@@ -2,7 +2,7 @@
 
 import java.util.List;
 import DTO.MemberDTO;
-<<<<<<< HEAD
+
 
 import DTO.BoardFreeDTO;
 import DTO.BoardLawDTO;
