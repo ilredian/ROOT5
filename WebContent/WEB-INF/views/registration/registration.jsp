@@ -14,10 +14,8 @@
 				<img alt="이미지" src="registrationimages/registration/a.PNG">
 			</div>
 		</div>
-	</div>
-</div>
+
 <div class="container" align="center">
-	
 		<div class="row"  align="center">
 			<div class="damageMenuList" align="center">
 				<div class="sec1" style="float: left; margin-left: 150px" align="center">
@@ -26,11 +24,11 @@
 							src="registrationimages/registration/c.PNG" alt="직거래"></a>
 						
 					</h5>
-					<div class="cont" style="margin-left: 20px;">
-						<p>
+					<div class="cont" align="center">
+						<b>
 							입금하고 실물 물품을 못 받은 경우
-						</p>
-						<ul>
+						</b>
+						<ul style="text-align: left;">
 							<li>컴퓨터/노트북</li>
 							<li>휴대폰</li>
 							<li>카메라/가전</li>
@@ -45,16 +43,16 @@
 				</div>
 			</div>
 			<div class="damageMenuList">
-				<div class="sec2" style="float: left; margin-left: 50px">
+				<div class="sec2" style="float: left; margin-left: 10px">
 					<h5>
 						<a href="game.go"><img
 							src="registrationimages/registration/gamebtn.PNG" alt="게임"></a>
 					</h5>
-					<div class="cont" style="margin-left: 20px;">
-						<p>
+					<div class="cont" align="center">
+						<b>
 							입금하고 실물 물품을 못 받은 경우
-						</p>
-						<ul>
+						</b>
+						<ul style="text-align: left;">
 							<li>게임 머니</li>
 							<li>게임 아이템</li>
 							<li>계정</li>
@@ -69,16 +67,16 @@
 				</div>
 			</div>
 			<div class="damageMenuList">
-				<div class="sec3" style="float: left; margin-left: 50px">
+				<div class="sec3" style="float: left; margin-left: 10px">
 					<h5>
  						<a href="manner.go"><img
 							src="registrationimages/registration/bebtn.PNG" alt="비매너"></a>
 					</h5>
-					<div class="cont" style="margin-left: 20px;">
-						<p>
+					<div class="cont" align="center">
+						<b>
 							입금하고 실물 물품을 못 받은 경우
-						</p>
-						<ul>
+						</b>
+						<ul style="text-align: left;">
 							<li>상태 불량</li>
 							<li>배송비 착불</li>
 							<li>배송지연</li>
@@ -94,4 +92,5 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>

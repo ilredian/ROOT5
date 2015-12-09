@@ -39,9 +39,9 @@
 	});
 </script>
 <nav class="navbar navbar-default" role="navigation"
-	style="margin-bottom: 0px;background-color: #D83939; border-color: #D83939;">
+	style="margin-bottom: 0px;background-color: #E15656; border-color: #D83939;">
 <div class="container" style="margin-top: 0px; margin-bottom: 0px;"
-	align="center";>
+	align="center">
 	<div class="navbar-header">
 		<button type="button" class="navbar-toggle" data-toggle="collapse"
 			data-target="#myNavbar">
@@ -98,6 +98,24 @@
 						</button>
 					</c:otherwise>
 				</c:choose>
+				<button type="submit" class="btn btn-default"
+					style="margin-right: 10px; margin-top: 10px">
+					<a href="memberMessage.go"> <span
+						class="glyphicon glyphicon-log-in"></span> 내 정보
+					</a>
+				</button>
+				<button type="submit" class="btn btn-default"
+					style="margin-right: 10px; margin-top: 10px">
+					<a href="signin.go"> <span class="glyphicon glyphicon-log-in"></span>
+						회원가입
+					</a>
+				</button>
+				<button type="submit" class="btn btn-default"
+					style="margin-right: 10px; margin-top: 10px">
+					<a href="pwSearch.go"> <span class="glyphicon glyphicon-log-in"></span>
+						비밀번호 찾기
+					</a>
+				</button>
 			</div>
 		</div>
 	</div>

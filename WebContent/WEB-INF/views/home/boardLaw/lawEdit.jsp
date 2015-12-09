@@ -10,7 +10,7 @@
 		<table class="table">
 			<tr>
 				<th class="active">제목</th>
-				<td><input type="text" name="title" style="WIDTH: 100%;" value="${boardLawDTO.title}"></td>
+				<td><input id="css1" type="text" name="title" value="${boardLawDTO.title}"></td>
 			</tr>
 			<tr>
 				<th class="active">작성자</th>
@@ -20,12 +20,12 @@
 					<input type="hidden" name="memberno" value="${boarreplynodLawDTO.memberno}">
 				</td>
 			</tr>
+			<tr>
 				<th class="active">경력</th>
 				<td>
-						<input type="text" class="form-control" id="career" name="career" value="${boardLawDTO.career}">	
+					<input type="text" class="form-control" id="career" name="career" value="${boardLawDTO.career}">	
 				</td>
-				</tr>
-			
+			</tr>
 			<tr>
 				<th class="active">소속</th>
 				<td>
@@ -40,29 +40,26 @@
 			<tr>
 				<th class="active">한줄소개</th>
 			<td>
-					<input type="text" class="form-control" style="HEIGHT: 50px; WIDTH: 100%"
-					id="message" name="message" value="${boardLawDTO.message}">	
+					<input type="text" class="form-control" id="message" name="message" value="${boardLawDTO.message}">	
 			</td></tr>
 			
 			<tr>
 				<th class="active">전화번호:</th>
 			<td>
-					휴대폰번호: <input type="text" class="form-control" id="phone" name="phone" style="width: 50%" value="${boardLawDTO.phone}">	
-					회사 전화번호: <input type="text" class="form-control" id="tel" name="tel" style="width: 50%" align="left" value="${boardLawDTO.tel}">	
+					휴대폰번호: <input type="text" class="form-control" id="phone" name="phone" value="${boardLawDTO.phone}">	
+					회사 전화번호: <input type="text" class="form-control" id="tel" name="tel" value="${boardLawDTO.tel}">	
 			</td>
 			</tr>	
 			<tr>
 			<th class="active">학력 사항:</th>
 			<td>
-				<textarea id="edu" name="edu"
-										style="width: 100%; height: 100%" rows="15">${boardLawDTO.edu}</textarea>						
+				<textarea id="edu" name="edu" rows="15">${boardLawDTO.edu}</textarea>						
 			</td></tr>
 				
 			<tr>
 			<th class="active">요금 안내:</th>
 			<td>
-					 <textarea id="fee" name="fee"
-										style="width: 100%; height: 100%" rows="15" >${boardLawDTO.fee}</textarea>			
+					 <textarea id="fee" name="fee" rows="15">${boardLawDTO.fee}</textarea>			
 			</td></tr>
 <%-- 			<tr>
 				<td colspan="2">
