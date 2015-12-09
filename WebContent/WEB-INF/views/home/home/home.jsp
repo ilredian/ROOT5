@@ -14,7 +14,7 @@
 <div class="container" align="center">
 	<div class="row1">
 		<div class="col-sm-6"
-			style="background-color: lavender; margin: 10px; height: 165px; width: 535px;">
+			style="background-color: white; margin: 10px; height: 165px; width: 535px; border: 1px solid black">
 			<div style="margin-top:40px; margin-left:10px">
 				<h4 style="float:left; vertical-align: middle;"><strong>거래 구분</strong></h4>
 			 <select style="margin-top:6px; margin-left:35px; float:left; vertical-align: middle;">
@@ -31,7 +31,7 @@
 			</div>
 		</div>
 		<div class="col-sm-3"
-			style="margin: 10px; height: 165px; width: 214px; background-color: lavender; padding: 20px;">
+			style="margin: 10px; height: 165px; width: 515px; background-color: white; border: 1px solid black; padding: 20px;">
 			<table>
 				<thead>
 					<tr>
@@ -71,8 +71,8 @@
 
 			</table>
 		</div>
-		<div class="col-sm-3"
-			style="background-color: lavender; margin: 10px; height: 165px; width: 275px;">
+<!-- 		<div class="col-sm-3"
+			style="background-color: white; border: 1px solid black; margin: 10px; height: 165px; width: 275px;">
 			<form action="" style="margin-top: 20px; float: left;">
 				<div>
 					<input type="text" style="float: left; margin-bottom: 1px;" value
@@ -94,16 +94,15 @@
 			<div>
 				<a href="signin.go"><input type="button" class="btn btn-info btn-lg" value="회원가입"></a>
 			</div>
-		</div>
+		</div> -->
 	</div>
 	<div class="row2">
 		<div class="col-sm-6"
-			style="background-color: lavender; margin: 10px; width: 565px; height: 165px; float: left;">
+			style="background-color: white; border: 1px solid black; margin: 10px; width: 570px; height: 165px; float: left;">
 			<table class="table table-hover">
 				<thead>
 					<tr>
 						<th><a href="noticeMain.go?pg=1"><p style="text-align: left;">공지사항</p></a></th>
-						<th></th>
 						<th><a href="noticeMain.go?pg=1"><p style="text-align: right;">더보기</p></a></th>
 					</tr>
 				</thead>
@@ -133,7 +132,7 @@
 			</table>
 		</div>
 		<div class="col-sm-6"
-			style="background-color: lavender; margin: 10px; width: 481px; height: 165px; float: left;">
+			style="background-color: white; border: 1px solid black; margin: 10px; width: 481px; height: 165px; float: left;">
 			<div
 				style="margin-left: -16px; width: 214px; height: 165px; float: left;">
 				<table class="table table-hover">
@@ -158,8 +157,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div
-				style="background-color: lavender; margin-left: 203px; width: 219px; height: 165px; position: relative;">
+			<div style="background-color: white;margin-top:-1px;border-bottom:1px solid black; border-top:1px solid black; margin-left: 203px; width: 219px; height: 165px; position: relative;">
 				<table class="table table-hover">
 					<thead>
 						<tr>

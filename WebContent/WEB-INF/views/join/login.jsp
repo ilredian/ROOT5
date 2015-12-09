@@ -15,7 +15,7 @@
 <head>
 <style>
 .modal-header, h4, .close {
-	background-color: #5cb85c;
+	background-color: black;
 	color: white !important;
 	text-align: center;
 	font-size: 30px;
@@ -62,14 +62,14 @@
 											me
 										</label>
 									</div>
-									<button type="submit" class="btn btn-success btn-block">
+									<button type="submit" class="btn btn-default btn-block">
 										<span class="glyphicon glyphicon-off"></span> 로그인
 									</button>
 								</form>
 							</div>
 							<div class="modal-footer">
 								<button type="submit"
-									class="btn btn-danger btn-default pull-left"
+									class="btn btn-default btn-default pull-left"
 									data-dismiss="modal">
 									<a href="index.go"><span class="glyphicon glyphicon-remove"></span> 닫기</a>
 								</button>

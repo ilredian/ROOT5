@@ -39,7 +39,7 @@
 	});
 </script>
 <nav class="navbar navbar-default" role="navigation"
-	style="margin-bottom: 0px;background-color: #D83939; border-color: #D83939;">
+	style="margin-bottom: 0px;background-color: #E15656; border-color: #D83939;">
 <div class="container" style="margin-top: 0px; margin-bottom: 0px;"
 	align="center";>
 	<div class="navbar-header">
