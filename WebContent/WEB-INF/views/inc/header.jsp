@@ -98,24 +98,6 @@
 						</button>
 					</c:otherwise>
 				</c:choose>
-				<button type="submit" class="btn btn-default"
-					style="margin-right: 10px; margin-top: 10px">
-					<a href="memberMessage.go"> <span
-						class="glyphicon glyphicon-log-in"></span> 내 정보
-					</a>
-				</button>
-				<button type="submit" class="btn btn-default"
-					style="margin-right: 10px; margin-top: 10px">
-					<a href="signin.go"> <span class="glyphicon glyphicon-log-in"></span>
-						회원가입
-					</a>
-				</button>
-				<button type="submit" class="btn btn-default"
-					style="margin-right: 10px; margin-top: 10px">
-					<a href="pwSearch.go"> <span class="glyphicon glyphicon-log-in"></span>
-						비밀번호 찾기
-					</a>
-				</button>
 			</div>
 		</div>
 	</div>
