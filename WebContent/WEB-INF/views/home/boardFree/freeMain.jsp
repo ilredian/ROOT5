@@ -74,7 +74,7 @@
 		<input class="btn btn-primary" type="button" value="글쓰기"
 			id="freeWrite" style="float: right; text-align: center;">
 	</div>
-	<div style="text-align: center;">
+	<div style="text-align: center; clear:both;">
 		<c:set var="pager" value="${pager.toString()}" />
 		<ul class="pagination">${pager}</ul>
 	</div>
