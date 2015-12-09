@@ -5,8 +5,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="container">
 	<div class="container-12">
-		<div class="jumbotron" align="center">
-			<h1 align="center">사기피해사례 검색</h1>
+		<div class="jumbotron" align="center" style="background-color: white;">
+			<h1 align="center" style="color: #D83939">사기피해사례 검색</h1>
 			<form id="search" class="navbar-form navbar-center"
 				action="totalSearch.go">
 				<table>
