@@ -9,11 +9,36 @@
 		SELECT * FROM replay WHERE email=#{EMAIL} order by regdate DESC
 	</select>
 	
-	<!-- 자신이 쓴 모든 게시물-->
-<!-- 	<select id="getMember"  resultType="DTO.MemberDTO">
-		SELECT * FROM memberdb WHERE email=#{EMAIL}
+	<!-- 자신이 쓴 모든 게시물 _ 자유-->
+	<!-- active=0 인것은 삭제되지 않은 것만 -->
+ 	<select id="getFreeNotice"  resultType="DTO.MemberDTO">
+		SELECT l.boardno, l.title, l.memberno FROM boardfree l join memberdb m 
+		WHERE l.memberno=m.memberno and m.memberno=#{memberno}
+		and l.active=0
 	</select>
- -->
+	
+	<!-- 자유 게시판 글 갯수 -->
+	<select id="getFreeCount" resultType="Integer">
+		SELECT COUNT(*) CNT
+		FROM boardfree
+		WHERE active = 0 and memberno = #{memberno}
+	</select>
+	
+	<!-- 자신이 쓴 모든 게시물 _ 변호사-->
+ 	<select id="getLawNotice"  resultType="DTO.MemberDTO">
+ 		SELECT l.boardno, l.title, l.memberno FROM boardlaw l join memberdb m 
+		WHERE l.memberno=m.memberno and m.memberno=#{memberno}
+		and l.active=0
+	</select>
+
+	<!-- 변호사 게시판 글 갯수 -->
+	<select id="getLawCount" resultType="Integer">
+		SELECT COUNT(*) CNT
+		FROM boardlaw
+		WHERE active = 0 and memberno = #{memberno}
+	</select>
+	
+ 
 	<!-- 자신의 정보 -->
 	<select id="getMember"  resultType="DTO.MemberDTO">
 		SELECT * FROM memberdb WHERE email=#{EMAIL}

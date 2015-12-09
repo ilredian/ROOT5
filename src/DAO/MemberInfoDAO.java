@@ -9,8 +9,12 @@ import DTO.ReplyDTO;
 
 public interface MemberInfoDAO {
 	
-		//모든 게시글 정보
-//		public String insert(MemberDTO member) throws Exception;
+		//자신이 작성한 자유게시판 게시물 
+		public String getFreeNotice(MemberDTO member) throws Exception;
+		
+		//자신이 작성한 자유게시판 게시물 수 
+		public String getLawNotice(MemberDTO member) throws Exception;
+		
 	
 		//회원이 쓴 모든 댓글
 		public List<ReplyDTO> getAllReply(String email) throws Exception;
@@ -26,4 +30,5 @@ public interface MemberInfoDAO {
 		
 		//비번변경
 		public int changepassword(MemberDTO memberDTO) throws Exception;
+		
 }
