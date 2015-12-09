@@ -60,11 +60,11 @@ public class ReplyPager {
 			// 1. 처음, 이전 항목 만들기
 			if (currentPage > 1) {
 				linkString
-						.append(String.format("[<a href='%s?pg=%d&bno=%d&rpg=1&f=%s&q=%s'>처음</a>]", linkUrl, boardPage, boardno, field, query));
+						.append(String.format("<li><a href='%s?pg=%d&bno=%d&rpg=1&f=%s&q=%s'>처음</a></li>", linkUrl, boardPage, boardno, field, query));
 				linkString.append("&nbsp;");
 				linkString.append("&nbsp;");
 				if (currentPage > 10) {
-					linkString.append(String.format("[<a href='%s?pg=%d&bno=%d&rpg=%d&f=%s&q=%s'>이전</a>]", linkUrl, boardPage,
+					linkString.append(String.format("<li><a href='%s?pg=%d&bno=%d&rpg=%d&f=%s&q=%s'>이전</a></li>", linkUrl, boardPage,
 							boardno, previous, field, query));
 				}
 				linkString.append("&nbsp;");
@@ -79,9 +79,9 @@ public class ReplyPager {
 					break;
 				linkString.append("&nbsp;");
 				if (i == currentPage) {
-					linkString.append(String.format("[%d]", i));
+					linkString.append(String.format("<li class='active'><a href='#'>%d</a></li>", i));
 				} else {
-					linkString.append(String.format("<a href='%s?pg=%d&bno=%d&rpg=%d&f=%s&q=%s'>%d</a>", linkUrl, boardPage,
+					linkString.append(String.format("<li><a href='%s?pg=%d&bno=%d&rpg=%d&f=%s&q=%s'>%d</a></li>", linkUrl, boardPage,
 							boardno, i, field, query, i));
 				}
 				linkString.append("&nbsp;");
@@ -91,12 +91,12 @@ public class ReplyPager {
 			if (currentPage < pageCount) {
 				linkString.append("&nbsp;");
 				if (next <= pageCount) {
-					linkString.append(String.format("[<a href='%s?pg=%d&bno=%d&rpg=%d&f=%s&q=%s'>다음</a>]", linkUrl, boardPage,
+					linkString.append(String.format("<li><a href='%s?pg=%d&bno=%d&rpg=%d&f=%s&q=%s'>다음</a></li>", linkUrl, boardPage,
 							boardno, next, field, query));
 				}
 				linkString.append("&nbsp;");
 				linkString.append("&nbsp;");
-				linkString.append(String.format("[<a href='%s?pg=%d&bno=%d&rpg=%d&f=%s&q=%s'>마지막</a>]", linkUrl, boardPage,
+				linkString.append(String.format("<li><a href='%s?pg=%d&bno=%d&rpg=%d&f=%s&q=%s'>마지막</a></li>", linkUrl, boardPage,
 						boardno, pageCount, field, query));
 			}
 		} else {
@@ -104,11 +104,11 @@ public class ReplyPager {
 			// 1. 처음, 이전 항목 만들기
 			if (currentPage > 1) {
 				linkString
-						.append(String.format("[<a href='%s?pg=%d&bno=%d&rpg=1'>처음</a>]", linkUrl, boardPage, boardno));
+						.append(String.format("<li><a href='%s?pg=%d&bno=%d&rpg=1'>처음</a></li>", linkUrl, boardPage, boardno));
 				linkString.append("&nbsp;");
 				linkString.append("&nbsp;");
 				if (currentPage > 10) {
-					linkString.append(String.format("[<a href='%s?pg=%d&bno=%d&rpg=%d'>이전</a>]", linkUrl, boardPage,
+					linkString.append(String.format("<li><a href='%s?pg=%d&bno=%d&rpg=%d'>이전</a></li>", linkUrl, boardPage,
 							boardno, previous));
 				}
 				linkString.append("&nbsp;");
@@ -123,9 +123,9 @@ public class ReplyPager {
 					break;
 				linkString.append("&nbsp;");
 				if (i == currentPage) {
-					linkString.append(String.format("[%d]", i));
+					linkString.append(String.format("<li class='active'><a href='#'>%d</a></li>", i));
 				} else {
-					linkString.append(String.format("<a href='%s?pg=%d&bno=%d&rpg=%d'>%d</a>", linkUrl, boardPage,
+					linkString.append(String.format("<li><a href='%s?pg=%d&bno=%d&rpg=%d'>%d</a></li>", linkUrl, boardPage,
 							boardno, i, i));
 				}
 				linkString.append("&nbsp;");
@@ -135,12 +135,12 @@ public class ReplyPager {
 			if (currentPage < pageCount) {
 				linkString.append("&nbsp;");
 				if (next <= pageCount) {
-					linkString.append(String.format("[<a href='%s?pg=%d&bno=%d&rpg=%d'>다음</a>]", linkUrl, boardPage,
+					linkString.append(String.format("<li><a href='%s?pg=%d&bno=%d&rpg=%d'>다음</a></li>", linkUrl, boardPage,
 							boardno, next));
 				}
 				linkString.append("&nbsp;");
 				linkString.append("&nbsp;");
-				linkString.append(String.format("[<a href='%s?pg=%d&bno=%d&rpg=%d'>마지막</a>]", linkUrl, boardPage,
+				linkString.append(String.format("<li><a href='%s?pg=%d&bno=%d&rpg=%d'>마지막</a></li>", linkUrl, boardPage,
 						boardno, pageCount));
 			}
 		}

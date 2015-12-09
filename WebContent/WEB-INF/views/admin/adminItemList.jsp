@@ -13,24 +13,26 @@
 		<th>asdf</th>
 	</tr>
 	<c:forEach items="${list}" var="list">
-		<tr>
+		<tr style="text-align: center;">
 			<td>${list.goodskind}</td>
 			<td>${list.goodsname}</td>
 			<td>${list.goodsspan}</td>
-			<td><h1><span class="${list.goodsspan}"></span></h1></td>
+			<td><h1>
+					<span class="${list.goodsspan}"></span>
+				</h1></td>
 			<td>
 				<div class="btn-group">
-					<input type="button" class="btn btn-info update"
-						id="updateItem.go?gn=${list.goodsname}&gk=${list.goodskind}&gs=${list.goodsspan}"
-						value="수정"> <input type="button"
-						class="btn btn-danger delete"
-						id="insertItem.go?gn=${list.goodsname}&gk=${list.goodskind}&gs=${list.goodsspan}"
-						value="삭제"> <input type="button"
-						class="btn btn-success insert"
+					<input type="button" class="btn btn-info update" value="수정">
+					<input type="button" class="btn btn-danger delete"
 						id="deleteItem.go?gn=${list.goodsname}&gk=${list.goodskind}&gs=${list.goodsspan}"
-						value="추가">
+						value="삭제">
 				</div>
 			</td>
 		</tr>
 	</c:forEach>
 </table>
+<form action="insertItem.go" method="post">
+	<input type="text" name="gk"> <input type="text"
+		name="gn"> <input type="text" name="gs">
+	<input type="submit" class="btn btn-primary btn-sm" value="추가">
+</form>

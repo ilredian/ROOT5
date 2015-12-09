@@ -66,7 +66,7 @@ public class HomeController {
 			}
 			if(result.get(i).getCheaterid() != null){
 				if(result.get(i).getCheaterid().equals(isDTO.getCheaterid())){
-				score += 20;
+				score += 30;
 				}
 			}
 			if(score >= 30){
@@ -75,6 +75,7 @@ public class HomeController {
 			}
 		}
 		
+		// 점수가 높은 순으로 정렬하기
 		Comparator<InterestStatementDTO> comparator = new Comparator<InterestStatementDTO>(){
 
 			@Override

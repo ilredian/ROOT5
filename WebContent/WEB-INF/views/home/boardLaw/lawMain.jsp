@@ -4,7 +4,6 @@
     <%@ taglib prefix="se"
    uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<head>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -20,9 +19,11 @@ $(document).ready(function(){
 
 </script>
 <div class="container lawMain">
-	<h2>변호사게시판</h2>
+	<h2>--º&nbsp;변호사게시판&nbsp; º--</h2> 
+	변호사가 필요한 회원들을 위한 게시판.
+	&nbsp;(**해당 게시판은 변호사만 글을 올릴수있습니다.)<br><br><br>
 	<p>
-		Total :
+		▶Total :
 		<c:out value="${boardCount}" />
 	</p>
 	<table class="table table-hover">
@@ -72,7 +73,7 @@ $(document).ready(function(){
 </div>
 <div style="text-align: center;">
 	<c:set var="pager" value="${pager.toString()}" />
-	${pager}
+	<ul class="pagination">${pager}</ul>
 </div>
 </body>
 </head>

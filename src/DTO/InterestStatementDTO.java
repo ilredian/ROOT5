@@ -139,4 +139,12 @@ public class InterestStatementDTO {
 	public void setMemberno(int memberno) {
 		this.memberno = memberno;
 	}
+	@Override
+	public String toString() {
+		return "InterestStatementDTO [stateno=" + stateno + ", bankname=" + bankname + ", cheatername=" + cheatername
+				+ ", account=" + account + ", deposit=" + deposit + ", depositdate=" + depositdate + ", phone=" + phone
+				+ ", sex=" + sex + ", feature=" + feature + ", domain=" + domain + ", goodskind=" + goodskind
+				+ ", goodsname=" + goodsname + ", cheaterid=" + cheaterid + ", link=" + link + ", regdate=" + regdate
+				+ ", content=" + content + ", cheatno=" + cheatno + ", memberno=" + memberno + ", score=" + score + "]";
+	}
 }

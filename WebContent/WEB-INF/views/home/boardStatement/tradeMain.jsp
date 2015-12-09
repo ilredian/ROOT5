@@ -32,14 +32,14 @@
 		</tbody>
 	</table>
 </div>
-<div style="text-align: center;">
-	<c:set var="pager" value="${pager.toString()}" />
-	${pager}
-</div>
-<div style="float: left;">
-</div>
 <div>
 	<button id="a" style="float: right;">
 		<a href="trade.go">사기피해사례 등록</a>
 	</button>
+</div>
+<div style="text-align: center; clear:both;">
+	<c:set var="pager" value="${pager.toString()}" />
+	<ul class="pagination">
+	${pager}
+	</ul>
 </div>
