@@ -19,9 +19,11 @@ $(document).ready(function(){
 
 </script>
 <div class="container lawMain">
-	<h2>변호사게시판</h2>
+	<h2>--º&nbsp;변호사게시판&nbsp; º--</h2> 
+	변호사가 필요한 회원들을 위한 게시판.
+	&nbsp;(**해당 게시판은 변호사만 글을 올릴수있습니다.)<br><br><br>
 	<p>
-		Total :
+		▶Total :
 		<c:out value="${boardCount}" />
 	</p>
 	<table class="table table-hover">
