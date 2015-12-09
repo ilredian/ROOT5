@@ -69,7 +69,7 @@ public class BoardPager {
 					break;
 				linkString.append("&nbsp;");
 				if (i == currentPage) {
-					linkString.append(String.format("<li class='active'>%d</li>", i));
+					linkString.append(String.format("<li class='active'><a href='#'>%d</a></li>", i));
 				} else {
 					linkString.append(String.format("<li><a href='%s?pg=%d&f=%s&q=%s'>%d</a></li>", linkUrl, i, field, query, i));
 				}
@@ -107,7 +107,7 @@ public class BoardPager {
 					break;
 				linkString.append("&nbsp;");
 				if (i == currentPage) {
-					linkString.append(String.format("<li class='active'>%d</li>", i));
+					linkString.append(String.format("<li class='active'><a href='#'>%d</a></li>", i));
 				} else {
 					linkString.append(String.format("<li><a href='%s?pg=%d'>%d</a></li>", linkUrl, i, i));
 				}

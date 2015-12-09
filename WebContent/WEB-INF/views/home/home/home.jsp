@@ -6,8 +6,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <table class="table">
 <c:if test="${not empty list}">
-<c:forEach items="${list}" var="list" begin="0" end="9">
-	<tr><td>${list.stateno}</td></tr>
+<P>예제 테이블. 다른걸로 바꿔야함 interestStatementDTO 참고해서 변수 불러옴</P>
+<tr>
+	<th>진술서 번호</th>
+	<th>용의자 이름</th>
+	<th>등록한 멤버 번호</th>
+</tr>
+<c:forEach items="${list}" var="lists" begin="0" end="9">
+	<tr>
+		<td>${lists.stateno}</td>
+		<td>${lists.cheatername}</td>
+		<td>${lists.memberno}</td>
+	</tr>
 </c:forEach>
 </c:if>
 </table>

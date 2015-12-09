@@ -73,7 +73,7 @@ public class StatementPager {
 					break;
 				linkString.append("&nbsp;");
 				if (i == currentPage) {
-					linkString.append(String.format("<li class='active'>%d</li>", i));
+					linkString.append(String.format("<li class='active'><a href='#'>%d</a></li>", i));
 				} else {
 					linkString.append(String.format("<li><a href='%s?pg=%d&cno=%d&f=%s&q=%s'>%d</a></li>", linkUrl, i, cheatno, field, query, i));
 				}
@@ -111,7 +111,7 @@ public class StatementPager {
 					break;
 				linkString.append("&nbsp;");
 				if (i == currentPage) {
-					linkString.append(String.format("<li class='active'>%d</li>", i));
+					linkString.append(String.format("<li class='active'><a href='#'>%d</a></li>", i));
 				} else {
 					linkString.append(String.format("<li><a href='%s?pg=%d&cno=%d'>%d</a></li>", linkUrl, i, cheatno, i));
 				}
