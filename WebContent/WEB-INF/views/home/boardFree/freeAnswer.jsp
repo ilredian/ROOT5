@@ -11,7 +11,7 @@
 		<table class="table">
 			<tr>
 				<th class="active">제목</th>
-				<td><input type="text" name="title" style="WIDTH: 100%;" value="[RE}:${boardFreeDTO.title}"></td>
+				<td><input type="text" id="css1" name="title" value="[RE}:${boardFreeDTO.title}"></td>
 			</tr>
 			<tr>
 				<th class="active">작성자</th>
@@ -25,7 +25,7 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-					<textarea id="editor" style="HEIGHT: 300px; WIDTH: 100%" rows="10" cols="30" name="content">
+					<textarea id="editor" rows="10" cols="30" name="content">
 					
 					-----원 본 글 -----
 					${boardFreeDTO.content}

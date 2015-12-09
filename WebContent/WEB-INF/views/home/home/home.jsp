@@ -15,7 +15,7 @@
 	<div class="row1">
 		<div class="col-sm-6"
 			style="background-color: lavender; margin: 10px; height: 165px; width: 535px;">
-			<div style="margin-top:40px;">
+			<div style="margin-top:40px; margin-left:10px">
 				<h4 style="float:left; vertical-align: middle;"><strong>거래 구분</strong></h4>
 			 <select style="margin-top:6px; margin-left:35px; float:left; vertical-align: middle;">
 					<option>전체 피해 사례</option>

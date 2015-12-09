@@ -14,6 +14,7 @@ $(document).ready(function(){
 	});
 });
 </script>
+</head>
 <style type="text/css">
 ul#topnav { margin: 0; padding: 0; float: left; width: 100%; list-style: none; position: relative; font-size: 1em; background: #151515; margin-bottom:50px; }
 ul#topnav li { float: left; margin: 0; padding: 0; border-right: 1px solid #555; }
@@ -24,7 +25,6 @@ ul#topnav li:hover span { display: block; }
 ul#topnav li span a { display: inline; }
 ul#topnav li span a:hover { text-decoration: underline; }
 </style>
-</head>
 <body>
 <ul id="topnav">
   <li><a href="#self">사기피해사례 현황</a><span> <a href="statementMain.go?cno=1">직거래 피해사례</a> | <a href="statementMain.go?cno=2">게임.비실물 피해사례</a> | <a href="statementMain.go?cno=4">비매너 피해사례</a> | <a href="chartMain.go">사기피해사례 통계</a> | <a href="#self">사건사진 자료</a></span></li>

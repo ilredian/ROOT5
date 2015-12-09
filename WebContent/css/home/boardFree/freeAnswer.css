@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+#css1{
+	WIDTH: 100%
+}
+
+#editor{
+	HEIGHT: 300px;
+	WIDTH: 100%;
+}
