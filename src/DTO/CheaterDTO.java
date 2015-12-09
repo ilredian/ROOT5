@@ -24,6 +24,32 @@ public class CheaterDTO {
 	private int memberno; /* memberDTO에 있는 회원번호 */
 	
 	private int count;//통계 수
+
+	public CheaterDTO(String bankname, String cheatername, String account, int deposit, String depositdate,
+			String phone, String sex, String feature, String domain, String goodskind, String goodsname,
+			String cheaterid, String link, String content, int cheatno, int memberno) {
+		super();
+		this.bankname = bankname;
+		this.cheatername = cheatername;
+		this.account = account;
+		this.deposit = deposit;
+		this.depositdate = depositdate;
+		this.phone = phone;
+		this.sex = sex;
+		this.feature = feature;
+		this.domain = domain;
+		this.goodskind = goodskind;
+		this.goodsname = goodsname;
+		this.cheaterid = cheaterid;
+		this.link = link;
+		this.content = content;
+		this.cheatno = cheatno;
+		this.memberno = memberno;
+	}
+	
+	public CheaterDTO() {
+		super();
+	}
 	
 	public int getCount() {
 		return count;
