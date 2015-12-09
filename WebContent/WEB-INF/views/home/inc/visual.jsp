@@ -24,7 +24,6 @@ ul#topnav li span { ;float: left; padding: 6px 0; position: absolute; left: 0; t
 ul#topnav li:hover span { display: block; }
 ul#topnav li span a { display: inline; }
 ul#topnav li span a:hover { text-decoration: underline; }
-ul#topnav li:hover 
 </style>
 <body>
 <ul id="topnav">
