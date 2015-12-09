@@ -7,14 +7,9 @@
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
       function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['직거래피해',     ${countTrade}],
-          ['게임, 비실물 피해',      ${countGame}],
-          ['비매너 피해', ${countManner}]
-        ]);
+        var data = google.visualization.arrayToDataTable(${countItems});
         var options = {
-          title: '사기피해 종류'
+          title: '사기피해 물품 종류'
         };
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
         chart.draw(data, options);
@@ -63,17 +58,17 @@
     }
   </script>
 <div class="container">
-	<h2>피해사례 통계</h2>
+	<h2>피해사례 통계${countItems}</h2>
 	<div class="well well-sm">
 		<FORM METHOD="POST" name="search_submit" ACTION="./?mod=_statistics">
 			<div style="height: 20px;"></div>
 			<div class="boxTypeC di_searchArea al">
 				<strong>기간설정</strong> <select name="start_year" id="start_year"
 					title="시작 년 선택">
-					<c:forEach begin="${year + 1900 - 10}" end="${year + 1900 + 5}"
+					<c:forEach begin="${end_year - 10}" end="${end_year}"
 						var="years">
 						<c:choose>
-							<c:when test="${years == year+1900}">
+							<c:when test="${years == start_year}">
 								<option value="${years}" selected>${years}</option>
 							</c:when>
 							<c:otherwise>
@@ -84,7 +79,7 @@
 				</select>년 <select name="start_month" id="start_month" title="시작 월 선택">
 					<c:forEach begin="01" end="12" var="months">
 						<c:choose>
-							<c:when test="${months == month+1}">
+							<c:when test="${months == start_month}">
 								<option value="${months}" selected>${months}</option>
 							</c:when>
 							<c:otherwise>
@@ -93,10 +88,10 @@
 						</c:choose>
 					</c:forEach>
 				</select>월 - <select name="end_year" id="end_year" title="끝 년 선택">
-					<c:forEach begin="${year + 1900 - 10}" end="${year + 1900 + 3}"
+					<c:forEach begin="${end_year - 10}" end="${end_year}"
 						var="years">
 						<c:choose>
-							<c:when test="${years == year+1900}">
+							<c:when test="${years == end_year}">
 								<option value="${years}" selected>${years}</option>
 							</c:when>
 							<c:otherwise>
@@ -107,7 +102,7 @@
 				</select>년 <select name="end_month" id="end_month" title="끝 월 선택">
 					<c:forEach begin="01" end="12" var="months">
 						<c:choose>
-							<c:when test="${months == month+1}">
+							<c:when test="${months == end_month}">
 								<option value="${months}" selected>${months}</option>
 							</c:when>
 							<c:otherwise>
@@ -115,9 +110,7 @@
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
-				</select>월 <a href="./?mod=_home"
-					onclick="return confirm('로그인 후 사용 가능한 기능입니다.\n확인을 누르면 로그인 화면으로 이동합니다.');"><img
-					src="chartimages/N_1.PNG" alt="조회하기"></a> &nbsp;※ 2015년 10월까지를
+				</select>월 <input type="button" id="chartSelect" class="btn btn-primary btn-xs" value="조회하기"> &nbsp;※ 2015년 10월까지를
 				선택하면 2015년 10월 말일까지의 통계가 조회됩니다.
 			</div>
 		</FORM>
