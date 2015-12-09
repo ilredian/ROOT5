@@ -99,7 +99,9 @@
 	</table>
 	<div style="text-align: center;">
 		<c:set var="rpager" value="${rpager.toString()}" />
+		<ul class="pagination">
 		${rpager}
+		</ul>
 	</div>
 	<br>
 	<div style="text-align: center;">

@@ -34,7 +34,9 @@
 </div>
 <div id="b">
 	<c:set var="pager" value="${pager.toString()}" />
+	<ul class="pagination">
 	${pager}
+	</ul>
 </div>
 <div>
 	<button id="a">

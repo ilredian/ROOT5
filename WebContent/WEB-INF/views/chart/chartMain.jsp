@@ -58,7 +58,7 @@
     }
   </script>
 <div class="container">
-	<h2>피해사례 통계${countItems}</h2>
+	<h2>피해사례 통계</h2>
 	<div class="well well-sm">
 		<FORM METHOD="POST" name="search_submit" ACTION="./?mod=_statistics">
 			<div style="height: 20px;"></div>

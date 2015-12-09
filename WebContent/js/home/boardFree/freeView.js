@@ -36,7 +36,7 @@ $('.updateReply').click(function(data){
 	var id = data.target.id;
 	var hide = data.target.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes[3].childNodes[1];
 	var $div = $(data.target.parentNode);
-	
+
 	$div.empty();
 	$div.append("<a style='color:red;' href='"+cancel+"'>수정 취소</a>");
 

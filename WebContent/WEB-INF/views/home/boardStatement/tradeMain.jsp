@@ -34,7 +34,9 @@
 </div>
 <div style="text-align: center;">
 	<c:set var="pager" value="${pager.toString()}" />
+	<ul class="pagination">
 	${pager}
+	</ul>
 </div>
 <div style="float: left;">
 </div>

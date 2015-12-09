@@ -250,9 +250,9 @@ public class BoardControllerNotice {//공지사항 게시판
 			
 			if(result == 1){
 				System.out.println("공지사항 게시판 수정완료");
-				out.print("<script>alter('게시물 수정이 성공적으로 처리되었습니다.');location.replace('noticeMain.go?pg=" + page + addURI + "');</script>");
+				out.print("<script>alert('게시물 수정이 성공적으로 처리되었습니다.');location.replace('noticeMain.go?pg=" + page + addURI + "');</script>");
 			}else{
-				out.print("<script>alter('게시물 수정에 실패하였습니다.');location.replace('index.go');</script>");
+				out.print("<script>alert('게시물 수정에 실패하였습니다.');location.replace('index.go');</script>");
 			}
 			out.close();
 		}
@@ -274,10 +274,10 @@ public class BoardControllerNotice {//공지사항 게시판
 			
 			if(result == 1){
 				System.out.println("공지사항 게시판 게시물 삭제(active 수정)완료");
-				out.print("<script>alter('게시물 삭제가 성공적으로 처리되었습니다.');location.replace('noticeMain.go?pg=1');</script>");
+				out.print("<script>alert('게시물 삭제가 성공적으로 처리되었습니다.');location.replace('noticeMain.go?pg=1');</script>");
 			}else{
 				System.out.println("공지사항 게시판 게시물을 삭제(active 수정)할 수 없습니다.");
-				out.print("<script>alter('게시물 삭제에 실패하였습니다.');location.replace('noticeMain.go?pg=1');</script>");
+				out.print("<script>alert('게시물 삭제에 실패하였습니다.');location.replace('noticeMain.go?pg=1');</script>");
 			}
 			out.close();
 		}
