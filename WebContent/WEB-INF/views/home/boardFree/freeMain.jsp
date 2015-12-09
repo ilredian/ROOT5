@@ -7,9 +7,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="container freeMain">
 
-	<h2>자유게시판</h2>
+	<h2>--º&nbsp; 자유게시판&nbsp; º-- </h2>  *AhnCheat회원들이 자유롭게 소통할 수 있는 공간<br><br><br>
 	<p>
-		Total :
+		▶Total :
 		<c:out value="${boardCount}" />
 	</p>
 
