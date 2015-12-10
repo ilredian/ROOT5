@@ -27,7 +27,30 @@ public class HomeController {
 	private SqlSession sqlSession;
 
 	@RequestMapping("index.go")
-	public String index(){
+	public String index(	HttpSession session,
+			Model model)throws Exception{
+		
+		  // 전체 방문자 수 +1
+		
+		VisitDAO visitDAO = sqlSession.getMapper(VisitDAO.class);
+		visitDAO.setVisitTotalCount();
+		System.out.println("메세지 수정완료");
+     
+		
+		
+      // 오늘 방문자 수
+      int todayCount = visitDAO.getVisitTodayCount();
+       
+      // 전체 방문자 수
+      int totalCount = visitDAO.getVisitTotalCount();
+      
+      System.out.println("todayCount: "+todayCount);
+      System.out.println("totalCount: "+totalCount);
+      
+		model.addAttribute("totalCount", totalCount);// 전체 방문자 수
+		model.addAttribute("todayCount", todayCount); // 오늘 방문자 수
+		
+      
 		return "main.index";
 	}
 	
@@ -38,23 +61,7 @@ public class HomeController {
 		
 
 		
-/*		
-		  // 전체 방문자 수 +1
-		
-		VisitDAO visitDAO = sqlSession.getMapper(VisitDAO.class);
-		visitDAO.setVisitTotalCount();
-		System.out.println("메세지 수정완료");
-       */
-		
-		
-    /*    // 오늘 방문자 수
-        int todayCount = visitDAO.getVisitTodayCount();
-         
-        // 전체 방문자 수
-        int totalCount = visitDAO.getVisitTotalCount();
-        
-        */
-        
+	
 		 
 		// 로그 남기기
 		System.out.println("관심 지정 진술서 비교");
@@ -114,9 +121,7 @@ public class HomeController {
 		
 		// model에 담기
 		model.addAttribute("list", list);
-/*		model.addAttribute("totalCount", totalCount);// 전체 방문자 수
-		model.addAttribute("todayCount", todayCount); // 오늘 방문자 수
-		*/
+
 		// 로그 남기기
 		System.out.println("홈으로 이동");
 		

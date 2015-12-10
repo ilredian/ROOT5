@@ -239,10 +239,9 @@
 			<div
 				style="margin-left: -16px; width: 214px; height: 165px; float: left;">
 				
-<%-- 				전체 방문자 수: ${totalCount}
-				오늘의 방문자 수: ${todayCount}
+	
 
-				 --%>
+				
 			</div>
 		</div>
 		<div class="col-sm-6"
