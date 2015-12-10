@@ -1,51 +1,44 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="container">
 	비매너 피해 사례 수 : <c:out value="${boardCount}"></c:out>
-	<!-- <table class="table table-hover table-responsive">
-				<thead>
-					<tr>
-						<th>번호</th>
-						<th>피해물품</th>
-						<th>용의자명</th>
-						<th>용의자 계좌번호</th>
-						<th>용의자 연락처</th>
-						<th>등록일</th>
-						<th>내용</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>1</td>
-						<td>핸드폰</td>
-						<td>이 oo</td>
-						<td>111-1111-1111-1110</td>
-						<td>010-1234-5678</td>
-						<td>2015.10.10</td>
-						<td><button type="submit"><a href="#">자세히 보기</a></button></td>
-					</tr>
-				</tbody>
-			</table> -->
+	<table class="table table-hover table-responsive">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>피해물품</th>
+				<th>용의자명</th>
+				<th>용의자 계좌번호</th>
+				<th>용의자 연락처</th>
+				<th>등록일</th>
+				<th>내용</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="list" items="${list}">
+				<tr>
+					<td>${list.stateno}</td>
+					<td>${list.goodsname}</td>
+					<td>${list.cheatername}</td>
+					<td>${list.account}</td>
+					<td>${list.phone}</td>
+					<td>${list.regdate}</td>
+					<td><input type="button" class="viewBtn" value="자세히보기"
+						id="statementView.go?sno=${list.stateno}&cno=3"></td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 </div>
-<div class="container">
-	서비스 이용 안내
-	<div class="well well-sm">
-		요청하신 페이지는 권한이 있어야 접근 가능한 페이지입니다.<br> 로그인후에도 본 페이지가 보여지면 열람 권한이 없는
-		경우입니다.<br> ※ 비회원인 경우에는 동일한 아이피에서 작성한 (본인)게시물의열람이 가능합니다.<br>
-	</div>
-</div>
-<!-- <div style="float: left;">
-			<button id="list">
-				<a href="#">목록</a>
-			</button>
-			<button id="next">
-				<a href="#">다음</a>
-			</button>
 
-		</div> -->
-<div style="text-align: center; clear:both;">
+<div>
+	<button id="a">
+		<a href="game.go">사기피해사례 등록</a>
+	</button>
+</div>
+<div id="b" style="text-align: center; clear:both;">
 	<c:set var="pager" value="${pager.toString()}" />
 	<ul class="pagination">
 	${pager}

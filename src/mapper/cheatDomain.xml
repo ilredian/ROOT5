@@ -7,11 +7,17 @@
 		SELECT *
 		FROM cheatdomain
 	</select>
+	
+	<select id="getDomain" parameterType="DTO.CheatDomainDTO" resultType="Integer">
+		SELECT count(*)
+		FROM cheatdomain
+		WHERE domain = '${domain}'
+	</select>
 
 	<update id="updateDomain" parameterType="DTO.CheatDomainDTO">
 		UPDATE cheatdomain
-		SET domain=#{domain}, domainname=#{domainname}
-		WHERE domainname = #{domainname}
+		SET domain='${param1}', domainname='${param2}'
+		WHERE domain = '${param3}'
 	</update>
 
 	<insert id="insertDomain" parameterType="DTO.CheatDomainDTO">

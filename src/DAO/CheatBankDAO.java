@@ -13,8 +13,11 @@ public interface CheatBankDAO {
 	// 0,63 - 모든 리스트
 	public List<CheatBankDTO> getList(int start, int end) throws Exception;
 	
+	// 은행 정보 있나 확인
+	public int getBank(CheatBankDTO cheatBankDTO) throws Exception;
+	
 	// 은행 리스트 수정
-	public int updateBank(CheatBankDTO cheatBankDTO) throws Exception;
+	public int updateBank(String bankname, String origin) throws Exception;
 	
 	// 은행 리스트 추가
 	public int insertBank(CheatBankDTO cheatBankDTO) throws Exception;

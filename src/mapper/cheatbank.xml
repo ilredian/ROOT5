@@ -9,10 +9,16 @@
 		LIMIT #{param1}, ${param2}
 	</select>
 	
-	<update id="updateBank" parameterType="DTO.CheatBankDTO">
-		UPDATE cheatbank
-		SET bankname = #{bankname}
+	<select id="getBank" parameterType="DTO.CheatBankDTO" resultType="Integer">
+		SELECT count(*)
+		FROM cheatbank
 		WHERE bankname = #{bankname}
+	</select>
+	
+	<update id="updateBank">
+		UPDATE cheatbank
+		SET bankname = '${param1}'
+		WHERE bankname = '${param2}'
 	</update>
 	
 	<insert id="insertBank" parameterType="DTO.CheatBankDTO">

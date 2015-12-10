@@ -3,11 +3,12 @@
    pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<form action="" method="post" name="writeForm">
-   <div class="container">
-      <h3>게임, 비실물 피해사례 등록</h3>
-      <p>피해사례 등록이 완료되면 피해자를 위한 기능이 실시간 제공됩니다.</p>
-      <br>
+
+<form action="" method="post" name="writeForm" id="frm">
+	<div class="container">
+		<h3>게임, 비실물 피해사례 등록</h3>
+		<p>피해사례 등록이 완료되면 피해자를 위한 기능이 실시간 제공됩니다.</p>
+		<br>
 
       <div style="float: left;">
          <h3>피해 발생 사이트 정보</h3>
@@ -343,19 +344,19 @@
 ② 개인적인 앙심 또는 괘씸함 등 사기범죄 외의 사유로 등록하시는 경우, 명예훼손에 해당될 수 있으며 이는 민·형사상의 불이익을 받을 수 있습니다.
 ③ 제품에 대한 상태불만, 반품거부, 택배비 착불등의 사례 등록은 영업방해 및 명예훼손에 해당될 수 있습니다.
         </textarea>
-         <div class="alert_cheat_write alert_cheat_write-info">
-            <b><input type="checkbox" name="cheat_rule_c" value="1"
-               id="cheat_rule_c" valign="bottom"
-               onclick="return cheat_rule_check(cheat_rule.value)" /> <label
-               for="cheat_rule_c">피해사례 등록 약관에 동의합니다.(필수)</label></b> <input
-               type="hidden" readonly name="cheat_rule" value="" valign="bottom"
-               style="width: 0px; height: 0px;">
-         </div>
-         <div class="container">
-            <input type="submit" id="gamebtn" class="btn btn-info btn-block"
-               value="피해사례 등록 약관에 동의하며, 피해사례를 등록합니다.">
-         </div>
-         <!--<input type="submit" value="" name="" onclick="return confirm('확인 버튼을 누른 후 피해사례가 등록될 때 까지 기다려 주세요.');"/>-->
-      </div>
-   </div>
+			<div class="alert_cheat_write alert_cheat_write-info">
+				<b><input type="checkbox" name="cheat_rule_c" value="1"
+					id="cheat_rule_c" valign="bottom"
+					onclick="return cheat_rule_check(cheat_rule.value)" /> <label
+					for="cheat_rule_c">피해사례 등록 약관에 동의합니다.(필수)</label></b> <input
+					type="hidden" readonly name="cheat_rule" value="" valign="bottom"
+					style="width: 0px; height: 0px;">
+			</div>
+			<div class="container">
+				<input type="button" id="gamebtn" class="btn btn-info btn-block" id="savebutton"
+					value="피해사례 등록 약관에 동의하며, 피해사례를 등록합니다.">
+			</div>
+			<!--<input type="submit" value="" name="" onclick="return confirm('확인 버튼을 누른 후 피해사례가 등록될 때 까지 기다려 주세요.');"/>-->
+		</div>
+	</div>
 </form>
