@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import DAO.CheaterDAO;
+import DAO.MemberDAO;
 import DTO.CheaterDTO;
+import DTO.MemberDTO;
 import common.StatementPager;
 
 //피해 사례 현황 게시판
@@ -64,21 +66,15 @@ public class BoardStatementController {
 			go = "home.boardStatement.gameMain";
 			break;
 
-		case 3:// 사기종류 카테고리번호가 3일 경우 스팸 피해 사례 페이지로 이동
-			System.out.println("스팸 피해 사례 페이지 이동");
-			go = "home.boardStatement.spamMain";
-			break;
-
-		case 4:// 사기종류 카테고리번호가 4일 경우 비매너 피해 사례 페이지로 이동
+		case 3:// 사기종류 카테고리번호가 4일 경우 비매너 피해 사례 페이지로 이동
 			System.out.println("비매너 피해 사례 페이지 이동");
 			go = "home.boardStatement.mannerMain";
 			break;
 		}
-
 		return go;
 	}
 
-	// 게임 피해 사례 상세 내용
+	// 피해 사례 상세 내용
 	@RequestMapping("statementView.go")
 	public String gameView(//get으로 들어오는 parameter값 선언 및 기본값 설정
 							@RequestParam(value="sno",required =false, defaultValue="1") int stateno, 
@@ -89,14 +85,17 @@ public class BoardStatementController {
 		
 		// 로그 남기기
 		System.out.println(stateno + " / " + cheatno);
-/*
-		// 마이바티스로 넘기기
+
+		// 해당 진술서 정보 및 그 진술서를 쓴 회원 정보 불러오기
 		CheaterDAO cheaterDAO = sqlSession.getMapper(CheaterDAO.class);
 		CheaterDTO cheaterDTO = cheaterDAO.getCheater(stateno);
+		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
+		MemberDTO memberDTO = memberDAO.getMemberStat(cheaterDTO.getMemberno());
 
 		// 모델에 담기
 		model.addAttribute("cheaterDTO", cheaterDTO);
-*/
+		model.addAttribute("memberDTO", memberDTO);
+
 		// 페이지 이동 구분하기
 		switch (cheatno) {
 		
@@ -110,17 +109,11 @@ public class BoardStatementController {
 			go = "home.boardStatement.gameView";
 			break;
 
-		case 3:// 사기종류 카테고리번호가 3일 경우 스팸 피해 사례 상세 내용 이동
-			System.out.println("스팸 피해 사례 상세보기 이동");
-			go = "home.boardStatement.spamView";
-			break;
-
-		case 4:// 사기종류 카테고리번호가 4일 경우 비매너 피해 사례 상세 내용 이동
+		case 3:// 사기종류 카테고리번호가 3일 경우 비매너 피해 사례 상세 내용 이동
 			System.out.println("비매너 피해 사례 상세보기 이동");
 			go = "home.boardStatement.mannerView";
 			break;
 		}
-
 		return go;
 	}
 }

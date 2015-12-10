@@ -8,6 +8,13 @@
 	<select id="getMember" parameterType="DTO.MemberDTO" resultType="DTO.MemberDTO">
 		SELECT * FROM memberdb WHERE email=#{EMAIL}
 	</select>
+	
+	<!-- 회원번호를 이용한 회원정보 불러오기 -->
+	<select id="getMemberStat" resultType="DTO.MemberDTO">
+		SELECT * 
+		FROM memberdb 
+		WHERE memberno=#{memberno}
+	</select>
 
 	<!-- 회원 가입 -->
 	<insert id="insert" parameterType="DTO.MemberDTO">
