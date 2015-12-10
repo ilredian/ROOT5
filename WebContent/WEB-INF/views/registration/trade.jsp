@@ -301,8 +301,7 @@
 					1.물품을 받은 경우에는 물품 사진을 첨부하세요.
 					<br>
 					2.용의자의 주민등록번호와 사진은 절대 등록하시면 안됩니다.(피해사례 등록자가 법적 처벌을 받을 수 있습니다.) 
-						<textarea id="editor" style="HEIGHT: 300px; WIDTH: 100%" rows="10" cols="30" name="content">
-						</textarea>
+						<textarea id="editor" style="HEIGHT: 300px; WIDTH: 100%" rows="10" cols="30" name="content"></textarea>
 					</td>
 				</tr>
 			</table>
@@ -472,7 +471,5 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 			<input type="submit" class="btn btn-info btn-block"
 				value="피해사례 등록 약관에 동의하며, 피해사례를 등록합니다.">
 		</div>
-		<!-- <input type="submit" value="" name="" onclick="return confirm('확인 버튼을 누른 후 피해사례가 등록될 때 까지 기다려 주세요.');"/> -->
-		
 	</div>
 </form>
