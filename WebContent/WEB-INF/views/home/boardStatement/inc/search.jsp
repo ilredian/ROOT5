@@ -5,12 +5,9 @@
 
 <div class="container">
 	<ul class="nav nav-tabs">
-		<li role="presentation" id="tradeMain"><a
-			href="statementMain.go?cno=1">직거래</a></li>
-		<li role="presentation" id="gameMain"><a
-			href="statementMain.go?cno=2">게임.비실물</a></li>
-		<li role="presentation" id="mannerMain"><a
-			href="statementMain.go?cno=4">비매너</a></li>
+		<li role="presentation" id="tradeMain"><a href="statementMain.go?cno=1">직거래</a></li>
+		<li role="presentation" id="gameMain"><a href="statementMain.go?cno=2">게임.비실물</a></li>
+		<li role="presentation" id="mannerMain"><a href="statementMain.go?cno=3">비매너</a></li>
 	</ul>
 </div>
 <div class="container">

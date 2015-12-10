@@ -13,6 +13,9 @@ public interface MemberDAO {
 	//회원 한명 정보
 	public MemberDTO getMember(String email) throws Exception;
 	
+	//회원 정보 불러오기
+	public MemberDTO getMemberStat(int memberno) throws Exception;
+	
 	//회원가입
 	public int insert(MemberDTO member) throws Exception;
 	
