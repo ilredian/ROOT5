@@ -75,7 +75,7 @@
 
 				<tr>
 					<th class="active" style="width: 150;"><label for="s_id">물품명</label>
-					<code>*</code></th>
+						<code>*</code></th>
 					<td><input type="text" class="txt" name="subject" id="subject"
 						value="" placeholder="거래한 물품의 물풍명 또는 모델명을 입력하세요."
 						style="width: 580px;" maxlength="200"></td>
@@ -320,13 +320,14 @@
 							name="content"></textarea>
 					</td>
 				</tr>
-		</div>
-		<br>
+				</div>
+				<br>
+
 
 		<tr>
 			<th class="active">약관 동의</th>
-			<td><textarea cols=60 rows=10
-					style="width: 1000px; height: 300px;">
+			<td><textarea cols=60 rows=10 style="width: 1000px; height: 300px;">
+
 피해사례 등록 약관
             
 1. 본인이 등록한 피해사례 정보는 용의자 검거 및 피해 방지를 위한 목적으로 등록된 기관에 제공됨을 동의합니다.
@@ -460,6 +461,7 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 보존 이유 : 통신비밀보호법
 
 보존 기간 : 3개월
+
          
 </textarea>
 				<div class="alert_cheat_write alert_cheat_write-info">
@@ -484,6 +486,7 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 			</td>
 		</tr>
 		</table>
+
 
 
 	<input type="hidden" id="agreement_1h" value="0" name="agreement_1h"
