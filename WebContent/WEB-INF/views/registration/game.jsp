@@ -320,15 +320,15 @@
                      name="content"></textarea>
                </td>
             </tr>
-         </table>
+         
       </div>
       <br>
-      <div class="container" align="center">
-         <h3>피해사례 등록 약관</h3>
-      </div>
-      <div class="container" align="center">
-         <textarea rows="" cols="" readonly="readonly"
-            style="margin: 0px; width: 900px; height: 300px;">
+      <tr>
+        <th class="active">약관 동의</th>
+      <td><input type="checkbox" id=chk1> <label for="chk1">서비스
+							이용약관에 동의합니다.(필수)</label><br> <input type="checkbox" id=chk2>
+						<label for="chk2">개인정보 수집 및 이용에 동의합니다.(필수)</label> <textarea
+							cols=60 rows=10 style="width: 900px; height: 300px;">
         피해사례 등록 약관
             
 1. 본인이 등록한 피해사례 정보는 용의자 검거 및 피해 방지를 위한 목적으로 공인된 수사기관에 제공됨을 동의합니다.
@@ -343,7 +343,7 @@
 사람을 비방할 목적으로 정보통신망을 통하여 공연히 허위의 사실을 적시하여 타인의 명예를 훼손하는 경우에는 7년 이하의 징역, 10년 이하의 자격정지 또는 5천만원 이하의 벌금에 처할 수 있습니다.
 ② 개인적인 앙심 또는 괘씸함 등 사기범죄 외의 사유로 등록하시는 경우, 명예훼손에 해당될 수 있으며 이는 민·형사상의 불이익을 받을 수 있습니다.
 ③ 제품에 대한 상태불만, 반품거부, 택배비 착불등의 사례 등록은 영업방해 및 명예훼손에 해당될 수 있습니다.
-        </textarea>
+        </textarea></td></tr>
 			<div class="alert_cheat_write alert_cheat_write-info">
 				<b><input type="checkbox" name="cheat_rule_c" value="1"
 					id="cheat_rule_c" valign="bottom"
@@ -351,10 +351,12 @@
 					for="cheat_rule_c">피해사례 등록 약관에 동의합니다.(필수)</label></b> <input
 					type="hidden" readonly name="cheat_rule" value="" valign="bottom"
 					style="width: 0px; height: 0px;">
+					</table>
 			</div>
 			<div class="container">
 				<input type="button" id="gamebtn" class="btn btn-info btn-block" id="savebutton"
 					value="피해사례 등록 약관에 동의하며, 피해사례를 등록합니다.">
+					
 			</div>
 			<!--<input type="submit" value="" name="" onclick="return confirm('확인 버튼을 누른 후 피해사례가 등록될 때 까지 기다려 주세요.');"/>-->
 		</div>

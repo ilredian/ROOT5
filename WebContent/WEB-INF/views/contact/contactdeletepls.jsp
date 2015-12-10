@@ -148,7 +148,7 @@
 					<td><input type="checkbox" id=chk1> <label for="chk1">서비스
 							이용약관에 동의합니다.(필수)</label><br> <input type="checkbox" id=chk2>
 						<label for="chk2">개인정보 수집 및 이용에 동의합니다.(필수)</label> <textarea
-							cols=60 rows=10 style="width: 850px; height: 150px;">
+							cols=60 rows=10 style="width: 900px; height: 300px;">
 1. 수집하는 개인정보 항목
 
 안치트는 회원가입, 원활한 회원 문의, 각종 서비스 등 기본적인 서비스 제공을 위한 필수정보와 회원 맞춤 서비스 제공을 위한 선택정보로 구분하여 아래와 같은 개인정보를 수집하고 있습니다.
