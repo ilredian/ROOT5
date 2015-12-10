@@ -43,6 +43,9 @@
 				<br><br><h4 style="float:left;margin-right:5px;vertical-align: middle;"><strong>&nbsp;&nbsp;피해사례검색</strong></h4>
 				<input style="width: 60%; margin-top:6px; float:left; vertical-align: middle;" type="text" placeholder="로그인후 피해사례를 검색 가능"  size="30">
 			</div>
+			<div>
+			<a href="index.go"><input type="button" class="btn btn-info pull-center" value="검색"></a>
+			</div>
 		</div>
 		<div class="col-sm-3"
 			style="margin: 10px; height: 165px; width: 515px; background-color: white; border: 1px solid lightgray; padding: 20px;">

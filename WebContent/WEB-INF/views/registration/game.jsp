@@ -5,18 +5,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <form action="" method="get">
 	<div class="container">
-		<h3>게임, 비실불 피해사례 등록</h3>
+		<h3>게임, 비실물 피해사례 등록</h3>
 		<p>피해사례 등록이 완려되면 피해자를 위한 기능이 실시간 제공됩니다.</p>
 		<br>
-		<h3>피해 발생 사이트 정보</h3>
+		<div style="float: left;">
+			<h3>피해 발생 사이트 정보</h3>
+		</div>
+		<div style="float: right;">
+			<h6>
+				<code>*</code>
+				는 필수 기재 항목입니다
+			</h6>
+		</div>
 		<table class="table">
-			<caption>피해 발생 사이트에 대한 사이트명, 거래물품종류, 용의자 아이디, 사기 게시물 링크 입력폼</caption>
-			<colgroup>
-				<col width="150">
-				<col width="*">
-			</colgroup>
 			<tr>
-				<th class="active"><label for="s_stie">사이트명(URL)</label> <span class="bltS_A">*</span></th>
+				<th class="active"><label for="s_stie">사이트명(URL)</label>
+				<code>*</code></th>
 				<td><input type="hidden" name="category" value="신고"> <select
 					name="cheat_site_temp"
 					onchange="javascript:if(cheat_site_temp.value == '1'){ cheat_site.readOnly = false; cheat_site.focus(); } else{ cheat_site.value = cheat_site_temp.value; cheat_site.readOnly = true; cheat_site.focus(); }"
@@ -39,7 +43,7 @@
 					maxlength="30" /></td>
 			</tr>
 			<tr>
-				<th class="active">거래 물품 종류 <span class="bltS_A">*</span></th>
+				<th class="active">거래 물품 종류 <code>*</code></th>
 				<td>
 					<ul class="damageGoodsDealList">
 						<il class="first oneLine" style="float: left;"> <input
@@ -81,7 +85,7 @@
 			</tr>
 
 			<tr>
-				<th class="active"><label for="s_id">물품명 <span class="bltS_A">*</span></th>
+				<th class="active"><label for="s_id">물품명 <code>*</code></th>
 				<td><input type="text" class="txt" name="subject" id="s_id"
 					value="" placeholder="거래한 물품의 물풍명 또는 모델명을 입력하세요."
 					style="width: 580px;" maxlength="200"></td>
@@ -102,20 +106,19 @@
 			</tr>
 		</table>
 
-		<h3>용의자(사기범) 정보</h3>
-		<p class="infoTxtTop">
-			<span class="bltS_A">*</span> 는 필수 기재 항목입니다
-		</p>
+		<div style="float: left;">
+			<h3>용의자(사기범) 정보</h3>
+		</div>
+		<div style="float: right;">
+			<h6>
+				<code>*</code>
+				는 필수 기재 항목입니다
+			</h6>
+		</div>
 
 		<table class="table">
-			<caption>용의자 정보에 대한 계좌정보, 은행명, 명의자 성명, 계좌번호, 입금 금액, 입금일,
-				연락처 정보, 연락처, 성별, 용의자 특징 입력 폼</caption>
-			<colgroup>
-				<col width="150">
-				<col width="*">
-			</colgroup>
 			<tr>
-				<th class="active">계좌정보 <span class="bltS_A">*</span></th>
+				<th class="active">계좌정보<code>*</code></th>
 				<td><input type="checkbox" name="cheat_account_none"
 					class="chk" id="su_bankNumchk"
 					onclick="javascript:if($('#show_bank_info_1').css('display')!='none'){document.writeForm.cheat_bank.value='직거래';cheat_account.value='모름';cheat_suspect.value='모름';cheat_price.value='0'; $('#show_bank_info_1').css({display: 'none'}); $('#show_bank_info_2').css({display: 'none'}); $('#show_bank_info_3').css({display: 'none'}); $('#show_bank_info_4').css({display: 'none'}); $('#show_bank_info_5').css({display: 'none'}); }else {$('#show_bank_info_1').css({display: ''}); $('#show_bank_info_2').css({display: ''}); $('#show_bank_info_3').css({display: ''}); $('#show_bank_info_4').css({display: ''}); $('#show_bank_info_5').css({display: ''});}"><label
@@ -123,7 +126,8 @@
 			</tr>
 
 			<tr id="show_bank_info_1">
-				<th class="active"><label for="su_bank">은행명</label> <span class="bltS_A">*</span></th>
+				<th class="active"><label for="su_bank">은행명</label>
+				<code>*</code></th>
 				<td><select name="cheat_bank" id="su_bank" title="은행선택"
 					style="width: 230px;">
 						<option selected value=0>은행선택(가나다 순)</option>
@@ -200,14 +204,16 @@
 			</tr>
 
 			<tr id="show_bank_info_2">
-				<th class="active"><label for="su_name">명의자 성명</label> <span class="bltS_A">*</span></th>
+				<th class="active"><label for="su_name">명의자 성명</label>
+				<code>*</code></th>
 				<td><input type="text" class="txt" name="cheat_suspect"
 					id="su_name" style="width: 230px;" maxlength="16" value=""
 					placeholder="계좌 명의자명을 입력하세요."></td>
 			</tr>
 
 			<tr id="show_bank_info_3">
-				<th class="active"><label for="su_bankNum">계좌 번호</label> <span class="bltS_A">*</span></th>
+				<th class="active"><label for="su_bankNum">계좌 번호</label>
+				<code>*</code></th>
 				<td><input type="text" class="txt" name="cheat_account"
 					id="su_bankNum" value="" style="width: 230px;"
 					style="ime-mode:disabled;"
@@ -216,7 +222,8 @@
 			</tr>
 
 			<tr id="show_bank_info_4">
-				<th class="active"><label for="su_sum">입금 금액</label> <span class="bltS_A">*</span></th>
+				<th class="active"><label for="su_sum">입금 금액</label>
+				<code>*</code></th>
 				<td><input type="text" class="txt" name="cheat_price" value=""
 					placeholder="피해금액을 원 단위로 입력하세요." id="su_sum"
 					style="width: 230px; ime-mode: disabled;"
@@ -225,7 +232,8 @@
 			</tr>
 
 			<tr id="show_bank_info_5">
-				<th class="active"><label for="su_dateY">입금일</label> <span class="bltS_A">*</span></th>
+				<th class="active"><label for="su_dateY">입금일</label>
+				<code>*</code></th>
 				<td><input type="hidden" name="cheat_date" value=""
 					class="thecheat_input" /> <select name="cheat_date_temp_1"
 					id="su_dateY" title="연도선택" style="width: 80px;"
@@ -288,7 +296,7 @@
 			</tr>
 
 			<tr>
-				<th class="active">연락처 정보 <span class="bltS_A">*</span></th>
+				<th class="active">연락처 정보 <code>*</code></th>
 				<td><input type="checkbox" name="cheat_phone_none" class="chk"
 					id="su_telchk"
 					onclick="javascript:if($('#show_tel_info').css('display')!='none'){document.writeForm.cheat_phone1.value='010';cheat_phone2.value='0000';cheat_phone3.value='0000';cheat_phone.value='01000000000';$('#show_tel_info').css({display: 'none'}); }else { $('#show_tel_info').css({display: ''}); }" /><label
@@ -296,7 +304,8 @@
 			</tr>
 
 			<tr id="show_tel_info">
-				<th class="active"><label for="su_tel">연락처</label> <span class="bltS_A">*</span></th>
+				<th class="active"><label for="su_tel">연락처</label>
+				<code>*</code></th>
 				<td><select name="cheat_phone1" id="su_tel" title="국번선택"
 					style="width: 80px;"
 					onchange="javascript:if(1){cheat_phone.value = cheat_phone1[cheat_phone1.selectedIndex].value + cheat_phone2.value + cheat_phone3.value }">
@@ -360,10 +369,15 @@
 		</table>
 	</div>
 	<div class="container">
-		<h3>피해자(본인) 정보</h3>
-		<p class="infoTxtTop">
-			<span class="bltS_A">*</span> 는 필수 기재 항목입니다
-		</p>
+		<div style="float: left;">
+			<h3>사건 개요 (진술서)</h3>
+		</div>
+		<div style="float: right;">
+			<h6>
+				<code>*</code>
+				는 필수 기재 항목입니다
+			</h6>
+		</div>
 	</div>
 	<div class="container" align="center">
 
@@ -371,7 +385,7 @@
 
 			<tr>
 				<th class="active" style="width: 150;"><label for="vi_pw">피해사례
-						비밀번호</label> <span class="bltS_A">*</span></th>
+						비밀번호</label> <code>*</code></th>
 				<td><input type="password" class="txt" name="pw" id="vi_pw"
 					value="" style="width: 230px;" maxlength="20"
 					placeholder="비밀번호를 입력하세요."></td>
@@ -379,31 +393,25 @@
 
 			<tr>
 				<th class="active" style="width: 150;"><label for="vi_name">성명</label>
-					<span class="bltS_A">*</span></th>
+					<code>*</code></th>
 				<td><input type="text" class="txt" name="name" value=""
 					id="vi_name" style="width: 230px;" placeholder="귀하의 성명을 입력하세요."></td>
 			</tr>
 
 			<tr>
 				<th class="active" style="width: 150;"><label for="vi_tel">연락처</label>
-					<span class="bltS_A">*</span></th>
+					<code>*</code></th>
 				<td><select name="member_phone1" id="vi_tel" title="국번선택"
 					style="width: 80px;"
 					onchange="javascript:if(1){member_phone.value = member_phone1[member_phone1.selectedIndex].value + member_phone2.value + member_phone3.value }">
 						<option selected value=0>선택</option>
 						<option value="010">010
-							<option value="011">011
-							
+						<option value="011">011
 						<option value="016">016
-							
 						<option value="017">017
-							
 						<option value="018">018
-							
 						<option value="019">019
-							
 						<option value="070">070
-					
 				</select> - <input type="text" name="member_phone2" class="txt" value=""
 					maxlength="4" title="가운데 자리 입력"
 					onchange="javascript:if(1){member_phone.value = member_phone1[member_phone1.selectedIndex].value + member_phone2.value + member_phone3.value }"
@@ -416,32 +424,31 @@
 					onKeyPress="return numbersonly(event, false)" /> <input
 					type="hidden" name="member_phone" id="member_phone" value=""
 					readonly /> <!--<iframe src="#" name="target_iframe" width="0" height="0" frameborder="0" marginwidth="0", marginheight="0" scrolling="no"></iframe>-->
-						<div style="padding-top: 5px;">
-								※ SMS가 수신되지 않는 경우, 스팸 문자함을 확인해 보세요. <br>※ 스팸 차단 앱을 설치한 경우에는
-							해당 앱의 스팸함을 확인해 보세요.
-							<!--<span style="background-color:yellow"><span class="explain_text_red"> (전송된 인증번호를 입력하세요.) </span></span>-->
-						</div>
-						</td>
-				</tr>
+					<div style="padding-top: 5px;">
+						※ SMS가 수신되지 않는 경우, 스팸 문자함을 확인해 보세요. <br>※ 스팸 차단 앱을 설치한 경우에는
+						해당 앱의 스팸함을 확인해 보세요.
+						<!--<span style="background-color:yellow"><span class="explain_text_red"> (전송된 인증번호를 입력하세요.) </span></span>-->
+					</div></td>
+			</tr>
 
 
 
-				<tr>
-					<th class="active" style="width: 150;"><label for="vi_email">이메일</label>
-						<span class="bltS_A">*</span></th>
-					<td><input type="text" class="txt" name="member_email"
+			<tr>
+				<th class="active" style="width: 150;"><label for="vi_email">이메일</label>
+					<code>*</code></th>
+				<td><input type="text" class="txt" name="member_email"
 					id="vi_email" value="" style="width: 230px;"
 					placeholder="귀하의 이메일 주소를 입력하세요."></td>
-				</tr>
-			</table>
-		</div>
-			</div>
-		<div class="container" align="center">
-			<h3>피해사례 등록 약관</h3>
-		</div>
-		<div class="container" align="center">
-			<textarea rows="" cols="" readonly="readonly"
-		style="margin: 0px; width: 900px; height: 300px;">
+			</tr>
+		</table>
+	</div>
+	</div>
+	<div class="container" align="center">
+		<h3>피해사례 등록 약관</h3>
+	</div>
+	<div class="container" align="center">
+		<textarea rows="" cols="" readonly="readonly"
+			style="margin: 0px; width: 900px; height: 300px;">
         피해사례 등록 약관
             
 1. 본인이 등록한 피해사례 정보는 용의자 검거 및 피해 방지를 위한 목적으로 공인된 수사기관에 제공됨을 동의합니다.
@@ -457,21 +464,21 @@
 ② 개인적인 앙심 또는 괘씸함 등 사기범죄 외의 사유로 등록하시는 경우, 명예훼손에 해당될 수 있으며 이는 민·형사상의 불이익을 받을 수 있습니다.
 ③ 제품에 대한 상태불만, 반품거부, 택배비 착불등의 사례 등록은 영업방해 및 명예훼손에 해당될 수 있습니다.
         </textarea>
-			<div class="alert_cheat_write alert_cheat_write-info">
-				<b><input type="checkbox" name="cheat_rule_c" value="1"
-			id="cheat_rule_c" valign="bottom"
-			onclick="return cheat_rule_check(cheat_rule.value)" /> <label
-			for="cheat_rule_c">피해사례 등록 약관에 동의합니다.(필수)</label></b> <input
-			type="hidden" readonly name="cheat_rule" value="" valign="bottom"
-			style="width: 0px; height: 0px;">
-			</div>
-			<div class="container">
-				<input type="button" id="gamebtn" class="btn btn-info btn-block"
-			value="피해사례 등록 약관에 동의하며, 피해사례를 등록합니다.">
-			</div>
-			<!--<input type="submit" value="" name="" onclick="return confirm('확인 버튼을 누른 후 피해사례가 등록될 때 까지 기다려 주세요.');"/>-->
+		<div class="alert_cheat_write alert_cheat_write-info">
+			<b><input type="checkbox" name="cheat_rule_c" value="1"
+				id="cheat_rule_c" valign="bottom"
+				onclick="return cheat_rule_check(cheat_rule.value)" /> <label
+				for="cheat_rule_c">피해사례 등록 약관에 동의합니다.(필수)</label></b> <input
+				type="hidden" readonly name="cheat_rule" value="" valign="bottom"
+				style="width: 0px; height: 0px;">
+		</div>
+		<div class="container">
+			<input type="button" id="gamebtn" class="btn btn-info btn-block"
+				value="피해사례 등록 약관에 동의하며, 피해사례를 등록합니다.">
+		</div>
+		<!--<input type="submit" value="" name="" onclick="return confirm('확인 버튼을 누른 후 피해사례가 등록될 때 까지 기다려 주세요.');"/>-->
 	</div>
-</div>
-</div>
-</div>
+	</div>
+	</div>
+	</div>
 </form>

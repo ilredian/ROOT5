@@ -7,12 +7,17 @@
 		<h3>직거래 피해사례 등록</h3>
 		<p>피해사례 등록이 완료되면 피해자를 위한 기능이 실시간 제공됩니다.</p>
 		<br>
-		
-		<div style="float:left;"><h3>피해 발생 사이트 정보</h3></div>
-		<div style="float:right;">
-			<h6><code>*</code> 는 필수 기재 항목입니다</h6>
+
+		<div style="float: left;">
+			<h3>피해 발생 사이트 정보</h3>
 		</div>
-		
+		<div style="float: right;">
+			<h6>
+				<code>*</code>
+				는 필수 기재 항목입니다
+			</h6>
+		</div>
+
 		<div class="container" align="center">
 			<table class="table">
 				<tr>
@@ -68,7 +73,8 @@
 				</tr>
 
 				<tr>
-					<th class="active" style="width: 150;"><label for="s_id">물품명</label><code>*</code></th>
+					<th class="active" style="width: 150;"><label for="s_id">물품명</label>
+					<code>*</code></th>
 					<td><input type="text" class="txt" name="subject" id="subject"
 						value="" placeholder="거래한 물품의 물풍명 또는 모델명을 입력하세요."
 						style="width: 580px;" maxlength="200"></td>
@@ -92,12 +98,17 @@
 				</tr>
 			</table>
 		</div>
-		
-		<div style="float:left;"><h3>용의자(사기범) 정보</h3></div>
-		<div style="float:right;">
-			<h6><code>*</code> 는 필수 기재 항목입니다</h6>
+
+		<div style="float: left;">
+			<h3>용의자(사기범) 정보</h3>
 		</div>
-		
+		<div style="float: right;">
+			<h6>
+				<code>*</code>
+				는 필수 기재 항목입니다
+			</h6>
+		</div>
+
 		<div class="container" align="center">
 			<table class="table">
 
@@ -286,22 +297,26 @@
 
 			</table>
 		</div>
-		
-		<div style="float:left;"><h3>사건 개요 (진술서)</h3></div>
-		<div style="float:right;">
-			<h6><code>*</code> 는 필수 기재 항목입니다</h6>
+
+		<div style="float: left;">
+			<h3>사건 개요 (진술서)</h3>
 		</div>
-		
-		
+		<div style="float: right;">
+			<h6>
+				<code>*</code>
+				는 필수 기재 항목입니다
+			</h6>
+		</div>
+
+
 		<div class="container" align="center">
 			<table class="table">
 				<tr>
 					<th class="active" style="width: 13%;">사건 발생 개요 <code>*</code></th>
-					<td>
-					1.물품을 받은 경우에는 물품 사진을 첨부하세요.
-					<br>
-					2.용의자의 주민등록번호와 사진은 절대 등록하시면 안됩니다.(피해사례 등록자가 법적 처벌을 받을 수 있습니다.) 
-						<textarea id="editor" style="HEIGHT: 300px; WIDTH: 100%" rows="10" cols="30" name="content">
+					<td>1.물품을 받은 경우에는 물품 사진을 첨부하세요. <br> 2.용의자의 주민등록번호와 사진은
+						절대 등록하시면 안됩니다.(피해사례 등록자가 법적 처벌을 받을 수 있습니다.) <textarea id="editor"
+							style="HEIGHT: 300px; WIDTH: 100%" rows="10" cols="30"
+							name="content">
 						</textarea>
 					</td>
 				</tr>
@@ -309,8 +324,8 @@
 		</div>
 		<br>
 
-<h3 align="center">피해사례 등록 약관</h3>
-		
+		<h3 align="center">피해사례 등록 약관</h3>
+
 		<div class="agreeArea" align="center">
 			<textarea rows="10px" cols="100px" readonly="readonly" style=""> 
 피해사례 등록 약관
@@ -473,6 +488,6 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 				value="피해사례 등록 약관에 동의하며, 피해사례를 등록합니다.">
 		</div>
 		<!-- <input type="submit" value="" name="" onclick="return confirm('확인 버튼을 누른 후 피해사례가 등록될 때 까지 기다려 주세요.');"/> -->
-		
+
 	</div>
 </form>
