@@ -32,32 +32,35 @@ public interface CheaterDAO {
 	/* 차트용 count 모음 */
 	//피해사례 수
 	//진술서 등록된 수 불러오기
-	public int getAllCheaterCount() throws Exception;
+	public int getAllCheaterCount(String start, String end) throws Exception;
 	
 	//카테고리별 진술서 수 불러오기
 	public int getCountCategory(String start, String end,int cheatno) throws Exception;
 	
 	//휴대폰 번호 수
-	public int getCountPhone() throws Exception;
+	public int getCountPhone(String start, String end) throws Exception;
 	
 	//계좌번호 수
-	public int getCountAccount() throws Exception;
+	public int getCountAccount(String start, String end) throws Exception;
 	
 	//피해금액
-	public int getCountSum() throws Exception;
+	public int getCountSum(String start, String end) throws Exception;
 	
 	//피해물품 TOP 10
 	public List<chartItemsDTO> getCountItems(String start, String end) throws Exception;
 	
 	//용의자
-	public List<CheaterDTO> getCountCheaterName() throws Exception;
+	public List<CheaterDTO> getCountCheaterName(String start, String end) throws Exception;
 	
 	//사이트
-	public List<CheaterDTO> getCountDomain() throws Exception;
+	public List<CheaterDTO> getCountDomain(String start, String end) throws Exception;
 	
 	//은행
-	public List<CheaterDTO> getCountBankName() throws Exception;
+	public List<CheaterDTO> getCountBankName(String start, String end) throws Exception;
 	
 	//날짜별
 	public chartDTO getChart(chartDTO chartdto) throws Exception;
+	
+	//날짜별-한달일 경우
+	public List<chartDTO> getChartMonth(String start, String end) throws Exception;
 }

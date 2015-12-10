@@ -65,7 +65,7 @@
 			<div class="boxTypeC di_searchArea al">
 				<strong>기간설정</strong> <select name="start_year" id="start_year"
 					title="시작 년 선택">
-					<c:forEach begin="${end_year - 10}" end="${end_year}"
+					<c:forEach begin="${standard_year - 10}" end="${standard_year}"
 						var="years">
 						<c:choose>
 							<c:when test="${years == start_year}">
@@ -88,7 +88,7 @@
 						</c:choose>
 					</c:forEach>
 				</select>월 - <select name="end_year" id="end_year" title="끝 년 선택">
-					<c:forEach begin="${end_year - 10}" end="${end_year}"
+					<c:forEach begin="${standard_year - 10}" end="${standard_year}"
 						var="years">
 						<c:choose>
 							<c:when test="${years == end_year}">
