@@ -33,8 +33,11 @@
 	</table>
 </div>
 <div>
+<<<<<<< HEAD
+	<input type="button" id="tradeMain" class="btn btn-info tradeMain" style="float: right;" value="사기사례피해등록"><!-- trade.go -->
+=======
 	<a href="trade.go"><input type="button" class="btn btn-info" id="a" style="float: right;" value="사기피해사례 등록"></a>
-
+>>>>>>> 74751683a052531c5db42c3e7e40b237da361e6b
 </div>
 <div style="text-align: center; clear:both;">
 	<c:set var="pager" value="${pager.toString()}" />

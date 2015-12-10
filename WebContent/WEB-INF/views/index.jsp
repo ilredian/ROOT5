@@ -14,7 +14,6 @@ h1,h3 {
      "다음_SemiBold"   */;
 }
 </style>
-
 </head>
 </html>
 <div class="container">
@@ -46,9 +45,11 @@ h1,h3 {
 					</tr>
 				</table>
 				<table style="margin-top:50px;">
+
 					<tr><th style="color: #D83939;">오늘 방문자수:&nbsp;&nbsp;&nbsp;&nbsp;
 			</th><td style="color:orange">${todayCount}</td></tr>
 					<tr><th style="color: #D83939;">누적 방문자수:&nbsp;&nbsp;&nbsp;&nbsp;</th><td  style="color:orange">${totalCount}</td></tr>
+
 				</table>
 			</form>
 		</div>

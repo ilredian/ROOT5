@@ -756,8 +756,6 @@ public class AdminController {// 관리자 페이지
 
 		// 로그 남기기
 		System.out.println("회원 관리 관리자 페이지 이동");
-		
-		// 
 		return "admin.adminMember";
 	}
 
