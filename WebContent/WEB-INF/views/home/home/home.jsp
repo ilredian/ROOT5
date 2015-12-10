@@ -228,11 +228,18 @@
 				</tbody>
 			</table>
 		</div>
+		
+		
+		
 			<div class="col-sm-6"
 			style="background-color: white; border: 1px solid lightgray;margin-top:10px; margin-right: 23px; width: 516px; height: 349px; float: right;">
 			<div
 				style="margin-left: -16px; width: 214px; height: 165px; float: left;">
 				
+<%-- 				전체 방문자 수: ${totalCount}
+				오늘의 방문자 수: ${todayCount}
+
+				 --%>
 			</div>
 		</div>
 		<div class="col-sm-6"

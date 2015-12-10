@@ -1,6 +1,7 @@
 package controllers;
 
 import java.util.ArrayList;
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -14,8 +15,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import DAO.InterestStatementDAO;
+import DAO.MemberInfoDAO;
 import DTO.InterestStatementDTO;
 import DTO.MemberDTO;
+import DAO.VisitDAO;
 
 @Controller
 public class HomeController {
@@ -33,6 +36,26 @@ public class HomeController {
 			HttpSession session,
 			Model model) throws Exception {
 		
+
+		
+/*		
+		  // 전체 방문자 수 +1
+		
+		VisitDAO visitDAO = sqlSession.getMapper(VisitDAO.class);
+		visitDAO.setVisitTotalCount();
+		System.out.println("메세지 수정완료");
+       */
+		
+		
+    /*    // 오늘 방문자 수
+        int todayCount = visitDAO.getVisitTodayCount();
+         
+        // 전체 방문자 수
+        int totalCount = visitDAO.getVisitTotalCount();
+        
+        */
+        
+		 
 		// 로그 남기기
 		System.out.println("관심 지정 진술서 비교");
 		
@@ -91,7 +114,9 @@ public class HomeController {
 		
 		// model에 담기
 		model.addAttribute("list", list);
-		
+/*		model.addAttribute("totalCount", totalCount);// 전체 방문자 수
+		model.addAttribute("todayCount", todayCount); // 오늘 방문자 수
+		*/
 		// 로그 남기기
 		System.out.println("홈으로 이동");
 		
