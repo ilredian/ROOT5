@@ -25,7 +25,7 @@
 					<td>${list.account}</td>
 					<td>${list.phone}</td>
 					<td>${list.regdate}</td>
-					<td><input type="button" class="viewBtn" value="자세히보기"
+					<td><input type="submit" class="btn btn-info view" value="자세히보기"
 						id="statementView.go?sno=${list.stateno}&cno=1"></td>
 				</tr>
 			</c:forEach>
@@ -33,9 +33,7 @@
 	</table>
 </div>
 <div>
-	<button id="a" style="float: right;">
-		<a href="trade.go">사기피해사례 등록</a>
-	</button>
+	<input type="button" id="tradeMain" class="btn btn-info tradeMain" style="float: right;" value="사기사례피해등록"><!-- trade.go -->
 </div>
 <div style="text-align: center; clear:both;">
 	<c:set var="pager" value="${pager.toString()}" />
