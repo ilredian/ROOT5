@@ -14,25 +14,6 @@ h1,h3 {
      "다음_SemiBold"   */;
 }
 </style>
-<SCRIPT TYPE="TEXT/JAVASCRIPT"> 
- expireDate = new Date;
- expireDate.setMonth(expireDate.getMonth()+6);
- hitCt = eval(cookieVal("pageHit"));
- hitCt++;
- document.cookie = "pageHit="+hitCt+";expires=" + expireDate.toGMTString();
-    
- function cookieVal(cookieName) {
-  thisCookie = document.cookie.split("; ")
-  for (i=0; i<thisCookie.length; i++) {
-    if (cookieName == thisCookie[i].split("=")[0]) return thisCookie[i].split("=")[1];
-  }
-  return 0;
- }
- window.onload = function(){
-  document.getElementById("pageView").appendChild(document.createTextNode(hitCt));
- }
-</script>
-
 </head>
 </html>
 <div class="container">
@@ -64,7 +45,11 @@ h1,h3 {
 					</tr>
 				</table>
 				<table style="margin-top:50px;">
-					<tr><th style="color: #D83939;">오늘 방문자수&nbsp;&nbsp;&nbsp;&nbsp;</th><td id="pageView" style="color:orange"></td></tr>
+
+					<tr><th style="color: #D83939;">오늘 방문자수:&nbsp;&nbsp;&nbsp;&nbsp;
+			</th><td style="color:orange">${todayCount}</td></tr>
+					<tr><th style="color: #D83939;">누적 방문자수:&nbsp;&nbsp;&nbsp;&nbsp;</th><td  style="color:orange">${totalCount}</td></tr>
+
 				</table>
 			</form>
 		</div>

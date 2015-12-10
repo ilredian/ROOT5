@@ -31,7 +31,17 @@
 				<tiles:insertAttribute name="content" />
 				<!-- StatementMain영역 -->
 				<c:if test="${param.sno != null}">
-					<jsp:include page="/WEB-INF/views/home/boardStatement/gameMain.jsp"></jsp:include>
+					<c:choose>
+						<c:when test="${param.cno == 1}">
+							<jsp:include page="/WEB-INF/views/home/boardStatement/tradeMain.jsp"></jsp:include>
+						</c:when>
+						<c:when test="${param.cno == 2}">
+							<jsp:include page="/WEB-INF/views/home/boardStatement/gameMain.jsp"></jsp:include>
+						</c:when>
+						<c:when test="${param.cno == 3}">
+							<jsp:include page="/WEB-INF/views/home/boardStatement/mannerMain.jsp"></jsp:include>
+						</c:when>
+					</c:choose>
 				</c:if>
 			</div>
 			<!-- Aside(Navi) 영역 -->
