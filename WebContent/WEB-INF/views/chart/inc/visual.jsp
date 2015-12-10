@@ -6,7 +6,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$("ul#topnav li").hover(function() {
-		$(this).css({ 'background' : '#1376c9'});
+		$(this).css({ 'background' : '#999CA1'});
 		$(this).find("span").show(); 
 		} , function() {
 		$(this).css({ 'background' : 'none'});
@@ -18,9 +18,9 @@ $(document).ready(function(){
 ul#topnav { margin: 0; padding: 0; float: left; width: 100%; list-style: none; position: relative; font-size: 1em; background: #151515; margin-bottom:50px; }
 ul#topnav li { float: left; margin: 0; padding: 0; border-right: 1px solid #555; }
 ul#topnav li a { padding: 10px 15px; display: block; color: #f0f0f0; text-decoration: none; }
-ul#topnav li:hover { background: #1376c9; }
-ul#topnav li span { float: left; padding: 15px 0; position: absolute; left: 0; top:35px; display: none; width: 100%; background: #1376c9; color: #fff; -moz-border-radius-bottomright: 5px; -khtml-border-radius-bottomright: 5px; -webkit-border-bottom-right-radius: 5px; -moz-border-radius-bottomleft: 5px; -khtml-border-radius-bottomleft: 5px; -webkit-border-bottom-left-radius: 5px; }
-ul#topnav li:hover span { display: block; }
+ul#topnav li:hover { background: #999CA1;}
+ul#topnav li span { ;float: left; padding: 6px 0; position: absolute; left: 0; top:35px; display: none; width: 100%; background: #999CA1; color: #fff; -moz-border-radius-bottomright: 5px; -khtml-border-radius-bottomright: 5px; -webkit-border-bottom-right-radius: 5px; -moz-border-radius-bottomleft: 5px; -khtml-border-radius-bottomleft: 5px; -webkit-border-bottom-left-radius: 5px; }
+ul#topnav li:hover span { display: block; box-shadow: 0px 3px 5px 2px lightgray; }
 ul#topnav li span a { display: inline; }
 ul#topnav li span a:hover { text-decoration: underline; }
 </style>
