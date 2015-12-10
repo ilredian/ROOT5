@@ -19,7 +19,7 @@ h1,h3 {
 </html>
 <div class="container">
 
-      <div class="jumbotron" align="center" style="background-color: white; margin-top: 70px; margin-bottom: 30px;">
+      <div class="jumbotron" align="center" style="background-color: white; margin-top: 55px; margin-bottom: 20px;">
          <h1 align="center" style="color: #D83939;font-size: 80px; font-style: inherit;">사기피해사례 검색</h1><br><br>
          <form id="search" class="navbar-form navbar-center"
             action="totalSearch.go">
