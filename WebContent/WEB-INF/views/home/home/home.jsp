@@ -34,27 +34,14 @@
 				<select style="margin-top:6px; margin-left:35px; float:left; vertical-align: middle;">
 					<option>전체 피해 사례</option>
 					<option>직거래</option>
-					<option>전체 사례</option>
+					<option>게임</option>
+					<option>비매너</option>
 			 </select>
 			 
 			</div>
 			<div style="margin-top:0px;">
 				<br><br><h4 style="float:left;margin-right:5px;vertical-align: middle;"><strong>&nbsp;&nbsp;피해사례검색</strong></h4>
 				<input style="width: 60%; margin-top:6px; float:left; vertical-align: middle;" type="text" placeholder="로그인후 피해사례를 검색 가능"  size="30">
-
-				
-				
-				<!-- 로그인 전 -->
-				<input type="text" size="30" class="txt" name="keyword" id="hm_damageSearch" title="피해사례 검색어 입력" placeholder="로그인 후 피해사례를 검색할 수 있습니다 (무료)" href="#pageLoginLayer" onclick="blockLayerOpen(this); return false;">
-				<!-- //로그인 전 -->
-				
-				<!-- 로그인 후  -->
-			<!-- 	<input type="text" class="txt" name="keyword" id="hm_damageSearch" title="피해사례 검색어 입력" placeholder="연락처 또는 계좌번호로 검색해 보세요." maxlength="40">
- -->				<!-- //로그인 후  -->
-				
->>>>>>> e5d25a12e9e3d7db40d2235d016bcd646884a7d0
-				<input type="button" class="btn btn-info" value="검색">
-				<!-- <a href="./?mod=_search_result" onclick="form_submit('search','./?mod=_search_result','web');"> -->
 			</div>
 		</div>
 		<div class="col-sm-3"
