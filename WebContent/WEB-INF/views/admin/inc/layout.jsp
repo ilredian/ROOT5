@@ -13,6 +13,14 @@
 <!-- StyleSheet  Link 영역 -->
 <link href='<tiles:getAsString name="css"/>' type="text/css"
 	rel="stylesheet" />
+<style type="text/css">
+.menu a{
+cursor: pointer;  
+}
+.menu .hide{
+display: none;  
+}
+</style>
 </head>
 <body>
 	<!-- Header 영역 -->
