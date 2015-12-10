@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <ul>
@@ -14,7 +14,7 @@
 			<il><a href="adminItemList.go">ㄴ거래물품</a></il><br>
 			<il><a href="adminBank.go">ㄴ은행종류</a></il><br>
 			<il><a href="adminMemberType.go">ㄴ회원종류</a></il><br>
-			<il><a href="adminStatementCategory.go">ㄴ사기종류</a></il><br>
+			<il><a href="adminStatementCategory.go">ㄴ사기분류</a></il><br>
 			<il><a href="adminMember.go">ㄴ회원관리</a></il><br>
 			<il><a href="adminBoardCategory.go">ㄴ카테고리</a></il><br>
 		</ul></il>
