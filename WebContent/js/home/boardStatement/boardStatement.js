@@ -12,9 +12,6 @@ $(function() {
 	}else if(cno == 2){
 		$('#gameMain').attr("class", "active");
 		$('#statementText').text("게임, 비실물 피해 사례");
-	}else if(cno == 3){
-		$('#spameMain').attr("class", "active");
-		$('#statementText').text("스팸 피해 사례");
 	}else{
 		$('#mannerMain').attr("class", "active");
 		$('#statementText').text("비매너 피해 사례");

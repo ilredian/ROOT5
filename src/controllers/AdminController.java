@@ -108,9 +108,14 @@ public class AdminController {// 관리자 페이지
 	@RequestMapping("deleteReportBoardFree.go")
 	@Transactional	//게시글을 불러오고 , 게시글을 삭제_ 12월 7일
 	public void deleteBoardFree(
+			HttpServletResponse response,
 			@RequestParam("bno") int boardno) throws Exception{
 		// 로그 남기기
 		System.out.print("신고 게시글 삭제");
+		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
 		
 		// DB 접속
 		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
@@ -155,6 +160,7 @@ public class AdminController {// 관리자 페이지
 		// 페이징 처리
 		int pagerSize = 10;// 한 번에 보여줄 페이지 번호 갯수
 		String linkUrl = "adminCommment.go";// 페이지번호를 누르면 이동할 경로
+		
 		// 검색 결과에 따른 게시글 총 갯수
 		int boardCount = reportReplyDAO.getReportReplyCount(field, query);
 		int start = (page - 1) * pageSize;
@@ -201,22 +207,23 @@ public class AdminController {// 관리자 페이지
 	}
 	
 	// 사기 사이트 수정
-	@RequestMapping(value = "updateDomainList.go", method = RequestMethod.GET)
+	@RequestMapping(value = "updateDomainList.go", method = RequestMethod.POST)
 	public void updateSite(
 			@RequestParam("do") String domain,
 			@RequestParam("dn") String domainname,
-			CheatDomainDTO cheatDomainDTO) throws Exception {
-		
-		// 파라미터 값 세팅
-		cheatDomainDTO.setDomain(domain);
-		cheatDomainDTO.setDomainname(domainname);
+			@RequestParam("origin") String origin,
+			HttpServletResponse response) throws Exception {
 		
 		// 로그 남기기
 		System.out.print("사기 사이트 설정 수정");
 		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
+		
 		// DB 연결
 		CheatDomainDAO cheatDomainDAO = sqlSession.getMapper(CheatDomainDAO.class);
-		int result = cheatDomainDAO.updateDomain(cheatDomainDTO);
+		int result = cheatDomainDAO.updateDomain(domain, domainname, origin);
 		
 		if (result == 1) {
 			out.print("<script>alert('사기 사이트가 성공적으로 수정되었습니다.');location.replace('adminDomainList.go');</script>");
@@ -227,10 +234,11 @@ public class AdminController {// 관리자 페이지
 	}
 	
 	// 사기 사이트 추가
-	@RequestMapping(value = "insertDomainList.go", method = RequestMethod.GET)
+	@RequestMapping(value = "insertDomainList.go", method = RequestMethod.POST)
 	public void insertSite(
 			@RequestParam("do") String domain,
 			@RequestParam("dn") String domainname,
+			HttpServletResponse response,
 			CheatDomainDTO cheatDomainDTO) throws Exception {
 		
 		// 파라미터 값 세팅
@@ -240,23 +248,36 @@ public class AdminController {// 관리자 페이지
 		// 로그 남기기
 		System.out.print("사기 사이트 설정 추가");
 		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
+		
 		// DB 연결
 		CheatDomainDAO cheatDomainDAO = sqlSession.getMapper(CheatDomainDAO.class);
-		int result = cheatDomainDAO.insertDomain(cheatDomainDTO);
 		
-		if (result == 1) {
-			out.print("<script>alert('사기 사이트가 성공적으로 추가되었습니다.');location.replace('adminDomainList.go');</script>");
-		} else {
-			out.print("<script>alert('사기 사이트 추가에 실패하였습니다.');location.replace('adminDomainList.go');</script>");
+		// 같은 것이 있나 확인
+		int isDomain = cheatDomainDAO.getDomain(cheatDomainDTO);
+		
+		if(isDomain != 0){
+			out.print("<script>alert('이미 동일한 도메인이 존재합니다.');location.replace('adminDomainList.go');</script>");
+		}else{
+			int result = cheatDomainDAO.insertDomain(cheatDomainDTO);
+			
+			if (result == 1) {
+				out.print("<script>alert('사기 사이트가 성공적으로 추가되었습니다.');location.replace('adminDomainList.go');</script>");
+			} else {
+				out.print("<script>alert('사기 사이트 추가에 실패하였습니다.');location.replace('adminDomainList.go');</script>");
+			}
 		}
 		out.close();
 	}
 	
 	// 사기 사이트 삭제
-	@RequestMapping(value = "updateDomainList.go", method = RequestMethod.GET)
+	@RequestMapping(value = "deleteDomainList.go", method = RequestMethod.GET)
 	public void deleteSite(
 			@RequestParam("do") String domain,
 			@RequestParam("dn") String domainname,
+			HttpServletResponse response,
 			CheatDomainDTO cheatDomainDTO) throws Exception {
 		
 		// 파라미터 값 세팅
@@ -265,6 +286,10 @@ public class AdminController {// 관리자 페이지
 		
 		// 로그 남기기
 		System.out.print("사기 사이트 설정 삭제");
+		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
 		
 		// DB 연결
 		CheatDomainDAO cheatDomainDAO = sqlSession.getMapper(CheatDomainDAO.class);
@@ -403,7 +428,7 @@ public class AdminController {// 관리자 페이지
 
 		// 리스트 뿌려주기
 		CheatBankDAO cheatBankDAO = sqlSession.getMapper(CheatBankDAO.class);
-		List<CheatBankDTO> list = cheatBankDAO.getList(0, 29);
+		List<CheatBankDTO> list = cheatBankDAO.getList(0, 100);
 		
 		// Model 객체에 담기
 		model.addAttribute("list", list);
@@ -412,9 +437,11 @@ public class AdminController {// 관리자 페이지
 	}
 
 	// 은행 리스트 수정
-	@RequestMapping("updateBank.go")
+	@RequestMapping(value="updateBank.go", method = RequestMethod.POST)
 	public void updateBank(
 			@RequestParam("bank") String bankname,
+			@RequestParam("origin") String origin,
+			HttpServletResponse response,
 			CheatBankDTO cheatBankDTO) throws Exception {
 
 		// 파라미터값 세팅
@@ -422,10 +449,14 @@ public class AdminController {// 관리자 페이지
 		
 		// 로그 남기기
 		System.out.println("은행 리스트 수정");
+		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
 
 		// DB 세팅
 		CheatBankDAO cheatBankDAO = sqlSession.getMapper(CheatBankDAO.class);
-		int result = cheatBankDAO.updateBank(cheatBankDTO);
+		int result = cheatBankDAO.updateBank(bankname, origin);
 		
 		if (result == 1) {
 			out.print("<script>alert('은행 종류가 성공적으로 수정되었습니다.');location.replace('adminBank.go');</script>");
@@ -436,9 +467,10 @@ public class AdminController {// 관리자 페이지
 	}
 	
 	// 은행 리스트 추가
-	@RequestMapping("updateBank.go")
+	@RequestMapping(value="insertBank.go", method = RequestMethod.POST)
 	public void insertBank(
 			@RequestParam("bank") String bankname,
+			HttpServletResponse response,
 			CheatBankDTO cheatBankDTO) throws Exception {
 
 		// 파라미터값 세팅
@@ -446,15 +478,25 @@ public class AdminController {// 관리자 페이지
 		
 		// 로그 남기기
 		System.out.println("은행 리스트 추가");
+		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
 
 		// DB 세팅
 		CheatBankDAO cheatBankDAO = sqlSession.getMapper(CheatBankDAO.class);
-		int result = cheatBankDAO.insertBank(cheatBankDTO);
 		
-		if (result == 1) {
-			out.print("<script>alert('은행 종류가 성공적으로 추가되었습니다.');location.replace('adminBank.go');</script>");
-		} else {
-			out.print("<script>alert('은행 종류 추가에 실패하였습니다.');location.replace('adminBank.go');</script>");
+		int isBank = cheatBankDAO.getBank(cheatBankDTO);
+		if(isBank != 0){
+			out.print("<script>alert('이미 동일한 은행이 존재합니다.');location.replace('adminBank.go');</script>");
+		}else{
+			int result = cheatBankDAO.insertBank(cheatBankDTO);
+			
+			if (result == 1) {
+				out.print("<script>alert('은행 종류가 성공적으로 추가되었습니다.');location.replace('adminBank.go');</script>");
+			} else {
+				out.print("<script>alert('은행 종류 추가에 실패하였습니다.');location.replace('adminBank.go');</script>");
+			}
 		}
 		out.close();
 	}
@@ -463,6 +505,7 @@ public class AdminController {// 관리자 페이지
 	@RequestMapping("deleteBank.go")
 	public void deleteBank(
 			@RequestParam("bank") String bankname,
+			HttpServletResponse response,
 			CheatBankDTO cheatBankDTO) throws Exception {
 
 		// 파라미터값 세팅
@@ -470,6 +513,10 @@ public class AdminController {// 관리자 페이지
 		
 		// 로그 남기기
 		System.out.println("은행 리스트 삭제");
+		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
 
 		// DB 세팅
 		CheatBankDAO cheatBankDAO = sqlSession.getMapper(CheatBankDAO.class);
@@ -501,10 +548,11 @@ public class AdminController {// 관리자 페이지
 	}
 
 	// 멤버 종류 수정
-	@RequestMapping("updateMemberType.go")
+	@RequestMapping(value="updateMemberType.go", method = RequestMethod.POST)
 	public void updateMemberType(
 			@RequestParam("tn") String typename,
 			@RequestParam("tno") int typeno,
+			HttpServletResponse response,
 			MemberTypeDTO memberTypeDTO) throws Exception {
 		
 		// 파라미터 값 세팅
@@ -513,6 +561,10 @@ public class AdminController {// 관리자 페이지
 		
 		// 로그 남기기
 		System.out.println("멤버종류 수정");
+		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
 
 		// DB 연결
 		MemberTypeDAO memberTypeDAO = sqlSession.getMapper(MemberTypeDAO.class);
@@ -527,10 +579,11 @@ public class AdminController {// 관리자 페이지
 	}
 
 	// 멤버 종류 추가
-	@RequestMapping("insertMemberType.go")
+	@RequestMapping(value="insertMemberType.go", method = RequestMethod.POST)
 	public void insertMemberType(
 			@RequestParam("tn") String typename,
 			@RequestParam("tno") int typeno,
+			HttpServletResponse response,
 			MemberTypeDTO memberTypeDTO) throws Exception {
 		
 		// 파라미터 값 세팅
@@ -539,6 +592,10 @@ public class AdminController {// 관리자 페이지
 
 		// 로그 남기기
 		System.out.println("멤버종류 추가");
+		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
 
 		// DB 연결
 		MemberTypeDAO memberTypeDAO = sqlSession.getMapper(MemberTypeDAO.class);
@@ -557,6 +614,7 @@ public class AdminController {// 관리자 페이지
 	public void deleteMemberType(
 			@RequestParam("tn") String typename,
 			@RequestParam("tno") int typeno,
+			HttpServletResponse response,
 			MemberTypeDTO memberTypeDTO) throws Exception {
 		
 		// 파라미터 값 세팅
@@ -565,6 +623,10 @@ public class AdminController {// 관리자 페이지
 		
 		// 로그 남기기
 		System.out.println("멤버종류 삭제");
+		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
 
 		// DB 연결
 		MemberTypeDAO memberTypeDAO = sqlSession.getMapper(MemberTypeDAO.class);
@@ -596,10 +658,11 @@ public class AdminController {// 관리자 페이지
 	}
 
 	// 게시판 종류 수정
-	@RequestMapping("updateStatementCategory.go")
+	@RequestMapping(value="updateStatementCategory.go", method = RequestMethod.POST)
 	public void updateStatementCategory(
 			@RequestParam("cn") String cheatname,
 			@RequestParam("cno") int cheatno,
+			HttpServletResponse response,
 			CheatDTO cheatDTO) throws Exception {
 
 		// 파라미터값 세팅
@@ -608,6 +671,10 @@ public class AdminController {// 관리자 페이지
 		
 		// 로그 남기기
 		System.out.println("사기 종류 수정");
+		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
 
 		// DB 연결
 		CheatDAO cheatDAO = sqlSession.getMapper(CheatDAO.class);
@@ -622,10 +689,11 @@ public class AdminController {// 관리자 페이지
 	}
 
 	// 게시판 종류 추가
-	@RequestMapping("updateStatementCategory.go")
+	@RequestMapping(value="insertStatementCategory.go", method = RequestMethod.POST)
 	public void insertStatementCategory(
 			@RequestParam("cn") String cheatname,
 			@RequestParam("cno") int cheatno,
+			HttpServletResponse response,
 			CheatDTO cheatDTO) throws Exception {
 
 		// 파라미터값 세팅
@@ -634,6 +702,10 @@ public class AdminController {// 관리자 페이지
 		
 		// 로그 남기기
 		System.out.println("사기 종류 추가");
+		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
 
 		// DB 연결
 		CheatDAO cheatDAO = sqlSession.getMapper(CheatDAO.class);
@@ -648,10 +720,11 @@ public class AdminController {// 관리자 페이지
 	}
 
 	// 게시판 종류 삭제
-	@RequestMapping("updateStatementCategory.go")
+	@RequestMapping("deleteStatementCategory.go")
 	public void deleteStatementCategory(
 			@RequestParam("cn") String cheatname,
 			@RequestParam("cno") int cheatno,
+			HttpServletResponse response,
 			CheatDTO cheatDTO) throws Exception {
 
 		// 파라미터값 세팅
@@ -660,6 +733,10 @@ public class AdminController {// 관리자 페이지
 		
 		// 로그 남기기
 		System.out.println("사기 종류 삭제");
+		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
 
 		// DB 연결
 		CheatDAO cheatDAO = sqlSession.getMapper(CheatDAO.class);
@@ -673,9 +750,12 @@ public class AdminController {// 관리자 페이지
 		out.close();
 	}
 
+	// 회원 관리 목록
 	@RequestMapping(value = "adminMember.go", method = RequestMethod.GET)
 	public String AdminMemberagent() {
 
+		// 로그 남기기
+		System.out.println("회원 관리 관리자 페이지 이동");
 		return "admin.adminMember";
 	}
 
@@ -701,6 +781,7 @@ public class AdminController {// 관리자 페이지
 	public void updateBoardCategory(
 			@RequestParam("cn") String categoryname,
 			@RequestParam("cno") int categoryno,
+			HttpServletResponse response,
 			BoardCategoryDTO boardCategoryDTO) throws Exception {
 
 		// 파라미터값 세팅
@@ -709,6 +790,10 @@ public class AdminController {// 관리자 페이지
 		
 		// 로그 남기기
 		System.out.println("게시판 종류 수정");
+		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
 
 		// DB 연결
 		BoardCategoryDAO boardCategoryDAO = sqlSession.getMapper(BoardCategoryDAO.class);
@@ -727,6 +812,7 @@ public class AdminController {// 관리자 페이지
 	public void insertBoardCategory(
 			@RequestParam("cn") String categoryname,
 			@RequestParam("cno") int categoryno,
+			HttpServletResponse response,
 			BoardCategoryDTO boardCategoryDTO) throws Exception {
 
 		// 파라미터값 세팅
@@ -735,6 +821,10 @@ public class AdminController {// 관리자 페이지
 
 		// 로그 남기기
 		System.out.println("게시판 종류 추가");
+		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
 
 		// DB 연결
 		BoardCategoryDAO boardCategoryDAO = sqlSession.getMapper(BoardCategoryDAO.class);
@@ -753,6 +843,7 @@ public class AdminController {// 관리자 페이지
 	public void deleteBoardCategory(
 			@RequestParam("cn") String categoryname,
 			@RequestParam("cno") int categoryno,
+			HttpServletResponse response,
 			BoardCategoryDTO boardCategoryDTO) throws Exception {
 
 		// 파라미터값 세팅
@@ -761,6 +852,10 @@ public class AdminController {// 관리자 페이지
 
 		// 로그 남기기
 		System.out.println("게시판 종류 삭제");
+		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
 
 		// DB 연결
 		BoardCategoryDAO boardCategoryDAO = sqlSession.getMapper(BoardCategoryDAO.class);
