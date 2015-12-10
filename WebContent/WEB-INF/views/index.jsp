@@ -14,12 +14,38 @@ h1,h3 {
      "다음_SemiBold"   */;
 }
 </style>
+
+<!-- <style type="text/css">
+div.jumbotron {
+background-size:  1140px 490px;
+background-image:url('images/common/c4.PNG');
+background-repeat: no-repeat;
+}
+
+</style>
+ -->
+ 
+  <style type="text/css">
+div#one,div.jumbotron {
+background-size:  100% 100%;
+background-image:url('images/common/c3.jpg');
+background-repeat: no-repeat;
+padding:120px;
+
+}
+
+</style>
+ 
+ 
+
 </head>
 </html>
-<div class="container">
+<!-- <div class="container" id="one" style="margin-top: 35px;"> -->
 
-      <div class="jumbotron" align="center" style="background-color: white; margin-top: 55px; margin-bottom: 20px;">
-         <h1 align="center" style="color: #D83939;font-size: 80px; font-style: inherit;">사기피해사례 검색</h1><br><br>
+
+
+      <div class="jumbotron" align="center" style="hight:100%; "/> <!-- /* background-color: white; */  /* margin-bottom: 20px; */ -->
+         <h1 align="center" style="color:blac \\k/*  #D83939 */;font-size: 80px; font-style: inherit;">사기피해사례 검색</h1><br><br>
          <form id="search" class="navbar-form navbar-center"
             action="totalSearch.go">
 
@@ -44,14 +70,8 @@ h1,h3 {
 						</span></td>
 					</tr>
 				</table>
-				<table style="margin-top:50px;">
 
-					<tr><th style="color: #D83939;">오늘 방문자수:&nbsp;&nbsp;&nbsp;&nbsp;
-			</th><td style="color:orange">${todayCount}</td></tr>
-					<tr><th style="color: #D83939;">누적 방문자수:&nbsp;&nbsp;&nbsp;&nbsp;</th><td  style="color:orange">${totalCount}</td></tr>
-
-				</table>
 			</form>
 		</div>
-	</div>
-</div>
+<!-- 	</div> -->
+	
