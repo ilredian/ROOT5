@@ -14,11 +14,47 @@ h1,h3 {
      "다음_SemiBold"   */;
 }
 </style>
+<SCRIPT TYPE="TEXT/JAVASCRIPT"> 
+ expireDate = new Date;
+ expireDate.setMonth(expireDate.getMonth()+6);
+ hitCt = eval(cookieVal("pageHit"));
+ hitCt++;
+ document.cookie = "pageHit="+hitCt+";expires=" + expireDate.toGMTString();
+    
+ function cookieVal(cookieName) {
+  thisCookie = document.cookie.split("; ")
+  for (i=0; i<thisCookie.length; i++) {
+    if (cookieName == thisCookie[i].split("=")[0]) return thisCookie[i].split("=")[1];
+  }
+  return 0;
+ }
+ window.onload = function(){
+  document.getElementById("pageView").appendChild(document.createTextNode(hitCt));
+ }
+</script>
+<script TYPE="TEXT/JAVASCRIPT"> 
+ expireDate2 = new Date;
+ expireDate2.setMonth(expireDate.getMonth()+6);
+ hitCt2 = eval(cookieVal("pageHit2"));
+ hitCt2++;
+ document.cookie2 = "pageHit2="+hitCt2+";expires2=" + expireDate2.toGMTString();
+    
+ function cookieVal2(cookieName) {
+  thisCookie = document.cookie.split("; ")
+  for (i=0; i<thisCookie.length; i++) {
+    if (cookieName == thisCookie[i].split("=")[0]) return thisCookie[i].split("=")[1];
+  }
+  return 0;
+ }
+ window.onload = function(){
+  document.getElementById("pageView2").appendChild(document.createTextNode(hitCt));
+ }
+</script>
 </head>
 </html>
 <div class="container">
 
-      <div class="jumbotron" align="center" style="background-color: white; margin-top: 70px; margin-bottom: 80px;">
+      <div class="jumbotron" align="center" style="background-color: white; margin-top: 70px; margin-bottom: 30px;">
          <h1 align="center" style="color: #D83939;font-size: 80px; font-style: inherit;">사기피해사례 검색</h1><br><br>
          <form id="search" class="navbar-form navbar-center"
             action="totalSearch.go">
@@ -43,6 +79,10 @@ h1,h3 {
 								class="fa fa-search fa-lg" data-type="last"></i>
 						</span></td>
 					</tr>
+				</table>
+				<table style="margin-top:50px;">
+					<tr><th style="color: #D83939;">오늘 방문자수&nbsp;&nbsp;&nbsp;&nbsp;</th><td id="pageView" style="color:orange"></td></tr>
+					<tr><th style="color: #D83939;">누적 방문자수&nbsp;&nbsp;&nbsp;&nbsp;</th><td id="pageView2" style="color:orange"></td></tr>
 				</table>
 			</form>
 		</div>
