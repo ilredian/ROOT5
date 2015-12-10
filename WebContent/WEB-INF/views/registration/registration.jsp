@@ -85,7 +85,7 @@
 						</ul>
  						<a href="manner.go" class="btnGo"><img
 							src="registrationimages/registration/bme2.PNG" alt="비매너 피혜사례 등록"
-							style="margin-top: 35px"></a>
+							style="margin-top: 45px"></a>
 					</div>
 				</div>
 			</div>

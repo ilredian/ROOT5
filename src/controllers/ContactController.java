@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ContactController {
 	
-	@RequestMapping("contact.go")
+	@RequestMapping("contacted.go")
 	public String contMain(){
 		return "contact.contactmain";
 	}

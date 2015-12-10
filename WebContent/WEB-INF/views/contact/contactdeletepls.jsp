@@ -14,113 +14,141 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="container">
-		<h2>피해사례 삭제요청</h2>
-		<table class="table table-condensed">
-			<tr>
-				<th align="center" class="active">필독</th>
-				<td>1. 삭제요청 게시물은 수정 및 삭제가 되지 않습니다. 신중히 작성해 주시기 바랍니다.<br>
-					2. 피해사례 등록자에게 SMS와 이메일로 삭제요청 메세지가 전송되며, 삭제 요청자의 연락처가 안내됩니다.<br>
-					3. 환불 증빙자료가 첨부되면, 즉시 피해사례가 삭제됩니다.<br> 4. 환불 증빙자료 미첨부시, 피해사례
-					등록자가 직접 피해사례를 삭제할 때까지 기다려야 합니다.<br>
-				</td>
-			</tr>
-			<tr>
-				<th align="center" class="active">제목</th>
-				<td><input type="text" name="제목"
-					placeholder="사죄문과 함께 삭제요청 드립니다." style="width: 600px"></td>
-			</tr>
-			<tr>
-				<th align="center" class="active">삭제 요청 연락처(필수)</th>
-				<td><input type="text" name="연락처"
-					placeholder="귀하가 사기행위에 사용한 휴대폰 번호를 모두 입력하세요.(복수입력 가능하며 , 로 구분하여 주세요)"
-					style="width: 800px"></td>
-			</tr>
-			<tr>
-				<th align="center" class="active"><label for="w_tit">연락처</label></th>
-				<td><script>
-                function srvTime(){
-                    var xmlHttp;
-                    if (window.XMLHttpRequest) {//분기하지 않으면 IE에서만 작동된다.
-                        xmlHttp = new XMLHttpRequest(); // IE 7.0 이상, 크롬, 파이어폭스 등
-                        xmlHttp.open('HEAD',window.location.href.toString(),false);
-                        xmlHttp.setRequestHeader("Content-Type", "text/html");
-                        xmlHttp.send('');
-                        return xmlHttp.getResponseHeader("Date");
-                    }else if (window.ActiveXObject) {
-                        xmlHttp = new ActiveXObject('Msxml2.XMLHTTP');
-                        xmlHttp.open('HEAD',window.location.href.toString(),false);
-                        xmlHttp.setRequestHeader("Content-Type", "text/html");
-                        xmlHttp.send('');
-                        return xmlHttp.getResponseHeader("Date");
-                    }
-                }
-                function v2014_handphone_check(form_name) {
-                    var key_handphone = $(form_name).val();
-                    var bbs_sms_type = $('#bbs_sms_type').val();
-                    if(!key_handphone) {
-                        alert('연락처를 입력해 주세요.');
-                        return false;
-                    }
-                    var st = srvTime();
-                    var dt = new Date(st);
-					if(!dt)dt = new Date();
-                    var yyyy = dt.getFullYear().toString();
-                    var mm = (dt.getMonth()+1).toString(); // getMonth() is zero-based
-                    var dd  = dt.getDate().toString();
-                    var hh  = dt.getHours().toString();
-                    var ii  = dt.getMinutes().toString();
-                    var time = yyyy + (mm[1]?mm:"0"+mm[0]) + (dd[1]?dd:"0"+dd[0])+ (hh[1]?hh:"0"+hh[0])+ (ii[1]?ii:"0"+ii[0]);
-                    // https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/btoa
-                    window.open('./?mod=sms_cheat&phone='+window.btoa(unescape(encodeURIComponent(key_handphone)))+'&bbs_sms_type='+bbs_sms_type+'&t='+window.btoa(unescape(encodeURIComponent(time))),'cheat_demand');
-                    //window.open('./?mod=sms_cheat&phone='+key_handphone+'&bbs_sms_type='+bbs_sms_type,'cheat_demand');
-                }
-            </script> <select name="member_phone1"
-					onchange="javascript:if(true){member_phone.value = member_phone1[member_phone1.selectedIndex].value + member_phone2.value + member_phone3.value }"
-					style="width: 60px;">
-						<option selected value=010>010</option>
-						<option value="010">010
-						<option value="011">011
-						<option value="016">016
-						<option value="017">017
-						<option value="018">018
-						<option value="019">019
-				</select>&nbsp;-&nbsp;<input type="text" name="member_phone2" value=""
-					maxlength="4" class="txt"
-					onchange="javascript:if(true){member_phone.value = member_phone1[member_phone1.selectedIndex].value + member_phone2.value + member_phone3.value }"
-					style="ime-mode: disabled;"
-					onKeyPress="return numbersonly(event, false)" />&nbsp;-&nbsp;<input
-					type="text" name="member_phone3" value="" maxlength="4" class="txt"
-					onchange="javascript:if(true){member_phone.value = member_phone1[member_phone1.selectedIndex].value + member_phone2.value + member_phone3.value }"
-					style="ime-mode: disabled;"
-					onKeyPress="return numbersonly(event, false)" />&nbsp;<a
-					onclick="v2014_handphone_check('#member_phone');return false;"
-					target="target_iframe"></a></td>
-			</tr>
-			<tr>
-				<th class="active">고운 언어가 좋아요!</th>
-				<td>"말이 입힌 상처는 칼이 입힌 상처보다 깊다." - 모로코 속담<br> 귀하의 글은 귀하의 품격을
-					보여주는 귀하의 얼굴입니다. 글에 귀하의 성숙함을 담아주세요.
-				</td>
-			</tr>
-			<tr>
-				<th class="active">이메일(필수)</th>
-				<td><input type="text"></td>
-			</tr>
-			<tr>
-				<th class="active">이름</th>
-				<td><input type="text"></td>
-			</tr>
-			<tr>
-				<th class="active">비밀번호</th>
-				<td><input type="password"></td>
-			</tr>
-			<tr>
-				<th class="active">약관 동의</th>
-				<td><input type="checkbox" id=chk1> <label for="chk1">서비스
-						이용약관에 동의합니다.(필수)</label><br> <input type="checkbox" id=chk2>
-					<label for="chk2">개인정보 수집 및 이용에 동의합니다.(필수)</label> <textarea
-						cols=60 rows=10 style="width: 850px; height: 150px;">
+	<form action="" method="post" name="writeForm" id="frm">
+		<div class="container">
+			<h2>피해사례 삭제요청</h2>
+			<table class="table table-condensed">
+				<tr>
+					<th align="center" class="active">필독</th>
+					<td>1. 삭제요청 게시물은 수정 및 삭제가 되지 않습니다. 신중히 작성해 주시기 바랍니다.<br>
+						2. 피해사례 등록자에게 SMS와 이메일로 삭제요청 메세지가 전송되며, 삭제 요청자의 연락처가 안내됩니다.<br>
+						3. 환불 증빙자료가 첨부되면, 즉시 피해사례가 삭제됩니다.<br> 4. 환불 증빙자료 미첨부시, 피해사례
+						등록자가 직접 피해사례를 삭제할 때까지 기다려야 합니다.<br>
+					</td>
+				</tr>
+				<tr>
+					<th align="center" class="active">제목</th>
+					<td><input type="text" name="제목"
+						placeholder="사죄문과 함께 삭제요청 드립니다." style="width: 600px"></td>
+				</tr>
+				<tr>
+					<th align="center" class="active">삭제 요청 연락처(필수)</th>
+					<td><input type="text" name="연락처"
+						placeholder="귀하가 사기행위에 사용한 휴대폰 번호를 모두 입력하세요.(복수입력 가능하며 , 로 구분하여 주세요)"
+						style="width: 800px"></td>
+				</tr>
+				<tr>
+					<th align="center" class="active"><label for="w_tit">연락처</label></th>
+					<td><script>
+						function srvTime() {
+							var xmlHttp;
+							if (window.XMLHttpRequest) {//분기하지 않으면 IE에서만 작동된다.
+								xmlHttp = new XMLHttpRequest(); // IE 7.0 이상, 크롬, 파이어폭스 등
+								xmlHttp.open('HEAD', window.location.href
+										.toString(), false);
+								xmlHttp.setRequestHeader("Content-Type",
+										"text/html");
+								xmlHttp.send('');
+								return xmlHttp.getResponseHeader("Date");
+							} else if (window.ActiveXObject) {
+								xmlHttp = new ActiveXObject('Msxml2.XMLHTTP');
+								xmlHttp.open('HEAD', window.location.href
+										.toString(), false);
+								xmlHttp.setRequestHeader("Content-Type",
+										"text/html");
+								xmlHttp.send('');
+								return xmlHttp.getResponseHeader("Date");
+							}
+						}
+						function v2014_handphone_check(form_name) {
+							var key_handphone = $(form_name).val();
+							var bbs_sms_type = $('#bbs_sms_type').val();
+							if (!key_handphone) {
+								alert('연락처를 입력해 주세요.');
+								return false;
+							}
+							var st = srvTime();
+							var dt = new Date(st);
+							if (!dt)
+								dt = new Date();
+							var yyyy = dt.getFullYear().toString();
+							var mm = (dt.getMonth() + 1).toString(); // getMonth() is zero-based
+							var dd = dt.getDate().toString();
+							var hh = dt.getHours().toString();
+							var ii = dt.getMinutes().toString();
+							var time = yyyy + (mm[1] ? mm : "0" + mm[0])
+									+ (dd[1] ? dd : "0" + dd[0])
+									+ (hh[1] ? hh : "0" + hh[0])
+									+ (ii[1] ? ii : "0" + ii[0]);
+							// https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/btoa
+							window
+									.open(
+											'./?mod=sms_cheat&phone='
+													+ window
+															.btoa(unescape(encodeURIComponent(key_handphone)))
+													+ '&bbs_sms_type='
+													+ bbs_sms_type
+													+ '&t='
+													+ window
+															.btoa(unescape(encodeURIComponent(time))),
+											'cheat_demand');
+							//window.open('./?mod=sms_cheat&phone='+key_handphone+'&bbs_sms_type='+bbs_sms_type,'cheat_demand');
+						}
+					</script> <select name="member_phone1"
+						onchange="javascript:if(true){member_phone.value = member_phone1[member_phone1.selectedIndex].value + member_phone2.value + member_phone3.value }"
+						style="width: 60px;">
+							<option selected value=010>010</option>
+							<option value="010">010
+							<option value="011">011
+							<option value="016">016
+							<option value="017">017
+							<option value="018">018
+							<option value="019">019
+					</select>&nbsp;-&nbsp;<input type="text" name="member_phone2" value=""
+						maxlength="4" class="txt"
+						onchange="javascript:if(true){member_phone.value = member_phone1[member_phone1.selectedIndex].value + member_phone2.value + member_phone3.value }"
+						style="ime-mode: disabled;"
+						onKeyPress="return numbersonly(event, false)" />&nbsp;-&nbsp;<input
+						type="text" name="member_phone3" value="" maxlength="4"
+						class="txt"
+						onchange="javascript:if(true){member_phone.value = member_phone1[member_phone1.selectedIndex].value + member_phone2.value + member_phone3.value }"
+						style="ime-mode: disabled;"
+						onKeyPress="return numbersonly(event, false)" />&nbsp;<a
+						onclick="v2014_handphone_check('#member_phone');return false;"
+						target="target_iframe"></a></td>
+				</tr>
+				<tr>
+					<th class="active">고운 언어가 좋아요!</th>
+					<td>"말이 입힌 상처는 칼이 입힌 상처보다 깊다." - 모로코 속담<br> 귀하의 글은 귀하의
+						품격을 보여주는 귀하의 얼굴입니다. 글에 귀하의 성숙함을 담아주세요.
+					</td>
+				</tr>
+				<tr>
+					<th class="active">이메일(필수)</th>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<th class="active">이름</th>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<th class="active">비밀번호</th>
+					<td><input type="password"></td>
+				</tr>
+				<tr>
+					<th class="active">사건 발생 개요</th>
+					<td>1.물품을 받은 경우에는 물품 사진을 첨부하세요. <br> 2.용의자의 주민등록번호와 사진은
+						절대 등록하시면 안됩니다.(피해사례 등록자가 법적 처벌을 받을 수 있습니다.) <textarea id="editor"
+							style="HEIGHT: 300px; WIDTH: 100%" rows="10" cols="30"
+							name="content"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<th class="active">약관 동의</th>
+					<td><input type="checkbox" id=chk1> <label for="chk1">서비스
+							이용약관에 동의합니다.(필수)</label><br> <input type="checkbox" id=chk2>
+						<label for="chk2">개인정보 수집 및 이용에 동의합니다.(필수)</label> <textarea
+							cols=60 rows=10 style="width: 850px; height: 150px;">
 1. 수집하는 개인정보 항목
 
 더치트는 회원가입, 원활한 회원 상담, 각종 서비스 등 기본적인 서비스 제공을 위한 필수정보와 회원 맞춤 서비스 제공을 위한 선택정보로 구분하여 아래와 같은 개인정보를 수집하고 있습니다.
@@ -231,13 +259,18 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 
 보존 기간 : 3개월
                </textarea></td>
-			</tr>
-		</table>
-		<div align="center">
-<!-- 			<a href="#"><img src="homenavimages/p.PNG"></img></a> <a href="#"><img
+				</tr>
+			</table>
+			<div align="center">
+				<!-- 			<a href="#"><img src="homenavimages/p.PNG"></img></a> <a href="#"><img
                   src="homenavimages/o.PNG"></img></a> 버튼-->
 
-			</table>
+				</table>
+			</div>
+			<a><input type="button" class="btn btn-info" value="등록"></a>
+			<a href="contacted.go"><input type="button"
+				class="btn btn-danger" value="취소"></a>
 		</div>
+	</form>
 </body>
 </html>
