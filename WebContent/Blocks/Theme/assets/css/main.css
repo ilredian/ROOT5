@@ -25,7 +25,7 @@
 
 /**********BASE CONFIGURATIONS**********/   
 body {
-	background:#1f1f1f;
+	background:#FFFFFF;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -59,13 +59,12 @@ h5 {
 	padding-bottom:10px;
 	border: 1px solid #383737;
 	background-image:url('../img/sep-half.png');
-	background-color: #3d3d3d;
+	background-color:  #F4F4F4;
 	color:white;
 	height:290px;
 }
 
 .dash-unit:hover {
-	background-color: #4f4f4f;
 	-moz-box-shadow:    3px 3px 2px 0px #151515;
     -webkit-box-shadow: 3px 3px 2px 0px #151515;
     box-shadow:         3px 3px 2px 0px #151515;
@@ -485,6 +484,7 @@ digiclock {
 
 
 /**********DONUT CHARTS STYLES**********/
+/* 
 #load {
 	width: 11.313em;
 	height: 11.313em;
@@ -494,7 +494,7 @@ digiclock {
 	background-position: center center;
 	margin:auto;
 }
-
+ */
 #space {
 	width: 11.313em;
 	height: 11.313em;
