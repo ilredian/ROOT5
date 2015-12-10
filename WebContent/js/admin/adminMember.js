@@ -16,6 +16,11 @@ $('.update').click(function(data){
 	var td3 = td.childNodes[5].innerHTML;
 	var td4 = td.childNodes[7].innerHTML;
 	var td5 = td.childNodes[9].innerHTML;
+	if(td5 == '정상 회원'){
+		td5 = 0;
+	}else{
+		td5 = 1;
+	}
 	$hide.hide();
 	$tr.empty();
 	$tr.append("<td colspan='6'><form action='updateMember.go' method='post' onsubmit='return updateOK()'><input type='hidden' name='mno' value='"+td1+"'><span class='label label-info'>"+td1+"</span><span class='label label-info'>"+td2+"</span><span class='label label-info'>"+td3+"</span> 타입 번호 :<input type='text' name='tn' value='"+td4+"'> 활동 여부(0:활동/1:탈퇴) :<input type='text' name='active' value='"+td5+"'><input class='btn btn-primary btn-sm' type='submit' value='수정 완료'><input type='button' class='btn btn-danger btn-sm' value='수정 취소' onclick='updateCancel()'></form></td>");

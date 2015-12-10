@@ -844,7 +844,7 @@ public class AdminController {// 관리자 페이지
 	}
 
 	// 게시판 종류 수정
-	@RequestMapping("updateBoardCategory.go")
+	@RequestMapping(value="updateBoardCategory.go", method = RequestMethod.POST)
 	public void updateBoardCategory(
 			@RequestParam("cn") String categoryname,
 			@RequestParam("cno") int categoryno,
@@ -875,7 +875,7 @@ public class AdminController {// 관리자 페이지
 	}
 
 	// 게시판 종류 추가
-	@RequestMapping("insertBoardCategory.go")
+	@RequestMapping(value="insertBoardCategory.go", method = RequestMethod.POST)
 	public void insertBoardCategory(
 			@RequestParam("cn") String categoryname,
 			@RequestParam("cno") int categoryno,
