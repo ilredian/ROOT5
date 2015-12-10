@@ -51,11 +51,11 @@ public class BoardPager {
 		if (query != null) {
 			// 1. 처음, 이전 항목 만들기
 			if (currentPage > 1) {
-				linkString.append(String.format("<li><a href='%s?pg=1&f=%s&q=%s'>처음</a></li>", linkUrl, field, query));
+				linkString.append(String.format("<li><a href='%s?pg=1&f=%s&q=%s&ps=%d'>처음</a></li>", linkUrl, field, query, pageSize));
 				linkString.append("&nbsp;");
 				linkString.append("&nbsp;");
 				if (currentPage > 10) {
-					linkString.append(String.format("<li><a href='%s?pg=%d&f=%s&q=%s'>이전</a></li>", linkUrl, previous, field, query));
+					linkString.append(String.format("<li><a href='%s?pg=%d&f=%s&q=%s&ps=%d'>이전</a></li>", linkUrl, previous, field, query, pageSize));
 				}
 				linkString.append("&nbsp;");
 			}
@@ -71,7 +71,7 @@ public class BoardPager {
 				if (i == currentPage) {
 					linkString.append(String.format("<li class='active'><a href='#'>%d</a></li>", i));
 				} else {
-					linkString.append(String.format("<li><a href='%s?pg=%d&f=%s&q=%s'>%d</a></li>", linkUrl, i, field, query, i));
+					linkString.append(String.format("<li><a href='%s?pg=%d&f=%s&q=%s&ps=%d'>%d</a></li>", linkUrl, i, field, query, pageSize, i));
 				}
 				linkString.append("&nbsp;");
 			}
@@ -80,20 +80,20 @@ public class BoardPager {
 			if (currentPage < pageCount) {
 				linkString.append("&nbsp;");
 				if (next <= pageCount) {
-					linkString.append(String.format("<li><a href='%s?pg=%d&f=%s&q=%s'>다음</a></li>", linkUrl, next, field, query));
+					linkString.append(String.format("<li><a href='%s?pg=%d&f=%s&q=%s&ps=%d'>다음</a></li>", linkUrl, next, field, query, pageSize));
 				}
 				linkString.append("&nbsp;");
 				linkString.append("&nbsp;");
-				linkString.append(String.format("<li><a href='%s?pg=%d&f=%s&q=%s'>마지막</a></li>", linkUrl, pageCount, field, query));
+				linkString.append(String.format("<li><a href='%s?pg=%d&f=%s&q=%s&ps=%d'>마지막</a></li>", linkUrl, pageCount, field, query, pageSize));
 			}
 		} else {
 			// 1. 처음, 이전 항목 만들기
 			if (currentPage > 1) {
-				linkString.append(String.format("<li><a href='%s?pg=1'>처음</a></li>", linkUrl));
+				linkString.append(String.format("<li><a href='%s?pg=1&ps=%d'>처음</a></li>", linkUrl, pageSize));
 				linkString.append("&nbsp;");
 				linkString.append("&nbsp;");
 				if (currentPage > 10) {
-					linkString.append(String.format("<li><a href='%s?pg=%d'>이전</a></li>", linkUrl, previous));
+					linkString.append(String.format("<li><a href='%s?pg=%d&ps=%d'>이전</a></li>", linkUrl, previous, pageSize));
 				}
 				linkString.append("&nbsp;");
 			}
@@ -109,7 +109,7 @@ public class BoardPager {
 				if (i == currentPage) {
 					linkString.append(String.format("<li class='active'><a href='#'>%d</a></li>", i));
 				} else {
-					linkString.append(String.format("<li><a href='%s?pg=%d'>%d</a></li>", linkUrl, i, i));
+					linkString.append(String.format("<li><a href='%s?pg=%d&ps=%d'>%d</a></li>", linkUrl, i, pageSize, i));
 				}
 				linkString.append("&nbsp;");
 			}
@@ -118,11 +118,11 @@ public class BoardPager {
 			if (currentPage < pageCount) {
 				linkString.append("&nbsp;");
 				if (next <= pageCount) {
-					linkString.append(String.format("<li><a href='%s?pg=%d'>다음</a></li>", linkUrl, next));
+					linkString.append(String.format("<li><a href='%s?pg=%d&ps=%d'>다음</a></li>", linkUrl, next, pageSize));
 				}
 				linkString.append("&nbsp;");
 				linkString.append("&nbsp;");
-				linkString.append(String.format("<li><a href='%s?pg=%d'>마지막</a></li>", linkUrl, pageCount));
+				linkString.append(String.format("<li><a href='%s?pg=%d&ps=%d'>마지막</a></li>", linkUrl, pageCount, pageSize));
 			}
 		}
 		return linkString.toString();
