@@ -4,22 +4,26 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DAO.MemberTypeDAO">
 
+	<!-- 모든 회원 타입 가져오기 -->
 	<select id="getMemberTypeList" resultType="DTO.MemberTypeDTO">
 		SELECT *
 		FROM membertype
 	</select>
-
+	
+	<!-- 회원 타입 수정 -->
 	<update id="updateMemberType">
 		UPDATE membertype
 		SET typename = #{typename}
 		WHERE typeno = #{typeno}
 	</update>
 
+	<!-- 회원 타입 추가 -->
 	<insert id="insertMemberType">
 		INSERT into membertype(typeno, typename)
 		VALUES(#{typeno}, #{typename})
 	</insert>
 
+	<!-- 회원 타입 삭제 -->
 	<delete id="deleteMemberType">
 		DELETE FROM membertype
 		WHERE typeno = #{typeno}

@@ -1,7 +1,4 @@
 $('.update').click(function(data){
-/*	if(confirm('선택하신 항목을 수정하시겠습니까?')){
-		location.replace("'"+$(this).attr("id")+"'");
-	}*/
 
 	$('.update').hide();
 	$('.delete').hide();
@@ -17,10 +14,9 @@ $('.update').click(function(data){
 	var td1 = td.childNodes[1].innerHTML;
 	var td2 = td.childNodes[3].innerHTML;
 	var td3 = td.childNodes[5].innerHTML;
-	var td4 = td.childNodes[7].innerHTML;
 	$hide.hide();
 	$tr.empty();
-	$tr.append("<td colspan='5'><form action='updateItem.go' method='post' onsubmit='return updateOK()'><input type='text' name='gk' value='"+td1+"'><input type='text' name='gn' value='"+td2+"'><input type='text' name='gs' value='"+td3+"'><input class='btn btn-primary btn-sm' type='submit' value='수정 완료'><input type='button' class='btn btn-danger btn-sm' value='수정 취소' onclick='updateCancel()'></form></td>");
+	$tr.append("<td colspan='5'><form action='updateItem.go' method='post' onsubmit='return updateOK()'><input type='text' name='gk' value='"+td1+"' readonly><input type='text' name='gn' value='"+td2+"'><input type='text' name='gs' value='"+td3+"'><input class='btn btn-primary btn-sm' type='submit' value='수정 완료'><input type='button' class='btn btn-danger btn-sm' value='수정 취소' onclick='updateCancel()'></form></td>");
 });
 
 function updateCancel(){

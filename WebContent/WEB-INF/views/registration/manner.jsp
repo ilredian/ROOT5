@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<form action="" method="post" name="writeForm">
+<form action="" method="post" name="writeForm" id="frm">
 	<div class="container">
 		<h3>비매너 피해사례 등록 </h3>
 		<p>피해사례 등록이 완료되면 피해자를 위한 기능이 실시간 제공됩니다. </p>
@@ -480,7 +480,7 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 			<br>
 		</div>
 		<div class="container">
-			<input type="submit" class="btn btn-info btn-block"
+			<input type="button" class="btn btn-info btn-block" id="savebutton"
 				value="피해사례 등록 약관에 동의하며, 피해사례를 등록합니다.">
 		</div>
 	</div>

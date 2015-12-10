@@ -3,7 +3,7 @@
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<form action="" method="post" name="writeForm">
+<form action="" method="post" name="writeForm" id="frm">
 	<div class="container">
 		<h3>게임, 비실물 피해사례 등록</h3>
 		<p>피해사례 등록이 완료되면 피해자를 위한 기능이 실시간 제공됩니다.</p>
@@ -352,7 +352,7 @@
 					style="width: 0px; height: 0px;">
 			</div>
 			<div class="container">
-				<input type="submit" id="gamebtn" class="btn btn-info btn-block"
+				<input type="button" id="gamebtn" class="btn btn-info btn-block" id="savebutton"
 					value="피해사례 등록 약관에 동의하며, 피해사례를 등록합니다.">
 			</div>
 			<!--<input type="submit" value="" name="" onclick="return confirm('확인 버튼을 누른 후 피해사례가 등록될 때 까지 기다려 주세요.');"/>-->
