@@ -231,10 +231,16 @@
 				</tbody>
 			</table>
 		</div>
+		
+		
+		
 			<div class="col-sm-6"
 			style="background-color: white; border: 1px solid lightgray;margin-top:10px; margin-right: 23px; width: 516px; height: 349px; float: right;">
 			<div
 				style="margin-left: -16px; width: 214px; height: 165px; float: left;">
+				
+	
+
 				
 			</div>
 		</div>
