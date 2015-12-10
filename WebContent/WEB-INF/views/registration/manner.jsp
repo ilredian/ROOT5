@@ -1,11 +1,12 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <form action="" method="post" name="writeForm" id="frm">
 	<div class="container">
-		<h3>비매너 피해사례 등록 </h3>
-		<p>피해사례 등록이 완료되면 피해자를 위한 기능이 실시간 제공됩니다. </p>
+		<h3>직거래 피해사례 등록</h3>
+		<p>피해사례 등록이 완료되면 피해자를 위한 기능이 실시간 제공됩니다.</p>
 		<br>
 
 		<div style="float: left;">
@@ -319,48 +320,41 @@
 							name="content"></textarea>
 					</td>
 				</tr>
-			</table>
-		</div>
-		<br>
-		<h3 align="center">피해사례 등록 약관</h3>
-		<div class="agreeArea" align="center">
-			<textarea rows="10px" cols="100px" readonly="readonly" style=""> 
+				</div>
+				<br>
+
+
+		<tr>
+			<th class="active">약관 동의</th>
+			<td><textarea cols=60 rows=10 style="width: 1000px; height: 300px;">
+
 피해사례 등록 약관
             
-1. 본인이 등록한 피해사례 정보는 용의자 검거 및 피해 방지를 위한 목적으로 공인된 수사기관에 제공됨을 동의합니다.
-2. 본인이 등록한 피해사례 정보는 추가 피해를 방지하기 위한 목적으로 개인, 기업 등 제3자에게 제공됨을 동의합니다.
-3. 본인이 등록한 피해사례 정보는 경찰서에 직접 방문하여 신고 접수 예정이거나 신고 접수가 완료된 사례입니다.
-4. 허위사실 유포, 명예훼손 등 법적분쟁 발생 시 모든 책임은 피해사례 등록자인 본인에게 있습니다.
-5. 피해사례 등록 여부 및 검거소식 등의 추가 정보가 용의자와 피해자에게 통지됨을 동의합니다.
-6. 물품 배송 또는 환불이 완료된 경우, 즉시 등록한 피해사례를 삭제할 것입니다.
-            
-※ 약관을 위배하는 경우, 다음과 같은 처벌을 받을 수 있습니다.
-① 사람을 비방할 목적으로 정보통신망을 통하여 공연히 사실을 적시하여 타인의 명예를 훼손하는 경우 3년 이하의 징역이나 금고 또는 2천만원 이하의 벌금에 처하고
-사람을 비방할 목적으로 정보통신망을 통하여 공연히 허위의 사실을 적시하여 타인의 명예를 훼손하는 경우에는 7년 이하의 징역, 10년 이하의 자격정지 또는 5천만원 이하의 벌금에 처할 수 있습니다.
-② 개인적인 앙심 또는 괘씸함 등 사기범죄 외의 사유로 등록하시는 경우, 명예훼손에 해당될 수 있으며 이는 민·형사상의 불이익을 받을 수 있습니다.
-③ 제품에 대한 상태불만, 반품거부, 택배비 착불등의 사례 등록은 영업방해 및 명예훼손에 해당될 수 있습니다.
-</textarea>
-         <div class="alert_cheat_write alert_cheat_write-info">
-            <b><input type="checkbox" name="cheat_rule_c" value="1"
-               id="cheat_rule_c" align="left"
-               onclick="return cheat_rule_check(cheat_rule.value)" /> <label
-               for="cheat_rule_c">피해사례 등록 약관에 동의합니다.(필수)</label></b> <input
-               type="hidden" readonly name="cheat_rule" value="" align="left"
-               style="width: 0px; height: 0px;">
-         </div>
+1. 본인이 등록한 피해사례 정보는 용의자 검거 및 피해 방지를 위한 목적으로 등록된 기관에 제공됨을 동의합니다.
 
-         <div class="alert_cheat_write alert_cheat_write-info">
-            <b><input type="checkbox" name="agreement_1" value="1"
-               id="chk_agreement_1"
-               onclick="return value_change('agreement_1h',this.value)" /> <label
-               for="chk_agreement_1">서비스 이용약관에 동의합니다.(필수)</label></b>
-         </div>
-         <div class="alert_cheat_write alert_cheat_write-info">
-            <div style="margin-top: 6px;">
-               <textarea rows="10" cols="100" readonly="readonly">
+2. 본인이 등록한 피해사례 정보는 추가 피해를 방지하기 위한 목적으로 개인, 기업 등 제3자에게 제공됨을 동의합니다.
+
+3. 허위사실 유포, 명예훼손 등 법적분쟁 발생 시 모든 책임은 피해사례 등록자인 본인에게 있습니다.
+
+4. 피해사례 등록 여부 및 검거소식 등의 추가 정보가 용의자와 피해자에게 통지됨을 동의합니다.
+
+5. 물품 배송 또는 환불이 완료된 경우, 즉시 등록한 피해사례를 삭제할 것입니다.
+
+            
+
+※ 약관을 위배하는 경우, 다음과 같은 처벌을 받을 수 있습니다.
+
+① 사람을 비방할 목적으로 정보통신망을 통하여 공연히 사실을 적시하여 타인의 명예를 훼손하는 경우 3년 이하의 징역이나 금고 또는 8천만원 이하의 벌금에 처하고
+
+사람을 비방할 목적으로 정보통신망을 통하여 공연히 허위의 사실을 적시하여 타인의 명예를 훼손하는 경우에는 7년 이하의 징역, 10년 이하의 자격정지 또는 3억원 이하의 벌금에 처할 수 있습니다.
+
+② 개인적인 앙심 또는 괘씸함 등 사기범죄 외의 사유로 등록하시는 경우, 명예훼손에 해당될 수 있으며 이는 민·형사상의 불이익을 받을 수 있습니다.
+
+③ 제품에 대한 상태불만, 반품거부, 택배비 착불등의 사례 등록은 영업방해 및 명예훼손에 해당될 수 있습니다.
+
 1. 수집하는 개인정보 항목
 
-더치트는 회원가입, 원활한 회원 상담, 각종 서비스 등 기본적인 서비스 제공을 위한 필수정보와 회원 맞춤 서비스 제공을 위한 선택정보로 구분하여 아래와 같은 개인정보를 수집하고 있습니다.
+안치트는 회원가입, 원활한 회원 상담, 각종 서비스 등 기본적인 서비스 제공을 위한 필수정보와 회원 맞춤 서비스 제공을 위한 선택정보로 구분하여 아래와 같은 개인정보를 수집하고 있습니다.
 
 1) 수집항목
 
@@ -392,7 +386,7 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 
 2) 개인정보 수집방법
 
-더치트는 다음과 같은 방법으로 개인정보를 수집할 수 있습니다.
+안치트는 다음과 같은 방법으로 개인정보를 수집할 수 있습니다.
 
 - 홈페이지, 서면양식, 팩스, 전화, 상담 게시판, 이메일, 이벤트 응모, 배송요청
 
@@ -400,9 +394,12 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 
 - 생성정보 수집 툴을 통한 수집
 
+
+
+
 2. 개인정보의 수집 및 이용목적
 
-더치트는 수집한 개인정보를 다음의 목적을 위해 활용합니다. 이용자가 제공한 모든 정보는 하기 목적에 필요한 용도 이외로는 사용되지 않으며 이용 목적이 변경될 시에는 사전 동의를 구할 것입니다.
+안치트는 수집한 개인정보를 다음의 목적을 위해 활용합니다. 이용자가 제공한 모든 정보는 하기 목적에 필요한 용도 이외로는 사용되지 않으며 이용 목적이 변경될 시에는 사전 동의를 구할 것입니다.
 
 1) 서비스 제공에 관한 계약 이행 및 서비스 제공에 따른 요금정산
 
@@ -416,9 +413,12 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 
 신규 서비스 개발과 이벤트 행사에 따른 정보 전달 및 맞춤 서비스 제공, 인구통계학적 특성에 따른 서비스 제공 및 광고 게재, 접속 빈도 파악 또는 회원의 서비스 이용에 대한 통계
 
+
+
+
 3. 개인정보의 보유 및 이용기간
 
-더치트는 회원가입일로부터 서비스를 제공하는 기간 동안에 한하여 이용자의 개인정보를 보유 및 이용하게 됩니다.
+안치트는 회원가입일로부터 서비스를 제공하는 기간 동안에 한하여 이용자의 개인정보를 보유 및 이용하게 됩니다.
 
 회원 탈퇴를 요청하거나 개인정보의 수집 및 이용에 대한 동의를 철회하는 경우, 수집 및 이용목적이 달성되거나 보유 및 이용기간이 종료한 경우 해당 개인정보를 지체 없이 파기합니다.
 
@@ -430,7 +430,7 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 
 보존 기간 : 1년
 
-상법, 전자상거래 등에서의 소비자보호에 관한 법률 등 관계법령의 규정에 의하여 보존할 필요가 있는 경우 더치트는 관계법령에서 정한 일정한 기간 동안 회원정보를 보관합니다. 이 경우 더치트는 보관하는 정보를 그 보관의 목적으로만 이용하며 보존기간은 아래와 같습니다.
+상법, 전자상거래 등에서의 소비자보호에 관한 법률 등 관계법령의 규정에 의하여 보존할 필요가 있는 경우 안치트는 관계법령에서 정한 일정한 기간 동안 회원정보를 보관합니다. 이 경우 안치트는 보관하는 정보를 그 보관의 목적으로만 이용하며 보존기간은 아래와 같습니다.
 
 - 계약 또는 청약철회 등에 관한 기록
 
@@ -461,27 +461,44 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 보존 이유 : 통신비밀보호법
 
 보존 기간 : 3개월
+
          
 </textarea>
+				<div class="alert_cheat_write alert_cheat_write-info">
+					<b><input type="checkbox" name="cheat_rule_c" value="1"
+						id="cheat_rule_c" valign="bottom"
+						onclick="return cheat_rule_check(cheat_rule.value)" /> <label
+						for="cheat_rule_c">피해사례 등록 약관에 동의합니다.(필수)</label></b> <input
+						type="hidden" readonly name="cheat_rule" value="" valign="bottom"
+						style="width: 0px; height: 0px;">
 				</div>
-				<b><input type="checkbox" name="agreement_2" value="1"
-					id="chk_agreement_2"
-					onclick="return value_change('agreement_2h',this.value)" /> <label
-					for="chk_agreement_2">개인정보 수집 및 이용에 동의합니다.(필수)</label></b>
-			</div>
-		</div>
 
-		<input type="hidden" id="agreement_1h" value="0" name="agreement_1h"
-			style="width: 0px; height: 0px;"> <input type="hidden"
-			id="agreement_2h" value="0" name="agreement_2h"
-			style="width: 0px; height: 0px;">
+				<div class="alert_cheat_write alert_cheat_write-info">
+					<b><input type="checkbox" name="agreement_1" value="1"
+						id="chk_agreement_1"
+						onclick="return value_change('agreement_1h',this.value)" /> <label
+						for="chk_agreement_1">서비스 이용약관에 동의합니다.(필수)</label></b>
+				</div>
+				<div class="alert_cheat_write alert_cheat_write-info"><b><input type="checkbox" name="agreement_2" value="1"
+		id="chk_agreement_2"
+		onclick="return value_change('agreement_2h',this.value)" /> <label
+		for="chk_agreement_2">개인정보 수집 및 이용에 동의합니다.(필수)</label></b></div>
+			</td>
+		</tr>
+		</table>
 
-		<div>
-			<br>
-		</div>
-		<div class="container">
-			<input type="button" class="btn btn-info btn-block" id="savebutton"
-				value="피해사례 등록 약관에 동의하며, 피해사례를 등록합니다.">
-		</div>
+
+
+	<input type="hidden" id="agreement_1h" value="0" name="agreement_1h"
+		style="width: 0px; height: 0px;"> <input type="hidden"
+		id="agreement_2h" value="0" name="agreement_2h"
+		style="width: 0px; height: 0px;">
+
+	<div>
+		<br>
+	</div>
+	<div class="container">
+		<input type="button" class="btn btn-info btn-block" id="savebutton"
+			value="피해사례 등록 약관에 동의하며, 피해사례를 등록합니다.">
 	</div>
 </form>

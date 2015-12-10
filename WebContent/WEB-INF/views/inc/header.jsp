@@ -41,7 +41,7 @@
 	/* 내 정보 버튼*/
 	$(document).ready(function() {
 		$('#myPage').click(function() {
-			location.replace("memberMessage.go");
+			location.replace("memberMessage.go?mno=1");
 		});
 	});
 

@@ -21,6 +21,7 @@ import DAO.CheatBankDAO;
 import DAO.CheatDAO;
 import DAO.CheatDomainDAO;
 import DAO.CheatItemsDAO;
+import DAO.MemberDAO;
 import DAO.MemberTypeDAO;
 import DAO.ReplyDAO;
 import DAO.ReportBoardDAO;
@@ -31,6 +32,7 @@ import DTO.CheatBankDTO;
 import DTO.CheatDTO;
 import DTO.CheatDomainDTO;
 import DTO.CheatItemsDTO;
+import DTO.MemberDTO;
 import DTO.MemberTypeDTO;
 import DTO.ReplyDTO;
 import common.BoardPager;
@@ -752,13 +754,76 @@ public class AdminController {// 관리자 페이지
 
 	// 회원 관리 목록
 	@RequestMapping(value = "adminMember.go", method = RequestMethod.GET)
-	public String AdminMemberagent() {
+	public String AdminMemberagent(
+		@RequestParam(value = "pg", required = false, defaultValue = "1") int page, // 현재 페이지 번호
+		@RequestParam(value = "f", required = false, defaultValue = "name") String field, // 검색 카테고리
+		@RequestParam(value = "q", required = false, defaultValue = "%%") String query, // 검색 내용
+		@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, // 한 페이지에 보여줄 게시글 갯수
+		Model model) throws Exception {
 
 		// 로그 남기기
 		System.out.println("회원 관리 관리자 페이지 이동");
 		
-		// 
+		// DB 연결을 위한 DAO 변수 선언
+		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
+		
+		// 페이징 처리
+		int pagerSize = 10;// 한 번에 보여줄 페이지 번호 갯수
+		String linkUrl = "adminMember.go";// 페이지번호를 누르면 이동할 경로
+		int memberCount = memberDAO.getAllMemberCount(field, query);// 검색 결과에 따른 게시글 총 갯수
+		int start = (page - 1) * pageSize;
+
+		BoardPager pager = null;
+		if (!query.equals("%%")) {// 검색값이 있을 경우
+			pager = new BoardPager(memberCount, page, pageSize, pagerSize, linkUrl, field, query);
+		} else {// 검색 값이 없을 경우
+			pager = new BoardPager(memberCount, page, pageSize, pagerSize, linkUrl);
+		}
+		
+		List<MemberDTO> list = memberDAO.getAllMember(start, field, query, pageSize);
+		
+		// DB값 model 객체에 담기
+		model.addAttribute("pager", pager);
+		model.addAttribute("memberCount", memberCount);
+		model.addAttribute("list", list);
+
+		// 로그 남기기
+		System.out.println("회원 관리 메인 출력 완료");
+		
 		return "admin.adminMember";
+	}
+	
+	// 회원 타입 수정
+	@RequestMapping(value = "updateMember.go", method = RequestMethod.POST)
+	public void updateMemberagent(
+		@RequestParam("mno") int memberno,
+		@RequestParam("tn") int typeno,
+		@RequestParam("active") int active,
+		HttpServletResponse response,
+		MemberDTO memberDTO) throws Exception {
+
+	// 파라미터값 세팅
+	memberDTO.setMemberno(memberno);
+	memberDTO.setTypeno(typeno);
+	memberDTO.setActive(active);
+	
+	// 로그 남기기
+	System.out.println("회원 타입 수정");
+	
+	//경고문 띄우기 전 한글 처리
+	response.setContentType("text/html;charset=UTF-8");
+	out = response.getWriter();
+
+	// DB 연결
+	MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
+	int result = memberDAO.updateType(memberDTO);
+
+	if (result == 1) {
+		out.print("<script>alert('회원 정보가 성공적으로 수정되었습니다.');location.replace('adminMember.go');</script>");
+	} else {
+		out.print("<script>alert('회원 정보 수정에 실패하였습니다.');location.replace('adminMember.go');</script>");
+	}
+	out.close();
 	}
 
 	// 게시판 종류 관리자 페이지 이동
@@ -779,7 +844,7 @@ public class AdminController {// 관리자 페이지
 	}
 
 	// 게시판 종류 수정
-	@RequestMapping("updateBoardCategory.go")
+	@RequestMapping(value="updateBoardCategory.go", method = RequestMethod.POST)
 	public void updateBoardCategory(
 			@RequestParam("cn") String categoryname,
 			@RequestParam("cno") int categoryno,
@@ -810,7 +875,7 @@ public class AdminController {// 관리자 페이지
 	}
 
 	// 게시판 종류 추가
-	@RequestMapping("insertBoardCategory.go")
+	@RequestMapping(value="insertBoardCategory.go", method = RequestMethod.POST)
 	public void insertBoardCategory(
 			@RequestParam("cn") String categoryname,
 			@RequestParam("cno") int categoryno,

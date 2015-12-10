@@ -11,6 +11,10 @@
 </title>
 		<!-- StyleSheet  Link 영역 -->
 		<link href='<tiles:getAsString name="css"/>' type="text/css" rel="stylesheet" />
+		
+		<!-- 네이버 에디터 링크 -->
+		<script type="text/javascript" charset="utf-8"
+			src="/ROOT/navereditor/js/HuskyEZCreator.js"></script>
 </head>
 <body>
 		<!-- Header 영역 -->
@@ -30,5 +34,8 @@
 			
 		<!-- Footer 영역  -->
 		<tiles:insertAttribute name="footer" />
+		
+		<!-- javascript 영역 -->
+		<script type="text/javascript" src='<tiles:getAsString name="js"/>' ></script>
 </body>
 </html>

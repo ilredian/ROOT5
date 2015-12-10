@@ -5,10 +5,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <form action="" method="post" name="writeForm" id="frm">
-	<div class="container">
-		<h3>게임, 비실물 피해사례 등록</h3>
-		<p>피해사례 등록이 완료되면 피해자를 위한 기능이 실시간 제공됩니다.</p>
-		<br>
+   <div class="container">
+      <h3>게임, 비실물 피해사례 등록</h3>
+      <p>피해사례 등록이 완료되면 피해자를 위한 기능이 실시간 제공됩니다.</p>
+      <br>
 
       <div style="float: left;">
          <h3>피해 발생 사이트 정보</h3>
@@ -50,8 +50,8 @@
                         <c:if test="${a.index % 6 == 0}">
                            <tr>
                         </c:if>
-                        <td align="center" style="width: 15%;"><il class="oneLine"> <input
-                              type="radio" name="cheat_item_temp" class="rdo"
+                        <td align="center" style="width: 15%;"><il class="oneLine">
+                           <input type="radio" name="cheat_item_temp" class="rdo"
                               id="${list.goodskind}" value="${list.goodsname}"
                               onclick="label_rdo_click('${list.goodskind}');"> <label
                               for="${list.goodskind}"><h1>
@@ -320,15 +320,13 @@
                      name="content"></textarea>
                </td>
             </tr>
-         </table>
-      </div>
-      <br>
-      <div class="container" align="center">
-         <h3>피해사례 등록 약관</h3>
-      </div>
-      <div class="container" align="center">
-         <textarea rows="" cols="" readonly="readonly"
-            style="margin: 0px; width: 900px; height: 300px;">
+
+            </div>
+            <br>
+            <tr>
+               <th class="active">약관 동의</th>
+               <td><textarea cols=60 rows=10
+                     style="width: 900px; height: 300px;">
         피해사례 등록 약관
             
 1. 본인이 등록한 피해사례 정보는 용의자 검거 및 피해 방지를 위한 목적으로 공인된 수사기관에 제공됨을 동의합니다.
@@ -343,20 +341,37 @@
 사람을 비방할 목적으로 정보통신망을 통하여 공연히 허위의 사실을 적시하여 타인의 명예를 훼손하는 경우에는 7년 이하의 징역, 10년 이하의 자격정지 또는 5천만원 이하의 벌금에 처할 수 있습니다.
 ② 개인적인 앙심 또는 괘씸함 등 사기범죄 외의 사유로 등록하시는 경우, 명예훼손에 해당될 수 있으며 이는 민·형사상의 불이익을 받을 수 있습니다.
 ③ 제품에 대한 상태불만, 반품거부, 택배비 착불등의 사례 등록은 영업방해 및 명예훼손에 해당될 수 있습니다.
-        </textarea>
-			<div class="alert_cheat_write alert_cheat_write-info">
-				<b><input type="checkbox" name="cheat_rule_c" value="1"
-					id="cheat_rule_c" valign="bottom"
-					onclick="return cheat_rule_check(cheat_rule.value)" /> <label
-					for="cheat_rule_c">피해사례 등록 약관에 동의합니다.(필수)</label></b> <input
-					type="hidden" readonly name="cheat_rule" value="" valign="bottom"
-					style="width: 0px; height: 0px;">
-			</div>
-			<div class="container">
-				<input type="button" id="gamebtn" class="btn btn-info btn-block" id="savebutton"
-					value="피해사례 등록 약관에 동의하며, 피해사례를 등록합니다.">
-			</div>
-			<!--<input type="submit" value="" name="" onclick="return confirm('확인 버튼을 누른 후 피해사례가 등록될 때 까지 기다려 주세요.');"/>-->
-		</div>
-	</div>
+        </textarea><div class="alert_cheat_write alert_cheat_write-info">
+                     <b><input type="checkbox" name="cheat_rule_c" value="1"
+                        id="cheat_rule_c" valign="bottom"
+                        onclick="return cheat_rule_check(cheat_rule.value)" /> <label
+                        for="cheat_rule_c">피해사례 등록 약관에 동의합니다.(필수)</label></b> <input
+                        type="hidden" readonly name="cheat_rule" value=""
+                        valign="bottom" style="width: 0px; height: 0px;">
+                  </div>
+
+                  <div class="alert_cheat_write alert_cheat_write-info">
+                     <b><input type="checkbox" name="agreement_1" value="1"
+                        id="chk_agreement_1"
+                        onclick="return value_change('agreement_1h',this.value)" /> <label
+                        for="chk_agreement_1">서비스 이용약관에 동의합니다.(필수)</label></b>
+                  </div>
+                  <div class="alert_cheat_write alert_cheat_write-info">
+                     <b><input type="checkbox" name="agreement_2" value="1"
+                        id="chk_agreement_2"
+                        onclick="return value_change('agreement_2h',this.value)" /> <label
+                        for="chk_agreement_2">개인정보 수집 및 이용에 동의합니다.(필수)</label></b>
+                  </div></td>
+            </tr>
+
+         </table>
+
+         <div class="container">
+            <input type="button" id="gamebtn" class="btn btn-info btn-block"
+               id="savebutton" value="피해사례 등록 약관에 동의하며, 피해사례를 등록합니다.">
+
+         </div>
+         <!--<input type="submit" value="" name="" onclick="return confirm('확인 버튼을 누른 후 피해사례가 등록될 때 까지 기다려 주세요.');"/>-->
+      </div>
+   </div>
 </form>

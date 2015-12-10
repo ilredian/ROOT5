@@ -15,7 +15,7 @@ $('.update').click(function(data){
 	var td2 = td.childNodes[3].innerHTML;
 	$hide.hide();
 	$tr.empty();
-	$tr.append("<td colspan='3'><form action='updateDomainList.go' method='post' onsubmit='return updateOK()'><input type='text' name='do' value='"+td1+"'><input type='text' name='dn' value='"+td2+"'><input type='hidden' name='origin' value='"+td1+"'><input class='btn btn-primary btn-sm' type='submit' value='수정 완료'><input type='button' class='btn btn-danger btn-sm' value='수정 취소' onclick='updateCancel()'></form></td>");
+	$tr.append("<td colspan='3'><form action='updateDomainList.go' method='post' onsubmit='return updateOK()'><input type='text' name='do' value='"+td1+"' readonly><input type='text' name='dn' value='"+td2+"'><input type='hidden' name='origin' value='"+td1+"'><input class='btn btn-primary btn-sm' type='submit' value='수정 완료'><input type='button' class='btn btn-danger btn-sm' value='수정 취소' onclick='updateCancel()'></form></td>");
 
 });
 
