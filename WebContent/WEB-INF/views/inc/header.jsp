@@ -55,7 +55,7 @@
 	/* 비밀번호 찾기 */
 	$(document).ready(function() {
 		$('#find').click(function() {
-			location.replace("memberPwdChange.go");
+			location.replace("pwSearch.go");
 		});
 	});
 </script>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>AhnCheat</title>e>
+<title>AhnCheat</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
    href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -31,7 +31,6 @@
 					<a href="statementMain.go?cno=1"><img src="homenavimages/q.PNG"></a>
 					<a href="statementMain.go?cno=2"><img src="homenavimages/w.PNG"></a>
 					<a href="statementMain.go?cno=3"><img src="homenavimages/e.PNG"></a>
-					<a href="statementMain.go?cno=4"><img src="homenavimages/r.PNG"></a>
 					<a href="registration.go"><img src="homenavimages/t.PNG"></a>
                </div>
             </div>
