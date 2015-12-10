@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>AhnCheat</title>e>
+<title>AhnCheat</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
    href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -15,7 +15,7 @@
 </head>
 <body>
    <div class="container" align="center">
-      <div class="homeContArea bodyCont">
+      <div class="homeContArea bodyCont" align="center" style="margin-left: 150px">
          <h2 align="left">피해사례 분류</h2>
          <div style="padding: 20px; border: 4px solid #eff0f1; float: left;">
             <div class="fl section" style="float: left; margin-right: 20px;">
@@ -31,7 +31,6 @@
 					<a href="statementMain.go?cno=1"><img src="homenavimages/q.PNG"></a>
 					<a href="statementMain.go?cno=2"><img src="homenavimages/w.PNG"></a>
 					<a href="statementMain.go?cno=3"><img src="homenavimages/e.PNG"></a>
-					<a href="statementMain.go?cno=4"><img src="homenavimages/r.PNG"></a>
 					<a href="registration.go"><img src="homenavimages/t.PNG"></a>
                </div>
             </div>

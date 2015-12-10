@@ -41,7 +41,7 @@
 	/* 내 정보 버튼*/
 	$(document).ready(function() {
 		$('#myPage').click(function() {
-			location.replace("memberMessage.go");
+			location.replace("memberMessage.go?mno=1");
 		});
 	});
 
@@ -55,7 +55,7 @@
 	/* 비밀번호 찾기 */
 	$(document).ready(function() {
 		$('#find').click(function() {
-			location.replace("memberPwdChange.go");
+			location.replace("pwSearch.go");
 		});
 	});
 </script>

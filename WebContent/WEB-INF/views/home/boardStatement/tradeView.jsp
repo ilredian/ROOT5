@@ -1,179 +1,98 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<title>Bootstrap Example</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</head>
-<body>
+<div class="container">
+	<h2>직거래 피해사례 상세보기</h2>
+	<div class="container">
+		<div class="container">
+			<table class="table table-striped">
+				<tbody>
+					<tr>
+						<th colspan="3">${cheaterDTO.goodsname}</th>
+					</tr>
+					<tr>
+						<td style="width: 10%;"><img alt="no_pic" src="<c:out value='${memberDTO.photo}'></c:out>"></td>
+						<td style="width: 70%;">
+							<table>
+								<tr>
+									<th>피해자 : ${memberDTO.name} 님 (피해회원)</th>
+								</tr>
+								<tr>
+									<td>${memberDTO.message}</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<hr>
+		</div>
 
+		<!-- 피해 발생 사이트 정보 -->
 
-	<div class="container">
-		<h3>직거래 피해사례</h3>
-	</div>
-	<div class="container">
 		<div class="container">
-			<table class="table table table-striped">
-				<colgroup>
-					<col width="162">
-					<col width="">
-				</colgroup>
+			<h4>피해 발생 사이트 정보</h4>
+			<table class="table">
 				<tr>
-					<td>사기당한 물건의 이름 & 올린 날자와 시간</td>
+					<th class="active" style="width: 15%">사기 사건 발생일</th>
+					<td colspan="3">${cheaterDTO.depositdate}</td>
 				</tr>
 				<tr>
-					<td>사진& 피해자 이름 (김 OO 식으로)</td>
+					<th class="active">사이트명(URL)</th>
+					<td>${cheaterDTO.domain }
+					<c:if test="${not empty cheaterDTO.link}">
+					<button class="btn btn-default btn-xs"><a href="${cheaterDTO.link}">게시물 링크</a></button>
+					</c:if>
+					</td>
+					<th class="active" style="width: 15%">용의자 아이디</th>
+					<td>${cheaterDTO.cheaterid}</td>
+				</tr>
+				<tr>
+					<th class="active">거래 물품 종류</th>
+					<td>${cheatItemsDTO.goodsname} <span class="${cheatItemsDTO.goodsspan}"></span></td>
+					<th class="active">피해 금액</th>
+					<td>${deposit} 원</td>
 				</tr>
 			</table>
 		</div>
-	</div>
-	<!-- 피해 발생 사이트 정보 -->
-	<div class="container">
-		<div class="container">
-			<h3>
-				피해 발생 사이트 정보
-			</h3>
-			<table class="table table table-striped">
-				<colgroup>
-					<col width="162">
-					<col width="">
-				</colgroup>
-				<tr>
-					<th scope="row" colspan=3">사기 사건 발생일</th>
-					<td>
-						<div id="vContent">
-							<p>입력된글 받기</p>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">사이트명(URL)</th>
-					<td>
-						<div id="vContent">
-							<p>입력된글 받기 & 게시물 링크 버튼 넣기</p>
-						</div>
-					</td>
-					<th scope="row">용의자 아이디</th>
-					<td>
-						<div id="vContent">
-							<p>입력된글 받기</p>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">거래 물품 종류</th>
-					<td>
-						<div id="vContent">
-							<p>거래물품 종류의 사진을 보여준다</p>
-						</div>
-					</td>
-					<th scope="row">피해 금액</th>
-					<td>
-						<div id="vContent">
-							<p>입력한 값을 받는다</p>
-						</div>
-					</td>
-				</tr>
-			</table>
-		</div>
-	</div>
-	<!-- 피해 상세보기 -->
-	<div class="container">
-		<div class="container">
-			<h3>
-				용의자(사기범) 정보
-			</h3>
-			<table class="table table table-striped">
-				<colgroup>
-					<col width="162">
-					<col width="">
-				</colgroup>
-				<tr>
-					<th scope="row">명의자 성명</th>
-					<td>
-						<div id="vContent">
-							<p>입력된글 받기(김 OO) 이런식으로</p>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">계좌번호</th>
-					<td>
-						<div id="vContent">
-							<p>입력된글 받기(은행 이름과 계좌번호 12자리중뒷자리6자리는 *표시)</p>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">연락처</th>
-					<td>
-						<div id="vContent">
-							<p>입력된글 받기(입력된 연락처 받기)</p>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">트징</th>
-					<td>
-						<div id="vContent">
-							<p>입력된글 받기(입력된 특징 등록)</p>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">IP 주소</th>
-					<td>
 
-						<div id="vContent">
-							<p>IP주소는 경찰이나 관리자만 볼수 있다</p>
-						</div>
-					</td>
-				</tr>
-			</table>
-		</div>
-	</div>
-	<!-- 사건개요 -->
-	<div class="container">
+		<!-- 피해 상세보기 -->
 		<div class="container">
-			<h3>
-				사건 개요 (진술서)
-			</h3>
-			<table class="table table table-striped">
-				<colgroup>
-					<col width="162">
-					<col width="">
-				</colgroup>
+			<h4>용의자(사기범) 정보</h4>
+			<table class="table">
 				<tr>
-					<th scope="row">사건발생 개요</th>
-					<td>
-						<div id="vContent">
-							<p>입력된글 받기</p>
-						</div>
-					</td>
+					<th class="active" style="width: 15%">명의자 성명</th>
+					<td>${cheaterDTO.cheatername}</td>
+				</tr>
+				<tr>
+					<th class="active" >계좌번호</th>
+					<td>${cheaterDTO.account}</td>
+				</tr>
+				<tr>
+					<th class="active" >연락처</th>
+					<td>${cheaterDTO.phone}</td>
+				</tr>
+				<tr>
+					<th class="active" >특징</th>
+					<td>${cheaterDTO.feature}</td>
+				</tr>
+				<tr>
+					<th class="active" >IP 주소</th>
+					<td>ip???</td>
 				</tr>
 			</table>
 		</div>
-	</div>
-	<div class="container">
+
+		<!-- 사건개요 -->
 		<div class="container">
-			<table class="table table table-striped">
+			<h4>사건 개요 (진술서)</h4>
+			<table class="table">
 				<tr>
-					<td>댓글 수</td>
-				</tr>
-				<tr>
-					<td>댓글 쓴 사람의 프로필 사진과 내용 이름 댓글 올린 시간이 나온다</td>
+					<th class="active" style="width: 15%">사건발생 개요</th>
+					<td>${cheaterDTO.content}</td>
 				</tr>
 			</table>
-			<button type="submit"><a href="#">댓글 쓰기</a></button>
 		</div>
 	</div>
-</body>
-</html>
+</div>

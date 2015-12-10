@@ -13,6 +13,14 @@
 <!-- StyleSheet  Link 영역 -->
 <link href='<tiles:getAsString name="css"/>' type="text/css"
 	rel="stylesheet" />
+<style type="text/css">
+.menu a{
+cursor: pointer;  
+}
+.menu .hide{
+display: none;  
+}
+</style>
 </head>
 <body>
 	<!-- Header 영역 -->
@@ -24,7 +32,7 @@
 		<div class="top-wrapper clear">
 			<div class="container">
 				<h1>관리자 페이지</h1>
-				<p>이페이지는 고나리자 전용 페이지 입니다</p>
+				<p>이 페이지는 관리자 전용 페이지 입니다</p>
 				<div class="container" style="margin-top: 20px">
 					<div class="row">
 						<div class="col-sm-2">

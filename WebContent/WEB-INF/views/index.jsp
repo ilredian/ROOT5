@@ -18,7 +18,7 @@ h1,h3 {
 </html>
 <div class="container">
 
-      <div class="jumbotron" align="center" style="background-color: white; margin-top: 70px; margin-bottom: 80px;">
+      <div class="jumbotron" align="center" style="background-color: white; margin-top: 55px; margin-bottom: 20px;">
          <h1 align="center" style="color: #D83939;font-size: 80px; font-style: inherit;">사기피해사례 검색</h1><br><br>
          <form id="search" class="navbar-form navbar-center"
             action="totalSearch.go">
@@ -43,6 +43,13 @@ h1,h3 {
 								class="fa fa-search fa-lg" data-type="last"></i>
 						</span></td>
 					</tr>
+				</table>
+				<table style="margin-top:50px;">
+
+					<tr><th style="color: #D83939;">오늘 방문자수:&nbsp;&nbsp;&nbsp;&nbsp;
+			</th><td style="color:orange">${todayCount}</td></tr>
+					<tr><th style="color: #D83939;">누적 방문자수:&nbsp;&nbsp;&nbsp;&nbsp;</th><td  style="color:orange">${totalCount}</td></tr>
+
 				</table>
 			</form>
 		</div>
