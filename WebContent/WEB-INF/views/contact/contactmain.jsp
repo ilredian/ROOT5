@@ -12,10 +12,10 @@
 					<!-- 링크 -->
 					<div class="well">
 						<!-- 삭제 요청하기 -->
-						<a href="#"><input type="submit" class="btn btn-info btn-lg"
+						<a href="deletepls.go"><input type="submit" class="btn btn-info btn-lg"
 							value="삭제 요청하기"></a>
 						<!-- 나의 피해사례 -->
-						<a href="#"><input type="submit"
+						<a href="memberBoard.go?mno=2"><input type="submit"
 							class="btn btn-default btn-lg" value="나의 피해사례"></a>
 					</div>
 				</div>
@@ -25,13 +25,10 @@
 				<div>
 					<p>서비스 사용과 관련한 궁금증을 해결 할 수 있습니다.</p>
 					<!-- 링크 -->
-					<div class="well">
+					<div class="well" align="center">
 						<!--button-->
-						<a href="#"><input type="submit" class="btn btn-info btn-lg"
+						<a href="question.go"><input type="submit" class="btn btn-info btn-lg"
 							value="1:1 문의하기"></a>
-						<!-- 문의내역 -->
-						<a href="#"><input type="submit"
-							class="btn btn-default btn-lg" value="나의 문의"></a>
 					</div>
 				</div>
 			</div>
