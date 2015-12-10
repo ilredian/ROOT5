@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="container">
 	<ul class="nav nav-tabs">
@@ -13,13 +13,11 @@
 	<div class="well well-sm" align="center">
 		<form>
 			<div class="form-group">
-				<h2 id="statementText">직거래 피해 사례</h2> <input type="text"
-					name="keyword" class="txt" title="검색어 입력"
-					placeholder="로그인 후 상세 검색을 사용하세요." size="30" onclick="#">
+				<h2 id="statementText">직거래 피해 사례</h2>
+				<input type="text" name="keyword" class="txt" title="검색어 입력"
+					placeholder="검색어를 입력해 주세요" size="30" onclick="#">
 				<!-- onclick 에 로그인 창띄우는 거 -->
-				<button type="button" class="btn btn-default">
-					<a href="search.go">검색</a>
-				</button>
+				<a href="search.go"><input type="button" class="btn btn-default" value="검색"></a>
 			</div>
 		</form>
 		<div>

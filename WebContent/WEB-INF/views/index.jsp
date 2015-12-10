@@ -32,6 +32,24 @@ h1,h3 {
   document.getElementById("pageView").appendChild(document.createTextNode(hitCt));
  }
 </script>
+<script TYPE="TEXT/JAVASCRIPT"> 
+ expireDate2 = new Date;
+ expireDate2.setMonth(expireDate.getMonth()+6);
+ hitCt2 = eval(cookieVal("pageHit2"));
+ hitCt2++;
+ document.cookie2 = "pageHit2="+hitCt2+";expires2=" + expireDate2.toGMTString();
+    
+ function cookieVal2(cookieName) {
+  thisCookie = document.cookie.split("; ")
+  for (i=0; i<thisCookie.length; i++) {
+    if (cookieName == thisCookie[i].split("=")[0]) return thisCookie[i].split("=")[1];
+  }
+  return 0;
+ }
+ window.onload = function(){
+  document.getElementById("pageView2").appendChild(document.createTextNode(hitCt));
+ }
+</script>
 </head>
 </html>
 <div class="container">
@@ -62,9 +80,9 @@ h1,h3 {
 						</span></td>
 					</tr>
 				</table>
-				<table style="color: #D83939; font-size: 30px;">
-					<tr><th id="pageView">오늘 방문자수 : </th><td></td></tr>
-					<tr><th>누적 방문자수</th><td></td></tr>
+				<table style="margin-top:50px;">
+					<tr><th style="color: #D83939;">오늘 방문자수&nbsp;&nbsp;&nbsp;&nbsp;</th><td id="pageView" style="color:orange"></td></tr>
+					<tr><th style="color: #D83939;">누적 방문자수&nbsp;&nbsp;&nbsp;&nbsp;</th><td id="pageView2" style="color:orange"></td></tr>
 				</table>
 			</form>
 		</div>

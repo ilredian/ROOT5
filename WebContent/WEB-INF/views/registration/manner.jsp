@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <form action="" method="post" name="writeForm" id="frm">
@@ -340,24 +340,24 @@
 ② 개인적인 앙심 또는 괘씸함 등 사기범죄 외의 사유로 등록하시는 경우, 명예훼손에 해당될 수 있으며 이는 민·형사상의 불이익을 받을 수 있습니다.
 ③ 제품에 대한 상태불만, 반품거부, 택배비 착불등의 사례 등록은 영업방해 및 명예훼손에 해당될 수 있습니다.
 </textarea>
-			<div class="alert_cheat_write alert_cheat_write-info">
-				<b><input type="checkbox" name="cheat_rule_c" value="1"
-					id="cheat_rule_c" align="left"
-					onclick="return cheat_rule_check(cheat_rule.value)" /> <label
-					for="cheat_rule_c">피해사례 등록 약관에 동의합니다.(필수)</label></b> <input
-					type="hidden" readonly name="cheat_rule" value="" align="left"
-					style="width: 0px; height: 0px;">
-			</div>
+         <div class="alert_cheat_write alert_cheat_write-info">
+            <b><input type="checkbox" name="cheat_rule_c" value="1"
+               id="cheat_rule_c" align="left"
+               onclick="return cheat_rule_check(cheat_rule.value)" /> <label
+               for="cheat_rule_c">피해사례 등록 약관에 동의합니다.(필수)</label></b> <input
+               type="hidden" readonly name="cheat_rule" value="" align="left"
+               style="width: 0px; height: 0px;">
+         </div>
 
-			<div class="alert_cheat_write alert_cheat_write-info">
-				<b><input type="checkbox" name="agreement_1" value="1"
-					id="chk_agreement_1"
-					onclick="return value_change('agreement_1h',this.value)" /> <label
-					for="chk_agreement_1">서비스 이용약관에 동의합니다.(필수)</label></b>
-			</div>
-			<div class="alert_cheat_write alert_cheat_write-info">
-				<div style="margin-top: 6px;">
-					<textarea rows="10" cols="100" readonly="readonly">
+         <div class="alert_cheat_write alert_cheat_write-info">
+            <b><input type="checkbox" name="agreement_1" value="1"
+               id="chk_agreement_1"
+               onclick="return value_change('agreement_1h',this.value)" /> <label
+               for="chk_agreement_1">서비스 이용약관에 동의합니다.(필수)</label></b>
+         </div>
+         <div class="alert_cheat_write alert_cheat_write-info">
+            <div style="margin-top: 6px;">
+               <textarea rows="10" cols="100" readonly="readonly">
 1. 수집하는 개인정보 항목
 
 더치트는 회원가입, 원활한 회원 상담, 각종 서비스 등 기본적인 서비스 제공을 위한 필수정보와 회원 맞춤 서비스 제공을 위한 선택정보로 구분하여 아래와 같은 개인정보를 수집하고 있습니다.

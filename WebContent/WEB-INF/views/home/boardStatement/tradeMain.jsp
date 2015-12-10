@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -25,7 +25,7 @@
 					<td>${list.account}</td>
 					<td>${list.phone}</td>
 					<td>${list.regdate}</td>
-					<td><input type="button" class="viewBtn" value="자세히보기"
+					<td><input type="button" class="btn btn-info viewBtn" value="자세히보기"
 						id="statementView.go?sno=${list.stateno}&cno=1"></td>
 				</tr>
 			</c:forEach>
@@ -33,9 +33,11 @@
 	</table>
 </div>
 <div>
-	<button id="a" style="float: right;">
-		<a href="trade.go">사기피해사례 등록</a>
-	</button>
+<<<<<<< HEAD
+	<input type="button" id="tradeMain" class="btn btn-info tradeMain" style="float: right;" value="사기사례피해등록"><!-- trade.go -->
+=======
+	<a href="trade.go"><input type="button" class="btn btn-info" id="a" style="float: right;" value="사기피해사례 등록"></a>
+>>>>>>> 74751683a052531c5db42c3e7e40b237da361e6b
 </div>
 <div style="text-align: center; clear:both;">
 	<c:set var="pager" value="${pager.toString()}" />
