@@ -1,4 +1,4 @@
-package controllers;
+﻿package controllers;
 
 import java.util.ArrayList;
 
@@ -13,7 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import DAO.BoardFreeDAO;
 import DAO.InterestStatementDAO;
 import DAO.MemberInfoDAO;
 import DTO.InterestStatementDTO;
@@ -56,6 +58,10 @@ public class HomeController {
 	
 	@RequestMapping("home.go")
 	public String Home(
+			@RequestParam(value = "pg", required = false, defaultValue = "1") int page, // 현재 페이지 번호
+			@RequestParam(value = "f", required = false, defaultValue = "title") String field, // 검색 카테고리
+			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, // 검색 내용
+			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, // 한 페이지에 보여줄 게시글 갯수
 			HttpSession session,
 			Model model) throws Exception {
 		
@@ -114,19 +120,23 @@ public class HomeController {
 				else if(o1.getScore() > o2.getScore()) return -1;
 				else return 0;
 			}
-			
 		};
 		
 		Collections.sort(list, comparator);
-		
 		// model에 담기
 		model.addAttribute("list", list);
+		
+		//////
+		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
+		int boardCount = boardFreeDAO.getCount(field, query);
+		System.out.println("boardCount");
+		model.addAttribute("boardCount", boardCount);
+		////
+		
 
 		// 로그 남기기
 		System.out.println("홈으로 이동");
 		
 		return "home.home.home";
 	}
-	
-	
 }

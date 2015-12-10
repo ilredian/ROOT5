@@ -1,11 +1,12 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <form action="" method="post" name="writeForm" id="frm">
 	<div class="container">
-		<h3>비매너 피해사례 등록 </h3>
-		<p>피해사례 등록이 완료되면 피해자를 위한 기능이 실시간 제공됩니다. </p>
+		<h3>직거래 피해사례 등록</h3>
+		<p>피해사례 등록이 완료되면 피해자를 위한 기능이 실시간 제공됩니다.</p>
 		<br>
 
 		<div style="float: left;">
@@ -319,12 +320,13 @@
 							name="content"></textarea>
 					</td>
 				</tr>
-			</table>
-		</div>
-		<br>
-		<h3 align="center">피해사례 등록 약관</h3>
-		<div class="agreeArea" align="center">
-			<textarea rows="10px" cols="100px" readonly="readonly" style=""> 
+				</div>
+				<br>
+
+				<tr>
+					<th class="active">약관 동의</th>
+					<td><textarea cols=60 rows=10
+							style="width: 900px; height: 300px;">
 피해사례 등록 약관
             
 1. 본인이 등록한 피해사례 정보는 용의자 검거 및 피해 방지를 위한 목적으로 공인된 수사기관에 제공됨을 동의합니다.
@@ -339,25 +341,6 @@
 사람을 비방할 목적으로 정보통신망을 통하여 공연히 허위의 사실을 적시하여 타인의 명예를 훼손하는 경우에는 7년 이하의 징역, 10년 이하의 자격정지 또는 5천만원 이하의 벌금에 처할 수 있습니다.
 ② 개인적인 앙심 또는 괘씸함 등 사기범죄 외의 사유로 등록하시는 경우, 명예훼손에 해당될 수 있으며 이는 민·형사상의 불이익을 받을 수 있습니다.
 ③ 제품에 대한 상태불만, 반품거부, 택배비 착불등의 사례 등록은 영업방해 및 명예훼손에 해당될 수 있습니다.
-</textarea>
-         <div class="alert_cheat_write alert_cheat_write-info">
-            <b><input type="checkbox" name="cheat_rule_c" value="1"
-               id="cheat_rule_c" align="left"
-               onclick="return cheat_rule_check(cheat_rule.value)" /> <label
-               for="cheat_rule_c">피해사례 등록 약관에 동의합니다.(필수)</label></b> <input
-               type="hidden" readonly name="cheat_rule" value="" align="left"
-               style="width: 0px; height: 0px;">
-         </div>
-
-         <div class="alert_cheat_write alert_cheat_write-info">
-            <b><input type="checkbox" name="agreement_1" value="1"
-               id="chk_agreement_1"
-               onclick="return value_change('agreement_1h',this.value)" /> <label
-               for="chk_agreement_1">서비스 이용약관에 동의합니다.(필수)</label></b>
-         </div>
-         <div class="alert_cheat_write alert_cheat_write-info">
-            <div style="margin-top: 6px;">
-               <textarea rows="10" cols="100" readonly="readonly">
 1. 수집하는 개인정보 항목
 
 더치트는 회원가입, 원활한 회원 상담, 각종 서비스 등 기본적인 서비스 제공을 위한 필수정보와 회원 맞춤 서비스 제공을 위한 선택정보로 구분하여 아래와 같은 개인정보를 수집하고 있습니다.
@@ -461,27 +444,43 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 보존 이유 : 통신비밀보호법
 
 보존 기간 : 3개월
-         
 </textarea>
-				</div>
-				<b><input type="checkbox" name="agreement_2" value="1"
-					id="chk_agreement_2"
-					onclick="return value_change('agreement_2h',this.value)" /> <label
-					for="chk_agreement_2">개인정보 수집 및 이용에 동의합니다.(필수)</label></b>
-			</div>
-		</div>
+						<div class="alert_cheat_write alert_cheat_write-info">
+							<b><input type="checkbox" name="cheat_rule_c" value="1"
+								id="cheat_rule_c" valign="bottom"
+								onclick="return cheat_rule_check(cheat_rule.value)" /> <label
+								for="cheat_rule_c">피해사례 등록 약관에 동의합니다.(필수)</label></b> <input
+								type="hidden" readonly name="cheat_rule" value=""
+								valign="bottom" style="width: 0px; height: 0px;">
+						</div>
 
-		<input type="hidden" id="agreement_1h" value="0" name="agreement_1h"
-			style="width: 0px; height: 0px;"> <input type="hidden"
-			id="agreement_2h" value="0" name="agreement_2h"
-			style="width: 0px; height: 0px;">
+						<div class="alert_cheat_write alert_cheat_write-info">
+							<b><input type="checkbox" name="agreement_1" value="1"
+								id="chk_agreement_1"
+								onclick="return value_change('agreement_1h',this.value)" /> <label
+								for="chk_agreement_1">서비스 이용약관에 동의합니다.(필수)</label></b>
+						</div>
+						<div class="alert_cheat_write alert_cheat_write-info">
+							<b><input type="checkbox" name="agreement_2" value="1"
+								id="chk_agreement_2"
+								onclick="return value_change('agreement_2h',this.value)" /> <label
+								for="chk_agreement_2">개인정보 수집 및 이용에 동의합니다.(필수)</label></b>
+						</div></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<input type="hidden" id="agreement_1h" value="0" name="agreement_1h"
+		style="width: 0px; height: 0px;"> <input type="hidden"
+		id="agreement_2h" value="0" name="agreement_2h"
+		style="width: 0px; height: 0px;">
 
-		<div>
-			<br>
-		</div>
-		<div class="container">
-			<input type="button" class="btn btn-info btn-block" id="savebutton"
-				value="피해사례 등록 약관에 동의하며, 피해사례를 등록합니다.">
-		</div>
+	<div>
+		<br>
+	</div>
+	<div class="container">
+		<input type="button" class="btn btn-info btn-block" id="savebutton"
+			value="피해사례 등록 약관에 동의하며, 피해사례를 등록합니다.">
+	</div>
 	</div>
 </form>
