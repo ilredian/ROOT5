@@ -108,6 +108,9 @@
 	<select id="getAllCheaterCount" resultType="Integer">
 		SELECT count(*) count
 		FROM cheaterdb
+		WHERE DATE_FORMAT(regdate,'%Y-%m') 
+		BETWEEN '${param1}'
+		AND '${param2}'
 	</select>
 	
 	<!-- 카테고리별 진술서 수 불러오기 -->
@@ -124,18 +127,27 @@
 	<select id="getCountPhone" resultType="Integer">
 		SELECT count(phone)
 		FROM cheaterdb
+		WHERE DATE_FORMAT(regdate,'%Y-%m') 
+		BETWEEN '${param1}'
+		AND '${param2}'
 	</select>
 	
 	<!-- 계좌번호 수 -->
 	<select id="getCountAccount" resultType="Integer">
 		SELECT count(account)
 		FROM cheaterdb
+		WHERE DATE_FORMAT(regdate,'%Y-%m') 
+		BETWEEN '${param1}'
+		AND '${param2}'
 	</select>
 	
 	<!-- 피해금액 -->
 	<select id="getCountSum" resultType="Integer">
 		SELECT sum(COALESCE(deposit,0))
 		FROM cheaterdb
+		WHERE DATE_FORMAT(regdate,'%Y-%m') 
+		BETWEEN '${param1}'
+		AND '${param2}'
 	</select>
 	
 	<!-- 피해물품 TOP 10 -->
@@ -153,6 +165,9 @@
 	<select id="getCountCheaterName" resultType="DTO.CheaterDTO">
 		SELECT cheatername, count(*) count
 		FROM cheaterdb
+		WHERE DATE_FORMAT(regdate,'%Y-%m') 
+		BETWEEN '${param1}'
+		AND '${param2}'
 		GROUP BY cheatername
 		ORDER BY count(*) DESC
 	</select>
@@ -161,6 +176,9 @@
 	<select id="getCountDomain" resultType="DTO.CheaterDTO">
 		SELECT domain, count(*) count
 		FROM cheaterdb
+		WHERE DATE_FORMAT(regdate,'%Y-%m') 
+		BETWEEN '${param1}'
+		AND '${param2}'
 		GROUP BY domain
 		ORDER BY count(*) DESC
 	</select>
@@ -169,6 +187,9 @@
 	<select id="getCountBankName" resultType="DTO.CheaterDTO">
 		SELECT bankname, count(*) count
 		FROM cheaterdb
+		WHERE DATE_FORMAT(regdate,'%Y-%m') 
+		BETWEEN '${param1}'
+		AND '${param2}'
 		GROUP BY bankname
 		ORDER BY count(*) DESC
 	</select>
@@ -180,5 +201,15 @@
 		WHERE DATE_FORMAT(regdate,'%Y-%m') 
 		BETWEEN '${regdate}'
 		AND '${regdate}'
+	</select>
+	
+	<!-- 날짜별-한달일 경우 -->
+	<select id="getChartMonth" parameterType="DTO.chartDTO" resultType="DTO.chartDTO">
+		SELECT regdate, count(*) count 
+		FROM cheaterdb 
+		WHERE DATE_FORMAT(regdate,'%Y-%m-%d') 
+		BETWEEN '${param1}'
+		AND '${param2}'
+		group by regdate
 	</select>
 </mapper>
