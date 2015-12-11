@@ -1,11 +1,14 @@
 ﻿package controllers;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
@@ -17,14 +20,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import DAO.BoardFreeDAO;
 import DAO.InterestStatementDAO;
+import DAO.MemberDAO;
 import DAO.MemberInfoDAO;
 import DTO.InterestStatementDTO;
 import DTO.MemberDTO;
+import javafx.scene.control.Alert;
 import DAO.VisitDAO;
 
 @Controller
 public class HomeController {
-	
+	PrintWriter out = null;
 	@Autowired
 	private SqlSession sqlSession;
 
@@ -51,92 +56,118 @@ public class HomeController {
       
 		model.addAttribute("totalCount", totalCount);// 전체 방문자 수
 		model.addAttribute("todayCount", todayCount); // 오늘 방문자 수
-		
-      
+
 		return "main.index";
 	}
-	
+
 	@RequestMapping("home.go")
-	public String Home(
-			@RequestParam(value = "pg", required = false, defaultValue = "1") int page, // 현재 페이지 번호
+	public String Home(@RequestParam(value = "pg", required = false, defaultValue = "1") int page, // 현재 페이지 번호
 			@RequestParam(value = "f", required = false, defaultValue = "title") String field, // 검색 카테고리
 			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, // 검색 내용
-			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, // 한 페이지에 보여줄 게시글 갯수
-			HttpSession session,
-			Model model) throws Exception {
-		
+			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, // 한페이지에// 보여줄 게시글 갯수										
+			MemberDTO memberDTO,
+			HttpSession session, ServletResponse response, HttpServletRequest request, Model model)
+					throws Exception {
 
+		response.setContentType("text/html;charset=EUC-KR");
+		out = response.getWriter();
+/*
+		session = request.getSession();*/
+		//get방식으로 home.go로 가면 로그인이 안되었을때 튕겨야한다.
 		
-	
-		 
-		// 로그 남기기
-		System.out.println("관심 지정 진술서 비교");
+		//내 멤버 정보_ , 이메일을 입력
+		// 세션 정보가 있는지 없는지만 판단하면 되는건데
+//		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
+//		MemberDTO ee = memberDAO.getMember(memberDTO.getEmail());
+//		System.out.println("ee: "+ee.getEmail());
 		
-		// 필요 변수 값 가져오기
-		int memberno = ((MemberDTO)session.getAttribute("memberInfo")).getMemberno();
+	/*	String email = (String) session.getAttribute("email");
+*/
 		
-		// DB 선언
-		InterestStatementDAO isDAO = sqlSession.getMapper(InterestStatementDAO.class);
-		
-		// 비교 로직/cheatername/account/phone/cheaterid
-		InterestStatementDTO isDTO = isDAO.getInterestStatement(memberno);
-		List<InterestStatementDTO> result = isDAO.compareDB(isDTO);
-		List<InterestStatementDTO> list = new ArrayList<InterestStatementDTO>();
-		
-		for(int i = 0; i < result.size(); i++){
-			int score = 0;
-			if(result.get(i).getCheatername() != null){
-				if(result.get(i).getCheatername().equals(isDTO.getCheatername())){
-				score += 10;
+		if(session.getAttribute("memberInfo") != null){
+
+			// 로그 남기기
+			System.out.println("관심 지정 진술서 비교");
+			// DB 선언
+			InterestStatementDAO isDAO = sqlSession.getMapper(InterestStatementDAO.class);
+
+			int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
+
+			// 비교 로직/cheatername/account/phone/cheaterid
+			InterestStatementDTO isDTO = isDAO.getInterestStatement(memberno);
+			List<InterestStatementDTO> result = isDAO.compareDB(isDTO);
+			List<InterestStatementDTO> list = new ArrayList<InterestStatementDTO>();
+
+			for (int i = 0; i < result.size(); i++) {
+				int score = 0;
+				if (result.get(i).getCheatername() != null) {
+					if (result.get(i).getCheatername().equals(isDTO.getCheatername())) {
+						score += 10;
+					}
+				}
+				if (result.get(i).getAccount() != null) {
+					if (result.get(i).getAccount().equals(isDTO.getAccount())) {
+						score += 40;
+					}
+				}
+				if (result.get(i).getPhone() != null) {
+					if (result.get(i).getPhone().equals(isDTO.getPhone())) {
+						score += 30;
+					}
+				}
+				if (result.get(i).getCheaterid() != null) {
+					if (result.get(i).getCheaterid().equals(isDTO.getCheaterid())) {
+						score += 30;
+					}
+				}
+				if (score >= 30) {
+					result.get(i).setScore(score);
+					list.add(result.get(i));
 				}
 			}
-			if(result.get(i).getAccount() != null){
-				if(result.get(i).getAccount().equals(isDTO.getAccount())){
-				score += 40;
+
+			// 점수가 높은 순으로 정렬하기
+			Comparator<InterestStatementDTO> comparator = new Comparator<InterestStatementDTO>() {
+
+				@Override
+				public int compare(InterestStatementDTO o1, InterestStatementDTO o2) {
+					if (o1.getScore() < o2.getScore())
+						return 1;
+					else if (o1.getScore() > o2.getScore())
+						return -1;
+					else
+						return 0;
 				}
-			}
-			if(result.get(i).getPhone() != null){
-				if(result.get(i).getPhone().equals(isDTO.getPhone())){
-				score += 30;
-				}
-			}
-			if(result.get(i).getCheaterid() != null){
-				if(result.get(i).getCheaterid().equals(isDTO.getCheaterid())){
-				score += 30;
-				}
-			}
-			if(score >= 30){
-				result.get(i).setScore(score);
-				list.add(result.get(i));
-			}
+			};
+
+			Collections.sort(list, comparator);
+			// model에 담기
+			model.addAttribute("list", list);
+
+			//////
+			BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
+			int boardCount = boardFreeDAO.getCount(field, query);
+			System.out.println("boardCount");
+			model.addAttribute("boardCount", boardCount);
+			////
+
+			// 로그 남기기
+			System.out.println("홈으로 이동");
+
+			return "home.home.home";
+
+		}else { // 아이디가 없음.
+			System.out.println("비로그인");
+
+			out.println("<script type=\'text/javascript'>");
+			out.println("alert('로그인을 해주세요.');");
+			out.println("</script>");
+			out.flush();
+
+			return "main.index";// 홈으로 이동
 		}
 		
-		// 점수가 높은 순으로 정렬하기
-		Comparator<InterestStatementDTO> comparator = new Comparator<InterestStatementDTO>(){
-
-			@Override
-			public int compare(InterestStatementDTO o1, InterestStatementDTO o2) {
-				if(o1.getScore() < o2.getScore()) return 1;
-				else if(o1.getScore() > o2.getScore()) return -1;
-				else return 0;
-			}
-		};
-		
-		Collections.sort(list, comparator);
-		// model에 담기
-		model.addAttribute("list", list);
-		
-		//////
-		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
-		int boardCount = boardFreeDAO.getCount(field, query);
-		System.out.println("boardCount");
-		model.addAttribute("boardCount", boardCount);
-		////
-		
-
-		// 로그 남기기
-		System.out.println("홈으로 이동");
-		
-		return "home.home.home";
 	}
+
 }
+

@@ -2,6 +2,7 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.ProcessBuilder.Redirect;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -54,11 +55,13 @@ public class LoginController {
 		MemberDTO result = memberDAO.getMember(memberDTO.getEmail());
 		
 		System.out.println("result : " + result);
+		
+		
+		
 		if(result == null){//아이디가 없음
 			System.out.println("해당 이메일은 가입되어 있지 않습니다");
 			out.print("<script type='text/javascript'>alert('해당 이메일은 가입되어 있지 않습니다')</script>");
-			out.close();
-			return "main.index";
+			out.flush();
 		
 		}else {//아이디가 있음
 			if(result.getPassword().equals(memberDTO.getPassword())){//비밀번호가 같음
@@ -77,6 +80,9 @@ public class LoginController {
 				return "main.index";
 			}
 		}		
+		
+		
+		
 		return "main.index";
 	}
 	
