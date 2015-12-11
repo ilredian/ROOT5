@@ -1,10 +1,13 @@
 ﻿package controllers;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
@@ -24,7 +27,7 @@ import DTO.MemberDTO;
 
 @Controller
 public class HomeController {
-	
+	PrintWriter out = null;
 	@Autowired
 	private SqlSession sqlSession;
 
@@ -51,65 +54,62 @@ public class HomeController {
       
 		model.addAttribute("totalCount", totalCount);// 전체 방문자 수
 		model.addAttribute("todayCount", todayCount); // 오늘 방문자 수
-		
-      
+
 		return "main.index";
 	}
-	
+
 	@RequestMapping("home.go")
-	public String Home(
-			@RequestParam(value = "pg", required = false, defaultValue = "1") int page, // 현재 페이지 번호
+	public String Home(@RequestParam(value = "pg", required = false, defaultValue = "1") int page, // 현재 페이지 번호
 			@RequestParam(value = "f", required = false, defaultValue = "title") String field, // 검색 카테고리
 			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, // 검색 내용
-			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, // 한 페이지에 보여줄 게시글 갯수
-			HttpSession session,
-			Model model) throws Exception {
-		
+			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, // 한페이지에// 보여줄 게시글 갯수										
+			MemberDTO memberDTO,
+			HttpSession session, ServletResponse response, HttpServletRequest request, Model model)
+					throws Exception {
 
-		
-	
-		 
-		// 로그 남기기
-		System.out.println("관심 지정 진술서 비교");
-		
-		// 필요 변수 값 가져오기
-		int memberno = ((MemberDTO)session.getAttribute("memberInfo")).getMemberno();
-		
-		// DB 선언
-		InterestStatementDAO isDAO = sqlSession.getMapper(InterestStatementDAO.class);
-		
-		// 비교 로직/cheatername/account/phone/cheaterid
-		InterestStatementDTO isDTO = isDAO.getInterestStatement(memberno);
-		List<InterestStatementDTO> result = isDAO.compareDB(isDTO);
-		List<InterestStatementDTO> list = new ArrayList<InterestStatementDTO>();
-		
-		for(int i = 0; i < result.size(); i++){
-			int score = 0;
-			if(result.get(i).getCheatername() != null){
-				if(result.get(i).getCheatername().equals(isDTO.getCheatername())){
-				score += 10;
+		response.setContentType("text/html;charset=EUC-KR");
+		out = response.getWriter();
+		if(session.getAttribute("memberInfo") != null){
+
+			// 로그 남기기
+			System.out.println("관심 지정 진술서 비교");
+			// DB 선언
+			InterestStatementDAO isDAO = sqlSession.getMapper(InterestStatementDAO.class);
+
+			int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
+
+			// 비교 로직/cheatername/account/phone/cheaterid
+			InterestStatementDTO isDTO = isDAO.getInterestStatement(memberno);
+			List<InterestStatementDTO> result = isDAO.compareDB(isDTO);
+			List<InterestStatementDTO> list = new ArrayList<InterestStatementDTO>();
+
+			for (int i = 0; i < result.size(); i++) {
+				int score = 0;
+				if (result.get(i).getCheatername() != null) {
+					if (result.get(i).getCheatername().equals(isDTO.getCheatername())) {
+						score += 10;
+					}
+				}
+				if (result.get(i).getAccount() != null) {
+					if (result.get(i).getAccount().equals(isDTO.getAccount())) {
+						score += 40;
+					}
+				}
+				if (result.get(i).getPhone() != null) {
+					if (result.get(i).getPhone().equals(isDTO.getPhone())) {
+						score += 30;
+					}
+				}
+				if (result.get(i).getCheaterid() != null) {
+					if (result.get(i).getCheaterid().equals(isDTO.getCheaterid())) {
+						score += 30;
+					}
+				}
+				if (score >= 30) {
+					result.get(i).setScore(score);
+					list.add(result.get(i));
 				}
 			}
-			if(result.get(i).getAccount() != null){
-				if(result.get(i).getAccount().equals(isDTO.getAccount())){
-				score += 40;
-				}
-			}
-			if(result.get(i).getPhone() != null){
-				if(result.get(i).getPhone().equals(isDTO.getPhone())){
-				score += 30;
-				}
-			}
-			if(result.get(i).getCheaterid() != null){
-				if(result.get(i).getCheaterid().equals(isDTO.getCheaterid())){
-				score += 30;
-				}
-			}
-			if(score >= 30){
-				result.get(i).setScore(score);
-				list.add(result.get(i));
-			}
-		}
 		
 		// 점수가 높은 순으로 정렬하기
 		Comparator<InterestStatementDTO> comparator = new Comparator<InterestStatementDTO>(){
@@ -121,7 +121,6 @@ public class HomeController {
 				else return 0;
 			}
 		};
-		
 		Collections.sort(list, comparator);
 		// model에 담기
 		model.addAttribute("list", list);
@@ -146,21 +145,30 @@ public class HomeController {
 		
 		
 		
-		
 		///////////////////차트 / 통계 자료 가져오기
+
 		
 		
 		
+		/////////////////
 		
-		
-		
-		
-		
-		
-		
-		// 로그 남기기
-		System.out.println("홈으로 이동");
-		
-		return "home.home.home";
+
+			// 로그 남기기
+			System.out.println("홈으로 이동");
+
+			return "home.home.home";
+
+		}else { // 아이디가 없음.
+			System.out.println("비로그인");
+
+			out.println("<script type=\'text/javascript'>");
+			out.println("alert('로그인을 해주세요.');");
+			out.println("</script>");
+			out.flush();
+
+			return "main.index";// 홈으로 이동
+		}
 	}
+
 }
+
