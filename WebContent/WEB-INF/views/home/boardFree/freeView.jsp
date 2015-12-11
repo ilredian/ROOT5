@@ -75,6 +75,9 @@
 											<div style="float: left;">
 												<b>${replyDTO.name}</b> 님 | ${replyDTO.regdate}
 											</div>
+											<div style="float: right";>
+												<input type="button" id="reportreply.go?pg=${param.pg}&bno=${param.bno}&cno=1&mno=${memberInfo.memberno}&rno=${replyDTO.replyno}" class="btn btn-default btn-sm reportreply" value="신고" style="float:right">
+											</div>
 											<div style="float: right;">
 												<c:if test="${replyDTO.memberno == memberInfo.memberno}">
 													<a class="updateReply" href="#"
