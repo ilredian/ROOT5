@@ -1,7 +1,6 @@
 ﻿package controllers;
 
 import java.util.ArrayList;
-
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -16,11 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import DAO.BoardFreeDAO;
+import DAO.BoardLawDAO;
+import DAO.BoardNoticeDAO;
 import DAO.InterestStatementDAO;
-import DAO.MemberInfoDAO;
+import DAO.VisitDAO;
 import DTO.InterestStatementDTO;
 import DTO.MemberDTO;
-import DAO.VisitDAO;
 
 @Controller
 public class HomeController {
@@ -126,14 +126,38 @@ public class HomeController {
 		// model에 담기
 		model.addAttribute("list", list);
 		
-		//////
+		//////자유게시판 글 갯수
 		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
-		int boardCount = boardFreeDAO.getCount(field, query);
-		System.out.println("boardCount");
-		model.addAttribute("boardCount", boardCount);
-		////
+		int boardCountF = boardFreeDAO.getCount(field, query);
+		System.out.println("boardCountF");
+		model.addAttribute("boardCountF", boardCountF);
 		
-
+		//////변호사게시판 글 개수
+		BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
+		int boardCountL = boardLawDAO.getCount(field, query);
+		System.out.println("boardCountL");
+		model.addAttribute("boardCountL", boardCountL);
+		
+		//// 공지게시판 글 개수
+		BoardNoticeDAO boardNoticeDAO = sqlSession.getMapper(BoardNoticeDAO.class);
+		int boardCountN = boardNoticeDAO.getCount(field, query);
+		System.out.println("boardCountN");
+		model.addAttribute("boardCountN", boardCountN);
+		
+		
+		
+		
+		///////////////////차트 / 통계 자료 가져오기
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		// 로그 남기기
 		System.out.println("홈으로 이동");
 		

@@ -16,6 +16,19 @@
     <link href="sb/bower_components/morrisjs/morris.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="sb/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+<link rel="stylesheet" href="slide/flexslider.css" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="slide/jquery.flexslider.js"></script>
+<script type="text/javascript">
+//Can also be used with $(document).ready()
+ $(window).load(function() {
+  $('.flexslider').flexslider({
+    animation: "slide"
+  });
+});
+</script>    
+    
 <body>
 <table class="table">
 <c:if test="${not empty list}">
@@ -52,7 +65,7 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
 <!-- 자유게시판 글 카운트 불러오기 -->
-                                    <div class="huge"><c:out value="${boardCount}"/></div> 
+                                    <div class="huge"><c:out value="${boardCountF}"/></div> 
                                     <div>자유게시판</div>
                                 </div>
                             </div>
@@ -76,7 +89,7 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
  <!-- 공지 게시판 글 카운트  -->
-                                    <div class="huge">12</div>
+                                    <div class="huge"><c:out value="${boardCountN}"/></div>
                                     <div>공지게시판!</div>
                                 </div>
                             </div>
@@ -100,8 +113,8 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
 <!--  변호사게시판 개수  -->                                
-                                    <div class="huge">124</div>
-                                    <div>변호 개수!</div>
+                                    <div class="huge"><c:out value="${boardCountL}"/></div>
+                                    <div>변호사 게시판!</div>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +141,6 @@
                                 </div>
                             </div>
                         </div>
- <!-- 알림_ 띄우기 -->                       
                         <a href="#">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
@@ -139,55 +151,118 @@
                     </div>
                 </div>
             </div>
-         
+         <!-- 두번째 줄 -->
            <div class="row">
-                   <div class="col-lg-6">
+           <!-- 1. 검색 -->
+			<div class="col-lg-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<i class="fa fa-bar-chart-o fa-fw"></i>검색
+						<span class="label label-primary">new</span>
+						<div class="pull-right">
+							<div class="btn-group"></div>
+						</div>
+					</div>
+					<!-- /.panel-heading -->
+					<div class="panel-body">
+						<div id="morris-area-chart"></div>
+						
+						<!-- 검색 옵션 적용 -->
+						<label>피해사례검색 : </label>
+						<input type="text" size=45px class="txt" name="keyword"
+							id="hm_damageSearch" title="피해사례 검색어 입력"
+							placeholder="로그인 후 피해사례를 검색할 수 있습니다 (무료)"
+							onclick="blockLayerOpen(this); return false;">&nbsp;&nbsp; <a
+							href="#"><img src="homeimages/search.PNG"></a>
+						<select>
+							<option>명의자 성명</option>
+							<option>계좌번호</option>
+							<option>용의자 아이디</option>
+						</select>
+					</div>
+					<!-- /.panel-body -->
+				</div>
+				<!--사건 사진- 슬라이드 적용  -->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<i class="fa fa-bar-chart-o fa-fw"></i>사건-사진
+						<span class="label label-warning">new</span>
+						<div class="pull-right"></div>
+					</div>
+					<!-- /.panel-heading -->
+					<div class="panel-body">
+						<div id="morris-area-chart"></div>
+
+						<div class="flexslider">
+							<ul class="slides">
+								<li><img src="cheatImage/cheat_1.jpg" width="50%" height="50%"></li>
+								<li><img src="cheatImage/cheat_2.jpg" width="50%" height="50%"></li>
+								<li><img src="cheatImage/cheat_6.jpg" width="50%" height="50%"></li>
+								<li><img src="cheatImage/cheat_5.jpg" width="50%" height="50%"></li>
+							</ul>
+						</div>
+					</div>
+					<!-- /.panel-body -->
+				</div>
+
+
+
+
+				<!-- /.panel -->
+			</div>
+
+			<div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i>검색
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                </div>
-                            </div>
+                            <i class="fa fa-bell fa-fw"></i> 알림!
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div id="morris-area-chart"></div>
-                             
-                             <!-- 검색 옵션 적용 -->
-                             <input type="text" size=50px class="txt" name="keyword" id="hm_damageSearch" title="피해사례 검색어 입력" placeholder="로그인 후 피해사례를 검색할 수 있습니다 (무료)"  onclick="blockLayerOpen(this); return false;">
-                            		<a href="#"><img src="homeimages/search.PNG" ></a>
-                        </div>
+                            <div class="list-group">
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-comment fa-fw"></i> 내 쪽지함
+                                    
+<!-- 시간 푸쉬로 받기-->                    <span class="pull-right text-muted small"><em>4 minutes ago</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-twitter fa-fw"></i> 알림
+                                    <span class="pull-right text-muted small"><em>12 minutes ago</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-envelope fa-fw"></i> 관리자에게 메일 보내기
+                                    <span class="pull-right text-muted small"><em>27 minutes ago</em>
+                                    </span>
+                                </a>
+                            </div>
+                            <!-- /.list-group -->
+                            <button class="btn btn-default btn-block" data-toggle="collapse in" data-target="#alert">View All Alerts</button>
+
+<!-- 						<div id="demo" class="collapse">Lorem ipsum dolor text....</div>
+ -->
+<!-- 						<a href="#" class="btn btn-default btn-block">View All Alerts</a> -->
+
+						<div class="alert alert-success"  id="alert">
+							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+							<strong>Success!</strong> Indicates a successful or positive
+							action.
+						</div>
+
+					</div>
                         <!-- /.panel-body -->
                     </div>
-                    <!-- /.panel -->
-                  </div>
+                   </div> <!-- 옆 -->
+                    <!-- /.panel -->	
                   
-                  <div class="col-lg-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i>사건-사진
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div id="morris-area-chart"></div>
-                            <!-- 슬라이더 적용 -->
-                            <img src="cheatImage/cheat_1.jpg"  height="50%" width="50%" align="left">
-                            <img src="cheatImage/cheat_2.jpg"  height="50%" width="50%" align="right">
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                  </div>
+
+     
          </div>
          
             <!-- /.두번째 row -->
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-6">
+       <!-- 1. 통계 -->      
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i> 통계
@@ -208,9 +283,7 @@
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
-                    
-       <!--#사기를 막는 예방법#  -아코디언  -->             
-       
+       <!-- 2. 사기를 막는 예방법# 글/동영상  -아코디언  -->             
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i>#사기를 막는 예방법#
@@ -233,68 +306,15 @@
                                         </li>
                                     </ul>
                                 </div>
-                                      
                             </div>
                         </div>
-                        
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-lg-4">
+                                <div class="col-lg-6">
                                 	<div>
                                 	           <iframe width="560" height="315" src="https://www.youtube.com/embed/0-gdXa5spAU" frameborder="0" allowfullscreen></iframe>
                                 	</div>
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered table-hover table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>#</th>
-                                                    <th>Date</th>
-                                                    <th>Time</th>
-                                                    <th>Amount</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>3325</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:20 PM</td>
-                                                    <td>$234.34</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3324</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:03 PM</td>
-                                                    <td>$724.17</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3323</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:00 PM</td>
-                                                    <td>$23.71</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3322</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:49 PM</td>
-                                                    <td>$8345.23</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3321</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:23 PM</td>
-                                                    <td>$245.12</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3320</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:15 PM</td>
-                                                    <td>$5663.54</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!-- /.table-responsive -->
                                 </div>
                                 <!-- /.col-lg-4 (nested) -->
                                 <div class="col-lg-8">
@@ -307,8 +327,7 @@
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
-                    
-<!-- 타임라인 부분 -->                    
+	   <!-- 3. 타임라인 부분 -->                    
                     <div class="panel panel-default">
 	                        <div class="panel-heading">
                             <i class="fa fa-clock-o fa-fw"></i> 내 사건의 타임라인
@@ -414,63 +433,28 @@
                     <!-- /.panel -->
                 </div>
                 
-                
-                
- <!-- 알람 패널 -->               
-                <!-- /.col-lg-8 -->
-                <div class="col-lg-4">
-                    <div class="panel panel-default">
+                    
+ 	  <!-- 4.도넛 차트  -->          
+ 	  		  <div class="col-lg-6">         
+                  <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bell fa-fw"></i> 알림!
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="list-group">
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> 내 쪽지함
-<!-- 시간 푸쉬로 받기-->                    <span class="pull-right text-muted small"><em>4 minutes ago</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-twitter fa-fw"></i> 알림
-                                    <span class="pull-right text-muted small"><em>12 minutes ago</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-envelope fa-fw"></i> 관리자에게 메일 보내기
-                                    <span class="pull-right text-muted small"><em>27 minutes ago</em>
-                                    </span>
-                                </a>
-                            </div>
-                            <!-- /.list-group -->
-                           
-                            <a href="#" class="btn btn-default btn-block">View All Alerts</a>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                    
-                    
-                    
- <!-- 도넛 차트  -->                   
-      <!--               <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Donut Chart Example
+                            <i class="fa fa-bar-chart-o fa-fw"></i>도넛 차트
                         </div>
                         <div class="panel-body">
                             <div id="morris-donut-chart"></div>
                             <a href="#" class="btn btn-default btn-block">View Details</a>
                         </div>
-                        /.panel-body
-                    </div>
-                    /.panel
-                  -->
-  <!-- 채팅 -->      
+                       <!--  /.panel-body -->
+                   </div>
+                <!--     /.panel -->
+               
+       <!-- 테이블 표  -->      
+       		    <!-- 채팅 -->      
            
-               <!--      <div class="chat-panel panel panel-default">
+                <div class="chat-panel panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-comments fa-fw"></i>
-                            Chat
+                            테이블 표
                             <div class="btn-group pull-right">
                                 <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-chevron-down"></i>
@@ -505,10 +489,29 @@
                                 </ul>
                             </div>
                         </div>
-                        /.panel-heading
-                      
-                        <div class="panel-body">
-                            <ul class="chat">
+                     <!--    /.panel-heading -->
+
+					<div class="panel-body">
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover table-striped"
+									style="text-align: center;">
+									<thead>
+									<tr>
+										<th class="active" style="text-align: center;">순위</th>
+										<th class="active" style="text-align: center;">용의자(명수)</th>
+										<th class="active" style="text-align: center;">사이트(사이트수)</th>
+										<th class="active" style="text-align: center;">은행(은행수)</th>
+									</tr>
+									</thead>
+									
+									<tbody>
+									
+									
+									</tbody>
+								</table>
+							</div><!-- table div  -->
+
+						<!--   <ul class="chat">
                                 <li class="left clearfix">
                                     <span class="chat-img pull-left">
                                         <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
@@ -571,31 +574,29 @@
                                     </div>
                                 </li>
                             </ul>
-                        </div>
-                        /.panel-body
-                        <div class="panel-footer">
-                            <div class="input-group">
-                                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
-                                <span class="input-group-btn">
-                                    <button class="btn btn-warning btn-sm" id="btn-chat">
-                                        Send
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                        /.panel-footer
-                    </div>
-                    /.panel .chat-panel
-            
-             -->
-            
-            
+                      -->
+					</div>
+					<!--    /.panel-body -->
+					<div class="panel-footer">
+						<div class="input-group">
+							<input id="btn-input" type="text" class="form-control input-sm"
+								placeholder="Type your message here..." /> <span
+								class="input-group-btn">
+								<button class="btn btn-warning btn-sm" id="btn-chat">
+									Send</button>
+							</span>
+						</div>
+					</div>
+					<!--    /.panel-footer -->
+                 </div>
+                   <!-- /.panel .chat-panel -->
+       
+         	  </div><!-- /col-lg-6 -->
             
                 </div>
                 <!-- /.col-lg-4 -->
             </div>
             <!-- /.row -->
-        </div>
         <!-- /#page-wrapper -->
         
         
