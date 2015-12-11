@@ -308,4 +308,11 @@ public class MemberInfoController {
 		
 		
 	}
+	
+	@RequestMapping(value="memberStatement.go", method=RequestMethod.GET)
+	public String memberStatement(){
+		
+		System.out.println("진술서 게시판 이동");
+		return "memberInfo.memberStatement";
+	}
 }

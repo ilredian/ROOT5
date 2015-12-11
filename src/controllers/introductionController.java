@@ -8,22 +8,22 @@ public class introductionController {
 
 		@RequestMapping("introduction.go")
 		public String introduction(){
-			return "contact.introduction";
+			return "introduction.introduction";
 			
 		}
 		@RequestMapping("introductionhistory.go")
 		public String introductionhistory(){
-			return "contact.introductionhistory";
+			return "introduction.introductionhistory";
 			
 		}
 		@RequestMapping("introductiondb.go")
 		public String introductiondb(){
-			return "contact.introductiondb";
+			return "introduction.introductiondb";
 			
 		}
 		@RequestMapping("introductionservice.go")
 		public String introductionservice(){
-			return "contact.introductionservice";
+			return "introduction.introductionservice";
 			
 		}
 }
