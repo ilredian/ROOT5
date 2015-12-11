@@ -24,6 +24,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <script src="slide/jquery.flexslider.js"></script>
+
 <script type="text/javascript">
 //Can also be used with $(document).ready()
  $(window).load(function() {
@@ -31,6 +32,54 @@
     animation: "slide"
   });
 });
+
+ $(function() {  /* 알람을 띄우기 */
+		$('#alert').click(function() {
+				$.ajax({
+					url : "home.go",
+					type : "GET",
+					data : {
+						"totalSearchAjax" : $("#tags").val()
+					},
+					success : function(responseData) {
+					}
+				});
+		});	
+	});
+ 
+ $(function() {  /* 차트 불러오기 */
+		$('#piechart').click(function() {
+				$.ajax({
+					url : "totalSearchAjax.go",
+					type : "GET",
+					data : {
+				
+				"totalSearchAjax" : $("#tags").val()
+					},
+					success : function(responseData) {
+					}
+				});
+		});	
+	});
+ 
+		 /* 테이블표 내용_ 새로고침 버튼 누르면 동기화  */
+		 
+	 $(function() {  /* 차트 불러오기 */
+		$('#table').click(function() {
+				$.ajax({
+					url : "totalSearchAjax.go",
+					type : "GET",
+					data : {
+				//검색창에서 가져오는 밸류값_
+				"totalSearchAjax" : $("#tags").val()
+					},
+					success : function(responseData) {
+					}
+				});
+		});	
+	});	 
+		 
+
 </script>
 <body>
 	<div id="page-wrapper">
@@ -231,44 +280,31 @@
 							</a>
 						</div>
 						<!-- /.list-group -->
-						<button class="btn btn-default btn-block"
+						<button class="btn btn-default btn-block" id="alert"
 							data-toggle="collapse in" data-target="#demo">View All
 							Alerts</button>
-
-						<div class="alert alert-success" id="alert">
-							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-							<strong>Success!</strong> Indicates a successful or positive
-							action.
-						</div>
-						<div class="alert alert-success">
-							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-							<strong>Success!</strong> This alert box could indicate a
-							successful or positive action.
-						</div>
+						
+						<div id="demo">  </div>
+						<div id="display"></div>
+						<br>
+						<hr>
 						<div class="alert alert-info">
 							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 							<strong>Info!</strong> This alert box could indicate a neutral
 							informative change or action.
 						</div>
+						
 						<div class="alert alert-warning">
 							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 							<strong>Warning!</strong>
-							<table>
-							<thead>
-							<tr>
-								<th class="active" style="text-align: center;">순위</th>
-								<th class="active" style="text-align: center;">용의자(명수)</th>
-								<th class="active" style="text-align: center;">사이트(사이트수)</th>
-								<th class="active" style="text-align: center;">은행(은행수)</th>
-							</tr>
-							</thead>
-							<tbody>
-							</tbody>
-							</table>
-
 							<div class="table-responsive">
 								<table class="table table-bordered table-hover table-striped"
 									style="text-align: center;">
+									
+									<c:if test="${empty list}">
+									 <c:out value="접수된 진술서가 없습니다."/>
+									</c:if>
+									
 									<c:if test="${not empty list}">
 										<P>예제 테이블. 다른걸로 바꿔야함 interestStatementDTO 참고해서 변수 불러옴</P>
 										<tr>
@@ -281,7 +317,7 @@
 												<td>${lists.stateno}</td>
 												<td>${lists.cheatername}</td>
 												<td>${lists.memberno}</td>
-											</tr>
+											</tr>	
 										</c:forEach>
 									</c:if>
 								</table>
@@ -355,7 +391,7 @@
 						</div>
 						<div class="panel-body">
 							<div id="morris-donut-chart"></div>
-							<a href="#" class="btn btn-default btn-block">View Details</a>
+							<a class="btn btn-default btn-block" id="piechart">View Details</a>
 						</div>
 						<!--  /.panel-body -->
 					</div>
@@ -370,7 +406,7 @@
 							<div class="btn-group pull-right">
 								<button type="button"
 									class="btn btn-default btn-xs dropdown-toggle"
-									data-toggle="dropdown">
+									data-toggle="dropdown" id="table">
 									<i class="fa fa-chevron-down"></i>
 								</button>
 								<ul class="dropdown-menu slidedown">

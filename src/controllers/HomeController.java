@@ -21,10 +21,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import DAO.BoardFreeDAO;
 import DAO.BoardLawDAO;
 import DAO.BoardNoticeDAO;
+import DAO.CheaterDAO;
 import DAO.InterestStatementDAO;
 import DAO.VisitDAO;
 import DTO.InterestStatementDTO;
 import DTO.MemberDTO;
+import DTO.chartItemsDTO;
 
 @Controller
 public class HomeController {
@@ -39,6 +41,11 @@ public class HomeController {
 		VisitDAO visitDAO = sqlSession.getMapper(VisitDAO.class);
 		visitDAO.setVisitTotalCount();
 		System.out.println("메세지 수정완료");
+		
+		////////////////////////////////
+		//home.jsp -- AJAX data에  들어갈 차트 정보
+		
+		/////////////////////////////
 		
       // 오늘 방문자 수
       int todayCount = visitDAO.getVisitTodayCount();

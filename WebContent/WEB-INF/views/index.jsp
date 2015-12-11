@@ -5,8 +5,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href=../home/home.css" type="text/css">
- 
 <style type="text/css"></style>
 <style>
 h1,h3 {
@@ -15,7 +13,13 @@ h1,h3 {
      "배달의민족 한나는 열한살" ,
      "나눔고딕", "다음_Regular" , 
      "다음_SemiBold"   */;
+     
+     /* 텍스트에 그림자 */
+     text-shadow: 0 0 5px #f00;
+      
 }
+    
+
 </style>
 
 <!-- <style type="text/css">
