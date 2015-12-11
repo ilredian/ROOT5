@@ -1,19 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>AhnCheat</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container">
-- í”¼í•´ ë°œìƒ ì‚¬ì´íŠ¸ ìˆ˜    :  400ê°œ<br>
-- ëˆ„ì  í”¼í•´ ì •ë³´ DB ìˆ˜   :  10,000ê±´<br>
-- ëˆ„ì  í”¼í•´ ê¸ˆì•¡	: 5ì–µ<br>
-- ëˆ„ì  ê³„ì¢Œ ë²ˆí˜¸ ìˆ˜  : 400ê°œ<br>
-- ëˆ„ì  ì—°ë½ì²˜ ìˆ˜ :  550ê°œ<br>
-- ê¸°íƒ€ : ê²½ì°° 200ëª… í™œë™ ì¤‘<br>
+- ÇÇÇØ ¹ß»ý »çÀÌÆ® ¼ö    :  400°³<br>
+- ´©Àû ÇÇÇØ Á¤º¸ DB ¼ö   :  10,000°Ç<br>
+- ´©Àû ÇÇÇØ ±Ý¾×	: 5¾ï<br>
+- ´©Àû °èÁÂ ¹øÈ£ ¼ö  : 400°³<br>
+- ´©Àû ¿¬¶ôÃ³ ¼ö :  550°³<br>
+- ±âÅ¸ : °æÂû 200¸í È°µ¿ Áß<br>
 </div>
 </body>
 </html>
