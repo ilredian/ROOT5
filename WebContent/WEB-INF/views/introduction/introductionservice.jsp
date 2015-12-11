@@ -26,16 +26,16 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <img src="intriductionimg/b.PNG" alt="Chania" width="1000">
+      <div class="item">
+        <img src="<%= request.getContextPath() %>/intriductionimg/b.PNG" alt="Chania" width="1000">
       </div>
 
       <div class="item">
-        <img src="intriductionimg/n.PNG" alt="Chania" width="1000">
+        <img src="<%= request.getContextPath() %>intriductionimg/n.PNG" alt="Chania" width="1000">
       </div>
     
       <div class="item">
-        <img src="intriductionimg/m.PNG" alt="Flower" width="1000">
+        <img src="<%= request.getContextPath() %>intriductionimg/m.PNG" alt="Flower" width="1000">
       </div>
   </div>
 </div>
