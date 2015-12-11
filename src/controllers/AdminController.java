@@ -945,5 +945,13 @@ public class AdminController {// 관리자 페이지
 
 		return "admin.adminMail";
 	}
+	@RequestMapping(value = "adminMailRE.go", method = RequestMethod.GET)
+	public String AdminMailRE() {
+
+		// 로그 남기기
+		System.out.println("메일 관리자 페이지로 이동");
+
+		return "admin.adminMailRE";
+	}
 
 }

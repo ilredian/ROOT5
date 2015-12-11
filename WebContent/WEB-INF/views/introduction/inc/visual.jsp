@@ -31,4 +31,12 @@ ul#topnav li span a:hover { text-decoration: underline; }
   <li><a href="contacted.go">컨택센터</a> <span> <a href="noticeMain.go?pg=1">공지사항</a> | <a href="question.go">문의하기</a> | <a href="deletepls.go">피해사례 삭제요청</a> | <a href="introduction.go?ino=1">사이트 소개</a></span></li>
 </ul>
 <!-- 소개 -->
-
+<div class="container">
+<h2>소개</h2>
+<ul class="nav nav-tabs">
+	<li id="introduction"><a href="introduction.go?ino=1">소개</a></li>
+	<li id="introductionhistory"><a href="introductionhistory.go?ino=2">연혁</a></li>
+	<li id="introductiondb"><a href="introductiondb.go?ino=3">보유중인 데이터베이스</a></li>
+	<li id="introductionservice"><a href="introductionservice.go?ino=4">주요서비스</a></li>
+</ul>
+</div>

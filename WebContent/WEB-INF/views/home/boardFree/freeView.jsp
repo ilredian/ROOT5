@@ -26,6 +26,7 @@
 				</td>
 				<td style="width: 20%">조회 ${boardFreeDTO.countno}
 				<input class="btn btn-default" type="button" id="answer" value="답글">
+				<input type="button" class="btn btn-default" id="reportboard" value="신고">
 				</td>
 			</tr>
 		</tbody>

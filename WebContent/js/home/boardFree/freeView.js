@@ -20,6 +20,22 @@ $('#answer').click(function() { //답글달기
 	location.replace("freeAnswer.go?pg=" + pg + "&bno=" + bno);
 });
 
+/*$('#reportboard').click(function() {
+	var pg = $('#pageNo').val();
+	?pg="+pg
+	 * 
+	location.replace("reportboardfree.go");
+});*/
+
+$('#reportboard').click(function(){
+	var pg = $('#pageNo').val();
+	var bno = $('#boardNo').val();
+	if(confirm('정말 신고하시겠습니까?')){
+		location.replace("reportboardfree.go?pg="+pg+"&bno="+bno);
+	}
+	return false;
+});
+
 $('#freeWrite').click(function(){
 	location.replace("freeWrite.go");
 });

@@ -20,6 +20,7 @@
 		</ul></il>
 	<il class="menu"><a><input type="submit" class="btn btn-danger btn-sm" value="메일함&nbsp;&nbsp;&nbsp;&nbsp;"></a>
 		<ul class="hide">
-			<il><a href="adminMail.go">ㄴ보낸함</a></il>
+			<il><a href="adminMail.go">ㄴ보낸 메일</a></il>
+			<il><a href="adminMailRE.go">ㄴ받은 메일</a></il>
 		</ul></il>
 </ul>
