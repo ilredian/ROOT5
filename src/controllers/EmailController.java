@@ -1,46 +1,47 @@
 package controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import spring.email.Email;
-import spring.email.EmailSender;
+import mail.Email;
+import mail.SendMail;
 
 @Controller
 public class EmailController {
-	@Autowired
-	private EmailSender emailSender;
-	@Autowired
-	private Email email;
-
-	@RequestMapping("email.go")
-	public String sendEmailAction(
-			@RequestParam("id") String id1,
-			@RequestParam("pw") String pw2,
-			@RequestParam("e_mail") String e_mail3
-			) throws Exception {
+	
+	// 자바스크립트 쓰기위한 전역 변수 설정
+	PrintWriter out;
+	
+	@RequestMapping(value="email.go")
+	public void sendEmailMethod(
+			HttpServletResponse response,
+			Email email) throws Exception {
 		
-
-		String id = id1;
-		String e_mail = e_mail3;
-		String pw = pw2;
-		System.out.println(pw);
+		//로그 남기기
+		System.out.println("메일 보내기");
 		
-		String go ="";
-		if (pw != null) {
-			email.setContent("비밀번호는 " + pw + " 입니다.");
-			email.setReceiver(e_mail);
-			email.setSubject(id + "님 비밀번호 찾기 메일입니다.");
-			System.out.println("1");
-			emailSender.SendEmail(email);
-			System.out.println("2");
-			go= "redirect:/index.go";
-
-		} else {
-			go = "redirect:/index.go";
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
+		
+		//메일 보내기
+		SendMail sendMail = new SendMail();
+		int result = sendMail.sendMail(email);
+		
+		//메일 결과
+		if(result == 1){
+			System.out.println("이메일 보내기 완료");
+			out.print(
+					"<script type='text/javascript'>alert('메일이 성공적으로 발송되었습니다.'); location.replace('');</script>");
+		}else{
+			System.out.println("이메일 보내기 실패");
+			out.print(
+					"<script type='text/javascript'>alert('메일 발송에 실패하였습니다.'); location.replace('');</script>");
 		}
-		return go;
+		out.close();
 	}
 }

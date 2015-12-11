@@ -1,4 +1,4 @@
-package spring.email;
+package mail;
 
 public class Email {
 	 
