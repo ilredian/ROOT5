@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import DAO.BoardFreeDAO;
@@ -34,14 +35,10 @@ public class HomeController {
 	@RequestMapping("index.go")
 	public String index(	HttpSession session,
 			Model model)throws Exception{
-		
 		  // 전체 방문자 수 +1
-		
 		VisitDAO visitDAO = sqlSession.getMapper(VisitDAO.class);
 		visitDAO.setVisitTotalCount();
 		System.out.println("메세지 수정완료");
-     
-		
 		
       // 오늘 방문자 수
       int todayCount = visitDAO.getVisitTodayCount();
@@ -57,8 +54,7 @@ public class HomeController {
 
 		return "main.index";
 	}
-
-	@RequestMapping("home.go")
+	@RequestMapping(value= "home.go", method=RequestMethod.GET)
 	public String Home(@RequestParam(value = "pg", required = false, defaultValue = "1") int page, // 현재 페이지 번호
 			@RequestParam(value = "f", required = false, defaultValue = "title") String field, // 검색 카테고리
 			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, // 검색 내용
@@ -142,19 +138,6 @@ public class HomeController {
 		int boardCountN = boardNoticeDAO.getCount(field, query);
 		System.out.println("boardCountN");
 		model.addAttribute("boardCountN", boardCountN);
-		
-		
-		
-		///////////////////차트 / 통계 자료 가져오기
-
-		
-		
-		
-		/////////////////
-		
-
-			// 로그 남기기
-			System.out.println("홈으로 이동");
 
 			return "home.home.home";
 
@@ -165,7 +148,6 @@ public class HomeController {
 			out.println("alert('로그인을 해주세요.');");
 			out.println("</script>");
 			out.flush();
-
 			return "main.index";// 홈으로 이동
 		}
 	}
