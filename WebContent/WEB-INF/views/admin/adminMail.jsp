@@ -5,22 +5,26 @@
 <form action="email.go">
 	<table class="table">
 		<tr>
-			<th class="active">받는사람</th>
-			<td><input type="text" name="e_mail" placeholder="이메일을 입력해 주세요"><br>
+		<th class="active">받는사람</th>
+		<td>
+			<input type="text" name="e_mail"
+				placeholder="이메일을 입력해 주세요"><br>
 			</td>
 		</tr>
 		<tr>
-			<th class="active">제목</th>
-			<td><input type="text" name="id"><br></td>
+		<th class="active">제목</th>
+			<td><input type="text" name="id"><br>
+			</td>
 		</tr>
 		<tr>
-			<th class="active">내용</th>
+		<th class="active">내용</th>
 			<td><textarea rows="10" cols="10"
-					style="margin: 0px; width: 663px; height: 206px;"></textarea></td>
+					style="margin: 0px; width: 663px; height: 206px;"></textarea>
+			</td>
 		</tr>
-
+		
 	</table>
 	<div class="btn-group" style="margin-left: 650px">
-		<input type="button" class="btn btn-info" value="메일 보네기">
-	</div>
+			<input type="button" class="btn btn-info" value="메일 보네기">
+		</div>
 </form>
