@@ -30,6 +30,14 @@
 		limit ${param1}, ${param3}
 	</select>
 	
+	<!-- 신고 여부 가져오기 -->
+   <select id="isReportBoard" resultType="Integer">
+      SELECT count(*)
+      FROM reportboard
+      WHERE boardno = ${param1} and memberno = ${param2}
+   </select>
+   
+	
 	<!-- 신고 게시판 등록 -->
 	<insert id="insertReportBoard" parameterType="DTO.ReportBoardDTO">
 		INSERT INTO reportboard(categoryno, boardno, memberno)

@@ -36,6 +36,14 @@ $('#reportboard').click(function(){
 	return false;
 });
 
+$('.reportreply').click(function(){
+	var id = $('.reportreply').attr('id');
+	if(confirm('정말 신고하시겠습니까?')){
+		location.replace(id);
+	}
+	return false;
+});
+
 $('#freeWrite').click(function(){
 	location.replace("freeWrite.go");
 });
