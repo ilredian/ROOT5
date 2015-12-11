@@ -5,6 +5,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" href=../home/home.css" type="text/css">
+ 
+<style type="text/css"></style>
 <style>
 h1,h3 {
     font-family: "배달의민족 한나는 열한살"
@@ -43,12 +46,10 @@ padding:120px;
 <!-- <div class="container" id="one" style="margin-top: 35px;"> -->
 
 
-
-      <div class="jumbotron" align="center" style="hight:100%; "/> <!-- /* background-color: white; */  /* margin-bottom: 20px; */ -->
+<div class="jumbotron" align="center" style="hight:100%; "/> <!-- /* background-color: white; */  /* margin-bottom: 20px; */ -->
          <h1 align="center" style="color:blac \\k/*  #D83939 */;font-size: 80px; font-style: inherit;">사기피해사례 검색</h1><br><br>
          <form id="search" class="navbar-form navbar-center"
             action="totalSearch.go">
-
 				<table>
 					<tr>
 						<td><select name="f" class="input-lg">
@@ -71,7 +72,7 @@ padding:120px;
 					</tr>
 				</table>
 
-			</form>
+		 </form>
 		</div>
-<!-- 	</div> -->
+</div>
 	

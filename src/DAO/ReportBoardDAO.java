@@ -9,6 +9,9 @@ public interface ReportBoardDAO {
 	// 신고된 게시글 수
 	public int getReportBoardCount(String field, String query, int categoryno) throws Exception;
 
+	// 신고 여부 확인하기
+	public int isReportBoard(int boardno, int memberno) throws Exception;
+	
 	// 자유 게시판 신고된 정보 불러오기
 	public BoardFreeDTO getReportBoard(int boardno) throws Exception;
 	

@@ -2,7 +2,6 @@
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
-
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -16,16 +15,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import DAO.BoardFreeDAO;
+import DAO.BoardLawDAO;
+import DAO.BoardNoticeDAO;
 import DAO.InterestStatementDAO;
-import DAO.MemberDAO;
-import DAO.MemberInfoDAO;
+import DAO.VisitDAO;
 import DTO.InterestStatementDTO;
 import DTO.MemberDTO;
-import javafx.scene.control.Alert;
-import DAO.VisitDAO;
 
 @Controller
 public class HomeController {
@@ -36,14 +35,10 @@ public class HomeController {
 	@RequestMapping("index.go")
 	public String index(	HttpSession session,
 			Model model)throws Exception{
-		
 		  // 전체 방문자 수 +1
-		
 		VisitDAO visitDAO = sqlSession.getMapper(VisitDAO.class);
 		visitDAO.setVisitTotalCount();
 		System.out.println("메세지 수정완료");
-     
-		
 		
       // 오늘 방문자 수
       int todayCount = visitDAO.getVisitTodayCount();
@@ -59,8 +54,7 @@ public class HomeController {
 
 		return "main.index";
 	}
-
-	@RequestMapping("home.go")
+	@RequestMapping(value= "home.go", method=RequestMethod.GET)
 	public String Home(@RequestParam(value = "pg", required = false, defaultValue = "1") int page, // 현재 페이지 번호
 			@RequestParam(value = "f", required = false, defaultValue = "title") String field, // 검색 카테고리
 			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, // 검색 내용
@@ -71,19 +65,6 @@ public class HomeController {
 
 		response.setContentType("text/html;charset=EUC-KR");
 		out = response.getWriter();
-/*
-		session = request.getSession();*/
-		//get방식으로 home.go로 가면 로그인이 안되었을때 튕겨야한다.
-		
-		//내 멤버 정보_ , 이메일을 입력
-		// 세션 정보가 있는지 없는지만 판단하면 되는건데
-//		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
-//		MemberDTO ee = memberDAO.getMember(memberDTO.getEmail());
-//		System.out.println("ee: "+ee.getEmail());
-		
-	/*	String email = (String) session.getAttribute("email");
-*/
-		
 		if(session.getAttribute("memberInfo") != null){
 
 			// 로그 남기기
@@ -125,34 +106,38 @@ public class HomeController {
 					list.add(result.get(i));
 				}
 			}
+		
+		// 점수가 높은 순으로 정렬하기
+		Comparator<InterestStatementDTO> comparator = new Comparator<InterestStatementDTO>(){
 
-			// 점수가 높은 순으로 정렬하기
-			Comparator<InterestStatementDTO> comparator = new Comparator<InterestStatementDTO>() {
-
-				@Override
-				public int compare(InterestStatementDTO o1, InterestStatementDTO o2) {
-					if (o1.getScore() < o2.getScore())
-						return 1;
-					else if (o1.getScore() > o2.getScore())
-						return -1;
-					else
-						return 0;
-				}
-			};
-
-			Collections.sort(list, comparator);
-			// model에 담기
-			model.addAttribute("list", list);
-
-			//////
-			BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
-			int boardCount = boardFreeDAO.getCount(field, query);
-			System.out.println("boardCount");
-			model.addAttribute("boardCount", boardCount);
-			////
-
-			// 로그 남기기
-			System.out.println("홈으로 이동");
+			@Override
+			public int compare(InterestStatementDTO o1, InterestStatementDTO o2) {
+				if(o1.getScore() < o2.getScore()) return 1;
+				else if(o1.getScore() > o2.getScore()) return -1;
+				else return 0;
+			}
+		};
+		Collections.sort(list, comparator);
+		// model에 담기
+		model.addAttribute("list", list);
+		
+		//////자유게시판 글 갯수
+		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
+		int boardCountF = boardFreeDAO.getCount(field, query);
+		System.out.println("boardCountF");
+		model.addAttribute("boardCountF", boardCountF);
+		
+		//////변호사게시판 글 개수
+		BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
+		int boardCountL = boardLawDAO.getCount(field, query);
+		System.out.println("boardCountL");
+		model.addAttribute("boardCountL", boardCountL);
+		
+		//// 공지게시판 글 개수
+		BoardNoticeDAO boardNoticeDAO = sqlSession.getMapper(BoardNoticeDAO.class);
+		int boardCountN = boardNoticeDAO.getCount(field, query);
+		System.out.println("boardCountN");
+		model.addAttribute("boardCountN", boardCountN);
 
 			return "home.home.home";
 
@@ -163,10 +148,8 @@ public class HomeController {
 			out.println("alert('로그인을 해주세요.');");
 			out.println("</script>");
 			out.flush();
-
 			return "main.index";// 홈으로 이동
 		}
-		
 	}
 
 }
