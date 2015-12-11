@@ -51,8 +51,8 @@
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-<!-- 자유게시판 글 카운트 불러오기 --><c:out value="${boardCount}"/>
-                                    <div class="huge"><c:out value="${boardCount}"/></div> 
+<!-- 자유게시판 글 카운트 불러오기 -->
+                                    <div class="huge"><c:out value="${boardCount}"/>abc</div> 
                                     <div>자유게시판</div>
                                 </div>
                             </div>
@@ -140,8 +140,51 @@
                 </div>
             </div>
          
-         
-         
+           <div class="row">
+                   <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i>검색
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div id="morris-area-chart"></div>
+                             
+                             <!-- 검색 옵션 적용 -->
+                             <input type="text" size=50px class="txt" name="keyword" id="hm_damageSearch" title="피해사례 검색어 입력" placeholder="로그인 후 피해사례를 검색할 수 있습니다 (무료)" href="#pageLoginLayer" onclick="blockLayerOpen(this); return false;">
+                            		<a href="#"><img src="homeimages/search.PNG" ></a>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                  </div>
+                  
+                  <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i>사건-사진
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div id="morris-area-chart"></div>
+                            
+                            <!-- 슬라이더 적용 -->
+                            <img src="cheatImage/cheat_1.jpg" height="50%" width="50%">
+                            <img src="cheatImage/cheat_2.jpg" height="50%" width="50%">
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                  </div>
+         </div>
          
             <!-- /.두번째 row -->
             <div class="row">
@@ -152,17 +195,23 @@
                             <div class="pull-right">
                                 <div class="btn-group">
                                 </div>
+                                
                             </div>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div id="morris-area-chart"></div>
+                            <!-- 통계 - 그래프 / 표 불러오기 -->
+                            
+                            
+                            
                         </div>
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
                     
        <!--#사기를 막는 예방법#  -아코디언  -->             
+       
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i>#사기를 막는 예방법#
