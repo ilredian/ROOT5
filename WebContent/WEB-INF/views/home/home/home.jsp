@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
 <!-- 자유게시판 글 카운트 불러오기 -->
-                                    <div class="huge"><c:out value="${boardCount}"/>abc</div> 
+                                    <div class="huge"><c:out value="${boardCount}"/></div> 
                                     <div>자유게시판</div>
                                 </div>
                             </div>
@@ -155,7 +155,7 @@
                             <div id="morris-area-chart"></div>
                              
                              <!-- 검색 옵션 적용 -->
-                             <input type="text" size=50px class="txt" name="keyword" id="hm_damageSearch" title="피해사례 검색어 입력" placeholder="로그인 후 피해사례를 검색할 수 있습니다 (무료)" href="#pageLoginLayer" onclick="blockLayerOpen(this); return false;">
+                             <input type="text" size=50px class="txt" name="keyword" id="hm_damageSearch" title="피해사례 검색어 입력" placeholder="로그인 후 피해사례를 검색할 수 있습니다 (무료)"  onclick="blockLayerOpen(this); return false;">
                             		<a href="#"><img src="homeimages/search.PNG" ></a>
                         </div>
                         <!-- /.panel-body -->
@@ -175,10 +175,9 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div id="morris-area-chart"></div>
-                            
                             <!-- 슬라이더 적용 -->
-                            <img src="cheatImage/cheat_1.jpg" height="50%" width="50%">
-                            <img src="cheatImage/cheat_2.jpg" height="50%" width="50%">
+                            <img src="cheatImage/cheat_1.jpg"  height="50%" width="50%" align="left">
+                            <img src="cheatImage/cheat_2.jpg"  height="50%" width="50%" align="right">
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -217,13 +216,13 @@
                             <i class="fa fa-bar-chart-o fa-fw"></i>#사기를 막는 예방법#
                             <div class="pull-right">
                                 <div class="btn-group">
-                                <!-- 
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                                         Actions
                                         <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu pull-right" role="menu">
                                         <li><a href="#">Action</a>
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/0-gdXa5spAU" frameborder="0" allowfullscreen></iframe>
                                         </li>
                                         <li><a href="#">Another action</a>
                                         </li>
@@ -233,8 +232,8 @@
                                         <li><a href="#">Separated link</a>
                                         </li>
                                     </ul>
-                                -->
                                 </div>
+                                      
                             </div>
                         </div>
                         
@@ -242,9 +241,10 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-4">
+                                	<div>
+                                	           <iframe width="560" height="315" src="https://www.youtube.com/embed/0-gdXa5spAU" frameborder="0" allowfullscreen></iframe>
+                                	</div>
                                     <div class="table-responsive">
-                                    
-                                    <!--  
                                         <table class="table table-bordered table-hover table-striped">
                                             <thead>
                                                 <tr>
@@ -255,12 +255,6 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>3326</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:29 PM</td>
-                                                    <td>$321.33</td>
-                                                </tr>
                                                 <tr>
                                                     <td>3325</td>
                                                     <td>10/21/2013</td>
@@ -297,15 +291,8 @@
                                                     <td>2:15 PM</td>
                                                     <td>$5663.54</td>
                                                 </tr>
-                                                <tr>
-                                                    <td>3319</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:13 PM</td>
-                                                    <td>$943.45</td>
-                                                </tr>
                                             </tbody>
                                         </table>
-                                     -->    
                                     </div>
                                     <!-- /.table-responsive -->
                                 </div>
@@ -330,17 +317,19 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <ul class="timeline">
-         <!--                        <li>
+                              <li>
                                     <div class="timeline-badge"><i class="fa fa-check"></i>
                                     </div>
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
-                                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
+                                            <h4 class="timeline-title">이인영 사기꾼 검거 완료</h4>
                                             <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
                                             </p>
                                         </div>
                                         <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas suscipit facere rem dicta, debitis.</p>
+                                            <p> 12월 11일 오전 10시 경, 
+                                            강원도 00PC방 에서 피의자 이인영 씨(24)를 검거했습니다.
+                                            -- 사이버 경찰서 이광호 형사 (02-xxx-xxx)</p>
                                         </div>
                                     </div>
                                 </li>
@@ -349,11 +338,10 @@
                                     </div>
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
-                                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
+                                            <h4 class="timeline-title"> IP 추적중 </h4>
                                         </div>
                                         <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorem quibusdam, tenetur commodi provident cumque magni voluptatem libero, quis rerum. Fugiat esse debitis optio, tempore. Animi officiis alias, officia repellendus.</p>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium maiores odit qui est tempora eos, nostrum provident explicabo dignissimos debitis vel! Adipisci eius voluptates, ad aut recusandae minus eaque facere.</p>
+                                        	<p> 강원도 철원 부근에서 용의자 추정 IP 추적 </p>
                                         </div>
                                     </div>
                                 </li>
@@ -362,20 +350,20 @@
                                     </div>
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
-                                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
+                                            <h4 class="timeline-title"> 사이버 경찰서에 의뢰접수 </h4>
                                         </div>
                                         <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus numquam facilis enim eaque, tenetur nam id qui vel velit similique nihil iure molestias aliquam, voluptatem totam quaerat, magni commodi quisquam.</p>
+                                        <p> '2015-12-05' 사이버 경찰서 담당 이광호 형사 (02-xxx-xxx)</p>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="timeline-inverted">
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
-                                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
+                                            <h4 class="timeline-title">첫 접수일로부터 발생경과 '4'일 지났습니다.</h4>
+                                               <p><small class="text-muted"><i class="fa fa-clock-o"></i>4 days ago</small>
                                         </div>
                                         <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates est quaerat asperiores sapiente, eligendi, nihil. Itaque quos, alias sapiente rerum quas odit! Aperiam officiis quidem delectus libero, omnis ut debitis!</p>
                                         </div>
                                     </div>
                                 </li>
@@ -384,26 +372,13 @@
                                     </div>
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
-                                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
+                                            <h4 class="timeline-title"> 용의자 탐색 중</h4>
                                         </div>
                                         <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis minus modi quam ipsum alias at est molestiae excepturi delectus nesciunt, quibusdam debitis amet, beatae consequuntur impedit nulla qui! Laborum, atque.</p>
+                                            <p> 작성하신 용의자의 정보 중 '계좌번호'가 일치하는 게시글을 '2'건 발견했습니다.</p>
                                             <hr>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-                                                    <i class="fa fa-gear"></i>  <span class="caret"></span>
-                                                </button>
-                                                <ul class="dropdown-menu" role="menu">
-                                                    <li><a href="#">Action</a>
-                                                    </li>
-                                                    <li><a href="#">Another action</a>
-                                                    </li>
-                                                    <li><a href="#">Something else here</a>
-                                                    </li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#">Separated link</a>
-                                                    </li>
-                                                </ul>
+                                            <a href="#">검색</a>
+                                            <div class="btn groop">
                                             </div>
                                         </div>
                                     </div>
@@ -411,13 +386,13 @@
                                 <li>
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
-                                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
+                                            <h4 class="timeline-title">진술서 작성 완료</h4>
                                         </div>
                                         <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi fuga odio quibusdam. Iure expedita, incidunt unde quis nam! Quod, quisquam. Officia quam qui adipisci quas consequuntur nostrum sequi. Consequuntur, commodi.</p>
+                                            <p> 직거래 피해부분에 '2015-11-30' 접수를 완료하셨습니다. </p>
                                         </div>
                                     </div>
-                                </li> -->
+                                </li>
                                 
              <!--                    <li class="timeline-inverted">
                                     <div class="timeline-badge success"><i class="fa fa-graduation-cap"></i>
