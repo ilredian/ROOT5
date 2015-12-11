@@ -15,8 +15,12 @@
 		<!-- 네이버 에디터 링크 -->
 		<script type="text/javascript" charset="utf-8"
 			src="/ROOT/navereditor/js/HuskyEZCreator.js"></script>
+			
+			
 </head>
 <body>
+
+<input type="hidden" id="ino" value="${param.ino}">
 		<!-- Header 영역 -->
 		<tiles:insertAttribute name="header" />
 		<!-- Visual 영역 -->
