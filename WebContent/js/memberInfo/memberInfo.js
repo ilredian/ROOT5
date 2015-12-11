@@ -23,9 +23,12 @@ $(function() {
 	}else if(cno == 6){
 		$('#memberPwdChange').attr("class", "active");
 		$('#statementText').text("비번변경");
-	}else{
+	}else if(cno == 7){
 		$('#memberWithdrawal').attr("class", "active");
 		$('#statementText').text("회원탈퇴");
+	}else{
+		$('#memberStatement').attr("class", "active");
+		$('#statementText').text("진술서");
 	}
 });
 
