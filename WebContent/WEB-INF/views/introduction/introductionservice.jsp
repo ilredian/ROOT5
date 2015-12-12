@@ -27,15 +27,15 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="intriductionimg/m.PNG" alt="Flower" width="1000">
+        <img src="images/intriductionimg/m.PNG" alt="Flower" width="1000">
       </div>
 
       <div class="item">
-       <img src="intriductionimg/n.PNG" alt="Flower" width="1000">
+       <img src="images/intriductionimg/n.PNG" alt="Flower" width="1000">
       </div>
     
       <div class="item">
-        <img src="intriductionimg/b.PNG" alt="Flower" width="1000">
+        <img src="images/intriductionimg/b.PNG" alt="Flower" width="1000">
       </div>
     </div>
   </div>

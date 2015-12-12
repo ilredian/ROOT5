@@ -6,11 +6,11 @@
 	<div class="well well-sm">
 		<div class="row">
 			<div class="col-lg-6" style='text-align: left; margin-top: 40px'>
-				<img alt="피해사례 부제목" src="registrationimages/registration/b.PNG">
+				<img alt="피해사례 부제목" src="images/registrationimages/registration/b.PNG">
 				<p style="margin-left: 20px">피해사례 등록시 피해 발생 정보부터 검거소식 까지 용의자 관련 정보가 실시간 제공 됩니다.</p>
 			</div>
 			<div class="col-lg-6" style='text-align: center;'>
-				<img alt="이미지" src="registrationimages/registration/a.PNG">
+				<img alt="이미지" src="images/registrationimages/registration/a.PNG">
 			</div>
 		</div>
 
@@ -20,7 +20,7 @@
 				<div class="sec1" style="float: left; margin-left: 150px" align="center">
 					<h5>
 					<a href="trade.go"><img
-							src="registrationimages/registration/c.PNG" alt="직거래"></a>
+							src="images/registrationimages/registration/c.PNG" alt="직거래"></a>
 						
 					</h5>
 					<div class="cont" align="center">
@@ -37,7 +37,7 @@
 							<li>보이스피싱</li>
 						</ul>
 					   <a href="trade.go" class="btnGo"><img
-							src="registrationimages/registration/e.PNG" alt="직거래 피혜사례 등록"></a>
+							src="images/registrationimages/registration/e.PNG" alt="직거래 피혜사례 등록"></a>
 					</div>
 				</div>
 			</div>
@@ -45,7 +45,7 @@
 				<div class="sec2" style="float: left; margin-left: 50px">
 					<h5>
 						<a href="game.go"><img
-							src="registrationimages/registration/gamebtn.PNG" alt="게임"></a>
+							src="images/registrationimages/registration/gamebtn.PNG" alt="게임"></a>
 					</h5>
 					<div class="cont" align="center">
 						<b>
@@ -60,7 +60,7 @@
 
 						</ul>
  						<a href="game.go" class="btnGo"><img
-							src="registrationimages/registration/game2.PNG" alt="직거래 피혜사례 등록"
+							src="images/registrationimages/registration/game2.PNG" alt="직거래 피혜사례 등록"
 							style="margin-top: 40px"></a>
 					</div>
 				</div>
@@ -69,7 +69,7 @@
 				<div class="sec3" style="float: left; margin-left: 50px">
 					<h5>
  						<a href="manner.go"><img
-							src="registrationimages/registration/bebtn.PNG" alt="비매너"></a>
+							src="images/registrationimages/registration/bebtn.PNG" alt="비매너"></a>
 					</h5>
 					<div class="cont" align="center">
 						<b>
@@ -84,7 +84,7 @@
 
 						</ul>
  						<a href="manner.go" class="btnGo"><img
-							src="registrationimages/registration/bme2.PNG" alt="비매너 피혜사례 등록"
+							src="images/registrationimages/registration/bme2.PNG" alt="비매너 피혜사례 등록"
 							style="margin-top: 45px"></a>
 					</div>
 				</div>

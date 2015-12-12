@@ -18,8 +18,6 @@ public interface ReportBoardDAO {
 	// 신고한 사람이 많은 순으로 불러오기
 	public List<Integer> getReportBoardno(int start, int categoryno, int pageSize) throws Exception;
 	
-	public int isReportBoard(int boardno, int memberno) throws Exception;
-	
 	// 게시글 신고하기
 	public int insertReportBoard(ReportBoardDTO reportBoardDTO) throws Exception;
 	

@@ -28,10 +28,10 @@
                   <input type="submit" value="비매너" class="btn btn-danger btn btn-lg bemanner">
                   <input type="submit" value="스팸" class="btn btn-danger btn btn-lg spam">
                   <input type="submit" value="피해사례등록" class="btn btn-danger btn btn-lg registration"> -->
-					<a href="statementMain.go?cno=1"><img src="homenavimages/q.PNG"></a>
-					<a href="statementMain.go?cno=2"><img src="homenavimages/w.PNG"></a>
-					<a href="statementMain.go?cno=3"><img src="homenavimages/e.PNG"></a>
-					<a href="registration.go"><img src="homenavimages/t.PNG"></a>
+					<a href="statementMain.go?cno=1"><img src="images/homenavimages/q.PNG"></a>
+					<a href="statementMain.go?cno=2"><img src="images/homenavimages/w.PNG"></a>
+					<a href="statementMain.go?cno=3"><img src="images/homenavimages/e.PNG"></a>
+					<a href="registration.go"><img src="images/homenavimages/t.PNG"></a>
                </div>
             </div>
          </div>
