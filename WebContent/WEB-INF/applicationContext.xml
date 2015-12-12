@@ -57,14 +57,14 @@ http://www.springframework.org/schema/tx/spring-tx.xsd
 		<constructor-arg ref="sqlSessionFactoryBean" index="0" />
 	</bean>
 	
-	
 	    <!-- gmail -->
+<!-- 	    
     <bean id="javaMailSenderImpl" class ="org.springframework.mail.javamail.JavaMailSenderImpl" >
         <property name="host" value="smtp.gmail.com" />
         <property name="port" value="587" />
         <property name="defaultEncoding" value="utf-8"/>
-        <property name="username" value="ghkdworl23@gmail.com" />
-        <property name="password" value="xoals159" />
+        <property name="username" value="****@gmail.com" />
+        <property name="password" value="****" />
        
         <property name="javaMailProperties">
             <props>
@@ -74,8 +74,5 @@ http://www.springframework.org/schema/tx/spring-tx.xsd
         </property>
        
     </bean>
-
-
-
-    
+ -->
 </beans>
