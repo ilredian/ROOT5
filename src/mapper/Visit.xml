@@ -6,7 +6,7 @@
     
     <!-- 방문자 수 증가. -->
     <insert id="setVisitTotalCount">
-INSERT INTO VISIT (V_DATE) VALUES (sysdate())
+INSERT INTO visit (V_DATE) VALUES (sysdate())
 </insert>
 
 <!-- 모든 방문자수 가져오기 -->

@@ -21,10 +21,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import DAO.BoardFreeDAO;
 import DAO.BoardLawDAO;
 import DAO.BoardNoticeDAO;
+import DAO.CheaterDAO;
 import DAO.InterestStatementDAO;
 import DAO.VisitDAO;
 import DTO.InterestStatementDTO;
 import DTO.MemberDTO;
+import DTO.chartItemsDTO;
 
 @Controller
 public class HomeController {
@@ -33,12 +35,24 @@ public class HomeController {
 	private SqlSession sqlSession;
 
 	@RequestMapping("index.go")
-	public String index(	HttpSession session,
+	public String index(
+			
+			HttpSession session,
 			Model model)throws Exception{
 		  // 전체 방문자 수 +1
 		VisitDAO visitDAO = sqlSession.getMapper(VisitDAO.class);
 		visitDAO.setVisitTotalCount();
 		System.out.println("메세지 수정완료");
+		
+		////////////////////////////////
+		//home.jsp -- AJAX data에  들어갈 차트 정보
+		
+		/////////////////////////////
+		///////////////////////////
+		//타임라인으로 보낼 정보
+		
+		
+		///////////////////////////
 		
       // 오늘 방문자 수
       int todayCount = visitDAO.getVisitTodayCount();
@@ -62,9 +76,24 @@ public class HomeController {
 			MemberDTO memberDTO,
 			HttpSession session, ServletResponse response, HttpServletRequest request, Model model)
 					throws Exception {
-
-		response.setContentType("text/html;charset=EUC-KR");
-		out = response.getWriter();
+		
+		
+		///////////////////////////
+		//타임라인으로 보낼 정보 <사기사건의 해결은 시간이 생명--지속적인 사기 피드백을 받아볼 수 있다>
+		
+		///1. 진술서 접수 완료 ${regdate}
+		
+		///2. 용의자 DB 일치여부 -- compareDB 메소드 // 계좌/휴대폰/이름/아이디가 일치합니다.
+		
+		///3. 경찰 쪽에 정보 제공(DB정보) -- getResist -- IP 추적 //
+		
+		///4. 헤더쪽에 정보 -- 접수일로부터 ${sysdate} - ${regdate} 일 지났습니다.
+		
+		///5. 검거 완료되었습니다_또는 미해결 >> 30일이 지났기 때문에...
+		
+		///////////////////////////
+		
+		
 		if(session.getAttribute("memberInfo") != null){
 
 			// 로그 남기기

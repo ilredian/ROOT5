@@ -15,7 +15,13 @@ h1,h3 {
      "배달의민족 한나는 열한살" ,
      "나눔고딕", "다음_Regular" , 
      "다음_SemiBold"   */;
+     
+     /* 텍스트에 그림자 */
+     text-shadow: 0 0 5px #f00;
+      
 }
+    
+
 </style>
 
 <!-- <style type="text/css">

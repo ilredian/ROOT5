@@ -10,7 +10,6 @@ http://www.springframework.org/schema/context/spring-context.xsd
 http://www.springframework.org/schema/tx
 http://www.springframework.org/schema/tx/spring-tx.xsd 
 ">
-
 	<bean id="driverManagerDataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
@@ -26,6 +25,10 @@ http://www.springframework.org/schema/tx/spring-tx.xsd
 	</bean>
 	<!-- 트랜잭션 빈 자동등록 -@Transactional 어노테이션 붙은 메서드를 트랜잭션 범위에서실행하는 기능 활성화 -->
 	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	
+	<!--excelview 빈등록 12월 12일 -->
+	<bean name="excelView" class="common.ExcelView"/>
 	
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -57,14 +60,14 @@ http://www.springframework.org/schema/tx/spring-tx.xsd
 		<constructor-arg ref="sqlSessionFactoryBean" index="0" />
 	</bean>
 	
-	
 	    <!-- gmail -->
+<!-- 	    
     <bean id="javaMailSenderImpl" class ="org.springframework.mail.javamail.JavaMailSenderImpl" >
         <property name="host" value="smtp.gmail.com" />
         <property name="port" value="587" />
         <property name="defaultEncoding" value="utf-8"/>
-        <property name="username" value="ghkdworl23@gmail.com" />
-        <property name="password" value="xoals159" />
+        <property name="username" value="****@gmail.com" />
+        <property name="password" value="****" />
        
         <property name="javaMailProperties">
             <props>
@@ -75,7 +78,7 @@ http://www.springframework.org/schema/tx/spring-tx.xsd
        
     </bean>
 
-
 	<context:annotation-config/>
     
+ -->
 </beans>

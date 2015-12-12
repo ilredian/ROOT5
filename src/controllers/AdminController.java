@@ -36,6 +36,10 @@ import DTO.MemberDTO;
 import DTO.MemberTypeDTO;
 import DTO.ReplyDTO;
 import common.BoardPager;
+import mail.SendMailDTO;
+import mail.ReceiveMail;
+import mail.ReceiveMailDTO;
+import mail.SendMail;
 
 @Controller
 public class AdminController {// 관리자 페이지
@@ -936,22 +940,83 @@ public class AdminController {// 관리자 페이지
 		out.close();
 	}
 
-	// 메일 관리자 페이지로 이동
+	// 메일보내기 관리자 페이지로 이동
 	@RequestMapping(value = "adminMail.go", method = RequestMethod.GET)
 	public String AdminMail() {
 
 		// 로그 남기기
-		System.out.println("메일 관리자 페이지로 이동");
+		System.out.println("메일보내기 관리자 페이지로 이동");
 
 		return "admin.adminMail";
 	}
+	
+	// 메일보내기 관리자 페이지로 이동
+	@RequestMapping(value = "adminMail.go", method = RequestMethod.POST)
+	public void sendEmailMethod(
+			HttpServletResponse response,
+			SendMailDTO sendMailDTO) throws Exception {
+		
+		//로그 남기기
+		System.out.println("메일 보내기");
+		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
+		
+		//메일 보내기
+		sendMailDTO.setName("관리자");
+		sendMailDTO.setFrom("ilredian@ilredian.xyz");
+		sendMailDTO.setTar("html");
+		SendMail sendMail = new SendMail();
+		int result = sendMail.sendMail(sendMailDTO);
+		
+		//메일 결과
+		if(result == 1){
+			System.out.println("이메일 보내기 완료");
+			out.print(
+					"<script type='text/javascript'>alert('메일이 성공적으로 발송되었습니다.'); location.replace('');</script>");
+		}else{
+			System.out.println("이메일 보내기 실패");
+			out.print(
+					"<script type='text/javascript'>alert('메일 발송에 실패하였습니다.'); location.replace('');</script>");
+		}
+		out.close();
+	}
+	
+	// 받은 메일 관리자 페이지로 이동
 	@RequestMapping(value = "adminMailRE.go", method = RequestMethod.GET)
-	public String AdminMailRE() {
+	public String AdminMailRE(Model model) {
 
 		// 로그 남기기
-		System.out.println("메일 관리자 페이지로 이동");
+		System.out.println("받은 메일 관리자 페이지로 이동");
 
+		// 메일 가져오기
+		ReceiveMail mailList = new ReceiveMail();
+		List<ReceiveMailDTO> list = mailList.reveiceMail();
+		
+		// 가져온 메일 객체에 담기
+		model.addAttribute("list", list);
+		
 		return "admin.adminMailRE";
 	}
 
+	// 메일 상세 화면 관리자 페이지로 이동
+	@RequestMapping(value = "adminMailView.go", method = RequestMethod.GET)
+	public String AdminMailRE(
+			@RequestParam("mno") int mailNo,
+			Model model) {
+
+		// 로그 남기기
+		System.out.println("메일 상세 화면 관리자 페이지로 이동");
+
+		// 메일 가져오기
+		ReceiveMail mailList = new ReceiveMail();
+		List<ReceiveMailDTO> list = mailList.reveiceMail();
+		ReceiveMailDTO receiveMailDTO = list.get(mailNo);
+		// 가져온 메일 객체에 담기
+		model.addAttribute("receiveMailDTO", receiveMailDTO);
+		model.addAttribute("from", receiveMailDTO.getFrom());
+			
+		return "admin.adminMailView";
+	}
 }
