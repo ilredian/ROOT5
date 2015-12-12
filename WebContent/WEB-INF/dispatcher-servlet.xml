@@ -43,5 +43,5 @@ http://www.springframework.org/schema/context/spring-context.xsd
     </bean>
     <bean id="emailSender" class="spring.email.EmailSender">
     </bean>
-
+	<bean id="boardService" class="file.BoardService"></bean>
 </beans>
