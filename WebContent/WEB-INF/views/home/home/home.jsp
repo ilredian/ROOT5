@@ -25,6 +25,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <script src="slide/jquery.flexslider.js"></script>
 
+
 <script type="text/javascript">
 //Can also be used with $(document).ready()
  $(window).load(function() {
@@ -77,7 +78,7 @@
 					}
 				});
 		});	
-	});	 
+	});	
 		 
 
 </script>
@@ -250,10 +251,6 @@
 					</div>
 					<!-- /.panel-body -->
 				</div>
-
-
-
-
 				<!-- /.panel -->
 			</div>
 
@@ -265,7 +262,7 @@
 					<!-- /.panel-heading -->
 					<div class="panel-body">
 						<div class="list-group">
-							<a href="#" class="list-group-item"> <i
+							<a href="messageWindow.go" class="list-group-item"> <i
 								class="fa fa-comment fa-fw"></i> 내 쪽지함 <!-- 시간 푸쉬로 받기--> <span
 								class="pull-right text-muted small"><em>4 minutes
 										ago</em> </span>
@@ -273,57 +270,43 @@
 								class="fa fa-twitter fa-fw"></i> 알림 <span
 								class="pull-right text-muted small"><em>12 minutes
 										ago</em> </span>
-							</a> <a href="#" class="list-group-item"> <i
+							</a> <a href="question.go" class="list-group-item"> <i
 								class="fa fa-envelope fa-fw"></i> 관리자에게 메일 보내기 <span
 								class="pull-right text-muted small"><em>27 minutes
 										ago</em> </span>
 							</a>
 						</div>
 						<!-- /.list-group -->
-						<button class="btn btn-default btn-block" id="alert"
-							data-toggle="collapse in" data-target="#demo">View All
-							Alerts</button>
-						
-						<div id="demo">  </div>
-						<div id="display"></div>
-						<br>
-						<hr>
+				<button class="btn btn-default btn-block"
+							data-toggle="collapse" data-target="#demo">View All Alert</button>
+				<br>
+					<div id="demo" class="collapse">	
+						<c:if test="${empty list}">		
+						<!-- 없을때 -->
 						<div class="alert alert-info">
 							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-							<strong>Info!</strong> This alert box could indicate a neutral
-							informative change or action.
+							<strong>Info!</strong>
+							 <c:out value="접수된 진술서가 없습니다."/>
 						</div>
+						</c:if>
+					</div>
 						
-						<div class="alert alert-warning">
-							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-							<strong>Warning!</strong>
-							<div class="table-responsive">
-								<table class="table table-bordered table-hover table-striped"
-									style="text-align: center;">
-									
-									<c:if test="${empty list}">
-									 <c:out value="접수된 진술서가 없습니다."/>
-									</c:if>
-									
-									<c:if test="${not empty list}">
-										<P>예제 테이블. 다른걸로 바꿔야함 interestStatementDTO 참고해서 변수 불러옴</P>
-										<tr>
-											<th class="active" style="text-align: center;">진술서 번호</th>
-											<th class="active" style="text-align: center;">용의자 이름</th>
-											<th class="active" style="text-align: center;">등록한 멤버 번호</th>
-										</tr>
-										<c:forEach items="${list}" var="lists" begin="0" end="9">
-											<tr>
-												<td>${lists.stateno}</td>
-												<td>${lists.cheatername}</td>
-												<td>${lists.memberno}</td>
-											</tr>	
-										</c:forEach>
-									</c:if>
-								</table>
-							</div>
-						</div>
+						<!-- 있을때  -->
+					<div id="demo" class="collapse">	
+						<c:if test="${not empty list}">
+							<c:forEach items="${list}" var="lists" begin="0" end="1">
+								<div class="alert alert-info">
+									<a href="#" class="close" data-dismiss="alert"
+										aria-label="close">&times;</a> <strong>Info!</strong>
+										<br>
+									<font color="blue"><label> 진술서 번호 :</label></font> ${lists.stateno}<br>
+									<font color="blue"><label> 용의자 이름 :</label></font> ${lists.cheatername}<br>
+									<font color="blue"><label> 등록한 멤버 번호 :</label></font> ${lists.memberno}<br>
+								</div>
+							</c:forEach>
+						</c:if>				
 						<!-- /.panel-body -->
+					</div>
 					</div>
 				</div>
 				<!-- 옆 -->
@@ -340,7 +323,7 @@
 					<!-- 2. 사기를 막는 예방법# 글/동영상  -아코디언  -->
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<i class="fa fa-bar-chart-o fa-fw"></i>#사기를 막는 예방법#
+							<i class="fa fa-bar-chart-o fa-fw"></i>사기를 막는 예방법
 							<div class="pull-right">
 								<div class="btn-group">
 									<button type="button"
@@ -391,46 +374,34 @@
 						</div>
 						<div class="panel-body">
 							<div id="morris-donut-chart"></div>
-							<a class="btn btn-default btn-block" id="piechart">View Details</a>
+							
+						<svg height="347" version="1.1" width="586" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#0b62a4" d="M293,286.6666666666667A110.66666666666667,110.66666666666667,0,0,0,397.48523596313163,212.46843260739092" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#0b62a4" stroke="#ffffff" d="M293,289.6666666666667A113.66666666666667,113.66666666666667,0,0,0,400.3176670585177,213.45703469614548L445.0071354523873,229.05497876316207A161,161,0,0,1,293,337Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#3980b5" d="M397.48523596313163,212.46843260739092A110.66666666666667,110.66666666666667,0,0,0,193.7245062356979,127.09716318080183" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#3980b5" stroke="#ffffff" d="M400.3176670585177,213.45703469614548A113.66666666666667,113.66666666666667,0,0,0,191.03330309148487,125.77148386943801L148.57209792723518,104.85521029014241A161,161,0,0,1,445.0071354523873,229.05497876316207Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#679dc6" d="M193.7245062356979,127.09716318080183A110.66666666666667,110.66666666666667,0,0,0,292.96523304187207,286.66666120548564" stroke-width="2" opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1;"></path><path fill="#679dc6" stroke="#ffffff" d="M191.03330309148487,125.77148386943801A113.66666666666667,113.66666666666667,0,0,0,292.9642905640915,289.66666105744156L292.94784956280813,341.9999918082284A166,166,0,0,1,144.08675935354682,102.64574477120273Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="293" y="166" text-anchor="middle" font-family="&quot;Arial&quot;" font-size="15px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Arial; font-size: 15px; font-weight: 800;" font-weight="800" transform="matrix(1.4756,0,0,1.4756,-139.3378,-84.1733)" stroke-width="0.6777108433734939"><tspan dy="6" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Mail-Order Sales</tspan></text><text x="293" y="186" text-anchor="middle" font-family="&quot;Arial&quot;" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Arial; font-size: 14px;" transform="matrix(2.3056,0,0,2.3056,-382.5278,-232.3889)" stroke-width="0.4337349397590361"><tspan dy="5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">20</tspan></text></svg>
+					
+							
+							<a href="chartMain.go" class="btn btn-default btn-block" id="piechart">View Details</a>
+							
 						</div>
 						<!--  /.panel-body -->
 					</div>
 					<!--     /.panel -->
 				</div>
-				
+		
+		<!-- /.세번째 row -->
+	</div>
+	
+	<!-- 네번째 row -->
+		<div class="row">
 			<div class="col-lg-6">
 					<!-- 테이블 표  -->
 					<div class="chat-panel panel panel-default">
 						<div class="panel-heading">
 							<i class="fa fa-comments fa-fw"></i> 테이블 표
 							<div class="btn-group pull-right">
-								<button type="button"
-									class="btn btn-default btn-xs dropdown-toggle"
-									data-toggle="dropdown" id="table">
-									<i class="fa fa-chevron-down"></i>
-								</button>
-								<ul class="dropdown-menu slidedown">
-									<li><a href="#"> <i class="fa fa-refresh fa-fw"></i>
-											Refresh
-									</a></li>
-									<li><a href="#"> <i class="fa fa-check-circle fa-fw"></i>
-											Available
-									</a></li>
-									<li><a href="#"> <i class="fa fa-times fa-fw"></i>
-											Busy
-									</a></li>
-									<li><a href="#"> <i class="fa fa-clock-o fa-fw"></i>
-											Away
-									</a></li>
-									<li class="divider"></li>
-									<li><a href="#"> <i class="fa fa-sign-out fa-fw"></i>
-											Sign Out
-									</a></li>
-								</ul>
+							
+  					  <a href="/excel.go" target="_blank">엑셀다운</a>
 							</div>
 						</div>
 						<!--    /.panel-heading -->
-
 						<div class="panel-body">
 							<div class="table-responsive">
 								<table class="table table-bordered table-hover table-striped"
@@ -483,8 +454,127 @@
 			</div>
 				<!-- /col-lg-6 -->
 	
-		<!-- /.세번째 row -->
+	
+	
+			<div class="col-lg-6">
+	   <!-- 3. 타임라인 부분 -->                    
+                    <div class="panel panel-default">
+	                        <div class="panel-heading">
+                            <i class="fa fa-clock-o fa-fw"></i> 내 사건의 타임라인
+                        </div>
+                        <!-- /.panel-heading -->
+					<c:if test="${empty list}">
+						<c:out value="접수하신 내역이 없으십니다."/>
+					</c:if>
+
+                        <div class="panel-body">
+                            <ul class="timeline">
+                              <li>
+                              
+                              <!-- 
+                              타임라인 뱃지 
+	                                <div class="timeline-badge"><i class="fa fa-check"></i>
+	                        	      <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
+	                                <div class="timeline-badge danger"><i class="fa fa-bomb"></i>
+	                                  <div class="timeline-badge info"><i class="fa fa-save"></i>
+                                -->
+                                    <div class="timeline-badge"><i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 class="timeline-title">이인영 사기꾼 검거 완료</h4>
+                                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
+                                            </p>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p> 12월 11일 오전 10시 경, 
+                                            강원도 00PC방 에서 피의자 이인영 씨(24)를 검거했습니다.
+                                            -- 사이버 경찰서 이광호 형사 (02-xxx-xxx)</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="timeline-inverted">
+                                    <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 class="timeline-title"> IP 추적중 </h4>
+                                        </div>
+                                        <div class="timeline-body">
+                                        	<p> 강원도 철원 부근에서 용의자 추정 IP 추적 </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="timeline-badge danger"><i class="fa fa-bomb"></i>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 class="timeline-title"> 사이버 경찰서에 의뢰접수 </h4>
+                                        </div>
+                                        <div class="timeline-body">
+                                        <p> '2015-12-05' 사이버 경찰서 담당 이광호 형사 (02-xxx-xxx)</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="timeline-inverted">
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 class="timeline-title">첫 접수일로부터 발생경과 '4'일 지났습니다.</h4>
+                                               <p><small class="text-muted"><i class="fa fa-clock-o"></i>4 days ago</small>
+                                        </div>
+                                        <div class="timeline-body">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="timeline-badge info"><i class="fa fa-save"></i>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 class="timeline-title"> 용의자 탐색 중</h4>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p> 작성하신 용의자의 정보 중 '계좌번호'가 일치하는 게시글을 '2'건 발견했습니다.</p>
+                                            <hr>
+                                            <a href="#">검색</a>
+                                            <div class="btn groop">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 class="timeline-title">진술서 작성 완료</h4>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p> 직거래 피해부분에 '2015-11-30' 접수를 완료하셨습니다. </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+             <!--                    <li class="timeline-inverted">
+                                    <div class="timeline-badge success"><i class="fa fa-graduation-cap"></i>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt obcaecati, quaerat tempore officia voluptas debitis consectetur culpa amet, accusamus dolorum fugiat, animi dicta aperiam, enim incidunt quisquam maxime neque eaque.</p>
+                                        </div>
+                                    </div>
+                                </li> -->
+                                
+                            </ul>
+                        </div>
+                        <!-- /.panel-body -->
+                   </div>
+                    <!-- /.panel -->
+			</div>
 	</div>
+	
 	<!-- /#page-wrapper -->
 
 

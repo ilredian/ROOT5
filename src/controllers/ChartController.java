@@ -122,39 +122,49 @@ public class ChartController {
 				list.add(chartdto);
 			}
 		}
-		//피해사례 수
-		String allCheaterCount = String.format("%,d", cheaterDAO.getAllCheaterCount(regdate.get(size-1).getRegdate(), regdate.get(0).getRegdate()));
-		//카테고리 별 피해 사례 수
-		System.out.println("start:"+regdate.get(size-1).getRegdate()+"end:"+regdate.get(0).getRegdate());
-		int countTrade = cheaterDAO.getCountCategory(regdate.get(size-1).getRegdate(), regdate.get(0).getRegdate(),1);
-		int countGame = cheaterDAO.getCountCategory(regdate.get(size-1).getRegdate(), regdate.get(0).getRegdate(),2);
-		int countManner = cheaterDAO.getCountCategory(regdate.get(size-1).getRegdate(), regdate.get(0).getRegdate(),3);
-		//휴대폰 번호 수
-		String countPhone = String.format("%,d", cheaterDAO.getCountPhone(regdate.get(size-1).getRegdate(), regdate.get(0).getRegdate()));
-		//계좌번호 수
-		String countAccount = String.format("%,d", cheaterDAO.getCountAccount(regdate.get(size-1).getRegdate(), regdate.get(0).getRegdate()));
-		//피해금액
-		String countSum = String.format("%,d", cheaterDAO.getCountSum(regdate.get(size-1).getRegdate(), regdate.get(0).getRegdate()));
-		//피해물품 TOP 10
+		// 피해사례 수
+		String allCheaterCount = String.format("%,d",
+				cheaterDAO.getAllCheaterCount(regdate.get(size - 1).getRegdate(), regdate.get(0).getRegdate()));
+		// 카테고리 별 피해 사례 수
+		System.out.println("start:" + regdate.get(size - 1).getRegdate() + "end:" + regdate.get(0).getRegdate());
+		int countTrade = cheaterDAO.getCountCategory(regdate.get(size - 1).getRegdate(), regdate.get(0).getRegdate(),
+				1);
+		int countGame = cheaterDAO.getCountCategory(regdate.get(size - 1).getRegdate(), regdate.get(0).getRegdate(), 2);
+		int countManner = cheaterDAO.getCountCategory(regdate.get(size - 1).getRegdate(), regdate.get(0).getRegdate(),
+				3);
+		// 휴대폰 번호 수
+		String countPhone = String.format("%,d",
+				cheaterDAO.getCountPhone(regdate.get(size - 1).getRegdate(), regdate.get(0).getRegdate()));
+		// 계좌번호 수
+		String countAccount = String.format("%,d",
+				cheaterDAO.getCountAccount(regdate.get(size - 1).getRegdate(), regdate.get(0).getRegdate()));
+		// 피해금액
+		String countSum = String.format("%,d",
+				cheaterDAO.getCountSum(regdate.get(size - 1).getRegdate(), regdate.get(0).getRegdate()));
+		// 피해물품 TOP 10
 		List<chartItemsDTO> countItems = new ArrayList<chartItemsDTO>();
 		chartItemsDTO chartItemsdto = new chartItemsDTO();
 		chartItemsdto.setGoodskind("Task");
 		chartItemsdto.setCount("'Hours per Day'");
 		countItems.add(chartItemsdto);
-		List<chartItemsDTO> countItemsTemp = cheaterDAO.getCountItems(regdate.get(size-1).getRegdate(), regdate.get(0).getRegdate());
-		for(int i=0; i<countItemsTemp.size(); i++){
+		List<chartItemsDTO> countItemsTemp = cheaterDAO.getCountItems(regdate.get(size - 1).getRegdate(),
+				regdate.get(0).getRegdate());
+		for (int i = 0; i < countItemsTemp.size(); i++) {
 			countItems.add(countItemsTemp.get(i));
 		}
-		//용의자
-		List<CheaterDTO> countCheaterName = cheaterDAO.getCountCheaterName(regdate.get(size-1).getRegdate(), regdate.get(0).getRegdate());
-		//사이트
-		List<CheaterDTO> countDomain = cheaterDAO.getCountDomain(regdate.get(size-1).getRegdate(), regdate.get(0).getRegdate());
-		//은행
-		List<CheaterDTO> countBankName = cheaterDAO.getCountBankName(regdate.get(size-1).getRegdate(), regdate.get(0).getRegdate());
-		
-		//꺾은선 그래프 차트용
+		// 용의자
+		List<CheaterDTO> countCheaterName = cheaterDAO.getCountCheaterName(regdate.get(size - 1).getRegdate(),
+				regdate.get(0).getRegdate());
+		// 사이트
+		List<CheaterDTO> countDomain = cheaterDAO.getCountDomain(regdate.get(size - 1).getRegdate(),
+				regdate.get(0).getRegdate());
+		// 은행
+		List<CheaterDTO> countBankName = cheaterDAO.getCountBankName(regdate.get(size - 1).getRegdate(),
+				regdate.get(0).getRegdate());
+
+		// 꺾은선 그래프 차트용
 		model.addAttribute("list", list);
-				
+
 		// 차트 값 model 객체에 담기
 		model.addAttribute("allCheaterCount", allCheaterCount);
 		model.addAttribute("countPhone", countPhone);
@@ -167,12 +177,12 @@ public class ChartController {
 		model.addAttribute("countTrade", countTrade);
 		model.addAttribute("countGame", countGame);
 		model.addAttribute("countManner", countManner);
-		
+
 		model.addAttribute("start_year", start_year);
 		model.addAttribute("start_month", start_month);
 		model.addAttribute("end_year", end_year);
 		model.addAttribute("end_month", end_month);
-		
+
 		return "chart.chartMain";
 	}
 
