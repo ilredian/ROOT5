@@ -20,4 +20,7 @@ public interface InterestStatementDAO {
 	
 	// 관심 목록과 전체 DB 비교하기
 	public List<InterestStatementDTO> compareDB(InterestStatementDTO interestStatementDTO) throws Exception;
+
+
+
 }

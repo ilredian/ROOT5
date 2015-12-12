@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletResponse;
@@ -21,10 +22,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import DAO.BoardFreeDAO;
 import DAO.BoardLawDAO;
 import DAO.BoardNoticeDAO;
+import DAO.CheaterDAO;
 import DAO.InterestStatementDAO;
 import DAO.VisitDAO;
 import DTO.InterestStatementDTO;
 import DTO.MemberDTO;
+import DTO.chartItemsDTO;
 
 @Controller
 public class HomeController {
@@ -33,12 +36,24 @@ public class HomeController {
 	private SqlSession sqlSession;
 
 	@RequestMapping("index.go")
-	public String index(	HttpSession session,
+	public String index(
+			
+			HttpSession session,
 			Model model)throws Exception{
 		  // 전체 방문자 수 +1
 		VisitDAO visitDAO = sqlSession.getMapper(VisitDAO.class);
 		visitDAO.setVisitTotalCount();
 		System.out.println("메세지 수정완료");
+		
+		////////////////////////////////
+		//home.jsp -- AJAX data에  들어갈 차트 정보
+		
+		/////////////////////////////
+		///////////////////////////
+		//타임라인으로 보낼 정보
+		
+		
+		///////////////////////////
 		
       // 오늘 방문자 수
       int todayCount = visitDAO.getVisitTodayCount();
@@ -62,9 +77,53 @@ public class HomeController {
 			MemberDTO memberDTO,
 			HttpSession session, ServletResponse response, HttpServletRequest request, Model model)
 					throws Exception {
+		
+		
+		///////////////////////////
+		//타임라인으로 보낼 정보 <사기사건의 해결은 시간이 생명--지속적인 사기 피드백을 받아볼 수 있다>
+		InterestStatementDAO interestStatementDAO = sqlSession.getMapper(InterestStatementDAO.class);
+		String msg="";
+		String title="";
+		int seq= 1;
+		Date date = new Date();
+		long regdate = date.getTime();
+		
+		///진술서가 접수되면
+		switch (seq) {
+			///1. 진술서 접수 완료 ${regdate}
+		case 1:
+			title="진술서 작성 완료";
+			msg+="직거래 피해부분에" + regdate + "접수를 완료하셨습니다.";
+			break;
+			///2. 용의자 DB 일치여부 -- compareDB 메소드 // 계좌/휴대폰/이름/아이디가 일치합니다.
+		case 2:
+			
+			title="용의자 탐색 중";
+			msg+="작성하신 용의자의 정보 중 '계좌번호'가 일치하는 게시글을 '2'건 발견했습니다";
+			break;
 
-		response.setContentType("text/html;charset=EUC-KR");
-		out = response.getWriter();
+		case 3:
+			break;
+		default:
+			break;
+		}
+		
+		///3. 경찰 쪽에 정보 제공(DB정보) -- getResist -- IP 추적 //
+		
+		///4. 헤더쪽에 정보 -- 접수일로부터 ${sysdate} - ${regdate} 일 지났습니다.
+		
+		///5. 검거 완료되었습니다_또는 미해결 >> 30일이 지났기 때문에...
+		/////////////////////////
+		
+		////
+///		List<chartItemsDTO> countItemsTemp = interestStatementDAO.getInterestStatement(memberno);
+		
+		model.addAttribute("regdate", regdate);
+		
+		
+		///////////////////////////
+		
+		
 		if(session.getAttribute("memberInfo") != null){
 
 			// 로그 남기기
