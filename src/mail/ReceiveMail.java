@@ -1,15 +1,18 @@
 package mail;
 
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.activation.DataHandler;
 import javax.mail.Address;
 import javax.mail.Folder;
 import javax.mail.Message;
@@ -17,6 +20,8 @@ import javax.mail.Multipart;
 import javax.mail.Part;
 import javax.mail.Session;
 import javax.mail.Store;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.MimeUtility;
 
 public class ReceiveMail {
@@ -122,7 +127,7 @@ public class ReceiveMail {
 					os.close();
 					System.out.println(filename + "을 보관합니다.");
 					receiveMailDTO.setFileName(filename);
-					receiveMailDTO.setFileLocation("C:\\Kosta106th\\Spring_M\\utils\\sts-bundle\\sts-3.7.1.RELEASE\\"+filename);
+					receiveMailDTO.setFileLocation("C:\\Kosta106th\\Spring_M\\utils\\sts-bundle\\sts-3.7.1.RELEASE");
 				} catch (Exception e) {
 					System.out.println("첨부파일 보관중 에러가 발생했습니다" + e);
 				}

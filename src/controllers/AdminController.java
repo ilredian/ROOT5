@@ -1015,7 +1015,6 @@ public class AdminController {// 관리자 페이지
 		ReceiveMailDTO receiveMailDTO = list.get(mailNo);
 		// 가져온 메일 객체에 담기
 		model.addAttribute("receiveMailDTO", receiveMailDTO);
-		model.addAttribute("from", receiveMailDTO.getFrom());
 			
 		return "admin.adminMailView";
 	}
