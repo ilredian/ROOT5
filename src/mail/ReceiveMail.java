@@ -103,17 +103,16 @@ public class ReceiveMail {
 		if (attachment) {
 			String disp = p.getDisposition();
 			
-			// 이건 뭐하는 거지
+			// 첨부 파일
 			if(disp !=null && disp.equalsIgnoreCase(Part.ATTACHMENT) == true){
-				System.out.println("들어오나?");
 				String filename = p.getFileName();
 				filename = MimeUtility.decodeText(filename);
 				
 				try {
 					File f = new File(filename);
-					if (f.exists()) {
+					/*if (f.exists()) {
 						throw new IOException("같은 파일이 존재합니다.");
-					}
+					}*/
 					OutputStream os = new BufferedOutputStream(new FileOutputStream(f));
 					InputStream is = p.getInputStream();
 					int c;
@@ -122,14 +121,15 @@ public class ReceiveMail {
 					}
 					os.close();
 					System.out.println(filename + "을 보관합니다.");
-					receiveMailDTO.setFile("C:\\Kosta106th\\Spring_M\\utils\\sts-bundle\\sts-3.7.1.RELEASE\\"+filename);
+					receiveMailDTO.setFileName(filename);
+					receiveMailDTO.setFileLocation("C:\\Kosta106th\\Spring_M\\utils\\sts-bundle\\sts-3.7.1.RELEASE\\"+filename);
 				} catch (Exception e) {
 					System.out.println("첨부파일 보관중 에러가 발생했습니다" + e);
 				}
 			}
 			
-			// 첨부파일의 경우
-			/*if (disp == null || disp.equalsIgnoreCase(Part.ATTACHMENT)) {
+			// HTML 내용
+			if (disp == null || disp.equalsIgnoreCase(Part.ATTACHMENT)) {
 				String filename = p.getFileName();
 				if (filename != null) {
 					filename = MimeUtility.decodeText(filename);
@@ -138,9 +138,9 @@ public class ReceiveMail {
 				}
 				try {
 					File f = new File(filename);
-					if (f.exists()) {
+					/*if (f.exists()) {
 						throw new IOException("같은 파일이 존재합니다.");
-					}
+					}*/
 					OutputStream os = new BufferedOutputStream(new FileOutputStream(f));
 					InputStream is = p.getInputStream();
 					int c;
@@ -149,11 +149,11 @@ public class ReceiveMail {
 					}
 					os.close();
 					System.out.println(filename + "을 보관합니다.");
-					receiveMailDTO.setFile("C:\\Kosta106th\\Spring_M\\utils\\sts-bundle\\sts-3.7.1.RELEASE\\"+filename);
+					receiveMailDTO.setHtml("C:\\Kosta106th\\Spring_M\\utils\\sts-bundle\\sts-3.7.1.RELEASE\\"+filename);
 				} catch (Exception e) {
 					System.out.println("첨부파일 보관중 에러가 발생했습니다" + e);
 				}
-			}*/
+			}
 		}
 		
 		return receiveMailDTO;

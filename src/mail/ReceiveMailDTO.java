@@ -11,18 +11,35 @@ public class ReceiveMailDTO {
 	private List<String> content = new ArrayList<String>();
 	private String date;
 	private int size;
-	private String file;
+	private String fileName;
+	private String fileLocation;
+	private String html;
 	
-	public String getFile() {
-		return file;
+	public String getFileName() {
+		return fileName;
 	}
 
-	public void setFile(String file) {
-		this.file = file;
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public String getFileLocation() {
+		return fileLocation;
+	}
+
+	public void setFileLocation(String fileLocation) {
+		this.fileLocation = fileLocation;
+	}
+
+	public String getHtml() {
+		return html;
+	}
+
+	public void setHtml(String html) {
+		this.html = html;
 	}
 
 	public String getContent() {
-		System.out.println("컨텐츠 : " + content.size());
 		return content.toString();
 	}
 
@@ -31,7 +48,6 @@ public class ReceiveMailDTO {
 	}
 
 	public String getFrom() {
-		System.out.println("받는 사람 : " + from.size());
 		return from.toString();
 	}
 
@@ -40,7 +56,6 @@ public class ReceiveMailDTO {
 	}
 
 	public String getTo() {
-		System.out.println("보낸 사람 : " + to.size());
 		return to.toString();
 	}
 

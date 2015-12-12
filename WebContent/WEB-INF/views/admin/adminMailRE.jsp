@@ -9,9 +9,7 @@
 		<th>글번호</th>
 		<th>보낸이</th>
 		<th>제목</th>
-		<th>내용</th>
 		<th>날짜</th>
-		<th>첨부파일</th>
 		<th>메일크기</th>
 	</tr>
 
@@ -20,18 +18,16 @@
 			<c:forEach items="${list}" var="list" varStatus="index">
 				<tr>
 					<td>${index.index +1}</td>
-					<td>${list.from}</td>
-					<td>${list.title}</td>
-					<td>${list.content}</td>
+					<td>${list.getFrom()}</td>
+					<td><a href="adminMailView.go?mno=${index.index}">${list.title}</a></td>
 					<td>${list.date}</td>
-					<td>${list.file}</td>
-					<td>${list.size}</td>
+					<td>${list.size} byte</td>
 				</tr>
 			</c:forEach>
 		</c:when>
 		<c:otherwise>
 			<tr>
-				<td colspan="4">받은 메일이 없습니다.</td>
+				<td colspan="5">받은 메일이 없습니다.</td>
 			</tr>
 		</c:otherwise>
 	</c:choose>

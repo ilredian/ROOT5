@@ -994,15 +994,29 @@ public class AdminController {// 관리자 페이지
 		ReceiveMail mailList = new ReceiveMail();
 		List<ReceiveMailDTO> list = mailList.reveiceMail();
 		
-		//
-		for(int i=0; i<list.size(); i++){
-			System.out.println(i + "<번호------보낸이>" + list.get(i).getFrom());
-		}
-		
 		// 가져온 메일 객체에 담기
 		model.addAttribute("list", list);
 		
 		return "admin.adminMailRE";
 	}
 
+	// 메일 상세 화면 관리자 페이지로 이동
+	@RequestMapping(value = "adminMailView.go", method = RequestMethod.GET)
+	public String AdminMailRE(
+			@RequestParam("mno") int mailNo,
+			Model model) {
+
+		// 로그 남기기
+		System.out.println("메일 상세 화면 관리자 페이지로 이동");
+
+		// 메일 가져오기
+		ReceiveMail mailList = new ReceiveMail();
+		List<ReceiveMailDTO> list = mailList.reveiceMail();
+		ReceiveMailDTO receiveMailDTO = list.get(mailNo);
+		// 가져온 메일 객체에 담기
+		model.addAttribute("receiveMailDTO", receiveMailDTO);
+		model.addAttribute("from", receiveMailDTO.getFrom());
+			
+		return "admin.adminMailView";
+	}
 }
