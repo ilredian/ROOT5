@@ -13,7 +13,7 @@
 			</tr>
 			<tr>
 				<td style="width: 10%;"><img alt="no_pic"
-					src="boardFreeimages/user_no_pic.gif"></td>
+					src="images/boardFreeimages/user_no_pic.gif"></td>
 				<td style="width: 70%;">
 					<table>
 						<tr>
@@ -66,7 +66,7 @@
 			<c:forEach var="replyDTO" items="${replyDTO}">
 				<tr>
 					<td style="width: 10%;"><img alt="no_pic"
-						src="boardFreeimages/user_no_pic.gif"></td>
+						src="images/boardFreeimages/user_no_pic.gif"></td>
 					<td style="width: 90%;">
 						<table>
 							<tbody>

@@ -65,7 +65,7 @@
 			<c:forEach var="replyDTO" items="${replyDTO}">
 				<tr>
 					<td style="width: 10%;"><img alt="no_pic"
-						src="boardFreeimages/user_no_pic.gif"></td>
+						src="images/boardFreeimages/user_no_pic.gif"></td>
 					<td style="width: 90%;">
 						<table>
 							<tbody>
@@ -74,6 +74,9 @@
 										<div>
 											<div style="float: left;">
 												<b>${replyDTO.name}</b> 님 | ${replyDTO.regdate}
+											</div>
+											<div style="float: right";>
+												<input type="button" id="reportreply.go?pg=${param.pg}&bno=${param.bno}&cno=1&mno=${memberInfo.memberno}&rno=${replyDTO.replyno}" class="btn btn-default btn-sm reportreply" value="신고" style="float:right">
 											</div>
 											<div style="float: right;">
 												<c:if test="${replyDTO.memberno == memberInfo.memberno}">

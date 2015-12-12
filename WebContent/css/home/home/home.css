@@ -6,3 +6,32 @@
 	position: relative;
 	background-color:white;
 }
+
+@font-face {
+  font-family: '배달의민족 한나는 열한살';
+  src:
+   url('fonts/BMHANNA_11yrs_ttf.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 
+@font-face {
+  font-family: '배달의민족 한나는 열한살';
+  src: url('fonts/flexslider-icon.eot');
+  src: url('fonts/flexslider-icon.eot?#iefix') 
+  format('embedded-opentype'),
+   url('fonts/flexslider-icon.woff') format('woff'),
+   url('fonts/flexslider-icon.ttf') format('truetype'),
+   url('fonts/flexslider-icon.svg#flexslider-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+} */
+
+h1,h3 {
+    font-family: "배달의민족 한나는 열한살"
+/* 	 "배달의민족 주아", "배달의민족 도현",
+     "배달의민족 한나는 열한살" ,
+     "나눔고딕", "다음_Regular" , 
+     "다음_SemiBold"   */;
+}
