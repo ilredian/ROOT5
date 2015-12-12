@@ -5,6 +5,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<title>AhnCheat</title>
+<link rel="stylesheet" href=../home/home.css" type="text/css">
 <style type="text/css"></style>
 <style>
 h1,h3 {
@@ -44,7 +46,7 @@ padding:120px;
 </style>
  
  
-
+<link rel="shortcut icon" href="/favicon.ico" />
 </head>
 </html>
 <!-- <div class="container" id="one" style="margin-top: 35px;"> -->

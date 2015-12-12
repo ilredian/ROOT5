@@ -29,7 +29,7 @@
 <b>조원 </b>이광호 : 주업무 디자인<br>
 <b>조원 </b>이예찬 : 주업무 디자인<br>
 
-<img alt="로고" src="footerimages/logo.PNG" style="float: right; margin-bottom: 100px">
+<img alt="로고" src="images/footerimages/logo.PNG" style="float: right; margin-bottom: 100px">
 </div>
 
 </body>

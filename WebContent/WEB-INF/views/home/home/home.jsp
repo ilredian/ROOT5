@@ -217,7 +217,7 @@
 							name="keyword" id="hm_damageSearch" title="피해사례 검색어 입력"
 							placeholder="로그인 후 피해사례를 검색할 수 있습니다 (무료)"
 							onclick="blockLayerOpen(this); return false;">&nbsp;&nbsp;
-						<a href="#"><img src="homeimages/search.PNG"></a> <select>
+						<a href="#"><img src="images/homeimages/search.PNG"></a> <select>
 							<option>명의자 성명</option>
 							<option>계좌번호</option>
 							<option>용의자 아이디</option>
@@ -238,13 +238,13 @@
 
 						<div class="flexslider">
 							<ul class="slides">
-								<li><img src="cheatImage/cheat_1.jpg" width="50%"
+								<li><img src="images/cheatImage/cheat_1.jpg" width="50%"
 									height="50%"></li>
-								<li><img src="cheatImage/cheat_2.jpg" width="50%"
+								<li><img src="images/cheatImage/cheat_2.jpg" width="50%"
 									height="50%"></li>
-								<li><img src="cheatImage/cheat_6.jpg" width="50%"
+								<li><img src="images/cheatImage/cheat_6.jpg" width="50%"
 									height="50%"></li>
-								<li><img src="cheatImage/cheat_5.jpg" width="50%"
+								<li><img src="images/cheatImage/cheat_5.jpg" width="50%"
 									height="50%"></li>
 							</ul>
 						</div>
