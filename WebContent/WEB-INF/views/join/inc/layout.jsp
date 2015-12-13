@@ -17,6 +17,24 @@
 </title>
 		<!-- StyleSheet  Link 영역 -->
 		<link href='<tiles:getAsString name="css"/>' type="text/css" rel="stylesheet" />
+		
+<script type="text/javascript">
+
+	//로그인 안하면 메인으로 보내기 예외처리
+	$.ajax({
+		url:"sessionCheckAjax.go",
+		type:"POST",
+		data : {
+			"location" : "join"
+		},
+		success:function(data){
+			if(data.result == "success"){
+				alert('회원만 이용할 수 있습니다.');
+				location.replace('login.go');
+			}
+		}
+	})
+</script>
 </head>
 <body>
 		<!-- Header 영역 -->
