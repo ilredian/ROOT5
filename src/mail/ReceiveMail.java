@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -77,7 +78,6 @@ public class ReceiveMail {
 	private ReceiveMailDTO dumpPart(Part p, ReceiveMailDTO receiveMailDTO) throws Exception {
 		
 		String html = "";
-		String content = "";
 		boolean attachment = false;
 
 		if (p instanceof Message) {
@@ -118,6 +118,7 @@ public class ReceiveMail {
 					/*if (f.exists()) {
 						throw new IOException("같은 파일이 존재합니다.");
 					}*/
+					receiveMailDTO.setMailSize(f.length());
 					OutputStream os = new BufferedOutputStream(new FileOutputStream(f));
 					InputStream is = p.getInputStream();
 					int c;
@@ -190,11 +191,12 @@ public class ReceiveMail {
 
 		// 날짜
 		Date d = m.getSentDate();
-		System.out.println("날짜 : " + (d!= null ? d.toString() : "불명"));
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일 hh시 mm분 ss초");
+		System.out.println("날짜 : " + (d!= null ? sf.format(d) : "불명"));
 		receiveMailDTO.setDate((d != null ? d.toString() : "불명"));
 		
 		// 사이즈
 		System.out.println("사이즈 : " + m.getSize());
-		receiveMailDTO.setSize(m.getSize());
+		receiveMailDTO.setMailSize(m.getSize());
 	}
 }

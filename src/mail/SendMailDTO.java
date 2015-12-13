@@ -10,6 +10,19 @@ public class SendMailDTO {
 	String tar; // tar : text or html
 	String filename;// filename ; 첨부파일 절대 경로(파일명 포함)
 
+	public SendMailDTO(){}
+	
+	public SendMailDTO(String name, String from, String to, String title, String content, String tar, String filename) {
+		super();
+		this.name = name;
+		this.from = from;
+		this.to = to;
+		this.title = title;
+		this.content = content;
+		this.tar = tar;
+		this.filename = filename;
+	}
+
 	public String getName() {
 		return name;
 	}
