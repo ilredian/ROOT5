@@ -37,13 +37,8 @@ public class HomeController {
 
 	@RequestMapping("index.go")
 	public String index(
-			
 			HttpSession session,
 			Model model)throws Exception{
-		  // 전체 방문자 수 +1
-		VisitDAO visitDAO = sqlSession.getMapper(VisitDAO.class);
-		visitDAO.setVisitTotalCount();
-		System.out.println("메세지 수정완료");
 		
 		////////////////////////////////
 		//home.jsp -- AJAX data에  들어갈 차트 정보
@@ -54,18 +49,6 @@ public class HomeController {
 		
 		
 		///////////////////////////
-		
-      // 오늘 방문자 수
-      int todayCount = visitDAO.getVisitTodayCount();
-       
-      // 전체 방문자 수
-      int totalCount = visitDAO.getVisitTotalCount();
-      
-      System.out.println("todayCount: "+todayCount);
-      System.out.println("totalCount: "+totalCount);
-      
-		model.addAttribute("totalCount", totalCount);// 전체 방문자 수
-		model.addAttribute("todayCount", todayCount); // 오늘 방문자 수
 
 		return "main.index";
 	}

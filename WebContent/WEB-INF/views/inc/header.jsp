@@ -17,43 +17,52 @@
 <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<!-- ajaxSubmit 처리를 위한 링크 -->
+<script src="http://malsup.github.com/jquery.form.js"></script>
 <script type="text/javascript">
+	
+	//로그인 유지 확인
+	$.ajax({
+		url:"rememberAjax.go",
+		type:"POST",
+		success:function(data){
+		}
+	});
+	
+	//방문자수 확인
+	$.ajax({
+		url : "visitCountAjax.go",
+		type : "POST",
+		success:function(data){
+		}
+	});
+
 	/* 로그인 버튼  */
 	$(document).ready(function() {
 		$("#myBtn").click(function() {
 			location.replace("login.go")
 		});
-	});
 	/* 로그아웃 버튼 */
-	$(document).ready(function() {
 		$("#myBtn2").click(function() {
 			alert("로그아웃되었습니다.")
 			location.replace("logout.go");
 		});
-	});
 	/* 쪽지 열기 */
-	$(document).ready(function() {
 		$('#messageWindow').click(function() {
 			window.open('message.jsp', 'My message', 'width=500,height=500');
 		});
-	});
 
 	/* 내 정보 버튼*/
-	$(document).ready(function() {
 		$('#myPage').click(function() {
 			location.replace("memberMessage.go?mno=1");
 		});
-	});
 
 	/* 회원 가입하기*/
-	$(document).ready(function() {
 		$('#Register').click(function() {
 			location.replace("signin.go");
 		});
-	});
 
 	/* 비밀번호 찾기 */
-	$(document).ready(function() {
 		$('#find').click(function() {
 			location.replace("pwSearch.go");
 		});
