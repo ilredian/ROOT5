@@ -3,12 +3,19 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <form id="frm" method="post" action="">
+<input type="hidden" name="name" value="관리자">
 	<div class="container noticeWrite">
 		<h2>공지게시판</h2>
 		<table class="table">
 			<tr>
 				<th class="active">제목</th>
 				<td><input type="text" name="title" style="WIDTH: 100%;"></td>
+			</tr>
+			
+			<tr>
+				<th class="active"></th>
+				<td>강조 : <input type="checkbox" id="check" onclick="chk()"><input type="hidden" id="critical" name="critical" value="0"></td>
+				
 			</tr>
 <%-- 			<tr>
 				<th class="active">작성자</th>
