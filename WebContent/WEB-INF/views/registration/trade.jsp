@@ -501,4 +501,6 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 		<input type="button" class="btn btn-info btn-block" id="savebutton"
 			value="피해사례 등록 약관에 동의하며, 피해사례를 등록합니다.">
 	</div>
+	</div>
+	</div>
 </form>

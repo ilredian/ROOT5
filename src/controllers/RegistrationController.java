@@ -1,6 +1,7 @@
 package controllers;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -19,11 +20,16 @@ import DAO.CheatBankDAO;
 import DAO.CheatDomainDAO;
 import DAO.CheatItemsDAO;
 import DAO.CheaterDAO;
+import DAO.InterestStatementDAO;
+import DAO.MemberDAO;
 import DTO.CheatBankDTO;
 import DTO.CheatDomainDTO;
 import DTO.CheatItemsDTO;
 import DTO.CheaterDTO;
+import DTO.InterestStatementDTO;
 import DTO.MemberDTO;
+import mail.SendMail;
+import mail.SendMailDTO;
 
 //진술서 등록 (피해 등록) 컨트롤러
 @Controller
@@ -112,22 +118,74 @@ public class RegistrationController {
 				feature, domain, goodskind, goodsname, cheaterid, link, content, cheatno, memberno);
 
 		// DB에 저장
-		int result = cheaterDAO.insert(cheaterDTO);
+		int insertResult = cheaterDAO.insert(cheaterDTO);
+		
+		// 로그 남기기
+		System.out.println("관심 지정 진술서 비교");
+		
+		// DB 선언
+		InterestStatementDAO isDAO = sqlSession.getMapper(InterestStatementDAO.class);
+		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
+
+		// 비교 로직/cheatername/account/phone/cheaterid
+		InterestStatementDTO isDTO = new InterestStatementDTO();
+		isDTO.setCheatername(cheatername);
+		isDTO.setAccount(account);
+		isDTO.setPhone(phone);
+		isDTO.setCheaterid(cheaterid);
+		List<InterestStatementDTO> result = isDAO.compareInterestStatementDB(isDTO);
+
+		for (int i = 0; i < result.size(); i++) {
+			int score = 0;
+			if (result.get(i).getCheatername() != null) {
+				if (result.get(i).getCheatername().equals(isDTO.getCheatername())) {
+					score += 10;
+				}
+			}
+			if (result.get(i).getAccount() != null) {
+				if (result.get(i).getAccount().equals(isDTO.getAccount())) {
+					score += 40;
+				}
+			}
+			if (result.get(i).getPhone() != null) {
+				if (result.get(i).getPhone().equals(isDTO.getPhone())) {
+					score += 30;
+				}
+			}
+			if (result.get(i).getCheaterid() != null) {
+				if (result.get(i).getCheaterid().equals(isDTO.getCheaterid())) {
+					score += 30;
+				}
+			}
+			if (score >= 30) {
+				MemberDTO memberDTO = memberDAO.getMemberStat(result.get(i).getMemberno());
+				String name = "관리자";
+				String from = "admin@ilredian.xyz";
+				String to = memberDTO.getEmail();
+				String title = "당신이 등록한 관심 진술서와 유사한 사례가 새로 등록되었습니다.";
+				String content_mail = "정확한 내용은 사이트로 와서 확인해 주세요. 본 메일은 발신 전용입니다.";
+				String tar = "text";
+				String filename = "";
+				/*보내는사람 이름, 보내는사람 주소, 받는사람 주소, 제목, 내용, 형식, 첨부파일*/
+				SendMailDTO sendMailDTO = new SendMailDTO(name, from, to, title, content_mail, tar, filename);
+				SendMail mail = new SendMail();
+				mail.sendMail(sendMailDTO);
+			}
+		}
 
 		// 경고문 띄우기 전 한글 처리
 		response.setContentType("text/html;charset=UTF-8");
 		out = response.getWriter();
 
 		// 경고창으로 결과 알림
-		if (result == 1) {
+		if (insertResult == 1) {
 			System.out.println("게임 진술서 등록 완료");
 			out.print("<script>alert('진술서가 정상적으로 등록되었습니다.');location.replace('index.go');</script>");
-			out.close();
 		} else {
 			System.out.println("게임 진술서 등록 실패");
 			out.print("<script>alert('진술서 등록에 실패하였습니다.');location.replace('index.go');</script>");
-			out.close();
 		}
+		out.close();
 	}
 
 	// 직거래 피해 등록 페이지로 이동
@@ -211,12 +269,11 @@ public class RegistrationController {
 		if (result == 1) {
 			System.out.println("직거래 진술서 등록 완료");
 			out.print("<script>alert('진술서가 정상적으로 등록되었습니다.');location.replace('index.go');</script>");
-			out.close();
 		} else {
 			System.out.println("직거래 진술서 등록 실패");
 			out.print("<script>alert('진술서 등록에 실패하였습니다.');location.replace('index.go');</script>");
-			out.close();
 		}
+		out.close();
 	}
 
 	// 비매너 피해 등록 페이지로 이동
@@ -302,12 +359,11 @@ public class RegistrationController {
 		if (result == 1) {
 			System.out.println("비매너 진술서 등록 완료");
 			out.print("<script>alert('진술서가 정상적으로 등록되었습니다.');location.replace('index.go');</script>");
-			out.close();
 		} else {
 			System.out.println("비매너 진술서 등록 실패");
 			out.print("<script>alert('진술서 등록에 실패하였습니다.');location.replace('index.go');</script>");
-			out.close();
 		}
+		out.close();
 	}
 
 	// 진술서 DB 작업
