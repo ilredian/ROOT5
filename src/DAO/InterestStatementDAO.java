@@ -21,6 +21,7 @@ public interface InterestStatementDAO {
 	// 관심 목록과 전체 DB 비교하기
 	public List<InterestStatementDTO> compareDB(InterestStatementDTO interestStatementDTO) throws Exception;
 
-
-
+	// 등록된 진술서와 관심목록 비교하기
+	public List<InterestStatementDTO> compareInterestStatementDB(InterestStatementDTO interestStatementDTO) throws Exception;
+	
 }
