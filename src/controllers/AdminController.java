@@ -994,8 +994,30 @@ public class AdminController {// 관리자 페이지
 		ReceiveMail mailList = new ReceiveMail();
 		List<ReceiveMailDTO> list = mailList.reveiceMail();
 		
+		double sumMailSize = 0.0;
+		String sumMailSizeString = "";
+		
+		// 메일 총 용량 계산하기
+		for(int i=0; i<list.size(); i++){
+			sumMailSize += list.get(i).getMailSize();
+		}
+		if(sumMailSize > (1024 * 1024)){
+			sumMailSizeString = (sumMailSize/(1024*1024)) + " MB";
+		}else if(sumMailSize > (1024)){
+			sumMailSizeString = (sumMailSize/1024) + " KB";
+		}else{
+			sumMailSizeString = sumMailSize + " byte";
+		}
+		
+		List<ReceiveMailDTO> reverseList = new ArrayList<ReceiveMailDTO>();
+		if(list != null){
+			for(int i=list.size()-1; i>=0; i++){
+				reverseList.add(list.get(i));
+			}
+		}
 		// 가져온 메일 객체에 담기
-		model.addAttribute("list", list);
+		model.addAttribute("list", reverseList);
+		model.addAttribute("sumMailSizeString", sumMailSizeString);
 		
 		return "admin.adminMailRE";
 	}
@@ -1012,7 +1034,7 @@ public class AdminController {// 관리자 페이지
 		// 메일 가져오기
 		ReceiveMail mailList = new ReceiveMail();
 		List<ReceiveMailDTO> list = mailList.reveiceMail();
-		ReceiveMailDTO receiveMailDTO = list.get(mailNo);
+		ReceiveMailDTO receiveMailDTO = list.get(list.size() - mailNo);
 		// 가져온 메일 객체에 담기
 		model.addAttribute("receiveMailDTO", receiveMailDTO);
 			
