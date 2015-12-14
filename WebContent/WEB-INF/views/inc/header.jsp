@@ -79,6 +79,9 @@ setInterval(function(){
 		$('#messageWindow').click(function() {
 			window.open('message.jsp', 'My message', 'width=500,height=500');
 		});
+		$('#messageWindow1').click(function() {
+			window.open('message.jsp', 'My message', 'width=500,height=500');
+		});
 
 	/* 내 정보 버튼*/
 		$('#myPage').click(function() {

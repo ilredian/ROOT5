@@ -7,12 +7,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="slide/flexslider.css" type="text/css">
+
+<!-- Timeline CSS -->
+<link href="sb/dist/css/timeline.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="sb/dist/css/sb-admin-2.css" rel="stylesheet">
+<!-- Morris Charts CSS -->
+<link href="sb/bower_components/morrisjs/morris.css" rel="stylesheet">
+<!-- Custom Fonts -->
+<link href="sb/bower_components/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+
 <title>
 		<tiles:getAsString name="title"/>
 </title>
@@ -38,5 +47,9 @@
 
 	<!-- Footer 영역  -->
 	<tiles:insertAttribute name="footer" />
+	
+	<script src="slide/jquery.flexslider.js"></script>
+	<!-- javascript 영역 -->
+	<script type="text/javascript" src='<tiles:getAsString name="js"/>'></script>
 </body>
 </html>

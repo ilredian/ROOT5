@@ -25,8 +25,10 @@ import DAO.BoardNoticeDAO;
 import DAO.CheaterDAO;
 import DAO.InterestStatementDAO;
 import DAO.VisitDAO;
+import DTO.CheaterDTO;
 import DTO.InterestStatementDTO;
 import DTO.MemberDTO;
+import DTO.chartDTO;
 import DTO.chartItemsDTO;
 
 @Controller
@@ -51,17 +53,15 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "home.go", method = RequestMethod.GET)
-	public String Home(@RequestParam(value = "pg", required = false, defaultValue = "1") int page, // 현재
-																									// 페이지
-																									// 번호
-			@RequestParam(value = "f", required = false, defaultValue = "title") String field, // 검색
-																								// 카테고리
-			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, // 검색
-																							// 내용
-			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, // 한페이지에//
-																								// 보여줄
-																								// 게시글
-																								// 갯수
+	public String Home(
+			// 현재 페이지 번호
+			@RequestParam(value = "pg", required = false, defaultValue = "1") int page, 
+			// 검색 카테고리
+			@RequestParam(value = "f", required = false, defaultValue = "title") String field, 
+			// 검색 내용
+			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, 
+			// 한페이지에 보여줄 게시글 갯수
+			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, 
 			MemberDTO memberDTO, HttpSession session, ServletResponse response, HttpServletRequest request, Model model)
 					throws Exception {
 
@@ -70,7 +70,7 @@ public class HomeController {
 
 		///////////////////////////
 		// 타임라인으로 보낼 정보 <사기사건의 해결은 시간이 생명--지속적인 사기 피드백을 받아볼 수 있다>
-		InterestStatementDAO interestStatementDAO = sqlSession.getMapper(InterestStatementDAO.class);
+/*		InterestStatementDAO interestStatementDAO = sqlSession.getMapper(InterestStatementDAO.class);
 		String msg = "";
 		String title = "";
 		int seq = 1;
@@ -109,18 +109,71 @@ public class HomeController {
 		/// interestStatementDAO.getInterestStatement(memberno);
 
 		model.addAttribute("regdate", regdate);
-
+*/
 		///////////////////////////
 
 		if (session.getAttribute("memberInfo") != null) {
 
 			// 로그 남기기
 			System.out.println("관심 지정 진술서 비교");
+			
 			// DB 선언
 			InterestStatementDAO isDAO = sqlSession.getMapper(InterestStatementDAO.class);
-
+			CheaterDAO cheaterDAO = sqlSession.getMapper(CheaterDAO.class);
+			
 			int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
 
+			//시간 값 설정		
+			Date date = new Date();
+			int start_year = date.getYear()+1900-5;
+			int start_month = date.getMonth()+1;
+			int end_year = date.getYear()+1900;
+			int end_month = date.getMonth()+1;
+			int size = ((end_month+12*(end_year-start_year)) - start_month)+1;
+			
+			// 피해물품 TOP 10
+			// 시간 계산
+			List<chartDTO> regdate = new ArrayList<chartDTO>();
+			int z=0;
+			for(int y=0; y<(size)/12+1; y++){
+				for(int i=z; i<size; i++){
+					if((end_month+12*(y))-i <= 0){
+						z=i;
+						break;
+					}else{
+						chartDTO chartdto = new chartDTO();
+						chartdto.setRegdate((end_year-y)+"-"+((end_month+12*(y))-i));
+						regdate.add(chartdto);
+					}
+				}
+			}
+			//차트에 넣을 값
+			List<chartItemsDTO> countItems = new ArrayList<chartItemsDTO>();
+			chartItemsDTO chartItemsdto = new chartItemsDTO();
+			chartItemsdto.setGoodskind("Task");
+			chartItemsdto.setCount("'Hours per Day'");
+			countItems.add(chartItemsdto);
+			List<chartItemsDTO> countItemsTemp = cheaterDAO.getCountItems(regdate.get(size - 1).getRegdate(),
+					regdate.get(0).getRegdate());
+			for (int i = 0; i < countItemsTemp.size(); i++) {
+				countItems.add(countItemsTemp.get(i));
+			}
+			model.addAttribute("countItems", countItems);
+			
+			//테이블 표에 넣을 값
+			// 용의자
+			List<CheaterDTO> countCheaterName = cheaterDAO.getCountCheaterName(regdate.get(size - 1).getRegdate(),
+					regdate.get(0).getRegdate());
+			// 사이트
+			List<CheaterDTO> countDomain = cheaterDAO.getCountDomain(regdate.get(size - 1).getRegdate(),
+					regdate.get(0).getRegdate());
+			// 은행
+			List<CheaterDTO> countBankName = cheaterDAO.getCountBankName(regdate.get(size - 1).getRegdate(),
+					regdate.get(0).getRegdate());
+			model.addAttribute("countCheaterName", countCheaterName);
+			model.addAttribute("countDomain", countDomain);
+			model.addAttribute("countBankName", countBankName);
+						
 			// 비교 로직/cheatername/account/phone/cheaterid
 			InterestStatementDTO isDTO = isDAO.getInterestStatement(memberno);
 			List<InterestStatementDTO> result = isDAO.compareDB(isDTO);
@@ -191,11 +244,6 @@ public class HomeController {
 			go = "home.home.home";
 			return go;
 		}
-		// 경고문 띄우기 전 한글 처리
-		response.setContentType("text/html;charset=UTF-8");
-		out = response.getWriter();
-		out.print("<script>alert('로그인을 해주세요.');location.replace('index.go');</script>");
-		out.close();
 		return go;
 	}
 }
