@@ -9,8 +9,7 @@
 			<h2>회원가입</h2>
 		</div>
 		<div class="well well-lg" align="center" style="margin: auto; height: 85%; width: 50%;">
-		<!-- <button id="checkId">중복확인</button>
-		<input type="button" onclick="location.href='member.do?cmd=memberidcheck&m_id=admin@kosta.com'">확인 -->
+		
 		<div style="width: 400px;">
 		<form class="form-horizontal" name="joinform" action="" method="post" onsubmit="return CheckForm();">
 			<div class="form-group">
@@ -22,7 +21,7 @@
 			<div class="form-group">
 				<label for="password" class="col-sm-4 control-label">비밀번호</label>
 				<div class="col-sm-8">
-					<input type="password" class="form-control" name="password" id="password" placeholder="비밀번호를 입력하세요">
+					<input type="password" class="form-control" name="password" id="password" placeholder="6자리 이상 입력하세요">
 				</div>
 			</div>
 			<div class="form-group">
@@ -91,9 +90,9 @@
 			alert('[아이디(이메일) 입력 오류] 유효한 ID를 입력해 주세요.');
 			uid.focus();
 			return false;
-		} else if(document.getElementById("m_id").value=="0"){ //아이디 중복 확인
+/* 		} else if(document.getElementById("m_id").value=="0"){ //아이디 중복 확인
 			alert('[아이디(이메일) 중복 오류] 이미있는 ID 입니다.')
-			return false;
+			return false; */
 		} else if(re_pw.test(upw.value) != true) { // 비밀번호 검사
 			alert('[비밀번호 입력 오류] 유효한 비밀번호 를 입력해 주세요.');
 			upw.focus();
