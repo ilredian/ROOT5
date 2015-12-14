@@ -29,12 +29,6 @@
 		WHERE messageno = #{messageno}
 	</select>
 	
-	<select id="getFromName" resultType="DTO.MemberDTO">
-		SELECT *
-		FROM memberdb
-		WHERE memberno = #{memberno}
-	</select>
-	
 	<update id="isopen">
 		UPDATE message
 		SET isopen = 1

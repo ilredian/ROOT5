@@ -1,7 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<form action="" method="post">
+<script>
+	$(document).ready(function() {
+		$("#upload").bind("click", function() {
+			$("form").ajaxSubmit({
+				url:"fileUploadAjax.go",
+//				dataType : "json",
+				success : function(data) {
+					//alert(data.result);
+					$("#fileupload").html("<h2>"+data.result+"</h2>");
+				},
+				error : function(error) {
+					alert("요청 처리 중 오류가 발생하였습니다.");
+				}
+			});
+			return false;
+		});
+	});
+</script>
+<form action="" method="post" enctype="multipart/form-data">
 <div style="float: left;">
 	<h3>메일 보내기</h3>
 </div>
@@ -20,7 +38,11 @@
 		</tr>
 		<tr>
 			<th class="active">파일첨부</th>
-			<td><input type="button" name="filename" value="파일첨부"><br></td>
+			<td>
+			<input type="file" name="file1" /><input id="upload" type="button" name="filename" value="파일첨부">
+			<div id="fileupload"></div>
+			<br>
+			</td>
 		</tr>
 		<tr>
 			<th class="active">내용</th>

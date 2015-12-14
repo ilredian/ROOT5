@@ -30,3 +30,11 @@ $(function() {
 		$("#frm").submit();
 	});
 });
+
+function chk(){
+	if($('#check')[0].checked == true){
+		$('#critical').val(1);
+	}else{
+		$('#critical').val(0);
+	}
+}

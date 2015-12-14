@@ -9,7 +9,6 @@ $(function() {
 					"totalSearchAjax" : $("#tags").val()
 				},
 				success : function(responseData) {
-					$('#asdf').val(responseData.auto)
 					$("#tags").autocomplete({
 						source : responseData.auto
 					});

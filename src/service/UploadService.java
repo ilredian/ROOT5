@@ -1,4 +1,4 @@
-package file;
+package service;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,16 +9,13 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 @Service
-public class BoardService {
-	
-	/**
-	 * ���� ���ε�
-	 */
+public class UploadService {
+
 	public boolean fileUpload(MultipartHttpServletRequest mRequest) {
 
 		boolean isSuccess = false;
 		
-		String uploadPath = "/file/";
+		String uploadPath = "E:\\asdf\\";
 		
 		File dir = new File(uploadPath);
 

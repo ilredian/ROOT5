@@ -14,7 +14,7 @@ public interface MemberDAO {
 	public List<MemberDTO> getAllMember(int start, String field, String query, int pageSize) throws Exception;
 
 	//회원 한명 정보
-	public MemberDTO getMember(String email) throws Exception;
+	public MemberDTO getMember(MemberDTO memberDTO) throws Exception;
 	
 	//회원 정보 불러오기
 	public MemberDTO getMemberStat(int memberno) throws Exception;
@@ -30,5 +30,8 @@ public interface MemberDAO {
 	
 	//회원 사진 정보
 	public String getPhoto(int memberno) throws Exception;
+	
+	//쪽지 발송을 위한 회원 이름 검색
+	public List<MemberDTO> getMemberName(MemberDTO memberDTO) throws Exception;
 }
 

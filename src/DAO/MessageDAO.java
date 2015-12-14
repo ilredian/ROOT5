@@ -16,9 +16,6 @@ public interface MessageDAO {
 	// 자신의 메시지 가져오기
 	public List<MessageDTO> getMyMessage(int start, int pageSize, int memberno) throws Exception;
 	
-	// 보낸이 이름 가져오기
-	public MemberDTO getFromName(int memberno) throws Exception;
-	
 	// 메시지 열기
 	public MessageDTO getMessage(int messageno) throws Exception;
 	

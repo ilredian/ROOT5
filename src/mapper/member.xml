@@ -4,12 +4,14 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DAO.MemberDAO">
 
+	<!-- 회원 총 수 가져오기 -->
 	<select id="getAllMemberCount" resultType="Integer">
 		SELECT count(*)
 		FROM memberdb
 		WHERE ${param1} LIKE '%${param2}%'
 	</select>
 
+	<!-- 회원 전체 목록 -->
 	<select id="getAllMember" resultType="DTO.MemberDTO">
 		SELECT *
 		FROM memberdb
@@ -19,7 +21,9 @@
 
 	<!-- 회원 가입 전 가입 확인 / 로그인 -->
 	<select id="getMember" parameterType="DTO.MemberDTO" resultType="DTO.MemberDTO">
-		SELECT * FROM memberdb WHERE email=#{EMAIL}
+		SELECT *
+		FROM memberdb
+		WHERE email=#{email}
 	</select>
 	
 	<!-- 회원번호를 이용한 회원정보 불러오기 -->
@@ -52,5 +56,12 @@
 		SELECT photo
 		FROM memberdb
 		WHERE memberno = #{memberno}
+	</select>
+	
+	<!-- 쪽지 발송을 위한 회원 이름 검색 -->
+	<select id="getMemberName" parameterType="DTO.MemberDTO" resultType="DTO.MemberDTO">
+		SELECT *
+		FROM memberdb
+		WHERE name LIKE '%${name}%';
 	</select>
 </mapper>
