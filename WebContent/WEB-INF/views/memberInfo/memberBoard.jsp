@@ -25,6 +25,7 @@ tr, th, td {text-align: center;}
 			<th colspan="1">날짜</th>
 		</tr>
 		<c:forEach var="l" items="${listLaw}">
+		<tr align="center">
 			<td colspan="1">${l.boardno}</td>
 			<td colspan="4"> <a href="lawView.go?pg=${pgFree}&bno=${l.boardno}">${l.title}</a></td>
 			<td colspan="1">${l.countno}</td>

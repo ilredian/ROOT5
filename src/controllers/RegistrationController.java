@@ -44,7 +44,6 @@ public class RegistrationController {
 	// 피해 등록 페이지로 이동
 	@RequestMapping("registration.go")
 	public String registration() throws Exception {
-
 		return "registration.registration";
 	}
 
@@ -67,9 +66,9 @@ public class RegistrationController {
 		CheatBankDAO cbDAO = sqlSession.getMapper(CheatBankDAO.class);
 
 		// 필요한 값들 불러오기
-		// domianList
+		// domianList 피해 사이트 목록 ex_네이버 까페 - [속성 :domain / domainname]
 		List<CheatDomainDTO> domainlist = cdDAO.getList();
-		// itemList
+		// itemList  ex_
 		List<CheatItemsDTO> itemslist = ciDAO.getList(26, 3);
 		// bankList
 		List<CheatBankDTO> banklist1 = cbDAO.getList(0, 25);
