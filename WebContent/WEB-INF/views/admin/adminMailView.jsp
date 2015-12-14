@@ -54,13 +54,10 @@
 		</c:if>
 		<tr>
 			<th class="active">내용</th>
-			<td><c:choose>
-						<c:when test="${not empty receiveMailDTO.content}">
-						<c:out value="${(receiveMailDTO.content).replace('[', '').replace(']', '')}" />
-						<c:out value="${receiveMailDTO.html}" />
-						<%-- <c:import url="${receiveMailDTO.html}"/> --%>
-						</c:when>
-						<c:otherwise><c:out value="${receiveMailDTO.html}" /><c:import url="${receiveMailDTO.html}"/></c:otherwise></c:choose></td>
+			<td>
+				<textarea readonly id="editor" style="HEIGHT: 300px; WIDTH: 100%" rows="10" cols="30" name="content">
+					<c:out value="${(receiveMailDTO.content).replace('[', '').replace(']', '')}" /></textarea>
+			</td>
 		</tr>
 	</table>
 </form>
