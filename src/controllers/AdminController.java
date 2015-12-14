@@ -1002,16 +1002,19 @@ public class AdminController {// 관리자 페이지
 			sumMailSize += list.get(i).getMailSize();
 		}
 		if(sumMailSize > (1024 * 1024)){
-			sumMailSizeString = (sumMailSize/(1024*1024)) + " MB";
+			sumMailSizeString = Math.round((sumMailSize/(1024*1024))) + " MB";
 		}else if(sumMailSize > (1024)){
-			sumMailSizeString = (sumMailSize/1024) + " KB";
+			sumMailSizeString = Math.round((sumMailSize/1024)) + " KB";
 		}else{
 			sumMailSizeString = sumMailSize + " byte";
 		}
-		
+
 		List<ReceiveMailDTO> reverseList = new ArrayList<ReceiveMailDTO>();
+		
 		if(list != null){
-			for(int i=list.size()-1; i>=0; i++){
+			for(int i=list.size()-1; i>=0; i--){
+				int temp = list.get(i).getMailSize();
+				list.get(i).setMailSize(temp);
 				reverseList.add(list.get(i));
 			}
 		}

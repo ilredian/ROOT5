@@ -10,25 +10,25 @@ public class ReceiveMailDTO {
 	private String title;//제목
 	private List<String> content = new ArrayList<String>();//내용
 	private String date;//날짜
-	private double MailSize;//메일 크기
-	private double FileSize;//첨부파일 크기
+	private int MailSize;//메일 크기
+	private int FileSize;//첨부파일 크기
 	private String fileName;//파일 이름
 	private String fileLocation;//파일 위치
 	private String html;//내용 - html 파일로 저장
 	
-	public double getMailSize() {
+	public int getMailSize() {
 		return MailSize;
 	}
 
-	public void setMailSize(double mailSize) {
+	public void setMailSize(int mailSize) {
 		MailSize = mailSize;
 	}
 
-	public double getFileSize() {
+	public int getFileSize() {
 		return FileSize;
 	}
 
-	public void setFileSize(double fileSize) {
+	public void setFileSize(int fileSize) {
 		FileSize = fileSize;
 	}
 
