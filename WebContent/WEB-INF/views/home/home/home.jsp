@@ -4,83 +4,20 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Bootstrap Core CSS -->
-<link href="sb/bower_components/bootstrap/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<!-- MetisMenu CSS -->
-<link href="sb/bower_components/metisMenu/dist/metisMenu.min.css"
-	rel="stylesheet">
-<!-- Timeline CSS -->
-<link href="sb/dist/css/timeline.css" rel="stylesheet">
 <!-- Custom CSS -->
 <link href="sb/dist/css/sb-admin-2.css" rel="stylesheet">
-<!-- Morris Charts CSS -->
-<link href="sb/bower_components/morrisjs/morris.css" rel="stylesheet">
-<!-- Custom Fonts -->
-<link href="sb/bower_components/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
-
-<link rel="stylesheet" href="slide/flexslider.css" type="text/css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script src="slide/jquery.flexslider.js"></script>
-
-
 <script type="text/javascript">
-//Can also be used with $(document).ready()
- $(window).load(function() {
-  $('.flexslider').flexslider({
-    animation: "slide"
-  });
-});
-
- $(function() {  /* 알람을 띄우기 */
-		$('#alert').click(function() {
-				$.ajax({
-					url : "home.go",
-					type : "GET",
-					data : {
-						"totalSearchAjax" : $("#tags").val()
-					},
-					success : function(responseData) {
-					}
-				});
-		});	
-	});
- 
- $(function() {  /* 차트 불러오기 */
-		$('#piechart').click(function() {
-				$.ajax({
-					url : "totalSearchAjax.go",
-					type : "GET",
-					data : {
-				
-				"totalSearchAjax" : $("#tags").val()
-					},
-					success : function(responseData) {
-					}
-				});
-		});	
-	});
- 
-		 /* 테이블표 내용_ 새로고침 버튼 누르면 동기화  */
-		 
-	 $(function() {  /* 차트 불러오기 */
-		$('#table').click(function() {
-				$.ajax({
-					url : "totalSearchAjax.go",
-					type : "GET",
-					data : {
-				//검색창에서 가져오는 밸류값_
-				"totalSearchAjax" : $("#tags").val()
-					},
-					success : function(responseData) {
-					}
-				});
-		});	
-	});	
-		 
-
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+    	var a = ${countItems};
+        var data = google.visualization.arrayToDataTable(${countItems});
+        var options = {
+          title: '사기피해 물품 종류'
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
 </script>
 <body>
 	<div id="page-wrapper">
@@ -209,18 +146,31 @@
 					</div>
 					<!-- /.panel-heading -->
 					<div class="panel-body">
-						<div id="morris-area-chart"></div>
+						<form id="search" class="navbar-form navbar-center"
+            action="totalSearch.go">
+				<table>
+					<tr>
+						<td><select name="f" class="input-lg">
+								<option value="cheatername">명의자 성명</option>
+								<option value="account">계좌번호</option>
+								<option value="feature">용의자 특징</option>
+								<option value="cheaterid">용의자 아이디</option>
+						</select></td>
+						<td>
+							<div class="ui-widget">
+								<label for="tags"></label> <input type="text" name="q" id="tags"
+									class="form-control search-query input-lg" placeholder="검색하세요"
+									align="top" />
+							</div>
+						</td>
+						<td><span class="input-group-btn"> <input value="검색"
+								class="btn btn-default btn-lg" type="submit"> <i
+								class="fa fa-search fa-lg" data-type="last"></i>
+						</span></td>
+					</tr>
+				</table>
 
-						<!-- 검색 옵션 적용 -->
-						<label>피해사례검색 : </label> <input type="text" size=45px class="txt"
-							name="keyword" id="hm_damageSearch" title="피해사례 검색어 입력"
-							placeholder="로그인 후 피해사례를 검색할 수 있습니다 (무료)"
-							onclick="blockLayerOpen(this); return false;">&nbsp;&nbsp;
-						<a href="#"><img src="images/homeimages/search.PNG"></a> <select>
-							<option>명의자 성명</option>
-							<option>계좌번호</option>
-							<option>용의자 아이디</option>
-						</select>
+		 </form>
 					</div>
 					<!-- /.panel-body -->
 				</div>
@@ -261,21 +211,12 @@
 					<!-- /.panel-heading -->
 					<div class="panel-body">
 						<div class="list-group">
-							<a href="messageWindow.go" class="list-group-item"> <i
-								class="fa fa-comment fa-fw"></i> 내 쪽지함 <!-- 시간 푸쉬로 받기--> <span
-								class="pull-right text-muted small"><em>4 minutes
-										ago</em> </span>
+							<a href="#" id="messageWindow1" class="list-group-item"> <i
+								class="fa fa-comment fa-fw"></i> 내 쪽지함
 							</a> <a href="http://cyberbureau.police.go.kr/prevention/prevention2.jsp?mid=020302" class="list-group-item"> <i
 								class="fa fa-twitter fa-fw"></i> 사기를 막는 예방법
-							<span
-								class="pull-right text-muted small"><em>12 minutes
-										ago</em>
-										 
-										 </span>
 							</a> <a href="question.go" class="list-group-item"> <i
-								class="fa fa-envelope fa-fw"></i> 관리자에게 메일 보내기 <span
-								class="pull-right text-muted small"><em>27 minutes
-										ago</em> </span>
+								class="fa fa-envelope fa-fw"></i> 관리자에게 메일 보내기
 							</a>
 						</div>
 						<!-- /.list-group -->
@@ -377,10 +318,7 @@
 							<i class="fa fa-bar-chart-o fa-fw"></i>도넛 차트
 						</div>
 						<div class="panel-body">
-							<div id="morris-donut-chart"></div>
-							
-						<svg height="347" version="1.1" width="586" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#0b62a4" d="M293,286.6666666666667A110.66666666666667,110.66666666666667,0,0,0,397.48523596313163,212.46843260739092" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#0b62a4" stroke="#ffffff" d="M293,289.6666666666667A113.66666666666667,113.66666666666667,0,0,0,400.3176670585177,213.45703469614548L445.0071354523873,229.05497876316207A161,161,0,0,1,293,337Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#3980b5" d="M397.48523596313163,212.46843260739092A110.66666666666667,110.66666666666667,0,0,0,193.7245062356979,127.09716318080183" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#3980b5" stroke="#ffffff" d="M400.3176670585177,213.45703469614548A113.66666666666667,113.66666666666667,0,0,0,191.03330309148487,125.77148386943801L148.57209792723518,104.85521029014241A161,161,0,0,1,445.0071354523873,229.05497876316207Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#679dc6" d="M193.7245062356979,127.09716318080183A110.66666666666667,110.66666666666667,0,0,0,292.96523304187207,286.66666120548564" stroke-width="2" opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1;"></path><path fill="#679dc6" stroke="#ffffff" d="M191.03330309148487,125.77148386943801A113.66666666666667,113.66666666666667,0,0,0,292.9642905640915,289.66666105744156L292.94784956280813,341.9999918082284A166,166,0,0,1,144.08675935354682,102.64574477120273Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="293" y="166" text-anchor="middle" font-family="&quot;Arial&quot;" font-size="15px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Arial; font-size: 15px; font-weight: 800;" font-weight="800" transform="matrix(1.4756,0,0,1.4756,-139.3378,-84.1733)" stroke-width="0.6777108433734939"><tspan dy="6" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Mail-Order Sales</tspan></text><text x="293" y="186" text-anchor="middle" font-family="&quot;Arial&quot;" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Arial; font-size: 14px;" transform="matrix(2.3056,0,0,2.3056,-382.5278,-232.3889)" stroke-width="0.4337349397590361"><tspan dy="5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">20</tspan></text></svg>
-							
+								<div id="piechart" style="width: 540px; height: 300px;"></div>
 							<a href="chartMain.go" class="btn btn-default btn-block" id="piechart">View Details</a>
 						</div>
 						<!--  /.panel-body -->
@@ -406,35 +344,29 @@
 						<!--    /.panel-heading -->
 						<div class="panel-body">
 							<div class="table-responsive">
-								<table class="table table-bordered table-hover table-striped"
+								<table class="table table-hover table-bordered"
 									style="text-align: center;">
-									<thead>
 										<tr>
-											<th class="active" style="text-align: center;">순위</th>
-											<th class="active" style="text-align: center;">용의자(명수)</th>
-											<th class="active" style="text-align: center;">사이트(사이트수)</th>
-											<th class="active" style="text-align: center;">은행(은행수)</th>
+											<th class="active" style="text-align: center;width:10%;">순위</th>
+											<th class="active" style="text-align: center;">용의자</th>
+											<th class="active" style="text-align: center;">사이트</th>
+											<th class="active" style="text-align: center;">은행</th>
 										</tr>
-									</thead>
-									<tbody>
 										<c:forEach begin="0" end="9" varStatus="i">
 											<tr>
 												<td>${i.index + 1}</td>
-												<td>${countCheaterName[i.index].cheatername} <span
-													class="label label-danger">${countCheaterName[i.index].count}</span>
-													건
-												</td>
-												<td>${countDomain[i.index].domain}<span
-													class="label label-danger">${countDomain[i.index].count}</span>
-													건
-												</td>
-												<td>${countBankName[i.index].bankname}<span
-													class="label label-danger">${countBankName[i.index].count}</span>
-													건
-												</td>
+												<td style="text-align:right;">
+													${countCheaterName[i.index].cheatername}
+												<span class="label label-danger">${countCheaterName[i.index].count}</span>
+													건</td>
+												<td style="text-align:right;">${countDomain[i.index].domain}
+												<span class="label label-danger">${countDomain[i.index].count}</span>
+													건</td>
+												<td style="text-align:right;">${countBankName[i.index].bankname}
+												<span class="label label-danger">${countBankName[i.index].count}</span>
+													건</td>
 											</tr>
 										</c:forEach>
-									</tbody>
 								</table>
 							</div>
 							<!-- table div  -->
@@ -463,7 +395,7 @@
                             <i class="fa fa-clock-o fa-fw"></i> 내 사건의 타임라인
                             <br>
                           <p align="right"><small class="text-muted"><i class="fa fa-clock-o">
-					  </i>첫 접수일로부터 발생경과 '${regdate}'일 지났습니다.</small>
+					  </i>첫 접수일로부터 발생경과 일 지났습니다.</small>
 						</p>
                         </div>
                         <!-- /.panel-heading -->

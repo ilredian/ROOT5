@@ -3,56 +3,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<title>AhnCheat</title>
-<link rel="stylesheet" href=../home/home.css" type="text/css">
-<style type="text/css"></style>
-<style>
-h1,h3 {
-    font-family: "배달의민족 한나는 열한살"
-/* 	 "배달의민족 주아", "배달의민족 도현",
-     "배달의민족 한나는 열한살" ,
-     "나눔고딕", "다음_Regular" , 
-     "다음_SemiBold"   */;
-     
-     /* 텍스트에 그림자 */
-     text-shadow: 0 0 5px #f00;
-      
-}
-    
-
-</style>
-
-<!-- <style type="text/css">
-div.jumbotron {
-background-size:  1140px 490px;
-background-image:url('images/common/c4.PNG');
-background-repeat: no-repeat;
-}
-
-</style>
- -->
- 
-  <style type="text/css">
-div#one,div.jumbotron {
-background-size:  100% 100%;
-background-image:url('images/common/c3.jpg');
-background-repeat: no-repeat;
-padding:120px;
-
-}
-
-</style>
- 
- 
-<link rel="shortcut icon" href="/favicon.ico" />
-</head>
-</html>
-<!-- <div class="container" id="one" style="margin-top: 35px;"> -->
-
-
-<div class="jumbotron" align="center" style="hight:100%; "/> <!-- /* background-color: white; */  /* margin-bottom: 20px; */ -->
+<div class="jumbotron" align="center" style="hight:100%; "> <!-- /* background-color: white; */  /* margin-bottom: 20px; */ -->
          <h1 align="center" style="color:blac \\k/*  #D83939 */;font-size: 80px; font-style: inherit;">사기피해사례 검색</h1><br><br>
          <form id="search" class="navbar-form navbar-center"
             action="totalSearch.go">
@@ -79,6 +30,4 @@ padding:120px;
 				</table>
 
 		 </form>
-		</div>
 </div>
-	
