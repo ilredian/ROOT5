@@ -110,7 +110,7 @@ public class AjaxController {
 		
 		// 로그 남기기
 		System.out.println("회원 확인");
-		
+		System.out.println(longName);
 		ModelAndView mav = new ModelAndView();
 		
 		if(longName.length() > 0){
