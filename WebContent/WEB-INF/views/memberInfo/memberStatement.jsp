@@ -9,13 +9,30 @@
 			$("#frm2").submit();
 		});
 	});
+	
+	
+	$('#tradeMain').click(function(){
+		location.replace("trade.go");
+	});
+	$('.btn btn-info view').click(function(){
+		location.replace("statementView.go?sno=${l.stateno}&cno=1");
+	});
+	
+	$('.viewBtn').click(function() {
+		var loc = this.getAttribute("id");
+		location.href = loc;
+	});
+	
+	
 </script>
 <style>
 tr, th, td {
 	text-align: center;
 }
 </style>
+
 <div class="container">
+<form>
 	<h3>진술서</h3>
 	<table class="table table-hover table-responsive"
 		style="margin-top: 10px">
@@ -38,7 +55,8 @@ tr, th, td {
 				<td>${l.bankname} | ${l.account}</td>
 				<td>${l.phone}</td>
 				<td>${l.regdate} | ${l.depositdate}</td>
-				<td><button href="/statementView.go?sno=${l.stateno}&cno=1">자세히보기</button></td>
+				<td><input type="button" class="btn btn-info viewBtn" value="자세히보기"
+						id="statementView.go?sno=${l.stateno}&cno=1"></td>
 			</tr>
 		</c:forEach>
 
@@ -56,5 +74,5 @@ tr, th, td {
 		<button type="submit" href="#">검색</button>
 	</div>
 
-
+</form>
 </div>
