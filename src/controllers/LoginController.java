@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.util.WebUtils;
 
 import DAO.MemberDAO;
 import DTO.MemberDTO;
@@ -70,7 +71,7 @@ public class LoginController {
 	*/
 	@RequestMapping(value = "login.go", method=RequestMethod.POST)
 	public void Login(
-			@RequestParam("remember") int remember,
+			@RequestParam(value="remember", required=false, defaultValue="0") int remember,
 			MemberDTO memberDTO,
 			HttpServletResponse response, 
 			HttpServletRequest request, 
@@ -79,6 +80,7 @@ public class LoginController {
 		
 		//로그 남기기
 		System.out.println("로그인 실행");
+		System.out.println(remember);
 		
 		//스크립트 구문을 쓰기위한 준비
 		response.setContentType("text/html;charset=UTF-8");
@@ -126,16 +128,24 @@ public class LoginController {
 	
 	// 로그아웃
 	@RequestMapping(value = "logout.go")
-	public void Logout(HttpServletResponse response, HttpSession session) throws IOException {
+	public void Logout(HttpServletResponse response, HttpServletRequest request, HttpSession session) throws IOException {
 		
 		// 세션 삭제
+		session.removeAttribute("login");
 		session.invalidate();
 		
+		
 		// 쿠키 삭제
-		Cookie cookie = new Cookie("rememberCheck", "");
-        cookie.setMaxAge(0);
-        response.addCookie(cookie);
-
+		
+		//Cookie cookie = new Cookie("rememberCheck", "");
+		Cookie rememberCheck = WebUtils.getCookie(request, "rememberCheck");
+		
+		if(rememberCheck != null){
+			rememberCheck.setPath("/");
+			rememberCheck.setMaxAge(0);
+			response.addCookie(rememberCheck);
+			
+		}
 		
 		//스크립트 구문을 쓰기위한 준비
 		response.setContentType("text/html;charset=UTF-8");

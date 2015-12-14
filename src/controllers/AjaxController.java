@@ -1,5 +1,6 @@
 package controllers;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,7 +70,9 @@ public class AjaxController {
 		
 		// 뽑아낸 list를 자동완성을 위해 변환해줌
 		List<String> list = new ArrayList<String>();
-		for(int i=0; i<list.size(); i++){
+		
+		for(int i=0; i<listMember.size(); i++){
+			
 			//이름
 			String memberName =  listMember.get(i).getName();
 			
@@ -78,22 +81,22 @@ public class AjaxController {
 			int location = email.indexOf("@");
 			String star = "";
 			if (location > 3) {
-				for (int y = 3; i < location; y++) {
+				for (int y = 3; y < location; y++) {
 					star += "*";
 				}
 			}
-			String starEmail = email.substring(0, location) + star + email.substring(location);
-
+			String starEmail = email.substring(0, 3) + star + email.substring(location);
+			
 			//회원번호
 			int memberno = listMember.get(i).getMemberno();
 			
 			//합치기
-			String query = memberName+" "+starEmail+" "+"회원번호: "+memberno;
-			
+			String query = memberName + " " + starEmail + " " + "회원번호: " + memberno;
+
+			//한글 인코딩
 			//리스트에 담기
-			list.add(query);
+			list.add(URLEncoder.encode(query , "UTF-8"));
 		}
-		
 		mav.addObject("result", list);
 		mav.setViewName("jsonView");
 		return mav;
@@ -194,7 +197,7 @@ public class AjaxController {
 			) throws Exception{
 
 		// 로그 남기기
-		System.out.println("방문자수 확인");
+		System.out.println("remember 체크 확인");
 		
 		// Ajax 처리를 위한 modelAndView 선언
 		ModelAndView mav = new ModelAndView();	
@@ -223,6 +226,7 @@ public class AjaxController {
 				tempDTO.setEmail(email);
 				MemberDTO memberDTO = memberDAO.getMember(tempDTO);
 				session.setAttribute("memberInfo", memberDTO);
+				mav.addObject("result", "refresh");
 			}
 		}
 		
@@ -240,7 +244,7 @@ public class AjaxController {
 			){
 
 			// 로그 남기기
-			System.out.println("세션 확인");
+			System.out.println("세션 확인 후 없으면 강제로 메인으로 보내기");
 			
 			// Ajax 처리를 위한 modelAndView 선언
 			ModelAndView mav = new ModelAndView();	

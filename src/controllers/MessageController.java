@@ -67,7 +67,7 @@ public class MessageController {
 					star += "*";
 				}
 			}
-			memberDTO.get(index).setEmail(email.substring(0, location) + star + email.substring(location));
+			memberDTO.get(index).setEmail(email.substring(0, 3) + star + email.substring(location));
 		}
 
 		// Model 객체에 담기
@@ -110,7 +110,7 @@ public class MessageController {
 				star += "*";
 			}
 		}
-		memberDTO.setEmail(email.substring(0, location) + star + email.substring(location));
+		memberDTO.setEmail(email.substring(0, 3) + star + email.substring(location));
 
 		// Model 객체에 담기
 		model.addAttribute("memberDTO", memberDTO);
@@ -212,7 +212,7 @@ public class MessageController {
 				star += "*";
 			}
 		}
-		memberDTO.setEmail(email.substring(0, location) + star + email.substring(location));
+		memberDTO.setEmail(email.substring(0, 3) + star + email.substring(location));
 
 		// Model 객체에 담기
 		model.addAttribute("memberDTO", memberDTO);

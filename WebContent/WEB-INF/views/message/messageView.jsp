@@ -27,6 +27,6 @@
 	<input type="hidden" id="messageNo" value="${param.msno}">
 	<input type="button" value="목록" class="btn btn-default"
 		id="messageMain" style="float: left;"> <input type="button"
-		value="목록" class="btn btn-primary" id="messageReply"
+		value="답장" class="btn btn-primary" id="messageReply"
 		style="float: right;">
 </div>

@@ -26,6 +26,10 @@
 		url:"rememberAjax.go",
 		type:"POST",
 		success:function(data){
+			if(data.result == "refresh"){
+				alert('로그인 상태 유지를 체크하셨습니다. 자동 로그인 합니다.');
+				location.replace('index.go');
+			}
 		}
 	});
 	
@@ -34,6 +38,8 @@
 		url : "visitCountAjax.go",
 		type : "POST",
 		success:function(data){
+			$('#todayCount').html(data.todayCount);
+			$('#totalCount').html(data.totalCount);
 		}
 	});
 
@@ -44,7 +50,6 @@
 		});
 	/* 로그아웃 버튼 */
 		$("#myBtn2").click(function() {
-			alert("로그아웃되었습니다.")
 			location.replace("logout.go");
 		});
 	/* 쪽지 열기 */

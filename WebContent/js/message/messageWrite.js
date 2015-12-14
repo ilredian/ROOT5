@@ -1,20 +1,38 @@
 $('#messageMain').click(function(){
 	location.replace('messageWindow.go');
 });
-
-$('#name').keypress(function(){
-	if ($('#name').val().length > 0) {
-		$.ajax({
-			url:"searchMemberNoAjax.go",
-			type:"POST",
-			data:{"searchMemberNoAjax": $('#name').val()},
-			success:function(data){
-				$('#name').autocomplete({
-					source : data.result
-				});
-			},
-		});
-	}
+$(function(){
+	$('#name').keyup(function(){
+		if ($('#name').val().length > 0) {
+			$.ajax({
+				url:"searchMemberNoAjax.go",
+				type:"POST",
+				data:{"searchMemberNoAjax": $('#name').val()},
+				success:function(data){
+					$.each(data, function(index, value){
+						var query = decodeURIComponent(value).split(",");
+						var queryResult = "";
+						for(var i in query ){
+							queryResult += query[i].toString();
+							if(i != query.length-1){
+								queryResult += ",";
+							}
+						}
+						query1 = queryResult;
+						console.log("toString:" + queryResult);
+						console.log(index + " : " + query.toString())
+						$('#name').autocomplete({
+							source : [query.toString()]
+						});
+					});
+					/*console.log(data);
+					$('#name').autocomplete({
+						source : decodeURIComponent(data.result)
+					});*/
+				},
+			});
+		}
+	});
 });
 
 $('#resultOk').click(function(){
@@ -22,7 +40,7 @@ $('#resultOk').click(function(){
 	var $name = $('#name')
 	if($value.attr("value") == "확정"){
 		
-		$.ajac({
+		$.ajax({
 			url:"resultOkAjax.go",
 			type:"POST",
 			data:{"resultOkAjax":$name.attr("value")},

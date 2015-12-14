@@ -33,8 +33,7 @@
 			</div>
 			<div class="modal-body" style="padding: 40px 50px;">
 
-				<form action="${pageContext.request.contextPath}/login.go"
-					method="post">
+				<form action="" method="post">
 					<div class="form-group">
 						<label for="usrname"><span
 							class="glyphicon glyphicon-user"></span> 이메일</label> <input type="text"

@@ -14,7 +14,7 @@
 		<c:choose>
 			<c:when test="${not empty list}">
 				<c:forEach items="${list}" var="list" varStatus="index">
-					<tr style="text-align: center;" <c:if test="${list.isopen == 0}">style="font-weight:bold;"</c:if>>
+					<tr style="text-align: center; <c:if test='${list.isopen == 0}'>font-weight:bold;</c:if>">
 						<c:forEach items="${memberDTO}" var="memberDTO" begin="${index.index}" end="${index.index}">
 							<td>
 								<c:if test="${list.isopen == 0}">

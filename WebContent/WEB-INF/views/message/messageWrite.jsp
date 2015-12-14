@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="container">
 	<h4>쪽지 보내기</h4>
 	<form action="" method="post" onsubmit="return submitOk()">
 		<div class="form-group">
-			<label for="name"> 받는이 : </label><input type="button" class="btn btn-primary" id="searchMemberNo" value="회원찾기"> <input name="name" type="text"
+			<label for="name"> 받는이 : </label><input name="name" type="text"
 				class="form-control" id="name"><input type="button" class="btn btn-default" id="resultOk" value="확정">
 		</div>
 		<div class="form-group">

@@ -23,7 +23,7 @@
 	<select id="getMember" parameterType="DTO.MemberDTO" resultType="DTO.MemberDTO">
 		SELECT *
 		FROM memberdb
-		WHERE email=#{EMAIL}
+		WHERE email=#{email}
 	</select>
 	
 	<!-- 회원번호를 이용한 회원정보 불러오기 -->
@@ -60,8 +60,8 @@
 	
 	<!-- 쪽지 발송을 위한 회원 이름 검색 -->
 	<select id="getMemberName" parameterType="DTO.MemberDTO" resultType="DTO.MemberDTO">
-		SELECT name, email, memberno
+		SELECT *
 		FROM memberdb
-		WHERE name LIKE '${name}%';
+		WHERE name LIKE '%${name}%';
 	</select>
 </mapper>
