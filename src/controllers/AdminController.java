@@ -70,6 +70,7 @@ public class AdminController {// 관리자 페이지
 		ReplyDAO replydao = sqlSession.getMapper(ReplyDAO.class);
 		ReportBoardDAO reportboardao = sqlSession.getMapper(ReportBoardDAO.class);
 		ReportReplyDAO reportreplyado = sqlSession.getMapper(ReportReplyDAO.class);
+		
 		// 신고 자유게시판
 		List<Integer> boardno = reportboardao.getReportBoardno(1, categoryno, pageSize);
 		List<BoardFreeDTO> list = new ArrayList<BoardFreeDTO>();
@@ -88,6 +89,38 @@ public class AdminController {// 관리자 페이지
 				
 		// Model 객체에 담기
 		model.addAttribute("relist", relist);
+		
+		// 메일 가져오기
+				ReceiveMail mailList = new ReceiveMail();
+				List<ReceiveMailDTO> maillist = mailList.reveiceMail();
+				
+				double sumMailSize = 0.0;
+				String sumMailSizeString = "";
+				
+				// 메일 총 용량 계산하기
+				for(int i=0; i<maillist.size(); i++){
+					sumMailSize += maillist.get(i).getMailSize();
+				}
+				if(sumMailSize > (1024 * 1024)){
+					sumMailSizeString = Math.round((sumMailSize/(1024*1024))) + " MB";
+				}else if(sumMailSize > (1024)){
+					sumMailSizeString = Math.round((sumMailSize/1024)) + " KB";
+				}else{
+					sumMailSizeString = sumMailSize + " byte";
+				}
+
+				List<ReceiveMailDTO> reverseList = new ArrayList<ReceiveMailDTO>();
+				
+				if(maillist != null){
+					for(int i=maillist.size()-1; i>=0; i--){
+						int temp = maillist.get(i).getMailSize();
+						maillist.get(i).setMailSize(temp);
+						reverseList.add(maillist.get(i));
+					}
+				}
+				// 가져온 메일 객체에 담기
+				model.addAttribute("maillist", reverseList);
+				model.addAttribute("sumMailSizeString", sumMailSizeString);
 	
 		return "admin.adminHome";
 	}
