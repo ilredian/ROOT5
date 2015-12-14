@@ -2,13 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<form action="" method="post" name="writeForm" id="frm">
+<form class="form-horizontal" name="writeForm" id="frm" action="" method="post" onsubmit="return CheckForm();">
 	<div class="container">
 		<h3>직거래 피해사례 등록</h3>
 		<p>피해사례 등록이 완료되면 피해자를 위한 기능이 실시간 제공됩니다.</p>
 		<br>
-
 		<div style="float: left;">
 			<h3>피해 발생 사이트 정보</h3>
 		</div>
@@ -24,16 +22,21 @@
 				<tr>
 					<th class="active" style="width: 150;"><label for="s_stie">사이트명(URL)</label>
 						<code>*</code></th>
-					<td><input type="hidden" name="category" value="신고"> <select
-						name="cheat_site_temp"
-						onchange="javascript:if(cheat_site_temp.value == '1'){ cheat_site.readOnly = false; cheat_site.focus(); } else{ cheat_site.value = cheat_site_temp.value; cheat_site.readOnly = true; cheat_site.focus(); }"
-						id="cheat_site_temp" title="사이트 선택" name="">
-							<option selected value="">피해가 발생한 사이트를 선택하세요.</option>
-							<option value="">─────────</option>
+					<td><input type="hidden" name="category" value="신고"> 
+					<select name="cheat_site_temp"
+						
+						onchange="javascript:if(cheat_site_temp.value == '1')
+						{ cheat_site.readOnly = false; cheat_site.focus(); } 
+						else{ cheat_site.value = cheat_site_temp.value; 
+						cheat_site.readOnly = true; cheat_site.focus(); }"
+						
+						id="cheat_site_temp">
+							<option selected>피해가 발생한 사이트를 선택하세요.</option>
+							<option >─────────</option>
 							<c:forEach items="${domainlist}" var="list">
 								<option value="${list.domain}">${list.domainname}</option>
 							</c:forEach>
-							<option value="">─────────</option>
+							<option >─────────</option>
 							<option value="1">직접 입력하기(오른쪽에 URL을 입력하세요.)</option>
 					</select> http://www.<input type="text" name="cheat_site" id="cheat_site"
 						class="txt" value="" size="26" placeholder=" URL이 입력됩니다." readonly
@@ -109,10 +112,8 @@
 				는 필수 기재 항목입니다
 			</h6>
 		</div>
-
 		<div class="container" align="center">
 			<table class="table">
-
 				<tr>
 					<th class="active" style="width: 150;">계좌정보 <code>*</code></th>
 					<td><input type="checkbox" name="cheat_account_none"
@@ -224,7 +225,7 @@
 
 				<tr>
 					<th class="active" style="width: 150;">연락처 정보 <code>*</code></th>
-					<td><input type="checkbox" name="cheat_phone_none" class="chk"
+					<td><input type="checkbox" name="cheat_phone_none" class="chk_tel"
 						id="su_telchk"
 						onclick="javascript:if($('#show_tel_info').css('display')!='none'){document.writeForm.cheat_phone1.value='010';cheat_phone2.value='0000';cheat_phone3.value='0000';cheat_phone.value='01000000000';$('#show_tel_info').css({display: 'none'}); }else { $('#show_tel_info').css({display: ''}); }" /><label
 						for="su_telchk">연락처를 모르는 경우에만 체크하세요.</label></td>
@@ -326,7 +327,7 @@
 
 		<tr>
 			<th class="active">약관 동의</th>
-			<td><textarea cols=60 rows=10 style="width: 1000px; height: 300px;">
+			<td><textarea cols=60 rows=10 style="width: 1000px; height: 300px;" readonly="readonly" >
 
 피해사례 등록 약관
             
@@ -493,7 +494,6 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 		style="width: 0px; height: 0px;"> <input type="hidden"
 		id="agreement_2h" value="0" name="agreement_2h"
 		style="width: 0px; height: 0px;">
-
 	<div>
 		<br>
 	</div>
@@ -501,6 +501,74 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 		<input type="button" class="btn btn-info btn-block" id="savebutton"
 			value="피해사례 등록 약관에 동의하며, 피해사례를 등록합니다.">
 	</div>
-	</div>
+</div>
+	
+<script type="text/javascript">
+//var gkind2 = document.getElementById("subject"); // 물품명
+//var bankchk = document.getElementById("su_bankNumchk"); // 계좌정보
+/* 	var bankName = document.getElementById("su_bank"); //은행명
+	var sName = document.getElementById("su_name"); //명의자명
+	var bNum  =document.getElementById("su_bankNum"); //계좌번호
+	var sum =document.getElementById("su_sum"); //피해 금액
+var editor = document.getElementById("editor"); //사건개요
+ */	
+function CheckForm() {
+	//피해 발생 사이트 정보
+     if(!$("#cheat_site").val()){
+        alert("피해가 발생한 사이트를 선택해주세요.");
+        return false;
+ 	}if(!$(".rdo").val()) { // 물품종류 입력 검사
+		alert('물품종류 선택해주세요');
+		return false;
+ 	}if(!$("#subject").val()) { // 물품명 입력 검사
+		alert('물품명을 입력해주세요');
+		return false;
+ 		///계좌정보 부분	
+ 	}
+ 	
+ 	if($("#su_bankNumchk")[0].checked==true) { // 계좌정보 검사 (체크박스)_ 체크되어있는 경우- pass
+		alert('계좌 정보 패스');
+ 	}
+
+ 	if($("#su_bankNumchk")[0].checked==false){ // 계좌정보 검사 (체크박스)
+ 		alert("입력받아라")
+		if(!$("#bankName").val()) { //계좌은행명 검사
+		alert('은행명을 입력해주세요');
+		return false;
+ 		}
+ 		if(!$("#sName").val()) { //명의자명 입력
+		alert('명의자명을 입력해주세요');
+		return false;
+ 		}
+		if(!$("#bNum").val()) { //계좌 번호 입력
+		alert('계좌번호를 입력해주세요');
+		return false;
+		}
+		if(!$("#sum").val()) { //금액 입력
+		alert('피해금액을 입력해주세요');
+		return false;
+		}
+ 	}
+ 	 
+ 	if($("#su_telchk")[0].checked == true) { // 연락처정보 __ 체크되어 있는 경우 pass
+		alert('연락처 pass');
+		return false;
+ 	}
+ 	
+ 	if($("#su_telchk")[0].checked == false) { // 연락처정보
+ 		alert('연락처 입력해라')
+		return false;
+ 	}
+ 	
+	//사건개요 (진술서)
+	}if(editor.value == "") { // 진술서 작성 확인
+		alert('진술서를 작성해주세요.');
+		return false;
+	}
+	//약관 동의 체크박스__
+	
+</script>	
+	
+	
 	</div>
 </form>

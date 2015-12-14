@@ -231,16 +231,27 @@ public class RegistrationController {
 
 	// 직거래 피해 등록
 	@RequestMapping(value = "trade.go", method = RequestMethod.POST)
-	public void regTrade(@RequestParam("cheat_site") String domain, @RequestParam("cheat_item_temp") String goodskind,
-			@RequestParam("subject") String goodsname, @RequestParam("cheat_id") String cheaterid,
-			@RequestParam("link") String link, @RequestParam("cheat_bank") String bankname,
-			@RequestParam("cheat_suspect") String cheatername, @RequestParam("cheat_account") String account,
-			@RequestParam("cheat_price") int deposit, @RequestParam("cheat_date_temp_1") String depositdate1,
+	public void regTrade(
+			@RequestParam("cheat_site") String domain,
+			@RequestParam(value= "cheat_item_temp" , defaultValue="1") String goodskind,
+			@RequestParam("subject") String goodsname,
+			@RequestParam("cheat_id") String cheaterid,
+			@RequestParam("link") String link,
+			@RequestParam("cheat_bank") String bankname,
+			@RequestParam("cheat_suspect") String cheatername,
+			@RequestParam("cheat_account") String account,
+			@RequestParam("cheat_price") int deposit,
+			@RequestParam("cheat_date_temp_1") String depositdate1,
 			@RequestParam("cheat_date_temp_2") String depositdate2,
-			@RequestParam("cheat_date_temp_3") String depositdate3, @RequestParam("cheat_phone1") String phone1,
-			@RequestParam("cheat_phone2") String phone2, @RequestParam("cheat_phone3") String phone3,
-			@RequestParam("cheat_sex") String sex, @RequestParam("content") String content,
-			@RequestParam("cheat_character") String feature, HttpServletResponse response, HttpSession session)
+			@RequestParam("cheat_date_temp_3") String depositdate3,
+			@RequestParam("cheat_phone1") String phone1,
+			@RequestParam("cheat_phone2") String phone2,
+			@RequestParam("cheat_phone3") String phone3,
+			@RequestParam("cheat_sex") String sex, 
+			@RequestParam("content") String content,
+			@RequestParam("cheat_character") String feature,
+			HttpServletResponse response, 
+			HttpSession session)
 					throws Exception {
 
 		// 로그 남기기
