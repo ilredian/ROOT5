@@ -51,4 +51,9 @@
 		VALUES(#{memberno}, #{title}, #{content}, SYSDATE(),#{frommemberno})
 	</insert>
 	
+	<select id="getIsOpen" parameterType="Integer" resultType="Integer">
+		SELECT count(*)
+		FROM message
+		WHERE isopen = 0 and memberno=#{memberno}
+	</select>
 </mapper>
