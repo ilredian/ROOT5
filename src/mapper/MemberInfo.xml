@@ -46,14 +46,15 @@
 	
 	<!--////////////////// 12월 14일 내가 쓴 진술서 가져오기 -->
 	<select id="getStatement"  resultType="DTO.InterestStatementDTO">
-	SELECT l.stateno, l.cheatno, l.goodskind, l.domain,
+	SELECT c.cheatname, l.goodskind, l.domain,
+	l.stateno,
 	l.deposit, l.goodsname,l.cheatername ,
 	l.bankname, l.account, l.depositdate,
 	l.phone, l.regdate
-	FROM cheaterdb l join memberdb m
-	WHERE l.memberno=m.memberno
-	and m.memberno=#{memberno}
-
+	FROM memberdb m join cheaterdb l
+	join cheat c
+	WHERE l.memberno=#{memberno}
+	and m.memberno=1 and l.cheatno = c.cheatno
 	order by regdate desc
 	</select>
  

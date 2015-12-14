@@ -49,7 +49,7 @@ tr, th, td {
 		<c:forEach var="l" items="${list}">
 			<tr>
 				<td><input type="radio" name="chk_statement"></td>
-				<td>${l.cheatno}</td>
+				<td>${l.cheatname}</td>
 				<td><b>${l.goodsname}</b><br>${l.deposit} 원 | ${l.domain}</td>
 				<td>${l.cheatername}</td>
 				<td>${l.bankname} | ${l.account}</td>

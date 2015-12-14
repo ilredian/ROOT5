@@ -35,16 +35,18 @@ public class JoinController {
 		
 		System.out.println(memberDTO.toString());
 		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
-		int row = memberDAO.insert(memberDTO);
-		System.out.println(row);
-		if(row>0){
-			out.print("<script type='text/javascript'>alert('회원가입 성공');</script>");
-			go = "redirect:index.go";
+		
+		//DB에 정보가 없다면 회원 등록
+		if(memberDAO.getMember(memberDTO)==null){
+			int row = memberDAO.insert(memberDTO);
+			System.out.println(row);
+			out.print("<script type='text/javascript'>alert('회원가입 성공');location.replace('index.go');</script>");
+			go="redirect:index.go";
 		}else{
-			out.print("<script type='text/javascript'>alert('DB등록 오류');</script>");
-			go = "join.signin";
+			out.print("<script type='text/javascript'>alert('이미 존재하는 아이디입니다.');location.replace('signin.go');</script>");
+			go="join.signin";
 		}
-
+		out.close();
 		return go;
 	}
 	

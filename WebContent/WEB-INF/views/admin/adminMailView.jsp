@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <form action="" method="post">
 <div style="float: left;">
@@ -11,7 +12,7 @@
 </div>
 	<table class="table">
 		<tr>
-			<th class="active">보낸사람</th>
+			<th class="active" style="width:15%;">보낸사람</th>
 			<td><c:out value="${(receiveMailDTO.from).replace('[', '').replace(']', '')}" /></td>
 		</tr>
 		<tr>
@@ -33,7 +34,22 @@
 			</tr>
 			<tr>
 				<th class="active">첨부파일크기</th>
-				<td>${receiveMailDTO.size} byte</td>
+				<td>
+				<c:choose>
+						<c:when test="${receiveMailDTO.getFileSize() > (1024*1024)}">
+						<fmt:parseNumber var="fileSize" value="${receiveMailDTO.getFileSize() /(1024*1024)}" integerOnly="true" />
+							<c:out value="${fileSize} MB"/>
+						</c:when>
+						<c:when test="${receiveMailDTO.getFileSize() > 1024}">
+						<fmt:parseNumber var="fileSize" value="${receiveMailDTO.getFileSize() / 1024}" integerOnly="true" />
+							<c:out value="${fileSize} KB"/>
+						</c:when>
+						<c:otherwise>
+						<fmt:parseNumber var="fileSize" value="${receiveMailDTO.getFileSize()}" integerOnly="true" />
+							<c:out value="${fileSize} byte"/>
+						</c:otherwise>
+					</c:choose>
+				</td>
 			</tr>
 		</c:if>
 		<tr>
