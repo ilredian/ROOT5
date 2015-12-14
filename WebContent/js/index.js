@@ -1,5 +1,5 @@
 $(function() {
-	$('#tags').keypress(function() {
+	$('#tags').keyup(function() {
 		
 		if ($('#tags').val().length > 0) {
 			$.ajax({
@@ -9,8 +9,10 @@ $(function() {
 					"totalSearchAjax" : $("#tags").val()
 				},
 				success : function(responseData) {
+					var Ca = /\+/g;
+					var temp = decodeURIComponent(responseData.auto).split(",");
 					$("#tags").autocomplete({
-						source : responseData.auto
+						source : temp
 					});
 				}
 			});

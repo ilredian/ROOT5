@@ -29,8 +29,10 @@ import DTO.QueryDTO;
 
 @Controller
 public class AjaxController {
+	
 	// 자바스크립트 쓰기위한 전역 변수 설정
-		PrintWriter out;
+	PrintWriter out;
+	
 	@Autowired
 	private SqlSession sqlSession;
 	
@@ -46,14 +48,16 @@ public class AjaxController {
 		List<String> list = new ArrayList<String>();
 		if(!querylist.isEmpty()){
 			for(int i=0; i<querylist.size(); i++){
-				list.add(querylist.get(i).getQuery());
+				list.add(URLEncoder.encode(querylist.get(i).getQuery() , "UTF-8"));
 			}
 		}
+		
 		mav.addObject("auto", list);
 		mav.setViewName("jsonView");
 		return mav;
 	}
 
+	//쪽지 오면 깜빡이기
 	@RequestMapping(value = "msgAjax.go", method = RequestMethod.POST)
 	public ModelAndView msg(
 			@RequestParam("memberno") int memberno,
@@ -72,7 +76,6 @@ public class AjaxController {
 		return mav;
 	}
 
-	
 	// 쪽지 작성에서 이름 자동 완성 검색
 	@RequestMapping(value = "searchMemberNoAjax.go", method = RequestMethod.POST)
 	public ModelAndView searchMemberNoAjax(

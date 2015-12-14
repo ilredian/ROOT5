@@ -7,14 +7,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="container freeMain">
 
-	<div style="float: left;">
 	<h2>--º&nbsp; 자유게시판&nbsp; º-- </h2>  *AhnCheat회원들이 자유롭게 소통할 수 있는 공간<br><br><br>
+	<div style="float: left;">
 	<p>
 		▶Total :
 		<c:out value="${boardCount}" />
 	</p>
 	</div>
-	
+	<br>
 	<div style="float: right;">
 		<select id="select" name="ps">
 			<c:forEach begin="5" end="30" step="5" var="index">
