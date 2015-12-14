@@ -51,11 +51,77 @@ public class AdminController {// 관리자 페이지
 	private SqlSession sqlSession;
 
 	@RequestMapping(value = "adhome.go", method = RequestMethod.GET)
-	public String AdminHome() {
+	public String AdminHome(
+			// 현재 페이지 번호
+			@RequestParam(value = "pg", required = false, defaultValue = "1") int page, 
+			// 검색 카테고리
+			@RequestParam(value = "f", required = false, defaultValue = "title") String field,
+			// 검색 내용
+			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, 
+			// 한 페이지에 보여줄 게시글 갯수
+			@RequestParam(value = "ps", required = false, defaultValue = "4") int pageSize, 
+			@RequestParam(value = "cno", defaultValue = "1") int categoryno, Model model) throws Exception {
+		
+		
+		System.out.println("관리자 페이지");
+		//사진은 추후에 등록
+		
+		//DAO 변수 선언
+		ReplyDAO replydao = sqlSession.getMapper(ReplyDAO.class);
+		ReportBoardDAO reportboardao = sqlSession.getMapper(ReportBoardDAO.class);
+		ReportReplyDAO reportreplyado = sqlSession.getMapper(ReportReplyDAO.class);
+		
+		// 신고 자유게시판
+		List<Integer> boardno = reportboardao.getReportBoardno(1, categoryno, pageSize);
+		List<BoardFreeDTO> list = new ArrayList<BoardFreeDTO>();
+		for (int i = 0; i < boardno.size(); i++) {
+			list.add(reportboardao.getReportBoard(boardno.get(i)));
+		}
+		// DB값 model 객체에 담기(신고 자유게시판)
+		model.addAttribute("list", list);
+		
+		// 리스트 뿌려주기
+		List<Integer> replyno = reportreplyado.getReportReplyno(1, pageSize);
+		List<ReplyDTO> relist = new ArrayList<ReplyDTO>();
+		for(int i=0; i<replyno.size(); i++){
+			relist.add(replydao.getReply(replyno.get(i)));
+		}
+				
+		// Model 객체에 담기
+		model.addAttribute("relist", relist);
+		
+		// 메일 가져오기
+				ReceiveMail mailList = new ReceiveMail();
+				List<ReceiveMailDTO> maillist = mailList.reveiceMail();
+				
+				double sumMailSize = 0.0;
+				String sumMailSizeString = "";
+				
+				// 메일 총 용량 계산하기
+				for(int i=0; i<maillist.size(); i++){
+					sumMailSize += maillist.get(i).getMailSize();
+				}
+				if(sumMailSize > (1024 * 1024)){
+					sumMailSizeString = Math.round((sumMailSize/(1024*1024))) + " MB";
+				}else if(sumMailSize > (1024)){
+					sumMailSizeString = Math.round((sumMailSize/1024)) + " KB";
+				}else{
+					sumMailSizeString = sumMailSize + " byte";
+				}
 
-		// 로그 남기기
-		System.out.println("관리자 페이지 홈으로 이동");
-
+				List<ReceiveMailDTO> reverseList = new ArrayList<ReceiveMailDTO>();
+				
+				if(maillist != null){
+					for(int i=maillist.size()-1; i>=0; i--){
+						int temp = maillist.get(i).getMailSize();
+						maillist.get(i).setMailSize(temp);
+						reverseList.add(maillist.get(i));
+					}
+				}
+				// 가져온 메일 객체에 담기
+				model.addAttribute("maillist", reverseList);
+				model.addAttribute("sumMailSizeString", sumMailSizeString);
+	
 		return "admin.adminHome";
 	}
 

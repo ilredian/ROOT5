@@ -44,7 +44,7 @@
 					</tr>
 				</c:forEach>
 			</table>
-			<h3>d에 대한 등록된 피해사례가 없습니다.</h3>
+			<h3><c:if test="${empty list}">에 대한 등록된 피해사례가 없습니다.</c:if></h3>
 		</div>
 		
 		<br> <br>
@@ -76,7 +76,7 @@
 					</tr>
 				</c:forEach>
 			</table>
-			<h3>d에 대한 등록된 피해사례가 없습니다.</h3>
+			<h3><c:if test="${empty list}">에 대한 등록된 피해사례가 없습니다.</c:if></h3>
 		</div>
 		
 		<br> <br>
@@ -108,7 +108,7 @@
 					</tr>
 				</c:forEach>
 			</table>
-			<h3>d에 대한 등록된 피해사례가 없습니다.</h3>
+			<h3><c:if test="${empty list}">에 대한 등록된 피해사례가 없습니다.</c:if></h3>
 		</div>
 		
 		<div class="container" align="right">
