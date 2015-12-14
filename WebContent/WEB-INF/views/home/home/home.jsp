@@ -87,7 +87,7 @@
 		<!--헤더 로우  -->
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">AhnCheat-</h1>
+				<h1 class="page-header">AhnCheat</h1>
 			</div>
 			<!-- /.col-lg-12 -->
 		</div>
@@ -151,7 +151,7 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-3">
-								<i class="fa fa-shopping-cart fa-5x"></i>
+								<i class="fa fa-money fa-5x"></i>
 							</div>
 							<div class="col-xs-9 text-right">
 								<!--  변호사게시판 개수  -->
@@ -177,7 +177,7 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-3">
-								<i class="fa fa-support fa-5x"></i>
+								<i class="fa fa-save fa-5x"></i>
 							</div>
 							<div class="col-xs-9 text-right">
 								<!-- 사진_  -->
@@ -454,31 +454,27 @@
 			</div>
 				<!-- /col-lg-6 -->
 	
-	
-	
 			<div class="col-lg-6">
 	   <!-- 3. 타임라인 부분 -->                    
                     <div class="panel panel-default">
 	                        <div class="panel-heading">
                             <i class="fa fa-clock-o fa-fw"></i> 내 사건의 타임라인
+                            <br>
+                          <p align="right"><small class="text-muted"><i class="fa fa-clock-o">
+					  </i>첫 접수일로부터 발생경과 '${regdate}'일 지났습니다.</small>
+						</p>
                         </div>
                         <!-- /.panel-heading -->
+                        <br>
+                        <p align="center"><strong>
 					<c:if test="${empty list}">
 						<c:out value="접수하신 내역이 없으십니다."/>
-					</c:if>
-
+					</c:if></strong>
                         <div class="panel-body">
                             <ul class="timeline">
                               <li>
-                              
-                              <!-- 
-                              타임라인 뱃지 
-	                                <div class="timeline-badge"><i class="fa fa-check"></i>
-	                        	      <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
-	                                <div class="timeline-badge danger"><i class="fa fa-bomb"></i>
-	                                  <div class="timeline-badge info"><i class="fa fa-save"></i>
-                                -->
-                                    <div class="timeline-badge"><i class="fa fa-check"></i>
+							<br>
+                                  <div class="timeline-badge"><i class="fa fa-check"></i>
                                     </div>
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
@@ -521,7 +517,7 @@
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
                                             <h4 class="timeline-title">첫 접수일로부터 발생경과 '4'일 지났습니다.</h4>
-                                               <p><small class="text-muted"><i class="fa fa-clock-o"></i>4 days ago</small>
+                                             
                                         </div>
                                         <div class="timeline-body">
                                         </div>
@@ -553,28 +549,17 @@
                                         </div>
                                     </div>
                                 </li>
-                                
-             <!--                    <li class="timeline-inverted">
-                                    <div class="timeline-badge success"><i class="fa fa-graduation-cap"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt obcaecati, quaerat tempore officia voluptas debitis consectetur culpa amet, accusamus dolorum fugiat, animi dicta aperiam, enim incidunt quisquam maxime neque eaque.</p>
-                                        </div>
-                                    </div>
-                                </li> -->
-                                
-                            </ul>
+
+							
+
+						</ul>
                         </div>
                         <!-- /.panel-body -->
                    </div>
                     <!-- /.panel -->
 			</div>
 	</div>
-	
+	</div>
 	<!-- /#page-wrapper -->
 
 

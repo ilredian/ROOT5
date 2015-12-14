@@ -22,11 +22,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import DAO.BoardFreeDAO;
 import DAO.BoardLawDAO;
 import DAO.BoardNoticeDAO;
+import DAO.CheatBankDAO;
+import DAO.CheatDomainDAO;
+import DAO.CheatItemsDAO;
+import DAO.CheaterDAO;
 import DAO.MemberDAO;
 import DAO.MemberInfoDAO;
+import DAO.QueryDAO;
 import DTO.BoardFreeDTO;
 import DTO.BoardLawDTO;
 import DTO.BoardNoticeDTO;
+import DTO.CheaterDTO;
+import DTO.InterestStatementDTO;
 import DTO.MemberDTO;
 import DTO.ReplyDTO;
 import common.BoardPager;
@@ -309,10 +316,61 @@ public class MemberInfoController {
 		
 	}
 	
+	
+	
 	@RequestMapping(value="memberStatement.go", method=RequestMethod.GET)
-	public String memberStatement(){
+	public String memberStatement(
+			@RequestParam(value = "f", required = false, defaultValue = "cheatername") String field,
+			@RequestParam(value = "q", required = false, defaultValue = "%%") String query,
+			MemberDTO memberDTO,
+			InterestStatementDTO interestStatementDTO,
+			HttpSession session,
+			Model model) throws Exception{
+			System.out.println("진술서 게시판 이동");
+			//DAO 변수 선언
+			MemberInfoDAO memberInfoDAO = sqlSession.getMapper(MemberInfoDAO.class);
+			///////////////////////////////
+			
+			//로그인한 세션에 있는 회원번호 가져오기_
+			int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
+			//내가 쓴 진술서 목록들
+			List<InterestStatementDTO> listState = memberInfoDAO.getStatement(memberno);
+			
+			//직거래///////
+//			int cheatno = 1;
+//			int tradeboardCount = cheaterDAO.getCheaterCount(field, query, cheatno);
+			//DB 처리
+//			List<CheaterDTO> tradelist = cheaterDAO.getSearchCheater(0, field, query, cheatno, 10);
+			
+			System.out.println("진술서 내용담기");
+			model.addAttribute("list", listState);
+			
+			
+			/////////////////////////////////
+			
+			
+/*			//게임///////
+			cheatno = 2;
+			int gameboardCount = cheaterDAO.getCheaterCount(field, query, cheatno);
+			
+			//DB 처리
+			List<CheaterDTO> gamelist = cheaterDAO.getSearchCheater(0, field, query, cheatno, 10);
+					
+			model.addAttribute("gameboardCount", gameboardCount);
+			model.addAttribute("gamelist", gamelist);
+			
+			//////////////////////////////////////////
+			
+			//비매너////
+			cheatno = 3;
+			int mannerboardCount = cheaterDAO.getCheaterCount(field, query, cheatno);
+			
+			//DB 처리
+			List<CheaterDTO> mannerlist = cheaterDAO.getSearchCheater(0, field, query, cheatno, 10);
+					
+			model.addAttribute("mannerboardCount", mannerboardCount);
+			model.addAttribute("mannerlist", mannerlist);*/
 		
-		System.out.println("진술서 게시판 이동");
 		return "memberInfo.memberStatement";
 	}
 }

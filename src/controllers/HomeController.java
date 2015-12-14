@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletResponse;
@@ -35,66 +36,83 @@ public class HomeController {
 	private SqlSession sqlSession;
 
 	@RequestMapping("index.go")
-	public String index(
-			
-			HttpSession session,
-			Model model)throws Exception{
-		  // 전체 방문자 수 +1
-		VisitDAO visitDAO = sqlSession.getMapper(VisitDAO.class);
-		visitDAO.setVisitTotalCount();
-		System.out.println("메세지 수정완료");
-		
+	public String index(HttpSession session, Model model) throws Exception {
+
 		////////////////////////////////
-		//home.jsp -- AJAX data에  들어갈 차트 정보
-		
+		// home.jsp -- AJAX data에 들어갈 차트 정보
+
 		/////////////////////////////
 		///////////////////////////
-		//타임라인으로 보낼 정보
-		
-		
+		// 타임라인으로 보낼 정보
+
 		///////////////////////////
-		
-      // 오늘 방문자 수
-      int todayCount = visitDAO.getVisitTodayCount();
-       
-      // 전체 방문자 수
-      int totalCount = visitDAO.getVisitTotalCount();
-      
-      System.out.println("todayCount: "+todayCount);
-      System.out.println("totalCount: "+totalCount);
-      
-		model.addAttribute("totalCount", totalCount);// 전체 방문자 수
-		model.addAttribute("todayCount", todayCount); // 오늘 방문자 수
 
 		return "main.index";
 	}
-	@RequestMapping(value= "home.go", method=RequestMethod.GET)
-	public String Home(@RequestParam(value = "pg", required = false, defaultValue = "1") int page, // 현재 페이지 번호
-			@RequestParam(value = "f", required = false, defaultValue = "title") String field, // 검색 카테고리
-			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, // 검색 내용
-			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, // 한페이지에// 보여줄 게시글 갯수										
-			MemberDTO memberDTO,
-			HttpSession session, ServletResponse response, HttpServletRequest request, Model model)
+
+	@RequestMapping(value = "home.go", method = RequestMethod.GET)
+	public String Home(@RequestParam(value = "pg", required = false, defaultValue = "1") int page, // 현재
+																									// 페이지
+																									// 번호
+			@RequestParam(value = "f", required = false, defaultValue = "title") String field, // 검색
+																								// 카테고리
+			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, // 검색
+																							// 내용
+			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, // 한페이지에//
+																								// 보여줄
+																								// 게시글
+																								// 갯수
+			MemberDTO memberDTO, HttpSession session, ServletResponse response, HttpServletRequest request, Model model)
 					throws Exception {
-		
-		
+
+		// 기본 경로 잡기
+		String go = "main.index";
+
 		///////////////////////////
-		//타임라인으로 보낼 정보 <사기사건의 해결은 시간이 생명--지속적인 사기 피드백을 받아볼 수 있다>
-		
-		///1. 진술서 접수 완료 ${regdate}
-		
-		///2. 용의자 DB 일치여부 -- compareDB 메소드 // 계좌/휴대폰/이름/아이디가 일치합니다.
-		
-		///3. 경찰 쪽에 정보 제공(DB정보) -- getResist -- IP 추적 //
-		
-		///4. 헤더쪽에 정보 -- 접수일로부터 ${sysdate} - ${regdate} 일 지났습니다.
-		
-		///5. 검거 완료되었습니다_또는 미해결 >> 30일이 지났기 때문에...
-		
+		// 타임라인으로 보낼 정보 <사기사건의 해결은 시간이 생명--지속적인 사기 피드백을 받아볼 수 있다>
+		InterestStatementDAO interestStatementDAO = sqlSession.getMapper(InterestStatementDAO.class);
+		String msg = "";
+		String title = "";
+		int seq = 1;
+		Date date = new Date();
+		long regdate = date.getTime();
+
+		/// 진술서가 접수되면
+		switch (seq) {
+		/// 1. 진술서 접수 완료 ${regdate}
+		case 1:
+			title = "진술서 작성 완료";
+			msg += "직거래 피해부분에" + regdate + "접수를 완료하셨습니다.";
+			break;
+		/// 2. 용의자 DB 일치여부 -- compareDB 메소드 // 계좌/휴대폰/이름/아이디가 일치합니다.
+		case 2:
+
+			title = "용의자 탐색 중";
+			msg += "작성하신 용의자의 정보 중 '계좌번호'가 일치하는 게시글을 '2'건 발견했습니다";
+			break;
+
+		case 3:
+			break;
+		default:
+			break;
+		}
+
+		/// 3. 경찰 쪽에 정보 제공(DB정보) -- getResist -- IP 추적 //
+
+		/// 4. 헤더쪽에 정보 -- 접수일로부터 ${sysdate} - ${regdate} 일 지났습니다.
+
+		/// 5. 검거 완료되었습니다_또는 미해결 >> 30일이 지났기 때문에...
+		/////////////////////////
+
+		////
+		/// List<chartItemsDTO> countItemsTemp =
+		/// interestStatementDAO.getInterestStatement(memberno);
+
+		model.addAttribute("regdate", regdate);
+
 		///////////////////////////
-		
-		
-		if(session.getAttribute("memberInfo") != null){
+
+		if (session.getAttribute("memberInfo") != null) {
 
 			// 로그 남기기
 			System.out.println("관심 지정 진술서 비교");
@@ -135,51 +153,49 @@ public class HomeController {
 					list.add(result.get(i));
 				}
 			}
-		
-		// 점수가 높은 순으로 정렬하기
-		Comparator<InterestStatementDTO> comparator = new Comparator<InterestStatementDTO>(){
 
-			@Override
-			public int compare(InterestStatementDTO o1, InterestStatementDTO o2) {
-				if(o1.getScore() < o2.getScore()) return 1;
-				else if(o1.getScore() > o2.getScore()) return -1;
-				else return 0;
-			}
-		};
-		Collections.sort(list, comparator);
-		// model에 담기
-		model.addAttribute("list", list);
-		
-		//////자유게시판 글 갯수
-		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
-		int boardCountF = boardFreeDAO.getCount(field, query);
-		System.out.println("boardCountF");
-		model.addAttribute("boardCountF", boardCountF);
-		
-		//////변호사게시판 글 개수
-		BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
-		int boardCountL = boardLawDAO.getCount(field, query);
-		System.out.println("boardCountL");
-		model.addAttribute("boardCountL", boardCountL);
-		
-		//// 공지게시판 글 개수
-		BoardNoticeDAO boardNoticeDAO = sqlSession.getMapper(BoardNoticeDAO.class);
-		int boardCountN = boardNoticeDAO.getCount(field, query);
-		System.out.println("boardCountN");
-		model.addAttribute("boardCountN", boardCountN);
+			// 점수가 높은 순으로 정렬하기
+			Comparator<InterestStatementDTO> comparator = new Comparator<InterestStatementDTO>() {
 
-			return "home.home.home";
+				@Override
+				public int compare(InterestStatementDTO o1, InterestStatementDTO o2) {
+					if (o1.getScore() < o2.getScore())
+						return 1;
+					else if (o1.getScore() > o2.getScore())
+						return -1;
+					else
+						return 0;
+				}
+			};
+			Collections.sort(list, comparator);
+			// model에 담기
+			model.addAttribute("list", list);
 
-		}else { // 아이디가 없음.
-			System.out.println("비로그인");
+			////// 자유게시판 글 갯수
+			BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
+			int boardCountF = boardFreeDAO.getCount(field, query);
+			System.out.println("boardCountF");
+			model.addAttribute("boardCountF", boardCountF);
 
-			out.println("<script type=\'text/javascript'>");
-			out.println("alert('로그인을 해주세요.');");
-			out.println("</script>");
-			out.flush();
-			return "main.index";// 홈으로 이동
+			////// 변호사게시판 글 개수
+			BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
+			int boardCountL = boardLawDAO.getCount(field, query);
+			System.out.println("boardCountL");
+			model.addAttribute("boardCountL", boardCountL);
+
+			//// 공지게시판 글 개수
+			BoardNoticeDAO boardNoticeDAO = sqlSession.getMapper(BoardNoticeDAO.class);
+			int boardCountN = boardNoticeDAO.getCount(field, query);
+			System.out.println("boardCountN");
+			model.addAttribute("boardCountN", boardCountN);
+			go = "home.home.home";
+			return go;
 		}
+		// 경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
+		out.print("<script>alert('로그인을 해주세요.');location.replace('index.go');</script>");
+		out.close();
+		return go;
 	}
-
 }
-

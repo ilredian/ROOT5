@@ -23,7 +23,7 @@ public class SearchController {
 	public String boardFreeSearch(
 			@RequestParam("field") String field,
 			@RequestParam("query") String query
-			){//자유게시판 검색
+			){//자유게시판 검색	
 		//로그 남기기
 		System.out.println("자유 게시판 검색");
 		

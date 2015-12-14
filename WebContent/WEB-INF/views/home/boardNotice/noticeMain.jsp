@@ -6,11 +6,31 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="container freeMain">
-	<h2>공지사항 게시판</h2>
-	<p>
-		Total :
-		<c:out value="${boardCount}" />
-	</p>
+	<div style="float: left;">
+		<h2>공지사항 게시판</h2>
+		<p>
+			Total :
+			<c:out value="${boardCount}" />
+		</p>
+	</div>
+	
+	<div style="float: right;">
+		<select id="select" name="ps">
+			<c:forEach begin="5" end="30" step="5" var="index">
+				<c:choose>
+					<c:when test="${empty param.ps && index == 10}">
+						<option value="${index}" selected>${index}개씩 보기</option>
+					</c:when>
+					<c:when test="${param.ps == index}">
+						<option value="${index}" selected>${index}개씩 보기</option>
+					</c:when>
+					<c:otherwise>
+						<option value="${index}">${index}개씩 보기</option>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+		</select>
+	</div>
 
 	<table class="table table-hover">
 		<thead>
@@ -28,8 +48,9 @@
 				<tr>
 					<td class="number">${list.boardno}</td>
 					<td class="writer">관리자</td>
-					<td class="subject"><c:choose>
+					<td class="subject" <c:if test="${list.critical == 1}">style="color:red;"</c:if>><c:choose>
 							<c:when test="${param.q != null}">
+							<c:if test="${list.critical == 1}"><span class="label label-danger">중요</span></c:if>
 								<a
 									href="noticeView.go?pg=${param.pg}&bno=${list.boardno}&f=${param.f}&q=${param.q}">${list.title}</a>
 							</c:when>

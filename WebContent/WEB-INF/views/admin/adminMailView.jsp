@@ -12,11 +12,11 @@
 	<table class="table">
 		<tr>
 			<th class="active">보낸사람</th>
-			<td>${from}</td>
+			<td><c:out value="${(receiveMailDTO.from).replace('[', '').replace(']', '')}" /></td>
 		</tr>
 		<tr>
 			<th class="active">받는사람</th>
-			<td>${receiveMailDTO.to}</td>
+			<td><c:out value="${(receiveMailDTO.to).replace('[', '').replace(']', '')}" /></td>
 		</tr>
 		<tr>
 			<th class="active">보낸날짜</th>
@@ -26,21 +26,25 @@
 			<th class="active">제목</th>
 			<td>${receiveMailDTO.title}</td>
 		</tr>
-		<tr>
-			<th class="active">파일첨부</th>
-			<td><a href="${receiveMailDTO.fileLocation}">${fileName}</a></td>
-		</tr>
-		<tr>
-			<th class="active">첨부파일크기</th>
-			<td>${receiveMailDTO.size}</td>
-		</tr>
+		<c:if test="${not empty receiveMailDTO.fileLocation}">
+			<tr>
+				<th class="active">파일첨부</th>
+				<td><a href="/download.go?path=${receiveMailDTO.fileLocation}&fileName=${(receiveMailDTO.fileName).replace('[', '').replace(']', '')}"><c:out value="${(receiveMailDTO.fileName).replace('[', '').replace(']', '')}" /></a></td>
+			</tr>
+			<tr>
+				<th class="active">첨부파일크기</th>
+				<td>${receiveMailDTO.size} byte</td>
+			</tr>
+		</c:if>
 		<tr>
 			<th class="active">내용</th>
 			<td><c:choose>
 						<c:when test="${not empty receiveMailDTO.content}">
-							${receiveMailDTO.content}
+						<c:out value="${(receiveMailDTO.content).replace('[', '').replace(']', '')}" />
+						<c:out value="${receiveMailDTO.html}" />
+						<%-- <c:import url="${receiveMailDTO.html}"/> --%>
 						</c:when>
-						<c:otherwise><c:import url="${receiveMailDTO.html}"/></c:otherwise></c:choose></td>
+						<c:otherwise><c:out value="${receiveMailDTO.html}" /><c:import url="${receiveMailDTO.html}"/></c:otherwise></c:choose></td>
 		</tr>
 	</table>
 </form>

@@ -6,7 +6,6 @@
 	<h4>받은 쪽지함</h4>
 	<table class="table table-hover">
 		<tr>
-			<th><p class="text-center">회원번호</p></th>
 			<th><p class="text-center">보낸이</p></th>
 			<th><p class="text-center">제목</p></th>
 			<th><p class="text-center">받은일시</p></th>
@@ -15,28 +14,20 @@
 		<c:choose>
 			<c:when test="${not empty list}">
 				<c:forEach items="${list}" var="list" varStatus="index">
-					<tr style="text-align: center;">
-						<td>
-							<c:if test="${list.isopen == 0}"><b></c:if>
-							${list.frommemberno}
-							<c:if test="${list.isopen == 0}"></b></c:if>
-						</td>
+					<tr style="text-align: center; <c:if test='${list.isopen == 0}'>font-weight:bold;</c:if>">
 						<c:forEach items="${memberDTO}" var="memberDTO" begin="${index.index}" end="${index.index}">
 							<td>
-							<c:if test="${list.isopen == 0}"><b></c:if>
-							${memberDTO.name}
-							<c:if test="${list.isopen == 0}"></b></c:if>
+								<c:if test="${list.isopen == 0}">
+									<span class="glyphicon glyphicon-envelope"></span>
+								</c:if>
+								<c:out value="${memberDTO.name}" /> &lt;<c:out value="${memberDTO.email}" />&gt;
 							</td>
 						</c:forEach>
 						<td><a href="messageOpen.go?msno=${list.messageno}">
-						<c:if test="${list.isopen == 0}"><b></c:if>
-						${list.title}
-						<c:if test="${list.isopen == 0}"></b></c:if>
+							<c:out value="${list.title}" />
 						</a></td>
 						<td>
-						<c:if test="${list.isopen == 0}"><b></c:if>
-						${list.regdate}
-						<c:if test="${list.isopen == 0}"></b></c:if>
+							<c:out value="${list.regdate}" />
 						</td>
 						<td>
 							<div>

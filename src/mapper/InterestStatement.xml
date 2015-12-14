@@ -66,15 +66,26 @@
 
 	<!-- 관심 목록 삭제 -->
 	<delete id="deleteInterest" parameterType="DTO.InterestStatementDTO">
-		delete from
+		DELETE FROM
 		intereststatement
-		where memberno = #{memberno}
+		WHERE memberno = #{memberno}
 	</delete>
 
 	<!-- 관심 목록과 전체 DB 비교하기 위한 로직 -->
 	<select id="compareDB" parameterType="DTO.InterestStatementDTO" resultType="DTO.InterestStatementDTO">
 		SELECT *
 		FROM cheaterdb
+		WHERE
+		cheatername = #{cheatername} OR
+		account = #{account} OR
+		phone = #{phone} OR
+		cheaterid = #{cheaterid}
+	</select>
+	
+	<!-- 등록된 진술서와 관심목록 비교하기 -->
+	<select id="compareInterestStatementDB" parameterType="DTO.InterestStatementDTO" resultType="DTO.InterestStatementDTO">
+		SELECT *
+		FROM intereststatement
 		WHERE
 		cheatername = #{cheatername} OR
 		account = #{account} OR

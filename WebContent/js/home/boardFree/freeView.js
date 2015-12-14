@@ -48,6 +48,10 @@ $('#freeWrite').click(function(){
 	location.replace("freeWrite.go");
 });
 
+$('#select').change(function(){
+	location.replace('freeMain.go?ps='+$('#select').val());
+});
+
 $('.updateReply').click(function(data){
 	$('.updateReply').hide();
 	$('.updateReplyActive').hide();
