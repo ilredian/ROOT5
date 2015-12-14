@@ -5,6 +5,7 @@ import java.sql.Date;
 public class InterestStatementDTO {
 	private int stateno; /* 진술서번호 */
 	private String bankname; /* 은행명 */
+	private String cheatname; /* 사기 종류 */
 	private String cheatername; /* 명의자 성명 */
 	private String account; /* 계좌번호 */
 	private int deposit; /* 입금 금액 */
@@ -42,12 +43,6 @@ public class InterestStatementDTO {
 	}
 	public void setBankname(String bankname) {
 		this.bankname = bankname;
-	}
-	public String getCheatername() {
-		return cheatername;
-	}
-	public void setCheatername(String cheatername) {
-		this.cheatername = cheatername;
 	}
 	public String getAccount() {
 		return account;
@@ -141,10 +136,21 @@ public class InterestStatementDTO {
 	}
 	@Override
 	public String toString() {
-		return "InterestStatementDTO [stateno=" + stateno + ", bankname=" + bankname + ", cheatername=" + cheatername
-				+ ", account=" + account + ", deposit=" + deposit + ", depositdate=" + depositdate + ", phone=" + phone
+		return "InterestStatementDTO [stateno=" + stateno + ", bankname=" + bankname + ", account=" + account + ", deposit=" + deposit + ", depositdate=" + depositdate + ", phone=" + phone
 				+ ", sex=" + sex + ", feature=" + feature + ", domain=" + domain + ", goodskind=" + goodskind
 				+ ", goodsname=" + goodsname + ", cheaterid=" + cheaterid + ", link=" + link + ", regdate=" + regdate
 				+ ", content=" + content + ", cheatno=" + cheatno + ", memberno=" + memberno + ", score=" + score + "]";
+	}
+	public String getCheatname() {
+		return cheatname;
+	}
+	public void setCheatname(String cheatname) {
+		this.cheatname = cheatname;
+	}
+	public String getCheatername() {
+		return cheatername;
+	}
+	public void setCheatername(String cheatername) {
+		this.cheatername = cheatername;
 	}
 }

@@ -202,8 +202,7 @@
 			<div class="col-lg-6">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<i class="fa fa-bar-chart-o fa-fw"></i>검색 <span
-							class="label label-primary">new</span>
+						<i class="fa fa-bar-chart-o fa-fw"></i>검색
 						<div class="pull-right">
 							<div class="btn-group"></div>
 						</div>
@@ -266,10 +265,13 @@
 								class="fa fa-comment fa-fw"></i> 내 쪽지함 <!-- 시간 푸쉬로 받기--> <span
 								class="pull-right text-muted small"><em>4 minutes
 										ago</em> </span>
-							</a> <a href="#" class="list-group-item"> <i
-								class="fa fa-twitter fa-fw"></i> 알림 <span
+							</a> <a href="http://cyberbureau.police.go.kr/prevention/prevention2.jsp?mid=020302" class="list-group-item"> <i
+								class="fa fa-twitter fa-fw"></i> 사기를 막는 예방법
+							<span
 								class="pull-right text-muted small"><em>12 minutes
-										ago</em> </span>
+										ago</em>
+										 
+										 </span>
 							</a> <a href="question.go" class="list-group-item"> <i
 								class="fa fa-envelope fa-fw"></i> 관리자에게 메일 보내기 <span
 								class="pull-right text-muted small"><em>27 minutes
@@ -278,22 +280,27 @@
 						</div>
 						<!-- /.list-group -->
 				<button class="btn btn-default btn-block"
-							data-toggle="collapse" data-target="#demo">View All Alert</button>
+							data-toggle="collapse" data-target="#demo">
+							View All Alert	
+							<c:if test="${not empty notification}"> <!-- 알림이 있거나  -->
+							<c:if test="${isRead}"> <!-- 알림을 읽었을 때 -->
+								<img src="/images/common/new.gif">
+								</c:if>
+							</c:if></button>
 				<br>
+				<c:if test="${empty list}">		
 					<div id="demo" class="collapse">	
-						<c:if test="${empty list}">		
 						<!-- 없을때 -->
 						<div class="alert alert-info">
 							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 							<strong>Info!</strong>
 							 <c:out value="접수된 진술서가 없습니다."/>
 						</div>
-						</c:if>
 					</div>
-						
+				</c:if>
 						<!-- 있을때  -->
+				<c:if test="${not empty list}">		
 					<div id="demo" class="collapse">	
-						<c:if test="${not empty list}">
 							<c:forEach items="${list}" var="lists" begin="0" end="1">
 								<div class="alert alert-info">
 									<a href="#" class="close" data-dismiss="alert"
@@ -304,9 +311,9 @@
 									<font color="blue"><label> 등록한 멤버 번호 :</label></font> ${lists.memberno}<br>
 								</div>
 							</c:forEach>
-						</c:if>				
 						<!-- /.panel-body -->
 					</div>
+						</c:if>		
 					</div>
 				</div>
 				<!-- 옆 -->
@@ -315,10 +322,8 @@
 			<!-- /.두번째 row -->
 
 </div>
-
 			<!--세번째 row  -->
 			<div class="row">
-
 				<div class="col-lg-6">
 					<!-- 2. 사기를 막는 예방법# 글/동영상  -아코디언  -->
 					<div class="panel panel-default">
@@ -365,7 +370,6 @@
 					</div>
 					<!-- /.panel -->
 				</div>
-
 				<!-- 4.도넛 차트  -->
 				<div class="col-lg-6">
 					<div class="panel panel-default">
@@ -376,10 +380,8 @@
 							<div id="morris-donut-chart"></div>
 							
 						<svg height="347" version="1.1" width="586" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#0b62a4" d="M293,286.6666666666667A110.66666666666667,110.66666666666667,0,0,0,397.48523596313163,212.46843260739092" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#0b62a4" stroke="#ffffff" d="M293,289.6666666666667A113.66666666666667,113.66666666666667,0,0,0,400.3176670585177,213.45703469614548L445.0071354523873,229.05497876316207A161,161,0,0,1,293,337Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#3980b5" d="M397.48523596313163,212.46843260739092A110.66666666666667,110.66666666666667,0,0,0,193.7245062356979,127.09716318080183" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#3980b5" stroke="#ffffff" d="M400.3176670585177,213.45703469614548A113.66666666666667,113.66666666666667,0,0,0,191.03330309148487,125.77148386943801L148.57209792723518,104.85521029014241A161,161,0,0,1,445.0071354523873,229.05497876316207Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#679dc6" d="M193.7245062356979,127.09716318080183A110.66666666666667,110.66666666666667,0,0,0,292.96523304187207,286.66666120548564" stroke-width="2" opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1;"></path><path fill="#679dc6" stroke="#ffffff" d="M191.03330309148487,125.77148386943801A113.66666666666667,113.66666666666667,0,0,0,292.9642905640915,289.66666105744156L292.94784956280813,341.9999918082284A166,166,0,0,1,144.08675935354682,102.64574477120273Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="293" y="166" text-anchor="middle" font-family="&quot;Arial&quot;" font-size="15px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Arial; font-size: 15px; font-weight: 800;" font-weight="800" transform="matrix(1.4756,0,0,1.4756,-139.3378,-84.1733)" stroke-width="0.6777108433734939"><tspan dy="6" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Mail-Order Sales</tspan></text><text x="293" y="186" text-anchor="middle" font-family="&quot;Arial&quot;" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Arial; font-size: 14px;" transform="matrix(2.3056,0,0,2.3056,-382.5278,-232.3889)" stroke-width="0.4337349397590361"><tspan dy="5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">20</tspan></text></svg>
-					
 							
 							<a href="chartMain.go" class="btn btn-default btn-block" id="piechart">View Details</a>
-							
 						</div>
 						<!--  /.panel-body -->
 					</div>
@@ -549,9 +551,6 @@
                                         </div>
                                     </div>
                                 </li>
-
-							
-
 						</ul>
                         </div>
                         <!-- /.panel-body -->
@@ -561,8 +560,5 @@
 	</div>
 	</div>
 	<!-- /#page-wrapper -->
-
-
-
 </body>
 </html>

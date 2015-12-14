@@ -335,42 +335,9 @@ public class MemberInfoController {
 			int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
 			//내가 쓴 진술서 목록들
 			List<InterestStatementDTO> listState = memberInfoDAO.getStatement(memberno);
-			
-			//직거래///////
-//			int cheatno = 1;
-//			int tradeboardCount = cheaterDAO.getCheaterCount(field, query, cheatno);
-			//DB 처리
-//			List<CheaterDTO> tradelist = cheaterDAO.getSearchCheater(0, field, query, cheatno, 10);
-			
 			System.out.println("진술서 내용담기");
 			model.addAttribute("list", listState);
 			
-			
-			/////////////////////////////////
-			
-			
-/*			//게임///////
-			cheatno = 2;
-			int gameboardCount = cheaterDAO.getCheaterCount(field, query, cheatno);
-			
-			//DB 처리
-			List<CheaterDTO> gamelist = cheaterDAO.getSearchCheater(0, field, query, cheatno, 10);
-					
-			model.addAttribute("gameboardCount", gameboardCount);
-			model.addAttribute("gamelist", gamelist);
-			
-			//////////////////////////////////////////
-			
-			//비매너////
-			cheatno = 3;
-			int mannerboardCount = cheaterDAO.getCheaterCount(field, query, cheatno);
-			
-			//DB 처리
-			List<CheaterDTO> mannerlist = cheaterDAO.getSearchCheater(0, field, query, cheatno, 10);
-					
-			model.addAttribute("mannerboardCount", mannerboardCount);
-			model.addAttribute("mannerlist", mannerlist);*/
-		
 		return "memberInfo.memberStatement";
 	}
 }
