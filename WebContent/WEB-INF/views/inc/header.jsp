@@ -20,6 +20,28 @@
 <!-- ajaxSubmit 처리를 위한 링크 -->
 <script src="http://malsup.github.com/jquery.form.js"></script>
 <script type="text/javascript">
+
+setInterval(function(){
+	<c:if test="${not empty memberInfo}">
+	var memberno = ${memberInfo.memberno}
+		$.ajax({
+			url : "msgAjax.go",
+			type : "POST",
+			data : {"memberno": memberno},
+			success : function(responseData) {
+				console.log(responseData);
+				if(responseData.result=="success"){
+					
+					 setInterval(function(){
+					var blink = document.getElementById('new');
+					blink.style.visibility = blink.style.visibility == ''?'hidden':''
+					 }, 500);
+				}else{}
+			}
+		});
+	</c:if>
+}, 60000);
+
 	
 	//로그인 유지 확인
 	$.ajax({
@@ -42,6 +64,7 @@
 			$('#totalCount').html(data.totalCount);
 		}
 	});
+
 
 	/* 로그인 버튼  */
 	$(document).ready(function() {
@@ -126,7 +149,7 @@
 						<!-- 세션이 있다면_ -->
 						<button style="margin-top: 10px;" type="button"
 							class="btn btn-default btn-sm" id="messageWindow">
-							<span class="glyphicon glyphicon-envelope"></span> 쪽지
+							<span class="glyphicon glyphicon-envelope" id="new" style="color: red;"></span> 쪽지
 						</button>
 						<button type="button" class="btn btn-default" id="myBtn2"
 							style="margin-right: 20px; margin-top: 10px">

@@ -27,4 +27,7 @@ public interface MessageDAO {
 	
 	// 메시지 보내기insert
 	public int sendMessage(MessageDTO messageDTO) throws Exception;
+	
+	// isOpen 수 얻기
+	public int getIsOpen(int memberno) throws Exception;
 }

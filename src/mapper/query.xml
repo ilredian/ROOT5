@@ -8,7 +8,7 @@
 	<select id="getSearchQuery" resultType="DTO.QueryDTO">
 		SELECT *
 		FROM query
-		WHERE query LIKE '${param1}%'
+		WHERE query LIKE '%${param1}%'
 		ORDER BY count DESC
 	</select>
 	
