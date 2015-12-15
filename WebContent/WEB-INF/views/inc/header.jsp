@@ -34,7 +34,8 @@ setInterval(function(){
 					
 					 setInterval(function(){
 					var blink = document.getElementById('new');
-					blink.style.visibility = blink.style.visibility == ''?'hidden':''
+					blink.style.visibility = blink.style.visibility == ''?'hidden':'',
+					blink.style.color = "Red"
 					 }, 500);
 				}else{}
 			}
@@ -141,18 +142,24 @@ setInterval(function(){
 						<!-- 세션이 있다면_ -->
 						<button style="margin-top: 10px;" type="button"
 							class="btn btn-default btn-sm" id="messageWindow">
-							<span class="glyphicon glyphicon-envelope" id="new" style="color: red;"></span> 쪽지
+							<span class="glyphicon glyphicon-envelope" id="new"></span> 쪽지
 						</button>
 						<button type="button" class="btn btn-default" id="myBtn2"
 							style="margin-right: 20px; margin-top: 10px">
 							<span class="glyphicon glyphicon-log-in"></span>
 							<c:if test="${memberInfo.typeno==1}">
-								<c:out value="관리자" />
+								<c:out value="관리자_" />
 							</c:if>
 							<c:if test="${memberInfo.typeno==0}">
-								<c:out value="사용자" />
+								<c:out value="사용자_" />
 							</c:if>
-							${memberInfo.name}님 로그아웃
+								<c:if test="${memberInfo.typeno==2}">
+								<c:out value="경찰_" />
+							</c:if>
+							<c:if test="${memberInfo.typeno==3}">
+								<c:out value="변호사_" />
+							</c:if>
+							 ${memberInfo.name}님 로그아웃
 						</button>
 						<button type="button" class="btn btn-default" id="myPage"
 							style="margin-right: 10px; margin-top: 10px">

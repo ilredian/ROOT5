@@ -162,7 +162,8 @@ public class MemberInfoController {
 	
 	////////////// 메세지수정 ! (정보 가져오기.)
 	@RequestMapping(value="memberModify.go", method=RequestMethod.GET)
-	public String modify(HttpSession session,
+	public String modify(
+			HttpSession session,
 			HttpServletRequest request,
 			MemberDTO memberDTO,
 			Model model){//정보수정
@@ -172,6 +173,12 @@ public class MemberInfoController {
 		String message = ((MemberDTO) session.getAttribute("memberInfo")).getMessage();
 		System.out.println("message : " + message);
 		model.addAttribute("message",message);
+
+		//기존 사진 가져오기
+		String photo = ((MemberDTO) session.getAttribute("memberInfo")).getPhoto();
+		System.out.println("photo : " + photo);
+		model.addAttribute("photo",photo);
+		
 		return "memberInfo.memberModify";
 	}
 	
@@ -182,22 +189,22 @@ public class MemberInfoController {
 			HttpSession session,
 			HttpServletRequest request
 			) throws Exception {
-		
 		// 로그 남기기
 		System.out.println(memberDTO.getMessage());
 		
 		//현재 로그인한 세션의 회원번호를 가져와 memberDTO안에 넣어준다.
 		memberDTO.setMemberno(((MemberDTO)session.getAttribute("memberInfo")).getMemberno());
-		System.out.println("메세지 수정 작업 시작");
+		System.out.println("회원 정보 수정 작업 시작");
 		
 		//매퍼를 가져와, update 함수를 가져온다.
 		MemberInfoDAO memberInfoDAO = sqlSession.getMapper(MemberInfoDAO.class);
 		memberInfoDAO.update(memberDTO);
-		System.out.println("메세지 수정완료");
+		System.out.println("회원 정보 수정완료");
 		
-		//update가 완료돠면, MemberDTO에 저장된 메시지 정보를 가져와서  sessionDTO에 넣어준다.
+		//update가 완료돠면, MemberDTO에 저장된 정보를 가져와서  sessionDTO에 넣어준다.
 		MemberDTO sessionDTO=((MemberDTO)session.getAttribute("memberInfo"));
 		sessionDTO.setMessage(memberDTO.getMessage());
+		sessionDTO.setPhoto(memberDTO.getPhoto());
 		
 		//memberInfo 속성에 메시지정보가 있는 sessionDTO를 넣어준다.
 		session.setAttribute("memberInfo", sessionDTO);

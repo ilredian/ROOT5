@@ -59,7 +59,13 @@
     }
   </script>
 <div class="container">
-	<h2>피해사례 통계</h2>
+	<h2>피해사례 통계</h2> 
+	
+	<c:if test="${memberInfo.typeno==2}">
+	
+		<h3 align="right"><a href="/excel.go" target="_blank">피해순위테이블다운</a></h3>
+		
+	</c:if>	
 	<div class="well well-sm">
 		<FORM METHOD="POST" name="search_submit" ACTION="./?mod=_statistics">
 			<div style="height: 20px;"></div>

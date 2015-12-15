@@ -13,9 +13,21 @@ A:Hover { color:#c0c0c0; text-decoration:none; }
 </style>
 
 <script language="javascript">
+var no=${typeno};
+
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
+    console.log(no);
+    if(no==3){
+    	$('#lawWrite').show();
+    	
+    }else{
+    	$('#lawWrite').hide();
+    }
+    
 });
+
+
 
 </script>
 <div class="container lawMain">
@@ -62,7 +74,7 @@ $(document).ready(function(){
 	</table>
 	
 	<br>
-	<div>
+	<div id="a">
 	<%--    <se:authorize ifAllGranted="ROLE_USER , ROLE_ADMIN">
 		<br> <input type="button" value="글쓰기" id="lawWrite"
 			style="float: right; width: 60px; height: 40px; margin-right: 40px; margin-top: -40px;">

@@ -8,22 +8,54 @@ $(function() {
 	$("#savebutton2").click(function() {
 		$("#frm2").submit();
 	});
+	$("#cancel").click(function() {
+		location.href="memberModify.go";
+	});
 });
+
+$(document).ready(function() {
+	$("#file").bind("click", function() {
+		$("form").ajaxSubmit({
+			url:"fileUploadAjax.go",
+			success : function(data) {
+				$("#fileupload").html("<h2>"+data.result+"</h2>");
+			},
+			error : function(error) {
+				alert("요청 처리 중 오류가 발생하였습니다.");
+			}
+		});
+		return false;
+	});
+});
+
+
+
 </script>
 <div class="container">
 <form id="frm2" method="post" action="">
 	<h3>정보수정</h3>
-	<!-- (*) 표시가 있는 항목은 반드시 입력해야 합니다.<br> 허위로 작성된 정보일 경우 승인이 보류되거나 임의로
-	삭제처리될 수 있으니 주의해 주세요. -->
+	등록된 사진과 인사말은 더치트 활동 시 회원님을 대표하며, 타인에게 보여지므로 신중히 설정해 주세요.
 	<hr>
 	<table>
 		<tr>
+							<div onclick="$('#file').click();">
+								<img src="${photo}" width="108px" height="128px" align="left">
+							</div>
+							<td>
+								<input type="file" name="file1" id="file"/>
+							<!-- 	.
+								<input id="upload" 	type="button" name="filename" value="파일첨부">
+							 -->		
+									<div id="fileupload"></div>
+									 <br>
+							</td>
 			<td class="key">메세지<span>*</span><br>
 			</td>
 			<c:set var="n" value="${message}"/>
 			<td style="padding-left: 20px">
 				인사말 : ${n}
-				<input type="text" name="message"
+				<br>
+				<input type="text" name="message" 
 				size="35"
 				placeholder="바꿀 메세지를 쓰세요" >
 				 
@@ -40,10 +72,9 @@ $(function() {
 		</tr>
 	</table>
 
-	<!-- 페이저 -->
 	<div class="container" align="">
 			<input class="btn btn-primary" id="savebutton2" type="button" value="정보수정"> 
-
+			<input class="btn btn-default" id="cancel" type="button" value="취소"> 
 	</div>
 	</form>
 </div>

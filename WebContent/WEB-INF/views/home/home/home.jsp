@@ -122,7 +122,7 @@
 							</div>
 						</div>
 					</div>
-					<a href="#">
+					<a href="PhotoMain.go">
 						<div class="panel-footer">
 							<span class="pull-left">View Details</span> <span
 								class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -342,8 +342,6 @@
 					<div class="panel-heading">
 						<i class="fa fa-comments fa-fw"></i> 테이블 표
 						<div class="btn-group pull-right">
-
-							<a href="/excel.go" target="_blank">엑셀다운</a>
 						</div>
 					</div>
 					<!--    /.panel-heading -->

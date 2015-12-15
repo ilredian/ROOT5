@@ -76,7 +76,9 @@ public class BoardControllerLaw {
 
 		System.out.println(session.getAttribute("memberInfo"));
 		String email = ((MemberDTO) session.getAttribute("memberInfo")).getEmail();
+		int typeno = ((MemberDTO) session.getAttribute("memberInfo")).getTypeno();
 
+		model.addAttribute("typeno",typeno);
 		model.addAttribute("Email", email);
 		model.addAttribute("pager", pager);
 		model.addAttribute("list", list); // 자동 forward

@@ -185,14 +185,10 @@ public class ExcelController {
         // 엑셀을 출력한다.
         System.out.println("엑셀 출력");
         
-        //if home 에서 다운
+        
+        	
         return new ExcelView();
         
-        //if( 경찰 사람이면_
-        // return new ExcelView2();
-        
-        // if 경찰 사람이면
-        // return new ExcelView3();
         
     }	
 }
