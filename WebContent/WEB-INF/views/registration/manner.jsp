@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<form action="" method="post" name="writeForm" id="frm">
+<form class="form-horizontal" name="writeForm" id="frm" action="" method="post" onsubmit="return CheckForm();">
 	<div class="container">
 		<h3>직거래 피해사례 등록</h3>
 		<p>피해사례 등록이 완료되면 피해자를 위한 기능이 실시간 제공됩니다.</p>
@@ -159,7 +159,7 @@
 					<td><input type="text" class="txt" name="cheat_account"
 						id="su_bankNum" value="" style="width: 230px;"
 						style="ime-mode:disabled;"
-						onKeyPress="return numbersonly(event, false)" maxlength="30"
+						onKeyPress="InpuOnlyNumber(this)" maxlength="30"
 						placeholder="계좌번호를 입력하세요."></td>
 				</tr>
 
@@ -169,7 +169,7 @@
 					<td><input type="text" class="txt" name="cheat_price" value=""
 						placeholder="피해금액을 원 단위로 입력하세요." id="su_sum"
 						style="width: 230px; ime-mode: disabled;"
-						onKeyPress="return numbersonly(event, false)" maxlength="8">
+						onKeyPress="InpuOnlyNumber(this)" maxlength="8">
 						원</td>
 				</tr>
 
@@ -263,16 +263,16 @@
 							<option value="070">070
 								<!--<option value="050">050-->
 								<!--<option value="168">168-->
-					</select>-<input type="text" name="cheat_phone2" value="" class="txt"
+					</select>-<input type="text" name="cheat_phone2" id="phone2" class="txt"
 						maxlength="4"
 						onchange="javascript:if(1){cheat_phone.value = cheat_phone1[cheat_phone1.selectedIndex].value + cheat_phone2.value + cheat_phone3.value }"
 						style="ime-mode: disabled;"
-						onKeyPress="return numbersonly(event, false)" style="width:70px;"
-						title="가운데 자리 입력" />-<input type="text" name="cheat_phone3"
+						onKeyPress="InpuOnlyNumber(this)" style="width:70px;"
+						title="가운데 자리 입력" />-<input type="text" name="cheat_phone3" id="phone3"
 						value="" class="txt" maxlength="4"
 						onchange="javascript:if(1){cheat_phone.value = cheat_phone1[cheat_phone1.selectedIndex].value + cheat_phone2.value + cheat_phone3.value }"
 						style="ime-mode: disabled;"
-						onKeyPress="return numbersonly(event, false)" style="width:70px;"
+						onKeyPress="InpuOnlyNumber(this)" style="width:70px;"
 						title="끝 자리 입력" />&nbsp;<input type="hidden" name="cheat_phone"
 						value="" readonly /> ※ 050 임시번호 등록을 금합니다.</td>
 				</tr>
@@ -293,9 +293,6 @@
 						value="" placeholder="예) 경상도 사투리 사용" id="su_keynote"
 						style="width: 580px;" maxlength="60"></td>
 				</tr>
-
-
-
 			</table>
 		</div>
 
@@ -502,5 +499,86 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 			value="피해사례 등록 약관에 동의하며, 피해사례를 등록합니다.">
 	</div>
 	</div>
+	
+	
+
+<script type="text/javascript">
+function CheckForm() {
+	//피해 발생 사이트 정보
+     if(!$("#cheat_site").val()){
+        alert("피해가 발생한 사이트를 선택해주세요.");
+        return false;
+ 	}if(!$('input:radio[name=cheat_item_temp]:checked').val()) { // 물품종류 입력 검사
+		alert('물품종류 선택해주세요');
+		return false;
+		
+ 	}if(!$("#subject").val()) { // 물품명 입력 검사
+		alert('물품명을 입력해주세요');
+		return false;
+ 		///계좌정보 부분	
+ 	}
+ 	
+ 	if($("#su_bankNumchk")[0].checked==false){ // 계좌정보 검사 (체크박스)
+	
+ 	////은행체크_### -- 셀렉트 문에서 제외한 나머지를 선택할때만
+ 		if(!$("select[name=cheat_bank]").val()) { //계좌은행명 검사
+		alert('은행명을 입력해주세요');
+		return false;
+ 		}
+ 		if(!$("#su_name").val()) { //명의자명 입력
+		alert('명의자명을 입력해주세요');
+		return false;
+ 		}
+		if(!$("#su_bankNum").val()) { //계좌 번호 입력
+		alert('계좌번호를 입력해주세요');
+		return false;
+		}
+		if(!$("#su_sum").val()) { //금액 입력
+		alert('피해금액을 입력해주세요');
+		return false;
+		}
+ 	}
+ 	
+ 	if($("#su_telchk")[0].checked == false) { // 연락처정보
+ 		if(!$("#phone2").val() || !$("#phone3").val()){
+ 			alert('연락처를 기입하세요');
+ 		}
+		return false;
+ 	}
+	
+//	if(!$("#se2_iframe").val()){  // 진술서 작성 확인
+//	if(!$(".se2_input_wysiwyg").val()){  // 진술서 작성 확인
+// .se2_input_area husky_seditor_editing_area_container	
+
+//var area = document.getElementById("se2_iframe").innerHTML
+//var area = document.getElementsByClassName("se2_input_area husky_seditor_editing_area_container").innerHTML
+//var area = document.getElementsByClassName("se2_inputarea").value;
+var area = document.getElementById("ir1");
+//스마트에디터 --- textarea를 선택하지 못하고 있음...왜지...?!
+	if($(area).val()==""){  // 진술서 작성 확인
+		alert('진술서를 작성해주세요.');
+		return false;
+	}
+	//약관 동의 체크박스__
+	if($("#cheat_rule_c")[0].checked == false
+			|| $("#chk_agreement_1")[0].checked == false
+			|| $("#chk_agreement_2")[0].checked == false
+	){
+		alert('약관에 동의하십시오.');
+		return false;
+	}
+}	
+
+
+ function InpuOnlyNumber(obj) 
+ {
+     if (event.keyCode >= 48 && event.keyCode <= 57) { //숫자키만 입력
+         return true;
+     } else {
+         event.returnValue = false;
+     }
+ }
+</script>		
+	
 	</div>
 </form>
