@@ -26,9 +26,12 @@ $(function() {
 	}else if(cno == 7){
 		$('#memberWithdrawal').attr("class", "active");
 		$('#statementText').text("회원탈퇴");
-	}else{
+	}else if(cno == 8){
 		$('#memberStatement').attr("class", "active");
 		$('#statementText').text("진술서");
+	}else{
+		$('#memberStatement2').attr("class", "active");
+		$('#statementText').text("진술서");	
 	}
 });
 
