@@ -6,27 +6,24 @@ $('.viewBtn').click(function() {
 $(function() {
 	var cno = $('#mno').attr("value");
 	if(cno == 1){
-		$('#memberMessage').attr("class", "active");
-		$('#statementText').text("쪽지");
-	}else if(cno == 2){
 		$('#memberBoard').attr("class", "active");
 		$('#statementText').text("게시물");
-	}else if(cno == 3){
+	}else if(cno == 2){
 		$('#memberComment').attr("class", "active");
 		$('#statementText').text("댓글");
-	}else if(cno == 4){
+	}else if(cno == 3){
 		$('#memberConnect').attr("class", "active");
 		$('#statementText').text("접속기록");
-	}else if(cno == 5){
+	}else if(cno == 4){
 		$('#memberModify').attr("class", "active");
 		$('#statementText').text("정보수정");
-	}else if(cno == 6){
+	}else if(cno == 5){
 		$('#memberPwdChange').attr("class", "active");
 		$('#statementText').text("비번변경");
-	}else if(cno == 7){
+	}else if(cno == 6){
 		$('#memberWithdrawal').attr("class", "active");
 		$('#statementText').text("회원탈퇴");
-	}else if(cno == 8){
+	}else if(cno == 7){
 		$('#memberStatement').attr("class", "active");
 		$('#statementText').text("진술서");
 	}else{
