@@ -20,11 +20,9 @@ $(document).ready(function(){
     console.log(no);
     if(no==3){
     	$('#lawWrite').show();
-    	alert('글쓰기가 보입니다');
     	
     }else{
     	$('#lawWrite').hide();
-    	alert('글쓰기가 안보입니다');
     }
     
 });
