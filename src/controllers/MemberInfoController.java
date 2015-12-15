@@ -358,6 +358,38 @@ public class MemberInfoController {
 		return "memberInfo.memberStatement";
 	}
 	
+	// 관심등록 진술서와 자신이 쓴 피해 사례 진술서 내역으로 이동
+	@RequestMapping(value="memberStatement2.go", method=RequestMethod.GET)
+	public String memberStatement2(
+			@RequestParam(value = "f", required = false, defaultValue = "cheatername") String field,
+			@RequestParam(value = "q", required = false, defaultValue = "%%") String query,
+			MemberDTO memberDTO,
+			HttpSession session,
+			Model model) throws Exception{
+		
+		// 로그 남기기
+		System.out.println("진술서 게시판 이동");
+		
+		//DAO 변수 선언
+		MemberInfoDAO memberInfoDAO = sqlSession.getMapper(MemberInfoDAO.class);
+		InterestStatementDAO interestStatementDAO = sqlSession.getMapper(InterestStatementDAO.class);
+			
+		//로그인한 세션에 있는 회원번호 가져오기
+		int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
+		
+			
+		//내가 쓴 진술서 목록들 가져오기
+		List<InterestStatementDTO> listState = memberInfoDAO.getStatement(memberno);
+		//기록 추적 진술서 가져오기
+		InterestStatementDTO interestStatementDTO = interestStatementDAO.getInterestStatement(memberno);
+		
+		//db값 view에 보내주기
+		model.addAttribute("isDTO", interestStatementDTO);
+		model.addAttribute("list", listState);
+			
+		return "memberInfo.memberStatement2";
+	}
+	
 	// 관심 진술서 등록
 	@RequestMapping(value="regInterestStatement.go", method=RequestMethod.GET)
 	public void regInterestStatement(
