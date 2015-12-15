@@ -70,50 +70,6 @@ public class HomeController {
 		// 기본 경로 잡기
 		String go = "main.index";
 
-		///////////////////////////
-		// 타임라인으로 보낼 정보 <사기사건의 해결은 시간이 생명--지속적인 사기 피드백을 받아볼 수 있다>
-/*		InterestStatementDAO interestStatementDAO = sqlSession.getMapper(InterestStatementDAO.class);
-		String msg = "";
-		String title = "";
-		int seq = 1;
-		Date date = new Date();
-		long regdate = date.getTime();
-
-		/// 진술서가 접수되면
-		switch (seq) {
-		/// 1. 진술서 접수 완료 ${regdate}
-		case 1:
-			title = "진술서 작성 완료";
-			msg += "직거래 피해부분에" + regdate + "접수를 완료하셨습니다.";
-			break;
-		/// 2. 용의자 DB 일치여부 -- compareDB 메소드 // 계좌/휴대폰/이름/아이디가 일치합니다.
-		case 2:
-
-			title = "용의자 탐색 중";
-			msg += "작성하신 용의자의 정보 중 '계좌번호'가 일치하는 게시글을 '2'건 발견했습니다";
-			break;
-
-		case 3:
-			break;
-		default:
-			break;
-		}
-
-		/// 3. 경찰 쪽에 정보 제공(DB정보) -- getResist -- IP 추적 //
-
-		/// 4. 헤더쪽에 정보 -- 접수일로부터 ${sysdate} - ${regdate} 일 지났습니다.
-
-		/// 5. 검거 완료되었습니다_또는 미해결 >> 30일이 지났기 때문에...
-		/////////////////////////
-
-		////
-		/// List<chartItemsDTO> countItemsTemp =
-		/// interestStatementDAO.getInterestStatement(memberno);
-
-		model.addAttribute("regdate", regdate);
-*/
-		///////////////////////////
-
 		if (session.getAttribute("memberInfo") != null) {
 
 			// 로그 남기기
