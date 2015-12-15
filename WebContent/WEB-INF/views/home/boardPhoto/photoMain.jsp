@@ -31,7 +31,7 @@
 				<div class="col-md-3">
 					<a href="pulpitrock.jpg" class="thumbnail">
 						<p class="subject">Á¦¸ñ : ${list.title}</p> 
-						<img src="${list.content}" alt="" style="width: 200px; height: 200px">
+						<img src="${list.uploadfile}" alt="" style="width: 200px; height: 200px">
 						
 					</a>
 					
