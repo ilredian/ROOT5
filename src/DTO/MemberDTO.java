@@ -16,7 +16,14 @@ public class MemberDTO {
 	private String photo;/* 사진 */
 	private String message;/* 인사말 DEFAULT '안녕하세요.' */
 	private int typeno;/* 타입번호 비인증0, 인증1, 경찰2, 어드민3 추가시 수정 */
+	private String company;
 	
+	public String getCompany() {
+		return company;
+	}
+	public void setCompany(String company) {
+		this.company = company;
+	}
 	public int getMemberno() {
 		return memberno;
 	}

@@ -22,8 +22,35 @@ public class CheaterDTO {
 	private String content; /* 내용 */
 	private int cheatno; /* cheatDTO에 있는 사기 번호 */
 	private int memberno; /* memberDTO에 있는 회원번호 */
-	
 	private int count;//통계 수
+	
+	private int police; //담당 형사 memberno
+	private String trace; //추적 정보
+	private String complete; //완료 정보
+	
+	public int getPolice() {
+		return police;
+	}
+
+	public void setPolice(int police) {
+		this.police = police;
+	}
+
+	public String getTrace() {
+		return trace;
+	}
+
+	public void setTrace(String trace) {
+		this.trace = trace;
+	}
+
+	public String getComplete() {
+		return complete;
+	}
+
+	public void setComplete(String complete) {
+		this.complete = complete;
+	}
 
 	public CheaterDTO(String bankname, String cheatername, String account, int deposit, String depositdate,
 			String phone, String sex, String feature, String domain, String goodskind, String goodsname,

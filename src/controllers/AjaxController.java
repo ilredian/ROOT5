@@ -4,6 +4,7 @@ package controllers;
 import java.io.PrintWriter;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
@@ -190,7 +191,8 @@ public class AjaxController {
 		if(!isVist.equals("visit")){
 			Cookie visitCookie = new Cookie("visitCheck", "visit");
 			visitCookie.setPath("/");
-			visitCookie.setMaxAge(60*60*24*7);
+			Date date = new Date();
+			visitCookie.setMaxAge(((23-date.getHours())*60*60)+((59-date.getMinutes())*60)+(59-date.getSeconds()));
 			response.addCookie(visitCookie);
 			
 			// 전체 방문자 수 +1

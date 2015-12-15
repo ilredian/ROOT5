@@ -5,12 +5,11 @@
 <mapper namespace="DAO.InterestStatementDAO">
 
 	<!-- 등록된 정보인지 확인 -->
-	<select id="getResist" parameterType="DTO.InterestStatementDTO"
+	<select id="getResist" parameterType="Integer"
 		resultType="Integer">
-		select count(*)
-		from intereststatement
-		where memberno =
-		#{memberno}
+		SELECT count(*)
+		FROM intereststatement
+		WHERE memberno = #{memberno}
 	</select>
 
 	<!-- 관심 목록에 등록한 정보 불러오기 -->
@@ -20,11 +19,12 @@
 		intereststatement
 		WHERE memberno = #{memberno}
 	</select>
-
+	
 	<!-- 관심 목록에 등록 -->
-	<insert id="insertInterest" parameterType="DTO.InterestStatementDTO">
+	<insert id="insertInterest" parameterType="DTO.CheaterDTO">
 		insert into
 		intereststatement(
+		stateno,
 		bankname,
 		cheatername,
 		account,
@@ -44,6 +44,7 @@
 		memberno
 		)
 		VALUES(
+		#{stateno},
 		#{bankname},
 		#{cheatername},
 		#{account},
@@ -65,7 +66,7 @@
 	</insert>
 
 	<!-- 관심 목록 삭제 -->
-	<delete id="deleteInterest" parameterType="DTO.InterestStatementDTO">
+	<delete id="deleteInterest">
 		DELETE FROM
 		intereststatement
 		WHERE memberno = #{memberno}

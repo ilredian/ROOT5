@@ -29,7 +29,6 @@ setInterval(function(){
 			type : "POST",
 			data : {"memberno": memberno},
 			success : function(responseData) {
-				console.log(responseData);
 				if(responseData.result=="success"){
 					
 					 setInterval(function(){
@@ -54,17 +53,6 @@ setInterval(function(){
 			}
 		}
 	});
-	
-	//방문자수 확인
-	$.ajax({
-		url : "visitCountAjax.go",
-		type : "POST",
-		success:function(data){
-			$('#todayCount').html(data.todayCount);
-			$('#totalCount').html(data.totalCount);
-		}
-	});
-
 
 	/* 로그인 버튼  */
 	$(document).ready(function() {
