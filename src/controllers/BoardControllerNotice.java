@@ -18,6 +18,7 @@ import DAO.BoardNoticeDAO;
 import DAO.MemberDAO;
 import DAO.ReplyDAO;
 import DTO.BoardNoticeDTO;
+import DTO.MemberDTO;
 import DTO.ReplyDTO;
 import common.BoardPager;
 import common.ReplyPager;
@@ -38,7 +39,7 @@ public class BoardControllerNotice {//공지사항 게시판
 				@RequestParam(value = "f", required = false, defaultValue = "title") String field, // 검색 카테고리
 				@RequestParam(value = "q", required = false, defaultValue = "%%") String query, // 검색 내용
 				@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, // 한 페이지에 보여줄 게시글 갯수
-				Model model) throws Exception {
+				HttpSession session,Model model) throws Exception {
 
 			// 로그 남기기
 			System.out.println(page + " / " + field + " / " + query);
@@ -68,6 +69,9 @@ public class BoardControllerNotice {//공지사항 게시판
 			for(int i=0; i < list.size(); i++){
 				list.get(i).setBoardReplyCount(replyDAO.getBoardReplyCount("content", query, list.get(i).getBoardno()));
 			}
+			int typeno = ((MemberDTO) session.getAttribute("memberInfo")).getTypeno();
+
+			model.addAttribute("typeno",typeno);
 			
 			// DB값 model 객체에 담기
 			model.addAttribute("pager", pager);
