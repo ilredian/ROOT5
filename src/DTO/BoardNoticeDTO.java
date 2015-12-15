@@ -4,19 +4,19 @@ public class BoardNoticeDTO {
 
 	//db에 등록 되어 있어야 할 것들
 	private int boardno; //게시판번호
-	private String name; //이름
 	private String title;/* 제목 */
 	private String content; /* 내용 */
 	private String regdate; /* 작성일 */
 	private int countno;/* 조회수 */
 	private int active; /* 삭제여부 */
 	private int critical; /* 강조여부 */
-	private int memberno; // 멤버 등록 번호
-	public String getName() {
-		return name;
+	private int memberno; /* 회원번호 */
+
+	public int getMemberno() {
+		return memberno;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setMemberno(int memberno) {
+		this.memberno = memberno;
 	}
 	private int categoryno; /* 카테고리번호 */
 	//////////////////////////////////
@@ -26,12 +26,6 @@ public class BoardNoticeDTO {
 	private String photo;//게시글 글쓴이 사진
 	//////////////////////////////////
 	
-	public int getMemberno() {
-		return memberno;
-	}
-	public void setMemberno(int memberno) {
-		this.memberno = memberno;
-	}
 	
 	public String getPhoto() {
 		return photo;
@@ -98,9 +92,9 @@ public class BoardNoticeDTO {
 	}
 	@Override
 	public String toString() {
-		return "BoardNoticeDTO [boardno=" + boardno + ", name=" + name + ", title=" + title + ", content=" + content
+		return "BoardNoticeDTO [boardno=" + boardno + ", name=" + "title=" + title + ", content=" + content
 				+ ", regdate=" + regdate + ", countno=" + countno + ", active=" + active + ", critical=" + critical
-				+ ", memberno=" + memberno + ", categoryno=" + categoryno + ", boardReplyCount=" + boardReplyCount
+				+ ", categoryno=" + categoryno + ", boardReplyCount=" + boardReplyCount
 				+ ", photo=" + photo + "]";
 	}
 

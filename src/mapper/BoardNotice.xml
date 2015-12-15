@@ -57,7 +57,7 @@
 
 	<!-- 공지사항 등록 -->
 	<insert id="insert" parameterType="DTO.BoardNoticeDTO">
-		INSERT INTO boardnotice(TITLE, name, CONTENT, REGDATE, CRITICAL, memberno, CATEGORYNO)
-		VALUES(#{title}, #{name}, #{content}, SYSDATE(), #{critical}, #{memberno}, 2)
+		INSERT INTO boardnotice(TITLE, CONTENT, REGDATE, CRITICAL, CATEGORYNO)
+		VALUES(#{title}, #{content}, SYSDATE(), #{critical}, 2)
 	</insert>
 </mapper>
