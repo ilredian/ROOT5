@@ -68,15 +68,23 @@
 	<!-- //자기정보 수정하기 -->
 	<update id="update" parameterType="DTO.MemberDTO">
 		UPDATE memberdb
-		SET message=#{message} and photo=#{photo}
+		SET message=#{message}, photo=#{photo}
 		WHERE memberno=#{memberno}
 		
 	</update>
 
-	
 	<!-- (회원 탈퇴) -->
 	<update id="delete"  parameterType="DTO.MemberDTO">
 		UPDATE MEMBERDB  SET ACTIVE = 1  WHERE MEMBERNO = #{MEMBERNO}
 	</update>
+	
+	<!-- 경찰회원 자신이 접수처리한 목록 가져오기 -->
+	<select id="getPoliceCheaterDB" parameterType="Integer" resultType="DTO.CheaterDTO">
+		SELECT cheatername, account, phone, cheaterid, trace, complete, groupno
+		FROM cheaterdb
+		WHERE police = #{memberno}
+		GROUP BY groupno
+		ORDER BY regpolice DESC;
+	</select>
 	
 </mapper>

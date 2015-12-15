@@ -122,7 +122,7 @@
 							</div>
 						</div>
 					</div>
-					<a href="PhotoMain.go">
+					<a href="PhotoMain.go?pg=1">
 						<div class="panel-footer">
 							<span class="pull-left">View Details</span> <span
 								class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
