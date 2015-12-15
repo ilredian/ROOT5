@@ -49,14 +49,7 @@ public class MemberInfoController {
 	@Autowired
 	private SqlSession sqlSession;
 
-	@RequestMapping(value="memberMessage.go", method=RequestMethod.GET)
-	public String message(){//쪽지
-		
-		//로그 남기기
-		System.out.println("내 쪽지 페이지로 이동");
-		
-		return "memberInfo.memberMessage";
-	}
+	
 	////////////////////////내가 쓴 글 모두 가져오기 START///////////////////////////
 	@RequestMapping(value="memberBoard.go", method=RequestMethod.GET)
 	public String board(	

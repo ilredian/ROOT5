@@ -438,7 +438,7 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 						<div class="alert_cheat_write alert_cheat_write-info">
 							<b><input type="checkbox" name="cheat_rule_c" value="1"
 								id="cheat_rule_c" valign="bottom"
-								onclick="return cheat_rule_check(cheat_rule.value)" /> <label
+								 /> <label
 								for="cheat_rule_c">피해사례 등록 약관에 동의합니다.(필수)</label></b> <input
 								type="hidden" readonly name="cheat_rule" value=""
 								valign="bottom" style="width: 0px; height: 0px;">
@@ -447,13 +447,13 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 						<div class="alert_cheat_write alert_cheat_write-info">
 							<b><input type="checkbox" name="agreement_1" value="1"
 								id="chk_agreement_1"
-								onclick="return value_change('agreement_1h',this.value)" /> <label
+								 /> <label
 								for="chk_agreement_1">서비스 이용약관에 동의합니다.(필수)</label></b>
 						</div>
 						<div class="alert_cheat_write alert_cheat_write-info">
 							<b><input type="checkbox" name="agreement_2" value="1"
 								id="chk_agreement_2"
-								onclick="return value_change('agreement_2h',this.value)" /> <label
+								 /> <label
 								for="chk_agreement_2">개인정보 수집 및 이용에 동의합니다.(필수)</label></b>
 						</div>
 					</td>
@@ -515,23 +515,6 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 					if (!$("#phone2").val() || !$("#phone3").val()) {
 						alert('연락처를 기입하세요');
 					}
-					return false;
-				}
-
-				//	if(!$("#se2_iframe").val()){  // 진술서 작성 확인
-				//	if(!$(".se2_input_wysiwyg").val()){  // 진술서 작성 확인
-				// .se2_input_area husky_seditor_editing_area_container	
-
-				//var area = document.getElementById("se2_iframe").innerHTML
-				//var area = document.getElementsByClassName("se2_input_area husky_seditor_editing_area_container").innerHTML
-				//var area = document.getElementsByClassName("se2_inputarea").value;
-				//var area = document.getElementById("ir1");
-
-				var area = editor_object.getById["editor"]; //.exec("UPDATE_CONTENTS_FIELD", []);
-
-				//스마트에디터 --- textarea를 선택하지 못하고 있음...왜지...?!
-				if ($(area).val() == "") { // 진술서 작성 확인
-					alert('진술서를 작성해주세요.');
 					return false;
 				}
 				//약관 동의 체크박스__

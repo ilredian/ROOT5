@@ -261,12 +261,12 @@
 							<option value="070">070
 								<!--<option value="050">050-->
 								<!--<option value="168">168-->
-					</select>-<input type="text" name="cheat_phone2" value="" class="txt"
+					</select>-<input type="text" name="cheat_phone2" id="phone2" value="" class="txt"
 						maxlength="4"
 						onchange="javascript:if(1){cheat_phone.value = cheat_phone1[cheat_phone1.selectedIndex].value + cheat_phone2.value + cheat_phone3.value }"
 						style="ime-mode: disabled;" onKeyPress="InpuOnlyNumber(this)"
 						style="width:70px;" title="가운데 자리 입력" />-<input type="text"
-						name="cheat_phone3" value="" class="txt" maxlength="4"
+						name="cheat_phone3" value="" class="txt" maxlength="4" id="phone3"
 						onchange="javascript:if(1){cheat_phone.value = cheat_phone1[cheat_phone1.selectedIndex].value + cheat_phone2.value + cheat_phone3.value }"
 						style="ime-mode: disabled;" onKeyPress="InpuOnlyNumber(this)"
 						style="width:70px;" title="끝 자리 입력" />&nbsp;<input type="hidden"
@@ -342,7 +342,7 @@
 						<div class="alert_cheat_write alert_cheat_write-info">
 							<b><input type="checkbox" name="cheat_rule_c" value="1"
 								id="cheat_rule_c" valign="bottom"
-								onclick="return cheat_rule_check(cheat_rule.value)" /> <label
+								 /> <label
 								for="cheat_rule_c">피해사례 등록 약관에 동의합니다.(필수)</label></b> <input
 								type="hidden" readonly name="cheat_rule" value=""
 								valign="bottom" style="width: 0px; height: 0px;">
@@ -351,13 +351,13 @@
 						<div class="alert_cheat_write alert_cheat_write-info">
 							<b><input type="checkbox" name="agreement_1" value="1"
 								id="chk_agreement_1"
-								onclick="return value_change('agreement_1h',this.value)" /> <label
+								 /> <label
 								for="chk_agreement_1">서비스 이용약관에 동의합니다.(필수)</label></b>
 						</div>
 						<div class="alert_cheat_write alert_cheat_write-info">
 							<b><input type="checkbox" name="agreement_2" value="1"
 								id="chk_agreement_2"
-								onclick="return value_change('agreement_2h',this.value)" /> <label
+								 /> <label
 								for="chk_agreement_2">개인정보 수집 및 이용에 동의합니다.(필수)</label></b>
 						</div>
 					</td>
@@ -423,20 +423,7 @@
 					}
 					return false;
 				}
-
-				//	if(!$("#se2_iframe").val()){  // 진술서 작성 확인
-				//	if(!$(".se2_input_wysiwyg").val()){  // 진술서 작성 확인
-				// .se2_input_area husky_seditor_editing_area_container	
-
-				//var area = document.getElementById("se2_iframe").innerHTML
-				//var area = document.getElementsByClassName("se2_input_area husky_seditor_editing_area_container").innerHTML
-				//var area = document.getElementsByClassName("se2_inputarea").value;
-				var area = document.getElementById("ir1");
-				//스마트에디터 --- textarea를 선택하지 못하고 있음...왜지...?!
-				if ($(area).val() == "") { // 진술서 작성 확인
-					alert('진술서를 작성해주세요.');
-					return false;
-				}
+				
 				//약관 동의 체크박스__
 				if ($("#cheat_rule_c")[0].checked == false
 						|| $("#chk_agreement_1")[0].checked == false

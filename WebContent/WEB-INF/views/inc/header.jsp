@@ -75,7 +75,7 @@ setInterval(function(){
 
 	/* 내 정보 버튼*/
 		$('#myPage').click(function() {
-			location.replace("memberMessage.go?mno=1");
+			location.replace("memberBoard.go?mno=1");
 		});
 
 	/* 회원 가입하기*/

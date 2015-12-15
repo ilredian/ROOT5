@@ -6,32 +6,21 @@ $('.viewBtn').click(function() {
 $(function() {
 	var cno = $('#mno').attr("value");
 	if(cno == 1){
-		$('#memberMessage').attr("class", "active");
-		$('#statementText').text("쪽지");
-	}else if(cno == 2){
 		$('#memberBoard').attr("class", "active");
-		$('#statementText').text("게시물");
-	}else if(cno == 3){
-		$('#memberComment').attr("class", "active");
-		$('#statementText').text("댓글");
-	}else if(cno == 4){
-		$('#memberConnect').attr("class", "active");
-		$('#statementText').text("접속기록");
-	}else if(cno == 5){
-		$('#memberModify').attr("class", "active");
-		$('#statementText').text("정보수정");
-	}else if(cno == 6){
-		$('#memberPwdChange').attr("class", "active");
-		$('#statementText').text("비번변경");
-	}else if(cno == 7){
-		$('#memberWithdrawal').attr("class", "active");
-		$('#statementText').text("회원탈퇴");
-	}else if(cno == 8){
+	}else if(cno == 2){
 		$('#memberStatement').attr("class", "active");
-		$('#statementText').text("진술서");
-	}else{
+	}else if(cno == 3){
 		$('#memberStatement2').attr("class", "active");
-		$('#statementText').text("진술서");	
+	}else if(cno == 4){
+		$('#memberComment').attr("class", "active");
+	}else if(cno == 5){
+		$('#memberConnect').attr("class", "active");
+	}else if(cno == 6){
+		$('#memberModify').attr("class", "active");
+	}else if(cno == 7){
+		$('#memberPwdChange').attr("class", "active");
+	}else{
+		$('#memberWithdrawal').attr("class", "active");
 	}
 });
 
