@@ -24,10 +24,28 @@ public class CheaterDTO {
 	private int memberno; /* memberDTO에 있는 회원번호 */
 	private int count;//통계 수
 	
+	private String regpolice;//사건 접수된 날짜
 	private int police; //담당 형사 memberno
 	private String trace; //추적 정보
 	private String complete; //완료 정보
+	private int groupno;//사건 묶음처리
 	
+	public String getRegpolice() {
+		return regpolice;
+	}
+
+	public void setRegpolice(String regpolice) {
+		this.regpolice = regpolice;
+	}
+
+	public int getGroupno() {
+		return groupno;
+	}
+
+	public void setGroupno(int groupno) {
+		this.groupno = groupno;
+	}
+
 	public int getPolice() {
 		return police;
 	}

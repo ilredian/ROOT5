@@ -15,7 +15,7 @@ public class UploadService {
 
 		boolean isSuccess = false;
 		
-		String uploadPath = "E:\\asdf\\";
+		String uploadPath = "/asdf/";
 		
 		File dir = new File(uploadPath);
 

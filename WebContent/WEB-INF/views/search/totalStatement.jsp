@@ -2,18 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<title>Bootstrap Example</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</head>
-<body>
 	<div class="container">
 		<h3>검색된 피해 사례 목록</h3>
 		<br> <br>
@@ -42,7 +30,7 @@
 					</tr>
 				</c:forEach>
 			</table>
-			<h3><c:if test="${empty list}">에 대한 등록된 피해사례가 없습니다.</c:if></h3>
+			<c:if test="${empty tradelist}"><h3>${param.q}에 대한 등록된 피해사례가 없습니다.</h3></c:if>
 		</div>
 		
 		<br> <br>
@@ -72,7 +60,7 @@
 					</tr>
 				</c:forEach>
 			</table>
-			<h3><c:if test="${empty list}">에 대한 등록된 피해사례가 없습니다.</c:if></h3>
+			<c:if test="${empty gamelist}"><h3>${param.q}에 대한 등록된 피해사례가 없습니다.</h3></c:if>
 		</div>
 		
 		<br> <br>
@@ -102,7 +90,7 @@
 					</tr>
 				</c:forEach>
 			</table>
-			<h3><c:if test="${empty list}">에 대한 등록된 피해사례가 없습니다.</c:if></h3>
+			<c:if test="${empty mannerlist}"><h3>${param.q}에 대한 등록된 피해사례가 없습니다.</h3></c:if>
 		</div>
 		
 		<div class="container" align="right">
@@ -110,5 +98,3 @@
 				align="right">
 		</div>
 	</div>
-</body>
-</html>

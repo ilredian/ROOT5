@@ -2,6 +2,7 @@ package controllers;
 
 import java.io.File;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Controller;
@@ -17,19 +18,23 @@ import service.UploadService;
 @Controller
 public class UpDownloadController implements ApplicationContextAware {
 
+	@Autowired
 	private UploadService uploadService;
+	
     private WebApplicationContext context = null;
     
 	/* 파일 업로드 처리 */
 	@RequestMapping(value="fileUploadAjax.go", method=RequestMethod.POST)
 	public ModelAndView fileUploadAjax(MultipartHttpServletRequest mRequest) {
-		//System.out.println("dd");
+		
 		ModelAndView mav = new ModelAndView();
+		
 		if(uploadService.fileUpload(mRequest)) {
 			mav.addObject("result", "success");
 		} else {
 			mav.addObject("result", "fail");
 		}
+		
 		mav.setViewName("jsonView");
 		return mav;
 	}

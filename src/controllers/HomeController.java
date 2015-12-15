@@ -1,6 +1,7 @@
 ﻿package controllers;
 
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -24,6 +25,7 @@ import DAO.BoardLawDAO;
 import DAO.BoardNoticeDAO;
 import DAO.CheaterDAO;
 import DAO.InterestStatementDAO;
+import DAO.MemberDAO;
 import DAO.VisitDAO;
 import DTO.CheaterDTO;
 import DTO.InterestStatementDTO;
@@ -62,7 +64,7 @@ public class HomeController {
 			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, 
 			// 한페이지에 보여줄 게시글 갯수
 			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, 
-			MemberDTO memberDTO, HttpSession session, ServletResponse response, HttpServletRequest request, Model model)
+			HttpSession session, ServletResponse response, HttpServletRequest request, Model model)
 					throws Exception {
 
 		// 기본 경로 잡기
@@ -183,7 +185,7 @@ public class HomeController {
 				int score = 0;
 				if (result.get(i).getCheatername() != null) {
 					if (result.get(i).getCheatername().equals(isDTO.getCheatername())) {
-						score += 10;
+						score += 20;
 					}
 				}
 				if (result.get(i).getAccount() != null) {
@@ -193,15 +195,15 @@ public class HomeController {
 				}
 				if (result.get(i).getPhone() != null) {
 					if (result.get(i).getPhone().equals(isDTO.getPhone())) {
-						score += 30;
+						score += 20;
 					}
 				}
 				if (result.get(i).getCheaterid() != null) {
 					if (result.get(i).getCheaterid().equals(isDTO.getCheaterid())) {
-						score += 30;
+						score += 20;
 					}
 				}
-				if (score >= 30) {
+				if (score >= 40) {
 					result.get(i).setScore(score);
 					list.add(result.get(i));
 				}
@@ -241,6 +243,43 @@ public class HomeController {
 			int boardCountN = boardNoticeDAO.getCount(field, query);
 			System.out.println("boardCountN");
 			model.addAttribute("boardCountN", boardCountN);
+			
+			//// 관심등록정보 있는지 확인
+			int regResult = isDAO.getResist(memberno);
+			//있으면 타임라인 값 가져오기
+			if(regResult != 0){
+				
+				InterestStatementDTO isResultDTO = isDAO.getInterestStatement(memberno);
+				CheaterDTO cheaterResultDTO = cheaterDAO.getCheater(isResultDTO.getStateno());
+				
+				if(cheaterResultDTO.getPolice() != 0){
+				
+					//검거완료
+					model.addAttribute("complete", cheaterResultDTO.getComplete());
+					
+					//추적중
+					model.addAttribute("trace", cheaterResultDTO.getTrace());
+					
+					//의뢰접수
+					//접수 정보 가져오기 전 경찰 정보 불러오기
+					MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
+					MemberDTO memberDTO = memberDAO.getMemberStat(cheaterResultDTO.getPolice());
+					String comment = "'"+cheaterResultDTO.getRegpolice()+"' " + memberDTO.getCompany() + " 담당 "+memberDTO.getName()+"형사 ("+memberDTO.getPhone()+")";
+					model.addAttribute("policeCompany", memberDTO.getCompany());
+					model.addAttribute("policeName", comment);
+				}
+				
+				//접수대기날짜계산
+				SimpleDateFormat sf = new SimpleDateFormat("yyyyMMdd");
+				String timeLineEnd = sf.format(date);
+				String timeLineStart = sf.format(cheaterResultDTO.getRegdate());
+				long timeLinedate = (sf.parse(timeLineEnd).getTime()-sf.parse(timeLineStart).getTime())/(24*60*60*1000);
+				model.addAttribute("timeLinedate", timeLinedate);
+				
+				//진술서 등록 날짜
+				model.addAttribute("regdate", cheaterResultDTO.getRegdate());
+			}
+			
 			go = "home.home.home";
 			return go;
 		}

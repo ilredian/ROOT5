@@ -14,6 +14,9 @@ public interface CheaterDAO {
 	//진술서 등록 정보 전체 중 특정하여 불러오기
 	public List<CheaterDTO> getAllCheater(int start, String field, String query, int pagerSize) throws Exception;
 	
+	//진술서 등록 정보 중 회원정보로 불러오기
+	public List<CheaterDTO> getCheaterMemberno(int memberno) throws Exception;
+	
 	//진술서 등록 정보 카테고리별 특정하여 불러오기
 	public List<CheaterDTO> getSearchCheater(int start, String field, String query, int cheatno, int pagerSize) throws Exception;
 	
@@ -63,4 +66,16 @@ public interface CheaterDAO {
 	
 	//날짜별-한달일 경우
 	public List<chartDTO> getChartMonth(String start, String end) throws Exception;
+	
+	//경찰 회원 접수 시 해당 정보와 비슷한 모든 stateno 불러오기
+	public List<CheaterDTO> getStatenoCompleteMatch(CheaterDTO cheaterDTO) throws Exception;
+	
+	//경찰 회원 넘버 저장
+	public int policeUpdateMember(int memberno, int staticStateno, int stateno) throws Exception;
+	
+	//추적 사항 저장
+	public int policeUpdateTrace(int groupno, String trace) throws Exception;
+	
+	//검거 완료 사항 저장
+	public int policeUpdateComplete(int groupno, String complete) throws Exception;
 }
