@@ -1,8 +1,28 @@
 ﻿<%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<style>
+h1,h3 {
+    font-family: "배달의민족 한나는 열한살"
+/* 	 "배달의민족 주아", "배달의민족 도현",
+     "배달의민족 한나는 열한살" ,
+     "나눔고딕", "다음_Regular" , 
+     "다음_SemiBold"   */;
+     
+     /* 텍스트에 그림자 */
+     text-shadow: 4px 4px 2px #F4F4F4;     
+     
+}
+
+
+</style>
+</head>
+
+<body>
+
 <div class="jumbotron" align="center" style="hight:100%; "> <!-- /* background-color: white; */  /* margin-bottom: 20px; */ -->
          <h1 align="center" style="color:blac \\k/*  #D83939 */;font-size: 80px; font-style: inherit;">사기피해사례 검색</h1><br><br>
          <form id="search" class="navbar-form navbar-center"
@@ -31,3 +51,7 @@
 
 		 </form>
 </div>
+
+
+</body>
+</html>
