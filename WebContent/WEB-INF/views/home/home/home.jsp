@@ -342,8 +342,6 @@
 					<div class="panel-heading">
 						<i class="fa fa-comments fa-fw"></i> 테이블 표
 						<div class="btn-group pull-right">
-
-							<a href="/excel.go" target="_blank">엑셀다운</a>
 						</div>
 					</div>
 					<!--    /.panel-heading -->
@@ -414,84 +412,76 @@
 							</c:if></strong>
 					<div class="panel-body">
 						<ul class="timeline">
+						<c:if test="${not empty complete}">
 							<li><br>
 								<div class="timeline-badge">
 									<i class="fa fa-check"></i>
 								</div>
 								<div class="timeline-panel">
 									<div class="timeline-heading">
-										<h4 class="timeline-title">이인영 사기꾼 검거 완료</h4>
-										<p>
-											<small class="text-muted"><i class="fa fa-clock-o"></i>
-												11 hours ago via Twitter</small>
-										</p>
+										<h4 class="timeline-title">검거 완료</h4>
 									</div>
 									<div class="timeline-body">
-										<p>12월 11일 오전 10시 경, 강원도 00PC방 에서 피의자 이인영 씨(24)를 검거했습니다.
-											-- 사이버 경찰서 이광호 형사 (02-xxx-xxx)</p>
+										<p>${complete} - ${policeName} -</p>
 									</div>
 								</div></li>
-							<li class="timeline-inverted">
-								<div class="timeline-badge warning">
-									<i class="fa fa-credit-card"></i>
-								</div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h4 class="timeline-title">IP 추적중</h4>
+						</c:if>			
+							<c:if test="${not empty trace}">
+								<li class="timeline-inverted">
+									<div class="timeline-badge warning">
+										<i class="fa fa-credit-card"></i>
 									</div>
-									<div class="timeline-body">
-										<p>강원도 철원 부근에서 용의자 추정 IP 추적</p>
+									<div class="timeline-panel">
+										<div class="timeline-heading">
+											<h4 class="timeline-title">추적중</h4>
+										</div>
+										<div class="timeline-body">
+											<p>${trace}</p>
+										</div>
 									</div>
-								</div>
-							</li>
-							<li>
-								<div class="timeline-badge danger">
-									<i class="fa fa-bomb"></i>
-								</div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h4 class="timeline-title">사이버 경찰서에 의뢰접수</h4>
+								</li>
+							</c:if>
+							<c:if test="${not empty policeName}">
+								<li>
+									<div class="timeline-badge danger">
+										<i class="fa fa-bomb"></i>
 									</div>
-									<div class="timeline-body">
-										<p>'2015-12-05' 사이버 경찰서 담당 이광호 형사 (02-xxx-xxx)</p>
+									<div class="timeline-panel">
+										<div class="timeline-heading">
+											<h4 class="timeline-title">${policeCompany}에 의뢰접수</h4>
+										</div>
+										<div class="timeline-body">
+											<p>${policeName}</p>
+										</div>
 									</div>
-								</div>
-							</li>
-							<li class="timeline-inverted">
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h4 class="timeline-title">첫 접수일로부터 발생경과 '4'일 지났습니다.</h4>
-
+								</li>
+							</c:if>
+							<c:if test="${not empty timeLinedate}">
+								<li class="timeline-inverted">
+									<div class="timeline-panel">
+										<div class="timeline-heading">
+											<h4 class="timeline-title">등록일로부터 '${timeLinedate}'일 지났습니다.</h4>
+	
+										</div>
+										<div class="timeline-body"></div>
 									</div>
-									<div class="timeline-body"></div>
-								</div>
-							</li>
-							<li>
-								<div class="timeline-badge info">
-									<i class="fa fa-save"></i>
-								</div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h4 class="timeline-title">용의자 탐색 중</h4>
+								</li>
+							</c:if>
+							<c:if test="${not empty regdate}">
+								<li>
+									<div class="timeline-badge info">
+										<i class="fa fa-save"></i>
 									</div>
-									<div class="timeline-body">
-										<p>작성하신 용의자의 정보 중 '계좌번호'가 일치하는 게시글을 '2'건 발견했습니다.</p>
-										<hr>
-										<a href="#">검색</a>
-										<div class="btn groop"></div>
+									<div class="timeline-panel">
+										<div class="timeline-heading">
+											<h4 class="timeline-title">피해 사례 진술서 등록</h4>
+										</div>
+										<div class="timeline-body">
+											<p>'${regdate}' 피해 사례 진술서를 등록하였습니다.</p>
+										</div>
 									</div>
-								</div>
-							</li>
-							<li>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h4 class="timeline-title">진술서 작성 완료</h4>
-									</div>
-									<div class="timeline-body">
-										<p>직거래 피해부분에 '2015-11-30' 접수를 완료하셨습니다.</p>
-									</div>
-								</div>
-							</li>
+								</li>
+							</c:if>
 						</ul>
 					</div>
 					<!-- /.panel-body -->

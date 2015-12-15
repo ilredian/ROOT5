@@ -119,12 +119,26 @@ public class RegistrationController {
 		// DB에 저장
 		int insertResult = cheaterDAO.insert(cheaterDTO);
 		
-		// 로그 남기기
-		System.out.println("관심 지정 진술서 비교");
-		
-		// DB 선언
+		// DAO 선언
 		InterestStatementDAO isDAO = sqlSession.getMapper(InterestStatementDAO.class);
 		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
+		
+		// 로그 남기기
+		System.out.println("등록한 진술서 바로 관심 진술서로 등록");
+		
+		// 관심 지정에 등록한 진술서가 있는지 확인
+		int interestResult = isDAO.getResist(memberno);
+		
+		if(interestResult == 0){//없으면 관심목록에 등록
+			List<CheaterDTO> cheaterDTOlist = cheaterDAO.getCheaterMemberno(memberno);
+			int stateno = cheaterDTOlist.get(0).getStateno();
+			cheaterDTO.setStateno(stateno);
+			cheaterDTO.setMemberno(memberno);
+			isDAO.insertInterest(cheaterDTO);
+		}
+		
+		// 로그 남기기
+		System.out.println("관심 지정 진술서 비교");
 
 		// 비교 로직/cheatername/account/phone/cheaterid
 		InterestStatementDTO isDTO = new InterestStatementDTO();

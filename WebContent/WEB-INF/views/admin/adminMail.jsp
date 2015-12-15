@@ -5,8 +5,8 @@
 	$(document).ready(function() {
 		$("#upload").bind("click", function() {
 			$("form").ajaxSubmit({
-				url:"fileUploadAjax.go",
 //				dataType : "json",
+				url : "fileUploadAjax.go",
 				success : function(data) {
 					//alert(data.result);
 					$("#fileupload").html("<h2>"+data.result+"</h2>");
@@ -20,35 +20,36 @@
 	});
 </script>
 <form action="" method="post" enctype="multipart/form-data">
-<div style="float: left;">
-	<h3>메일 보내기</h3>
-</div>
-<div class="btn-group" style="float: right;">
-	<input type="submit" class="btn btn-primary" value="보내기">
-</div>
-	<table class="table">
-		<tr>
-			<th class="active">받는사람</th>
-			<td><input type="text" name="to"
-				placeholder="이메일을 입력해 주세요"><br></td>
-		</tr>
-		<tr>
-			<th class="active">제목</th>
-			<td><input type="text" name="title"><br></td>
-		</tr>
-		<tr>
-			<th class="active">파일첨부</th>
-			<td>
-			<input type="file" name="file1" /><input id="upload" type="button" name="filename" value="파일첨부">
-			<div id="fileupload"></div>
-			<br>
-			</td>
-		</tr>
-		<tr>
-			<th class="active">내용</th>
-			<td><textarea rows="10" cols="10" name="content"
-					style="margin: 0px; width: 500px; height: 300px;"></textarea></td>
-		</tr>
-
-	</table>
+	<div style="float: left;">
+		<h3>메일 보내기</h3>
+	</div>
+	<div class="btn-group" style="float: right;">
+		<input type="submit" class="btn btn-primary" value="보내기">
+	</div>
+		<table class="table">
+			<tr>
+				<th class="active">받는사람</th>
+				<td><input type="text" name="to"
+					placeholder="이메일을 입력해 주세요"><br></td>
+			</tr>
+			<tr>
+				<th class="active">제목</th>
+				<td><input type="text" name="title"><br></td>
+			</tr>
+			
+			<tr>
+				<th class="active">파일첨부</th>
+				<td>
+					<input type="file" name="file1" /><input id="upload" class="btn btn-default btn-sm" type="button" name="filename" value="첨부하기">
+					<div id="fileupload"></div>
+					<br>
+				</td>
+			</tr>
+			<tr>
+				<th class="active">내용</th>
+				<td><textarea rows="10" cols="10" name="content"
+						style="margin: 0px; width: 500px; height: 300px;"></textarea></td>
+			</tr>
+	
+		</table>
 </form>

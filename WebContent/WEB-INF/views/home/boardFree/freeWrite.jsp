@@ -2,14 +2,31 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<form id="frm" method="post" action="">
+<form class="form-horizontal" name="writeForm" id="frm" action=""
+	method="post" onsubmit="return CheckForm();">
 	<div class="container freeMain">
+<script type="text/javascript">
+function CheckForm() {
+	
+	//var area = document.getElementsByClassName("se2_inputarea").value;	
+//var area = document.getElementById("se2_iframe").innerHTML
+	
+	if (!$("#title").val()) {
+		alert("제목을 입력해주세요.");
+		return false;
+	}
+
+ 	if ($()=="") {
+		alert("본문을 입력해주세요.");
+		return false;
+	} 
+}
+</script>
 		<h2>자유게시판</h2>
 		<table class="table">
 			<tr>
 				<th class="active">제목</th>
-				<td><input type="text" name="title" style="WIDTH: 100%;"></td>
+				<td><input type="text" id="title" name="title" style="WIDTH: 100%;"></td>
 			</tr>
 			<tr>
 				<th class="active">작성자</th>

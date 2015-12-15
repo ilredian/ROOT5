@@ -2,7 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<form id="frm1" method="post" action="">
+<form class="form-horizontal" name="writeForm" id="frm1" action=""
+	method="post" onsubmit="return CheckForm();">
 	<div class="container lawMain">
 <script type="text/javascript">
 $(function() {
@@ -11,14 +12,50 @@ $(function() {
 	dbTxt = dbTxt.replace(/<br>/g, '\n');
 	});
 	
-	
 });
+
+
+function CheckForm() {
+	//피해 발생 사이트 정보
+	if (!$("#title").val()) {
+		alert("제목을 입력해주세요.");
+		return false;
+	}
+	if (!$("#career").val()) {
+		alert("경력을 입력해주세요.");
+		return false;
+	}
+	if (!$("#company").val()) {
+		alert("소속을 입력해주세요.");
+		return false;
+	}
+	if (!$("#place").val()) {
+		alert("지역을 입력해주세요.");
+		return false;
+	}
+	if (!$("#message").val()) {
+		alert("한줄소개를 입력해주세요.");
+		return false;
+	}
+	if (!$("#phone").val() || !$("#tel").val() ) {
+		alert("전화번호를 입력해주세요.");
+		return false;
+	}
+	if (!$("#edu").val()) {
+		alert("학력사항을 입력해주세요.");
+		return false;
+	}
+	if (!$("#fee").val()) {
+		alert("요금란을 입력해주세요.");
+		return false;
+	}
+}
 </script>
 		<h2>변호사게시판</h2>
 		<table class="table">
 			<tr>
 				<th class="active">제목</th>
-				<td><input type="text" name="title" style="WIDTH: 100%;"></td>
+				<td><input type="text" id="title"  name="title" style="WIDTH: 100%;"></td>
 			</tr>
 			<tr>
 				<th class="active">작성자</th>
