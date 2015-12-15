@@ -33,7 +33,8 @@ setInterval(function(){
 					
 					 setInterval(function(){
 					var blink = document.getElementById('new');
-					blink.style.visibility = blink.style.visibility == ''?'hidden':''
+					blink.style.visibility = blink.style.visibility == ''?'hidden':'',
+					blink.style.color = "Red"
 					 }, 500);
 				}else{}
 			}
@@ -140,7 +141,7 @@ setInterval(function(){
 						<!-- 세션이 있다면_ -->
 						<button style="margin-top: 10px;" type="button"
 							class="btn btn-default btn-sm" id="messageWindow">
-							<span class="glyphicon glyphicon-envelope" id="new" style="color: red;"></span> 쪽지
+							<span class="glyphicon glyphicon-envelope" id="new"></span> 쪽지
 						</button>
 						<button type="button" class="btn btn-default" id="myBtn2"
 							style="margin-right: 20px; margin-top: 10px">
