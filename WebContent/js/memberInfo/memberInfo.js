@@ -31,7 +31,7 @@ $(function() {
 		$('#statementText').text("진술서");
 	}else{
 		$('#memberStatement2').attr("class", "active");
-		$('#statementText').text("진술서");	
+		$('#statementText').text("진술서");
 	}
 });
 
