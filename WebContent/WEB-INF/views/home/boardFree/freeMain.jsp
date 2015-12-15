@@ -52,7 +52,7 @@
 					<td class="subject"><c:choose>
 							<c:when test="${param.q != null}">
 								<a href="freeView.go?pg=${param.pg}&bno=${list.boardno}&f=${param.f}&q=${param.q}"
-									data-toggle="tooltip" title="${list.content}"
+									data-toggle="tooltip" title="${list.title}"
 									data-placement="right"> <c:if test="${list.depth > 0}">
 										<c:forEach begin="0" end="${list.depth}">
 									&nbsp;&nbsp;
@@ -63,7 +63,7 @@
 							</c:when>
 							<c:otherwise>
 								<a href="freeView.go?pg=${param.pg}&bno=${list.boardno}"
-									data-toggle="tooltip" title="${list.content}"
+									data-toggle="tooltip" title="${list.title}"
 									data-placement="right"> <c:if test="${list.depth > 0}">
 										<c:forEach begin="0" end="${list.depth}">
 									&nbsp;&nbsp;
