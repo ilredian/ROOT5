@@ -63,7 +63,7 @@ public class BoardController {//공통 기능(리플)
 			break;
 			
 			case 3 :
-				go="redirect:photoView.go?pg="+page+"&bno="+boardno;
+				go="redirect:PhotoView.go?pg="+page+"&bno="+boardno;
 			break;
 			
 			case 4 :
@@ -110,7 +110,7 @@ public class BoardController {//공통 기능(리플)
 			break;
 					
 			case 3 :
-				go="redirect:photoView.go?pg="+page+"&bno="+boardno;
+				go="redirect:PhotoView.go?pg="+page+"&bno="+boardno;
 			break;
 					
 			case 4 :
@@ -153,7 +153,7 @@ public class BoardController {//공통 기능(리플)
 			break;
 					
 			case 3 :
-				go="redirect:photoView.go?pg="+page+"&bno="+boardno;
+				go="redirect:PhotoView.go?pg="+page+"&bno="+boardno;
 			break;
 					
 			case 4 :

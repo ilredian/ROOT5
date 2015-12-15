@@ -57,7 +57,7 @@
 	</update>
 	
 	<!-- 사진 게시판 등록 -->
-	<insert id="BoardPhotoinsert" parameterType="DTO.BoardPhotoDTO">
+	<insert id="insert" parameterType="DTO.BoardPhotoDTO">
 		INSERT INTO boardphoto(title, name, content, regdate, memberno, categoryno) 
 		VALUES(#{title}, #{name}, #{content}, SYSDATE(), #{memberno}, 3)
 	</insert>

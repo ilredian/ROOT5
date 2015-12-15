@@ -29,7 +29,7 @@
 			<!-- Content 영역 -->
 			<tiles:insertAttribute name="content" />
 			<c:if test="${param.bno != null}">
-				<jsp:include page="/WEB-INF/views/home/boardNotice/noticeMain.jsp"></jsp:include>
+				<jsp:include page="/WEB-INF/views/home/boardPhoto/photoMain.jsp"></jsp:include>
 			</c:if>
 			<!-- Aside(Navi) 영역 -->
 			<tiles:insertAttribute name="aside" />

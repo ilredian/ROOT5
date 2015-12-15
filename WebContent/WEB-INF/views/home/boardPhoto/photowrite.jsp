@@ -21,8 +21,7 @@
          </tr>
          <tr>
             <td colspan="2">
-               <textarea id="editor" style="HEIGHT: 300px; WIDTH: 100%" rows="10" cols="30" name="content">
-               </textarea>
+               <textarea id="editor" style="HEIGHT: 300px; WIDTH: 100%" rows="10" cols="30" name="content"></textarea>
             </td>
          </tr>
          <tr>

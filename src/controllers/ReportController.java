@@ -48,17 +48,30 @@ public class ReportController {
 		reportBoardDTO.setMemberno(mno);
 		ReportBoardDAO reportBoardDAO = sqlSession.getMapper(ReportBoardDAO.class);
 		
-		System.out.println(bno);
-		System.out.println(mno);
 		int result = reportBoardDAO.isReportBoard(bno, mno);
-		System.out.println(bno);
-		System.out.println(mno);
-		System.out.println(result);
+		
+		//이동할 경로 설정
+		String go ="";
+		switch(cno){
+		case 1:
+			go = "freeMain.go";
+			break;
+		case 2:
+			go = "noticeMain.go";
+			break;
+		case 3:
+			go = "PhotoMain.go";
+			break;
+		case 4:
+			go = "lawMain.go";
+			break;
+		}
+		
 		if(result>0){
-			out.print("<script type='text/javascript'>alert('이미등록됬습니다.'); location.replace('freeMain.go?pg=1');</script>");
+			out.print("<script type='text/javascript'>alert('이미등록됬습니다.'); location.replace('"+go+"?pg=1');</script>");
 		}else{
 			int row = reportBoardDAO.insertReportBoard(reportBoardDTO);
-			out.print("<script type='text/javascript'>alert('등록됬습니다.'); location.replace('freeMain.go?pg=1');</script>");
+			out.print("<script type='text/javascript'>alert('등록됬습니다.'); location.replace('"+go+"?pg=1');</script>");
 		}
 		out.close();
 	}
@@ -79,21 +92,30 @@ public class ReportController {
 		reportreplyDTO.setBoardno(bno);
 		reportreplyDTO.setReplyno(rno);
 		reportreplyDTO.setMemberno(mno);
-		System.out.println(cno);
-		System.out.println(bno);
-		System.out.println(rno);
-		System.out.println(mno);
 		int result = reportreplyDAO.getInsertReply(reportreplyDTO);
-		System.out.println(cno);
-		System.out.println(bno);
-		System.out.println(rno);
-		System.out.println(mno);
-		System.out.println(result);
+		
+		//이동할 경로 설정
+		String go ="";
+		switch(cno){
+		case 1:
+			go = "freeMain.go";
+			break;
+		case 2:
+			go = "noticeMain.go";
+			break;
+		case 3:
+			go = "PhotoMain.go";
+			break;
+		case 4:
+			go = "lawMain.go";
+			break;
+		}
+		
 		if(result>0){
-			out.print("<script type='text/javascript'>alert('이미등록됬습니다.'); location.replace('freeMain.go?pg=1');</script>");
+			out.print("<script type='text/javascript'>alert('이미 등록됬습니다.'); location.replace('"+go+"?pg=1');</script>");
 		}else{
-			int row = reportreplyDAO.insertReportReply(reportreplyDTO);
-			out.print("<script type='text/javascript'>alert('등록됬습니다.'); location.replace('freeMain.go?pg=1');</script>");
+			reportreplyDAO.insertReportReply(reportreplyDTO);
+			out.print("<script type='text/javascript'>alert('등록됬습니다.'); location.replace('"+go+"?pg=1');</script>");
 		}
 
 		out.close();;

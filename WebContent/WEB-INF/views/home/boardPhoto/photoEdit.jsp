@@ -3,26 +3,26 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <form id="frm" method="post" action="">
-	<input type="hidden" name="boardno" value="${boardFreeDTO.boardno}" >
+	<input type="hidden" name="boardno" value="${boardPhotoDTO.boardno}" >
 	<div class="container freeMain">
 		<h2>사진 게시판 수정</h2>
 		<table class="table">
 			<tr>
 				<th class="active">제목</th>
-				<td><input type="text" name="title" style="WIDTH: 100%;" value="${boardFreeDTO.title}"></td>
+				<td><input type="text" name="title" style="WIDTH: 100%;" value="${boardPhotoDTO.title}"></td>
 			</tr>
 			<tr>
 				<th class="active">작성자</th>
 				<td>
-					<c:out value="${boardFreeDTO.name}"/>
-					<input type="hidden" name="name" value="${boardFreeDTO.name}">
-					<input type="hidden" name="memberno" value="${boardFreeDTO.memberno}">
+					<c:out value="${boardPhotoDTO.name}"/>
+					<input type="hidden" name="name" value="${boardPhotoDTO.name}">
+					<input type="hidden" name="memberno" value="${boardPhotoDTO.memberno}">
 				</td>
 			</tr>
 			<tr>
 				<td colspan="2">
 					<textarea id="editor" style="HEIGHT: 300px; WIDTH: 100%" rows="10" cols="30" name="content">
-					${boardFreeDTO.content}
+					${boardPhotoDTO.content}
 					</textarea>
 				</td>
 			</tr>
@@ -30,8 +30,8 @@
 				<th class="active">고운 언어가 좋아요!</th>
 				<td>
 				"말이 입힌 상처는 칼이 입힌 상처보다 깊다." - 모로코 속담<br>
-				<c:out value="${boardFreeDTO.name}"/>님의 글은 <c:out value="${boardFreeDTO.name}"/>님의 품격을 보여주는 <c:out value="${boardFreeDTO.name}"/>님의 얼굴입니다.
-				글에 <c:out value="${boardFreeDTO.name}"/>님의 성숙함을 담아주세요.
+				<c:out value="${boardPhotoDTO.name}"/>님의 글은 <c:out value="${boardPhotoDTO.name}"/>님의 품격을 보여주는 <c:out value="${boardPhotoDTO.name}"/>님의 얼굴입니다.
+				글에 <c:out value="${boardPhotoDTO.name}"/>님의 성숙함을 담아주세요.
 				</td>
 			</tr>
 			<tr>
