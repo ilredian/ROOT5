@@ -147,12 +147,18 @@ setInterval(function(){
 							style="margin-right: 20px; margin-top: 10px">
 							<span class="glyphicon glyphicon-log-in"></span>
 							<c:if test="${memberInfo.typeno==1}">
-								<c:out value="관리자" />
+								<c:out value="관리자_" />
 							</c:if>
 							<c:if test="${memberInfo.typeno==0}">
-								<c:out value="사용자" />
+								<c:out value="사용자_" />
 							</c:if>
-							${memberInfo.name}님 로그아웃
+								<c:if test="${memberInfo.typeno==2}">
+								<c:out value="경찰_" />
+							</c:if>
+							<c:if test="${memberInfo.typeno==3}">
+								<c:out value="변호사_" />
+							</c:if>
+							 ${memberInfo.name}님 로그아웃
 						</button>
 						<button type="button" class="btn btn-default" id="myPage"
 							style="margin-right: 10px; margin-top: 10px">
