@@ -68,8 +68,9 @@
 	<!-- //자기정보 수정하기 -->
 	<update id="update" parameterType="DTO.MemberDTO">
 		UPDATE memberdb
-		SET message=#{message}
+		SET message=#{message} and photo=#{photo}
 		WHERE memberno=#{memberno}
+		
 	</update>
 
 	

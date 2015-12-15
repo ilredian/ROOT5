@@ -30,7 +30,6 @@
 					<th>용의자 계좌번호</th>
 					<th>용의자 연락처</th>
 					<th>등록일</th>
-					<th>내용</th>
 				</tr>
 				<c:forEach items="${tradelist}" var="list">
 					<tr>
@@ -40,7 +39,6 @@
 						<td>${list.account}</td>
 						<td>${list.phone}</td>
 						<td>${list.regdate}</td>
-						<td>${list.content}</td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -62,7 +60,6 @@
 					<th>용의자 계좌번호</th>
 					<th>용의자 연락처</th>
 					<th>등록일</th>
-					<th>내용</th>
 				</tr>
 			<c:forEach items="${gamelist}" var="list">
 					<tr>
@@ -72,7 +69,6 @@
 						<td>${list.account}</td>
 						<td>${list.phone}</td>
 						<td>${list.regdate}</td>
-						<td>${list.content}</td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -94,7 +90,6 @@
 					<th>용의자 계좌번호</th>
 					<th>용의자 연락처</th>
 					<th>등록일</th>
-					<th>내용</th>
 				</tr>
 			<c:forEach items="${mannerlist}" var="list">
 					<tr>
@@ -104,7 +99,6 @@
 						<td>${list.account}</td>
 						<td>${list.phone}</td>
 						<td>${list.regdate}</td>
-						<td>${list.content}</td>
 					</tr>
 				</c:forEach>
 			</table>
