@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
@@ -26,6 +27,7 @@ import DAO.CheatBankDAO;
 import DAO.CheatDomainDAO;
 import DAO.CheatItemsDAO;
 import DAO.CheaterDAO;
+import DAO.InterestStatementDAO;
 import DAO.MemberDAO;
 import DAO.MemberInfoDAO;
 import DAO.QueryDAO;
@@ -43,6 +45,7 @@ import jdk.nashorn.internal.ir.RuntimeNode.Request;
 public class MemberInfoController {
 	
 	PrintWriter out;
+	
 	@Autowired
 	private SqlSession sqlSession;
 
@@ -315,29 +318,111 @@ public class MemberInfoController {
 		
 		
 	}
-	
-	
-	
+
+	// 관심등록 진술서와 자신이 쓴 피해 사례 진술서 내역으로 이동
 	@RequestMapping(value="memberStatement.go", method=RequestMethod.GET)
 	public String memberStatement(
 			@RequestParam(value = "f", required = false, defaultValue = "cheatername") String field,
 			@RequestParam(value = "q", required = false, defaultValue = "%%") String query,
 			MemberDTO memberDTO,
-			InterestStatementDTO interestStatementDTO,
 			HttpSession session,
 			Model model) throws Exception{
-			System.out.println("진술서 게시판 이동");
-			//DAO 변수 선언
-			MemberInfoDAO memberInfoDAO = sqlSession.getMapper(MemberInfoDAO.class);
-			///////////////////////////////
+		
+		// 로그 남기기
+		System.out.println("진술서 게시판 이동");
+		
+		//DAO 변수 선언
+		MemberInfoDAO memberInfoDAO = sqlSession.getMapper(MemberInfoDAO.class);
+		InterestStatementDAO interestStatementDAO = sqlSession.getMapper(InterestStatementDAO.class);
 			
-			//로그인한 세션에 있는 회원번호 가져오기_
-			int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
-			//내가 쓴 진술서 목록들
-			List<InterestStatementDTO> listState = memberInfoDAO.getStatement(memberno);
-			System.out.println("진술서 내용담기");
-			model.addAttribute("list", listState);
+		//로그인한 세션에 있는 회원번호 가져오기
+		int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
+		
+			
+		//내가 쓴 진술서 목록들 가져오기
+		List<InterestStatementDTO> listState = memberInfoDAO.getStatement(memberno);
+		//기록 추적 진술서 가져오기
+		InterestStatementDTO interestStatementDTO = interestStatementDAO.getInterestStatement(memberno);
+		
+		//db값 view에 보내주기
+		model.addAttribute("isDTO", interestStatementDTO);
+		model.addAttribute("list", listState);
 			
 		return "memberInfo.memberStatement";
+	}
+	
+	// 관심 진술서 등록
+	@RequestMapping(value="regInterestStatement.go", method=RequestMethod.GET)
+	public void regInterestStatement(
+			@RequestParam("stateno") int stateno,
+			HttpSession session,
+			HttpServletResponse response
+			) throws Exception{
+		
+		// 로그 남기기
+		System.out.println("관심 진술서 등록");
+		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
+		
+		//DAO 변수 선언
+		InterestStatementDAO interestStatementDAO = sqlSession.getMapper(InterestStatementDAO.class);
+		CheaterDAO cheaterDAO = sqlSession.getMapper(CheaterDAO.class);
+			
+		//로그인한 세션에 있는 회원번호 가져오기
+		int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
+		
+		//해당 진술서 정보 가져오기
+		CheaterDTO cheaterDTO = cheaterDAO.getCheater(stateno);
+		
+		//등록 전 이미 등록했는지 확인 - 회원당 하나만 등록 가능
+		int isReg = interestStatementDAO.getResist(memberno);
+		
+		if(isReg == 0){
+			
+			//기록 추적 진술서 등록하기
+			int result = interestStatementDAO.insertInterest(cheaterDTO);
+			
+			if(result == 1){
+				out.print("<script>alert('정상적으로 등록되었습니다.');location.replace('memberStatement.go')</script>");
+			}else{
+				out.print("<script>alert('등록에 실패하였습니다.');location.replace('memberStatement.go')</script>");
+			}
+		}else{
+			out.print("<script>alert('이미 관심 등록된 진술서가 있습니다.');location.replace('memberStatement.go')</script>");
+		}
+		out.close();
+	}
+	
+	// 관심 진술서 등록
+	@RequestMapping(value="deleteInterestStatement.go", method=RequestMethod.GET)
+	public void deleteInterestStatement(
+			HttpSession session,
+			HttpServletResponse response
+			) throws Exception{
+		
+		// 로그 남기기
+		System.out.println("관심 진술서 삭제");
+		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
+		
+		//DAO 변수 선언
+		InterestStatementDAO interestStatementDAO = sqlSession.getMapper(InterestStatementDAO.class);
+			
+		//로그인한 세션에 있는 회원번호 가져오기
+		int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
+		
+		//기록 추적 진술서 등록하기
+		int result = interestStatementDAO.deleteInterest(memberno);
+		
+		if(result == 1){
+			out.print("<script>alert('정상적으로 삭제되었습니다.');location.replace('memberStatement.go')</script>");
+		}else{
+			out.print("<script>alert('삭제에 실패하였습니다.');location.replace('memberStatement.go')</script>");
+		}
+		out.close();
 	}
 }

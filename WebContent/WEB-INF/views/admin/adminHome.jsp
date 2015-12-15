@@ -24,7 +24,7 @@
 					<td>${list.boardno}</td>
 					<td>${list.name}</td>
 					<td onMouseMove="setPreviewBox(event);"
-						onMouseOver="showPreview('${list.content}'); return true;"
+						onMouseOver="showPreview('${list.title}'); return true;"
 						onMouseOut="hidePreview(); return true;">${list.title}</td>
 					<td>${list.regdate}</td>
 					<td>${list.countno}</td>

@@ -99,8 +99,7 @@
 							</div>
 						</div>
 					</div>
-					<a href="lawMain.go?pg=1">
-						<!-- 진술서 게시판으로  -->
+					<a href="lawMain.go?pg=1"> <!-- 진술서 게시판으로  -->
 						<div class="panel-footer">
 							<span class="pull-left">View Details</span> <span
 								class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -147,30 +146,30 @@
 					<!-- /.panel-heading -->
 					<div class="panel-body">
 						<form id="search" class="navbar-form navbar-center"
-            action="totalSearch.go">
-				<table>
-					<tr>
-						<td><select name="f" class="input-lg">
-								<option value="cheatername">명의자 성명</option>
-								<option value="account">계좌번호</option>
-								<option value="feature">용의자 특징</option>
-								<option value="cheaterid">용의자 아이디</option>
-						</select></td>
-						<td>
-							<div class="ui-widget">
-								<label for="tags"></label> <input type="text" name="q" id="tags"
-									class="form-control search-query input-lg" placeholder="검색하세요"
-									align="top" />
-							</div>
-						</td>
-						<td><span class="input-group-btn"> <input value="검색"
-								class="btn btn-default btn-lg" type="submit"> <i
-								class="fa fa-search fa-lg" data-type="last"></i>
-						</span></td>
-					</tr>
-				</table>
+							action="totalSearch.go">
+							<table>
+								<tr>
+									<td><select name="f" class="input-lg">
+											<option value="cheatername">명의자 성명</option>
+											<option value="account">계좌번호</option>
+											<option value="feature">용의자 특징</option>
+											<option value="cheaterid">용의자 아이디</option>
+									</select></td>
+									<td>
+										<div class="ui-widget">
+											<label for="tags"></label> <input type="text" name="q"
+												id="tags" class="form-control search-query input-lg"
+												placeholder="검색하세요" align="top" />
+										</div>
+									</td>
+									<td><span class="input-group-btn"> <input
+											value="검색" class="btn btn-default btn-lg" type="submit">
+											<i class="fa fa-search fa-lg" data-type="last"></i>
+									</span></td>
+								</tr>
+							</table>
 
-		 </form>
+						</form>
 					</div>
 					<!-- /.panel-body -->
 				</div>
@@ -213,48 +212,53 @@
 						<div class="list-group">
 							<a href="#" id="messageWindow1" class="list-group-item"> <i
 								class="fa fa-comment fa-fw"></i> 내 쪽지함
-							</a> <a href="http://cyberbureau.police.go.kr/prevention/prevention2.jsp?mid=020302" class="list-group-item"> <i
-								class="fa fa-twitter fa-fw"></i> 사기를 막는 예방법
+							</a> <a
+								href="http://cyberbureau.police.go.kr/prevention/prevention2.jsp?mid=020302"
+								class="list-group-item"> <i class="fa fa-twitter fa-fw"></i>
+								사기를 막는 예방법
 							</a> <a href="question.go" class="list-group-item"> <i
 								class="fa fa-envelope fa-fw"></i> 관리자에게 메일 보내기
 							</a>
 						</div>
 						<!-- /.list-group -->
-				<button class="btn btn-default btn-block"
-							data-toggle="collapse" data-target="#demo">
-							View All Alert	
-							<c:if test="${not empty notification}"> <!-- 알림이 있거나  -->
-							<c:if test="${isRead}"> <!-- 알림을 읽었을 때 -->
-								<img src="/images/common/new.gif">
+						<button class="btn btn-default btn-block" data-toggle="collapse"
+							data-target="#demo">
+							View All Alert
+							<c:if test="${not empty notification}">
+								<!-- 알림이 있거나  -->
+								<c:if test="${isRead}">
+									<!-- 알림을 읽었을 때 -->
+									<img src="/images/common/new.gif">
 								</c:if>
-							</c:if></button>
-				<br>
-				<c:if test="${empty list}">		
-					<div id="demo" class="collapse">	
-						<!-- 없을때 -->
-						<div class="alert alert-info">
-							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-							<strong>Info!</strong>
-							 <c:out value="접수된 진술서가 없습니다."/>
-						</div>
-					</div>
-				</c:if>
-						<!-- 있을때  -->
-				<c:if test="${not empty list}">		
-					<div id="demo" class="collapse">	
-							<c:forEach items="${list}" var="lists" begin="0" end="1">
+							</c:if>
+						</button>
+						<br>
+						<c:if test="${empty list}">
+							<div id="demo" class="collapse">
+								<!-- 없을때 -->
 								<div class="alert alert-info">
 									<a href="#" class="close" data-dismiss="alert"
 										aria-label="close">&times;</a> <strong>Info!</strong>
-										<br>
-									<font color="blue"><label> 진술서 번호 :</label></font> ${lists.stateno}<br>
-									<font color="blue"><label> 용의자 이름 :</label></font> ${lists.cheatername}<br>
-									<font color="blue"><label> 등록한 멤버 번호 :</label></font> ${lists.memberno}<br>
+									<c:out value="접수된 진술서가 없습니다." />
 								</div>
-							</c:forEach>
-						<!-- /.panel-body -->
-					</div>
-						</c:if>		
+							</div>
+						</c:if>
+						<!-- 있을때  -->
+						<c:if test="${not empty list}">
+							<div id="demo" class="collapse">
+								<c:forEach items="${list}" var="lists" begin="0" end="1">
+									<div class="alert alert-info">
+										<a href="#" class="close" data-dismiss="alert"
+											aria-label="close">&times;</a> <strong>Info!</strong> <br>
+										<font color="blue"><label> 진술서 번호 :</label></font>
+										${lists.stateno}<br> <font color="blue"><label>
+												용의자 이름 :</label></font> ${lists.cheatername}<br> <font color="blue"><label>
+												등록한 멤버 번호 :</label></font> ${lists.memberno}<br>
+									</div>
+								</c:forEach>
+								<!-- /.panel-body -->
+							</div>
+						</c:if>
 					</div>
 				</div>
 				<!-- 옆 -->
@@ -262,234 +266,239 @@
 			</div>
 			<!-- /.두번째 row -->
 
-</div>
-			<!--세번째 row  -->
-			<div class="row">
-				<div class="col-lg-6">
-					<!-- 2. 사기를 막는 예방법# 글/동영상  -아코디언  -->
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<i class="fa fa-bar-chart-o fa-fw"></i>사기를 막는 예방법
-							<div class="pull-right">
-								<div class="btn-group">
-									<button type="button"
-										class="btn btn-default btn-xs dropdown-toggle"
-										data-toggle="dropdown">
-										Actions <span class="caret"></span>
-									</button>
-									<ul class="dropdown-menu pull-right" role="menu">
-										<li><a href="#">Action</a> <iframe width="560"
-												height="315" src="https://www.youtube.com/embed/0-gdXa5spAU"
-												frameborder="0" allowfullscreen></iframe></li>
-										<li><a href="#">Another action</a></li>
-										<li><a href="#">Something else here</a></li>
-										<li class="divider"></li>
-										<li><a href="#">Separated link</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<!-- /.panel-heading -->
-						<div class="panel-body">
-							<div class="row">
-								<div class="col-lg-6">
-									<div>
-										<iframe width="560" height="315"
-											src="https://www.youtube.com/embed/0-gdXa5spAU"
-											frameborder="0" allowfullscreen></iframe>
-									</div>
-								</div>
-								<!-- /.col-lg-4 (nested) -->
-								<div class="col-lg-8">
-									<div id="morris-bar-chart"></div>
-								</div>
-								<!-- /.col-lg-8 (nested) -->
-							</div>
-							<!-- /.row -->
-						</div>
-						<!-- /.panel-body -->
-					</div>
-					<!-- /.panel -->
-				</div>
-				<!-- 4.도넛 차트  -->
-				<div class="col-lg-6">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<i class="fa fa-bar-chart-o fa-fw"></i>도넛 차트
-						</div>
-						<div class="panel-body">
-								<div id="piechart" style="width: 540px; height: 300px;"></div>
-							<a href="chartMain.go" class="btn btn-default btn-block" id="piechart">View Details</a>
-						</div>
-						<!--  /.panel-body -->
-					</div>
-					<!--     /.panel -->
-				</div>
-		
-		<!-- /.세번째 row -->
-	</div>
-	
-	<!-- 네번째 row -->
+		</div>
+		<!--세번째 row  -->
 		<div class="row">
 			<div class="col-lg-6">
-					<!-- 테이블 표  -->
-					<div class="chat-panel panel panel-default">
-						<div class="panel-heading">
-							<i class="fa fa-comments fa-fw"></i> 테이블 표
-							<div class="btn-group pull-right">
-							
-  					  <a href="/excel.go" target="_blank">엑셀다운</a>
+				<!-- 2. 사기를 막는 예방법# 글/동영상  -아코디언  -->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<i class="fa fa-bar-chart-o fa-fw"></i>사기를 막는 예방법
+						<div class="pull-right">
+							<div class="btn-group">
+								<button type="button"
+									class="btn btn-default btn-xs dropdown-toggle"
+									data-toggle="dropdown">
+									Actions <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu pull-right" role="menu">
+									<li><a href="#">Action</a> <iframe width="560"
+											height="315" src="https://www.youtube.com/embed/0-gdXa5spAU"
+											frameborder="0" allowfullscreen></iframe></li>
+									<li><a href="#">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
+									<li class="divider"></li>
+									<li><a href="#">Separated link</a></li>
+								</ul>
 							</div>
 						</div>
-						<!--    /.panel-heading -->
-						<div class="panel-body">
-							<div class="table-responsive">
-								<table class="table table-hover table-bordered"
-									style="text-align: center;">
-										<tr>
-											<th class="active" style="text-align: center;width:10%;">순위</th>
-											<th class="active" style="text-align: center;">용의자</th>
-											<th class="active" style="text-align: center;">사이트</th>
-											<th class="active" style="text-align: center;">은행</th>
-										</tr>
-										<c:forEach begin="0" end="9" varStatus="i">
-											<tr>
-												<td>${i.index + 1}</td>
-												<td style="text-align:right;">
-													${countCheaterName[i.index].cheatername}
-												<span class="label label-danger">${countCheaterName[i.index].count}</span>
-													건</td>
-												<td style="text-align:right;">${countDomain[i.index].domain}
-												<span class="label label-danger">${countDomain[i.index].count}</span>
-													건</td>
-												<td style="text-align:right;">${countBankName[i.index].bankname}
-												<span class="label label-danger">${countBankName[i.index].count}</span>
-													건</td>
-											</tr>
-										</c:forEach>
-								</table>
-							</div>
-							<!-- table div  -->
-						</div>
-						<!--    /.panel-body -->
-						<div class="panel-footer">
-							<div class="input-group">
-								<input id="btn-input" type="text" class="form-control input-sm"
-									placeholder="Type your message here..." /> <span
-									class="input-group-btn">
-									<button class="btn btn-warning btn-sm" id="btn-chat">
-										Send</button>
-								</span>
-							</div>
-						</div>
-						<!--    /.panel-footer -->
 					</div>
-					<!-- /.panel .chat-panel -->
+					<!-- /.panel-heading -->
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-6">
+								<div>
+									<iframe width="560" height="315"
+										src="https://www.youtube.com/embed/0-gdXa5spAU"
+										frameborder="0" allowfullscreen></iframe>
+								</div>
+							</div>
+							<!-- /.col-lg-4 (nested) -->
+							<div class="col-lg-8">
+								<div id="morris-bar-chart"></div>
+							</div>
+							<!-- /.col-lg-8 (nested) -->
+						</div>
+						<!-- /.row -->
+					</div>
+					<!-- /.panel-body -->
+				</div>
+				<!-- /.panel -->
 			</div>
-				<!-- /col-lg-6 -->
-	
+			<!-- 4.도넛 차트  -->
 			<div class="col-lg-6">
-	   <!-- 3. 타임라인 부분 -->                    
-                    <div class="panel panel-default">
-	                        <div class="panel-heading">
-                            <i class="fa fa-clock-o fa-fw"></i> 내 사건의 타임라인
-                            <br>
-                          <p align="right"><small class="text-muted"><i class="fa fa-clock-o">
-					  </i>첫 접수일로부터 발생경과 일 지났습니다.</small>
-						</p>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <br>
-                        <p align="center"><strong>
-					<c:if test="${empty list}">
-						<c:out value="접수하신 내역이 없으십니다."/>
-					</c:if></strong>
-                        <div class="panel-body">
-                            <ul class="timeline">
-                              <li>
-							<br>
-                                  <div class="timeline-badge"><i class="fa fa-check"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title">이인영 사기꾼 검거 완료</h4>
-                                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
-                                            </p>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p> 12월 11일 오전 10시 경, 
-                                            강원도 00PC방 에서 피의자 이인영 씨(24)를 검거했습니다.
-                                            -- 사이버 경찰서 이광호 형사 (02-xxx-xxx)</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="timeline-inverted">
-                                    <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title"> IP 추적중 </h4>
-                                        </div>
-                                        <div class="timeline-body">
-                                        	<p> 강원도 철원 부근에서 용의자 추정 IP 추적 </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="timeline-badge danger"><i class="fa fa-bomb"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title"> 사이버 경찰서에 의뢰접수 </h4>
-                                        </div>
-                                        <div class="timeline-body">
-                                        <p> '2015-12-05' 사이버 경찰서 담당 이광호 형사 (02-xxx-xxx)</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="timeline-inverted">
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title">첫 접수일로부터 발생경과 '4'일 지났습니다.</h4>
-                                             
-                                        </div>
-                                        <div class="timeline-body">
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="timeline-badge info"><i class="fa fa-save"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title"> 용의자 탐색 중</h4>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p> 작성하신 용의자의 정보 중 '계좌번호'가 일치하는 게시글을 '2'건 발견했습니다.</p>
-                                            <hr>
-                                            <a href="#">검색</a>
-                                            <div class="btn groop">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title">진술서 작성 완료</h4>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p> 직거래 피해부분에 '2015-11-30' 접수를 완료하셨습니다. </p>
-                                        </div>
-                                    </div>
-                                </li>
-						</ul>
-                        </div>
-                        <!-- /.panel-body -->
-                   </div>
-                    <!-- /.panel -->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<i class="fa fa-bar-chart-o fa-fw"></i>도넛 차트
+					</div>
+					<div class="panel-body">
+						<div id="piechart" style="width: 540px; height: 300px;"></div>
+						<a href="chartMain.go" class="btn btn-default btn-block"
+							id="piechart">View Details</a>
+					</div>
+					<!--  /.panel-body -->
+				</div>
+				<!--     /.panel -->
 			</div>
-	</div>
+
+			<!-- /.세번째 row -->
+		</div>
+
+		<!-- 네번째 row -->
+		<div class="row">
+			<div class="col-lg-6">
+				<!-- 테이블 표  -->
+				<div class="chat-panel panel panel-default">
+					<div class="panel-heading">
+						<i class="fa fa-comments fa-fw"></i> 테이블 표
+						<div class="btn-group pull-right">
+
+							<a href="/excel.go" target="_blank">엑셀다운</a>
+						</div>
+					</div>
+					<!--    /.panel-heading -->
+					<div class="panel-body">
+						<div class="table-responsive">
+							<table class="table table-hover table-bordered"
+								style="text-align: center;">
+								<tr>
+									<th class="active" style="text-align: center; width: 10%;">순위</th>
+									<th class="active" style="text-align: center;">용의자</th>
+									<th class="active" style="text-align: center;">사이트</th>
+									<th class="active" style="text-align: center;">은행</th>
+								</tr>
+								<c:forEach begin="0" end="9" varStatus="i">
+									<tr>
+										<td>${i.index + 1}</td>
+										<td style="text-align: right;">
+											${countCheaterName[i.index].cheatername} <span
+											class="label label-danger">${countCheaterName[i.index].count}</span>
+											건
+										</td>
+										<td style="text-align: right;">${countDomain[i.index].domain}
+											<span class="label label-danger">${countDomain[i.index].count}</span>
+											건
+										</td>
+										<td style="text-align: right;">${countBankName[i.index].bankname}
+											<span class="label label-danger">${countBankName[i.index].count}</span>
+											건
+										</td>
+									</tr>
+								</c:forEach>
+							</table>
+						</div>
+						<!-- table div  -->
+					</div>
+					<!--    /.panel-body -->
+					<div class="panel-footer">
+						<div class="input-group">
+							<input id="btn-input" type="text" class="form-control input-sm"
+								placeholder="Type your message here..." /> <span
+								class="input-group-btn">
+								<button class="btn btn-warning btn-sm" id="btn-chat">
+									Send</button>
+							</span>
+						</div>
+					</div>
+					<!--    /.panel-footer -->
+				</div>
+				<!-- /.panel .chat-panel -->
+			</div>
+			<!-- /col-lg-6 -->
+
+			<div class="col-lg-6">
+				<!-- 3. 타임라인 부분 -->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<i class="fa fa-clock-o fa-fw"></i> 내 사건의 타임라인 <br>
+						<p align="right">
+							<small class="text-muted"><i class="fa fa-clock-o"> </i>첫
+								접수일로부터 발생경과 일 지났습니다.</small>
+						</p>
+					</div>
+					<!-- /.panel-heading -->
+					<br>
+					<p align="center">
+						<strong> <c:if test="${empty list}">
+								<c:out value="접수하신 내역이 없습니다." />
+							</c:if></strong>
+					<div class="panel-body">
+						<ul class="timeline">
+							<li><br>
+								<div class="timeline-badge">
+									<i class="fa fa-check"></i>
+								</div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h4 class="timeline-title">이인영 사기꾼 검거 완료</h4>
+										<p>
+											<small class="text-muted"><i class="fa fa-clock-o"></i>
+												11 hours ago via Twitter</small>
+										</p>
+									</div>
+									<div class="timeline-body">
+										<p>12월 11일 오전 10시 경, 강원도 00PC방 에서 피의자 이인영 씨(24)를 검거했습니다.
+											-- 사이버 경찰서 이광호 형사 (02-xxx-xxx)</p>
+									</div>
+								</div></li>
+							<li class="timeline-inverted">
+								<div class="timeline-badge warning">
+									<i class="fa fa-credit-card"></i>
+								</div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h4 class="timeline-title">IP 추적중</h4>
+									</div>
+									<div class="timeline-body">
+										<p>강원도 철원 부근에서 용의자 추정 IP 추적</p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="timeline-badge danger">
+									<i class="fa fa-bomb"></i>
+								</div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h4 class="timeline-title">사이버 경찰서에 의뢰접수</h4>
+									</div>
+									<div class="timeline-body">
+										<p>'2015-12-05' 사이버 경찰서 담당 이광호 형사 (02-xxx-xxx)</p>
+									</div>
+								</div>
+							</li>
+							<li class="timeline-inverted">
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h4 class="timeline-title">첫 접수일로부터 발생경과 '4'일 지났습니다.</h4>
+
+									</div>
+									<div class="timeline-body"></div>
+								</div>
+							</li>
+							<li>
+								<div class="timeline-badge info">
+									<i class="fa fa-save"></i>
+								</div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h4 class="timeline-title">용의자 탐색 중</h4>
+									</div>
+									<div class="timeline-body">
+										<p>작성하신 용의자의 정보 중 '계좌번호'가 일치하는 게시글을 '2'건 발견했습니다.</p>
+										<hr>
+										<a href="#">검색</a>
+										<div class="btn groop"></div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h4 class="timeline-title">진술서 작성 완료</h4>
+									</div>
+									<div class="timeline-body">
+										<p>직거래 피해부분에 '2015-11-30' 접수를 완료하셨습니다.</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<!-- /.panel-body -->
+				</div>
+				<!-- /.panel -->
+			</div>
+		</div>
 	</div>
 	<!-- /#page-wrapper -->
 </body>

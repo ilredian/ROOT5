@@ -57,4 +57,14 @@
 			}
 		})
 	});
+	
+	//방문자수 확인
+	$.ajax({
+		url : "visitCountAjax.go",
+		type : "POST",
+		success:function(data){
+			$('#todayCount').html(data.todayCount);
+			$('#totalCount').html(data.totalCount);
+		}
+	});
 </script>
