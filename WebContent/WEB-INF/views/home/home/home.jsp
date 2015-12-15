@@ -342,8 +342,6 @@
 					<div class="panel-heading">
 						<i class="fa fa-comments fa-fw"></i> 테이블 표
 						<div class="btn-group pull-right">
-
-							<a href="/excel.go" target="_blank">엑셀다운</a>
 						</div>
 					</div>
 					<!--    /.panel-heading -->
