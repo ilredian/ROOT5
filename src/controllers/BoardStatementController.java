@@ -1,6 +1,11 @@
 package controllers;
 
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +26,9 @@ import common.StatementPager;
 @Controller
 public class BoardStatementController {
 
+	// 자바스크립트 쓰기위한 전역 변수 선언
+	PrintWriter out;
+	
 	@Autowired
 	private SqlSession sqlSession;
 
@@ -141,5 +149,74 @@ public class BoardStatementController {
 			break;
 		}
 		return go;
+	}
+	
+	@RequestMapping("regStatementPolice.go")
+	public void regStatementPolice(
+			@RequestParam("stateno") int stateno,
+			HttpServletResponse response,
+			HttpSession session
+			) throws Exception{
+		
+		//로그 남기기
+		System.out.println("진술서 접수 처리");
+		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
+		
+		//DAO 선언
+		CheaterDAO cheaterDAO = sqlSession.getMapper(CheaterDAO.class);
+		
+		//경찰 회원인지 확인
+		int memberno = ((MemberDTO)session.getAttribute("memberInfo")).getMemberno();
+		int typeno = ((MemberDTO)session.getAttribute("memberInfo")).getTypeno();
+		
+		if(typeno == 2){
+			
+			// 사건과 유사한 사건정보 모두 불러오기
+			CheaterDTO cheaterDTO = cheaterDAO.getCheater(stateno);
+			List<CheaterDTO> result = cheaterDAO.getStatenoCompleteMatch(cheaterDTO);
+			List<CheaterDTO> list = new ArrayList<CheaterDTO>();
+
+			// 주요 항목 점수 측정
+			for (int i = 0; i < result.size(); i++) {
+				int score = 0;
+				if (result.get(i).getCheatername() != null) {
+					if (result.get(i).getCheatername().equals(cheaterDTO.getCheatername())) {
+						score += 20;
+					}
+				}
+				if (result.get(i).getAccount() != null) {
+					if (result.get(i).getAccount().equals(cheaterDTO.getAccount())) {
+						score += 40;
+					}
+				}
+				if (result.get(i).getPhone() != null) {
+					if (result.get(i).getPhone().equals(cheaterDTO.getPhone())) {
+						score += 20;
+					}
+				}
+				if (result.get(i).getCheaterid() != null) {
+					if (result.get(i).getCheaterid().equals(cheaterDTO.getCheaterid())) {
+						score += 20;
+					}
+				}
+				
+				//60% 이상 일치하면 리스트에 담기
+				if (score >= 60) {
+					list.add(result.get(i));
+				}
+			}
+			
+			for(int i=0; i<list.size(); i++){
+				cheaterDAO.policeUpdateMember(memberno, stateno, list.get(i).getStateno());
+			}
+			
+			out.print("<script>alert('성공적으로 접수 처리 되었습니다.');location.replace('statementMain.go');</script>");
+		}else{
+			out.print("<script>alert('경찰 회원이 아닙니다.');location.replace('statementMain.go');</script>");
+		}
+		out.close();
 	}
 }

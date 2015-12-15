@@ -17,3 +17,26 @@ $(function() {
 		$('#statementText').text("비매너 피해 사례");
 	}
 });
+
+$('.regStatementPolice').click(function(){
+	var stateno = $(this).attr("id");
+	var content = '이 사건을 접수 하시겠습니까?';
+	if(confirm(content)){
+		location.replace("regStatementPolice.go?stateno="+stateno)
+	}
+});
+
+$('.regOkStatement').click(function(){
+	var content = '이미 접수 완료된 사건입니다.';
+	alert(content);
+});
+
+$('.traceStatement').click(function(){
+	var content = '현재 추적중인 사건입니다.';
+	alert(content);
+});
+
+$('.completeStatement').click(function(){
+	var content = '피의자가 검거된 사건입니다.';
+	alert(content);
+});

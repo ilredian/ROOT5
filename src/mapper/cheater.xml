@@ -19,6 +19,14 @@
 		ORDER BY regdate DESC, stateno DESC
 		LIMIT ${param1}, ${param4}
 	</select>
+	
+	<!-- 진술서 회원정보로 불러오기 -->
+	<select id="getCheaterMemberno" parameterType="Integer" resultType="DTO.CheaterDTO">
+		SELECT *
+		FROM cheaterdb
+		WHERE memberno = #{memberno}
+		ORDER BY regdate DESC
+	</select>
 
 	<!-- 진술서 등록 정보 카테고리별 특정하여 불러오기 -->
 	<select id="getSearchCheater" resultType="DTO.CheaterDTO">
@@ -212,4 +220,36 @@
 		AND '${param2}'
 		group by regdate
 	</select>
+	
+	<!-- 경찰 회원 접수 시 해당 정보와 비슷한 모든 stateno 불러오기 -->
+	<select id="getStatenoCompleteMatch" parameterType="DTO.CheaterDTO" resultType="DTO.CheaterDTO">
+		SELECT *
+		FROM cheaterdb
+		WHERE
+		cheatername = #{cheatername} OR
+		account = #{account} OR
+		phone = #{phone} OR
+		cheaterid = #{cheaterid}
+	</select>
+	
+	<!-- 경찰 회원 넘버 저장 -->
+	<update id="policeUpdateMember">
+		UPDATE cheaterdb
+		SET police = ${param1}, groupno = ${param2}, regpolice = SYSDATE()
+		WHERE stateno = ${param3}
+	</update>
+	
+	<!-- 추적 사항 저장 -->
+	<update id="policeUpdateTrace">
+		UPDATE cheaterdb
+		SET trace = ${param2}
+		WHERE groupno = ${param1}
+	</update>
+	
+	<!-- 검거 완료 사항 저장 -->
+	<update id="policeUpdateComplete">
+		UPDATE cheaterdb
+		SET complete = ${param2}
+		WHERE groupno = ${param1}
+	</update>
 </mapper>
