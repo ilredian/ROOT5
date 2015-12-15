@@ -28,7 +28,7 @@ tr, th, td {
 				<td>${l.cheaterid}</td>
 				<td><input type="button" class="btn btn-info btn-sm viewBtn"
 					value="자세히보기" id="statementView.go?sno=${l.stateno}&cno=${l.cheatno}"></td>
-				<td><input type="button" class="btn btn-primary btn-sm updateTrace" value="등록하기"></td>
+				<td><input type="button" class="btn btn-primary btn-sm updateTrace" id="policeUpdateTrace?gno=${l.groupno}" value="등록하기"></td>
 				<td><input type="button" class="btn btn-primary btn-sm updateComplete" value="등록하기"></td>
 			</tr>
 		</c:forEach>
