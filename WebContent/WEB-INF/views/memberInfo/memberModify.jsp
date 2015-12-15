@@ -5,9 +5,15 @@
 <script type="text/javascript">
 $(function() {
 	//전송버튼 클릭이벤트
-	$("#savebutton2").click(function() {
-		$("#frm2").submit();
+	$("#savebutton2").bind("click",function() {
+		var r = confirm("정말로 바꾸시겠습니까?");
+		if (r == true) {
+			$("#frm2").submit();
+		} else {
+			location.href="memberModify.go";
+		}
 	});
+	
 	$("#cancel").click(function() {
 		location.href="memberModify.go";
 	});
@@ -38,17 +44,16 @@ $(document).ready(function() {
 	<hr>
 	<table>
 		<tr>
+		
 							<div onclick="$('#file').click();">
 								<img src="${photo}" width="108px" height="128px" align="left">
 							</div>
 							<td>
 								<input type="file" name="file1" id="file"/>
-							<!-- 	.
-								<input id="upload" 	type="button" name="filename" value="파일첨부">
-							 -->		
 									<div id="fileupload"></div>
 									 <br>
 							</td>
+							
 			<td class="key">메세지<span>*</span><br>
 			</td>
 			<c:set var="n" value="${message}"/>
@@ -56,7 +61,7 @@ $(document).ready(function() {
 				인사말 : ${n}
 				<br>
 				<input type="text" name="message" 
-				size="35"
+				size="25"
 				placeholder="바꿀 메세지를 쓰세요" >
 				 
 				<span class="hmsg" id="hLayeremail"></span>

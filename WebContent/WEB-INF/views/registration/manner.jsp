@@ -323,7 +323,7 @@
 
 		<tr>
 			<th class="active">약관 동의</th>
-			<td><textarea cols=60 rows=10 style="width: 1000px; height: 300px;">
+			<td><textarea readonly="readonly" cols=60 rows=10 style="width: 1000px; height: 300px;">
 
 피해사례 등록 약관
             
@@ -546,19 +546,6 @@ function CheckForm() {
 		return false;
  	}
 	
-//	if(!$("#se2_iframe").val()){  // 진술서 작성 확인
-//	if(!$(".se2_input_wysiwyg").val()){  // 진술서 작성 확인
-// .se2_input_area husky_seditor_editing_area_container	
-
-//var area = document.getElementById("se2_iframe").innerHTML
-//var area = document.getElementsByClassName("se2_input_area husky_seditor_editing_area_container").innerHTML
-//var area = document.getElementsByClassName("se2_inputarea").value;
-var area = document.getElementById("ir1");
-//스마트에디터 --- textarea를 선택하지 못하고 있음...왜지...?!
-	if($(area).val()==""){  // 진술서 작성 확인
-		alert('진술서를 작성해주세요.');
-		return false;
-	}
 	//약관 동의 체크박스__
 	if($("#cheat_rule_c")[0].checked == false
 			|| $("#chk_agreement_1")[0].checked == false
