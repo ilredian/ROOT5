@@ -290,14 +290,14 @@ public class MemberInfoController {
 		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
 		String originpwd = ((MemberDTO)session.getAttribute("memberInfo")).getPassword();
 		int memberno = ((MemberDTO)session.getAttribute("memberInfo")).getMemberno();
-		
-		
+
 		System.out.println(originpwd);
 		System.out.println(memberno);
 		
 		if(memberDTO.getPassword().equals(originpwd)){
 			memberDAO.delete(memberno);
 			session.invalidate();
+			session.removeAttribute("login");
 			System.out.println("회원탈퇴 완료");
 		}else{
 			return "memberInfo.memberWithdrawal";

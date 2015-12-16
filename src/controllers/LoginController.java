@@ -88,28 +88,32 @@ public class LoginController {
 		
 		//유효성 검사
 		if(result != null){//아이디가 있음
-			if(result.getPassword().equals(memberDTO.getPassword())){//비밀번호가 같음
+			int active = result.getActive();
+			//회원탈퇴 여부
+			if(active!=1){
 				
-				//memberInfo 속성에 로그인 세션값을 넣기, 즉 로그인하기 
-				session.setAttribute("memberInfo", result);
-				session.setMaxInactiveInterval(60*60*24) ;
-				
-				//remember가 체크 되어 있다면 쿠키 생성
-				if(remember == 1){
-					Cookie rememberCheck = new Cookie("rememberCheck", memberDTO.getEmail());
-					rememberCheck.setPath("/");
-					rememberCheck.setMaxAge(60*60*24*7);
-					response.addCookie(rememberCheck);
+				if(result.getPassword().equals(memberDTO.getPassword())){//비밀번호가 같음
+					
+					//memberInfo 속성에 로그인 세션값을 넣기, 즉 로그인하기 
+					session.setAttribute("memberInfo", result);
+					session.setMaxInactiveInterval(60*60*24) ;
+					
+					//remember가 체크 되어 있다면 쿠키 생성
+					if(remember == 1){
+						Cookie rememberCheck = new Cookie("rememberCheck", memberDTO.getEmail());
+						rememberCheck.setPath("/");
+						rememberCheck.setMaxAge(60*60*24*7);
+						response.addCookie(rememberCheck);
+					}
+					out.print("<script type='text/javascript'>alert('로그인 하셨습니다.');location.replace('index.go');</script>");
+				}else{//비밀번호가 틀림
+					//내가 입력한 값과 DB에 값이 틀리면 경고창 띄우기
+					out.print("<script type='text/javascript'>alert('비밀번호가 틀렸습니다.');location.replace('login.go');</script>");
 				}
-
-				out.print("<script type='text/javascript'>alert('로그인 하셨습니다.');location.replace('index.go');</script>");
-			}else{//비밀번호가 틀림
-				
-				//내가 입력한 값과 DB에 값이 틀리면 경고창 띄우기
-				out.print("<script type='text/javascript'>alert('비밀번호가 틀렸습니다.');location.replace('login.go');</script>");
+			}else{
+				out.print("<script type='text/javascript'>alert('해당 이메일은 탈퇴한 회원입니다. 재가입은 관리자에게 직접문의');location.replace('index.go');</script>");
 			}
 		}else{
-			
 			//이메일이 없으면 경고창 띄우기
 			out.print("<script type='text/javascript'>alert('해당 이메일은 가입되어 있지 않습니다');location.replace('login.go');</script>");
 		}
