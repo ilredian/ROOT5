@@ -56,27 +56,33 @@ $(document).ready(function(){
 		</select>
 	</div>
 
-	<table class="table table-hover">
+	<table class="table table-hover" style="text-align:center;">
 		<thead>
-			<tr>
-				<th class="number">번호</th>
-				<th class="writer">작성자</th>
-				<th class="subject">제목</th>
-				<th class="date">등록일</th>
-				<th class="count">조회</th>
+			<tr style="text-align:center;">
+				<th class="number" style="text-align:center;">번호</th>
+				<th class="writer" style="text-align:center;">작성자</th>
+				<th class="subject" style="text-align:center;">제목</th>
+				<th class="date" style="text-align:center;">등록일</th>
+				<th class="count" style="text-align:center;">조회</th>
 			</tr>
 		</thead>
 
 		<tbody>
 			<c:forEach var="list" items="${list}">
-				<tr>
+				<tr style="<c:if test='${list.critical == 1}'>background-color:#f4f4f4</c:if>">
+				<c:choose>
+					<c:when test="${list.critical == 1}">
+					<td class="number" style="text-align:center;"><span class="label label-danger">중요</span></td>
+					<td></td>
+					</c:when>
+					<c:otherwise>
 					<td class="number">${list.boardno}</td>
 					<td class="writer">관리자</td>
-					<td class="subject" <c:if test="${list.critical == 1}">style="color:red;"</c:if>><c:choose>
+					</c:otherwise>
+				</c:choose>
+					<td class="subject"><c:choose>
 							<c:when test="${param.q != null}">
-							<c:if test="${list.critical == 1}"><span class="label label-danger">중요</span></c:if>
-								<a
-									href="noticeView.go?pg=${param.pg}&bno=${list.boardno}&f=${param.f}&q=${param.q}">${list.title}</a>
+								<a href="noticeView.go?pg=${param.pg}&bno=${list.boardno}&f=${param.f}&q=${param.q}">${list.title}</a>
 							</c:when>
 							<c:otherwise>
 								<a href="noticeView.go?pg=${param.pg}&bno=${list.boardno}">${list.title}</a>

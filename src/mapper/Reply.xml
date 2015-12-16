@@ -34,7 +34,7 @@
 	<select id="getBoardReplyCount" resultType="Integer">
 		SELECT count(*) cnt
 		FROM reply
-		WHERE ${param1} LIKE '%${param2}%'
+		WHERE ${param1} LIKE '%${param2}%' and categoryno = ${param4}
 		AND active = 0
 		AND boardno = ${param3}
 	</select>

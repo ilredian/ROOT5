@@ -400,8 +400,14 @@
 					<div class="panel-heading">
 						<i class="fa fa-clock-o fa-fw"></i> 내 사건의 타임라인 <br>
 						<p align="right">
-							<small class="text-muted"><i class="fa fa-clock-o"> </i>첫
-								접수일로부터 발생경과 일 지났습니다.</small>
+							<c:choose>
+								<c:when test="${not empty timeLineRegpoliceDate}">
+									<small class="text-muted"><i class="fa fa-clock-o"> </i>첫 접수일로부터 발생경과 ${timeLineRegpoliceDate}일 지났습니다.</small>
+								</c:when>
+								<c:otherwise>
+									<small class="text-muted"><i class="fa fa-clock-o"> </i>사건이 아직 접수되지 않았습니다.</small>
+								</c:otherwise>
+							</c:choose>
 						</p>
 					</div>
 					<!-- /.panel-heading -->

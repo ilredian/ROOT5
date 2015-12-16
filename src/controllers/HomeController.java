@@ -232,6 +232,14 @@ public class HomeController {
 				long timeLinedate = (sf.parse(timeLineEnd).getTime()-sf.parse(timeLineStart).getTime())/(24*60*60*1000);
 				model.addAttribute("timeLinedate", timeLinedate);
 				
+				//접수했다면 접수 날짜도 표시
+				if(cheaterResultDTO.getRegpolice() != null){
+					String timeLineRegpoliceEnd = sf.format(date);
+					String[] timeLineRegpoliceStart = cheaterResultDTO.getRegpolice().split(" ");
+					long timeLineRegpoliceDate = (sf.parse(timeLineRegpoliceEnd).getTime()-sf.parse(timeLineRegpoliceStart[0].replaceAll("-", "")).getTime())/(24*60*60*1000);
+					model.addAttribute("timeLineRegpoliceDate", timeLineRegpoliceDate);
+				}
+				
 				//진술서 등록 날짜
 				model.addAttribute("regdate", cheaterResultDTO.getRegdate());
 			}

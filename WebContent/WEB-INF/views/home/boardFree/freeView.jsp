@@ -65,7 +65,7 @@
 			<c:forEach var="replyDTO" items="${replyDTO}">
 				<tr>
 					<td style="width: 10%;"><img alt="no_pic"
-						src="images/boardFreeimages/user_no_pic.gif"></td>
+						src="${replyDTO.photo}" width="105px" height="105px"></td>
 					<td style="width: 90%;">
 						<table>
 							<tbody>
