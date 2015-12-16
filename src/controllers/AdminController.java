@@ -1067,11 +1067,11 @@ public class AdminController {// 관리자 페이지
 		if(result == 1){
 			System.out.println("이메일 보내기 완료");
 			out.print(
-					"<script type='text/javascript'>alert('메일이 성공적으로 발송되었습니다.'); location.replace('');</script>");
+					"<script type='text/javascript'>alert('메일이 성공적으로 발송되었습니다.'); location.replace('adhome.go');</script>");
 		}else{
 			System.out.println("이메일 보내기 실패");
 			out.print(
-					"<script type='text/javascript'>alert('메일 발송에 실패하였습니다.'); location.replace('');</script>");
+					"<script type='text/javascript'>alert('메일 발송에 실패하였습니다.'); location.replace('adhome.go');</script>");
 		}
 		out.close();
 	}

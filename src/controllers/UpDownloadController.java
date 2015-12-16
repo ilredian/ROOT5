@@ -13,6 +13,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import service.UploadDTO;
 import service.UploadService;
 
 @Controller
@@ -23,14 +24,16 @@ public class UpDownloadController implements ApplicationContextAware {
 	
     private WebApplicationContext context = null;
     
-	/* 파일 업로드 처리 */
+    /* 파일 업로드 처리 */
 	@RequestMapping(value="fileUploadAjax.go", method=RequestMethod.POST)
 	public ModelAndView fileUploadAjax(MultipartHttpServletRequest mRequest) {
 		
 		ModelAndView mav = new ModelAndView();
-		
-		if(uploadService.fileUpload(mRequest)) {
+		UploadDTO uploadDTO = new UploadDTO();
+		uploadDTO = uploadService.fileUpload(mRequest);
+		if(uploadDTO.isSuccess()) {
 			mav.addObject("result", "success");
+			mav.addObject("file",uploadDTO.getFilename());
 		} else {
 			mav.addObject("result", "fail");
 		}

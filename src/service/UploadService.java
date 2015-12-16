@@ -3,6 +3,7 @@ package service;
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,11 +12,12 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 @Service
 public class UploadService {
 
-	public boolean fileUpload(MultipartHttpServletRequest mRequest) {
+	public UploadDTO fileUpload(MultipartHttpServletRequest mRequest) {
 
-		boolean isSuccess = false;
+		UploadDTO uploadDTO = new UploadDTO();
+		uploadDTO.setSuccess(false);
 		
-		String uploadPath = "/asdf/";
+		String uploadPath = "/opt/tomcat/webapps/ROOT/upload/";
 		
 		File dir = new File(uploadPath);
 
@@ -38,17 +40,20 @@ public class UploadService {
 				
 				try {
 					mFile.transferTo(new File(uploadPath + saveFileName));
-					isSuccess = true;				
+					String filename = uploadPath + saveFileName;
+					uploadDTO.setSuccess(true);
+					uploadDTO.setFilename(filename);
+					
 				} catch (IllegalStateException e) {
 					e.printStackTrace();
-					isSuccess = false;
+					uploadDTO.setSuccess(false);
 				} catch (IOException e) {
 					e.printStackTrace();
-					isSuccess = false;
+					uploadDTO.setSuccess(false);
 				}
 			} // if end
 		} // while end
-		return isSuccess;
+		return uploadDTO;
 	} // fileUpload end
 
 }

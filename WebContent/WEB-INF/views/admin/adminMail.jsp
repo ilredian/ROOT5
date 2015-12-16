@@ -9,7 +9,7 @@
 				url : "fileUploadAjax.go",
 				success : function(data) {
 					//alert(data.result);
-					$("#fileupload").html("<h2>"+data.result+"</h2>");
+					$("#filename").val(data.file);
 				},
 				error : function(error) {
 					alert("요청 처리 중 오류가 발생하였습니다.");
@@ -40,9 +40,8 @@
 			<tr>
 				<th class="active">파일첨부</th>
 				<td>
-					<input type="file" name="file1" /><input id="upload" class="btn btn-default btn-sm" type="button" name="filename" value="첨부하기">
-					<div id="fileupload"></div>
-					<br>
+					<input type="file" name="file" id="uploadFile" value="" /><input id="upload" class="btn btn-default btn-sm" type="button" name="filebtn" value="첨부하기">
+					<input type="hidden" id="filename" name="filename" value="">
 				</td>
 			</tr>
 			<tr>
