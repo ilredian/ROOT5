@@ -34,7 +34,7 @@ tr, th, td {
 						<input type="button" class="btn btn-primary btn-sm updateTrace" id="${l.groupno}" value="등록하기">
 					</c:when>
 					<c:otherwise>
-						<input type="button" class="btn btn-info btn-sm updateTraceView" value="추적 현황 보기">
+						<input type="button" class="btn btn-info btn-sm updateTrace" id="${l.groupno}" value="추적 현황 보기">
 						<input type="hidden" id="hiddenTrace" value="${l.trace}">
 					</c:otherwise>
 				</c:choose>
@@ -46,7 +46,7 @@ tr, th, td {
 						<input type="button" class="btn btn-primary btn-sm updateComplete" id="${l.groupno}" value="등록하기">
 					</c:when>
 					<c:otherwise>
-						<input type="button" class="btn btn-info btn-sm updateCompleteView" value="검거 현황 보기">
+						<input type="button" class="btn btn-info btn-sm updateComplete" id="${l.groupno}" value="검거 현황 보기">
 						<input type="hidden" id="hiddenComplete" value="${l.complete}">
 					</c:otherwise>
 				</c:choose>

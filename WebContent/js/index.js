@@ -11,7 +11,7 @@ $(function() {
 				success : function(responseData) {
 					var Ca = /\+/g;
 					var temp = decodeURIComponent(responseData.auto).split(",");
-					$("#tags").autocomplete({
+					$('#tags').autocomplete({
 						source : temp
 					});
 				}

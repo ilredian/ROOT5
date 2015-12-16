@@ -12,7 +12,8 @@ $('.updateTrace').click(function(data){
 		data:{"gno":id},
 		success:function(data){
 			if(data.result == "success"){
-				content = data.String;
+				var Ca = /\+/g;
+				content = decodeURIComponent(data.String);
 			}
 			gno = data.gno;
 			$tr.append("<tr><td colspan='7'><form action='policeUpdateTrace.go' method='POST' onsubmit='return updateOK()'><textarea id='content' cols='100' rows='5' name='content'>"+content+"</textarea><input class='btn btn-primary btn-sm' type='submit' value='등록 완료'><input type='button' class='btn btn-danger btn-sm' value='등록 취소' onclick='updateCancel()'><input type='hidden' name='gno' value='"+gno+"'></form></td></tr>");
@@ -34,7 +35,8 @@ $('.updateComplete').click(function(data){
 		data:{"gno":id},
 		success:function(data){
 			if(data.result == "success"){
-				content = data.String;
+				var Ca = /\+/g;
+				content = decodeURIComponent(data.String);
 			}
 			gno = data.gno;
 			$tr.append("<tr><td colspan='7'><form action='policeUpdateComplete.go' method='POST' onsubmit='return updateOK()'><textarea id='content' cols='100' rows='5' name='content'>"+content+"</textarea><input class='btn btn-primary btn-sm' type='submit' value='등록 완료'><input type='button' class='btn btn-danger btn-sm' value='등록 취소' onclick='updateCancel()'><input type='hidden' name='gno' value='"+gno+"'></form></td></tr>");
