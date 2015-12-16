@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -290,8 +291,12 @@ public class MemberInfoController {
 	
 	@RequestMapping(value="memberWithdrawal.go", method=RequestMethod.POST)
 	public String updateActive(MemberDTO memberDTO, 
+			HttpServletResponse response,
 			HttpSession session) throws Exception{//실제회원탈퇴
-		
+			//경고문 띄우기 전 한글 처리
+				response.setContentType("text/html;charset=UTF-8");
+				out = response.getWriter();
+
 		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
 		String originpwd = ((MemberDTO)session.getAttribute("memberInfo")).getPassword();
 		int memberno = ((MemberDTO)session.getAttribute("memberInfo")).getMemberno();
@@ -300,20 +305,28 @@ public class MemberInfoController {
 		System.out.println(memberno);
 		
 		if(memberDTO.getPassword().equals(originpwd)){
-			memberDAO.delete(memberno);
+			Cookie rememberCheck = new Cookie("rememberCheck", memberDTO.getEmail());
+			rememberCheck.setPath("/");
+			rememberCheck.setMaxAge(0);
+			response.addCookie(rememberCheck);
+
 			session.invalidate();
-			session.removeAttribute("login");
+			memberDAO.delete(memberno);
+	
+					
+			out.print("<script>alert('회원탈퇴 완료');location.replace('index.go')</script>");
 			System.out.println("회원탈퇴 완료");
+			out.close();
 		}else{
+			System.out.println("입력하신 정보와 일치하지 않습니다");
+			out.print("<script>alert('입력하신 정보와 일치하지 않습니다.');location.replace('memberWithdrawal.go')</script>");
+			out.close();
 			return "memberInfo.memberWithdrawal";
 		}
-
 		
-		//로그 남기기
-		System.out.println("내 회원탈퇴 페이지로 이동");
+	
+		
 		return "home.home.home";	
-		
-		
 	}
 
 	// 관심등록 진술서와 자신이 쓴 피해 사례 진술서 내역으로 이동
@@ -323,6 +336,7 @@ public class MemberInfoController {
 			@RequestParam(value = "q", required = false, defaultValue = "%%") String query,
 			MemberDTO memberDTO,
 			HttpSession session,
+			HttpServletResponse response,
 			Model model) throws Exception{
 		
 		// 로그 남기기
