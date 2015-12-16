@@ -116,6 +116,8 @@ public class BoardControllerFree {// 자유게시판
 		ReplyDAO replyDAO = sqlSession.getMapper(ReplyDAO.class);
 		int replycount = replyDAO.getBoardReplyCount("content", "%%", boardno);
 
+
+
 		// 리플 페이징 처리
 		int rstart = (replypage - 1) * 10;
 		ReplyPager rpager = null;

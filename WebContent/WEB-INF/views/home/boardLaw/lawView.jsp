@@ -14,7 +14,7 @@
 			</tr>
 			<tr>
 				<td style="width: 10%;"><img alt="no_pic"
-					src="images/boardLawimages/user_no_pic.gif"></td>
+					src="${boardLawDTO.photo}" width="105px" height="105px"></td>
 				<td style="width: 70%;">
 					<table class="table">
 						<tr>

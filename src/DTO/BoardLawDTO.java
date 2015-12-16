@@ -21,6 +21,16 @@ public class BoardLawDTO {
 	private String place;//번호사 위치
 	private int memberno;
 	
+	///
+	private String photo;
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+
 	public int getBoardno() {
 		return boardno;
 	}
