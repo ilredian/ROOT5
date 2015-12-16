@@ -6,7 +6,8 @@ $('#edit').click(function() {
 });
 
 $('#delete').click(function() {
-	var boardno = $('#boardNo').val();
+	var bno = $('#boardNo').val();
+	alert('삭제되었습니다.');
 	location.replace("lawDelete.go?bno=" + bno);
 });
 

@@ -34,10 +34,6 @@ public class LoginController {
 			HttpServletResponse response,
 			Model model
 			) throws Exception{
-		
-		// 로그 남기기
-		System.out.println("로그인 페이지로 이동");
-		
 		// remember체크 확인 전 DAO변수 선언
 		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
 		

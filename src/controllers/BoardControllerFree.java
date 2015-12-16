@@ -178,7 +178,6 @@ public class BoardControllerFree {// 자유게시판
 		
 		//로그 남기기
 		System.out.println("자유게시판 글쓰기 페이지 이동");
-		
 		return "home.boardFree.freeWrite";
 	}
 
