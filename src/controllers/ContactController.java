@@ -45,7 +45,7 @@ public class ContactController {
 		//문의하기 메일 처리
 		String name = ((MemberDTO)session.getAttribute("memberInfo")).getName();
 		String from = ((MemberDTO)session.getAttribute("memberInfo")).getEmail();
-		String to = "admin@ilredian.xyz";
+		String to = "ilredian@ilredian.xyz";
 		String tar = "html";
 		String filename = "";
 		//보내는사람 이름, 보내는사람 주소, 받는사람 주소, 제목, 내용, 형식, 첨부파일
@@ -78,7 +78,7 @@ public class ContactController {
 		//삭제요청 메일 처리
 		String name = ((MemberDTO)session.getAttribute("memberInfo")).getName();
 		String from = ((MemberDTO)session.getAttribute("memberInfo")).getEmail();
-		String to = "admin@ilredian.xyz";
+		String to = "ilredian@ilredian.xyz";
 		String tar = "html";
 		String filename = "";
 		//보내는사람 이름, 보내는사람 주소, 받는사람 주소, 제목, 내용, 형식, 첨부파일
