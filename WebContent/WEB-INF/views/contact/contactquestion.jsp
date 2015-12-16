@@ -38,12 +38,11 @@
 						</td>
 					</tr>
 					<tr>
-						<th class="active">질문 요약</th>
-						<td><input type="text" style="width: 600px"
+						<th class="active" >질문 요약</th>
+						<td><input type="text" style="width: 600px" id="title"
 							placeholder="한 줄의 완성된 질문으로 작성해 주세요. 상담자에 대한 최소한의 예의입니다. ^^"></td>
 					</tr>
 					<!-- 네이버 에디터 -->
-
 					<!-- /네이버 에디터 -->
 					<tr>
 						<th class="active">고운 언어가 좋아요!</th>
@@ -61,39 +60,30 @@
 					</tr>
 				</table>
 				<div align="center">
-					<!--                <a href="#"><img src="homenavimages/p.PNG"></img></a> <a href="#"><img
-                  src="homenavimages/o.PNG"></img></a> 버튼 -->
               </div>
              </div>
-	
-	
-	
-	<a><input type="button" class="btn btn-info" value="등록"></a>
+	<a><input type="button" id="savebutton" class="btn btn-info" value="등록"></a>
 	<a href="contacted.go"><input type="button" class="btn btn-danger"
 		value="취소"></a>
 			</div>
 		</form>
-		
 	<script type="text/javascript">
-		function CheckForm() {
-			//피해 발생 사이트 정보
-				//약관 동의 체크박스__
-			if ($("#chk1")[0].checked == false
-					|| $("#chk2")[0].checked == false) {
-				alert('약관에 동의하십시오.');
-				return false;
-			} 
-			
-			if (!$("#title").val()) {
-				alert("제목을 입력해주세요");
-				return false;
-			}
-			
-			if (!$("#content").val()) {
-				alert("내용을 입력해주세요");
-				return false;
-			}
-		}
+$(function() {
+	//전송버튼 클릭이벤트
+	$("#savebutton").click(function() {
+		alert('문의가 완료되었습니다.')
+		$("#frm").submit();
+	});
+
+});
+
+function CheckForm() {
+	//피해 발생 사이트 정보	
+	if (!$("#title").val()) {
+		alert("제목을 입력해주세요");
+		return false;
+	}
+}
 	</script>		
 </body>
 </html>
