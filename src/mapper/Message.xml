@@ -3,18 +3,22 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DAO.MessageDAO">
+
+	<!-- 모든 메세지 불러오기 -->
 	<select id="getAllMessage" resultType="DTO.MessageDTO">
 		SELECT *
 		FROM message
 		LIMIT ${param1}, ${param2}
 	</select>
 	
+	<!-- 메세지 갯수 불러오기 -->
 	<select id="getMyMessageCount" resultType="Integer">
 		SELECT count(*)
 		FROM message
 		WHERE memberno = #{memberno}
 	</select>
-		
+	
+	<!-- 내 메세지 불러오기 -->		
 	<select id="getMyMessage" resultType="DTO.MessageDTO">
 		SELECT *
 		FROM message
@@ -23,28 +27,33 @@
 		LIMIT ${param1}, ${param2}
 	</select>
 	
+	<!-- 나의 모든메시지 불러오기 -->
 	<select id="getMessage" resultType="DTO.MessageDTO">
 		SELECT *
 		FROM message
 		WHERE messageno = #{messageno}
 	</select>
 	
+	<!-- 읽음 표시 (0이면 안읽음 1이면 읽음) -->
 	<update id="isopen">
 		UPDATE message
 		SET isopen = 1
 		WHERE messageno = #{messageno}
 	</update>
 	
+	<!-- 메세지 삭제 -->
 	<delete id="deleteMessage">
 		DELETE FROM message
 		WHERE messageno = #{messageno}
 	</delete>
 	
+	<!-- 메세지 보내기 -->
 	<insert id="sendMessage">
 		INSERT INTO message(frommemberno, title, content, regdate, memberno)
 		VALUES(#{memberno}, #{title}, #{content}, SYSDATE(),#{frommemberno})
 	</insert>
 	
+	<!-- 안읽은 메세지 갯수 불러오기 -->
 	<select id="getIsOpen" parameterType="Integer" resultType="Integer">
 		SELECT count(*)
 		FROM message
