@@ -19,15 +19,53 @@ public class BoardLawDTO {
 	private String edu;// 학력
 	private String fee;//요금
 	private String place;//번호사 위치
-	private int memberno;
+	private int memberno; // 멤버 등록 번호
 	
-	///
+	//12월 16일 추가++
 	private String photo;
+	private int boardReplyCount;//게시글 당 리플 갯수
+	private int categoryno; /* 카테고리번호 */
+	private int groupno; //게시글 그룹 	 
+	private int step; //그룹 내 게시글 순서
+	private int depth; //댓글 들여쓰기
+	
+	
+	public int getCategoryno() {
+		return categoryno;
+	}
+	public void setCategoryno(int categoryno) {
+		this.categoryno = categoryno;
+	}
+	public int getGroupno() {
+		return groupno;
+	}
+	public void setGroupno(int groupno) {
+		this.groupno = groupno;
+	}
+	public int getStep() {
+		return step;
+	}
+	public void setStep(int step) {
+		this.step = step;
+	}
+	public int getDepth() {
+		return depth;
+	}
+	public void setDepth(int depth) {
+		this.depth = depth;
+	}
 	public String getPhoto() {
 		return photo;
 	}
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+	public int getBoardReplyCount() {
+		return boardReplyCount;
+	}
+	
+	public void setBoardReplyCount(int boardReplyCount) {
+		this.boardReplyCount = boardReplyCount;
 	}
 
 

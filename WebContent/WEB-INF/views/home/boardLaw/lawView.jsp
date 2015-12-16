@@ -103,9 +103,9 @@
 		<tbody>
 				<c:forEach var="replyDTO" items="${replyDTO}">
 				<tr>
-					<td style="width: 10%;"><img alt="no_pic"
-						src="images/boardFreeimages/user_no_pic.gif"></td>
-					<td style="width: 90%;">
+				<td style="width: 10%;"><img alt="no_pic"
+					src="${boardLawDTO.photo}" width="105px" height="105px"></td>
+				<td style="width: 70%;">
 						<table>
 							<tbody>
 								<tr>

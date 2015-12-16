@@ -61,13 +61,6 @@
 			<td>
 					 <textarea id="fee" name="fee" rows="15">${boardLawDTO.fee}</textarea>			
 			</td></tr>
-<%-- 			<tr>
-				<td colspan="2">
-					<textarea id="editor" style="HEIGHT: 300px; WIDTH: 100%" rows="10" cols="30" name="content">
-					${boardLawDTO.content}
-					</textarea>
-				</td>
-			</tr> --%>
 			<tr>
 				<th class="active">고운 언어가 좋아요!</th>
 				<td>
@@ -79,7 +72,7 @@
 			<tr>
 				<td colspan="2">
 					<div style="text-align: center;">
-						<input class="btn btn-primary" id="savebutton1" type="button" value="저장"> 
+						<input class="btn btn-primary" id="edit" type="button" value="저장"> 
 						<input class="btn btn-default" onclick="history.go(-1);" type="button" value="취소">
 					</div>
 				</td>

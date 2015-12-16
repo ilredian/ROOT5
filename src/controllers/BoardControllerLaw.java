@@ -17,11 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import DAO.BoardFreeDAO;
 import DAO.BoardLawDAO;
 import DAO.MemberDAO;
 import DAO.ReplyDAO;
-import DTO.BoardFreeDTO;
 import DTO.BoardLawDTO;
 import DTO.MemberDTO;
 import DTO.ReplyDTO;
@@ -97,7 +95,7 @@ public class BoardControllerLaw {
 			@RequestParam(value = "rpg", required = false, defaultValue = "1") int replypage, // 현재 페이지 번호
 			HttpSession session, Model model) throws Exception {
 		
-		System.out.println("lawview");
+		System.out.println("게시판 상세 정보 가져오기");
 		BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
 		BoardLawDTO boardLawDTO = boardLawDAO.getNotice(boardno);
 		model.addAttribute("boardLawDTO", boardLawDTO); ///// DB 테이블 명--파라미터명 일치
@@ -131,10 +129,10 @@ public class BoardControllerLaw {
 			// 해당 게시판에 대한 리플들 불러오기
 			List<ReplyDTO> replyDTO = replyDAO.getBoardReply("content", "%%", boardno, rstart);
 
-//			// 리플에 있는 사진 불러오기
-//			for(int i = 0; i < replyDTO.size(); i++){
-//				replyDTO.get(i).setPhoto(memberDAO.getPhoto(replyDTO.get(i).getMemberno()));
-//			}
+			// 리플에 있는 사진 불러오기
+			for(int i = 0; i < replyDTO.size(); i++){
+				replyDTO.get(i).setPhoto(memberDAO.getPhoto(replyDTO.get(i).getMemberno()));
+			}
 			
 			// 상세보기 화면 밑에 메인 화면 리스트 뿌려주기
 			boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
@@ -156,10 +154,10 @@ public class BoardControllerLaw {
 			// 메인 화면 게시물 리스트 얻기
 			List<BoardLawDTO> list = boardLawDAO.getNotices(start, field, query, pageSize);
 
-//			// 메인 리스트에 댓글 숫자 출력
-//			for (int i = 0; i < list.size(); i++) {//리스트에 담기
-//				list.get(i).setBoardReplyCount(replyDAO.getBoardReplyCount("content", "%%", list.get(i).getBoardno()));
-//			}
+			// 메인 리스트에 댓글 숫자 출력
+			for (int i = 0; i < list.size(); i++) {//리스트에 담기
+				list.get(i).setBoardReplyCount(replyDAO.getBoardReplyCount("content", "%%", list.get(i).getBoardno()));
+  		}
 			
 			// DB값 model 객체에 담기
 			model.addAttribute("BoardLawDTO", boardLawDTO);
@@ -226,44 +224,48 @@ public class BoardControllerLaw {
 		System.out.println("게시물 수정 페이지로 이동");
 
 		// 페이지 이동 변수 선언
-		String go = "";
-
 		BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
-
-		int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
 		BoardLawDTO boardLawDTO = boardLawDAO.getNotice(boardno);
 
-		if (memberno == boardLawDTO.getMemberno()) {
-			System.out.println("변호사게시판 원본글 가져오기");
-			model.addAttribute("boardLawDTO", boardLawDTO);
-			go = "home.boardLaw.lawEdit";
-		} else {
-			go = "redirect:index.go";
-		}
-		return go;
+		model.addAttribute("boardLawDTO", boardLawDTO);
+			
+		return  "home.boardLaw.lawEdit";
 	}
-
+	
 	// 5-1. 게시물 수정 (실제 처리(update)
-	@RequestMapping(value = "lawEdit.go", method = RequestMethod.POST)
-	public String lawEdit(@RequestParam("pg") int page, BoardLawDTO boardLawDTO, HttpSession session,
-			HttpServletRequest request) throws Exception {
-		// 로그 남기기
-		System.out.println("게시물 수정 작업 시작");
-		// 페이지 이동 변수 선언
-		String go = "";
-		int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
-
-		if (memberno == boardLawDTO.getMemberno()) {
-			BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
-			boardLawDAO.update(boardLawDTO);
-			System.out.println("변호사게시판 수정완료");
-			go = "redirect:lawMain.go?pg=" + page;
-		} else {
-			go = "redirect:index.go";
+		@RequestMapping(value = "lawEdit.go", method = RequestMethod.POST)
+		public void lawEdit(@RequestParam("pg") int page, 
+								@RequestParam(value="f", required = false, defaultValue = "title") String field,
+								@RequestParam(value="q", required = false, defaultValue = "%%") String query,
+								BoardLawDTO boardLawDTO, 
+								HttpSession session,
+								HttpServletRequest request,
+								HttpServletResponse response
+								) throws Exception {
+			// 로그 남기기
+			System.out.println("게시물 수정 작업 시작");
+			// 페이지 이동 변수 선언
+			response.setContentType("text/html;charset=UTF-8");
+			out = response.getWriter();
+			
+			// 검색한 후 수정했을 경우
+			String addURI = "";
+			if(!query.equals("%%")){
+				addURI += "&f="+field+"&q="+query;
+			}
+				BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
+				int result = boardLawDAO.update(boardLawDTO);
+				
+				if(result == 1){
+					System.out.println("변호사 게시판 수정완료");
+					out.print("<script>alert('게시물 수정이 성공적으로 처리되었습니다.');location.replace('lawMain.go?pg=" + page + addURI + "');</script>");
+				}else{
+					out.print("<script>alert('게시물 수정에 실패하였습니다.');location.replace('index.go');</script>");
+				}
+				out.close();
 		}
-		return go;
-	}
 
+	
 	// 6. 게시물 삭제
 	@RequestMapping("lawDelete.go")
 	public String lawDelete(@RequestParam("bno") int boardno) throws ClassNotFoundException, SQLException {
@@ -272,7 +274,7 @@ public class BoardControllerLaw {
 		boardLawDAO.delete(boardno);
 
 		System.out.println("변호사게시판 삭제완료");
-		return "home.boardLaw.lawMain";
+		return "redirect:lawMain.go";
 
 	}
 	
