@@ -33,108 +33,10 @@
 						placeholder="사죄문과 함께 삭제요청 드립니다." style="width: 600px"></td>
 				</tr>
 				<tr>
-					<th align="center" class="active">삭제 요청 연락처(필수)</th>
-					<td><input type="text" name="연락처" id="tel" 
-						placeholder="귀하가 사기행위에 사용한 휴대폰 번호를 모두 입력하세요.(복수입력 가능하며 , 로 구분하여 주세요)"
-						style="width: 800px"></td>
-				</tr>
-				<tr>
-					<th align="center" class="active"><label for="w_tit">연락처</label></th>
-					<td><script>
-						function srvTime() {
-							var xmlHttp;
-							if (window.XMLHttpRequest) {//분기하지 않으면 IE에서만 작동된다.
-								xmlHttp = new XMLHttpRequest(); // IE 7.0 이상, 크롬, 파이어폭스 등
-								xmlHttp.open('HEAD', window.location.href
-										.toString(), false);
-								xmlHttp.setRequestHeader("Content-Type",
-										"text/html");
-								xmlHttp.send('');
-								return xmlHttp.getResponseHeader("Date");
-							} else if (window.ActiveXObject) {
-								xmlHttp = new ActiveXObject('Msxml2.XMLHTTP');
-								xmlHttp.open('HEAD', window.location.href
-										.toString(), false);
-								xmlHttp.setRequestHeader("Content-Type",
-										"text/html");
-								xmlHttp.send('');
-								return xmlHttp.getResponseHeader("Date");
-							}
-						}
-						function v2014_handphone_check(form_name) {
-							var key_handphone = $(form_name).val();
-							var bbs_sms_type = $('#bbs_sms_type').val();
-							if (!key_handphone) {
-								alert('연락처를 입력해 주세요.');
-								return false;
-							}
-							var st = srvTime();
-							var dt = new Date(st);
-							if (!dt)
-								dt = new Date();
-							var yyyy = dt.getFullYear().toString();
-							var mm = (dt.getMonth() + 1).toString(); // getMonth() is zero-based
-							var dd = dt.getDate().toString();
-							var hh = dt.getHours().toString();
-							var ii = dt.getMinutes().toString();
-							var time = yyyy + (mm[1] ? mm : "0" + mm[0])
-									+ (dd[1] ? dd : "0" + dd[0])
-									+ (hh[1] ? hh : "0" + hh[0])
-									+ (ii[1] ? ii : "0" + ii[0]);
-							// https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/btoa
-							window
-									.open(
-											'./?mod=sms_cheat&phone='
-													+ window
-															.btoa(unescape(encodeURIComponent(key_handphone)))
-													+ '&bbs_sms_type='
-													+ bbs_sms_type
-													+ '&t='
-													+ window
-															.btoa(unescape(encodeURIComponent(time))),
-											'cheat_demand');
-							//window.open('./?mod=sms_cheat&phone='+key_handphone+'&bbs_sms_type='+bbs_sms_type,'cheat_demand');
-						}
-					</script> <select name="member_phone1"
-						onchange="javascript:if(true){member_phone.value = member_phone1[member_phone1.selectedIndex].value + member_phone2.value + member_phone3.value }"
-						style="width: 60px;">
-							<option selected value=010>010</option>
-							<option value="010">010
-							<option value="011">011
-							<option value="016">016
-							<option value="017">017
-							<option value="018">018
-							<option value="019">019
-					</select>&nbsp;-&nbsp;<input type="text" name="member_phone2" value=""
-						maxlength="4" class="txt"
-						onchange="javascript:if(true){member_phone.value = member_phone1[member_phone1.selectedIndex].value + member_phone2.value + member_phone3.value }"
-						style="ime-mode: disabled;"
-						onKeyPress="return numbersonly(event, false)" />&nbsp;-&nbsp;<input
-						type="text" name="member_phone3" value="" maxlength="4"
-						class="txt"
-						onchange="javascript:if(true){member_phone.value = member_phone1[member_phone1.selectedIndex].value + member_phone2.value + member_phone3.value }"
-						style="ime-mode: disabled;"
-						onKeyPress="return numbersonly(event, false)" />&nbsp;<a
-						onclick="v2014_handphone_check('#member_phone');return false;"
-						target="target_iframe"></a></td>
-				</tr>
-				<tr>
 					<th class="active">고운 언어가 좋아요!</th>
 					<td>"말이 입힌 상처는 칼이 입힌 상처보다 깊다." - 모로코 속담<br> 귀하의 글은 귀하의
 						품격을 보여주는 귀하의 얼굴입니다. 글에 귀하의 성숙함을 담아주세요.
 					</td>
-				</tr>
-				<tr>
-					<th class="active" id="email">이메일(필수)</th>
-					<td><input type="text"></td>
-				</tr>
-				<tr>
-					<th class="active" id="name">이름</th>
-					<td><input type="text"></td>
-				</tr>
-				<tr>
-					<th class="active" id="password">비밀번호</th>
-					<td><input type="password"></td>
 				</tr>
 				<tr>
 					<th class="active" id="content">사건 발생 개요</th>
@@ -264,19 +166,6 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 			
 			if (!$("#title").val()) {
 				alert("제목을 입력해주세요");
-				return false;
-			}
-			
-			if (!$("#email").val()) {
-				alert("이메일을 입력해주세요");
-				return false;
-			}
-			if (!$("#name").val()) {
-				alert("이름을 입력해주세요");
-				return false;
-			}
-			if (!$("#password").val()) {
-				alert("비밀번호를 입력해주세요");
 				return false;
 			}
 			if (!$("#content").val()) {
