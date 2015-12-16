@@ -436,7 +436,7 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 </textarea>
 						</div>
 						<div class="alert_cheat_write alert_cheat_write-info">
-							<b><input type="checkbox" name="cheat_rule_c" value="1"
+							<b><input type="checkbox" name="cheat_rule_c" 
 								id="cheat_rule_c" valign="bottom"
 								 /> <label
 								for="cheat_rule_c">피해사례 등록 약관에 동의합니다.(필수)</label></b> <input
@@ -445,13 +445,13 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 						</div>
 
 						<div class="alert_cheat_write alert_cheat_write-info">
-							<b><input type="checkbox" name="agreement_1" value="1"
+							<b><input type="checkbox" name="agreement_1" 
 								id="chk_agreement_1"
 								 /> <label
 								for="chk_agreement_1">서비스 이용약관에 동의합니다.(필수)</label></b>
 						</div>
 						<div class="alert_cheat_write alert_cheat_write-info">
-							<b><input type="checkbox" name="agreement_2" value="1"
+							<b><input type="checkbox" name="agreement_2"
 								id="chk_agreement_2"
 								 /> <label
 								for="chk_agreement_2">개인정보 수집 및 이용에 동의합니다.(필수)</label></b>
@@ -475,6 +475,14 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 		<script type="text/javascript">
 			function CheckForm() {
 				//피해 발생 사이트 정보
+					//약관 동의 체크박스__
+				if ($("#cheat_rule_c")[0].checked == false
+						|| $("#chk_agreement_1")[0].checked == false
+						|| $("#chk_agreement_2")[0].checked == false) {
+					alert('약관에 동의하십시오.');
+					return false;
+				} 
+				
 				if (!$("#cheat_site").val()) {
 					alert("피해가 발생한 사이트를 선택해주세요.");
 					return false;
@@ -482,16 +490,19 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 				if (!$('input:radio[name=cheat_item_temp]:checked').val()) { // 물품종류 입력 검사
 					alert('물품종류 선택해주세요');
 					return false;
-
 				}
 				if (!$("#subject").val()) { // 물품명 입력 검사
 					alert('물품명을 입력해주세요');
 					return false;
 					///계좌정보 부분	
 				}
+				
+				if ($("#su_bankNumchk")[0].checked == true) {
+					alert('계좌정보 패스');
+					return true;
+				}
 
 				if ($("#su_bankNumchk")[0].checked == false) { // 계좌정보 검사 (체크박스)
-
 					////은행체크_### -- 셀렉트 문에서 제외한 나머지를 선택할때만
 					if (!$("select[name=cheat_bank]").val()) { //계좌은행명 검사
 						alert('은행명을 입력해주세요');
@@ -509,19 +520,12 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 						alert('피해금액을 입력해주세요');
 						return false;
 					}
+					return true;
 				}
-
 				if ($("#su_telchk")[0].checked == false) { // 연락처정보
 					if (!$("#phone2").val() || !$("#phone3").val()) {
 						alert('연락처를 기입하세요');
 					}
-					return false;
-				}
-				//약관 동의 체크박스__
-				if ($("#cheat_rule_c")[0].checked == false
-						|| $("#chk_agreement_1")[0].checked == false
-						|| $("#chk_agreement_2")[0].checked == false) {
-					alert('약관에 동의하십시오.');
 					return false;
 				}
 			}

@@ -111,7 +111,7 @@ public class BoardControllerLaw {
 		
 //		// 해당 게시판의 글쓴이 사진 가져오기
 			MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
-//			boardLawDTO.setPhoto(memberDAO.getPhoto(boardLawDTO.getMemberno()));
+			boardLawDTO.setPhoto(memberDAO.getPhoto(boardLawDTO.getMemberno()));
 				
 		// 게시글에 달린 리플들 정보값을 불러오기 위한 변수 선언 및 가져오기
 			System.out.println("리플 정보 가져오기");
@@ -122,9 +122,9 @@ public class BoardControllerLaw {
 			int rstart = (replypage - 1) * 10;
 			ReplyPager rpager = null;
 			if (!query.equals("%%")) {// 검색값이 있을 경우
-				rpager = new ReplyPager(replycount, replypage, 10, 10, "freeView.go", boardno, page, field, query);
+				rpager = new ReplyPager(replycount, replypage, 10, 10, "lawView.go", boardno, page, field, query);
 			}else{// 검색값이 없을 경우
-				rpager = new ReplyPager(replycount, replypage, 10, 10, "freeView.go", boardno, page);
+				rpager = new ReplyPager(replycount, replypage, 10, 10, "lawView.go", boardno, page);
 			}
 			
 			
@@ -140,7 +140,7 @@ public class BoardControllerLaw {
 			boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
 			
 			// 페이징 처리
-			String linkUrl = "freeMain.go";// 페이지번호를 누르면 이동할 경로
+			String linkUrl = "lawMain.go";// 페이지번호를 누르면 이동할 경로
 			int boardCount = boardLawDAO.getCount(field, query);// 검색 결과에 따른 게시글 총
 																	// 갯수
 			int pagerSize = 10;// 한 번에 보여줄 페이지 번호 갯수
