@@ -464,7 +464,7 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 				<div class="alert_cheat_write alert_cheat_write-info">
 					<b><input type="checkbox" name="cheat_rule_c" value="1"
 						id="cheat_rule_c" valign="bottom"
-						onclick="return cheat_rule_check(cheat_rule.value)" /> <label
+						 /> <label
 						for="cheat_rule_c">피해사례 등록 약관에 동의합니다.(필수)</label></b> <input
 						type="hidden" readonly name="cheat_rule" value="" valign="bottom"
 						style="width: 0px; height: 0px;">
@@ -504,6 +504,16 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 
 <script type="text/javascript">
 function CheckForm() {
+	
+	//약관 동의 체크박스__
+	if($("#cheat_rule_c")[0].checked == false
+			|| $("#chk_agreement_1")[0].checked == false
+			|| $("#chk_agreement_2")[0].checked == false
+	){
+		alert('약관에 동의하십시오.');
+		return false;
+	}
+	
 	//피해 발생 사이트 정보
      if(!$("#cheat_site").val()){
         alert("피해가 발생한 사이트를 선택해주세요.");
@@ -537,6 +547,7 @@ function CheckForm() {
 		alert('피해금액을 입력해주세요');
 		return false;
 		}
+		return true;
  	}
  	
  	if($("#su_telchk")[0].checked == false) { // 연락처정보
@@ -545,15 +556,6 @@ function CheckForm() {
  		}
 		return false;
  	}
-	
-	//약관 동의 체크박스__
-	if($("#cheat_rule_c")[0].checked == false
-			|| $("#chk_agreement_1")[0].checked == false
-			|| $("#chk_agreement_2")[0].checked == false
-	){
-		alert('약관에 동의하십시오.');
-		return false;
-	}
 }	
 
 

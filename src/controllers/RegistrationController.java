@@ -90,16 +90,27 @@ public class RegistrationController {
 	
 	// 게임 피해 등록
 	@RequestMapping(value = "game.go", method = RequestMethod.POST)
-	public void regGame(@RequestParam("cheat_site") String domain, @RequestParam("cheat_item_temp") String goodskind,
-			@RequestParam("subject") String goodsname, @RequestParam("cheat_id") String cheaterid,
-			@RequestParam("link") String link, @RequestParam("cheat_bank") String bankname,
-			@RequestParam("cheat_suspect") String cheatername, @RequestParam("cheat_account") String account,
-			@RequestParam("cheat_price") int deposit, @RequestParam("cheat_date_temp_1") String depositdate1,
+	public void regGame(
+			@RequestParam("cheat_site") String domain,
+			@RequestParam("cheat_item_temp") String goodskind,
+			@RequestParam("subject") String goodsname, 
+			@RequestParam("cheat_id") String cheaterid,
+			@RequestParam("link") String link, 
+			@RequestParam("cheat_bank") String bankname,
+			@RequestParam("cheat_suspect") String cheatername,
+			@RequestParam("cheat_account") String account,
+			@RequestParam("cheat_price") int deposit, 
+			@RequestParam("cheat_date_temp_1") String depositdate1,
 			@RequestParam("cheat_date_temp_2") String depositdate2,
-			@RequestParam("cheat_date_temp_3") String depositdate3, @RequestParam("cheat_phone1") String phone1,
-			@RequestParam("cheat_phone2") String phone2, @RequestParam("cheat_phone3") String phone3,
-			@RequestParam("cheat_sex") String sex, @RequestParam("content") String content,
-			@RequestParam("cheat_character") String feature, HttpServletResponse response, HttpSession session)
+			@RequestParam("cheat_date_temp_3") String depositdate3, 
+			@RequestParam("cheat_phone1") String phone1,
+			@RequestParam("cheat_phone2") String phone2, 
+			@RequestParam("cheat_phone3") String phone3,
+			@RequestParam("cheat_sex") String sex,
+			@RequestParam("content") String content,
+			@RequestParam("cheat_character") String feature,
+			HttpServletResponse response, 
+			HttpSession session)
 					throws Exception {
 
 		// 로그 남기기
@@ -125,9 +136,11 @@ public class RegistrationController {
 		
 		// 로그 남기기
 		System.out.println("등록한 진술서 바로 관심 진술서로 등록");
-		
+/*		
 		// 관심 지정에 등록한 진술서가 있는지 확인
 		int interestResult = isDAO.getResist(memberno);
+		
+		System.out.println("이거 타나요?");
 		
 		if(interestResult == 0){//없으면 관심목록에 등록
 			List<CheaterDTO> cheaterDTOlist = cheaterDAO.getCheaterMemberno(memberno);
@@ -136,10 +149,12 @@ public class RegistrationController {
 			cheaterDTO.setMemberno(memberno);
 			isDAO.insertInterest(cheaterDTO);
 		}
+		*/
+		System.out.println("타나타나?");
 		
 		// 로그 남기기
 		System.out.println("관심 지정 진술서 비교");
-
+/*
 		// 비교 로직/cheatername/account/phone/cheaterid
 		InterestStatementDTO isDTO = new InterestStatementDTO();
 		isDTO.setCheatername(cheatername);
@@ -179,13 +194,13 @@ public class RegistrationController {
 				String content_mail = "정확한 내용은 사이트로 와서 확인해 주세요. 본 메일은 발신 전용입니다.";
 				String tar = "text";
 				String filename = "";
-				/*보내는사람 이름, 보내는사람 주소, 받는사람 주소, 제목, 내용, 형식, 첨부파일*/
+				//보내는사람 이름, 보내는사람 주소, 받는사람 주소, 제목, 내용, 형식, 첨부파일
 				SendMailDTO sendMailDTO = new SendMailDTO(name, from, to, title, content_mail, tar, filename);
 				SendMail mail = new SendMail();
 				mail.sendMail(sendMailDTO);
 			}
-		}
-
+		}//end for
+*/
 		// 경고문 띄우기 전 한글 처리
 		response.setContentType("text/html;charset=UTF-8");
 		out = response.getWriter();

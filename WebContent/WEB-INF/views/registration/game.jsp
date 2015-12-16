@@ -380,6 +380,13 @@
 
 		<script type="text/javascript">
 			function CheckForm() {
+				//약관 동의 체크박스__
+				if ($("#cheat_rule_c")[0].checked == false
+						|| $("#chk_agreement_1")[0].checked == false
+						|| $("#chk_agreement_2")[0].checked == false) {
+					alert('약관에 동의하십시오.');
+					return false;
+				}
 				//피해 발생 사이트 정보
 				if (!$("#cheat_site").val()) {
 					alert("피해가 발생한 사이트를 선택해주세요.");
@@ -415,6 +422,7 @@
 						alert('피해금액을 입력해주세요');
 						return false;
 					}
+					return true;
 				}
 
 				if ($("#su_telchk")[0].checked == false) { // 연락처정보
@@ -424,13 +432,6 @@
 					return false;
 				}
 				
-				//약관 동의 체크박스__
-				if ($("#cheat_rule_c")[0].checked == false
-						|| $("#chk_agreement_1")[0].checked == false
-						|| $("#chk_agreement_2")[0].checked == false) {
-					alert('약관에 동의하십시오.');
-					return false;
-				}
 			}
 
 			function InpuOnlyNumber(obj) {
