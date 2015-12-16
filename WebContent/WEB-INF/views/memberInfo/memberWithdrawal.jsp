@@ -47,7 +47,9 @@ function withdrawal(){
 		</table>
 		<hr>
 		<div style="margin-top: 20px">
-			<input type="submit" id="click" value="회원탈퇴">
+			<input type="submit"  class="btn btn-primary" id="click" value="회원탈퇴">
+			
+			
 		</div>
 	</div>
 	</form>

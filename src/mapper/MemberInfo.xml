@@ -70,7 +70,12 @@
 		UPDATE memberdb
 		SET message=#{message}, photo=#{photo}
 		WHERE memberno=#{memberno}
-		
+	</update>
+	
+	<update id="changepassword" parameterType="DTO.MemberDTO">
+		UPDATE memberdb
+		SET password=#{npassword}, regpwd=sysdate()
+		WHERE memberno=#{memberno}
 	</update>
 	
 	<!-- (회원 탈퇴) -->

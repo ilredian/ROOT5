@@ -66,12 +66,14 @@ public class HomeController {
 			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, 
 			HttpSession session, ServletResponse response, HttpServletRequest request, Model model)
 					throws Exception {
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();	
 
 		// 기본 경로 잡기
 		String go = "main.index";
 
 		if (session.getAttribute("memberInfo") != null) {
-
 			// 로그 남기기
 			System.out.println("관심 지정 진술서 비교");
 			
@@ -243,9 +245,11 @@ public class HomeController {
 				//진술서 등록 날짜
 				model.addAttribute("regdate", cheaterResultDTO.getRegdate());
 			}
-			
 			go = "home.home.home";
 			return go;
+		}else{
+			out.print("<script type='text/javascript'>alert('로그인을 하셔야합니다.');location.replace('index.go');</script>");
+			out.close();
 		}
 		return go;
 	}

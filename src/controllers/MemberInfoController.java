@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -202,8 +203,6 @@ public class MemberInfoController {
 			HttpSession session,
 			HttpServletRequest request, 
 			Model model) throws ParseException{//비번변경
-	
-		// 페이지 이동 변수 선언
 		//로그 남기기
 		System.out.println("내 비번변경 페이지로 이동");
 
@@ -240,28 +239,34 @@ public class MemberInfoController {
 	public String pwdChangeafter(
 			@ModelAttribute MemberDTO memberDTO, 
 			HttpSession session,
+			HttpServletResponse response,
 			HttpServletRequest request, 
 			Model model) throws Exception{//비번변경
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
 		//비밀번호를 변경하려면
 		//원래 비밀번호값과 같은지 비교하고 맞다면
 		//변경할 비밀번호를 업데이트한다.
 		System.out.println("비밀번호 변경시작");
 		String oldpwd = ((MemberDTO) session.getAttribute("memberInfo")).getPassword();
-		System.out.println("원래저장된 pwd : "+  oldpwd );
-	
+		System.out.println("======원래저장된 pwd : "+  oldpwd );
 		
 		String Newpwd = memberDTO.getNpassword();
-		System.out.println("바뀐 pwd : "+  Newpwd );
+		System.out.println("바뀐 pwd========= : "+  Newpwd );
 		
 		//멤버 번호를 집어넣기
 		memberDTO.setMemberno(((MemberDTO)session.getAttribute("memberInfo")).getMemberno());
-		//	public MemberDTO changepassword(MemberDTO memberDTO) throws Exception;
-
+	
 		if((memberDTO.getPassword()).equals(oldpwd)){
+			
 			MemberInfoDAO memberInfoDAO = sqlSession.getMapper(MemberInfoDAO.class);
-			System.out.println("비밀번호 변경완료");
 			memberInfoDAO.changepassword(memberDTO);
+			
+			out.print("<script>alert('비밀번호 변경완료');location.replace('memberPwdChange.go')</script>");
+			System.out.println("비밀번호 변경완료");
 		}else{
+			out.print("<script>alert('비밀번호가 일치하지 않습니다');location.replace('memberPwdChange.go')</script>");
 			System.out.println("비밀번호가 일치하지 않습니다");
 		}
 		//update가 완료돠면, MemberDTO에 저장된 메시지 정보를 가져와서  sessionDTO에 넣어준다.
@@ -271,6 +276,7 @@ public class MemberInfoController {
 		//memberInfo 속성에 메시지정보가 있는 sessionDTO를 넣어준다.
 		session.setAttribute("memberInfo", sessionDTO);
 		
+		out.close();
 		return "memberInfo.memberPwdChange";
 	}
 	
@@ -285,8 +291,12 @@ public class MemberInfoController {
 	
 	@RequestMapping(value="memberWithdrawal.go", method=RequestMethod.POST)
 	public String updateActive(MemberDTO memberDTO, 
+			HttpServletResponse response,
 			HttpSession session) throws Exception{//실제회원탈퇴
-		
+			//경고문 띄우기 전 한글 처리
+				response.setContentType("text/html;charset=UTF-8");
+				out = response.getWriter();
+
 		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
 		String originpwd = ((MemberDTO)session.getAttribute("memberInfo")).getPassword();
 		int memberno = ((MemberDTO)session.getAttribute("memberInfo")).getMemberno();
@@ -295,20 +305,28 @@ public class MemberInfoController {
 		System.out.println(memberno);
 		
 		if(memberDTO.getPassword().equals(originpwd)){
-			memberDAO.delete(memberno);
+			Cookie rememberCheck = new Cookie("rememberCheck", memberDTO.getEmail());
+			rememberCheck.setPath("/");
+			rememberCheck.setMaxAge(0);
+			response.addCookie(rememberCheck);
+
 			session.invalidate();
-			session.removeAttribute("login");
+			memberDAO.delete(memberno);
+	
+					
+			out.print("<script>alert('회원탈퇴 완료');location.replace('index.go')</script>");
 			System.out.println("회원탈퇴 완료");
+			out.close();
 		}else{
+			System.out.println("입력하신 정보와 일치하지 않습니다");
+			out.print("<script>alert('입력하신 정보와 일치하지 않습니다.');location.replace('memberWithdrawal.go')</script>");
+			out.close();
 			return "memberInfo.memberWithdrawal";
 		}
-
 		
-		//로그 남기기
-		System.out.println("내 회원탈퇴 페이지로 이동");
+	
+		
 		return "home.home.home";	
-		
-		
 	}
 
 	// 관심등록 진술서와 자신이 쓴 피해 사례 진술서 내역으로 이동
@@ -318,6 +336,7 @@ public class MemberInfoController {
 			@RequestParam(value = "q", required = false, defaultValue = "%%") String query,
 			MemberDTO memberDTO,
 			HttpSession session,
+			HttpServletResponse response,
 			Model model) throws Exception{
 		
 		// 로그 남기기
