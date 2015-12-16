@@ -84,6 +84,14 @@ setInterval(function(){
 		$('#find').click(function() {
 			location.replace("pwSearch.go");
 		});
+	
+	/* 관리자 페이지 */
+		$('#admin').click(function() {
+			location.replace("adhome.go");
+		});
+	
+	
+	
 	});
 </script>
 <nav class="navbar navbar-default" role="navigation"
@@ -162,6 +170,12 @@ setInterval(function(){
 							style="margin-right: 10px; margin-top: 10px">
 							<span class="glyphicon glyphicon-log-in"></span> 내 정보
 						</button>
+					<c:if test="${memberInfo.typeno==1}">
+						<button type="button" class="btn btn-default" id="admin"
+							style="margin-right: 10px; margin-top: 10px">
+							<span class="glyphicon glyphicon-log-in"></span> 관리자페이지 
+						</button>
+					</c:if>	
 					</c:otherwise>
 				</c:choose>
 			</div>
