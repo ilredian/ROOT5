@@ -18,6 +18,6 @@
       </il>
    <il class="menu list-group"><a><input style="width: 125px;" type="submit" class="btn btn-danger btn-sm" value="메일함&nbsp;&nbsp;&nbsp;&nbsp;"></a>
          <il class="list-group-item"><a href="adminMail.go">메일 보내기</a></il>
-         <il class="list-group-item"><a href="adminMailRE.go">받은 메일</a></il>
+         <il class="list-group-item"><a href="adminMailRE.go?pg=1">받은 메일</a></il>
       </il>
 </ul>
