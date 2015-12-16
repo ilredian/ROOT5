@@ -1063,7 +1063,7 @@ public class AdminController {// 관리자 페이지
 	
 	// 받은 메일 관리자 페이지로 이동
 	@RequestMapping(value = "adminMailRE.go", method = RequestMethod.GET)
-	public String AdminMailRE(Model model) {
+	public String AdminMailRE(@RequestParam(value="pg", defaultValue="1") int page, Model model) {
 
 		// 로그 남기기
 		System.out.println("받은 메일 관리자 페이지로 이동");
@@ -1087,8 +1087,8 @@ public class AdminController {// 관리자 페이지
 			sumMailSizeString = sumMailSize + " byte";
 		}
 
+		//순서 최신 순으로 재정렬
 		List<ReceiveMailDTO> reverseList = new ArrayList<ReceiveMailDTO>();
-		
 		if(list != null){
 			for(int i=list.size()-1; i>=0; i--){
 				int temp = list.get(i).getMailSize();
@@ -1096,8 +1096,33 @@ public class AdminController {// 관리자 페이지
 				reverseList.add(list.get(i));
 			}
 		}
+		
+		//페이징 처리
+		List<ReceiveMailDTO> pagingList = new ArrayList<ReceiveMailDTO>();
+		
+		
+		// 페이징 처리
+		int pagerSize = 10;// 한 번에 보여줄 페이지 번호 갯수
+		int pageSize = 10;// 한 페이지에 보여줄 메일 갯수
+		// 페이지번호를 누르면 이동할 경로
+		String linkUrl = "adminMailRE.go";
+		// 검색 결과에 따른 게시글 총  갯수
+		int boardCount = reverseList.size();
+		int start = (page - 1) * pageSize;
+		int end = 10 + ((page - 1) * pageSize);
+		if(end>boardCount){
+			end=boardCount;
+		}
+		BoardPager pager = new BoardPager(boardCount, page, pageSize, pagerSize, linkUrl);
+		
+		for(int i = start; i < end; i++){
+			pagingList.add(reverseList.get(i));
+		}
+		
 		// 가져온 메일 객체에 담기
-		model.addAttribute("list", reverseList);
+		model.addAttribute("list", pagingList);
+		model.addAttribute("pager", pager);
+		model.addAttribute("mailCount", boardCount);
 		model.addAttribute("sumMailSizeString", sumMailSizeString);
 		
 		return "admin.adminMailRE";
@@ -1105,7 +1130,7 @@ public class AdminController {// 관리자 페이지
 
 	// 메일 상세 화면 관리자 페이지로 이동
 	@RequestMapping(value = "adminMailView.go", method = RequestMethod.GET)
-	public String AdminMailRE(
+	public String adminMailView(
 			@RequestParam("mno") int mailNo,
 			Model model) {
 

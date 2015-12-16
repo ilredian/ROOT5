@@ -3,8 +3,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<div style="float: left;">
+
 	<h3>받은 메일</h3>
+
+<div style="float: left;">
+	<p>
+		▶Total :
+		<c:out value="${mailCount}" />
+	</p>
 </div>
 <div style="float: right;">
 	받은 메일 총 용량 : <c:out value="${sumMailSizeString}" />
@@ -20,10 +26,9 @@
 
 	<c:choose>
 		<c:when test="${not empty list}">
-		<fmt:parseNumber var="size" value="${list.size()}" integerOnly="true" />
 			<c:forEach items="${list}" var="list" varStatus="index">
 				<tr>
-					<td>${size - index.index}</td>
+					<td>${mailCount - ((param.pg-1)*10+index.index)}</td>
 					<td><c:out value="${(list.from).replace('[', '').replace(']', '')}" /></td>
 					<td><a href="adminMailView.go?mno=${index.index + 1}">${list.title}</a></td>
 					<td>${list.date}</td>
@@ -53,3 +58,7 @@
 		</c:otherwise>
 	</c:choose>
 </table>
+<div style="text-align: center; clear:both;">
+	<c:set var="pager" value="${pager.toString()}" />
+	<ul class="pagination">${pager}</ul>
+</div>
