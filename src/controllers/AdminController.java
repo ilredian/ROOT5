@@ -25,9 +25,11 @@ import DAO.MemberDAO;
 import DAO.MemberTypeDAO;
 import DAO.ReplyDAO;
 import DAO.ReportBoardDAO;
+import DAO.ReportPhotoDAO;
 import DAO.ReportReplyDAO;
 import DTO.BoardCategoryDTO;
 import DTO.BoardFreeDTO;
+import DTO.BoardPhotoDTO;
 import DTO.CheatBankDTO;
 import DTO.CheatDTO;
 import DTO.CheatDomainDTO;
@@ -36,10 +38,10 @@ import DTO.MemberDTO;
 import DTO.MemberTypeDTO;
 import DTO.ReplyDTO;
 import common.BoardPager;
-import mail.SendMailDTO;
 import mail.ReceiveMail;
 import mail.ReceiveMailDTO;
 import mail.SendMail;
+import mail.SendMailDTO;
 
 @Controller
 public class AdminController {// 관리자 페이지
@@ -60,7 +62,8 @@ public class AdminController {// 관리자 페이지
 			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, 
 			// 한 페이지에 보여줄 게시글 갯수
 			@RequestParam(value = "ps", required = false, defaultValue = "4") int pageSize, 
-			@RequestParam(value = "cno", defaultValue = "1") int categoryno, Model model) throws Exception {
+			@RequestParam(value = "cno", defaultValue = "1") int categoryno,
+			@RequestParam(value = "cno", defaultValue = "3") int categoryno2,Model model) throws Exception {
 		
 		
 		System.out.println("관리자 페이지");
@@ -70,6 +73,7 @@ public class AdminController {// 관리자 페이지
 		ReplyDAO replydao = sqlSession.getMapper(ReplyDAO.class);
 		ReportBoardDAO reportboardao = sqlSession.getMapper(ReportBoardDAO.class);
 		ReportReplyDAO reportreplyado = sqlSession.getMapper(ReportReplyDAO.class);
+		ReportPhotoDAO reportphotodao = sqlSession.getMapper(ReportPhotoDAO.class);
 		
 		// 신고 자유게시판
 		List<Integer> boardno = reportboardao.getReportBoardno(1, categoryno, pageSize);
@@ -79,6 +83,14 @@ public class AdminController {// 관리자 페이지
 		}
 		// DB값 model 객체에 담기(신고 자유게시판)
 		model.addAttribute("list", list);
+		
+		//신고 포토게시판
+		List<Integer> photono = reportphotodao.getReportPhotono(1, categoryno2, pageSize);
+		List<BoardPhotoDTO> phlist = new ArrayList<BoardPhotoDTO>();
+		for (int i=0; i<photono.size(); i++){
+			phlist.add(reportphotodao.getReportPhoto(photono.get(i)));
+		}
+		model.addAttribute("phlist", phlist);
 		
 		// 리스트 뿌려주기
 		List<Integer> replyno = reportreplyado.getReportReplyno(1, pageSize);

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DAO.ReportPhotoDAO">
+
+	<!-- 신고된 게시글 수 -->
+	<select id="getReportPhotoCount" resultType="Integer">
+		SELECT count(*)
+		FROM boardphoto
+		WHERE boardno IN (select boardno from reportboard where categoryno = ${param3} GROUP by boardno) 
+		AND ${param1} LIKE '%${param2}%'
+		AND active = 0
+	</select>
+	
+	<!-- 포토게시판 신고된 정보 불러오기 -->
+	<select id="getReportPhoto" parameterType="DTO.ReportPhotoDTO" resultType="DTO.BoardPhotoDTO">
+		SELECT *
+		FROM boardphoto
+		WHERE boardno = #{boardno}
+	</select>
+	
+	<!-- 신고한 사람이 많은 순으로 불러오기 -->
+	<select id="getReportPhotono" resultType="Integer">
+		SELECT boardno
+		FROM reportboard
+		WHERE categoryno = ${param2}
+		GROUP BY boardno
+		ORDER BY count(*) DESC
+		limit ${param1}, ${param3}
+	</select>
+	
+	<!-- 신고 여부 가져오기 -->
+   <select id="isReportPhoto" resultType="Integer">
+      SELECT count(*)
+      FROM reportboard
+      WHERE boardno = ${param1} and memberno = ${param2}
+   </select>
+   
+   	<!-- 신고 게시판 등록 -->
+	<insert id="insertReportPhoto" parameterType="DTO.ReportPhotoDTO">
+		INSERT INTO reportboard(categoryno, boardno, memberno)
+		VALUES(#{categoryno}, #{boardno}, #{memberno})
+	</insert>
+	
+	<!-- 게시된 글이 완전 삭제처리 됐을시 -->
+	<delete id="deleteReportPhoto">
+		DELETE FROM reportboard
+		WHERE boardno = #{boardno}
+	</delete>
+	
+</mapper>

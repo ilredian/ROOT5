@@ -34,11 +34,20 @@
 		</table>
 	</div>
 	<div style="width: 800px; height: 400px; float: top; margin-top: 10px;">
+		<h4>신고된 사진게시판</h4>
 		<table class="table table-hover">
-			<thead>
-				<th>신고된 사진게시판</th>
-				<td>추후에 등록</td>
-			</thead>
+		<tr>	
+			<th>글번호</th>
+			<th>제목</th>
+			<th>작성자</th>
+		</tr>
+		<c:forEach items="${phlist}" var="phlist">
+			<tr>
+				<td>${phlist.boardno}</td>
+				<td>${phlist.title}</td>
+				<td>${phlist.name}</td>
+			</tr>
+		</c:forEach>
 		</table>
 	</div>
 	<div style="width: 800px; height: 400px; float: top; margin-top: 10px;">
