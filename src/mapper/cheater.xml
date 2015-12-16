@@ -246,10 +246,26 @@
 		WHERE groupno = ${param1}
 	</update>
 	
+	<!-- 추적 사항 조회 -->
+	<select id="getPoliceUpdateTrace" resultType="String">
+		SELECT trace
+		FROM cheaterdb
+		WHERE groupno = #{groupno}
+		GROUP BY trace
+	</select>
+	
 	<!-- 검거 완료 사항 저장 -->
 	<update id="policeUpdateComplete">
 		UPDATE cheaterdb
 		SET complete = ${param2}
 		WHERE groupno = ${param1}
 	</update>
+	
+	<!-- 검거 내용 조회 -->
+	<select id="getPoliceUpdateComplete" resultType="String">
+		SELECT complete
+		FROM cheaterdb
+		WHERE groupno = #{groupno}
+		GROUP BY complete
+	</select>
 </mapper>

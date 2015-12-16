@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import DAO.CheaterDAO;
 import DAO.MemberDAO;
 import DAO.MessageDAO;
 import DAO.QueryDAO;
@@ -285,5 +286,72 @@ public class AjaxController {
 			//왔던 곳으로 되돌아가기
 			mav.setViewName("jsonView");
 			return mav;
+	}
+	
+	//policeUpdateTraceAjax.go?gno=
+	//경찰 추적현황 조회
+	@RequestMapping(value="policeUpdateTraceAjax.go", method=RequestMethod.POST)
+	public ModelAndView policeUpdateTraceAjax(
+			@RequestParam("gno") int groupno,
+			HttpSession session
+			) throws Exception {
+		
+		// 로그 남기기
+		System.out.println("경찰 추적현황 조회");
+					
+		// Ajax 처리를 위한 modelAndView 선언
+		ModelAndView mav = new ModelAndView();
+		
+		// DAO 선언
+		CheaterDAO cheaterDAO = sqlSession.getMapper(CheaterDAO.class);
+		String result = cheaterDAO.getPoliceUpdateTrace(groupno);
+		System.out.println(groupno);
+		System.out.println(result);
+		
+		if(result != null && !result.equals("")){
+			mav.addObject("result", "success");
+			mav.addObject("String", result);
+			mav.addObject("gno", groupno);
+		}else{
+			mav.addObject("result", "index");
+			mav.addObject("gno", groupno);
+		}
+					
+		//왔던 곳으로 되돌아가기
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	//경찰 검거 현황 조회
+	@RequestMapping(value="policeUpdateCompleteAjax.go", method=RequestMethod.POST)
+	public ModelAndView policeUpdateCompleteAjax(
+			@RequestParam("gno") int groupno,
+			HttpSession session
+			) throws Exception {
+		
+		// 로그 남기기
+		System.out.println("경찰 검거 현황 조회");
+					
+		// Ajax 처리를 위한 modelAndView 선언
+		ModelAndView mav = new ModelAndView();
+		
+		// DAO 선언
+		CheaterDAO cheaterDAO = sqlSession.getMapper(CheaterDAO.class);
+		String result = cheaterDAO.getPoliceUpdateComplete(groupno);
+		System.out.println(groupno);
+		System.out.println(result);
+		
+		if(result != null && !result.equals("")){
+			mav.addObject("result", "success");
+			mav.addObject("String", result);
+			mav.addObject("gno", groupno);
+		}else{
+			mav.addObject("result", "index");
+			mav.addObject("gno", groupno);
+		}
+					
+		//왔던 곳으로 되돌아가기
+		mav.setViewName("jsonView");
+		return mav;
 	}
 }

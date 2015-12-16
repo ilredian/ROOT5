@@ -453,4 +453,15 @@ public class MemberInfoController {
 		}
 		out.close();
 	}
+	
+	//추적현황 등록
+	@RequestMapping("updateGroupno")
+	public void updateGroupno(
+			@RequestParam("gno") int groupno,
+			@RequestParam("content") String content
+			) throws Exception {
+		
+		//로그남기기
+		System.out.println("");
+	}
 }
