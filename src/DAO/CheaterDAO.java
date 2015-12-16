@@ -47,7 +47,7 @@ public interface CheaterDAO {
 	public int getCountAccount(String start, String end) throws Exception;
 	
 	//피해금액
-	public int getCountSum(String start, String end) throws Exception;
+	public Integer getCountSum(String start, String end) throws Exception;
 	
 	//피해물품 TOP 10
 	public List<chartItemsDTO> getCountItems(String start, String end) throws Exception;
@@ -76,6 +76,12 @@ public interface CheaterDAO {
 	//추적 사항 저장
 	public int policeUpdateTrace(int groupno, String trace) throws Exception;
 	
+	//추적 내용 조회
+	public String getPoliceUpdateTrace(int groupno) throws Exception;
+	
 	//검거 완료 사항 저장
 	public int policeUpdateComplete(int groupno, String complete) throws Exception;
+	
+	//검거 내용 조회
+	public String getPoliceUpdateComplete(int groupno) throws Exception;
 }

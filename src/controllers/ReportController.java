@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import DAO.ReportBoardDAO;
+import DAO.ReportPhotoDAO;
 import DAO.ReportReplyDAO;
 import DTO.MemberDTO;
 import DTO.ReportBoardDTO;
+import DTO.ReportPhotoDTO;
 import DTO.ReportReplyDTO;
 
 @Controller
@@ -76,6 +78,47 @@ public class ReportController {
 		out.close();
 	}
 	
+	@RequestMapping(value = "reportPhoto.go", method = RequestMethod.GET)
+	public void reportBoardPhoto(
+			@RequestParam(value = "cno", defaultValue="1") int cno,
+			@RequestParam(value = "bno") int bno,
+			ReportPhotoDTO reportPhotoDTO, HttpSession session,HttpServletResponse response) throws Exception{
+		response.setContentType("text/html;charset=UTF-8");
+	    out = response.getWriter();
+	    
+	    int mno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
+	    reportPhotoDTO.setCategoryno(cno);
+	    reportPhotoDTO.setBoardno(bno);
+	    reportPhotoDTO.setMemberno(mno);
+	    ReportPhotoDAO reportPhotoDAO = sqlSession.getMapper(ReportPhotoDAO.class);
+	    
+	    int result = reportPhotoDAO.isReportPhoto(bno, mno);
+	    
+	    String go ="";
+		switch(cno){
+		case 1:
+			go = "freeMain.go";
+			break;
+		case 2:
+			go = "noticeMain.go";
+			break;
+		case 3:
+			go = "PhotoMain.go";
+			break;
+		case 4:
+			go = "lawMain.go";
+			break;
+		}
+	    
+		if(result>0){
+			out.print("<script type='text/javascript'>alert('이미등록됬습니다.'); location.replace('"+go+"?pg=1');</script>");
+		}else{
+			int row = reportPhotoDAO.insertReportPhoto(reportPhotoDTO);
+			out.print("<script type='text/javascript'>alert('등록됬습니다.'); location.replace('"+go+"?pg=1');</script>");
+		}
+		out.close();
+	}
+	
 	@RequestMapping(value = "reportreply.go", method = RequestMethod.GET)
 	public void reportReplyFree(
 			@RequestParam(value ="cno") int cno,
@@ -117,7 +160,6 @@ public class ReportController {
 			reportreplyDAO.insertReportReply(reportreplyDTO);
 			out.print("<script type='text/javascript'>alert('등록됬습니다.'); location.replace('"+go+"?pg=1');</script>");
 		}
-
 		out.close();;
 	}
 }

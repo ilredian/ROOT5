@@ -139,8 +139,12 @@ public class ChartController {
 		String countAccount = String.format("%,d",
 				cheaterDAO.getCountAccount(regdate.get(size - 1).getRegdate(), regdate.get(0).getRegdate()));
 		// 피해금액
-		String countSum = String.format("%,d",
-				cheaterDAO.getCountSum(regdate.get(size - 1).getRegdate(), regdate.get(0).getRegdate()));
+		String countSum = "0";
+		if(cheaterDAO.getCountSum(regdate.get(size - 1).getRegdate(), regdate.get(0).getRegdate()) != null &&
+				cheaterDAO.getCountSum(regdate.get(size - 1).getRegdate(), regdate.get(0).getRegdate()) != 0){
+			countSum = String.format("%,d",
+					cheaterDAO.getCountSum(regdate.get(size - 1).getRegdate(), regdate.get(0).getRegdate()));
+		}
 		// 피해물품 TOP 10
 		List<chartItemsDTO> countItems = new ArrayList<chartItemsDTO>();
 		chartItemsDTO chartItemsdto = new chartItemsDTO();

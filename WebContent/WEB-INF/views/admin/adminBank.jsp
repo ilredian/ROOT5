@@ -7,7 +7,7 @@
 </div>
 <br>
 <div style="float: right;">
-<form action="insertBoardCategory.go" method="post">
+<form action="insertBank.go" method="post">
 	은행명 :<input type="text" name="bank">
 	<input type="submit" class="btn btn-primary insert" value="추가">
 </form>
