@@ -215,12 +215,59 @@ public class AdminController {// 관리자 페이지
 		}
 		out.close();
 	}
-
+	
+	//신고된 사진 게시판 관리자 페이지 이동
 	@RequestMapping(value = "adminBoardPhoto.go", method = RequestMethod.GET)
-	public String AdminPoto() {
-
+	public String AdminPoto(
+			// 현재 페이지 번호
+			@RequestParam(value = "pg", required = false, defaultValue = "1") int page, 
+			// 한 페이지에 보여줄 게시글 갯수
+			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, 
+			@RequestParam(value = "cno", defaultValue = "3") int categoryno, Model model) throws Exception {
+		//DAO 변수 선언
+		ReportPhotoDAO reportphotodao = sqlSession.getMapper(ReportPhotoDAO.class);
+		//신고 포토게시판
+		
+		List<Integer> photono = reportphotodao.getReportPhotono(1, categoryno, pageSize);
+		List<BoardPhotoDTO> list = new ArrayList<BoardPhotoDTO>();
+		for (int i=0; i<photono.size(); i++){
+			list.add(reportphotodao.getReportPhoto(photono.get(i)));
+		}
+		model.addAttribute("list", list);
+				
 		return "admin.adminBoardPhoto";
 	}
+	
+	
+	////사진 신고 게시판 삭제
+	@RequestMapping("deletePhotoBoard.go")
+	public void DeletePhoto(
+			HttpServletResponse response,
+			@RequestParam("bno") int boardno) throws Exception{
+		
+		// 로그 남기기
+		System.out.print("신고 게시글 삭제");
+				
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
+				
+		// DB 접속
+		ReportPhotoDAO reportphotodao = sqlSession.getMapper(ReportPhotoDAO.class);
+		ReportBoardDAO reportBoardDAO = sqlSession.getMapper(ReportBoardDAO.class);		
+		
+		reportBoardDAO.deleteReportBoard(boardno); 
+		int result = reportphotodao.deleteReportPhoto(boardno);
+				
+		if (result == 1) {
+			out.print("<script>alert('게시글이 성공적으로 삭제되었습니다.');location.replace('adminBoardPhoto.go');</script>");
+		} else {
+			out.print("<script>alert('게시글 삭제에 실패하였습니다.');location.replace('adminBoardPhoto.go');</script>");
+		}
+		out.close();
+	}
+	
+	
 
 	// 신고된 댓글 관리자 페이지 이동
 	@RequestMapping(value = "adminCommment.go", method = RequestMethod.GET)
