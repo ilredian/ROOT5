@@ -14,7 +14,8 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<form action="" method="post" name="writeForm" id="frm">
+<form class="form-horizontal" name="writeForm" id="frm" action=""
+	method="post" onsubmit="return CheckForm();">
 		<div class="container">
 			<h2>피해사례 삭제요청</h2>
 			<table class="table table-condensed">
@@ -28,12 +29,12 @@
 				</tr>
 				<tr>
 					<th align="center" class="active">제목</th>
-					<td><input type="text" name="제목"
+					<td><input type="text" name="제목" id="title"
 						placeholder="사죄문과 함께 삭제요청 드립니다." style="width: 600px"></td>
 				</tr>
 				<tr>
 					<th align="center" class="active">삭제 요청 연락처(필수)</th>
-					<td><input type="text" name="연락처"
+					<td><input type="text" name="연락처" id="tel" 
 						placeholder="귀하가 사기행위에 사용한 휴대폰 번호를 모두 입력하세요.(복수입력 가능하며 , 로 구분하여 주세요)"
 						style="width: 800px"></td>
 				</tr>
@@ -124,19 +125,19 @@
 					</td>
 				</tr>
 				<tr>
-					<th class="active">이메일(필수)</th>
+					<th class="active" id="email">이메일(필수)</th>
 					<td><input type="text"></td>
 				</tr>
 				<tr>
-					<th class="active">이름</th>
+					<th class="active" id="name">이름</th>
 					<td><input type="text"></td>
 				</tr>
 				<tr>
-					<th class="active">비밀번호</th>
+					<th class="active" id="password">비밀번호</th>
 					<td><input type="password"></td>
 				</tr>
 				<tr>
-					<th class="active">사건 발생 개요</th>
+					<th class="active" id="content">사건 발생 개요</th>
 					<td>1.물품을 받은 경우에는 물품 사진을 첨부하세요. <br> 2.용의자의 주민등록번호와 사진은
 						절대 등록하시면 안됩니다.(피해사례 등록자가 법적 처벌을 받을 수 있습니다.) <textarea id="editor"
 							style="HEIGHT: 300px; WIDTH: 100%" rows="10" cols="30"
@@ -250,5 +251,40 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 				class="btn btn-danger" value="취소"></a>
 		</div>
 	</form>
+	
+<script type="text/javascript">
+		function CheckForm() {
+			//피해 발생 사이트 정보
+				//약관 동의 체크박스__
+			if ($("#chk1")[0].checked == false
+					|| $("#chk2")[0].checked == false) {
+				alert('약관에 동의하십시오.');
+				return false;
+			} 
+			
+			if (!$("#title").val()) {
+				alert("제목을 입력해주세요");
+				return false;
+			}
+			
+			if (!$("#email").val()) {
+				alert("이메일을 입력해주세요");
+				return false;
+			}
+			if (!$("#name").val()) {
+				alert("이름을 입력해주세요");
+				return false;
+			}
+			if (!$("#password").val()) {
+				alert("비밀번호를 입력해주세요");
+				return false;
+			}
+			if (!$("#content").val()) {
+				alert("비밀번호를 입력해주세요");
+				return false;
+			}
+		}
+	</script>		
+	
 </body>
 </html>

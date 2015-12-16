@@ -14,6 +14,7 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
+
 	<form action="" method="post" name="writeForm" id="frm">
 		<div class="container">
 			<div>
@@ -51,18 +52,6 @@
 						</td>
 					</tr>
 					<tr>
-						<th class="active">이메일(필수)</th>
-						<td><input type="text"></td>
-					</tr>
-					<tr>
-						<th class="active">이름</th>
-						<td><input type="text"></td>
-					</tr>
-					<tr>
-						<th class="active">비밀번호</th>
-						<td><input type="password"></td>
-					</tr>
-					<tr>
 						<th class="active">사건 발생 개요</th>
 						<td>1.물품을 받은 경우에는 물품 사진을 첨부하세요. <br> 2.용의자의 주민등록번호와 사진은
 							절대 등록하시면 안됩니다.(피해사례 등록자가 법적 처벌을 받을 수 있습니다.) <textarea id="editor"
@@ -74,12 +63,37 @@
 				<div align="center">
 					<!--                <a href="#"><img src="homenavimages/p.PNG"></img></a> <a href="#"><img
                   src="homenavimages/o.PNG"></img></a> 버튼 -->
-	</form>
-	</div>
+              </div>
+             </div>
+	
+	
+	
 	<a><input type="button" class="btn btn-info" value="등록"></a>
 	<a href="contacted.go"><input type="button" class="btn btn-danger"
 		value="취소"></a>
-	</div>
-	</form>
+			</div>
+		</form>
+		
+	<script type="text/javascript">
+		function CheckForm() {
+			//피해 발생 사이트 정보
+				//약관 동의 체크박스__
+			if ($("#chk1")[0].checked == false
+					|| $("#chk2")[0].checked == false) {
+				alert('약관에 동의하십시오.');
+				return false;
+			} 
+			
+			if (!$("#title").val()) {
+				alert("제목을 입력해주세요");
+				return false;
+			}
+			
+			if (!$("#content").val()) {
+				alert("내용을 입력해주세요");
+				return false;
+			}
+		}
+	</script>		
 </body>
 </html>
