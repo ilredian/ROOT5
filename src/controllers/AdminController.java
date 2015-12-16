@@ -214,7 +214,7 @@ public class AdminController {// 관리자 페이지
 			@RequestParam("bno") int boardno) throws Exception{
 		
 		// 로그 남기기
-		System.out.print("신고 게시글 삭제");
+		System.out.print("신고 사진 게시글 삭제");
 				
 		//경고문 띄우기 전 한글 처리
 		response.setContentType("text/html;charset=UTF-8");

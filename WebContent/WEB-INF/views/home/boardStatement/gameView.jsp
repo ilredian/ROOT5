@@ -77,10 +77,6 @@
 					<th class="active" >특징</th>
 					<td>${cheaterDTO.feature}</td>
 				</tr>
-				<tr>
-					<th class="active" >IP 주소</th>
-					<td>ip???</td>
-				</tr>
 			</table>
 		</div>
 

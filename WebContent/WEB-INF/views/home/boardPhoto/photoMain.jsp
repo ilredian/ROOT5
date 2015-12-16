@@ -29,7 +29,7 @@
 		</div>
 		<div class="container" align="right">
 			<a href="PhotoWrite.go"><input type="button" id="photobtn"
-				class="btn btn-info" value="진술서 작성"></a>
+				class="btn btn-info" value="사진 등록"></a>
 		</div>
 		<div style="text-align: center; clear: both;">
 			<c:set var="pager" value="${pager.toString()}" />

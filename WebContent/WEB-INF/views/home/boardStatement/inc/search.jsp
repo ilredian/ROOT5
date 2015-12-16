@@ -14,13 +14,13 @@
 		<form>
 			<div class="form-group">
 				<h2 id="statementText">직거래 피해 사례</h2>
-				<input type="text" name="keyword" class="txt" title="검색어 입력"
+				<!-- <input type="text" name="keyword" class="txt" title="검색어 입력"
 					placeholder="검색어를 입력해 주세요" size="30" onclick="#">
-				<!-- onclick 에 로그인 창띄우는 거 -->
-				<a href="search.go"><input type="button" class="btn btn-default" value="검색"></a>
+				onclick 에 로그인 창띄우는 거
+				<a href="search.go"><input type="button" class="btn btn-default" value="검색"></a> -->
 			</div>
 		</form>
-		<div>
+<!-- 		<div>
 			<select>
 				<option>최근 3개월간</option>
 				<option>최근 6개월간</option>
@@ -40,12 +40,12 @@
 				for="sRdo_3">아이디</label></span> <span class="chkArea"><input
 				type="radio" name="where" value="content" class="rdo" id="sRdo_1"><label
 				for="sRdo_4">사건개요</label></span>
-		</div>
+		</div> -->
 	</div>
-	<div class="well well-sm">
+<!-- 	<div class="well well-sm">
 		<div class="boxTypeC"
 			style="color: #808080; font-weight: bold; text-align: center; margin: 0 0 10px 0; padding: 14px;">
 			이히히는 피해사례의 사실 확인을 위해 전화통화, 계좌번호 검증을 진행하고 있습니다.</div>
 
-	</div>
+	</div> -->
 </div>

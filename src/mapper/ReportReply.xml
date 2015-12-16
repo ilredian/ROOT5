@@ -4,7 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DAO.ReportReplyDAO">
 	
-	<!-- 신고된 게시글 수 -->
+	<!-- 신고된 댓글 수 -->
 	<select id="getReportReplyCount" resultType="Integer">
 		SELECT count(*)
 		FROM reply 

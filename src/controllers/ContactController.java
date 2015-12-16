@@ -1,5 +1,8 @@
 package controllers;
 
+
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -13,6 +16,8 @@ import mail.SendMailDTO;
 
 @Controller
 public class ContactController {
+
+	PrintWriter out;
 	
 	@RequestMapping("contacted.go")
 	public String contMain(){
@@ -47,6 +52,7 @@ public class ContactController {
 		SendMailDTO sendMailDTO = new SendMailDTO(name, from, to, title, content, tar, filename);
 		SendMail mail = new SendMail();
 		mail.sendMail(sendMailDTO);
+
 		return "contact.contactquestion";
 	}
 	
@@ -79,7 +85,6 @@ public class ContactController {
 		SendMailDTO sendMailDTO = new SendMailDTO(name, from, to, title, content, tar, filename);
 		SendMail mail = new SendMail();
 		mail.sendMail(sendMailDTO);
-		
 		
 		return "contact.contactdeletepls";
 	}
