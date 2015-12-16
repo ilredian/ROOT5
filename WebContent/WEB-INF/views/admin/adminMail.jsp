@@ -8,8 +8,8 @@
 //				dataType : "json",
 				url : "fileUploadAjax.go",
 				success : function(data) {
-					//alert(data.result);
 					$("#filename").val(data.file);
+					alert('파일이 첨부되었습니다.');
 				},
 				error : function(error) {
 					alert("요청 처리 중 오류가 발생하였습니다.");
