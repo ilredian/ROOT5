@@ -176,7 +176,7 @@
 				<!--사건 사진- 슬라이드 적용  -->
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<i class="fa fa-bar-chart-o fa-fw"></i>사건-사진 <span
+						<i class="fa fa-save fa-fw"></i>사건-사진 <span
 							class="label label-warning">new</span>
 						<div class="pull-right"></div>
 					</div>
@@ -212,11 +212,8 @@
 						<div class="list-group">
 							<a href="#" id="messageWindow1" class="list-group-item"> <i
 								class="fa fa-comment fa-fw"></i> 내 쪽지함
-							</a> <a
-								href="http://cyberbureau.police.go.kr/prevention/prevention2.jsp?mid=020302"
-								class="list-group-item"> <i class="fa fa-twitter fa-fw"></i>
-								사기를 막는 예방법
-							</a> <a href="question.go" class="list-group-item"> <i
+							</a>
+							<a href="question.go" class="list-group-item"> <i
 								class="fa fa-envelope fa-fw"></i> 관리자에게 메일 보내기
 							</a>
 						</div>
@@ -279,17 +276,13 @@
 								<button type="button"
 									class="btn btn-default btn-xs dropdown-toggle"
 									data-toggle="dropdown">
-									Actions <span class="caret"></span>
+									더보기 <span class="caret"></span>
 								</button>
-								<ul class="dropdown-menu pull-right" role="menu">
-									<li><a href="#">Action</a> <iframe width="560"
-											height="315" src="https://www.youtube.com/embed/0-gdXa5spAU"
-											frameborder="0" allowfullscreen></iframe></li>
-									<li><a href="#">Another action</a></li>
-									<li><a href="#">Something else here</a></li>
-									<li class="divider"></li>
-									<li><a href="#">Separated link</a></li>
-								</ul>
+			<ul class="dropdown-menu pull-right" role="menu">
+			<li><a href="http://cyberbureau.police.go.kr/prevention/prevention2.jsp?mid=020302" target="_blank">▶사이버 경찰서Homepage</a></li>
+			<li class="divider"></li>
+			<li><a href="http://thecheat.co.kr/rb/?m=bbs&bid=cheat_guide&uid=410579" target="_blank">▶사기피해 대응방법</a></li>
+								</ul>	
 							</div>
 						</div>
 					</div>
@@ -342,6 +335,7 @@
 					<div class="panel-heading">
 						<i class="fa fa-comments fa-fw"></i> 테이블 표
 						<div class="btn-group pull-right">
+				<a href="chartMain.go">더보기</a>		
 						</div>
 					</div>
 					<!--    /.panel-heading -->
@@ -380,12 +374,6 @@
 					<!--    /.panel-body -->
 					<div class="panel-footer">
 						<div class="input-group">
-							<input id="btn-input" type="text" class="form-control input-sm"
-								placeholder="Type your message here..." /> <span
-								class="input-group-btn">
-								<button class="btn btn-warning btn-sm" id="btn-chat">
-									Send</button>
-							</span>
 						</div>
 					</div>
 					<!--    /.panel-footer -->
