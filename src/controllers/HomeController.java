@@ -32,6 +32,7 @@ import DTO.InterestStatementDTO;
 import DTO.MemberDTO;
 import DTO.chartDTO;
 import DTO.chartItemsDTO;
+import javafx.scene.control.Alert;
 
 @Controller
 public class HomeController {
@@ -53,7 +54,7 @@ public class HomeController {
 
 		return "main.index";
 	}
-
+	
 	@RequestMapping(value = "home.go", method = RequestMethod.GET)
 	public String Home(
 			// 현재 페이지 번호
@@ -70,7 +71,7 @@ public class HomeController {
 		// 기본 경로 잡기
 		String go = "main.index";
 
-		if (session.getAttribute("memberInfo") != null) {
+		if (session.getAttribute("memberInfo") != null){
 
 			// 로그 남기기
 			System.out.println("관심 지정 진술서 비교");

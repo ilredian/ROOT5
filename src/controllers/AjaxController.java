@@ -272,8 +272,9 @@ public class AjaxController {
 			System.out.println("세션 확인 후 없으면 강제로 메인으로 보내기");
 			
 			// Ajax 처리를 위한 modelAndView 선언
-			ModelAndView mav = new ModelAndView();	
-			
+			ModelAndView mav = new ModelAndView();
+			System.out.println(location);
+			System.out.println(location.toString());
 			if(location.equals("notIndex")){
 				mav.addObject("result", "success");
 			}else{
