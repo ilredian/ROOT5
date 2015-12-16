@@ -26,13 +26,11 @@ import DAO.BoardNoticeDAO;
 import DAO.CheaterDAO;
 import DAO.InterestStatementDAO;
 import DAO.MemberDAO;
-import DAO.VisitDAO;
 import DTO.CheaterDTO;
 import DTO.InterestStatementDTO;
 import DTO.MemberDTO;
 import DTO.chartDTO;
 import DTO.chartItemsDTO;
-import javafx.scene.control.Alert;
 
 @Controller
 public class HomeController {
