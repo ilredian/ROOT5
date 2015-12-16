@@ -3,6 +3,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DAO.CheatItemsDAO">
+	<!-- 전체 아이템리스트 가져오기 -->
 	<select id="getList" resultType="DTO.CheatItemsDTO">
 		SELECT *
 		FROM cheatitems
@@ -16,17 +17,20 @@
 		WHERE goodsname = '${param1}'
 	</select>
 	
+	<!-- 아이템리스트 수정하기 (이름,이미지) -->
 	<update id="updateCheatItem" parameterType="DTO.CheatItemsDTO">
 		UPDATE cheatitems
 		SET goodsname = #{goodsname}, goodsspan = #{goodsspan}
 		WHERE goodskind = #{goodskind}
 	</update>
 	
+	<!-- 아이템리스트에 아이템 추가 -->
 	<insert id="insertCheatItem" parameterType="DTO.CheatItemsDTO">
 		INSERT INTO cheatitems(goodskind, goodsname, goodsspan)
 		VALUES(#{goodskind}, #{goodsname}, #{goodsspan})
 	</insert>
 	
+	<!-- 아이템리스트에서 아이템 삭제 -->
 	<delete id="deleteCheatItem" parameterType="DTO.CheatItemsDTO">
 		DELETE FROM cheatitems
 		WHERE goodsname = #{goodsname}
