@@ -1,7 +1,6 @@
 ﻿package controllers;
 
 import java.io.PrintWriter;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,24 +21,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import DAO.BoardFreeDAO;
 import DAO.BoardLawDAO;
-import DAO.BoardNoticeDAO;
-import DAO.CheatBankDAO;
-import DAO.CheatDomainDAO;
-import DAO.CheatItemsDAO;
 import DAO.CheaterDAO;
 import DAO.InterestStatementDAO;
 import DAO.MemberDAO;
 import DAO.MemberInfoDAO;
-import DAO.QueryDAO;
 import DTO.BoardFreeDTO;
 import DTO.BoardLawDTO;
-import DTO.BoardNoticeDTO;
 import DTO.CheaterDTO;
 import DTO.InterestStatementDTO;
 import DTO.MemberDTO;
 import DTO.ReplyDTO;
 import common.BoardPager;
-import jdk.nashorn.internal.ir.RuntimeNode.Request;
 
 @Controller
 public class MemberInfoController {
@@ -365,7 +357,6 @@ public class MemberInfoController {
 		
 		//DAO 변수 선언
 		MemberInfoDAO memberInfoDAO = sqlSession.getMapper(MemberInfoDAO.class);
-		InterestStatementDAO interestStatementDAO = sqlSession.getMapper(InterestStatementDAO.class);
 			
 		//로그인한 세션에 있는 회원번호 가져오기
 		int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
@@ -450,6 +441,63 @@ public class MemberInfoController {
 			out.print("<script>alert('정상적으로 삭제되었습니다.');location.replace('memberStatement.go')</script>");
 		}else{
 			out.print("<script>alert('삭제에 실패하였습니다.');location.replace('memberStatement.go')</script>");
+		}
+		out.close();
+	}
+	
+	//추적현황 등록
+	@RequestMapping(value="policeUpdateTrace.go", method=RequestMethod.POST)
+	public void policeUpdateTrace(
+			@RequestParam("gno") int groupno,
+			@RequestParam("content") String trace,
+			HttpServletResponse response
+			) throws Exception {
+		
+		//로그남기기
+		System.out.println("추적현황 등록");
+
+		System.out.println(groupno+" / "+trace);
+		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
+		
+		//DAO 선언
+		CheaterDAO cheaterDAO = sqlSession.getMapper(CheaterDAO.class);
+		int result = cheaterDAO.policeUpdateTrace(groupno, trace);
+		
+		if(result != 0){
+			out.print("<script>alert('정상적으로 추적 현황이 등록되었습니다.');location.replace('memberStatement2.go?mno=3')</script>");
+		}else{
+			out.print("<script>alert('추적 현황 등록에 실패하였습니다.');location.replace('memberStatement2.go?mno=3')</script>");
+		}
+		out.close();
+	}
+	
+	//검거현황 등록
+	@RequestMapping(value="policeUpdateComplete.go", method=RequestMethod.POST)
+	public void policeUpdateComplete(
+			@RequestParam("gno") int groupno,
+			@RequestParam("content") String complete,
+			HttpServletResponse response
+			) throws Exception {
+		
+		//로그남기기
+		System.out.println("검거현황 등록");
+		System.out.println(groupno+" / "+complete);
+
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
+		
+		//DAO 선언
+		CheaterDAO cheaterDAO = sqlSession.getMapper(CheaterDAO.class);
+		int result = cheaterDAO.policeUpdateComplete(groupno, complete);
+		
+		if(result != 0){
+			out.print("<script>alert('정상적으로 검거 현황이 등록되었습니다.');location.replace('memberStatement2.go?mno=3')</script>");
+		}else{
+			out.print("<script>alert('검거 현황 등록에 실패하였습니다.');location.replace('memberStatement2.go?mno=3')</script>");
 		}
 		out.close();
 	}
