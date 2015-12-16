@@ -310,7 +310,7 @@ public class AjaxController {
 		
 		if(result != null && !result.equals("")){
 			mav.addObject("result", "success");
-			mav.addObject("String", result);
+			mav.addObject("String", URLEncoder.encode(result , "UTF-8"));
 			mav.addObject("gno", groupno);
 		}else{
 			mav.addObject("result", "index");
@@ -343,7 +343,7 @@ public class AjaxController {
 		
 		if(result != null && !result.equals("")){
 			mav.addObject("result", "success");
-			mav.addObject("String", result);
+			mav.addObject("String", URLEncoder.encode(result , "UTF-8"));
 			mav.addObject("gno", groupno);
 		}else{
 			mav.addObject("result", "index");

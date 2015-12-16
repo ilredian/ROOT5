@@ -36,5 +36,6 @@ padding:120px;
 	
 	<!-- javascript 영역 -->
 	<script type="text/javascript" src='<tiles:getAsString name="js"/>' ></script>
+	
 </body>
 </html>

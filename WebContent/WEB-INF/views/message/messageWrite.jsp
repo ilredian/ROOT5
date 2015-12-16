@@ -5,7 +5,7 @@
 	<h4>쪽지 보내기</h4>
 	<form action="" method="post" onsubmit="return submitOk()">
 		<div class="form-group">
-			<label for="name"> 받는이 : </label><input name="name" type="text"
+			<label for="name"> 받는이 : </label><input name="name" type="text" placeholder="이름을 입력하세요."
 				class="form-control" id="name"><input type="button" class="btn btn-default" id="resultOk" value="확정">
 		</div>
 		<div class="form-group">
