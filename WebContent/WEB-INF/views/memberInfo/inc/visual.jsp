@@ -10,7 +10,7 @@
 	<li id="memberStatement2"><a href="memberStatement2.go?mno=3">사건처리현황</a></li>
 	</c:if>
 	<li id="memberComment"><a href="memberComment.go?mno=4">댓글</a></li>
-	<li id="memberConnect"><a href="memberConnect.go?mno=5">접속기록</a></li>
+
 	<li id="memberModify"><a href="memberModify.go?mno=6">정보수정</a></li>
 	<li id="memberPwdChange"><a href="memberPwdChange.go?mno=7">비번변경</a></li>
 	<li id="memberWithdrawal"><a href="memberWithdrawal.go?mno=8">회원탈퇴</a></li>
