@@ -104,7 +104,7 @@
 				<c:forEach var="replyDTO" items="${replyDTO}">
 				<tr>
 				<td style="width: 10%;"><img alt="no_pic"
-					src="${boardLawDTO.photo}" width="105px" height="105px"></td>
+					src="${replyDTO.photo}" width="105px" height="105px"></td>
 				<td style="width: 70%;">
 						<table>
 							<tbody>
@@ -117,10 +117,10 @@
 											<div style="float: right;">
 												<c:if test="${replyDTO.memberno == memberInfo.memberno}">
 													<a class="updateReply" href="#"
-														id="updateReply.go?pg=${param.pg}&bno=${param.bno}&cno=1&rno=${replyDTO.replyno}">수정</a>
+														id="updateReply.go?pg=${param.pg}&bno=${param.bno}&cno=4&rno=${replyDTO.replyno}">수정</a>
 													&nbsp;&nbsp;
 													<a class="updateReplyActive"
-														href="updateReplyActive.go?pg=${param.pg}&bno=${param.bno}&cno=1&rno=${replyDTO.replyno}">삭제</a>
+														href="updateReplyActive.go?pg=${param.pg}&bno=${param.bno}&cno=4&rno=${replyDTO.replyno}">삭제</a>
 													&nbsp;&nbsp;
 												</c:if>
 											</div>
@@ -139,11 +139,13 @@
 	</table>
 	<div style="text-align: center;">
 		<c:set var="rpager" value="${rpager.toString()}" />
+		<ul class="pagination">
 		${rpager}
+		</ul>
 	</div>
 	<br>
 	<div style="text-align: center;">
-		<form action="reply.go?pg=${param.pg}&bno=${param.bno}&cno=1"
+		<form action="reply.go?pg=${param.pg}&bno=${param.bno}&cno=4"
 			method="post">
 			<input type="text" id="replyContent" name="content"
 				style="width: 90%"> <input class="btn btn-primary"

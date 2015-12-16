@@ -3,23 +3,27 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DAO.BoardCategoryDAO">
-
+	
+	<!-- 모든게시판의 카테고리를 불러옴 -->
 	<select id="getBoardCategoryList" resultType="DTO.BoardCategoryDTO">
 		SELECT *
 		FROM category
 	</select>
 
+	<!-- 카테고리번호 수정 -->
 	<update id="updateBoardCategory" parameterType="DTO.BoardCategoryDTO">
 		UPDATE category
 		SET categoryname = #{categoryname}
 		WHERE categoryno = #{categoryno}
 	</update>
 
+	<!-- 카테고리 추가 -->
 	<insert id="insertBoardCategory" parameterType="DTO.BoardCategoryDTO">
 		INSERT INTO category(categoryno, categoryname)
 		VALUES(#{categoryno}, #{categoryname})
 	</insert>
 
+	<!-- 카테고리 삭제 -->
 	<delete id="deleteBoardCategory" parameterType="DTO.BoardCategoryDTO">
 		DELETE FROM category
 		WHERE categoryno = #{categoryno}

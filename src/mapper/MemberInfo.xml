@@ -72,7 +72,7 @@
 		WHERE memberno=#{memberno}
 		
 	</update>
-
+	
 	<!-- (회원 탈퇴) -->
 	<update id="delete"  parameterType="DTO.MemberDTO">
 		UPDATE MEMBERDB  SET ACTIVE = 1  WHERE MEMBERNO = #{MEMBERNO}

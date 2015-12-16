@@ -67,7 +67,7 @@ public class BoardControllerNotice {//공지사항 게시판
 			//메인 리스트에 댓글 숫자 출력
 			ReplyDAO replyDAO = sqlSession.getMapper(ReplyDAO.class);
 			for(int i=0; i < list.size(); i++){
-				list.get(i).setBoardReplyCount(replyDAO.getBoardReplyCount("content", query, list.get(i).getBoardno()));
+				list.get(i).setBoardReplyCount(replyDAO.getBoardReplyCount("content", query, list.get(i).getBoardno(), 2));
 			}
 			int typeno = ((MemberDTO) session.getAttribute("memberInfo")).getTypeno();
 
@@ -116,7 +116,7 @@ public class BoardControllerNotice {//공지사항 게시판
 			// 게시글에 달린 리플들 정보값을 불러오기 위한 변수 선언 및 가져오기
 			System.out.println("리플 정보 가져오기");
 			ReplyDAO replyDAO = sqlSession.getMapper(ReplyDAO.class);
-			int replycount = replyDAO.getBoardReplyCount("content", "%%", boardno);
+			int replycount = replyDAO.getBoardReplyCount("content", "%%", boardno, 2);
 			
 			// 리플 페이지 처리
 			int rstart = (replypage - 1) * 10;
@@ -156,7 +156,7 @@ public class BoardControllerNotice {//공지사항 게시판
 					
 			// 메인 리스트에 댓글 숫자 출력
 			for(int i=0; i < list.size(); i++){
-				list.get(i).setBoardReplyCount(replyDAO.getBoardReplyCount("content", query, list.get(i).getBoardno()));
+				list.get(i).setBoardReplyCount(replyDAO.getBoardReplyCount("content", query, list.get(i).getBoardno(), 2));
 			}
 			
 			// DB값 model 객체에 담기

@@ -16,7 +16,7 @@ public interface ReplyDAO {
 	public int getMemberReplyCount(String searchTitle, String searchContent, int memberno) throws Exception;
 	
 	// 검색된 게시판별 댓글 갯수 및 active 값이 0
-	public int getBoardReplyCount(String searchTitle, String searchContent, int boardno) throws Exception;
+	public int getBoardReplyCount(String searchTitle, String searchContent, int boardno, int categoryno) throws Exception;
 	
 	// 검색된 모든 댓글 정보
 	public List<ReplyDTO> getAllReply(String searchTitle, String searchContent) throws Exception;

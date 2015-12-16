@@ -6,20 +6,19 @@
     
     <!-- 방문자 수 증가. -->
     <insert id="setVisitTotalCount">
-INSERT INTO visit (V_DATE) VALUES (sysdate())
-</insert>
+	INSERT INTO visit (V_DATE) VALUES (sysdate())
+	</insert>
 
-<!-- 모든 방문자수 가져오기 -->
-<select id="getVisitTotalCount" resultType="Integer"> 
-select count(*) from visit
-</select>
+	<!-- 모든 방문자수 가져오기 -->
+	<select id="getVisitTotalCount" resultType="Integer"> 
+	select count(*) from visit
+	</select>
 
-<!-- 오늘하루 방문자수 알려주기. -->
-<select id="getVisitTodayCount" resultType="Integer">
-select count(*) from visit  
-where DATE_FORMAT(v_date,'%Y%m%d') = DATE_FORMAT(now(),'%Y%m%d')
-
-</select>
+	<!-- 오늘하루 방문자수 알려주기. -->
+	<select id="getVisitTodayCount" resultType="Integer">
+	select count(*) from visit  
+	where DATE_FORMAT(v_date,'%Y%m%d') = DATE_FORMAT(now(),'%Y%m%d')
+	</select>
 <!-- ,'%m%d%Y%H%i%s' -->
 
 </mapper>

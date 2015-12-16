@@ -8,7 +8,7 @@ tr, th, td {
 }
 </style>
 <div class="container">
-	<h3>접수 처리한 진술서(경찰 회원 전용)</h3>
+	<h3>사건처리현황(경찰 회원 전용)</h3>
 	<table class="table table-hover table-responsive"
 		style="margin-top: 10px">
 		<tr>

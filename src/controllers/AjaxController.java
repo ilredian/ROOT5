@@ -206,9 +206,6 @@ public class AjaxController {
 	    // 전체 방문자 수
 	    int totalCount = visitDAO.getVisitTotalCount();
 	      
-	    System.out.println("todayCount: "+todayCount);
-	    System.out.println("totalCount: "+totalCount);
-	      
 	    model.addAttribute("totalCount", totalCount);// 전체 방문자 수
 		model.addAttribute("todayCount", todayCount); // 오늘 방문자 수
 		

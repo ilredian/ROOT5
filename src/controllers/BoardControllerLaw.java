@@ -44,18 +44,14 @@ public class BoardControllerLaw {
 	// 1. 변호사게시판 메인(목록리스트)
 	@RequestMapping("lawMain.go") // 자유게시판 메인- 목록보기 List
 	public String lawMain(// get으로 들어오는 parameter값 선언 및 기본값 설정
-			@RequestParam(value = "pg", required = false, defaultValue = "1") int page, // 현재
-																						// 페이지
-																						// 번호
-			@RequestParam(value = "f", required = false, defaultValue = "title") String field, // 검색
-																								// 카테고리
-			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, // 검색
-																							// 내용
-			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, // 한
-																								// 페이지에
-																								// 보여줄
-																								// 게시글
-																								// 갯수
+			// 현재 페이지 번호
+			@RequestParam(value = "pg", required = false, defaultValue = "1") int page, 
+			// 검색 카테고리
+			@RequestParam(value = "f", required = false, defaultValue = "title") String field, 
+			// 검색 내용
+			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, 
+			// 한 페이지에 보여줄 게시글 갯수
+			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, 
 			HttpSession session, Model model) throws Exception {
 
 		// 로그 남기기
@@ -76,6 +72,12 @@ public class BoardControllerLaw {
 		String email = ((MemberDTO) session.getAttribute("memberInfo")).getEmail();
 		int typeno = ((MemberDTO) session.getAttribute("memberInfo")).getTypeno();
 
+		// 메인 리스트 제목에 댓글 숫자 출력
+		ReplyDAO replyDAO = sqlSession.getMapper(ReplyDAO.class);
+		for (int i = 0; i < list.size(); i++) {//list에 추가하여 담기
+			list.get(i).setBoardReplyCount(replyDAO.getBoardReplyCount("content", query, list.get(i).getBoardno(), 4));
+		}
+		
 		model.addAttribute("typeno",typeno);
 		model.addAttribute("Email", email);
 		model.addAttribute("pager", pager);
@@ -114,7 +116,7 @@ public class BoardControllerLaw {
 		// 게시글에 달린 리플들 정보값을 불러오기 위한 변수 선언 및 가져오기
 			System.out.println("리플 정보 가져오기");
 			ReplyDAO replyDAO = sqlSession.getMapper(ReplyDAO.class);
-			int replycount = replyDAO.getBoardReplyCount("content", "%%", boardno);
+			int replycount = replyDAO.getBoardReplyCount("content", "%%", boardno, 4);
 
 			// 리플 페이징 처리
 			int rstart = (replypage - 1) * 10;
@@ -156,7 +158,7 @@ public class BoardControllerLaw {
 
 			// 메인 리스트에 댓글 숫자 출력
 			for (int i = 0; i < list.size(); i++) {//리스트에 담기
-				list.get(i).setBoardReplyCount(replyDAO.getBoardReplyCount("content", "%%", list.get(i).getBoardno()));
+				list.get(i).setBoardReplyCount(replyDAO.getBoardReplyCount("content", "%%", list.get(i).getBoardno(), 4));
   		}
 			
 			// DB값 model 객체에 담기

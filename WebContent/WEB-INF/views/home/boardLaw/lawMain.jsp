@@ -62,7 +62,9 @@ $(document).ready(function(){
 						${n.title}</a>
 						
 						<!--	onmouseover="setTimeout('me()', 1500)" onmouseout="me1()">&nbsp;&nbsp;&nbsp;  -->
-					</td>
+					<c:if test="${n.boardReplyCount > 0}">
+							<span style="color: red;">${n.boardReplyCount}</span>
+						</c:if></td>
 				   <!-- 마우스를 올리면 게시물 번호에 따른 showlayer(게시물 미리보기 창)가 실행됨 -->
 					<td class="career">${n.career}</td>
 					<td class="company">${n.company}</td>
