@@ -2,21 +2,44 @@ $('.updateTrace').click(function(data){
 
 	$('.updateTrace').hide();
 	$('.updateComplete').hide();
+	var $tr = $(data.target.parentNode.parentNode.parentNode);
 	var id = $(data)[0].target.id;
 	var content = "";
 	var gno = 0;
 	$.ajax({
-		url:id,
+		url:"policeUpdateTraceAjax.go",
 		type:"POST",
+		data:{"gno":id},
 		success:function(data){
 			if(data.result == "success"){
 				content = data.String;
 			}
 			gno = data.gno;
+			$tr.append("<tr><td colspan='7'><form action='policeUpdateTrace.go' method='POST' onsubmit='return updateOK()'><textarea id='content' cols='100' rows='5' name='content'>"+content+"</textarea><input class='btn btn-primary btn-sm' type='submit' value='등록 완료'><input type='button' class='btn btn-danger btn-sm' value='등록 취소' onclick='updateCancel()'><input type='hidden' name='gno' value='"+gno+"'></form></td></tr>");
 		}
 	})
-	
-	$tr.append("<tr><td colspan='7'><form action='"+gno+"' method='get' onsubmit='return updateOK()'><textarea id='content' cols='100' rows='5' name='content'>"+content+"</textarea><input class='btn btn-primary btn-sm' type='submit' value='등록 완료'><input type='button' class='btn btn-danger btn-sm' value='등록 취소' onclick='updateCancel()'></form></td></tr>");
+});
+
+$('.updateComplete').click(function(data){
+
+	$('.updateTrace').hide();
+	$('.updateComplete').hide();
+	var $tr = $(data.target.parentNode.parentNode.parentNode);
+	var id = $(data)[0].target.id;
+	var content = "";
+	var gno = 0;
+	$.ajax({
+		url:"policeUpdateCompleteAjax.go",
+		type:"POST",
+		data:{"gno":id},
+		success:function(data){
+			if(data.result == "success"){
+				content = data.String;
+			}
+			gno = data.gno;
+			$tr.append("<tr><td colspan='7'><form action='policeUpdateComplete.go' method='POST' onsubmit='return updateOK()'><textarea id='content' cols='100' rows='5' name='content'>"+content+"</textarea><input class='btn btn-primary btn-sm' type='submit' value='등록 완료'><input type='button' class='btn btn-danger btn-sm' value='등록 취소' onclick='updateCancel()'><input type='hidden' name='gno' value='"+gno+"'></form></td></tr>");
+		}
+	})
 });
 
 function updateCancel(){

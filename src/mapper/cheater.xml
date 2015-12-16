@@ -242,7 +242,7 @@
 	<!-- 추적 사항 저장 -->
 	<update id="policeUpdateTrace">
 		UPDATE cheaterdb
-		SET trace = ${param2}
+		SET trace = '${param2}'
 		WHERE groupno = ${param1}
 	</update>
 	
@@ -257,7 +257,7 @@
 	<!-- 검거 완료 사항 저장 -->
 	<update id="policeUpdateComplete">
 		UPDATE cheaterdb
-		SET complete = ${param2}
+		SET complete = '${param2}'
 		WHERE groupno = ${param1}
 	</update>
 	
