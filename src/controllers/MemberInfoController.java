@@ -41,8 +41,6 @@ public class MemberInfoController {
 	
 	@Autowired
 	private SqlSession sqlSession;
-
-	
 	////////////////////////내가 쓴 글 모두 가져오기 START///////////////////////////
 	@RequestMapping(value="memberBoard.go", method=RequestMethod.GET)
 	public String board(	
