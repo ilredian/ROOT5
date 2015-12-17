@@ -10,6 +10,13 @@
 		FROM membertype
 	</select>
 	
+	<!-- 특정 타입 이름 가져오기 -->
+	<select id="getMemberType" resultType="String">
+		SELECT typetext
+		FROM membertype
+		WHERE typeno = #{typeno}
+	</select>
+	
 	<!-- 회원 타입 수정 -->
 	<update id="updateMemberType">
 		UPDATE membertype

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import DAO.BoardPhotoDAO;
 import DAO.MemberDAO;
+import DAO.MemberTypeDAO;
 import DAO.ReplyDAO;
 import DTO.BoardPhotoDTO;
 import DTO.MemberDTO;
@@ -142,6 +143,11 @@ public class BoardControllerPhoto {
 		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
 		MemberDTO writerMemberDTO = memberDAO.getMemberStat(boardPhotoDTO.getMemberno());
 		model.addAttribute("writerMemberDTO", writerMemberDTO);
+		
+		// 회원 타입 가져오기
+		MemberTypeDAO memberTypeDAO = sqlSession.getMapper(MemberTypeDAO.class);
+		String typetext = memberTypeDAO.getMemberType(writerMemberDTO.getTypeno());
+		model.addAttribute("typetext", typetext);
 		
 		//리플 정보 가져오기
 		List<ReplyDTO> rlist = replyDAO.getCategoryReply("content", "%%", 3);
