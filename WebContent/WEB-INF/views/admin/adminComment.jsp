@@ -16,7 +16,7 @@
 	</tr>
 	<c:forEach items="${list}" var="list">
 		<tr>
-			<td>${list.replyno}</td>
+			<td>${list.boardno}</td>
 			<td>${list.name}</td>
 			<td>${list.content}</td>
 			<td>
