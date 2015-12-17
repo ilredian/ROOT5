@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <form class="form-horizontal" name="writeForm" id="frm" action=""
-	method="post" onsubmit="return CheckForm();">
+	method="post" onsubmit="return CheckForm();" enctype="multipart/form-data">
 		<div class="container">
 			<h2>피해사례 삭제요청</h2>
 			<table class="table table-condensed">
