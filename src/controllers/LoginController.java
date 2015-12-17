@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.WebUtils;
 
 import DAO.MemberDAO;
@@ -160,12 +161,15 @@ public class LoginController {
 		out.close();
 	}
 	
+	//이메일 찾기
 	@RequestMapping("emailSearch.go")
-	public void passwordSearch(
+	public ModelAndView passwordSearch(
 			@RequestParam("name") String name,
 			@RequestParam("phone") String phone,
 			HttpServletResponse	response
 			) throws Exception{
+		
+		ModelAndView mav = new ModelAndView();
 		
 		//스크립트 구문을 쓰기위한 준비
 		response.setContentType("text/html;charset=UTF-8");
@@ -188,15 +192,17 @@ public class LoginController {
 			String emailTemp = email.substring(0, 3) + star + email.substring(location);
 			
 			//해당 이메일을 새 창으로 띄우기
-			out.print("<script type='text/javascript'>alert('이메일로 임시 비밀번호가 전송되었습니다.');location.replace('login.go');</script>");
-			
+			mav.addObject("result", "sucess");
+			mav.addObject("email",emailTemp);
 		}else{
 			//가입된 이메일이 없다고 띄우기
-			out.print("<script type='text/javascript'>alert('해당 이메일이 존재하지 않습니다.');location.replace('index.go');</script>");
+			mav.addObject("result", "fail");
 		}
-		out.close();
+		mav.setViewName("jsonView");
+		return mav;
 	}
 	
+	//패스워드 찾기
 	@RequestMapping("passwordSearch.go")
 	public void emailSearch(
 			@RequestParam("email") String email,

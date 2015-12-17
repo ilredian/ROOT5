@@ -195,7 +195,7 @@ public class BoardControllerFree {// 자유게시판
 		//글 등록 진행
 		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
 		int groupno = boardFreeDAO.LAST_INSERT_ID();
-		boardFreeDTO.setGroupno(groupno);
+		boardFreeDTO.setGroupno(groupno+1);
 		int result = boardFreeDAO.insert(boardFreeDTO);
 
 		if (result != 0) {
