@@ -35,7 +35,7 @@
 		</tr>
 	</c:forEach>
 </table>
-<div style="text-align: center;">
+<div style="text-align: center; clear:both;">
 	<c:set var="pager" value="${pager.toString()}" />
-	${pager}
+	<ul class="pagination">${pager}</ul>
 </div>
