@@ -27,6 +27,7 @@ import DAO.BoardPhotoDAO;
 import DAO.CheaterDAO;
 import DAO.InterestStatementDAO;
 import DAO.MemberDAO;
+import DTO.BoardPhotoDTO;
 import DTO.CheaterDTO;
 import DTO.InterestStatementDTO;
 import DTO.MemberDTO;
@@ -219,6 +220,13 @@ public class HomeController {
             int boardCount = boardPhotoDAO.BoardPhotoCount();// 검색 결과에 따른 게시글 총
             System.out.println("boardCountP");
             model.addAttribute("boardCountP", boardCount);
+            
+    		
+			///추가 __ 사진게시판이 들어갈 사진이미지 정보_
+			List<BoardPhotoDTO> photolist = boardPhotoDAO.BoardPhotoList(0, 10);
+			System.out.println("photolist");
+			model.addAttribute("photolist", photolist);
+			
             
 			
 			//// 관심등록정보 있는지 확인
