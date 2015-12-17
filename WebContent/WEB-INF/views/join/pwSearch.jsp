@@ -16,7 +16,7 @@ h3 {
 		</div>
 		<div class="well well-lg" align="center" style="margin: auto; height: 85%; width: 50%;">
 		<div style="width: 300px;">
-		<form class="form-horizontal" name="joinform" id="joinform" action="" method="post" onsubmit="return CheckForm();">
+		<form class="form-horizontal" name="joinform" id="joinform" action="" method="post">
 				
 			<div class="form-group">
 				<label for="name" class="col-sm-4 control-label">이름</label>
@@ -45,7 +45,7 @@ h3 {
 		</div>
 		<div class="well well-lg" align="center" style="margin: auto; height: 85%; width: 50%;">
 		<div style="width: 300px;">
-		<form class="form-horizontal" name="joinform"  id="joinform" action="" method="post" onsubmit="return CheckForm2();">
+		<form class="form-horizontal" name="joinform"  id="joinform" action="passwordSearch.go" method="post" onsubmit="return CheckForm2();">
 			<div class="form-group">
 				<label for="name" class="col-sm-4 control-label">이름</label>
 				<div class="col-sm-8">
@@ -68,24 +68,50 @@ h3 {
 		</div>
 		
 		<script type="text/javascript">
-		var re_id = /^(\w+)(((\.?)(\w+))*)[@](((\w+)[.])+)(\w{2,3})$/; // 아이디 검사식
-		var uid = document.getElementById("email");
 		
-		var re_tel = /^[0-9]{8,11}$/; // 전화번호 검사식
-		var tel = document.getElementById("phone");
-		
-		function CheckForm() {
+		$('#emailSearch').click(function(){
+			var go = true;
+			
+			var re_id = /^(\w+)(((\.?)(\w+))*)[@](((\w+)[.])+)(\w{2,3})$/; // 아이디 검사식
+			var uid = document.getElementById("email");
+			
+			var re_tel = /^[0-9]{8,11}$/; // 전화번호 검사식
+			var tel = document.getElementById("phone");
+			
 			if(!$('#name').val()){
 				alert('유효한 이름을 입력해 주세요.');
-				return false;
+				go = false;
 			}
 			
 			if(re_tel.test(tel.value) != true){
 				alert('유효한 전화번호를 입력해 주세요.');
-				return false;
+				go = false;
 			}
-		}
+			
+			if(go){
+				$.ajax({
+					url:"emailSearch.go",
+					type:"POST",
+					data:{"name": $('#name').val(), "phone":$('#phone').val()},
+					success:function(data){
+							if(data.result == "success"){
+								alert('가입하신 이메일은 '+data.email);
+							}else{
+								alert('가입된 이메일이 없습니다.');
+							}
+					},
+				});
+			}
+		});
+		
 		function CheckForm2() {
+			
+			var re_id = /^(\w+)(((\.?)(\w+))*)[@](((\w+)[.])+)(\w{2,3})$/; // 아이디 검사식
+			var uid = document.getElementById("email");
+			
+			var re_tel = /^[0-9]{8,11}$/; // 전화번호 검사식
+			var tel = document.getElementById("phone");
+			
 			if (re_id.test(uid.value) != true) { // 아이디 검사
 				alert('[아이디(이메일) 입력 오류] 유효한 이메일을 입력해 주세요.');
 				return false;
@@ -96,19 +122,6 @@ h3 {
 				return false;
 			}
 		}
-		
-		$.ajax({
-			url:"searchMemberNoAjax.go",
-			type:"POST",
-			data:{"searchMemberNoAjax": $('#name').val()},
-			success:function(data){
-					
-			},
-		});
-		//전송버튼 클릭이벤트
-		$("#emailSearch").click(function() {
-			$("#joinform").submit();
-		});
 		
 		//전송버튼 클릭이벤트
 		$("#pwdSearch").click(function() {

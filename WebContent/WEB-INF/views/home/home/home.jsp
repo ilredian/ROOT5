@@ -264,7 +264,7 @@
 										${lists.stateno}<br> <font color="blue"><label>
 												용의자 이름 :</label></font> ${lists.cheatername}<br> <font color="blue"><label>
 												등록한 멤버 번호 :</label></font> ${lists.memberno}<br><font color="blue"><label>
-												등록한 멤버 이름 :</label></font> ${lists.Membername}<br><font color="blue"><label>
+												등록한 멤버 이름 :</label></font> ${lists.membername}<br><font color="blue"><label>
 												일치율</label></font> ${lists.score}<br>
 									</div>
 								</c:forEach>

@@ -13,7 +13,7 @@
 			</tr>
 			<tr>
 				<td style="width: 10%;"><img alt="no_pic"
-					src="images/boardFreeimages/user_no_pic.gif"></td>
+					src="${boardNoticeDTO.photo}"></td>
 				<td style="width: 70%;">
 					<table>
 						<tr>
@@ -42,7 +42,7 @@
 							$('#asdf').text(window.location.href)
 						</script>
 						<div style="float: right;">
-							<c:if test="${boardFreeDTO.memberno == memberInfo.memberno}">
+							<c:if test="${memberInfo.memberno == 1}">
 							<!-- noticeEdit.go  -->
 							<input class="btn btn-default" type="button" id="edit" value="수정">
 							<!-- noticeDelete.go -->

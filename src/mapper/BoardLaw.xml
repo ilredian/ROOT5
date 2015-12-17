@@ -51,8 +51,8 @@
 	
 	<!-- 글쓰기  -->
 	<insert id="insert" parameterType="DTO.BoardLawDTO">
-		INSERT INTO boardlaw(TITLE, CONTENT, name, REGDATE,COUNTNO,memberno,career,company,message,phone,tel,edu,fee,place)
-		VALUES( #{title}, '글내용없음', #{name}, SYSDATE(), 0,#{memberno},#{career},#{company},#{message},#{phone},#{tel},#{edu},#{fee},#{place})
+		INSERT INTO boardlaw(TITLE, CONTENT, name, REGDATE,COUNTNO,memberno,career,company,message,phone,tel,edu,fee,place,categoryno)
+		VALUES( #{title}, '글내용없음', #{name}, SYSDATE(), 0,#{memberno},#{career},#{company},#{message},#{phone},#{tel},#{edu},#{fee},#{place},4)
 	</insert>
 	
 	<!-- 답글 순서 정리 -->
