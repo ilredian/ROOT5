@@ -4,7 +4,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <style>
-
 h3 {
 	font-family: "나눔고딕"
 }
@@ -17,7 +16,7 @@ h3 {
 		</div>
 		<div class="well well-lg" align="center" style="margin: auto; height: 85%; width: 50%;">
 		<div style="width: 300px;">
-		<form class="form-horizontal" name="joinform" action="" method="post" onsubmit="return CheckForm();">
+		<form class="form-horizontal" name="joinform" id="joinform" action="" method="post" onsubmit="return CheckForm();">
 				
 			<div class="form-group">
 				<label for="name" class="col-sm-4 control-label">이름</label>
@@ -29,12 +28,11 @@ h3 {
 			<div class="form-group">
 				<label for="password" class="col-sm-4 control-label">휴대폰번호</label>
 				<div class="col-sm-8">
-					<input type="tel" class="form-control" name="tel" id="tel" placeholder="'-'없이 ex)01012345678">
+					<input type="text" class="form-control" name="phone" id="phone" placeholder="'-'없이 ex)01012345678">
 				</div>
 			</div>
-			
 			<hr>
-				<input type="button" id="emailSerach" value="메일 찾기" class="btn btn-success">
+				<input type="button" id="emailSearch" value="메일 찾기" class="btn btn-success">
 			<input type="button" onclick="location.href='index.go'" value="CANCEL" class="btn btn-danger">
 		</form>
 		</div>
@@ -47,8 +45,7 @@ h3 {
 		</div>
 		<div class="well well-lg" align="center" style="margin: auto; height: 85%; width: 50%;">
 		<div style="width: 300px;">
-		<form class="form-horizontal" name="joinform" action="" method="post" onsubmit="return CheckForm();">
-				
+		<form class="form-horizontal" name="joinform"  id="joinform" action="" method="post" onsubmit="return CheckForm2();">
 			<div class="form-group">
 				<label for="name" class="col-sm-4 control-label">이름</label>
 				<div class="col-sm-8">
@@ -78,12 +75,6 @@ h3 {
 		var tel = document.getElementById("phone");
 		
 		function CheckForm() {
-			var result= true;
-			if (re_id.test(uid.value) != true) { // 아이디 검사
-				alert('[아이디(이메일) 입력 오류] 유효한 이메일을 입력해 주세요.');
-				return false;
-			}
-			
 			if(!$('#name').val()){
 				alert('유효한 이름을 입력해 주세요.');
 				return false;
@@ -94,6 +85,35 @@ h3 {
 				return false;
 			}
 		}
+		function CheckForm2() {
+			if (re_id.test(uid.value) != true) { // 아이디 검사
+				alert('[아이디(이메일) 입력 오류] 유효한 이메일을 입력해 주세요.');
+				return false;
+			}
+			
+			if(!$('#name').val()){
+				alert('유효한 이름을 입력해 주세요.');
+				return false;
+			}
+		}
+		
+		$.ajax({
+			url:"searchMemberNoAjax.go",
+			type:"POST",
+			data:{"searchMemberNoAjax": $('#name').val()},
+			success:function(data){
+					
+			},
+		});
+		//전송버튼 클릭이벤트
+		$("#emailSearch").click(function() {
+			$("#joinform").submit();
+		});
+		
+		//전송버튼 클릭이벤트
+		$("#pwdSearch").click(function() {
+			$("#joinform").submit();
+		});
 		
 		</script>
 	</div>
