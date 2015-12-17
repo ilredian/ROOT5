@@ -112,19 +112,20 @@ h3 {
 			var re_tel = /^[0-9]{8,11}$/; // 전화번호 검사식
 			var tel = document.getElementById("phone");
 			
-			if (re_id.test(uid.value) != true) { // 아이디 검사
-				alert('[아이디(이메일) 입력 오류] 유효한 이메일을 입력해 주세요.');
-				return false;
-			}
-			
 			if(!$('#name').val()){
 				alert('유효한 이름을 입력해 주세요.');
+				return false;
+			}
+			if (re_id.test(uid.value) != true) { // 아이디 검사
+				alert('[아이디(이메일) 입력 오류] 유효한 이메일을 입력해 주세요.');
 				return false;
 			}
 		}
 		
 		//전송버튼 클릭이벤트
 		$("#pwdSearch").click(function() {
+			
+			alert('가입하신 이메일로 발송하였습니다.');
 			$("#joinform").submit();
 		});
 		
