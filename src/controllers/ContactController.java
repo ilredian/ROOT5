@@ -35,6 +35,7 @@ public class ContactController {
 	@RequestMapping(value="question.go", method=RequestMethod.POST)
 	public String contQuest(
 			HttpSession session,
+			@RequestParam("name") String inputname,
 			@RequestParam("content") String content,
 			@RequestParam("title") String title
 			){
@@ -43,7 +44,7 @@ public class ContactController {
 		System.out.println("문의하기 보내기");
 		
 		//문의하기 메일 처리
-		String name = ((MemberDTO)session.getAttribute("memberInfo")).getName();
+		String name = inputname;
 		String from = ((MemberDTO)session.getAttribute("memberInfo")).getEmail();
 		String to = "ilredian@ilredian.xyz";
 		String tar = "html";
@@ -68,6 +69,7 @@ public class ContactController {
 	@RequestMapping(value="deletepls.go" , method=RequestMethod.POST)
 	public String contDelete(
 			HttpSession session,
+			@RequestParam("name") String inputname,
 			@RequestParam("content") String content,
 			@RequestParam("title") String title
 			){
@@ -76,7 +78,7 @@ public class ContactController {
 		System.out.println("피해사례 삭제요청");
 		
 		//삭제요청 메일 처리
-		String name = ((MemberDTO)session.getAttribute("memberInfo")).getName();
+		String name = inputname;
 		String from = ((MemberDTO)session.getAttribute("memberInfo")).getEmail();
 		String to = "ilredian@ilredian.xyz";
 		String tar = "html";

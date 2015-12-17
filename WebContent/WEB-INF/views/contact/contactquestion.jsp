@@ -28,6 +28,11 @@
 						<td><input type="text" style="width: 600px" id="title" name="title"
 							placeholder="한 줄의 완성된 질문으로 작성해 주세요. 상담자에 대한 최소한의 예의입니다. ^^"></td>
 					</tr>
+					<tr>
+						<th class="active" >이름</th>
+						<td><input type="text" style="width: 600px" id="name" name="name"
+							placeholder="한 줄의 완성된 질문으로 작성해 주세요. 상담자에 대한 최소한의 예의입니다. ^^"></td>
+					</tr>
 					<!-- 네이버 에디터 -->
 					<!-- /네이버 에디터 -->
 					<tr>
@@ -59,6 +64,11 @@ function CheckForm() {
 	//피해 발생 사이트 정보	
 	if (!$("#title").val()) {
 		alert("제목을 입력해주세요");
+		return false;
+	}
+	
+	if (!$("#name").val()) {
+		alert("이름을 입력해주세요");
 		return false;
 	}
 }
