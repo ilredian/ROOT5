@@ -37,7 +37,7 @@ $('#reportboard').click(function(){
 });
 
 $('.reportreply').click(function(){
-	var id = $(this).attr('id');
+	var id = $(this)[0].id;
 	if(confirm('정말 신고하시겠습니까?')){
 		location.replace(id);
 	}
