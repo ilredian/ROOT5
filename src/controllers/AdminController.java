@@ -1060,7 +1060,7 @@ public class AdminController {// 관리자 페이지
 		//메일 보내기
 		sendMailDTO.setName("관리자");
 		sendMailDTO.setFrom("ilredian@ilredian.xyz");
-		sendMailDTO.setTar("html");
+		sendMailDTO.setTar("text");
 		SendMail sendMail = new SendMail();
 		int result = sendMail.sendMail(sendMailDTO);
 		
