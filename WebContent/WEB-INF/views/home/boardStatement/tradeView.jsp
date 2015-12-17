@@ -12,7 +12,9 @@
 						<th colspan="3">${cheaterDTO.goodsname}</th>
 					</tr>
 					<tr>
-						<td style="width: 10%;"><img alt="no_pic" src="<c:out value='${memberDTO.photo}'></c:out>"></td>
+						<td style="width: 10%;"><img alt="no_pic" src="<c:out value='${memberDTO.photo}'></c:out>"
+						width="130px" height="130px"
+						></td>
 						<td style="width: 70%;">
 							<table>
 								<tr>
