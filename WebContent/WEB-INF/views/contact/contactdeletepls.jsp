@@ -157,9 +157,5 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 				alert("제목을 입력해주세요");
 				return false;
 			}
-			if (!$("#editor").val()) {
-				alert("본문을 입력해주세요");
-				return false;
-			}
 	}
 	</script>		

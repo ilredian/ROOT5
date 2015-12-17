@@ -46,7 +46,7 @@ public class ContactController {
 		String name = ((MemberDTO)session.getAttribute("memberInfo")).getName();
 		String from = ((MemberDTO)session.getAttribute("memberInfo")).getEmail();
 		String to = "ilredian@ilredian.xyz";
-		String tar = "html";
+		String tar = "text";
 		String filename = "";
 		//보내는사람 이름, 보내는사람 주소, 받는사람 주소, 제목, 내용, 형식, 첨부파일
 		SendMailDTO sendMailDTO = new SendMailDTO(name, from, to, title, content, tar, filename);
@@ -79,7 +79,7 @@ public class ContactController {
 		String name = ((MemberDTO)session.getAttribute("memberInfo")).getName();
 		String from = ((MemberDTO)session.getAttribute("memberInfo")).getEmail();
 		String to = "ilredian@ilredian.xyz";
-		String tar = "html";
+		String tar = "text";
 		String filename = "";
 		//보내는사람 이름, 보내는사람 주소, 받는사람 주소, 제목, 내용, 형식, 첨부파일
 		SendMailDTO sendMailDTO = new SendMailDTO(name, from, to, title, content, tar, filename);
