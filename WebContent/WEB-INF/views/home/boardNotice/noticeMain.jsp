@@ -10,15 +10,13 @@
 
 
 <script language="javascript">
-var no=${typeno};
+var no=${memberInfo.typeno};
 $(document).ready(function(){
 
     if(no==1){
     	$('#noticeWrite').show();
-    	$('#noticeWrite').show();
     	
     }else{
-    	$('#noticeWrite').hide();
     	$('#noticeWrite').hide();
     }
     
