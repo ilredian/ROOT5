@@ -42,7 +42,7 @@
 							$('#asdf').text(window.location.href)
 						</script>
 						<div style="float: right;">
-							<c:if test="${memberInfo.memberno == 1}">
+							<c:if test="${memberInfo.typeno == 1}">
 							<!-- noticeEdit.go  -->
 							<input class="btn btn-default" type="button" id="edit" value="수정">
 							<!-- noticeDelete.go -->

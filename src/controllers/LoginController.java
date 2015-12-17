@@ -162,7 +162,7 @@ public class LoginController {
 	}
 	
 	//이메일 찾기
-	@RequestMapping("emailSearch.go")
+	@RequestMapping(value="emailSearch.go", method=RequestMethod.POST)
 	public ModelAndView passwordSearch(
 			@RequestParam("name") String name,
 			@RequestParam("phone") String phone,
