@@ -29,4 +29,4 @@
 <div style="text-align: center; clear:both;">
 	<c:set var="pager" value="${pager.toString()}" />
 	<ul class="pagination">${pager}</ul>
-</div>iv>
+</div>
