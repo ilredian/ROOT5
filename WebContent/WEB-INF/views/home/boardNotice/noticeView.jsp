@@ -18,9 +18,6 @@
 						<tr>
 							<th>관리자</th>
 						</tr>
-						<tr>
-							<td>${memberInfo.message}</td>
-						</tr>
 					</table>
 				</td>
 				<td style="width: 20%">조회 ${boardNoticeDTO.countno}</td>

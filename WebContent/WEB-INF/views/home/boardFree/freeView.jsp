@@ -17,7 +17,7 @@
 				<td style="width: 70%;">
 					<table>
 						<tr>
-							<th>(피해회원)</th>
+							<th>${boardFreeDTO.name} (피해회원)</th>
 						</tr>
 						<tr>
 							<td>${memberInfo.message}</td>

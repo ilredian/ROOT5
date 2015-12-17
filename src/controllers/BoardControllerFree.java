@@ -160,7 +160,10 @@ public class BoardControllerFree {// 자유게시판
 			list.get(i).setBoardReplyCount(replyDAO.getBoardReplyCount("content", "%%", list.get(i).getBoardno(), 1));
 		}
 		
+		MemberDTO writerMemberDTO = memberDAO.getMemberStat(boardFreeDTO.getMemberno());
+		
 		// DB값 model 객체에 담기
+		model.addAttribute("writerMemberDTO", writerMemberDTO);
 		model.addAttribute("boardFreeDTO", boardFreeDTO);
 		model.addAttribute("replycount", replycount);
 		model.addAttribute("rpager", rpager);

@@ -161,7 +161,10 @@ public class BoardControllerLaw {
 				list.get(i).setBoardReplyCount(replyDAO.getBoardReplyCount("content", "%%", list.get(i).getBoardno(), 4));
   		}
 			
+			MemberDTO writerMemberDTO = memberDAO.getMemberStat(boardLawDTO.getMemberno());
+			
 			// DB값 model 객체에 담기
+			model.addAttribute("writerMemberDTO", writerMemberDTO);
 			model.addAttribute("BoardLawDTO", boardLawDTO);
 			model.addAttribute("replycount", replycount);
 			model.addAttribute("rpager", rpager);
