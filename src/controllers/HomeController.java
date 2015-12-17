@@ -32,6 +32,8 @@ import DTO.InterestStatementDTO;
 import DTO.MemberDTO;
 import DTO.chartDTO;
 import DTO.chartItemsDTO;
+import mail.SendMail;
+import mail.SendMailDTO;
 
 @Controller
 public class HomeController {
@@ -138,25 +140,25 @@ public class HomeController {
 			InterestStatementDTO isDTO = isDAO.getInterestStatement(memberno);
 			List<InterestStatementDTO> result = isDAO.compareDB(isDTO);
 			List<InterestStatementDTO> list = new ArrayList<InterestStatementDTO>();
-
+			
 			for (int i = 0; i < result.size(); i++) {
 				int score = 0;
-				if (result.get(i).getCheatername() != null) {
+				if (!isDTO.getCheatername().equals("모름") && result.get(i).getCheatername() != null) {
 					if (result.get(i).getCheatername().equals(isDTO.getCheatername())) {
 						score += 20;
 					}
 				}
-				if (result.get(i).getAccount() != null) {
+				if (!isDTO.getCheatername().equals("모름") && result.get(i).getAccount() != null) {
 					if (result.get(i).getAccount().equals(isDTO.getAccount())) {
 						score += 40;
 					}
 				}
-				if (result.get(i).getPhone() != null) {
+				if (!isDTO.getCheatername().equals("010-0000-0000") && result.get(i).getPhone() != null) {
 					if (result.get(i).getPhone().equals(isDTO.getPhone())) {
 						score += 20;
 					}
 				}
-				if (result.get(i).getCheaterid() != null) {
+				if (!isDTO.getCheatername().equals("") && result.get(i).getCheaterid() != null) {
 					if (result.get(i).getCheaterid().equals(isDTO.getCheaterid())) {
 						score += 20;
 					}
@@ -181,6 +183,16 @@ public class HomeController {
 				}
 			};
 			Collections.sort(list, comparator);
+			
+			//멤버 이름 설정
+			MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
+			
+			for(int i=0; i<list.size(); i++){
+				MemberDTO memberDTO = new MemberDTO();
+				memberDTO= memberDAO.getMemberStat(list.get(i).getMemberno());
+				list.get(i).setMembername(memberDTO.getName());
+			}
+			
 			// model에 담기
 			model.addAttribute("list", list);
 
@@ -227,7 +239,6 @@ public class HomeController {
 					
 					//의뢰접수
 					//접수 정보 가져오기 전 경찰 정보 불러오기
-					MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
 					MemberDTO memberDTO = memberDAO.getMemberStat(cheaterResultDTO.getPolice());
 					String comment = "'"+cheaterResultDTO.getRegpolice()+"' " + memberDTO.getCompany() + " 담당 "+memberDTO.getName()+"형사 ("+memberDTO.getPhone()+")";
 					model.addAttribute("policeCompany", memberDTO.getCompany());

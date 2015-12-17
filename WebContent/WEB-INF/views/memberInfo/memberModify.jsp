@@ -39,14 +39,12 @@ $(document).ready(function() {
 			<tr>
 				<td><img src="${photo}" width="108px" height="128px"
 					align="left"></td>
-				<th class="active">파일첨부</th>
+				<th class="active">사진첨부</th>
 				<td><input type="file" name="file" id="uploadFile" value="" /><input
 					id="upload" class="btn btn-default btn-sm" type="button"
 					name="filebtn" value="첨부하기"> <input type="hidden"
 					id="filename" name="photo" value="${photo}"></td>
-				<td><input type="file" name="file1" id="file" />
-					<div id="fileupload"></div> <br></td>
-
+				
 				<td class="key">메세지<span>*</span><br>
 				</td>
 				<c:set var="n" value="${message}" />

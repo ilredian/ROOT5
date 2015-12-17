@@ -59,7 +59,7 @@
 	<!-- 자유 게시판 등록 -->
 	<insert id="insert" parameterType="DTO.BoardFreeDTO">
 		INSERT INTO boardfree(title, name, content, regdate, groupno, notice, memberno, categoryno) 
-		VALUES(#{title}, #{name}, #{content}, SYSDATE(), last_insert_id()+1, 0, #{memberno}, 1)
+		VALUES(#{title}, #{name}, #{content}, SYSDATE(), #{groupno}, 0, #{memberno}, 1)
 	</insert>
 	
 	<!-- 답글 순서 정리 -->
@@ -75,4 +75,8 @@
 		VALUES(#{title}, #{name}, #{content}, SYSDATE(), #{groupno}, #{step}, #{depth} , 0, #{memberno}, 1)
 	</insert>
 	
+	<!-- LAST_INSERT_ID -->
+	<select id="LAST_INSERT_ID" resultType="Integer">
+		SELECT LAST_INSERT_ID();
+	</select>
 </mapper>

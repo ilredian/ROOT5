@@ -41,7 +41,7 @@
 	
 	<!-- (회원 탈퇴) -->
 	<update id="delete">
-		UPDATE MEMBERDB  SET ACTIVE = 1  WHERE MEMBERNO = #{MEMBERNO}
+		UPDATE memberdb  SET active = 1  WHERE memberno = #{memberno}
 	</update>
 	
 	<!-- 회원 타입 변경 -->
@@ -64,4 +64,12 @@
 		FROM memberdb
 		WHERE name LIKE '%${name}%';
 	</select>
+	
+	<!-- 이메일을 찾기 위한 검색 -->
+	<select id="getMemberEmailSearch" resultType="String">
+		SELECT email
+		FROM memberdb
+		WHERE name = ${param1} AND phone=${param2}
+	</select>
+
 </mapper>

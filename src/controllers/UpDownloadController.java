@@ -47,7 +47,7 @@ public class UpDownloadController implements ApplicationContextAware {
     public ModelAndView download(@RequestParam("path")String path, 
                                   @RequestParam("fileName")String fileName){
          
-        String fullPath = path + "\\" + fileName;
+        String fullPath = path + "/" + fileName;
          
         File file = new File(fullPath);
          

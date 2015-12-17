@@ -72,6 +72,7 @@
 		WHERE memberno=#{memberno}
 	</update>
 	
+	<!-- 비밀번호 변경탭에서 비밀번호 수정 -->
 	<update id="changepassword" parameterType="DTO.MemberDTO">
 		UPDATE memberdb
 		SET password=#{npassword}, regpwd=sysdate()
@@ -80,7 +81,7 @@
 	
 	<!-- (회원 탈퇴) -->
 	<update id="delete"  parameterType="DTO.MemberDTO">
-		UPDATE MEMBERDB  SET ACTIVE = 1  WHERE MEMBERNO = #{MEMBERNO}
+		UPDATE memberdb  SET ACTIVE = 1  WHERE memberno = #{memberno}
 	</update>
 	
 	<!-- 경찰회원 자신이 접수처리한 목록 가져오기 -->

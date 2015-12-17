@@ -23,10 +23,19 @@ public class InterestStatementDTO {
 	private int cheatno; /* cheatDTO에 있는 사기 번호 */
 	private int memberno; /* memberDTO에 있는 회원번호 */
 	
+	/////DB에 없어도 되는 컬럼
+	private String membername;
 	private int score;//종합 취합 점수
+	//////////////////////
 	
 	public int getScore() {
 		return score;
+	}
+	public String getMembername() {
+		return membername;
+	}
+	public void setMembername(String membername) {
+		this.membername = membername;
 	}
 	public void setScore(int score) {
 		this.score = score;

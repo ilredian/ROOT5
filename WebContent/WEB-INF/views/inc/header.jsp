@@ -19,27 +19,6 @@
 <script src="http://malsup.github.com/jquery.form.js"></script>
 
 <script type="text/javascript">
-setInterval(function(){
-	<c:if test="${not empty memberInfo}">
-	var memberno = ${memberInfo.memberno}
-		$.ajax({
-			url : "msgAjax.go",
-			type : "POST",
-			data : {"memberno": memberno},
-			success : function(responseData) {
-				if(responseData.result=="success"){
-					
-					 setInterval(function(){
-					var blink = document.getElementById('new');
-					blink.style.visibility = blink.style.visibility == ''?'hidden':'',
-					blink.style.color = "Red"
-					 }, 500);
-				}else{}
-			}
-		});
-	</c:if>
-}, 60000);
-
 	
 	//로그인 유지 확인
 	$.ajax({
@@ -55,6 +34,27 @@ setInterval(function(){
 
 	/* 로그인 버튼  */
 	$(document).ready(function() {
+		
+		setInterval(function(){
+			<c:if test="${not empty memberInfo}">
+			var memberno = ${memberInfo.memberno}
+				$.ajax({
+					url : "msgAjax.go",
+					type : "POST",
+					data : {"memberno": memberno},
+					success : function(responseData) {
+						if(responseData.result=="success"){
+							 setInterval(function(){
+							var blink = document.getElementById('new');
+							blink.style.visibility = blink.style.visibility == ''?'hidden':'',
+							blink.style.color = "Red"
+							 }, 500);
+						}else{}
+					}
+				});
+			</c:if>
+		}, 60000);
+		
 		$("#myBtn").click(function() {
 			location.replace("login.go")
 		});

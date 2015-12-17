@@ -17,7 +17,7 @@ public class UploadService {
 		UploadDTO uploadDTO = new UploadDTO();
 		uploadDTO.setSuccess(false);
 		
-		String uploadPath = "/upload/";
+		String uploadPath = "/opt/tomcat/webapps/ROOT/upload/";
 		
 		File dir = new File(uploadPath);
 
@@ -42,7 +42,9 @@ public class UploadService {
 					mFile.transferTo(new File(uploadPath + saveFileName));
 					String filename = uploadPath + saveFileName;
 					uploadDTO.setSuccess(true);
-					uploadDTO.setFilename(filename);
+					int saveFileLength = saveFileName.length();
+					int saveUploadPath = uploadPath.indexOf("/upload/");
+					uploadDTO.setFilename(filename.substring(saveUploadPath, saveUploadPath+saveFileLength+1));
 					
 				} catch (IllegalStateException e) {
 					e.printStackTrace();

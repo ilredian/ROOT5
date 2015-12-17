@@ -36,4 +36,6 @@ public interface BoardFreeDAO {
 	// 게시물 답글 달기
 	public int answer(BoardFreeDTO boardFreeDTO) throws Exception;
 	
+	// LAST_INSERT_ID
+	public int LAST_INSERT_ID() throws Exception;
 }

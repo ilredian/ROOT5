@@ -163,33 +163,33 @@ public class RegistrationController {
 		for (int i = 0; i < result.size(); i++) {
 			int score = 0;
 			if (result.get(i).getCheatername() != null) {
-				if (result.get(i).getCheatername().equals(isDTO.getCheatername())) {
-					score += 10;
+				if (!isDTO.getCheatername().equals("모름") && result.get(i).getCheatername().equals(isDTO.getCheatername())) {
+					score += 20;
 				}
 			}
-			if (result.get(i).getAccount() != null) {
+			if (!isDTO.getCheatername().equals("모름") && result.get(i).getAccount() != null) {
 				if (result.get(i).getAccount().equals(isDTO.getAccount())) {
 					score += 40;
 				}
 			}
-			if (result.get(i).getPhone() != null) {
+			if (!isDTO.getCheatername().equals("010-0000-0000") && result.get(i).getPhone() != null) {
 				if (result.get(i).getPhone().equals(isDTO.getPhone())) {
-					score += 30;
+					score += 20;
 				}
 			}
-			if (result.get(i).getCheaterid() != null) {
+			if (!isDTO.getCheatername().equals("") && result.get(i).getCheaterid() != null) {
 				if (result.get(i).getCheaterid().equals(isDTO.getCheaterid())) {
-					score += 30;
+					score += 20;
 				}
 			}
-			if (score >= 30) {
+			if (score >= 40) {
 				MemberDTO memberDTO = memberDAO.getMemberStat(result.get(i).getMemberno());
-				String name = "관리자";
+				String name = "AhnCheat 관리자";
 				String from = "admin@ilredian.xyz";
 				String to = memberDTO.getEmail();
 				String title = "당신이 등록한 관심 진술서와 유사한 사례가 새로 등록되었습니다.";
-				String content_mail = "정확한 내용은 사이트로 와서 확인해 주세요. 본 메일은 발신 전용입니다.";
-				String tar = "text";
+				String content_mail = "정확한 내용은 사이트로 와서 확인해 주세요.<br>본 메일은 발신 전용입니다.";
+				String tar = "html";
 				String filename = "";
 				//보내는사람 이름, 보내는사람 주소, 받는사람 주소, 제목, 내용, 형식, 첨부파일
 				SendMailDTO sendMailDTO = new SendMailDTO(name, from, to, title, content_mail, tar, filename);
@@ -331,33 +331,33 @@ public class RegistrationController {
 		for (int i = 0; i < result.size(); i++) {
 			int score = 0;
 			if (result.get(i).getCheatername() != null) {
-				if (result.get(i).getCheatername().equals(isDTO.getCheatername())) {
-					score += 10;
+				if (!isDTO.getCheatername().equals("모름") && result.get(i).getCheatername().equals(isDTO.getCheatername())) {
+					score += 20;
 				}
 			}
-			if (result.get(i).getAccount() != null) {
+			if (!isDTO.getCheatername().equals("모름") && result.get(i).getAccount() != null) {
 				if (result.get(i).getAccount().equals(isDTO.getAccount())) {
 					score += 40;
 				}
 			}
-			if (result.get(i).getPhone() != null) {
+			if (!isDTO.getCheatername().equals("010-0000-0000") && result.get(i).getPhone() != null) {
 				if (result.get(i).getPhone().equals(isDTO.getPhone())) {
-					score += 30;
+					score += 20;
 				}
 			}
-			if (result.get(i).getCheaterid() != null) {
+			if (!isDTO.getCheatername().equals("") && result.get(i).getCheaterid() != null) {
 				if (result.get(i).getCheaterid().equals(isDTO.getCheaterid())) {
-					score += 30;
+					score += 20;
 				}
 			}
-			if (score >= 30) {
+			if (score >= 40) {
 				MemberDTO memberDTO = memberDAO.getMemberStat(result.get(i).getMemberno());
-				String name = "관리자";
+				String name = "AhnCheat 관리자";
 				String from = "admin@ilredian.xyz";
 				String to = memberDTO.getEmail();
 				String title = "당신이 등록한 관심 진술서와 유사한 사례가 새로 등록되었습니다.";
-				String content_mail = "정확한 내용은 사이트로 와서 확인해 주세요. 본 메일은 발신 전용입니다.";
-				String tar = "text";
+				String content_mail = "정확한 내용은 사이트로 와서 확인해 주세요.<br>본 메일은 발신 전용입니다.";
+				String tar = "html";
 				String filename = "";
 				//보내는사람 이름, 보내는사람 주소, 받는사람 주소, 제목, 내용, 형식, 첨부파일
 				SendMailDTO sendMailDTO = new SendMailDTO(name, from, to, title, content_mail, tar, filename);
@@ -488,33 +488,33 @@ public class RegistrationController {
 		for (int i = 0; i < result.size(); i++) {
 			int score = 0;
 			if (result.get(i).getCheatername() != null) {
-				if (result.get(i).getCheatername().equals(isDTO.getCheatername())) {
-					score += 10;
+				if (!isDTO.getCheatername().equals("모름") && result.get(i).getCheatername().equals(isDTO.getCheatername())) {
+					score += 20;
 				}
 			}
-			if (result.get(i).getAccount() != null) {
+			if (!isDTO.getCheatername().equals("모름") && result.get(i).getAccount() != null) {
 				if (result.get(i).getAccount().equals(isDTO.getAccount())) {
 					score += 40;
 				}
 			}
-			if (result.get(i).getPhone() != null) {
+			if (!isDTO.getCheatername().equals("010-0000-0000") && result.get(i).getPhone() != null) {
 				if (result.get(i).getPhone().equals(isDTO.getPhone())) {
-					score += 30;
+					score += 20;
 				}
 			}
-			if (result.get(i).getCheaterid() != null) {
+			if (!isDTO.getCheatername().equals("") && result.get(i).getCheaterid() != null) {
 				if (result.get(i).getCheaterid().equals(isDTO.getCheaterid())) {
-					score += 30;
+					score += 20;
 				}
 			}
-			if (score >= 30) {
+			if (score >= 40) {
 				MemberDTO memberDTO = memberDAO.getMemberStat(result.get(i).getMemberno());
-				String name = "관리자";
+				String name = "AhnCheat 관리자";
 				String from = "admin@ilredian.xyz";
 				String to = memberDTO.getEmail();
 				String title = "당신이 등록한 관심 진술서와 유사한 사례가 새로 등록되었습니다.";
-				String content_mail = "정확한 내용은 사이트로 와서 확인해 주세요. 본 메일은 발신 전용입니다.";
-				String tar = "text";
+				String content_mail = "정확한 내용은 사이트로 와서 확인해 주세요.<br>본 메일은 발신 전용입니다.";
+				String tar = "html";
 				String filename = "";
 				//보내는사람 이름, 보내는사람 주소, 받는사람 주소, 제목, 내용, 형식, 첨부파일
 				SendMailDTO sendMailDTO = new SendMailDTO(name, from, to, title, content_mail, tar, filename);

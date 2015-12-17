@@ -33,5 +33,8 @@ public interface MemberDAO {
 	
 	//쪽지 발송을 위한 회원 이름 검색
 	public List<MemberDTO> getMemberName(MemberDTO memberDTO) throws Exception;
+	
+	//이메일을 찾기 위한 검색
+	public String getMemberEmailSearch(String name, String phone) throws Exception;
 }
 
