@@ -5,7 +5,6 @@ import javax.mail.*;
 import javax.mail.internet.*;
 import javax.activation.*;
 import java.io.*;
-import java.net.URLEncoder;
 
 public class SendMail {
 	
@@ -27,8 +26,8 @@ public class SendMail {
 		MimeMessage msg = new MimeMessage(session);
 
 		// 보낼 사람의이름과 이메일 주소
-		msg.setFrom(new InternetAddress(URLEncoder.encode(sendMailDTO.getName() , "KSC5601") + "<" + sendMailDTO.getFrom() + ">"));
-		
+		msg.setFrom(new InternetAddress(new String(sendMailDTO.getName().getBytes("KSC5601")) + "<" + sendMailDTO.getFrom() + ">"));
+
 		// 받을 이메일주소
 		// InternetAddress[] inet = InternetAddress.parse(to);
 		msg.setRecipients(Message.RecipientType.TO, sendMailDTO.getTo());

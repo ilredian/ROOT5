@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<form class="form-horizontal" name="writeForm" id="frm" action=""
-	method="post" onsubmit="return CheckForm();" enctype="multipart/form-data">
+<form class="form-horizontal" name="writeForm" id="frm" action="" onsubmit="return CheckForm();"
+	method="post" enctype="multipart/form-data">
 		<div class="container">
 			<h2>피해사례 삭제요청</h2>
 			<table class="table table-condensed">
@@ -135,7 +135,7 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 
 				</table>
 			</div>
-			<a><input type="submit" id="savebutton" class="btn btn-info" value="등록"></a>
+			<a><input type="submit" class="btn btn-info" value="등록"></a>
 			<a href="contacted.go"><input type="button"
 				class="btn btn-danger" value="취소"></a>
 		</div>
@@ -158,13 +158,4 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 				return false;
 			}
 	}
-	
-
-	$(function() {
-		$("#savebutton").click(function() {
-			alert('문의가 완료되었습니다.')
-			$("#frm").submit();
-		});
-
-	});
 	</script>		
