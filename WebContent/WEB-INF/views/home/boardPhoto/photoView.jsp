@@ -13,7 +13,7 @@
          </tr>
          <tr>
             <td style="width: 10%;"><img alt="no_pic"
-               src="${memverInfo.photo}" width="105px" height="105px"></td>
+               src="${memberInfo.photo}" width="105px" height="105px"></td>
             <td style="width: 70%;">
                <table>
                   <tr>
