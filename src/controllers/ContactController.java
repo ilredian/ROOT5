@@ -37,13 +37,13 @@ public class ContactController {
 			HttpSession session,
 			@RequestParam("content") String content,
 			@RequestParam("title") String title
-			){
+			) throws Exception{
 		
 		//문의하기 보내기
 		System.out.println("문의하기 보내기");
 		
 		//문의하기 메일 처리
-		String name = ((MemberDTO)session.getAttribute("memberInfo")).getName();
+		String name = "문의사항";
 		String from = ((MemberDTO)session.getAttribute("memberInfo")).getEmail();
 		String to = "ilredian@ilredian.xyz";
 		String tar = "html";
@@ -70,13 +70,13 @@ public class ContactController {
 			HttpSession session,
 			@RequestParam("content") String content,
 			@RequestParam("title") String title
-			){
+			) throws Exception{
 		
 		//피해사례 삭제요청
 		System.out.println("피해사례 삭제요청");
 		
 		//삭제요청 메일 처리
-		String name = ((MemberDTO)session.getAttribute("memberInfo")).getName();
+		String name = "피해사례";
 		String from = ((MemberDTO)session.getAttribute("memberInfo")).getEmail();
 		String to = "ilredian@ilredian.xyz";
 		String tar = "html";
