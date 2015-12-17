@@ -9,7 +9,7 @@ tr, th, td {
 </style>
 <!-- 기록 추적용 진술서 -->
 <div class="container">
-	<h3>추적???</h3>
+	<h3>타임라인 설정</h3>
 	<table class="table table-hover table-responsive"
 		style="margin-top: 10px">
 		<tr>

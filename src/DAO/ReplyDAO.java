@@ -31,7 +31,7 @@ public interface ReplyDAO {
 	public List<ReplyDTO> getMemberReply(String searchTitle, String searchContent, int memberno) throws Exception;
 	
 	// 검색된 게시판별 댓글 정보
-	public List<ReplyDTO> getBoardReply(String searchTitle, String searchContent, int boardno, int rstart) throws Exception;
+	public List<ReplyDTO> getBoardReply(String searchTitle, String searchContent, int boardno, int rstart, int categoryno) throws Exception;
 	
 	// 댓글 추가
 	public int insertReply(ReplyDTO replyDTO) throws Exception;

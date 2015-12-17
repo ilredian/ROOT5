@@ -49,7 +49,7 @@ $('#freeWrite').click(function(){
 });
 
 $('#select').change(function(){
-	location.replace('freeMain.go?ps='+$('#select').val());
+	location.replace('freeMain.go?pg=1&ps='+$('#select').val());
 });
 
 $('.updateReply').click(function(data){

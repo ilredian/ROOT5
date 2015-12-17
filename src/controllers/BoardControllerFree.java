@@ -128,7 +128,7 @@ public class BoardControllerFree {// 자유게시판
 		}
 		
 		// 해당 게시판에 대한 리플들 불러오기
-		List<ReplyDTO> replyDTO = replyDAO.getBoardReply("content", "%%", boardno, rstart);
+		List<ReplyDTO> replyDTO = replyDAO.getBoardReply("content", "%%", boardno, rstart, 1);
 
 		// 리플에 있는 사진 불러오기
 		for(int i = 0; i < replyDTO.size(); i++){
