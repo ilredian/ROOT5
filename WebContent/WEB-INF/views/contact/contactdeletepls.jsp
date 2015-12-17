@@ -29,7 +29,7 @@
 				</tr>
 				<tr>
 					<th align="center" class="active">제목</th>
-					<td><input type="text" name="제목" id="title"
+					<td><input type="text" name="title" id="title"
 						placeholder="사죄문과 함께 삭제요청 드립니다." style="width: 600px"></td>
 				</tr>
 				<tr>
@@ -39,7 +39,7 @@
 					</td>
 				</tr>
 				<tr>
-					<th class="active" id="content">사건 발생 개요</th>
+					<th class="active" name="content" id="content">사건 발생 개요</th>
 					<td>1.물품을 받은 경우에는 물품 사진을 첨부하세요. <br> 2.용의자의 주민등록번호와 사진은
 						절대 등록하시면 안됩니다.(피해사례 등록자가 법적 처벌을 받을 수 있습니다.) <textarea id="editor"
 							style="HEIGHT: 300px; WIDTH: 100%" rows="10" cols="30"
@@ -148,7 +148,7 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 
 				</table>
 			</div>
-			<a><input type="button" class="btn btn-info" value="등록"></a>
+			<a><input type="button" class="btn btn-info" id="savebutton" value="등록"></a>
 			<a href="contacted.go"><input type="button"
 				class="btn btn-danger" value="취소"></a>
 		</div>
@@ -169,10 +169,19 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 				return false;
 			}
 			if (!$("#content").val()) {
-				alert("비밀번호를 입력해주세요");
+				alert("본문을 입력해주세요");
 				return false;
 			}
 		}
+		
+		$(function() {
+			//전송버튼 클릭이벤트
+			$("#savebutton").click(function() {
+				alert('문의가 완료되었습니다.')
+				$("#frm").submit();
+			});
+
+		});		
 	</script>		
 	
 </body>
