@@ -34,6 +34,7 @@ public class UpDownloadController implements ApplicationContextAware {
 		if(uploadDTO.isSuccess()) {
 			mav.addObject("result", "success");
 			mav.addObject("file",uploadDTO.getFilename());
+			mav.addObject("fullfile", uploadDTO.getFullfilename());
 		} else {
 			mav.addObject("result", "fail");
 		}

@@ -3,7 +3,16 @@ package service;
 public class UploadDTO {
 	private String filename;
 	private boolean	isSuccess;
+	private String fullfilename;
 	
+	
+	
+	public String getFullfilename() {
+		return fullfilename;
+	}
+	public void setFullfilename(String fullfilename) {
+		this.fullfilename = fullfilename;
+	}
 	public String getFilename() {
 		return filename;
 	}

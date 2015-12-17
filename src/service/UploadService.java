@@ -45,7 +45,7 @@ public class UploadService {
 					int saveFileLength = saveFileName.length();
 					int saveUploadPath = uploadPath.indexOf("/upload/");
 					uploadDTO.setFilename(filename.substring(saveUploadPath, saveUploadPath+saveFileLength+8));
-					
+					uploadDTO.setFullfilename(filename);
 				} catch (IllegalStateException e) {
 					e.printStackTrace();
 					uploadDTO.setSuccess(false);
