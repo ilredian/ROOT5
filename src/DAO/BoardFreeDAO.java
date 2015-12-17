@@ -37,5 +37,5 @@ public interface BoardFreeDAO {
 	public int answer(BoardFreeDTO boardFreeDTO) throws Exception;
 	
 	// LAST_INSERT_ID
-	public int LAST_INSERT_ID() throws Exception;
+	public Integer LAST_INSERT_ID() throws Exception;
 }

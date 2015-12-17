@@ -13,7 +13,7 @@
 			</tr>
 			<tr>
 				<td style="width: 10%;"><img alt="no_pic"
-					src="${boardNoticeDTO.photo}"></td>
+					src="${boardNoticeDTO.photo}" width="105px" height="105px"></td>
 				<td style="width: 70%;">
 					<table>
 						<tr>
@@ -101,7 +101,9 @@
 	</table>
 	<div style="text-align: center;">
 		<c:set var="rpager" value="${rpager.toString()}" />
+		<ul class="pagination">
 		${rpager}
+		</ul>
 	</div>
 	<br>
 	<div style="text-align: center;">

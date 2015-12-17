@@ -77,7 +77,7 @@
 	
 	<!-- LAST_INSERT_ID -->
 	<select id="LAST_INSERT_ID" resultType="Integer">
-		SELECT boardno
+		SELECT max(boardno)
 		FROM boardfree
 		ORDER BY regdate DESC
 		LIMIT 0, 1
