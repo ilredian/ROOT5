@@ -57,7 +57,7 @@ public class MemberInfoController {
 		//Free / Law / Notice 꺼 모두 가져오기_
 		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
 		BoardLawDAO boardLawDAO = sqlSession.getMapper(BoardLawDAO.class);
-	
+		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
 		MemberInfoDAO memberInfoDAO = sqlSession.getMapper(MemberInfoDAO.class);
 		
 		//로그 남기기
@@ -95,6 +95,13 @@ public class MemberInfoController {
 		
 		model.addAttribute("pgLaw", 1);
 		model.addAttribute("pgFree", 1);
+		
+		 MemberDTO memberDTO= ((MemberDTO) session.getAttribute("memberInfo"));
+		
+		/////변호사 게시물_
+		 MemberDTO DTO = memberDAO.getMember(memberDTO);
+	     int typeno = DTO.getTypeno();
+	     model.addAttribute("typeno", typeno);
 		
 		return "memberInfo.memberBoard";
 	}

@@ -190,13 +190,12 @@
 										
 						<!-- 사진 게시판에 사진을 가져오기-->
 						<c:if test="${not empty boardCountP}">	
-							<c:forEach items="${photolist}" var="photolist" begin="0" end="1">
+							<c:forEach items="${photolist}" var="photolist" begin="0" end="10">
 								<li>
 									<img src="${photolist.uploadfile}" width="50%" height="50%">
 								</li>
 							</c:forEach>
 						</c:if>	
-						
 							<!-- 사진 게시판에 사진이 없으면 디폴트로 -->
 							<c:if test="${empty boardCountP}">
 								<li><img src="images/cheatImage/cheat_1.jpg" width="50%"
@@ -208,8 +207,6 @@
 								<li><img src="images/cheatImage/cheat_5.jpg" width="50%"
 									height="50%"></li>
 							</c:if>		
-									
-									
 							</ul>
 						</div>
 					</div>
