@@ -48,7 +48,7 @@
 				<div align="center">
               </div>
              </div>
-	<a><input type="submit" class="btn btn-info" value="등록"></a>
+	<a><input type="button" id="savebutton" class="btn btn-info" value="등록"></a>
 	<a href="contacted.go"><input type="button" class="btn btn-danger"
 		value="취소"></a>
 			</div>

@@ -26,7 +26,7 @@ public class SendMail {
 		MimeMessage msg = new MimeMessage(session);
 
 		// 보낼 사람의이름과 이메일 주소
-		msg.setFrom(new InternetAddress(new String(sendMailDTO.getName().getBytes("KSC5601")) + "<" + sendMailDTO.getFrom() + ">"));
+		msg.setFrom(new InternetAddress(new String(sendMailDTO.getName().getBytes("KSC5601"), "8859_1") + "<" + sendMailDTO.getFrom() + ">"));
 
 		// 받을 이메일주소
 		// InternetAddress[] inet = InternetAddress.parse(to);
