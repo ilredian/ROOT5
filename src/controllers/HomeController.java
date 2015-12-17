@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import DAO.BoardFreeDAO;
 import DAO.BoardLawDAO;
 import DAO.BoardNoticeDAO;
+import DAO.BoardPhotoDAO;
 import DAO.CheaterDAO;
 import DAO.InterestStatementDAO;
 import DAO.MemberDAO;
@@ -200,6 +201,13 @@ public class HomeController {
 			int boardCountN = boardNoticeDAO.getCount(field, query);
 			System.out.println("boardCountN");
 			model.addAttribute("boardCountN", boardCountN);
+			
+			////사진게시판 글 개수
+            BoardPhotoDAO boardPhotoDAO = sqlSession.getMapper(BoardPhotoDAO.class);
+            int boardCount = boardPhotoDAO.BoardPhotoCount();// 검색 결과에 따른 게시글 총
+            System.out.println("boardCountP");
+            model.addAttribute("boardCountP", boardCount);
+            
 			
 			//// 관심등록정보 있는지 확인
 			int regResult = isDAO.getResist(memberno);

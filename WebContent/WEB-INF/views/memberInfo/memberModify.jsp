@@ -6,7 +6,7 @@
 function submitOk(){
 	var r = confirm("정말로 바꾸시겠습니까?");
 	if (r == true) {
-		$("#frm2").submit();
+		
 	} else {
 		return false;
 	}
@@ -37,14 +37,13 @@ $(document).ready(function() {
 		<hr>
 		<table>
 			<tr>
-
 				<td><img src="${photo}" width="108px" height="128px"
 					align="left"></td>
 				<th class="active">파일첨부</th>
 				<td><input type="file" name="file" id="uploadFile" value="" /><input
 					id="upload" class="btn btn-default btn-sm" type="button"
 					name="filebtn" value="첨부하기"> <input type="hidden"
-					id="filename" name="filename" value=""></td>
+					id="filename" name="photo" value="${photo}"></td>
 				<td><input type="file" name="file1" id="file" />
 					<div id="fileupload"></div> <br></td>
 

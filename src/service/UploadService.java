@@ -17,7 +17,7 @@ public class UploadService {
 		UploadDTO uploadDTO = new UploadDTO();
 		uploadDTO.setSuccess(false);
 		
-		String uploadPath = "/opt/tomcat/webapps/ROOT/upload/";
+		String uploadPath = "/upload/";
 		
 		File dir = new File(uploadPath);
 

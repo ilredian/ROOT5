@@ -40,9 +40,9 @@
 		var path = $('#pagePath').val();
 		var login = $('#memberInfo').val();
 		var go = "notIndex";
-		if(path == "/ROOT/WEB-INF/views/inc/layout.jsp"){
+		if(path == "/WEB-INF/views/inc/layout.jsp"){
 			go = "Index"
-		}else if(path == "/ROOT/WEB-INF/views/join/inc/layout.jsp"){
+		}else if(path == "/WEB-INF/views/join/inc/layout.jsp"){
 			go = "Index"
 		}else if(login != null){
 			go = "Index"

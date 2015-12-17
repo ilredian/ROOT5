@@ -87,16 +87,28 @@ public class BoardControllerPhoto {
 	    response.setContentType("text/html;charset=UTF-8");
 	    out = response.getWriter();
 	    
+	    //컨텐츠에서 이미지값 가져오기
+	    int row1 = boardphotoDTO.getContent().indexOf("src=\"");
+		int row2 = boardphotoDTO.getContent().indexOf("\"", row1+5);
+		String mainImg="";
+		if(row1<row2){
+			mainImg = boardphotoDTO.getContent().substring(row1+5, row2);
+		}else{
+			mainImg="/images/common/no_img.gif";
+		}
+		
+		boardphotoDTO.setUploadfile(mainImg);
+	    
 	    //글 등록 진행
 	    BoardPhotoDAO boardphotoDAO = sqlSession.getMapper(BoardPhotoDAO.class);
 	    int result = boardphotoDAO.insert(boardphotoDTO);
 	    
 	    if (result != 0) {
-	         System.out.println("자유게시판 글쓰기 완료");
+	         System.out.println("사진게시판 글쓰기 완료");
 	         out.print(
 	               "<script type='text/javascript'>alert('글이 성공적으로 등록되었습니다.'); location.replace('PhotoMain.go?pg=1');</script>");
 	      } else {
-	         System.out.println("자유게시판 글쓰기 등록 실패");
+	         System.out.println("사진게시판 글쓰기 등록 실패");
 	         out.print(
 	               "<script type='text/javascript'>alert('글을 등록하는데 실패하였습니다.'); location.replace('PhotoMain.go?pg=1');</script>");
 	      }

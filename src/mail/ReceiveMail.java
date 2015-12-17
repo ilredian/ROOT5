@@ -135,7 +135,7 @@ public class ReceiveMail {
 					os.close();
 					System.out.println(filename + "을 보관합니다.");
 					receiveMailDTO.setFileName(filename);
-					receiveMailDTO.setFileLocation("C:\\Kosta106th\\Spring_M\\utils\\sts-bundle\\sts-3.7.1.RELEASE");
+					receiveMailDTO.setFileLocation("/opt/tomcat/webapps/ROOT/mail/");
 				} catch (Exception e) {
 					System.out.println("첨부파일 보관중 에러가 발생했습니다" + e);
 				}

@@ -116,10 +116,10 @@
 								<i class="fa fa-save fa-5x"></i>
 							</div>
 							<div class="col-xs-9 text-right">
-								<!-- 사진_  -->
-								<div class="huge">13</div>
-								<div>사건 사진!</div>
-							</div>
+                                <!-- 사진_  -->
+                                <div class="huge">${boardCountP}</div>
+                                <div>사건 사진!</div>
+                            </div>
 						</div>
 					</div>
 					<a href="PhotoMain.go?pg=1">

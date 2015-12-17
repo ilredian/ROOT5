@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import DAO.BoardCategoryDAO;
 import DAO.BoardFreeDAO;
+import DAO.BoardPhotoDAO;
 import DAO.CheatBankDAO;
 import DAO.CheatDAO;
 import DAO.CheatDomainDAO;
@@ -222,9 +223,9 @@ public class AdminController {// 관리자 페이지
 				
 		// DB 접속
 		ReportPhotoDAO reportphotodao = sqlSession.getMapper(ReportPhotoDAO.class);
-		ReportBoardDAO reportBoardDAO = sqlSession.getMapper(ReportBoardDAO.class);		
+		BoardPhotoDAO boardPhotoDAO = sqlSession.getMapper(BoardPhotoDAO.class);
 		
-		reportBoardDAO.deleteReportBoard(boardno); 
+		boardPhotoDAO.BoardPhotoupdateActive(boardno);
 		int result = reportphotodao.deleteReportPhoto(boardno);
 				
 		if (result == 1) {
