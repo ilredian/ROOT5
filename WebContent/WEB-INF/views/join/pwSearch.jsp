@@ -125,7 +125,7 @@ h3 {
 		//전송버튼 클릭이벤트
 		$("#pwdSearch").click(function() {
 			
-			alert('가입하신 이메일로 발송하였습니다.')
+			alert('가입하신 이메일로 발송하였습니다.');
 			$("#joinform").submit();
 		});
 		

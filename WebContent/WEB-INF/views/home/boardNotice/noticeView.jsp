@@ -13,11 +13,11 @@
 			</tr>
 			<tr>
 				<td style="width: 10%;"><img alt="no_pic"
-					src="${boardNoticeDTO.photo}"></td>
+					src="${boardNoticeDTO.photo}" width="105px" height="105px"></td>
 				<td style="width: 70%;">
 					<table>
 						<tr>
-							<th>(피해회원)</th>
+							<th>관리자</th>
 						</tr>
 						<tr>
 							<td>${memberInfo.message}</td>
