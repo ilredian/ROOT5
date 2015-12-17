@@ -4,7 +4,14 @@ public class MemberTypeDTO {
 
 	private int typeno;
 	private String typename;
+	private String typetext;
 	
+	public String getTypetext() {
+		return typetext;
+	}
+	public void setTypetext(String typetext) {
+		this.typetext = typetext;
+	}
 	public int getTypeno() {
 		return typeno;
 	}

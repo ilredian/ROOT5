@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import DAO.BoardPhotoDAO;
+import DAO.MemberDAO;
+import DAO.MemberTypeDAO;
 import DAO.ReplyDAO;
 import DTO.BoardPhotoDTO;
 import DTO.MemberDTO;
@@ -119,9 +121,9 @@ public class BoardControllerPhoto {
 	@RequestMapping(value="PhotoView.go", method = RequestMethod.GET)
 	public String PhotoView(
 			// 현재 페이지 번호
-						@RequestParam(value = "pg", required = false, defaultValue = "1") int page, 
-						// 한 페이지에 보여줄 게시글 갯수
-						@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, 
+			@RequestParam(value = "pg", required = false, defaultValue = "1") int page, 
+			// 한 페이지에 보여줄 게시글 갯수
+			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, 
 			@RequestParam("bno") int boardno, Model model,
 			HttpSession session
 			) throws Exception {
@@ -136,6 +138,16 @@ public class BoardControllerPhoto {
 		//포토 게시물 DB 가져오기
 		BoardPhotoDTO boardPhotoDTO = boardPhotoDAO.BoardPhotoDetail(boardno);
 		model.addAttribute("BoardPhotoDTO",boardPhotoDTO);
+		
+		// 글쓴이 정보 가져오기
+		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
+		MemberDTO writerMemberDTO = memberDAO.getMemberStat(boardPhotoDTO.getMemberno());
+		model.addAttribute("writerMemberDTO", writerMemberDTO);
+		
+		// 회원 타입 가져오기
+		MemberTypeDAO memberTypeDAO = sqlSession.getMapper(MemberTypeDAO.class);
+		String typetext = memberTypeDAO.getMemberType(writerMemberDTO.getTypeno());
+		model.addAttribute("typetext", typetext);
 		
 		//리플 정보 가져오기
 		List<ReplyDTO> rlist = replyDAO.getCategoryReply("content", "%%", 3);

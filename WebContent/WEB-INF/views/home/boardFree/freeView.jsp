@@ -17,10 +17,10 @@
 				<td style="width: 70%;">
 					<table>
 						<tr>
-							<th>(피해회원)</th>
+							<th>${boardFreeDTO.name} (${typetext})</th>
 						</tr>
 						<tr>
-							<td>${memberInfo.message}</td>
+							<td>${writerMemberDTO.message}</td>
 						</tr>
 					</table>
 				</td>

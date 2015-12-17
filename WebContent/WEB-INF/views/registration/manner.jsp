@@ -550,7 +550,7 @@ function CheckForm() {
 		return true;
  	}
  	
- 	if($("#su_telchk")[0].checked == false) { // 연락처정보
+ 	if(!$("#su_telchk")[0].checked) { // 연락처정보
  		if(!$("#phone2").val() || !$("#phone3").val()){
  			alert('연락처를 기입하세요');
  		}

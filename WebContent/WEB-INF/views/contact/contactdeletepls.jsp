@@ -1,19 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<title>AhnCheat</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</head>
-<body>
 <form class="form-horizontal" name="writeForm" id="frm" action=""
 	method="post" onsubmit="return CheckForm();">
 		<div class="container">
@@ -39,7 +26,7 @@
 					</td>
 				</tr>
 				<tr>
-					<th class="active" name="content" id="content">사건 발생 개요</th>
+					<th class="active">사건 발생 개요</th>
 					<td>1.물품을 받은 경우에는 물품 사진을 첨부하세요. <br> 2.용의자의 주민등록번호와 사진은
 						절대 등록하시면 안됩니다.(피해사례 등록자가 법적 처벌을 받을 수 있습니다.) <textarea id="editor"
 							style="HEIGHT: 300px; WIDTH: 100%" rows="10" cols="30"
@@ -170,12 +157,9 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 				alert("제목을 입력해주세요");
 				return false;
 			}
-			if (!$("#content").val()) {
+			if (!$("#editor").val()) {
 				alert("본문을 입력해주세요");
 				return false;
 			}
 	}
 	</script>		
-	
-</body>
-</html>

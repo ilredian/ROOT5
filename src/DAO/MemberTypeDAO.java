@@ -9,6 +9,9 @@ public interface MemberTypeDAO {
 	// 모든 멤버 종류 가져오기
 	public List<MemberTypeDTO> getMemberTypeList() throws Exception;
 	
+	// 특정 멤버 종류 가져오기
+	public String getMemberType(int typeno) throws Exception;
+	
 	// 멤버 종류 수정
 	public int updateMemberType(MemberTypeDTO memberTypeDTO) throws Exception;
 	

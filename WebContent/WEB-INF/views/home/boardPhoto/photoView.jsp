@@ -17,7 +17,7 @@
             <td style="width: 70%;">
                <table>
                   <tr>
-                     <th>(피해회원)</th>
+                     <th>(${typetext})</th>
                   </tr>
                   <tr>
                      <td>${memberInfo.message}</td>

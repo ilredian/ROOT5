@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import DAO.BoardLawDAO;
 import DAO.MemberDAO;
+import DAO.MemberTypeDAO;
 import DAO.ReplyDAO;
 import DTO.BoardLawDTO;
 import DTO.MemberDTO;
@@ -161,7 +162,15 @@ public class BoardControllerLaw {
 				list.get(i).setBoardReplyCount(replyDAO.getBoardReplyCount("content", "%%", list.get(i).getBoardno(), 4));
   		}
 			
+			MemberDTO writerMemberDTO = memberDAO.getMemberStat(boardLawDTO.getMemberno());
+			
+			// 회원 타입 가져오기
+			MemberTypeDAO memberTypeDAO = sqlSession.getMapper(MemberTypeDAO.class);
+			String typetext = memberTypeDAO.getMemberType(writerMemberDTO.getTypeno());
+			model.addAttribute("typetext", typetext);
+			
 			// DB값 model 객체에 담기
+			model.addAttribute("writerMemberDTO", writerMemberDTO);
 			model.addAttribute("BoardLawDTO", boardLawDTO);
 			model.addAttribute("replycount", replycount);
 			model.addAttribute("rpager", rpager);

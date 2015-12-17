@@ -18,7 +18,7 @@
 				<td style="width: 70%;">
 					<table class="table">
 						<tr>
-							<th>${boardLawDTO.name} 변호사</th>
+							<th>${boardLawDTO.name} (${typetext})</th>
 						</tr>
 						<tr>
 							<td>${memberInfo.message}</td>

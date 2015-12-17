@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import DAO.BoardFreeDAO;
 import DAO.MemberDAO;
+import DAO.MemberTypeDAO;
 import DAO.ReplyDAO;
 import DTO.BoardFreeDTO;
 import DTO.MemberDTO;
@@ -160,7 +161,16 @@ public class BoardControllerFree {// 자유게시판
 			list.get(i).setBoardReplyCount(replyDAO.getBoardReplyCount("content", "%%", list.get(i).getBoardno(), 1));
 		}
 		
+		// 자신의 메세지 가져오기
+		MemberDTO writerMemberDTO = memberDAO.getMemberStat(boardFreeDTO.getMemberno());
+		
+		// 회원 타입 가져오기
+		MemberTypeDAO memberTypeDAO = sqlSession.getMapper(MemberTypeDAO.class);
+		String typetext = memberTypeDAO.getMemberType(writerMemberDTO.getTypeno());
+		model.addAttribute("typetext", typetext);
+		
 		// DB값 model 객체에 담기
+		model.addAttribute("writerMemberDTO", writerMemberDTO);
 		model.addAttribute("boardFreeDTO", boardFreeDTO);
 		model.addAttribute("replycount", replycount);
 		model.addAttribute("rpager", rpager);
