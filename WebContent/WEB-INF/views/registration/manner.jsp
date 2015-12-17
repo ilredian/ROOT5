@@ -5,7 +5,7 @@
 
 <form class="form-horizontal" name="writeForm" id="frm" action="" method="post" onsubmit="return CheckForm();">
 	<div class="container">
-		<h3>직거래 피해사례 등록</h3>
+		<h3>비매너 피해사례 등록</h3>
 		<p>피해사례 등록이 완료되면 피해자를 위한 기능이 실시간 제공됩니다.</p>
 		<br>
 
