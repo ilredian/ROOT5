@@ -288,6 +288,55 @@ public class AdminController {// 관리자 페이지
 		
 		return "admin.adminComment";
 	}
+	
+	
+	/////////////////////////////////
+	
+////댓글 신고 게시판 삭제
+	@RequestMapping("deleteReply.go")
+	public void DeleteReply(
+			@RequestParam(value = "pg", required = false, defaultValue = "1") int page, 
+			// 검색 카테고리
+			@RequestParam(value = "f", required = false, defaultValue = "content") String field,
+			// 검색 내용
+			@RequestParam(value = "q", required = false, defaultValue = "%%") String query, 
+			// 한 페이지에 보여줄 게시글 갯수
+			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, 
+			Model model,
+			HttpServletResponse response,
+			@RequestParam("bno") int boardno) throws Exception{
+		
+		// 로그 남기기
+		System.out.print("신고 사진 게시글 삭제");
+				
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
+		
+		// DB 접속
+		ReplyDAO replyoDAO = sqlSession.getMapper(ReplyDAO.class);
+		ReportReplyDAO reportReplyDAO = sqlSession.getMapper(ReportReplyDAO.class);
+		ReportBoardDAO reportBoardDAO = sqlSession.getMapper(ReportBoardDAO.class);
+		
+		///이 댓글의 글번호를 가져와야한다._
+		reportBoardDAO.deleteReportBoard(boardno); 
+		int result = replyoDAO.deleteReply(boardno);
+		
+		if (result == 1) {
+			out.print("<script>alert('게시글이 성공적으로 삭제되었습니다.');location.replace('adminBoardPhoto.go');</script>");
+		} else {
+			out.print("<script>alert('게시글 삭제에 실패하였습니다.');location.replace('adminBoardPhoto.go');</script>");
+		}
+		out.close();
+	}
+	
+	
+	/////////////////////////////////
+	
+	
+	
+	
+	
 
 	// 사기 사이트 설정 관리자 창으로 이동
 	@RequestMapping(value = "adminDomainList.go", method = RequestMethod.GET)

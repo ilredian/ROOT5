@@ -43,6 +43,6 @@ public interface ReplyDAO {
 	public int updateReplyActive(int replyno) throws Exception;
 	
 	// 댓글 완전 삭제(delete)
-	public int deleteReply() throws Exception;
+	public int deleteReply(int replyno) throws Exception;
 	
 }
