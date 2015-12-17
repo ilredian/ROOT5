@@ -20,11 +20,6 @@
 						placeholder="사죄문과 함께 삭제요청 드립니다." style="width: 600px"></td>
 				</tr>
 				<tr>
-					<th align="center" class="active">이름</th>
-					<td><input type="text" name="name" id="name"
-						placeholder="자신의 이름을 정확히 써주세요." style="width: 600px"></td>
-				</tr>
-				<tr>
 					<th class="active">고운 언어가 좋아요!</th>
 					<td>"말이 입힌 상처는 칼이 입힌 상처보다 깊다." - 모로코 속담<br> 귀하의 글은 귀하의
 						품격을 보여주는 귀하의 얼굴입니다. 글에 귀하의 성숙함을 담아주세요.

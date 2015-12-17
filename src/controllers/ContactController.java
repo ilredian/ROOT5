@@ -35,16 +35,15 @@ public class ContactController {
 	@RequestMapping(value="question.go", method=RequestMethod.POST)
 	public String contQuest(
 			HttpSession session,
-			@RequestParam("name") String inputname,
 			@RequestParam("content") String content,
 			@RequestParam("title") String title
-			){
+			) throws Exception{
 		
 		//문의하기 보내기
 		System.out.println("문의하기 보내기");
 		
 		//문의하기 메일 처리
-		String name = inputname;
+		String name = "문의사항";
 		String from = ((MemberDTO)session.getAttribute("memberInfo")).getEmail();
 		String to = "ilredian@ilredian.xyz";
 		String tar = "html";
@@ -69,16 +68,15 @@ public class ContactController {
 	@RequestMapping(value="deletepls.go" , method=RequestMethod.POST)
 	public String contDelete(
 			HttpSession session,
-			@RequestParam("name") String inputname,
 			@RequestParam("content") String content,
 			@RequestParam("title") String title
-			){
+			) throws Exception{
 		
 		//피해사례 삭제요청
 		System.out.println("피해사례 삭제요청");
 		
 		//삭제요청 메일 처리
-		String name = inputname;
+		String name = "피해사례";
 		String from = ((MemberDTO)session.getAttribute("memberInfo")).getEmail();
 		String to = "ilredian@ilredian.xyz";
 		String tar = "html";
