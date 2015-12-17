@@ -12,6 +12,7 @@ tr, th, td {
 	<table class="table table-hover table-responsive"
 		style="margin-top: 10px">
 		<tr>
+			<th>진술서번호</th>
 			<th>용의자명</th>
 			<th>용의자 계좌</th>
 			<th>용의자 연락처</th>
@@ -22,6 +23,7 @@ tr, th, td {
 		</tr>
 		<c:forEach var="l" items="${list}">
 			<tr>
+				<td>${l.stateno}</td>
 				<td>${l.cheatername}</td>
 				<td>${l.account}</td>
 				<td>${l.phone}</td>
