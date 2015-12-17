@@ -12,8 +12,7 @@
 				<th colspan="3">${boardNoticeDTO.title}</th>
 			</tr>
 			<tr>
-				<td style="width: 10%;"><img alt="no_pic"
-					src="${boardNoticeDTO.photo}" width="105px" height="105px"></td>
+				<td style="width: 10%;"><img alt="no_pic" src="${boardNoticeDTO.photo}" width="105px" height="105px"></td>
 				<td style="width: 70%;">
 					<table>
 						<tr>

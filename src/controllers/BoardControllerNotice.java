@@ -1,4 +1,4 @@
-package controllers;
+﻿package controllers;
 
 import java.io.PrintWriter;
 import java.util.List;
@@ -111,9 +111,8 @@ public class BoardControllerNotice {//공지사항 게시판
 				
 			// 해당 게시판의 글쓴이 사진 가져오기
 			MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
-			//boardNoticeDTO.setPhoto(memberDAO.getPhoto(boardNoticeDTO.getMemberno()));
-			boardNoticeDTO.setPhoto("/ROOT5/WebContent/images/common/admin.png");
-			
+			boardNoticeDTO.setPhoto("");
+
 			
 			// 게시글에 달린 리플들 정보값을 불러오기 위한 변수 선언 및 가져오기
 			System.out.println("리플 정보 가져오기");
