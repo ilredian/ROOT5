@@ -27,6 +27,30 @@
 					<td>${list.regdate}</td>
 					<td><input type="button" class="btn btn-info viewBtn" value="자세히보기"
 						id="statementView.go?sno=${list.stateno}&cno=3"></td>
+						<c:if test="${memberInfo.typeno == 2}">
+						<c:choose>
+							<c:when test="${list.complete != null}">
+								<td>
+									<input type="button" class="btn btn-danger btn-sm completeStatement" value="검거">
+								</td>
+							</c:when>
+							<c:when test="${list.trace != null}">
+								<td>
+									<input type="button" class="btn btn-warning btn-sm traceStatement" value="추적중">
+								</td>
+							</c:when>
+							<c:when test="${list.police != 0}">
+								<td>
+									<input type="button" class="btn btn-default btn-sm regOkStatement" value="접수완료">
+								</td>
+							</c:when>
+							<c:otherwise>
+								<td>
+									<input type="button" class="btn btn-success btn-sm regStatementPolice" id="${list.stateno}" value="사건접수">
+								</td>
+							</c:otherwise>
+						</c:choose>
+					</c:if>
 				</tr>
 			</c:forEach>
 		</tbody>
