@@ -203,7 +203,7 @@ public class LoginController {
 	}
 	
 	//패스워드 찾기
-	@RequestMapping("passwordSearch.go")
+	@RequestMapping(value="passwordSearch.go", method=RequestMethod.POST)
 	public void emailSearch(
 			@RequestParam("email") String email,
 			@RequestParam("name") String membername,
