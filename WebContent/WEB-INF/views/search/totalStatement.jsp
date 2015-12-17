@@ -92,9 +92,4 @@
 			</table>
 			<c:if test="${empty mannerlist}"><h3>${param.q}에 대한 등록된 피해사례가 없습니다.</h3></c:if>
 		</div>
-		
-		<div class="container" align="right">
-			<input type="submit" alt="직거래 피해사례 등록" value="직거래 피해사례 등록"
-				align="right">
-		</div>
 	</div>
