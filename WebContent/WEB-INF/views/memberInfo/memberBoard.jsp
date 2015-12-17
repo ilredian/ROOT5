@@ -13,9 +13,10 @@ $(function() {
 tr, th, td {text-align: center;}
 </style>
 <div class="container">
+
+<c:if test="${typeno==3}">
 	<h3>변호사게시물</h3>
 	게시물 수 : <c:out value="${boardCountLaw}"/>
-
 	<table class="table table-hover table-responsive"
 		style="margin-top: 10px">
 		<tr>
@@ -32,8 +33,8 @@ tr, th, td {text-align: center;}
 			<td colspan="1">${l.regdate}</td>
 		</tr>
 		</c:forEach>
-		
 	</table>
+</c:if>
 	<h3>자유게시물</h3>
 	게시물 수 : <c:out value="${boardCountFree}"/>
 	<table class="table table-hover table-responsive"

@@ -149,17 +149,17 @@ public class HomeController {
 						score += 20;
 					}
 				}
-				if (!isDTO.getCheatername().equals("모름") && result.get(i).getAccount() != null) {
+				if (!isDTO.getAccount().equals("모름") && result.get(i).getAccount() != null) {
 					if (result.get(i).getAccount().equals(isDTO.getAccount())) {
 						score += 40;
 					}
 				}
-				if (!isDTO.getCheatername().equals("010-0000-0000") && result.get(i).getPhone() != null) {
+				if (!isDTO.getPhone().equals("010-0000-0000") && result.get(i).getPhone() != null) {
 					if (result.get(i).getPhone().equals(isDTO.getPhone())) {
 						score += 20;
 					}
 				}
-				if (!isDTO.getCheatername().equals("") && result.get(i).getCheaterid() != null) {
+				if (!isDTO.getCheaterid().equals("") && result.get(i).getCheaterid() != null) {
 					if (result.get(i).getCheaterid().equals(isDTO.getCheaterid())) {
 						score += 20;
 					}
