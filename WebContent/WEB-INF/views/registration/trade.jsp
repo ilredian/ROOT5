@@ -517,7 +517,9 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 					}
 					return true;
 				}
-				if ($("#su_telchk")[0].checked == false) { // 연락처정보
+				
+				
+				if (!$("#su_telchk")[0].checked) { // 연락처정보
 					if (!$("#phone2").val() || !$("#phone3").val()) {
 						alert('연락처를 기입하세요');
 					}
