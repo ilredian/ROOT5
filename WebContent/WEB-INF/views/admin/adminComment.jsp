@@ -12,7 +12,7 @@
 		<th>글번호</th>
 		<th>작성자</th>
 		<th>내용</th>
-		<th>asdf</th>
+		<th>삭제여부</th>
 	</tr>
 	<c:forEach items="${list}" var="list">
 		<tr>
@@ -21,7 +21,7 @@
 			<td>${list.content}</td>
 			<td>
 				<input type="button" class="btn btn-danger delete"
-					id="deleteReportBoardFree.go?bno=${list.replyno}" value="삭제">
+					id="deleteReply.go?bno=${list.replyno}" value="삭제">
 			</td>
 		</tr>
 	</c:forEach>
