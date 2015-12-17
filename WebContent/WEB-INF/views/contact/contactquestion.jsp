@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-	<form action="" method="post" name="writeForm" id="frm" enctype="multipart/form-data">
+	<form action="" method="post" name="writeForm" id="frm" enctype="multipart/form-data" onsubmit="return CheckForm();">
 		<div class="container">
 			<div>
 				<h3>
-					<strong>¹®ÀÇÇÏ±â (ÀÇ°ß¼ö·Å)</strong>
+					<strong>ë¬¸ì˜í•˜ê¸° (ì˜ê²¬ìˆ˜ë ´)</strong>
 				</h3>
 			</div>
 			<Br>
@@ -15,31 +15,31 @@
 						<col width="150px;">
 					</colgroup>
 					<tr>
-						<th class="active">ÇÊµ¶</th>
-						<td>1. ¼­ºñ½º »ç¿ë°ú °ü·ÃÇÑ ¹®ÀÇ ¶Ç´Â °³¼±°ú °ü·ÃµÈ ³»¿ëÀ» µî·ÏÇÏ½Ç ¼ö ÀÖ½À´Ï´Ù.<br> 2.
-							ÀÎÅÍ³Ý »ç±â¿Í °ü·ÃÇÑ »ó´ãÀº "»ç±â Q&A"¿¡ µî·ÏÇØ ÁÖ¼¼¿ä.<br> 3. ÇÇÇØ»ç·Ê »èÁ¦¿äÃ»Àº "ÇÇÇØ»ç·Ê
-							»èÁ¦¿äÃ»"¿¡ µî·ÏÇØ ÁÖ¼¼¿ä.<br> 4. ¹®ÀÇ ³»¿ëÀº ¼öÁ¤ ¹× »èÁ¦°¡ µÇÁö ¾Ê½À´Ï´Ù.<br> ½ÅÁßÈ÷
-							ÀÛ¼ºÇÏ¿© ÁÖ½Ã±æ ºÎÅ¹µå¸³´Ï´Ù.<br> ¡Ø ´ÙÀ½°ú °°Àº ¹®ÀÇ´Â ´äº¯µÇÁö ¾Ê°í »èÁ¦µÇ¸ç, ¹úÁ¡ÀÌ ºÎ°úµÉ ¼ö
-							ÀÖ½À´Ï´Ù.<br> - ¸ÂÃã¹ý ¹× À°ÇÏ¿øÄ¢À» ÁØ¼öÇÏÁö ¾ÊÀº ±Û, ¿å¼³ ¶Ç´Â Àú¼ÓÇÑ ³»¿ëÀ» Æ÷ÇÔÇÑ ±Û
+						<th class="active">í•„ë…</th>
+						<td>1. ì„œë¹„ìŠ¤ ì‚¬ìš©ê³¼ ê´€ë ¨í•œ ë¬¸ì˜ ë˜ëŠ” ê°œì„ ê³¼ ê´€ë ¨ëœ ë‚´ìš©ì„ ë“±ë¡í•˜ì‹¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.<br> 2.
+							ì¸í„°ë„· ì‚¬ê¸°ì™€ ê´€ë ¨í•œ ìƒë‹´ì€ "ì‚¬ê¸° Q&A"ì— ë“±ë¡í•´ ì£¼ì„¸ìš”.<br> 3. í”¼í•´ì‚¬ë¡€ ì‚­ì œìš”ì²­ì€ "í”¼í•´ì‚¬ë¡€
+							ì‚­ì œìš”ì²­"ì— ë“±ë¡í•´ ì£¼ì„¸ìš”.<br> 4. ë¬¸ì˜ ë‚´ìš©ì€ ìˆ˜ì • ë° ì‚­ì œê°€ ë˜ì§€ ì•ŠìŠµë‹ˆë‹¤.<br> ì‹ ì¤‘ížˆ
+							ìž‘ì„±í•˜ì—¬ ì£¼ì‹œê¸¸ ë¶€íƒë“œë¦½ë‹ˆë‹¤.<br> â€» ë‹¤ìŒê³¼ ê°™ì€ ë¬¸ì˜ëŠ” ë‹µë³€ë˜ì§€ ì•Šê³  ì‚­ì œë˜ë©°, ë²Œì ì´ ë¶€ê³¼ë  ìˆ˜
+							ìžˆìŠµë‹ˆë‹¤.<br> - ë§žì¶¤ë²• ë° ìœ¡í•˜ì›ì¹™ì„ ì¤€ìˆ˜í•˜ì§€ ì•Šì€ ê¸€, ìš•ì„¤ ë˜ëŠ” ì €ì†í•œ ë‚´ìš©ì„ í¬í•¨í•œ ê¸€
 						</td>
 					</tr>
 					<tr>
-						<th class="active" >Áú¹® ¿ä¾à</th>
+						<th class="active" >ì§ˆë¬¸ ìš”ì•½</th>
 						<td><input type="text" style="width: 600px" id="title" name="title"
-							placeholder="ÇÑ ÁÙÀÇ ¿Ï¼ºµÈ Áú¹®À¸·Î ÀÛ¼ºÇØ ÁÖ¼¼¿ä. »ó´ãÀÚ¿¡ ´ëÇÑ ÃÖ¼ÒÇÑÀÇ ¿¹ÀÇÀÔ´Ï´Ù. ^^"></td>
+							placeholder="í•œ ì¤„ì˜ ì™„ì„±ëœ ì§ˆë¬¸ìœ¼ë¡œ ìž‘ì„±í•´ ì£¼ì„¸ìš”. ìƒë‹´ìžì— ëŒ€í•œ ìµœì†Œí•œì˜ ì˜ˆì˜ìž…ë‹ˆë‹¤. ^^"></td>
 					</tr>
-					<!-- ³×ÀÌ¹ö ¿¡µðÅÍ -->
-					<!-- /³×ÀÌ¹ö ¿¡µðÅÍ -->
+					<!-- ë„¤ì´ë²„ ì—ë””í„° -->
+					<!-- /ë„¤ì´ë²„ ì—ë””í„° -->
 					<tr>
-						<th class="active">°í¿î ¾ð¾î°¡ ÁÁ¾Æ¿ä!</th>
-						<td>"¸»ÀÌ ÀÔÈù »óÃ³´Â Ä®ÀÌ ÀÔÈù »óÃ³º¸´Ù ±í´Ù." - ¸ð·ÎÄÚ ¼Ó´ã<br> ±ÍÇÏÀÇ ±ÛÀº ±ÍÇÏÀÇ
-							Ç°°ÝÀ» º¸¿©ÁÖ´Â ±ÍÇÏÀÇ ¾ó±¼ÀÔ´Ï´Ù. ±Û¿¡ ±ÍÇÏÀÇ ¼º¼÷ÇÔÀ» ´ã¾ÆÁÖ¼¼¿ä.
+						<th class="active">ê³ ìš´ ì–¸ì–´ê°€ ì¢‹ì•„ìš”!</th>
+						<td>"ë§ì´ ìž…ížŒ ìƒì²˜ëŠ” ì¹¼ì´ ìž…ížŒ ìƒì²˜ë³´ë‹¤ ê¹Šë‹¤." - ëª¨ë¡œì½” ì†ë‹´<br> ê·€í•˜ì˜ ê¸€ì€ ê·€í•˜ì˜
+							í’ˆê²©ì„ ë³´ì—¬ì£¼ëŠ” ê·€í•˜ì˜ ì–¼êµ´ìž…ë‹ˆë‹¤. ê¸€ì— ê·€í•˜ì˜ ì„±ìˆ™í•¨ì„ ë‹´ì•„ì£¼ì„¸ìš”.
 						</td>
 					</tr>
 					<tr>
-						<th class="active">»ç°Ç ¹ß»ý °³¿ä</th>
-						<td>1.¹°Ç°À» ¹ÞÀº °æ¿ì¿¡´Â ¹°Ç° »çÁøÀ» Ã·ºÎÇÏ¼¼¿ä. <br> 2.¿ëÀÇÀÚÀÇ ÁÖ¹Îµî·Ï¹øÈ£¿Í »çÁøÀº
-							Àý´ë µî·ÏÇÏ½Ã¸é ¾ÈµË´Ï´Ù.(ÇÇÇØ»ç·Ê µî·ÏÀÚ°¡ ¹ýÀû Ã³¹úÀ» ¹ÞÀ» ¼ö ÀÖ½À´Ï´Ù.) <textarea id="editor"
+						<th class="active">ì‚¬ê±´ ë°œìƒ ê°œìš”</th>
+						<td>1.ë¬¼í’ˆì„ ë°›ì€ ê²½ìš°ì—ëŠ” ë¬¼í’ˆ ì‚¬ì§„ì„ ì²¨ë¶€í•˜ì„¸ìš”. <br> 2.ìš©ì˜ìžì˜ ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸ì™€ ì‚¬ì§„ì€
+							ì ˆëŒ€ ë“±ë¡í•˜ì‹œë©´ ì•ˆë©ë‹ˆë‹¤.(í”¼í•´ì‚¬ë¡€ ë“±ë¡ìžê°€ ë²•ì  ì²˜ë²Œì„ ë°›ì„ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.) <textarea id="editor"
 								style="HEIGHT: 300px; WIDTH: 100%" rows="10" cols="30"
 								name="content"></textarea>
 						</td>
@@ -48,25 +48,17 @@
 				<div align="center">
               </div>
              </div>
-	<a><input type="button" id="savebutton" class="btn btn-info" value="µî·Ï"></a>
+	<a><input type="submit" class="btn btn-info" value="ë“±ë¡"></a>
 	<a href="contacted.go"><input type="button" class="btn btn-danger"
-		value="Ãë¼Ò"></a>
+		value="ì·¨ì†Œ"></a>
 			</div>
 		</form>
 	<script type="text/javascript">
-$(function() {
-	//Àü¼Û¹öÆ° Å¬¸¯ÀÌº¥Æ®
-	$("#savebutton").click(function() {
-		alert('¹®ÀÇ°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù.')
-		$("#frm").submit();
-	});
-
-});
 
 function CheckForm() {
-	//ÇÇÇØ ¹ß»ý »çÀÌÆ® Á¤º¸	
+	//í”¼í•´ ë°œìƒ ì‚¬ì´íŠ¸ ì •ë³´	
 	if (!$("#title").val()) {
-		alert("Á¦¸ñÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä");
+		alert("ì œëª©ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”");
 		return false;
 	}
 }
