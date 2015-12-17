@@ -1,20 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>AhnCheat</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</head>
-<body>
-
 	<form action="" method="post" name="writeForm" id="frm">
 		<div class="container">
 			<div>
@@ -39,7 +25,7 @@
 					</tr>
 					<tr>
 						<th class="active" >질문 요약</th>
-						<td><input type="text" style="width: 600px" id="title"
+						<td><input type="text" style="width: 600px" id="title" name="title"
 							placeholder="한 줄의 완성된 질문으로 작성해 주세요. 상담자에 대한 최소한의 예의입니다. ^^"></td>
 					</tr>
 					<!-- 네이버 에디터 -->
@@ -85,5 +71,3 @@ function CheckForm() {
 	}
 }
 	</script>		
-</body>
-</html>

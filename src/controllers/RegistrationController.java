@@ -182,7 +182,7 @@ public class RegistrationController {
 					score += 20;
 				}
 			}
-			if (score >= 40) {
+			if (score >= 60) {
 				MemberDTO memberDTO = memberDAO.getMemberStat(result.get(i).getMemberno());
 				String name = "AhnCheat 관리자";
 				String from = "admin@ilredian.xyz";
@@ -350,7 +350,7 @@ public class RegistrationController {
 					score += 20;
 				}
 			}
-			if (score >= 40) {
+			if (score >= 60) {
 				MemberDTO memberDTO = memberDAO.getMemberStat(result.get(i).getMemberno());
 				String name = "AhnCheat 관리자";
 				String from = "admin@ilredian.xyz";
@@ -507,7 +507,7 @@ public class RegistrationController {
 					score += 20;
 				}
 			}
-			if (score >= 40) {
+			if (score >= 60) {
 				MemberDTO memberDTO = memberDAO.getMemberStat(result.get(i).getMemberno());
 				String name = "AhnCheat 관리자";
 				String from = "admin@ilredian.xyz";
