@@ -40,7 +40,8 @@
 			<tr>
 				<th class="active">파일첨부</th>
 				<td>
-					<input type="file" name="file" id="uploadFile" value="" /><input id="upload" class="btn btn-default btn-sm" type="button" name="filebtn" value="첨부하기">
+					<input type="file" name="file" id="uploadFile" value="" />
+					<input id="upload" class="btn btn-default btn-sm" type="button" name="filebtn" value="첨부하기">
 					<input type="hidden" id="filename" name="filename" value="">
 				</td>
 			</tr>

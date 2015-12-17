@@ -59,7 +59,6 @@
 </div>
 <div>
 	<a href="trade.go"><input type="button" class="btn btn-primary" id="a" style="float: right;" value="사기피해사례 등록"></a>
-
 </div>
 <div style="text-align: center; clear:both;">
 	<c:set var="pager" value="${pager.toString()}" />
