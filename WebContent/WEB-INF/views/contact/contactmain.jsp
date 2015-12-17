@@ -12,10 +12,10 @@
 					<!-- 링크 -->
 					<div class="well">
 						<!-- 삭제 요청하기 -->
-						<a href="deletepls.go"><input type="submit" class="btn btn-info btn-lg"
+						<a href="deletepls.go"><input type="button" class="btn btn-info btn-lg"
 							value="삭제 요청하기"></a>
 						<!-- 나의 피해사례 -->
-						<a href="memberBoard.go?mno=2"><input type="submit"
+						<a href="memberStatement.go?mno=2"><input type="button"
 							class="btn btn-default btn-lg" value="나의 피해사례"></a>
 					</div>
 				</div>
@@ -27,7 +27,7 @@
 					<!-- 링크 -->
 					<div class="well" align="center">
 						<!--button-->
-						<a href="question.go"><input type="submit" class="btn btn-info btn-lg"
+						<a href="question.go"><input type="button" class="btn btn-info btn-lg"
 							value="1:1 문의하기"></a>
 					</div>
 				</div>
