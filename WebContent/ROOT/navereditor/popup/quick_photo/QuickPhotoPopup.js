@@ -334,7 +334,7 @@
     	var tempFile,
     		sUploadURL;
     	
-    	sUploadURL= 'http://localhost:8090/ROOT/multiplePhotoUpload.go'; 	//upload URL
+    	sUploadURL= 'http://www.ilredian.xyz/multiplePhotoUpload.go'; 	//upload URL
     	
     	//파일을 하나씩 보내고, 결과를 받음.
     	for(var j=0, k=0; j < nImageInfoCnt; j++) {
@@ -472,7 +472,7 @@
  	 */
  	function callFileUploader (){
  		oFileUploader = new jindo.FileUploader(jindo.$("uploadInputBox"),{
- 			sUrl  : 'http://localhost:8090/ROOT/photoUpload.go',	//샘플 URL입니다.
+ 			sUrl  : 'http://www.ilredian.xyz/photoUpload.go',	//샘플 URL입니다.
  	        sCallback : '/ROOT/navereditor/popup/quick_photo/callback.html',	//업로드 이후에 iframe이 redirect될 콜백페이지의 주소
  	    	sFiletype : "*.jpg;*.png;*.bmp;*.gif",						//허용할 파일의 형식. ex) "*", "*.*", "*.jpg", 구분자(;)	
  	    	sMsgNotAllowedExt : 'JPG, GIF, PNG, BMP 확장자만 가능합니다',	//허용할 파일의 형식이 아닌경우에 띄워주는 경고창의 문구

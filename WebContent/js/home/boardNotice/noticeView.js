@@ -42,5 +42,5 @@ $('.updateReply').click(function(data){
 });
 
 $('#select').change(function(){
-	location.replace('noticeMain.go?ps='+$('#select').val());
+	location.replace('noticeMain.go?pg=1&ps='+$('#select').val());
 });

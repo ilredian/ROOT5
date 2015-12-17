@@ -496,11 +496,6 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 					return false;
 					///계좌정보 부분	
 				}
-				
-				if ($("#su_bankNumchk")[0].checked == true) {
-					alert('계좌정보 패스');
-					return true;
-				}
 
 				if ($("#su_bankNumchk")[0].checked == false) { // 계좌정보 검사 (체크박스)
 					////은행체크_### -- 셀렉트 문에서 제외한 나머지를 선택할때만
