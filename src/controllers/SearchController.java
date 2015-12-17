@@ -96,6 +96,7 @@ public class SearchController {
 		model.addAttribute("gamelist", gamelist);
 				
 		//비매너 페이징 처리///////
+		cheatno = 3;
 		int mannerboardCount = cheaterDAO.getCheaterCount(field, query, cheatno);
 		
 		//DB 처리
