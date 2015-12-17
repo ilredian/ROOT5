@@ -135,7 +135,7 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 
 				</table>
 			</div>
-			<a><input type="submit" class="btn btn-info" value="등록"></a>
+			<a><input type="submit" id="savebutton" class="btn btn-info" value="등록"></a>
 			<a href="contacted.go"><input type="button"
 				class="btn btn-danger" value="취소"></a>
 		</div>
@@ -158,4 +158,13 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 				return false;
 			}
 	}
+	
+
+	$(function() {
+		$("#savebutton").click(function() {
+			alert('문의가 완료되었습니다.')
+			$("#frm").submit();
+		});
+
+	});
 	</script>		
