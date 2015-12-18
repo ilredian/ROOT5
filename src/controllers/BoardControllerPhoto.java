@@ -38,7 +38,7 @@ public class BoardControllerPhoto {
 			// 현재 페이지 번호
 			@RequestParam(value = "pg", required = false, defaultValue = "1") int page, 
 			// 한 페이지에 보여줄 게시글 갯수
-			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, 
+			@RequestParam(value = "ps", required = false, defaultValue = "12") int pageSize, 
 			Model model) throws Exception {
 
 		System.out.println("사진게시판 이동");
@@ -46,7 +46,7 @@ public class BoardControllerPhoto {
 		BoardPhotoDAO boardPhotoDAO = sqlSession.getMapper(BoardPhotoDAO.class);
 
 		// 페이징 처리
-		int pagerSize = 10;// 한 번에 보여줄 페이지 번호 갯수
+		int pagerSize = 12;// 한 번에 보여줄 페이지 번호 갯수
 		String linkUrl = "PhotoMain.go";// 페이지번호를 누르면 이동할 경로
 		int boardCount = boardPhotoDAO.BoardPhotoCount();// 검색 결과에 따른 게시글 총
 		// 갯수
@@ -123,7 +123,7 @@ public class BoardControllerPhoto {
 			// 현재 페이지 번호
 			@RequestParam(value = "pg", required = false, defaultValue = "1") int page, 
 			// 한 페이지에 보여줄 게시글 갯수
-			@RequestParam(value = "ps", required = false, defaultValue = "10") int pageSize, 
+			@RequestParam(value = "ps", required = false, defaultValue = "12") int pageSize, 
 			@RequestParam("bno") int boardno, Model model,
 			HttpSession session
 			) throws Exception {
@@ -159,7 +159,7 @@ public class BoardControllerPhoto {
 		
 		////////////밑에 메인 내용
 		// 페이징 처리
-		int pagerSize = 10;// 한 번에 보여줄 페이지 번호 갯수
+		int pagerSize = 12;// 한 번에 보여줄 페이지 번호 갯수
 		String linkUrl = "PhotoMain.go";// 페이지번호를 누르면 이동할 경로
 		int boardCount = boardPhotoDAO.BoardPhotoCount();// 검색 결과에 따른 게시글 총
 		
