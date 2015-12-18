@@ -19,9 +19,8 @@
 			<c:forEach var="list" items="${list}">
 				<div class="col-md-3">
 					<a href="PhotoView.go?pg=${param.pg}&bno=${list.boardno}" class="thumbnail">
-						<p class="subject">力格 : ${list.title}</p> 
 						<img src="${list.uploadfile}" alt="" style="width: 200px; height: 200px">
-						
+						<p class="subject">力格 : ${list.title}</p> 
 					</a>
 					
 				</div>
