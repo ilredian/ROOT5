@@ -67,6 +67,7 @@ public class ChartController {
 			end_year = ey;
 			end_month = em;
 		}
+		
 		System.out.println(start_year+"/"+start_month+"/"+end_year+"/"+end_month);
 		//통계 리스트 뿌려줄 db 변수 선언
 		CheaterDAO cheaterDAO = sqlSession.getMapper(CheaterDAO.class);
@@ -84,10 +85,14 @@ public class ChartController {
 		}
 		System.out.println("size :"+size);
 		List<chartDTO> regdate = new ArrayList<chartDTO>();
+		String stringEndMonth = "";
 		if(start_year == end_year){
 			for(int i=0; i<size; i++){
 				chartDTO chartdto = new chartDTO();
-				chartdto.setRegdate(end_year+"-"+(end_month-i));
+				if(end_month-i < 10){
+					stringEndMonth = "0"+(end_month-i);
+				}
+				chartdto.setRegdate(end_year+"-"+stringEndMonth);
 				regdate.add(chartdto);
 			}
 		}else{
@@ -99,7 +104,10 @@ public class ChartController {
 						break;
 					}else{
 						chartDTO chartdto = new chartDTO();
-						chartdto.setRegdate((end_year-y)+"-"+((end_month+12*(y))-i));
+						if((end_month+12*(y))-i < 10){
+							stringEndMonth = "0"+((end_month+12*(y))-i);
+						}
+						chartdto.setRegdate((end_year-y)+"-"+stringEndMonth);
 						regdate.add(chartdto);
 					}
 				}

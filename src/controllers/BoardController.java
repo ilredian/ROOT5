@@ -80,7 +80,7 @@ public class BoardController {//공통 기능(리플)
 			@RequestParam("bno") int boardno,
 			@RequestParam("cno") int categoryno,
 			@RequestParam("rno") int replyno,
-			ReplyDTO replyDTO
+			@RequestParam("content") String content
 			) throws Exception{
 		// 로그남기기
 		System.out.println("리플 수정 시작");
@@ -90,7 +90,8 @@ public class BoardController {//공통 기능(리플)
 		
 		// 리플 DB 넘기기
 		ReplyDAO replyDAO = sqlSession.getMapper(ReplyDAO.class);
-		replyDTO.setReplyno(replyno);
+		ReplyDTO replyDTO = replyDAO.getReply(replyno);
+		replyDTO.setContent(content);
 		int result = replyDAO.updateReply(replyDTO);
 		
 		if(result>0){

@@ -206,7 +206,7 @@
 	<select id="getChart" parameterType="DTO.chartDTO" resultType="DTO.chartDTO">
 		SELECT count(*) count 
 		FROM cheaterdb 
-		WHERE DATE_FORMAT(regdate,'%Y-%m') 
+		WHERE DATE_FORMAT(regdate,'%Y-%m')
 		BETWEEN '${regdate}'
 		AND '${regdate}'
 	</select>
