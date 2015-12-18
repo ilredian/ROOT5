@@ -57,13 +57,6 @@ tr, th, td {text-align: center;}
 	<!-- 페이저 -->
 <div style="text-align: center;">
 	<c:set var="pager" value="${pager.toString()}" />
-	${pager}
+	<ul class="pagination">${pager}</ul>
 </div>
-	<div class="container" align="center">
-		<select>
-			<option>제목+태그</option>
-			<option>본문</option>
-		</select> 
-		<input type="text"><button type="submit" href="#">검색</button>
-	</div>	
 </div>

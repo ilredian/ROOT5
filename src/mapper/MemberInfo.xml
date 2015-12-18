@@ -15,9 +15,10 @@
 	<!-- active=0 인것은 삭제되지 않은 것만 -->
  	<select id="getFreeNotice"  resultType="DTO.BoardFreeDTO">
 		SELECT l.boardno, l.title, l.memberno , l.countno, l.regdate FROM boardfree l join memberdb m 
-		WHERE l.memberno=m.memberno and m.memberno=#{memberno}
-		and l.active=0
-		order by regdate desc
+		WHERE l.memberno=m.memberno AND m.memberno=${param2}
+		AND l.active=0
+		ORDER BY regdate DESC
+		LIMIT ${param1}, ${param3}
 	</select>
 	
 	<!-- 자유 게시판 글 갯수 -->

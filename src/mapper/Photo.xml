@@ -16,7 +16,7 @@
 		SELECT *
 		FROM boardphoto
 		WHERE active = 0
-		<!-- regdate desc,  -->
+		ORDER BY regdate DESC
 		LIMIT ${param1}, ${param2}
 	</select>
 	

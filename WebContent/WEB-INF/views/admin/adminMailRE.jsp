@@ -1,27 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=euc-kr"
-	pageEncoding="euc-kr"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-	<h3>¹ÞÀº ¸ÞÀÏ</h3>
+	<h3>ë°›ì€ ë©”ì¼</h3>
 
 <div style="float: left;">
 	<p>
-		¢ºTotal :
+		â–¶Total :
 		<c:out value="${mailCount}" />
 	</p>
 </div>
 <div style="float: right;">
-	¹ÞÀº ¸ÞÀÏ ÃÑ ¿ë·® : <c:out value="${sumMailSizeString}" />
+	ë°›ì€ ë©”ì¼ ì´ ìš©ëŸ‰ : <c:out value="${sumMailSizeString}" />
 </div>
 <table class="table table-hover">
 	<tr>
-		<th style="width:10%;">±Û¹øÈ£</th>
-		<th style="width:20%;">º¸³½ÀÌ</th>
-		<th style="width:32%;">Á¦¸ñ</th>
-		<th style="width:28%;">³¯Â¥</th>
-		<th style="width:10%;">¸ÞÀÏÅ©±â</th>
+		<th style="width:10%;">ê¸€ë²ˆí˜¸</th>
+		<th style="width:20%;">ë³´ë‚¸ì´</th>
+		<th style="width:32%;">ì œëª©</th>
+		<th style="width:28%;">ë‚ ì§œ</th>
+		<th style="width:10%;">ë©”ì¼í¬ê¸°</th>
 	</tr>
 
 	<c:choose>
@@ -53,7 +53,7 @@
 		</c:when>
 		<c:otherwise>
 			<tr>
-				<td colspan="5">¹ÞÀº ¸ÞÀÏÀÌ ¾ø½À´Ï´Ù.</td>
+				<td colspan="5">ë°›ì€ ë©”ì¼ì´ ì—†ìŠµë‹ˆë‹¤.</td>
 			</tr>
 		</c:otherwise>
 	</c:choose>

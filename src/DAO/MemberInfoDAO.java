@@ -11,7 +11,7 @@ import DTO.ReplyDTO;
 public interface MemberInfoDAO {
 	
 		//자신이 작성한 자유게시판 게시물 
-		public List<BoardFreeDTO> getFreeNotice(int memberno) throws Exception;
+		public List<BoardFreeDTO> getFreeNotice(int start, int memberno, int pageSize) throws Exception;
 		
 		//자신이 작성한 자유게시판 게시물 수 
 		public int getFreeCount(int memberno) throws Exception;

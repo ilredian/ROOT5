@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=euc-kr"
-	pageEncoding="euc-kr"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <script>
 	$(document).ready(function() {
@@ -9,10 +9,10 @@
 				url : "fileUploadAjax.go",
 				success : function(data) {
 					$("#filename").val(data.fullfile);
-					alert('ÆÄÀÏÀÌ Ã·ºÎµÇ¾ú½À´Ï´Ù.');
+					alert('íŒŒì¼ì´ ì²¨ë¶€ë˜ì—ˆìŠµë‹ˆë‹¤.');
 				},
 				error : function(error) {
-					alert("¿äÃ» Ã³¸® Áß ¿À·ù°¡ ¹ß»ıÇÏ¿´½À´Ï´Ù.");
+					alert("ìš”ì²­ ì²˜ë¦¬ ì¤‘ ì˜¤ë¥˜ê°€ ë°œìƒí•˜ì˜€ìŠµë‹ˆë‹¤.");
 				}
 			});
 			return false;
@@ -21,32 +21,32 @@
 </script>
 <form action="" method="post" enctype="multipart/form-data">
 	<div style="float: left;">
-		<h3>¸ŞÀÏ º¸³»±â</h3>
+		<h3>ë©”ì¼ ë³´ë‚´ê¸°</h3>
 	</div>
 	<div class="btn-group" style="float: right;">
-		<input type="submit" class="btn btn-primary" value="º¸³»±â">
+		<input type="submit" class="btn btn-primary" value="ë³´ë‚´ê¸°">
 	</div>
 		<table class="table">
 			<tr>
-				<th class="active">¹Ş´Â»ç¶÷</th>
+				<th class="active">ë°›ëŠ”ì‚¬ëŒ</th>
 				<td><input type="text" name="to"
-					placeholder="ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä"><br></td>
+					placeholder="ì´ë©”ì¼ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”"><br></td>
 			</tr>
 			<tr>
-				<th class="active">Á¦¸ñ</th>
+				<th class="active">ì œëª©</th>
 				<td><input type="text" name="title"><br></td>
 			</tr>
 			
 			<tr>
-				<th class="active">ÆÄÀÏÃ·ºÎ</th>
+				<th class="active">íŒŒì¼ì²¨ë¶€</th>
 				<td>
 					<input type="file" name="file" id="uploadFile" value="" />
-					<input id="upload" class="btn btn-default btn-sm" type="button" name="filebtn" value="Ã·ºÎÇÏ±â">
+					<input id="upload" class="btn btn-default btn-sm" type="button" name="filebtn" value="ì²¨ë¶€í•˜ê¸°">
 					<input type="hidden" id="filename" name="filename" value="">
 				</td>
 			</tr>
 			<tr>
-				<th class="active">³»¿ë</th>
+				<th class="active">ë‚´ìš©</th>
 				<td><textarea rows="10" cols="10" name="content"
 						style="margin: 0px; width: 500px; height: 300px;"></textarea></td>
 			</tr>

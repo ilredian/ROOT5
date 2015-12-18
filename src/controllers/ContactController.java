@@ -3,6 +3,7 @@ package controllers;
 
 import java.io.PrintWriter;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ import mail.SendMailDTO;
 @Controller
 public class ContactController {
 
+	// 자바스크립트 쓰기위한 전역 변수 선언
 	PrintWriter out;
 	
 	@RequestMapping("contacted.go")
@@ -33,7 +35,8 @@ public class ContactController {
 	
 	//문의하기 보내기
 	@RequestMapping(value="question.go", method=RequestMethod.POST)
-	public String contQuest(
+	public void contQuest(
+			HttpServletResponse response,
 			HttpSession session,
 			@RequestParam("content") String content,
 			@RequestParam("title") String title
@@ -42,20 +45,32 @@ public class ContactController {
 		//문의하기 보내기
 		System.out.println("문의하기 보내기");
 		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
+		
 		//문의하기 메일 처리
-		String name = "문의사항";
+		String name = "REQUEST";
 		String from = ((MemberDTO)session.getAttribute("memberInfo")).getEmail();
 		String to = "ilredian@ilredian.xyz";
 		String tar = "html";
 		String filename = "";
+		
 		//보내는사람 이름, 보내는사람 주소, 받는사람 주소, 제목, 내용, 형식, 첨부파일
 		SendMailDTO sendMailDTO = new SendMailDTO(name, from, to, title, content, tar, filename);
 		SendMail mail = new SendMail();
-		mail.sendMail(sendMailDTO);
-
-		return "contact.contactquestion";
+		int result = mail.sendMail(sendMailDTO);
+		
+		//메일 보낸 결과 스크립트 처리
+		if (result != 0) {
+			out.print(
+					"<script type='text/javascript'>alert('관리자에게 문의를 성공적으로 보냈습니다.'); location.replace('home.go');</script>");
+		} else {
+			out.print(
+					"<script type='text/javascript'>alert('관리자에게 문의를 보내는데 실패했습니다.'); location.replace('question.go');</script>");
+		}
+		out.close();
 	}
-	
 	
 	@RequestMapping(value="deletepls.go" , method=RequestMethod.GET)
 	public String contDeleteform(){
@@ -66,7 +81,8 @@ public class ContactController {
 	
 	//피해사례 삭제요청
 	@RequestMapping(value="deletepls.go" , method=RequestMethod.POST)
-	public String contDelete(
+	public void contDelete(
+			HttpServletResponse response,
 			HttpSession session,
 			@RequestParam("content") String content,
 			@RequestParam("title") String title
@@ -75,8 +91,12 @@ public class ContactController {
 		//피해사례 삭제요청
 		System.out.println("피해사례 삭제요청");
 		
+		//경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
+		
 		//삭제요청 메일 처리
-		String name = "피해사례";
+		String name = "DELETE";
 		String from = ((MemberDTO)session.getAttribute("memberInfo")).getEmail();
 		String to = "ilredian@ilredian.xyz";
 		String tar = "html";
@@ -84,12 +104,19 @@ public class ContactController {
 		//보내는사람 이름, 보내는사람 주소, 받는사람 주소, 제목, 내용, 형식, 첨부파일
 		SendMailDTO sendMailDTO = new SendMailDTO(name, from, to, title, content, tar, filename);
 		SendMail mail = new SendMail();
-		mail.sendMail(sendMailDTO);
+		int result = mail.sendMail(sendMailDTO);
 		
-		return "contact.contactdeletepls";
+		//메일 보내기 결과
+		if (result != 0) {
+			out.print(
+					"<script type='text/javascript'>alert('관리자에게 문의를 성공적으로 보냈습니다.'); location.replace('home.go');</script>");
+		} else {
+			out.print(
+					"<script type='text/javascript'>alert('관리자에게 문의를 보내는데 실패했습니다.'); location.replace('deletepls.go');</script>");
+		}
+		out.close();
 	}
 
-	
 	@RequestMapping("contlist.go")
 	public String contList(){
 		return "contact.contactlist";

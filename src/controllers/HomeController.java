@@ -143,30 +143,32 @@ public class HomeController {
 			List<InterestStatementDTO> list = new ArrayList<InterestStatementDTO>();
 			
 			for (int i = 0; i < result.size(); i++) {
-				int score = 0;
-				if (!isDTO.getCheatername().equals("모름") && result.get(i).getCheatername() != null) {
-					if (result.get(i).getCheatername().equals(isDTO.getCheatername())) {
-						score += 20;
+				if(result.get(i).getMemberno() != memberno){
+					int score = 0;
+					if (!isDTO.getCheatername().equals("모름") && result.get(i).getCheatername() != null) {
+						if (result.get(i).getCheatername().equals(isDTO.getCheatername())) {
+							score += 20;
+						}
 					}
-				}
-				if (!isDTO.getAccount().equals("모름") && result.get(i).getAccount() != null) {
-					if (result.get(i).getAccount().equals(isDTO.getAccount())) {
-						score += 40;
+					if (!isDTO.getAccount().equals("모름") && result.get(i).getAccount() != null) {
+						if (result.get(i).getAccount().equals(isDTO.getAccount())) {
+							score += 40;
+						}
 					}
-				}
-				if (!isDTO.getPhone().equals("010-0000-0000") && result.get(i).getPhone() != null) {
-					if (result.get(i).getPhone().equals(isDTO.getPhone())) {
-						score += 20;
+					if (!isDTO.getPhone().equals("010-0000-0000") && result.get(i).getPhone() != null) {
+						if (result.get(i).getPhone().equals(isDTO.getPhone())) {
+							score += 20;
+						}
 					}
-				}
-				if (!isDTO.getCheaterid().equals("") && result.get(i).getCheaterid() != null) {
-					if (result.get(i).getCheaterid().equals(isDTO.getCheaterid())) {
-						score += 20;
+					if (!isDTO.getCheaterid().equals("") && result.get(i).getCheaterid() != null) {
+						if (result.get(i).getCheaterid().equals(isDTO.getCheaterid())) {
+							score += 20;
+						}
 					}
-				}
-				if (score >= 40) {
-					result.get(i).setScore(score);
-					list.add(result.get(i));
+					if (score >= 40) {
+						result.get(i).setScore(score);
+						list.add(result.get(i));
+					}
 				}
 			}
 
