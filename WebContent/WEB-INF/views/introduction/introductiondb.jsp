@@ -6,21 +6,35 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>AhnCheat</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style type="text/css">
+
+h4 {
+	font-family: "배달의민족 한나는 열한살";
+	font: oblique;	
+/* 	 "배달의민족 주아", "배달의민족 도현",
+     "배달의민족 한나는 열한살" ,
+     "나눔고딕", "다음_Regular" , 
+     "다음_SemiBold"   */;
+}
+
+</style>
 </head>
 <body>
 <div class="container">
+
+<h4>
+<br>
 - 피해 발생 사이트 수    :  400개<br>
 - 누적 피해 정보 DB 수   :  10,000건<br>
 - 누적 피해 금액	: 5억<br>
 - 누적 계좌 번호 수  : 400개<br>
 - 누적 연락처 수 :  550개<br>
 - 기타 : 경찰 200명 활동 중<br>
+</h4>
+
+<iframe src='https://cdn.knightlab.com/libs/timeline/latest/embed/?source=1cWqQBZCkX9GpzFtxCWHoqFXCHg-ylTVUWlnrdYMzKUI&font=Bevan-PotanoSans&maptype=toner&width=600&height=600' width='600' height='600' frameborder='0'></iframe>
+
+
 </div>
 </body>
 </html>

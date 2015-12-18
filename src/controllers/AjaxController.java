@@ -71,6 +71,7 @@ public class AjaxController {
 		int isopen = messagedao.getIsOpen(memberno);
 		if(isopen>=1){
 			mav.addObject("result", "success");
+			mav.addObject("isOpen", isopen);
 		}else{
 			mav.addObject("result", "fail");
 		}
