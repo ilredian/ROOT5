@@ -16,7 +16,7 @@
 		<th>제목</th>
 		<th>날짜</th>
 		<th>조회수</th>
-		<th>asdf</th>
+		<th>삭제</th>
 	</tr>
 	<c:forEach items="${list}" var="list">
 		<tr>

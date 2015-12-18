@@ -56,7 +56,7 @@ h3 {
 			<div class="form-group">
 				<label for="password" class="col-sm-4 control-label">이메일주소</label>
 				<div class="col-sm-8">
-					<input type="email" class="form-control" name="email" id="email" placeholder="이메일을 입력해주세요">
+					<input type="email" class="form-control" name="to" id="email" placeholder="이메일을 입력해주세요">
 				</div>
 			</div>
 			

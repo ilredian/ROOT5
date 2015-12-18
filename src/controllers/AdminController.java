@@ -71,16 +71,18 @@ public class AdminController {// 관리자 페이지
 		//사진은 추후에 등록
 		
 		//DAO 변수 선언
-		ReplyDAO replydao = sqlSession.getMapper(ReplyDAO.class);
 		ReportBoardDAO reportboardao = sqlSession.getMapper(ReportBoardDAO.class);
 		ReportReplyDAO reportreplyado = sqlSession.getMapper(ReportReplyDAO.class);
 		ReportPhotoDAO reportphotodao = sqlSession.getMapper(ReportPhotoDAO.class);
+		BoardFreeDAO boardFreeDAO = sqlSession.getMapper(BoardFreeDAO.class);
+		BoardPhotoDAO boardPhotoDAO = sqlSession.getMapper(BoardPhotoDAO.class);
+		ReplyDAO replydao = sqlSession.getMapper(ReplyDAO.class);
 		
 		// 신고 자유게시판
 		List<Integer> boardno = reportboardao.getReportBoardno(1, categoryno, pageSize);
 		List<BoardFreeDTO> list = new ArrayList<BoardFreeDTO>();
 		for (int i = 0; i < boardno.size(); i++) {
-			list.add(reportboardao.getReportBoard(boardno.get(i)));
+			list.add(boardFreeDAO.getNotice(boardno.get(i)));
 		}
 		// DB값 model 객체에 담기(신고 자유게시판)
 		model.addAttribute("list", list);
@@ -89,7 +91,7 @@ public class AdminController {// 관리자 페이지
 		List<Integer> photono = reportphotodao.getReportPhotono(1, categoryno2, pageSize);
 		List<BoardPhotoDTO> phlist = new ArrayList<BoardPhotoDTO>();
 		for (int i=0; i<photono.size(); i++){
-			phlist.add(reportphotodao.getReportPhoto(photono.get(i)));
+			phlist.add(boardPhotoDAO.BoardPhotoDetail(photono.get(i)));
 		}
 		model.addAttribute("phlist", phlist);
 		

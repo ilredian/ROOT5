@@ -40,7 +40,7 @@
     function drawChart1() {
 
       var data = new google.visualization.DataTable();
-      data.addColumn('string', 'Day');
+      data.addColumn('string', 'Month');
       data.addColumn('number', '피해 사례 수');
 
       data.addRows(${list});
