@@ -8,10 +8,10 @@ h3 {
 	font-family: "나눔고딕"
 }
 </style>
-</html>
+
 <div class="display" style="background-image: url('include/nav.jpg');">
 	<div class="container" style="margin: auto; padding: 20px; vertical-align: left; height: 100%; width: 100%;">
-		<h3 align="middle">이메일찾기</h3><br>
+		<h3 align="center">이메일찾기</h3><br>
 		<div style="text-align: center; color: white;">
 		</div>
 		<div class="well well-lg" align="center" style="margin: auto; height: 85%; width: 50%;">
@@ -56,7 +56,7 @@ h3 {
 			<div class="form-group">
 				<label for="password" class="col-sm-4 control-label">이메일주소</label>
 				<div class="col-sm-8">
-					<input type="email" class="form-control" name="to" id="email" placeholder="이메일을 입력해주세요">
+					<input type="text" class="form-control" name="to" id="email" placeholder="이메일을 입력해주세요">
 				</div>
 			</div>
 			
@@ -133,3 +133,4 @@ h3 {
 	</div>
 	
 </div>	
+</html>

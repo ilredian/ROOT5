@@ -79,7 +79,7 @@ public class AdminController {// 관리자 페이지
 		ReplyDAO replydao = sqlSession.getMapper(ReplyDAO.class);
 		
 		// 신고 자유게시판
-		List<Integer> boardno = reportboardao.getReportBoardno(1, categoryno, pageSize);
+		List<Integer> boardno = reportboardao.getReportBoardno(0, categoryno, pageSize);
 		List<BoardFreeDTO> list = new ArrayList<BoardFreeDTO>();
 		for (int i = 0; i < boardno.size(); i++) {
 			list.add(boardFreeDAO.getNotice(boardno.get(i)));
@@ -88,7 +88,7 @@ public class AdminController {// 관리자 페이지
 		model.addAttribute("list", list);
 		
 		//신고 포토게시판
-		List<Integer> photono = reportphotodao.getReportPhotono(1, categoryno2, pageSize);
+		List<Integer> photono = reportphotodao.getReportPhotono(0, categoryno2, pageSize);
 		List<BoardPhotoDTO> phlist = new ArrayList<BoardPhotoDTO>();
 		for (int i=0; i<photono.size(); i++){
 			phlist.add(boardPhotoDAO.BoardPhotoDetail(photono.get(i)));
@@ -96,7 +96,7 @@ public class AdminController {// 관리자 페이지
 		model.addAttribute("phlist", phlist);
 		
 		// 리스트 뿌려주기
-		List<Integer> replyno = reportreplyado.getReportReplyno(1, pageSize);
+		List<Integer> replyno = reportreplyado.getReportReplyno(0, pageSize);
 		List<ReplyDTO> relist = new ArrayList<ReplyDTO>();
 		for(int i=0; i<replyno.size(); i++){
 			relist.add(replydao.getReply(replyno.get(i)));
