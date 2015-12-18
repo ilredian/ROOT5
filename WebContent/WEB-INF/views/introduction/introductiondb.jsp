@@ -32,9 +32,6 @@ h4 {
 - 기타 : 경찰 200명 활동 중<br>
 </h4>
 
-<iframe src='https://cdn.knightlab.com/libs/timeline/latest/embed/?source=1cWqQBZCkX9GpzFtxCWHoqFXCHg-ylTVUWlnrdYMzKUI&font=Bevan-PotanoSans&maptype=toner&width=600&height=600' width='600' height='600' frameborder='0'></iframe>
-
-
 </div>
 </body>
 </html>
