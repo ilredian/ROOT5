@@ -126,7 +126,7 @@ public class ReceiveMail {
 						throw new IOException("같은 파일이 존재합니다.");
 					}*/
 					receiveMailDTO.setFileSize((int) f.length());
-					OutputStream os = new BufferedOutputStream(new FileOutputStream(f));
+					OutputStream os = new BufferedOutputStream(new FileOutputStream("/opt/tomcat/webapps/ROOT/mail/"+f));
 					InputStream is = p.getInputStream();
 					int c;
 					while ((c = is.read()) != -1) {
@@ -135,7 +135,7 @@ public class ReceiveMail {
 					os.close();
 					System.out.println(filename + "을 보관합니다.");
 					receiveMailDTO.setFileName(filename);
-					receiveMailDTO.setFileLocation("/opt/tomcat/webapps/ROOT/mail/");
+					receiveMailDTO.setFileLocation("/mail/");
 				} catch (Exception e) {
 					System.out.println("첨부파일 보관중 에러가 발생했습니다" + e);
 				}

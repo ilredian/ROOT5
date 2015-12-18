@@ -1,39 +1,39 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=euc-kr"
+    pageEncoding="euc-kr"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <form action="" method="post">
 <div style="float: left;">
-	<h3>ë©”ì¼ ìƒì„¸ í™”ë©´</h3>
+	<h3>¸ÞÀÏ »ó¼¼ È­¸é</h3>
 </div>
 <div class="btn-group" style="float: right;">
-	<input type="submit" class="btn btn-primary" value="ë³´ë‚´ê¸°">
+	<input type="submit" class="btn btn-primary" value="º¸³»±â">
 </div>
 	<table class="table">
 		<tr>
-			<th class="active" style="width:15%;">ë³´ë‚¸ì‚¬ëžŒ</th>
+			<th class="active" style="width:15%;">º¸³½»ç¶÷</th>
 			<td><c:out value="${(receiveMailDTO.from).replace('[', '').replace(']', '')}" /></td>
 		</tr>
 		<tr>
-			<th class="active">ë°›ëŠ”ì‚¬ëžŒ</th>
+			<th class="active">¹Þ´Â»ç¶÷</th>
 			<td><c:out value="${(receiveMailDTO.to).replace('[', '').replace(']', '')}" /></td>
 		</tr>
 		<tr>
-			<th class="active">ë³´ë‚¸ë‚ ì§œ</th>
+			<th class="active">º¸³½³¯Â¥</th>
 			<td>${receiveMailDTO.date}</td>
 		</tr>
 		<tr>
-			<th class="active">ì œëª©</th>
+			<th class="active">Á¦¸ñ</th>
 			<td>${receiveMailDTO.title}</td>
 		</tr>
 		<c:if test="${not empty receiveMailDTO.fileLocation}">
 			<tr>
-				<th class="active">íŒŒì¼ì²¨ë¶€</th>
+				<th class="active">ÆÄÀÏÃ·ºÎ</th>
 				<td><a href="/download.go?path=${receiveMailDTO.fileLocation}&fileName=${(receiveMailDTO.fileName).replace('[', '').replace(']', '')}"><c:out value="${(receiveMailDTO.fileName).replace('[', '').replace(']', '')}" /></a></td>
 			</tr>
 			<tr>
-				<th class="active">ì²¨ë¶€íŒŒì¼í¬ê¸°</th>
+				<th class="active">Ã·ºÎÆÄÀÏÅ©±â</th>
 				<td>
 				<c:choose>
 						<c:when test="${receiveMailDTO.getFileSize() > (1024*1024)}">
@@ -53,7 +53,7 @@
 			</tr>
 		</c:if>
 		<tr>
-			<th class="active">ë‚´ìš©</th>
+			<th class="active">³»¿ë</th>
 			<td>
 				<textarea readonly id="editor" style="HEIGHT: 300px; WIDTH: 100%" rows="10" cols="30" name="content">
 					<c:out value="${(receiveMailDTO.content).replace('[', '').replace(']', '')}" /></textarea>
