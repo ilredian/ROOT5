@@ -126,7 +126,7 @@ public class ReceiveMail {
 						throw new IOException("같은 파일이 존재합니다.");
 					}*/
 					receiveMailDTO.setFileSize((int) f.length());
-					OutputStream os = new BufferedOutputStream(new FileOutputStream(f));
+					OutputStream os = new BufferedOutputStream(new FileOutputStream("/opt/tomcat/webapps/ROOT/mail/"+f));
 					InputStream is = p.getInputStream();
 					int c;
 					while ((c = is.read()) != -1) {

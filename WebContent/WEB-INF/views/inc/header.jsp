@@ -35,26 +35,6 @@
 	/* 로그인 버튼  */
 	$(document).ready(function() {
 		
-		setInterval(function(){
-			<c:if test="${not empty memberInfo}">
-			var memberno = ${memberInfo.memberno}
-				$.ajax({
-					url : "msgAjax.go",
-					type : "POST",
-					data : {"memberno": memberno},
-					success : function(responseData) {
-						if(responseData.result=="success"){
-							 setInterval(function(){
-							var blink = document.getElementById('new');
-							blink.style.visibility = blink.style.visibility == ''?'hidden':'',
-							blink.style.color = "Red"
-							 }, 500);
-						}else{}
-					}
-				});
-			</c:if>
-		}, 60000);
-		
 		$("#myBtn").click(function() {
 			location.replace("login.go")
 		});
@@ -147,8 +127,7 @@
 						<!-- 세션이 있다면_ -->
 						<button style="margin-top: 10px;" type="button"
 							class="btn btn-default btn-sm" id="messageWindow">
-							<span class="glyphicon glyphicon-envelope" id="new"></span> 쪽지
-						</button>
+							<span class="glyphicon glyphicon-envelope" id="new"></span>&nbsp;<span id="messageText">쪽지</span></button>
 						<button type="button" class="btn btn-default" id="myBtn2"
 							style="margin-right: 20px; margin-top: 10px">
 							<span class="glyphicon glyphicon-log-in"></span>

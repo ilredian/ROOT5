@@ -62,15 +62,14 @@ public class MemberInfoController {
 		System.out.println("내 게시물 페이지로 이동");
 		
 		int pagerSize = 10;// 한 번에 보여줄 페이지 번호 갯수
-		String linkUrl = "adminMain.go";// 페이지번호를 누르면 이동할 경로
+		String linkUrl = "memberBoard.go";// 페이지번호를 누르면 이동할 경로
 		
 		//회원 번호 가져오기
 		int memberno = ((MemberDTO) session.getAttribute("memberInfo")).getMemberno();
 
-		
 		//게시물 갯수 가져오기
-		int boardCountLaw = memberInfoDAO.getFreeCount(memberno);	// 검색 결과에 따른 게시글 총갯수
-		int boardCountFree=  memberInfoDAO.getLawCount(memberno);
+		int boardCountFree = memberInfoDAO.getFreeCount(memberno);	// 검색 결과에 따른 게시글 총갯수
+		int boardCountLaw =  memberInfoDAO.getLawCount(memberno);
 		int boardCount = boardCountFree + boardCountLaw;
 		
 		model.addAttribute("boardCountLaw", boardCountLaw);
@@ -78,11 +77,11 @@ public class MemberInfoController {
 		
 		int start = (page - 1) * pageSize;
 		BoardPager pager = new BoardPager(boardCount, page, pageSize, pagerSize, linkUrl);
-
+		model.addAttribute("pager", pager);
 		
 		//게시물 가져오기
 		List<BoardLawDTO> listLaw = memberInfoDAO.getLawNotice(memberno);
-		List<BoardFreeDTO> listFree = memberInfoDAO.getFreeNotice(memberno);
+		List<BoardFreeDTO> listFree = memberInfoDAO.getFreeNotice(start, memberno, pagerSize);
 		
 		//단, 내글만 가져오게해야한다_ 접속한 로그인값을 비교해서, 내 글이 아니면 가져오지 않게하기
 		//xml에서 설정하자
@@ -94,12 +93,12 @@ public class MemberInfoController {
 		model.addAttribute("pgLaw", 1);
 		model.addAttribute("pgFree", 1);
 		
-		 MemberDTO memberDTO= ((MemberDTO) session.getAttribute("memberInfo"));
+		MemberDTO memberDTO= ((MemberDTO) session.getAttribute("memberInfo"));
 		
 		/////변호사 게시물_
-		 MemberDTO DTO = memberDAO.getMember(memberDTO);
-	     int typeno = DTO.getTypeno();
-	     model.addAttribute("typeno", typeno);
+		MemberDTO DTO = memberDAO.getMember(memberDTO);
+		int typeno = DTO.getTypeno();
+		model.addAttribute("typeno", typeno);
 		
 		return "memberInfo.memberBoard";
 	}

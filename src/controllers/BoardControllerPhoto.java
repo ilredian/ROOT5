@@ -100,6 +100,9 @@ public class BoardControllerPhoto {
 		}
 		
 		boardphotoDTO.setUploadfile(mainImg);
+		
+		//사진 사이즈 조정
+		boardphotoDTO.setContent(boardphotoDTO.getContent().replaceAll("<img","<img style=\"max-width:100% !important;=&quot;&quot; height:auto;\" "));
 	    
 	    //글 등록 진행
 	    BoardPhotoDAO boardphotoDAO = sqlSession.getMapper(BoardPhotoDAO.class);

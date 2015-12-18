@@ -249,7 +249,7 @@
 								<div class="alert alert-info">
 									<a href="#" class="close" data-dismiss="alert"
 										aria-label="close">&times;</a> <strong>Info!</strong>
-									<c:out value="접수된 진술서가 없습니다." />
+									<c:out value="관심등록한 진술서와 일치하는 피해 등록 사례가 없습니다." />
 								</div>
 							</div>
 						</c:if>
@@ -265,7 +265,7 @@
 												용의자 이름 :</label></font> ${lists.cheatername}<br> <font color="blue"><label>
 												등록한 멤버 번호 :</label></font> ${lists.memberno}<br><font color="blue"><label>
 												등록한 멤버 이름 :</label></font> ${lists.membername}<br><font color="blue"><label>
-												일치율</label></font> ${lists.score}<br>
+												일치율</label></font> ${lists.score} %<br>
 									</div>
 								</c:forEach>
 								<!-- /.panel-body -->

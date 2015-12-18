@@ -61,10 +61,52 @@
 				if (data.result == "success") {
 					alert('회원만 이용할 수 있습니다.');
 					location.replace('login.go');
+				}else{
+					blink();
+					
 				}
 			}
 		})
 	});
+	
+	function blink(){
+		var memberno = ${memberInfo.memberno}
+		var isOpenCount = 0;
+		var blink = document.getElementById('new');
+		var messageText = $('#messageText');
+		$.ajax({
+			url : "msgAjax.go",
+			type : "POST",
+			data : {"memberno": memberno},
+			success : function(responseData) {
+				if(responseData.result=="success"){
+					 setInterval(function(){
+						 $.ajax({
+								url : "msgAjax.go",
+								type : "POST",
+								data : {"memberno": memberno},
+								success : function(responseData) {
+									if(responseData.result=="success"){
+										isOpenCount = responseData.isOpen
+									}else{
+										isOpenCount = 0;
+									}
+								}
+							});
+						 if(isOpenCount !=0){
+							messageText.html('쪽지<span class="badge" style="background-color:red;">'+responseData.isOpen+'</span>');
+							blink.style.visibility = blink.style.visibility == ''?'hidden':'',
+							blink.style.color = "Red"
+						 }else{
+							 messageText.html('쪽지');
+							 blink.style.visibility = '';
+							 blink.style.color = "black"
+						 }
+					 }, 500);
+				}
+			}
+		});
+	}
 
 	//방문자수 확인
 	$.ajax({
