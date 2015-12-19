@@ -205,8 +205,7 @@ public class LoginController {
 	//패스워드 찾기
 	@RequestMapping(value="passwordSearch.go", method=RequestMethod.POST)
 	public void emailSearch(
-			@RequestParam("email") String email,
-			@RequestParam("name") String membername,
+			SendMailDTO sendMailDTO,
 			HttpServletResponse	response
 			) throws Exception{
 		
@@ -218,7 +217,7 @@ public class LoginController {
 		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
 		MemberDTO memberEmailDTO = new MemberDTO();
 		MemberDTO memberDTO = new MemberDTO();
-		memberEmailDTO.setEmail(email);
+		memberEmailDTO.setEmail(sendMailDTO.getTo());
 		memberDTO = memberDAO.getMember(memberEmailDTO);
 		 
 		if(memberDTO != null){
@@ -240,16 +239,16 @@ public class LoginController {
 			//임시 비밀번호 이메일로 보내기
 			String name = "AhnCheat 관리자";
 			String from = "admin@ilredian.xyz";
-			String to = email;
+			String to = sendMailDTO.getTo();
 			String title = "AhnCheat 비밀번호 찾기 메일입니다.";
 			String content_mail = "임시 비밀번호는 "+tempPw+"입니다.<br>본 메일은 발신 전용입니다.";
 			String tar = "html";
 			String filename = "";
 			
 			//보내는사람 이름, 보내는사람 주소, 받는사람 주소, 제목, 내용, 형식, 첨부파일
-			SendMailDTO sendMailDTO = new SendMailDTO(name, from, to, title, content_mail, tar, filename);
+			SendMailDTO sendMailDTO1 = new SendMailDTO(name, from, to, title, content_mail, tar, filename);
 			SendMail mail = new SendMail();
-			mail.sendMail(sendMailDTO);
+			mail.sendMail(sendMailDTO1);
 			
 			//이메일 발송 경고문 띄우기
 			out.print("<script type='text/javascript'>alert('이메일로 임시 비밀번호가 전송되었습니다.');location.replace('login.go');</script>");

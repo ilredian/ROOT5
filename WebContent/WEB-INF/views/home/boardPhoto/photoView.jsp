@@ -13,14 +13,14 @@
          </tr>
          <tr>
             <td style="width: 10%;"><img alt="no_pic"
-               src="${memberInfo.photo}" width="105px" height="105px"></td>
+               src="${BoardPhotoDTO.photo}" width="105px" height="105px"></td>
             <td style="width: 70%;">
                <table>
                   <tr>
                      <th>(${typetext})</th>
                   </tr>
                   <tr>
-                     <td>${memberInfo.message}</td>
+                     <td>${writerMemberDTO.message}</td>
                   </tr>
                </table>
             </td>

@@ -22,6 +22,7 @@ import DTO.BoardPhotoDTO;
 import DTO.MemberDTO;
 import DTO.ReplyDTO;
 import common.BoardPager;
+import common.ReplyPager;
 
 @Controller
 public class BoardControllerPhoto {
@@ -128,6 +129,7 @@ public class BoardControllerPhoto {
 			// 한 페이지에 보여줄 게시글 갯수
 			@RequestParam(value = "ps", required = false, defaultValue = "12") int pageSize, 
 			@RequestParam("bno") int boardno, Model model,
+			@RequestParam(value = "rpg", required = false, defaultValue = "1") int replypage, // 현재 페이지 번호
 			HttpSession session
 			) throws Exception {
 		
@@ -140,10 +142,13 @@ public class BoardControllerPhoto {
 		
 		//포토 게시물 DB 가져오기
 		BoardPhotoDTO boardPhotoDTO = boardPhotoDAO.BoardPhotoDetail(boardno);
+		
+		// 해당 게시판의 글쓴이 사진 가져오기
+		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
+		boardPhotoDTO.setPhoto(memberDAO.getPhoto(boardPhotoDTO.getMemberno()));
 		model.addAttribute("BoardPhotoDTO",boardPhotoDTO);
 		
 		// 글쓴이 정보 가져오기
-		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
 		MemberDTO writerMemberDTO = memberDAO.getMemberStat(boardPhotoDTO.getMemberno());
 		model.addAttribute("writerMemberDTO", writerMemberDTO);
 		
@@ -152,14 +157,22 @@ public class BoardControllerPhoto {
 		String typetext = memberTypeDAO.getMemberType(writerMemberDTO.getTypeno());
 		model.addAttribute("typetext", typetext);
 		
-		//리플 정보 가져오기
-		List<ReplyDTO> rlist = replyDAO.getCategoryReply("content", "%%", 3);
-		int replyCount = replyDAO.getCategoryReplyCount("content", "%%", 3);
+		// 리플 페이징 처리
+		int replyCount = replyDAO.getBoardReplyCount("content", "%%", boardno, 3);
+		int rstart = (replypage - 1) * 10;
+		ReplyPager rpager = new ReplyPager(replyCount, replypage, 10, 10, "PhotoView.go", boardno, page);
 		
+		//리플 정보 가져오기
+		List<ReplyDTO> rlist = replyDAO.getBoardReply("content", "%%", boardno, rstart, 3);
+				
+		// 리플에 있는 사진 불러오기
+		for(int i = 0; i < rlist.size(); i++){
+			rlist.get(i).setPhoto(memberDAO.getPhoto(rlist.get(i).getMemberno()));
+		}
+				
 		model.addAttribute("replyDTO", rlist);
 		model.addAttribute("replycount",replyCount);
-		
-		
+				
 		////////////밑에 메인 내용
 		// 페이징 처리
 		int pagerSize = 12;// 한 번에 보여줄 페이지 번호 갯수
@@ -177,6 +190,7 @@ public class BoardControllerPhoto {
 		List<BoardPhotoDTO> list = boardPhotoDAO.BoardPhotoList(start, pageSize);
 		
 		// DB값 model 객체에 담기
+		model.addAttribute("rpager", rpager);
 		model.addAttribute("pager", pager);
 		model.addAttribute("boardCount", boardCount);
 		model.addAttribute("list", list);

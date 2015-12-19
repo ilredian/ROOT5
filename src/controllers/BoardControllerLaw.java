@@ -246,6 +246,7 @@ public class BoardControllerLaw {
 	// 5-1. 게시물 수정 (실제 처리(update)
 		@RequestMapping(value = "lawEdit.go", method = RequestMethod.POST)
 		public void lawEdit(@RequestParam("pg") int page, 
+								@RequestParam("bno") int bno,
 								@RequestParam(value="f", required = false, defaultValue = "title") String field,
 								@RequestParam(value="q", required = false, defaultValue = "%%") String query,
 								BoardLawDTO boardLawDTO, 
@@ -285,7 +286,7 @@ public class BoardControllerLaw {
 		boardLawDAO.delete(boardno);
 
 		System.out.println("변호사게시판 삭제완료");
-		return "redirect:lawMain.go";
+		return "redirect:lawMain.go?pg=1";
 
 	}
 	

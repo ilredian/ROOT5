@@ -91,6 +91,8 @@ public class ChartController {
 				chartDTO chartdto = new chartDTO();
 				if(end_month-i < 10){
 					stringEndMonth = "0"+(end_month-i);
+				}else{
+					stringEndMonth = (end_month-i)+"";
 				}
 				chartdto.setRegdate(end_year+"-"+stringEndMonth);
 				regdate.add(chartdto);
@@ -106,6 +108,8 @@ public class ChartController {
 						chartDTO chartdto = new chartDTO();
 						if((end_month+12*(y))-i < 10){
 							stringEndMonth = "0"+((end_month+12*(y))-i);
+						}else{
+							stringEndMonth = ((end_month+12*(y))-i)+"";
 						}
 						chartdto.setRegdate((end_year-y)+"-"+stringEndMonth);
 						regdate.add(chartdto);

@@ -12,6 +12,15 @@ public class BoardPhotoDTO {
 	private int memberno;
 	private int categoryno;
 	
+	//db에 등록 되어 있지 않아도 되는 것들
+	private String photo;//게시글 사진
+	
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
 	public int getBoardno() {
 		return boardno;
 	}
