@@ -14,7 +14,8 @@
 			</tr>
 			<tr>
 				<td style="width: 10%;"><img alt="no_pic"
-					src="${boardLawDTO.photo}" width="105px" height="105px"></td>
+					src="${boardLawDTO.photo}" width="240px" height="240px" 
+					 class="img-circle"></td>
 				<td style="width: 70%;">
 					<table class="table">
 						<tr>
