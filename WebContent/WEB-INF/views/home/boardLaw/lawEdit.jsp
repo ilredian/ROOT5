@@ -72,7 +72,7 @@
 			<tr>
 				<td colspan="2">
 					<div style="text-align: center;">
-						<input class="btn btn-primary" id="edit" type="button" value="저장"> 
+						<input class="btn btn-primary" id="edit" type="submit" value="저장"> 
 						<input class="btn btn-default" onclick="history.go(-1);" type="button" value="취소">
 					</div>
 				</td>

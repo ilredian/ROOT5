@@ -245,13 +245,12 @@ public class BoardControllerLaw {
 	
 	// 5-1. 게시물 수정 (실제 처리(update)
 		@RequestMapping(value = "lawEdit.go", method = RequestMethod.POST)
-		public void lawEdit(@RequestParam("pg") int page, 
-								@RequestParam("bno") int bno,
+		public void lawEdit(@RequestParam(value="pg", required = false) int page, 
+								@RequestParam(value="bno", required = false) int bno,
 								@RequestParam(value="f", required = false, defaultValue = "title") String field,
 								@RequestParam(value="q", required = false, defaultValue = "%%") String query,
 								BoardLawDTO boardLawDTO, 
 								HttpSession session,
-								HttpServletRequest request,
 								HttpServletResponse response
 								) throws Exception {
 			// 로그 남기기
