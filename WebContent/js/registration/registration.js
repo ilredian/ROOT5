@@ -10,3 +10,9 @@ $('#game').click(function(){
 $('#manner').click(function(){
 	location.replace("manner.go");
 });
+
+$(function(){
+	if(${empty memberInfo}){
+		location.replace("index.go");
+	}
+});

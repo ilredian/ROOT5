@@ -1,3 +1,4 @@
+/*자동 완성*/
 $(function() {
 	$('#tags').keyup(function() {
 		

@@ -194,7 +194,9 @@ public class AjaxController {
 			Cookie visitCookie = new Cookie("visitCheck", "visit");
 			visitCookie.setPath("/");
 			Date date = new Date();
-			visitCookie.setMaxAge(((23-date.getHours())*60*60)+((59-date.getMinutes())*60)+(59-date.getSeconds()));
+			visitCookie.setMaxAge(((23-date.getHours())*60*60)
+					+((59-date.getMinutes())*60)
+					+(59-date.getSeconds()));
 			response.addCookie(visitCookie);
 			
 			// 전체 방문자 수 +1

@@ -38,22 +38,15 @@ import mail.SendMailDTO;
 
 @Controller
 public class HomeController {
+	
 	PrintWriter out = null;
+	
 	@Autowired
 	private SqlSession sqlSession;
 
+	// 사이트 접속
 	@RequestMapping("index.go")
 	public String index(HttpSession session, Model model) throws Exception {
-
-		////////////////////////////////
-		// home.jsp -- AJAX data에 들어갈 차트 정보
-
-		/////////////////////////////
-		///////////////////////////
-		// 타임라인으로 보낼 정보
-
-		///////////////////////////
-
 		return "main.index";
 	}
 	
